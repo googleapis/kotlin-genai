@@ -20,17 +20,10 @@ package com.google.genai.kotlin.types
 
 import kotlinx.serialization.Serializable
 
-/** Sent in response to a `LiveGenerateContentSetup` message from the client. */
+/** The signature of the voice consent check. */
 @Serializable
-data class LiveServerSetupComplete(
+data class VoiceConsentSignature(
 
-  /** The session id of the live session. */
-  val sessionId: String? = null,
-
-  /**
-   * Signature of the verified consent audio. This is populated when the request has a
-   * ReplicatedVoiceConfig with consent_audio set, if the consent verification was successful. This
-   * may be used in a subsequent request instead of the consent_audio to verify the same consent.
-   */
-  val voiceConsentSignature: VoiceConsentSignature? = null,
+  /** The signature string. */
+  val signature: String? = null
 )
