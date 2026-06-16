@@ -57,4 +57,10 @@ data class TestTableItem(
    * deterministic.
    */
   val ignoreKeys: List<String>? = null,
+
+  /** Model to use when running against Vertex. */
+  val vertexModel: String? = null,
+
+  /** Model to use when running against MLDev. */
+  val mldevModel: String? = null,
 )
