@@ -89,7 +89,7 @@ fun main() = runBlocking {
     // Use .use to automatically close the client and release resources
     Client().use { client ->
         val response = client.models.generateContent(
-            model = "gemini-2.5-flash",
+            model = "gemini-3.5-flash",
             text = "Why is the sky blue?"
         )
 
@@ -113,7 +113,7 @@ fun main() = runBlocking {
         println("Streaming response: ")
 
         val responseFlow = client.models.generateContentStream(
-            model = "gemini-2.5-flash",
+            model = "gemini-3.5-flash",
             text = "Write a short story about a robot."
         )
 
@@ -145,7 +145,7 @@ val config = GenerateContentConfig(
 )
 
 val response = client.models.generateContent(
-    model = "gemini-2.5-flash",
+    model = "gemini-3.5-flash",
     text = "What is your name?",
     config = config
 )

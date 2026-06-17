@@ -31,9 +31,9 @@ kotlin {
 
   androidTarget {
     publishLibraryVariants("release")
-    compilations.all { kotlinOptions { jvmTarget = "1.8" } }
+    compilations.all { kotlinOptions { jvmTarget = "17" } }
   }
-  jvm { compilations.all { kotlinOptions { jvmTarget = "1.8" } } }
+  jvm { compilations.all { kotlinOptions { jvmTarget = "17" } } }
 
   sourceSets {
     val commonMain by getting {
@@ -86,8 +86,8 @@ android {
   defaultConfig { minSdk = 21 }
 
   compileOptions {
-    sourceCompatibility = org.gradle.api.JavaVersion.VERSION_1_8
-    targetCompatibility = org.gradle.api.JavaVersion.VERSION_1_8
+    sourceCompatibility = org.gradle.api.JavaVersion.VERSION_17
+    targetCompatibility = org.gradle.api.JavaVersion.VERSION_17
   }
 }
 

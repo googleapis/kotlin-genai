@@ -50,7 +50,7 @@ object GenerateContentWithHttpOptions {
   @JvmStatic
   fun main(args: Array<String>) {
     runBlocking {
-      val modelId = args.firstOrNull() ?: "gemini-2.5-flash"
+      val modelId = args.firstOrNull() ?: "gemini-3.5-flash"
 
       // 1. Define HttpOptions
       val httpOptions =
