@@ -1,0 +1,98 @@
+{
+  "recordID": "ModelsTest.testGenerateContentSimple.vertex",
+  "interactions": [
+    {
+      "request": {
+        "method": "POST",
+        "url": "/v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-3-flash-preview:generateContent",
+        "request": "POST /v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-3-flash-preview:generateContent HTTP/1.1",
+        "headers": {
+          "Accept": "*/*",
+          "Accept-Charset": "UTF-8",
+          "Accept-Encoding": "gzip",
+          "Connection": "Keep-Alive",
+          "Content-Length": "82",
+          "Content-Type": "application/json",
+          "Test-Name": "ModelsTest.testGenerateContentSimple.vertex"
+        },
+        "bodySegments": [
+          {
+            "contents": [
+              {
+                "parts": [
+                  {
+                    "text": "What is the capital of France?"
+                  }
+                ],
+                "role": "user"
+              }
+            ]
+          }
+        ],
+        "previousRequest": "b4d6e60a9b97e7b98c63df9308728c5c88c0b40c398046772c63447b94608b4d",
+        "serverAddress": "aiplatform.googleapis.com",
+        "port": 443,
+        "protocol": "https"
+      },
+      "shaSum": "bfa0879362347cd21cd0a1bf947989ace15a65f581554b69a980fb4eec6a173d",
+      "response": {
+        "statusCode": 200,
+        "headers": {
+          "Content-Encoding": "gzip",
+          "Content-Length": "653",
+          "Content-Type": "application/json; charset=UTF-8",
+          "Date": "Thu, 30 Apr 2026 19:17:48 GMT",
+          "Server": "scaffolding on HTTPServer2",
+          "Vary": "Origin, X-Origin, Referer",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "SAMEORIGIN",
+          "X-Vertex-Ai-Llm-Request-Type": "dedicated",
+          "X-Xss-Protection": "0"
+        },
+        "bodySegments": [
+          {
+            "candidates": [
+              {
+                "content": {
+                  "parts": [
+                    {
+                      "text": "The capital of France is **Paris**.",
+                      "thoughtSignature": "AY89a1+mhdEYLCbp3G9dTWjHW0ec24PjK15F7VRvW8KJ4c1e72qBpZUkNqXVx3TM6mfpCiRYVOwnpTWNkuCpr9lavGTZKQCNWhx8oG/nY8hedeN5fbDdnJKsSJOEkqyiGH5klQwd9RwRlrpji3rvzOpRqo4Nyj7vgweQA6LZe0L1AQdaMwd85mhOKjQSgWI1rRn8rmMeT5HDCZDGOKwSiQ+5KKEb8Pp0fbK7Jp5Js1u508EpKJtqUkZ04pG6bSvUkx7oJK9dA6Q="
+                    }
+                  ],
+                  "role": "model"
+                },
+                "finishReason": "STOP"
+              }
+            ],
+            "createTime": "2026-04-30T19:17:47.265725Z",
+            "modelVersion": "gemini-3-flash-preview",
+            "responseId": "26rzaf2bEKKepucPpcaW-Ao",
+            "usageMetadata": {
+              "billablePromptUsage": {
+                "textCount": 25
+              },
+              "candidatesTokenCount": 8,
+              "candidatesTokensDetails": [
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 8
+                }
+              ],
+              "promptTokenCount": 7,
+              "promptTokensDetails": [
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 7
+                }
+              ],
+              "thoughtsTokenCount": 34,
+              "totalTokenCount": 49,
+              "trafficType": "PROVISIONED_THROUGHPUT"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

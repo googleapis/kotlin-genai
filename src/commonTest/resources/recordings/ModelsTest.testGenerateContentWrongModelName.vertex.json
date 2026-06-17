@@ -1,0 +1,69 @@
+{
+  "recordID": "ModelsTest.testGenerateContentWrongModelName.vertex",
+  "interactions": [
+    {
+      "request": {
+        "method": "POST",
+        "url": "/v1beta1/projects/REDACTED/locations/global/publishers/google/models/wrong-model-name:generateContent",
+        "request": "POST /v1beta1/projects/REDACTED/locations/global/publishers/google/models/wrong-model-name:generateContent HTTP/1.1",
+        "headers": {
+          "Accept": "*/*",
+          "Accept-Charset": "UTF-8",
+          "Accept-Encoding": "gzip",
+          "Connection": "Keep-Alive",
+          "Content-Length": "82",
+          "Content-Type": "application/json",
+          "Test-Name": "ModelsTest.testGenerateContentWrongModelName.vertex"
+        },
+        "bodySegments": [
+          {
+            "contents": [
+              {
+                "parts": [
+                  {
+                    "text": "What is the capital of France?"
+                  }
+                ],
+                "role": "user"
+              }
+            ]
+          }
+        ],
+        "previousRequest": "b4d6e60a9b97e7b98c63df9308728c5c88c0b40c398046772c63447b94608b4d",
+        "serverAddress": "aiplatform.googleapis.com",
+        "port": 443,
+        "protocol": "https"
+      },
+      "shaSum": "e777dc8e6799bc9841db00a9313cfbb80fb491326f5e5cab28f3e0f8d0a62aa1",
+      "response": {
+        "statusCode": 404,
+        "headers": {
+          "Content-Encoding": "gzip",
+          "Content-Length": "508",
+          "Content-Type": "application/json; charset=UTF-8",
+          "Date": "Thu, 30 Apr 2026 19:17:43 GMT",
+          "Server": "scaffolding on HTTPServer2",
+          "Vary": "Origin, X-Origin, Referer",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "SAMEORIGIN",
+          "X-Xss-Protection": "0"
+        },
+        "bodySegments": [
+          {
+            "error": {
+              "code": 404,
+              "details": [
+                {
+                  "@type": "type.googleapis.com/google.rpc.DebugInfo",
+                  "detail": "[ORIGINAL ERROR] generic::not_found: Publisher Model `projects/REDACTED/locations/global/publishers/google/models/wrong-model-name` was not found or your project does not have access to it. Please ensure you are using a valid model version. For more information, see: https://cloud.google.com/vertex-ai/generative-ai/docs/learn/model-versions [google.rpc.error_details_ext] { message: \"Publisher Model `projects/REDACTED/locations/global/publishers/google/models/wrong-model-name` was not found or your project does not have access to it. Please ensure you are using a valid model version. For more information, see: https://cloud.google.com/vertex-ai/generative-ai/docs/learn/model-versions\" } 525003295 { 1 { 1 { 1 { 2: \"Cardolan\" 3: \"GenerateContent\" } 2 { 1: 5 2: \"generic\" 3: \"Publisher Model `projects/REDACTED/locations/global/publishers/google/models/wrong-model-name` was not found or your project does not have access to it. Please ensure you are using a valid model version. For more information, see: https://cloud.google.com/vertex-ai/generative-ai/docs/learn/model-versions\" 5 { 1 { 2: 82012934 3 { 2: \"Publisher Model `projects/REDACTED/locations/global/publishers/google/models/wrong-model-name` was not found or your project does not have access to it. Please ensure you are using a valid model version. For more information, see: https://cloud.google.com/vertex-ai/generative-ai/docs/learn/model-versions\" } } } } 8: 1 10 { 1: 0 } } 2: \"VertexServingRpcRoot\" } }"
+                }
+              ],
+              "message": "Publisher Model `projects/REDACTED/locations/global/publishers/google/models/wrong-model-name` was not found or your project does not have access to it. Please ensure you are using a valid model version. For more information, see: https://cloud.google.com/vertex-ai/generative-ai/docs/learn/model-versions",
+              "status": "NOT_FOUND"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

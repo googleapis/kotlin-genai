@@ -1,0 +1,112 @@
+{
+  "recordID": "ModelsTest.testGenerateContentWithVideoYouTubeLink.mldev",
+  "interactions": [
+    {
+      "request": {
+        "method": "POST",
+        "url": "/v1beta/models/gemini-3-flash-preview:generateContent",
+        "request": "POST /v1beta/models/gemini-3-flash-preview:generateContent HTTP/1.1",
+        "headers": {
+          "Accept": "*/*",
+          "Accept-Charset": "UTF-8",
+          "Accept-Encoding": "gzip",
+          "Connection": "Keep-Alive",
+          "Content-Length": "188",
+          "Content-Type": "application/json",
+          "Test-Name": "ModelsTest.testGenerateContentWithVideoYouTubeLink.mldev"
+        },
+        "bodySegments": [
+          {
+            "contents": [
+              {
+                "parts": [
+                  {
+                    "fileData": {
+                      "fileUri": "https://www.youtube.com/watch?v=9hE5-98ZeCg",
+                      "mimeType": "video/mp4"
+                    }
+                  },
+                  {
+                    "text": "Please summarize the video in 3 sentences."
+                  }
+                ],
+                "role": "user"
+              }
+            ]
+          }
+        ],
+        "previousRequest": "b4d6e60a9b97e7b98c63df9308728c5c88c0b40c398046772c63447b94608b4d",
+        "serverAddress": "generativelanguage.googleapis.com",
+        "port": 443,
+        "protocol": "https"
+      },
+      "shaSum": "f639e83f2ce42584458b5e5395a1094db112331583e00f27bc9a0bea8ca7325a",
+      "response": {
+        "statusCode": 200,
+        "headers": {
+          "Content-Encoding": "gzip",
+          "Content-Length": "1274",
+          "Content-Type": "application/json; charset=UTF-8",
+          "Date": "Tue, 12 May 2026 18:17:35 GMT",
+          "Server": "scaffolding on HTTPServer2",
+          "Server-Timing": "gfet4t7; dur=3676",
+          "Vary": "Origin, X-Origin, Referer",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "SAMEORIGIN",
+          "X-Gemini-Service-Tier": "standard",
+          "X-Xss-Protection": "0"
+        },
+        "bodySegments": [
+          {
+            "candidates": [
+              {
+                "content": {
+                  "parts": [
+                    {
+                      "text": "This video showcases a demo of Gemini 2.0’s Multimodal Live API, which enables real-time interaction through audio, video, and screen sharing. The AI successfully demonstrates its ability to read and define highlighted text, manage interruptions during a storytelling task, and recall previous parts of the conversation. The demo concludes with the AI summarizing the session and reading a final call-to-action slide to start building with Gemini 2.0.",
+                      "thoughtSignature": "EvIDCu8DAQw51sdIcDrYt4QhZRH4trhEhDI3K6x9/5Di1ZVUZetfC5KRHB8gGikCgt3q+BemxFF7xADU/CsOuozMPPeTeYWa96Idsec6R+0c78BwS8wkuLVV191zzhCAYm2Hx0uwaY7vGvu1ZfpFYryzq3XMx7GotIGSuTzaVvg/fJT45A6ukjAV0UYLT6VTac9HoDFLB3I0qxUQR1unh5cPeLUfsXkNr4GhtOcYBMotf9W+CksbP3HriEmJ6S/1SbkdCqnXnBhtAfo/Rg3UWK3KWV9flkDcQG0krsuZV1NWCKEYaEenHFWPfOMjpw0D5WJCAK6xK58313H8JV/MXoEGooieHDo28mS1d0i4PNqx9glMZtZMWC5ZXIAKOurtXfI/LYez72qo6W7nsvm/zOXO3gW4QtXlRVTSWGDiHL/8SVBJyBxFuVCXT5fvECenH6Vf8nEMYHHvEHFd9MCMdrtKHh7mW8H129JG9qvrkGdZpOdR6JuLCpuKFxyX9awL0EmoJPV48n2oErIYLs/t7vB6+AiUxtm28prpnKy2VK7LpvebLAkH0PlDWzCSKAgYjNfjnLkMHhBrrHZCSVmSUq8D1x1MlaofLoABpE4AfSe2WE/HRhQ5lu98YhvjosXHzSqX5sFRbU62fgV+87JBoG5jDCVo"
+                    }
+                  ],
+                  "role": "model"
+                },
+                "finishReason": "STOP",
+                "index": 0
+              }
+            ],
+            "modelVersion": "gemini-3-flash-preview",
+            "responseId": "vG4DasKQIb7i_uMPt_2e2Qo",
+            "turnToken": "v1_Chd2RzREYXNLUUliN2lfdU1QdF8yZTJRbxIXdkc0RGFzS1FJYjdpX3VNUHRfMmUyUW8",
+            "usageMetadata": {
+              "cacheTokensDetails": [
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 5
+                },
+                {
+                  "modality": "VIDEO",
+                  "tokenCount": 7082
+                }
+              ],
+              "cachedContentTokenCount": 7087,
+              "candidatesTokenCount": 90,
+              "promptTokenCount": 13576,
+              "promptTokensDetails": [
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 10
+                },
+                {
+                  "modality": "VIDEO",
+                  "tokenCount": 13566
+                }
+              ],
+              "serviceTier": "standard",
+              "thoughtsTokenCount": 112,
+              "totalTokenCount": 13778
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

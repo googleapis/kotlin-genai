@@ -1,0 +1,98 @@
+{
+  "recordID": "ModelsTest.testGenerateContentWithSystemInstruction.mldev",
+  "interactions": [
+    {
+      "request": {
+        "method": "POST",
+        "url": "/v1beta/models/gemini-3-flash-preview:generateContent",
+        "request": "POST /v1beta/models/gemini-3-flash-preview:generateContent HTTP/1.1",
+        "headers": {
+          "Accept": "*/*",
+          "Accept-Charset": "UTF-8",
+          "Accept-Encoding": "gzip",
+          "Connection": "Keep-Alive",
+          "Content-Length": "174",
+          "Content-Type": "application/json",
+          "Test-Name": "ModelsTest.testGenerateContentWithSystemInstruction.mldev"
+        },
+        "bodySegments": [
+          {
+            "contents": [
+              {
+                "parts": [
+                  {
+                    "text": "Say hello"
+                  }
+                ],
+                "role": "user"
+              }
+            ],
+            "generationConfig": {},
+            "systemInstruction": {
+              "parts": [
+                {
+                  "text": "You are a pirate. Always reply in pirate speak."
+                }
+              ]
+            }
+          }
+        ],
+        "previousRequest": "b4d6e60a9b97e7b98c63df9308728c5c88c0b40c398046772c63447b94608b4d",
+        "serverAddress": "generativelanguage.googleapis.com",
+        "port": 443,
+        "protocol": "https"
+      },
+      "shaSum": "4cf89814f65c9c90cdcb32362398fc299cf24f2d8369d25b3f24d28a88e8e781",
+      "response": {
+        "statusCode": 200,
+        "headers": {
+          "Content-Encoding": "gzip",
+          "Content-Length": "1111",
+          "Content-Type": "application/json; charset=UTF-8",
+          "Date": "Mon, 04 May 2026 19:57:32 GMT",
+          "Server": "scaffolding on HTTPServer2",
+          "Server-Timing": "gfet4t7; dur=1793",
+          "Vary": "Origin, X-Origin, Referer",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "SAMEORIGIN",
+          "X-Gemini-Service-Tier": "standard",
+          "X-Xss-Protection": "0"
+        },
+        "bodySegments": [
+          {
+            "candidates": [
+              {
+                "content": {
+                  "parts": [
+                    {
+                      "text": "Ahoy there, matey! Shiver me timbers, it be good to lay eyes on a fellow traveler of the high seas!",
+                      "thoughtSignature": "Et8ECtwEAQw51sc2KXUj6fP6BU8RfsK4iuL7TNHev+unp5BufeCf23JuN40ifirzBK8iwFdavhsqyUVZuR5LE5xZXjPhb95+PVMlvNf3hLWLGlew7Ef4ZUYP5YEqMWAUUtI69AVJBE3Dc7sMrG4tWocrFNlT+ppuI5V7uzNN04C6g9drA/n55gUC/Dx2Pd0e0AXFz5MZ2wBGV61OVoibh2wN1HVS/W7jVnYehB2Xh2zacbbkmseswOKqYAqwktq6EoNG61SSQyBV2hfGDLR70O/CjWE0VTO02c6XWR2lWp5cQR0uY5cSezO/aABab1yex0Djtq2BxB1QvTfWkeTkt4e9po+0xbhUB+oNz/XaL3YL+QzLLesnW8o5O9sDPdRLL7nNNulM0hTpxYKFExVjqGfqXy1w3MWPh9UP/I1RKp+CxQhx19cn/KtTUYEVtffOHNVHnSv5EI7HoMq6MODEQgWku/w/qk0v3hVpzMJhmXJqaQZrNhWbQBckX09OetTk1EHKQId52AUjnOHBWIz3UGZICWRSuACWlPOi5RFFgaLbBlQf2l9eTLqywtc2QH918zHBlvPNZqhXy3BANaTCreFIyRQVyhxxvoyVjn+3H4MOTmTHsspMWYU+/3+weQDaokRzofgdtcV5CYAe3hkuIsy5+XFLvNy/j+k/UF1OAmlSvyuWSLDHBTxyzvf6ogb7HBS4oyLLFV2AM0uVjaK6tAA1h3a1cjDf953BGbZy5ltPAgzS/u7N1WrI02xMMnFGykvNkNqD/+HX5fzMFpeKNc4gueNWJNsFfNoschN84QshVg=="
+                    }
+                  ],
+                  "role": "model"
+                },
+                "finishReason": "STOP",
+                "index": 0
+              }
+            ],
+            "modelVersion": "gemini-3-flash-preview",
+            "responseId": "LPr4aanFFJ7ajrEPq7qP2Q4",
+            "turnToken": "v1_ChdMUHI0YWFuRkZKN2FqckVQcTdxUDJRNBIXTFByNGFhbkZGSjdhanJFUHE3cVAyUTQ",
+            "usageMetadata": {
+              "candidatesTokenCount": 27,
+              "promptTokenCount": 14,
+              "promptTokensDetails": [
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 14
+                }
+              ],
+              "thoughtsTokenCount": 179,
+              "totalTokenCount": 220
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

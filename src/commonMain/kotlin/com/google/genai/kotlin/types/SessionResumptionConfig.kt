@@ -1,0 +1,44 @@
+/*
+ * Copyright 2026 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+// Auto-generated code. Do not edit.
+
+package com.google.genai.kotlin.types
+
+import kotlinx.serialization.Serializable
+
+/**
+ * Configuration of session resumption mechanism.
+ *
+ * Included in `LiveConnectConfig.session_resumption`. If included server will send
+ * `LiveServerSessionResumptionUpdate` messages.
+ */
+@Serializable
+data class SessionResumptionConfig(
+
+  /**
+   * Session resumption handle of previous session (session to restore).
+   *
+   * If not present new session will be started.
+   */
+  val handle: String? = null,
+
+  /**
+   * If set the server will send `last_consumed_client_message_index` in the
+   * `session_resumption_update` messages to allow for transparent reconnections.
+   */
+  val transparent: Boolean? = null,
+)

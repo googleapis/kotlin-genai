@@ -1,0 +1,101 @@
+{
+  "recordID": "ModelsTest.testGenerateContentWithThinkingConfig.mldev",
+  "interactions": [
+    {
+      "request": {
+        "method": "POST",
+        "url": "/v1beta/models/gemini-3-flash-preview:generateContent",
+        "request": "POST /v1beta/models/gemini-3-flash-preview:generateContent HTTP/1.1",
+        "headers": {
+          "Accept": "*/*",
+          "Accept-Charset": "UTF-8",
+          "Accept-Encoding": "gzip",
+          "Connection": "Keep-Alive",
+          "Content-Length": "167",
+          "Content-Type": "application/json",
+          "Test-Name": "ModelsTest.testGenerateContentWithThinkingConfig.mldev"
+        },
+        "bodySegments": [
+          {
+            "contents": [
+              {
+                "parts": [
+                  {
+                    "text": "What is the capital of France?"
+                  }
+                ],
+                "role": "user"
+              }
+            ],
+            "generationConfig": {
+              "thinkingConfig": {
+                "includeThoughts": true,
+                "thinkingLevel": "LOW"
+              }
+            }
+          }
+        ],
+        "previousRequest": "b4d6e60a9b97e7b98c63df9308728c5c88c0b40c398046772c63447b94608b4d",
+        "serverAddress": "generativelanguage.googleapis.com",
+        "port": 443,
+        "protocol": "https"
+      },
+      "shaSum": "e469fc04b44945f31e6fb5924e9dada5274f733a94acd7a9c36687d171268a2e",
+      "response": {
+        "statusCode": 200,
+        "headers": {
+          "Content-Encoding": "gzip",
+          "Content-Length": "847",
+          "Content-Type": "application/json; charset=UTF-8",
+          "Date": "Mon, 11 May 2026 20:57:28 GMT",
+          "Server": "scaffolding on HTTPServer2",
+          "Server-Timing": "gfet4t7; dur=1531",
+          "Vary": "Origin, X-Origin, Referer",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "SAMEORIGIN",
+          "X-Gemini-Service-Tier": "standard",
+          "X-Xss-Protection": "0"
+        },
+        "bodySegments": [
+          {
+            "candidates": [
+              {
+                "content": {
+                  "parts": [
+                    {
+                      "text": "**The Quick and the Obvious**\n\nAlright, a straightforward one. The user needs the capital of France. Let's see... Country: France. Capital City: Paris. Done. I'll provide the answer directly and without any unnecessary preamble. This is elementary; no need to overcomplicate things. Onto the next query.\n\n\n",
+                      "thought": true
+                    },
+                    {
+                      "text": "The capital of France is **Paris**.",
+                      "thoughtSignature": "EscBCsQBAQw51sfdnLgrShYfvG5x0fd5klwm73HZRx7VPIq9Bn0l4xKbpaUluVIF/nwBwyjA08Rd6h/e6E8dOht09SIMAwRuRJQMrdAl2FELvLXvznoEZanT2dXcxI2Q9ayDQHKds57HvQy9j4BjoXgcYzeI86MK9mH5jPL1cm4QUUrKD2kJ/68apelxlLE2uaN7aAw06E8aPsi0p2NAW62QcN1+EOEVUNZKciVpvxNBrhSHd0rxNJLIICYhvIArJleyF7D3WUmdfw=="
+                    }
+                  ],
+                  "role": "model"
+                },
+                "finishReason": "STOP",
+                "index": 0
+              }
+            ],
+            "modelVersion": "gemini-3-flash-preview",
+            "responseId": "tkICaujgL7bbjrEP8M3GuQs",
+            "turnToken": "v1_Chd0a0lDYXVqZ0w3YmJqckVQOE0zR3VRcxIXdGtJQ2F1amdMN2JianJFUDhNM0d1UXM",
+            "usageMetadata": {
+              "candidatesTokenCount": 8,
+              "promptTokenCount": 8,
+              "promptTokensDetails": [
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 8
+                }
+              ],
+              "serviceTier": "standard",
+              "thoughtsTokenCount": 35,
+              "totalTokenCount": 51
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

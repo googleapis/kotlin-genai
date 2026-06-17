@@ -1,0 +1,120 @@
+{
+  "recordID": "ModelsTest.testGenerateContentResponseSchema.vertex",
+  "interactions": [
+    {
+      "request": {
+        "method": "POST",
+        "url": "/v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-3-flash-preview:generateContent",
+        "request": "POST /v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-3-flash-preview:generateContent HTTP/1.1",
+        "headers": {
+          "Accept": "*/*",
+          "Accept-Charset": "UTF-8",
+          "Accept-Encoding": "gzip",
+          "Connection": "Keep-Alive",
+          "Content-Length": "326",
+          "Content-Type": "application/json",
+          "Test-Name": "ModelsTest.testGenerateContentResponseSchema.vertex"
+        },
+        "bodySegments": [
+          {
+            "contents": [
+              {
+                "parts": [
+                  {
+                    "text": "Give me information about Australia"
+                  }
+                ],
+                "role": "user"
+              }
+            ],
+            "generationConfig": {
+              "responseMimeType": "application/json",
+              "responseSchema": {
+                "properties": {
+                  "capital": {
+                    "type": "STRING"
+                  },
+                  "population": {
+                    "type": "INTEGER"
+                  },
+                  "title": {
+                    "type": "STRING"
+                  }
+                },
+                "required": [
+                  "title",
+                  "population",
+                  "capital"
+                ],
+                "type": "OBJECT"
+              }
+            }
+          }
+        ],
+        "previousRequest": "b4d6e60a9b97e7b98c63df9308728c5c88c0b40c398046772c63447b94608b4d",
+        "serverAddress": "aiplatform.googleapis.com",
+        "port": 443,
+        "protocol": "https"
+      },
+      "shaSum": "1597bac6feaa5a039631cefabf01cbb9f066e61535f5ab8f23addbac639ccc9d",
+      "response": {
+        "statusCode": 200,
+        "headers": {
+          "Content-Encoding": "gzip",
+          "Content-Length": "1610",
+          "Content-Type": "application/json; charset=UTF-8",
+          "Date": "Thu, 30 Apr 2026 19:47:09 GMT",
+          "Server": "scaffolding on HTTPServer2",
+          "Vary": "Origin, X-Origin, Referer",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "SAMEORIGIN",
+          "X-Vertex-Ai-Llm-Request-Type": "dedicated",
+          "X-Xss-Protection": "0"
+        },
+        "bodySegments": [
+          {
+            "candidates": [
+              {
+                "content": {
+                  "parts": [
+                    {
+                      "text": "{\"title\": \"Australia\", \"population\": 26000000, \"capital\": \"Canberra\"}",
+                      "thoughtSignature": "AY89a18q1ulyewaWmKDTaN4j0yUV3tsfR2E97OnhTWvkO/vDLbqKN50jhKU3Mjbj3iBWk2CaOhGgsOZLubeskxFBFFQqWxI/fj/gtQx2uCWCj7q4uSx+DQlUyPMfrsgW48/3rrmwGp3iOAB7XxNuF02iVkF6nw0aHkRSGcwvQu/Huo2kD3Juns8+4waHLIK4GBcd11ZR2Bz+DcyyAXsWabyhgyEyO/wKYRvFJft+EWb90Xc6ZrPdow4fIDXS8TT8hQeWlYcU0aLxXe3TBYbBDm7xYkjetKMm1v9OdWjt7cJGyC/OVyfpdr2Sh4EloQfse98640Vx9n9sMGLbxPByRKK4wHisqBQTXLr88mW0T+/lZ6TKW4I/qNG/URwb1H56TaWwPiISdro/eLffreXl2OtZbzQ1B5asXaVqtWDnLejgoN0AnvJDYv+RdGtK813s0au/7JRhSOst9M/20J4CraiyO2i6kXv8kdXaU+HZI5o7e3jxIdTqyu++C7sn6aJm9igOQ52IJTdoXrGbP1gLHDEYzVpo5TbRBX/uvgXuqdODJ3gvMwmMcXapjqEGao+aDZqe/A2/kjaba4O11dr06On14oknqQ9x5bvMx/hdKPvav+iDUqII2JNjqO/2+NE8ms8BE4mE912mOusAn944l/oYBxwvosihFhDCpUsmfLr1zJWfgcsapmMKD/IdJQbokVOYFEzoryVptI04WxkV5qMb9zp1nTDMq0EGIn3wL8+SRzHToGid1V734QSq0vAvsll/fEh4aPmH7kNNGCwGR4Y6B9ERpFM+7E9LrWyqDk6TpKatQ+n+dAsF6vrIIl28Yl5zLssSueHTAX5I/BOpyyzq7h2Uzxd2scNN5LNaUoP7nQiCIe7c4ojXOcNTm7iTBtcaqte7HloY8AldeKvdmkNzZWvcbBJ+NwwL1K2v6yUENKWxHnO9zfpTGbkTzFA6Dave3hbECORZ40Pj90TWt7BuBmSBFwgAxmZLeyQUGDPE2Xr5sSgLjVDeMKKYzBFINxpNLH0ZzBbid0946nFzCbM85yyoANbKk0TdCsD+RIjfDf/2zWoRJN2XCEoClpmB7/YZ3uW9ua/cMAIzt4M4EYOyWhJDNX7zpotgg1QyKCw2rvzWeNM6eT1SrPT6C+ISM4TJoaRMTYJC+ZEVjlk+fAJDTDlGKHLPDsk5K1sWEn/tZFrtiItFQL2u+TXmRMCyLeLurItMHoNCQ66HStqaBzlthrhlOqNvDhaf/KgazFBKLnUMbm66urnEOkRZI0E/n3L6gC+vdgqOnJVEiM6uqvxIKkfG8lphtbYvAVo5+/+G4kdl9yQAT9fMjvKCTrEH9D4TuKbprFuln19kPw9jCz0LhhjzVGi5BVUJfkrvRZM8Wr2QTyWFYqxXMEeH3yy/wrhm5x8YIZu/W9mAziWBTQ45SbzDJ114mzIgn5LfYZE="
+                    }
+                  ],
+                  "role": "model"
+                },
+                "finishReason": "STOP"
+              }
+            ],
+            "createTime": "2026-04-30T19:47:06.816116Z",
+            "modelVersion": "gemini-3-flash-preview",
+            "responseId": "urHzafTnMfWfpucP-ODEsAk",
+            "usageMetadata": {
+              "billablePromptUsage": {
+                "textCount": 79
+              },
+              "candidatesTokenCount": 26,
+              "candidatesTokensDetails": [
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 26
+                }
+              ],
+              "promptTokenCount": 90,
+              "promptTokensDetails": [
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 90
+                }
+              ],
+              "thoughtsTokenCount": 314,
+              "totalTokenCount": 430,
+              "trafficType": "PROVISIONED_THROUGHPUT"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

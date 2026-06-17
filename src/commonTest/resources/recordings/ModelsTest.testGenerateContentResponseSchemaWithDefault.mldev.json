@@ -1,0 +1,110 @@
+{
+  "recordID": "ModelsTest.testGenerateContentResponseSchemaWithDefault.mldev",
+  "interactions": [
+    {
+      "request": {
+        "method": "POST",
+        "url": "/v1beta/models/gemini-3-flash-preview:generateContent",
+        "request": "POST /v1beta/models/gemini-3-flash-preview:generateContent HTTP/1.1",
+        "headers": {
+          "Accept": "*/*",
+          "Accept-Charset": "UTF-8",
+          "Accept-Encoding": "gzip",
+          "Connection": "Keep-Alive",
+          "Content-Length": "309",
+          "Content-Type": "application/json",
+          "Test-Name": "ModelsTest.testGenerateContentResponseSchemaWithDefault.mldev"
+        },
+        "bodySegments": [
+          {
+            "contents": [
+              {
+                "parts": [
+                  {
+                    "text": "Can you recommend a restaurant for me in New York?"
+                  }
+                ],
+                "role": "user"
+              }
+            ],
+            "generationConfig": {
+              "responseMimeType": "application/json",
+              "responseSchema": {
+                "properties": {
+                  "city": {
+                    "default": "New York",
+                    "type": "STRING"
+                  },
+                  "name": {
+                    "type": "STRING"
+                  }
+                },
+                "required": [
+                  "name",
+                  "city"
+                ],
+                "type": "OBJECT"
+              }
+            }
+          }
+        ],
+        "previousRequest": "b4d6e60a9b97e7b98c63df9308728c5c88c0b40c398046772c63447b94608b4d",
+        "serverAddress": "generativelanguage.googleapis.com",
+        "port": 443,
+        "protocol": "https"
+      },
+      "shaSum": "df0bf1c853a56d3328c190e62f93fa47abb427f35d5ed69105febfd3e9f6f6d0",
+      "response": {
+        "statusCode": 200,
+        "headers": {
+          "Content-Encoding": "gzip",
+          "Content-Length": "1336",
+          "Content-Type": "application/json; charset=UTF-8",
+          "Date": "Mon, 11 May 2026 17:41:04 GMT",
+          "Server": "scaffolding on HTTPServer2",
+          "Server-Timing": "gfet4t7; dur=2227",
+          "Vary": "Origin, X-Origin, Referer",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "SAMEORIGIN",
+          "X-Gemini-Service-Tier": "standard",
+          "X-Xss-Protection": "0"
+        },
+        "bodySegments": [
+          {
+            "candidates": [
+              {
+                "content": {
+                  "parts": [
+                    {
+                      "text": "{\"name\":\"Le Bernardin\",\"city\":\"New York\"}",
+                      "thoughtSignature": "EtEGCs4GAQw51sfEr576wGAWPlz54B6UPk7Y0am9hFCEJ25unvs2/43HIecbzUdmclnIP5kXo1zhnVN84hplg80U8gLMQR2koebbeigm61QBzgxAAjAjv9iZfOb0bdDyUixymXQcoELpK0DIimpa39vnVTSW6ilAAMNB6mOeMqpvoT6AZ3U/pvb0skYL32rGJ/wUOmw82j4lv3Xru/POVFYTDFVVdb306n9fC0rtjuaUk6Gc1wc5RoJdlvwGvpydoR6OiMvLUgStW9/Npt6uoCnk2topz/b3uBph40rUzL+yFRYAsMIx3KhEVtHZTzwkx77PbsQDOaNDklFE1dH0Z5UNLP1FtSMHVC0NikuZrXvOVn+yWhgxq1ajC4fIHUqipIsGXMIUDNSJ7F5c1tl9xnFd/2jE/GRecG3NbUZhZXvRttl6jqArTO4beT6aP+4nOxIqcwkiOqjX7UXS5gxIR3UcVcKxKGYLtH7T6IJ7/XRK+36hRI2P5ywWoK/oVLa3jnjxhdRFlDcWU2own4w4JFdgi/VH6/szIbF+IB/4El4CEYUo/qepzMDqsUwH4qpU0nzcY87bSIiQo4X+5E5qn+9f8IsKiUh7Ukz6hctBPUokDU2SV8VVLFNPgH/3RjtqVypb68qZmX3I0SovbLo3Xh1hlCxiLX2Z4OBac1xx3dADebiNrJStqieZvk28YOpUPbu5ar9SENtABQUTW3mcqdFo7ceWYpKa5sQs7Fa+kGJLdk8fsZ4B8/+l0R7m0YJygkcB7TxFLOG5GNhXVFE/R8kCQ9XnlgG041pxLB/oDns6gX89d82dUoIsxIn0XfSeDT+428BXDcCtfjcr04ikzKaw7sqBleFR+JFZzMThHpsW2kKZul1aiUwPbYnMTWIyYkQ/vPWuW/tsyj4CaPTgiUk/qdpcgL16P4OTTLSqSs4iSDVZo+k/Wo8uKaafVZz6vj4qEraZSpGqaKXDZZXa5SB1Ney/HfPqell9ayw1086G6SWnasOwb7sYyZbN44WZLe1kn74ndohPKQ/1OcAjFoPovqmHlxXNxibAQvQIclfw1lMluRtwDs2vOC6sIuk1vJZmK2fM9GbNHeIJSGj+NTnBP9JcbpaBiH8qYpO1gbKjFSxJ"
+                    }
+                  ],
+                  "role": "model"
+                },
+                "finishReason": "STOP",
+                "index": 0
+              }
+            ],
+            "modelVersion": "gemini-3-flash-preview",
+            "responseId": "rhQCauO2Era9sOIPgaCVqAM",
+            "turnToken": "v1_ChdyaFFDYXVPMkVyYTlzT0lQZ2FDVnFBTRIXcmhRQ2F1TzJFcmE5c09JUGdhQ1ZxQU0",
+            "usageMetadata": {
+              "candidatesTokenCount": 12,
+              "promptTokenCount": 12,
+              "promptTokensDetails": [
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 12
+                }
+              ],
+              "serviceTier": "standard",
+              "thoughtsTokenCount": 228,
+              "totalTokenCount": 252
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

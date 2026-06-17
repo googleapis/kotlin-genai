@@ -1,0 +1,115 @@
+{
+  "recordID": "ModelsTest.testGenerateContentSafetySettings.mldev",
+  "interactions": [
+    {
+      "request": {
+        "method": "POST",
+        "url": "/v1beta/models/gemini-3-flash-preview:generateContent",
+        "request": "POST /v1beta/models/gemini-3-flash-preview:generateContent HTTP/1.1",
+        "headers": {
+          "Accept": "*/*",
+          "Accept-Charset": "UTF-8",
+          "Accept-Encoding": "gzip",
+          "Connection": "Keep-Alive",
+          "Content-Length": "217",
+          "Content-Type": "application/json",
+          "Test-Name": "ModelsTest.testGenerateContentSafetySettings.mldev"
+        },
+        "bodySegments": [
+          {
+            "contents": [
+              {
+                "parts": [
+                  {
+                    "text": "What hate speech is prohibited by responsible AI?"
+                  }
+                ],
+                "role": "user"
+              }
+            ],
+            "generationConfig": {},
+            "safetySettings": [
+              {
+                "category": "HARM_CATEGORY_HATE_SPEECH",
+                "threshold": "BLOCK_LOW_AND_ABOVE"
+              }
+            ]
+          }
+        ],
+        "previousRequest": "b4d6e60a9b97e7b98c63df9308728c5c88c0b40c398046772c63447b94608b4d",
+        "serverAddress": "generativelanguage.googleapis.com",
+        "port": 443,
+        "protocol": "https"
+      },
+      "shaSum": "dec02ffd0de2f741b819561e4e509c844005a3b68fd2821f2d12fa06fa0e97ac",
+      "response": {
+        "statusCode": 200,
+        "headers": {
+          "Content-Encoding": "gzip",
+          "Content-Length": "5021",
+          "Content-Type": "application/json; charset=UTF-8",
+          "Date": "Mon, 04 May 2026 17:40:17 GMT",
+          "Server": "scaffolding on HTTPServer2",
+          "Server-Timing": "gfet4t7; dur=8628",
+          "Vary": "Origin, X-Origin, Referer",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "SAMEORIGIN",
+          "X-Gemini-Service-Tier": "standard",
+          "X-Xss-Protection": "0"
+        },
+        "bodySegments": [
+          {
+            "candidates": [
+              {
+                "content": {
+                  "parts": [
+                    {
+                      "text": "Responsible AI frameworks (developed by organizations like OpenAI, Google, Anthropic, and Meta) generally define hate speech as content that promotes violence, incites hatred, promotes discrimination, or disparages on the basis of protected characteristics.\n\nWhile specific policies vary slightly between companies, there is a broad industry consensus on what constitutes prohibited hate speech. Here is a breakdown of what is typically prohibited:\n\n### 1. Protected Characteristics\nAI models are programmed to refuse the generation of content that attacks individuals or groups based on:\n*   **Race or Ethnicity:** Including skin color, tribal affiliation, or national origin.\n*   **Religion:** Including religious beliefs, practices, or lack thereof.\n*   **Sexual Orientation:** Including LGBTQ+ identities.\n*   **Gender and Gender Identity:** Including cisgender, transgender, and non-binary identities.\n*   **Disability:** Physical or mental impairments and neurodiversity.\n*   **Age:** Discrimination against elderly or young populations.\n*   **Caste:** Specifically relevant in South Asian contexts.\n*   **Veteran Status:** Protection for those who have served in the military.\n*   **Serious Disease:** Using a medical condition as a basis for mockery or exclusion.\n\n### 2. Specifically Prohibited Content Types\nResponsible AI does not just look for \"bad words\"; it looks for the intent and impact of the message. Prohibited categories include:\n\n*   **Incitement to Violence:** Any content that encourages physical harm against a protected group.\n*   **Dehumanization:** Comparing protected groups to animals, insects, filth, or inanimate objects to strip them of their humanity.\n*   **Promoting Inferiority or Superiority:** Claims that a specific race, religion, or gender is biologically, intellectually, or morally superior or inferior to others.\n*   **Slurs and Epithets:** The use of historically derogatory terms intended to insult or degrade.\n*   **Hate Symbols:** Describing or generating imagery associated with hate groups (e.g., Nazi swastikas or KKK iconography).\n*   **Justifying Atrocities:** Content that denies, minimizes, or celebrates historical genocides or crimes against humanity (e.g., Holocaust denial).\n*   **Harmful Stereotypes:** Promoting tropes that characterize a group as inherently criminal, greedy, or untrustworthy.\n\n### 3. Nuances and Context\nResponsible AI systems are designed to distinguish between **generating** hate speech and **discussing** it.\n\n*   **Educational/Clinical Context:** An AI may be allowed to define a slur or explain the history of a hate group for educational purposes, provided it does not use the language to attack anyone.\n*   **Self-Referential Content:** While humans sometimes \"reclaim\" slurs, AI models are generally restricted from using them at all to avoid accidental harm or misinterpretation.\n*   **Policy vs. Censorship:** AI companies distinguish between \"hate speech\" (which is prohibited) and \"offensive opinions\" (which may be allowed but discouraged). For example, an AI might refuse to say \"Group X is evil\" but might engage in a debate about the political policies of a specific country.\n\n### Why is this prohibited?\nThe primary goal of Responsible AI is **Harm Mitigation**. Hate speech is restricted because:\n1.  **Physical Safety:** It can lead to real-world radicalization and violence.\n2.  **Psychological Harm:** It creates a hostile environment for users.\n3.  **Model Integrity:** If an AI learns from or generates hate speech, it becomes less useful and reliable for general users.\n4.  **Legal Compliance:** Many jurisdictions (especially the EU) have strict laws regarding the dissemination of hate speech.\n\n**If a user asks an AI to generate prohibited content, the model is trained to trigger a \"refusal\" or \"safety filter,\" explaining that it cannot fulfill the request because it violates safety policies.**",
+                      "thoughtSignature": "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"
+                    }
+                  ],
+                  "role": "model"
+                },
+                "finishReason": "STOP",
+                "index": 0,
+                "safetyRatings": [
+                  {
+                    "category": "HARM_CATEGORY_HARASSMENT",
+                    "probability": "NEGLIGIBLE"
+                  },
+                  {
+                    "category": "HARM_CATEGORY_HATE_SPEECH",
+                    "probability": "NEGLIGIBLE"
+                  },
+                  {
+                    "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+                    "probability": "NEGLIGIBLE"
+                  },
+                  {
+                    "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+                    "probability": "NEGLIGIBLE"
+                  }
+                ]
+              }
+            ],
+            "modelVersion": "gemini-3-flash-preview",
+            "responseId": "ANr4aaToO-mZ-8YPpIyhoQM",
+            "turnToken": "v1_ChdBTnI0YWFUb08tbVotOFlQcEl5aG9RTRIXQU5yNGFhVG9PLW1aLThZUHBJeWhvUU0",
+            "usageMetadata": {
+              "candidatesTokenCount": 815,
+              "promptTokenCount": 10,
+              "promptTokensDetails": [
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 10
+                }
+              ],
+              "thoughtsTokenCount": 531,
+              "totalTokenCount": 1356
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

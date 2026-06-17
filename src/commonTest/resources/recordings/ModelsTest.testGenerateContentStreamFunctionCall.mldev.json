@@ -1,0 +1,146 @@
+{
+  "recordID": "ModelsTest.testGenerateContentStreamFunctionCall.mldev",
+  "interactions": [
+    {
+      "request": {
+        "method": "POST",
+        "url": "/v1beta/models/gemini-3-flash-preview:streamGenerateContent?alt=sse",
+        "request": "POST /v1beta/models/gemini-3-flash-preview:streamGenerateContent?alt=sse HTTP/1.1",
+        "headers": {
+          "Accept": "*/*",
+          "Accept-Charset": "UTF-8",
+          "Accept-Encoding": "gzip",
+          "Connection": "Keep-Alive",
+          "Content-Length": "330",
+          "Content-Type": "application/json",
+          "Test-Name": "ModelsTest.testGenerateContentStreamFunctionCall.mldev"
+        },
+        "bodySegments": [
+          {
+            "contents": [
+              {
+                "parts": [
+                  {
+                    "text": "What's the weather like in Melbourne?"
+                  }
+                ],
+                "role": "user"
+              }
+            ],
+            "generationConfig": {},
+            "tools": [
+              {
+                "functionDeclarations": [
+                  {
+                    "description": "return the real time weather of the location",
+                    "name": "GetWeather",
+                    "parameters": {
+                      "properties": {
+                        "location": {
+                          "type": "STRING"
+                        }
+                      },
+                      "required": [
+                        "location"
+                      ],
+                      "type": "OBJECT"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "previousRequest": "b4d6e60a9b97e7b98c63df9308728c5c88c0b40c398046772c63447b94608b4d",
+        "serverAddress": "generativelanguage.googleapis.com",
+        "port": 443,
+        "protocol": "https"
+      },
+      "shaSum": "5e893eecb7748608920fe483e6c18e4b4475fa35e7d51af993a73753def13ec5",
+      "response": {
+        "statusCode": 200,
+        "headers": {
+          "Content-Disposition": "attachment",
+          "Content-Type": "text/event-stream",
+          "Date": "Mon, 04 May 2026 18:10:25 GMT",
+          "Server": "scaffolding on HTTPServer2",
+          "Server-Timing": "gfet4t7; dur=1145",
+          "Vary": "Origin, X-Origin, Referer",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "SAMEORIGIN",
+          "X-Xss-Protection": "0"
+        },
+        "bodySegments": [
+          {
+            "candidates": [
+              {
+                "content": {
+                  "parts": [
+                    {
+                      "functionCall": {
+                        "args": {
+                          "location": "Melbourne"
+                        },
+                        "id": "sdbzw56p",
+                        "name": "GetWeather"
+                      },
+                      "thoughtSignature": "Ev8BCvwBAQw51sfuTGLEXgGyTRA/FPteDz8bTfOziANXjOe5ti7AEwnfkfhHpgiag052ChDeHLcZicg2SkpArMAmA1FZp1jWWH09pfjv2GElOYHDauC6j8yilb23p6SJPWamDCSexZ9snJ2DExAHIB80/DGgq9V+JEHUq2OOqV7J6aH8XAmw82l4BddH3idnXwOzxzv7OlLv4CVsPr4OZG7d40qpjjxXqWcMQQdD1R3bzF3OC1Ir3MQVjfS1adpSGUPGdS8lIfxVjj2sAG0yD6uC1O8o6fvFv8es0MqevfiAyYQpNFLb5D7nvH3PFVAeCBg99egw5ywiiO3u+nBM+JUl"
+                    }
+                  ],
+                  "role": "model"
+                },
+                "index": 0
+              }
+            ],
+            "modelVersion": "gemini-3-flash-preview",
+            "responseId": "EeH4aa3cKa-d-8YPp6LSsAs",
+            "turnToken": "v1_ChdFZUg0YWEzY0thLWQtOFlQcDZMU3NBcxIXRWVINGFhM2NLYS1kLThZUHA2TFNzQXM",
+            "usageMetadata": {
+              "candidatesTokenCount": 15,
+              "promptTokenCount": 54,
+              "promptTokensDetails": [
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 54
+                }
+              ],
+              "thoughtsTokenCount": 37,
+              "totalTokenCount": 106
+            }
+          },
+          {
+            "candidates": [
+              {
+                "content": {
+                  "parts": [
+                    {
+                      "text": ""
+                    }
+                  ],
+                  "role": "model"
+                },
+                "finishReason": "STOP",
+                "index": 0
+              }
+            ],
+            "modelVersion": "gemini-3-flash-preview",
+            "responseId": "EeH4aa3cKa-d-8YPp6LSsAs",
+            "turnToken": "v1_ChdFZUg0YWEzY0thLWQtOFlQcDZMU3NBcxIXRWVINGFhM2NLYS1kLThZUHA2TFNzQXM",
+            "usageMetadata": {
+              "candidatesTokenCount": 15,
+              "promptTokenCount": 54,
+              "promptTokensDetails": [
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 54
+                }
+              ],
+              "thoughtsTokenCount": 37,
+              "totalTokenCount": 106
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

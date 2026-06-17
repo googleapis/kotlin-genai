@@ -1,0 +1,163 @@
+{
+  "recordID": "ModelsTest.testGenerateContentGoogleSearch.vertex",
+  "interactions": [
+    {
+      "request": {
+        "method": "POST",
+        "url": "/v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-3-flash-preview:generateContent",
+        "request": "POST /v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-3-flash-preview:generateContent HTTP/1.1",
+        "headers": {
+          "Accept": "*/*",
+          "Accept-Charset": "UTF-8",
+          "Accept-Encoding": "gzip",
+          "Connection": "Keep-Alive",
+          "Content-Length": "141",
+          "Content-Type": "application/json",
+          "Test-Name": "ModelsTest.testGenerateContentGoogleSearch.vertex"
+        },
+        "bodySegments": [
+          {
+            "contents": [
+              {
+                "parts": [
+                  {
+                    "text": "What's the weather like in Melbourne?"
+                  }
+                ],
+                "role": "user"
+              }
+            ],
+            "generationConfig": {},
+            "tools": [
+              {
+                "googleSearch": {}
+              }
+            ]
+          }
+        ],
+        "previousRequest": "b4d6e60a9b97e7b98c63df9308728c5c88c0b40c398046772c63447b94608b4d",
+        "serverAddress": "aiplatform.googleapis.com",
+        "port": 443,
+        "protocol": "https"
+      },
+      "shaSum": "616f5baa3ec254f44278373b6ef17122aaac7b7c7e6cac909823f74edbafe690",
+      "response": {
+        "statusCode": 200,
+        "headers": {
+          "Content-Encoding": "gzip",
+          "Content-Length": "6320",
+          "Content-Type": "application/json; charset=UTF-8",
+          "Date": "Thu, 30 Apr 2026 19:18:14 GMT",
+          "Server": "scaffolding on HTTPServer2",
+          "Vary": "Origin, X-Origin, Referer",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "SAMEORIGIN",
+          "X-Vertex-Ai-Llm-Request-Type": "dedicated",
+          "X-Xss-Protection": "0"
+        },
+        "bodySegments": [
+          {
+            "candidates": [
+              {
+                "content": {
+                  "parts": [
+                    {
+                      "text": "In Melbourne, Victoria, it is currently **late Thursday evening** (approaching Friday morning). The current temperature is approximately **17°C (63°F)** with clear to mostly cloudy skies.\n\nHere is the forecast for the next few days in **Melbourne, Australia**:\n\n*   **Friday, May 1:** Mostly sunny with a high of **26°C (79°F)** and a low of **15°C (59°F)**.\n*   **Saturday, May 2:** Turning mostly cloudy with a high of **25°C (77°F)** and a low of **17°C (63°F)**. There is a chance of light rain (approx. 5–10mm) later in the day.\n*   **Sunday, May 3:** Possible showers with a high of **21°C (70°F)** and a low of **14°C (57°F)**.\n\n***\n\n*If you were looking for the weather in **Melbourne, Florida**, it is currently Thursday afternoon with a temperature around **26°C (79°F)** and sunny skies, heading toward a high of 28°C (82°F).*",
+                      "thoughtSignature": "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"
+                    }
+                  ],
+                  "role": "model"
+                },
+                "finishReason": "STOP",
+                "groundingMetadata": {
+                  "groundingChunks": [
+                    {
+                      "web": {
+                        "title": "weatherzone.com.au",
+                        "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGaarG5eA_HWCgutMcZ57a73unx6lOv7ioISnY6q_VFcQZ3eYBFXtHNIoCmAZK2le6M7LH4-UPrOGkgktKM8UlkvPO0KXC5-NN5oetAC9TQ71KAQhexFw0yoLgP7clubKCLXPltPUPuRNFma-g3xvwx5g=="
+                      }
+                    }
+                  ],
+                  "groundingSupports": [
+                    {
+                      "groundingChunkIndices": [
+                        0
+                      ],
+                      "segment": {
+                        "endIndex": 364,
+                        "startIndex": 264,
+                        "text": "*   **Friday, May 1:** Mostly sunny with a high of **26°C (79°F)** and a low of **15°C (59°F)**."
+                      }
+                    },
+                    {
+                      "groundingChunkIndices": [
+                        0
+                      ],
+                      "segment": {
+                        "endIndex": 476,
+                        "startIndex": 365,
+                        "text": "*   **Saturday, May 2:** Turning mostly cloudy with a high of **25°C (77°F)** and a low of **17°C (63°F)**."
+                      }
+                    },
+                    {
+                      "groundingChunkIndices": [
+                        0
+                      ],
+                      "segment": {
+                        "endIndex": 545,
+                        "startIndex": 477,
+                        "text": "There is a chance of light rain (approx. 5–10mm) later in the day."
+                      }
+                    },
+                    {
+                      "groundingChunkIndices": [
+                        0
+                      ],
+                      "segment": {
+                        "endIndex": 650,
+                        "startIndex": 546,
+                        "text": "*   **Sunday, May 3:** Possible showers with a high of **21°C (70°F)** and a low of **14°C (57°F)**."
+                      }
+                    }
+                  ],
+                  "searchEntryPoint": {
+                    "renderedContent": "\u003cstyle\u003e\n.container {\n  align-items: center;\n  border-radius: 8px;\n  display: flex;\n  font-family: Google Sans, Roboto, sans-serif;\n  font-size: 14px;\n  line-height: 20px;\n  padding: 8px 12px;\n}\n.chip {\n  display: inline-block;\n  border: solid 1px;\n  border-radius: 16px;\n  min-width: 14px;\n  padding: 5px 16px;\n  text-align: center;\n  user-select: none;\n  margin: 0 8px;\n  -webkit-tap-highlight-color: transparent;\n}\n.carousel {\n  overflow: auto;\n  scrollbar-width: none;\n  white-space: nowrap;\n  margin-right: -12px;\n}\n.headline {\n  display: flex;\n  margin-right: 4px;\n}\n.gradient-container {\n  position: relative;\n}\n.gradient {\n  position: absolute;\n  transform: translate(3px, -9px);\n  height: 36px;\n  width: 9px;\n}\n@media (prefers-color-scheme: light) {\n  .container {\n    background-color: #fafafa;\n    box-shadow: 0 0 0 1px #0000000f;\n  }\n  .headline-label {\n    color: #1f1f1f;\n  }\n  .chip {\n    background-color: #ffffff;\n    border-color: #d2d2d2;\n    color: #5e5e5e;\n    text-decoration: none;\n  }\n  .chip:hover {\n    background-color: #f2f2f2;\n  }\n  .chip:focus {\n    background-color: #f2f2f2;\n  }\n  .chip:active {\n    background-color: #d8d8d8;\n    border-color: #b6b6b6;\n  }\n  .logo-dark {\n    display: none;\n  }\n  .gradient {\n    background: linear-gradient(90deg, #fafafa 15%, #fafafa00 100%);\n  }\n}\n@media (prefers-color-scheme: dark) {\n  .container {\n    background-color: #1f1f1f;\n    box-shadow: 0 0 0 1px #ffffff26;\n  }\n  .headline-label {\n    color: #fff;\n  }\n  .chip {\n    background-color: #2c2c2c;\n    border-color: #3c4043;\n    color: #fff;\n    text-decoration: none;\n  }\n  .chip:hover {\n    background-color: #353536;\n  }\n  .chip:focus {\n    background-color: #353536;\n  }\n  .chip:active {\n    background-color: #464849;\n    border-color: #53575b;\n  }\n  .logo-light {\n    display: none;\n  }\n  .gradient {\n    background: linear-gradient(90deg, #1f1f1f 15%, #1f1f1f00 100%);\n  }\n}\n\u003c/style\u003e\n\u003cdiv class=\"container\"\u003e\n  \u003cdiv class=\"headline\"\u003e\n    \u003csvg class=\"logo-light\" width=\"18\" height=\"18\" viewBox=\"9 9 35 35\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"\u003e\n      \u003cpath fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M42.8622 27.0064C42.8622 25.7839 42.7525 24.6084 42.5487 23.4799H26.3109V30.1568H35.5897C35.1821 32.3041 33.9596 34.1222 32.1258 35.3448V39.6864H37.7213C40.9814 36.677 42.8622 32.2571 42.8622 27.0064V27.0064Z\" fill=\"#4285F4\"/\u003e\n      \u003cpath fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M26.3109 43.8555C30.9659 43.8555 34.8687 42.3195 37.7213 39.6863L32.1258 35.3447C30.5898 36.3792 28.6306 37.0061 26.3109 37.0061C21.8282 37.0061 18.0195 33.9811 16.6559 29.906H10.9194V34.3573C13.7563 39.9841 19.5712 43.8555 26.3109 43.8555V43.8555Z\" fill=\"#34A853\"/\u003e\n      \u003cpath fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M16.6559 29.8904C16.3111 28.8559 16.1074 27.7588 16.1074 26.6146C16.1074 25.4704 16.3111 24.3733 16.6559 23.3388V18.8875H10.9194C9.74388 21.2072 9.06992 23.8247 9.06992 26.6146C9.06992 29.4045 9.74388 32.022 10.9194 34.3417L15.3864 30.8621L16.6559 29.8904V29.8904Z\" fill=\"#FBBC05\"/\u003e\n      \u003cpath fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M26.3109 16.2386C28.85 16.2386 31.107 17.1164 32.9095 18.8091L37.8466 13.8719C34.853 11.082 30.9659 9.3736 26.3109 9.3736C19.5712 9.3736 13.7563 13.245 10.9194 18.8875L16.6559 23.3388C18.0195 19.2636 21.8282 16.2386 26.3109 16.2386V16.2386Z\" fill=\"#EA4335\"/\u003e\n    \u003c/svg\u003e\n    \u003csvg class=\"logo-dark\" width=\"18\" height=\"18\" viewBox=\"0 0 48 48\" xmlns=\"http://www.w3.org/2000/svg\"\u003e\n      \u003ccircle cx=\"24\" cy=\"23\" fill=\"#FFF\" r=\"22\"/\u003e\n      \u003cpath d=\"M33.76 34.26c2.75-2.56 4.49-6.37 4.49-11.26 0-.89-.08-1.84-.29-3H24.01v5.99h8.03c-.4 2.02-1.5 3.56-3.07 4.56v.75l3.91 2.97h.88z\" fill=\"#4285F4\"/\u003e\n      \u003cpath d=\"M15.58 25.77A8.845 8.845 0 0 0 24 31.86c1.92 0 3.62-.46 4.97-1.31l4.79 3.71C31.14 36.7 27.65 38 24 38c-5.93 0-11.01-3.4-13.45-8.36l.17-1.01 4.06-2.85h.8z\" fill=\"#34A853\"/\u003e\n      \u003cpath d=\"M15.59 20.21a8.864 8.864 0 0 0 0 5.58l-5.03 3.86c-.98-2-1.53-4.25-1.53-6.64 0-2.39.55-4.64 1.53-6.64l1-.22 3.81 2.98.22 1.08z\" fill=\"#FBBC05\"/\u003e\n      \u003cpath d=\"M24 14.14c2.11 0 4.02.75 5.52 1.98l4.36-4.36C31.22 9.43 27.81 8 24 8c-5.93 0-11.01 3.4-13.45 8.36l5.03 3.85A8.86 8.86 0 0 1 24 14.14z\" fill=\"#EA4335\"/\u003e\n    \u003c/svg\u003e\n    \u003cdiv class=\"gradient-container\"\u003e\u003cdiv class=\"gradient\"\u003e\u003c/div\u003e\u003c/div\u003e\n  \u003c/div\u003e\n  \u003cdiv class=\"carousel\"\u003e\n    \u003ca class=\"chip\" href=\"https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHaV4EQzZJ0vei5sDspxxdRNKbGm6XHhoYra0OlHLkgh2gi8pKBiYXU-U2Bb6_9BHMFyJjrRypN_PpGYB2xWtj8APFUFA46EMpnBQ8h4kMMXOrVi_PDRLcpNcQyHKitJ-Sduo3efEpIpxhONaP_-vGJa7-Z0XOe9I08Y1oxRQ4z8f2i06BP2huxNHcGYMIMsJY5-P8HqL5dFtduXxzohzxQ_iwDnPmB2XjDPsdyHLRRF3fNsg==\"\u003ecurrent weather and forecast Melbourne Australia\u003c/a\u003e\n  \u003c/div\u003e\n\u003c/div\u003e\n"
+                  },
+                  "webSearchQueries": [
+                    "",
+                    "current weather and forecast Melbourne Australia"
+                  ]
+                }
+              }
+            ],
+            "createTime": "2026-04-30T19:18:05.502395Z",
+            "modelVersion": "gemini-3-flash-preview",
+            "responseId": "7arzafvUHuWepucPpMmO8AU",
+            "usageMetadata": {
+              "billablePromptUsage": {
+                "textCount": 32
+              },
+              "candidatesTokenCount": 267,
+              "candidatesTokensDetails": [
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 267
+                }
+              ],
+              "promptTokenCount": 9,
+              "promptTokensDetails": [
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 9
+                }
+              ],
+              "thoughtsTokenCount": 858,
+              "totalTokenCount": 1134,
+              "trafficType": "PROVISIONED_THROUGHPUT"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

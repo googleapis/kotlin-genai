@@ -1,0 +1,114 @@
+{
+  "recordID": "ModelsTest.testGenerateContentResponseSchemaWithDefault.vertex",
+  "interactions": [
+    {
+      "request": {
+        "method": "POST",
+        "url": "/v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-3-flash-preview:generateContent",
+        "request": "POST /v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-3-flash-preview:generateContent HTTP/1.1",
+        "headers": {
+          "Accept": "*/*",
+          "Accept-Charset": "UTF-8",
+          "Accept-Encoding": "gzip",
+          "Connection": "Keep-Alive",
+          "Content-Length": "309",
+          "Content-Type": "application/json",
+          "Test-Name": "ModelsTest.testGenerateContentResponseSchemaWithDefault.vertex"
+        },
+        "bodySegments": [
+          {
+            "contents": [
+              {
+                "parts": [
+                  {
+                    "text": "Can you recommend a restaurant for me in New York?"
+                  }
+                ],
+                "role": "user"
+              }
+            ],
+            "generationConfig": {
+              "responseMimeType": "application/json",
+              "responseSchema": {
+                "properties": {
+                  "city": {
+                    "default": "New York",
+                    "type": "STRING"
+                  },
+                  "name": {
+                    "type": "STRING"
+                  }
+                },
+                "required": [
+                  "name",
+                  "city"
+                ],
+                "type": "OBJECT"
+              }
+            }
+          }
+        ],
+        "previousRequest": "b4d6e60a9b97e7b98c63df9308728c5c88c0b40c398046772c63447b94608b4d",
+        "serverAddress": "aiplatform.googleapis.com",
+        "port": 443,
+        "protocol": "https"
+      },
+      "shaSum": "55912f22c145c3259ff3528a1374da840714be908c5ba6977b30b8975d5312ab",
+      "response": {
+        "statusCode": 200,
+        "headers": {
+          "Content-Encoding": "gzip",
+          "Content-Length": "1191",
+          "Content-Type": "application/json; charset=UTF-8",
+          "Date": "Mon, 11 May 2026 17:41:07 GMT",
+          "Server": "scaffolding on HTTPServer2",
+          "Vary": "Origin, X-Origin, Referer",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "SAMEORIGIN",
+          "X-Vertex-Ai-Llm-Request-Type": "dedicated",
+          "X-Xss-Protection": "0"
+        },
+        "bodySegments": [
+          {
+            "candidates": [
+              {
+                "content": {
+                  "parts": [
+                    {
+                      "text": "{\"name\":\"Katz's Delicatessen\",\"city\":\"New York\"}",
+                      "thoughtSignature": "AY89a19LQB5yHgJa6a9umbgqBYzzVBxfHp5CiM1pC+9jPVIjXGoXbi81U9ovVcrSI5KllPfgaUup85E+RTxyafh72WMEAf6bu7vthZ2Bs9TM0FJVHNXI/c4f9+AO7eXjImTZP/5VJF3nlv6Akadu+uM9570MkawAIQtg86Y3njeMTRJsJcAk/TlhQpTgEHAnEMI2qND+R4ek3om+rHgAiqV9uxDaRM+S3jXPRP1+dAvF4L5ngRqFrd8/rfRN8E3zopSZibtSeN1DOwLZqO9zdGBVfg00AxWVoFD3TPi9Fxo64MVSJpVkI7xHwOTabWbAEDVQI/BUbFaitzcd72yhRcEj4OPk6+iH9xL8qk5WJ2EYjZmVY8gMwMwjjpgZwiKjwpjrO8IeRJLx4c1YN3CzaYnAW4yiyE070TY+LqwH2xtJBVQvwBSQhiyfhOj0+lkW0ZHHXHeWWRmZj7P+VrhUWjJvsPAN7q+MWBMikIgaZxpgzUQOO/9sEpb1Zqie1AFzgriBz5LrTmic6G1aUDgKuSHMFRDd3yAGNlQRRQDfgRXcPw/sqo1LGPneguBPqRYEmEWjeQNL9LuGPz5h6KUTDDdeTki7tHcVK3WnfdEG6Tp5dV2KQywGQVwDLRvKplEenc1lqgvR3yGAbaLxg2sSU+N42IPID0XAhWT+II2Zqx3nmZuxMM8OtPP09sZGyw3IGXGz1CO7CoaMAKZ6ugLFyAnvOVOl1otEQYgquJpgh3+Yr20kLvOqxm/9/NbVS2N3xZ7zPNXvhQU8SCSFOfFAF2aWDkafb8HapB1IRvPEaTijeI63JHqzqDYV9lUkBEhf6BTrRbNZI5x9iz8NQPgpyWyhpYoaaggXlk+VhGCKRTOuAfKLul7gwlJuffcSaOWBSq6V4rdYwjfTSkWH110pd2VkE+8ffmnjfalTqpZVsLPTaFsWujm5Bw=="
+                    }
+                  ],
+                  "role": "model"
+                },
+                "finishReason": "STOP"
+              }
+            ],
+            "createTime": "2026-05-11T17:41:05.493712Z",
+            "modelVersion": "gemini-3-flash-preview",
+            "responseId": "sRQCapCRHs2BpucP2JWDuQM",
+            "usageMetadata": {
+              "candidatesTokenCount": 16,
+              "candidatesTokensDetails": [
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 16
+                }
+              ],
+              "promptTokenCount": 76,
+              "promptTokensDetails": [
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 76
+                }
+              ],
+              "thoughtsTokenCount": 182,
+              "totalTokenCount": 274,
+              "trafficType": "PROVISIONED_THROUGHPUT"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

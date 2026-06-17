@@ -1,0 +1,77 @@
+{
+  "recordID": "ModelsTest.testGenerateContentWithImageUrl.mldev",
+  "interactions": [
+    {
+      "request": {
+        "method": "POST",
+        "url": "/v1beta/models/gemini-3-flash-preview:generateContent",
+        "request": "POST /v1beta/models/gemini-3-flash-preview:generateContent HTTP/1.1",
+        "headers": {
+          "Accept": "*/*",
+          "Accept-Charset": "UTF-8",
+          "Accept-Encoding": "gzip",
+          "Connection": "Keep-Alive",
+          "Content-Length": "177",
+          "Content-Type": "application/json",
+          "Test-Name": "ModelsTest.testGenerateContentWithImageUrl.mldev"
+        },
+        "bodySegments": [
+          {
+            "contents": [
+              {
+                "parts": [
+                  {
+                    "fileData": {
+                      "fileUri": "gs://cloud-samples-data/generative-ai/image/scones.jpg",
+                      "mimeType": "image/jpeg"
+                    }
+                  },
+                  {
+                    "text": "Describe this image"
+                  }
+                ],
+                "role": "user"
+              }
+            ]
+          }
+        ],
+        "previousRequest": "b4d6e60a9b97e7b98c63df9308728c5c88c0b40c398046772c63447b94608b4d",
+        "serverAddress": "generativelanguage.googleapis.com",
+        "port": 443,
+        "protocol": "https"
+      },
+      "shaSum": "7e640ed1656cdc34d84ad76046fb8d4e86baea9c787af22c71556d2cf9ce912a",
+      "response": {
+        "statusCode": 400,
+        "headers": {
+          "Content-Encoding": "gzip",
+          "Content-Length": "423",
+          "Content-Type": "application/json; charset=UTF-8",
+          "Date": "Tue, 12 May 2026 17:44:40 GMT",
+          "Server": "scaffolding on HTTPServer2",
+          "Server-Timing": "gfet4t7; dur=317",
+          "Vary": "Origin, X-Origin, Referer",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "SAMEORIGIN",
+          "X-Gemini-Service-Tier": "standard",
+          "X-Xss-Protection": "0"
+        },
+        "bodySegments": [
+          {
+            "error": {
+              "code": 400,
+              "details": [
+                {
+                  "@type": "type.googleapis.com/google.rpc.DebugInfo",
+                  "detail": "[ORIGINAL ERROR] generic::invalid_argument: Referencing Google Cloud Storage files directly is not supported. Register them using FileService.RegisterFile first.  [google.rpc.error_details_ext] { message: \"Request contains an invalid argument.\" details { type_url: \"type.googleapis.com/language_labs.genai.debug.GeminiApiDebugInfo\" value: \"\\222\\001\\265\\001\\nvReferencing Google Cloud Storage files directly is not supported. Register them using FileService.RegisterFile first. \\022;labs/language/genai/storage/file_data_fetcher_impl.cc:845:0\" } }"
+                }
+              ],
+              "message": "Request contains an invalid argument.",
+              "status": "INVALID_ARGUMENT"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

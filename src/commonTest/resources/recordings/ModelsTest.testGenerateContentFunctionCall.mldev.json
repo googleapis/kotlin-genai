@@ -1,0 +1,119 @@
+{
+  "recordID": "ModelsTest.testGenerateContentFunctionCall.mldev",
+  "interactions": [
+    {
+      "request": {
+        "method": "POST",
+        "url": "/v1beta/models/gemini-3-flash-preview:generateContent",
+        "request": "POST /v1beta/models/gemini-3-flash-preview:generateContent HTTP/1.1",
+        "headers": {
+          "Accept": "*/*",
+          "Accept-Charset": "UTF-8",
+          "Accept-Encoding": "gzip",
+          "Connection": "Keep-Alive",
+          "Content-Length": "330",
+          "Content-Type": "application/json",
+          "Test-Name": "ModelsTest.testGenerateContentFunctionCall.mldev"
+        },
+        "bodySegments": [
+          {
+            "contents": [
+              {
+                "parts": [
+                  {
+                    "text": "What's the weather like in Melbourne?"
+                  }
+                ],
+                "role": "user"
+              }
+            ],
+            "generationConfig": {},
+            "tools": [
+              {
+                "functionDeclarations": [
+                  {
+                    "description": "return the real time weather of the location",
+                    "name": "GetWeather",
+                    "parameters": {
+                      "properties": {
+                        "location": {
+                          "type": "STRING"
+                        }
+                      },
+                      "required": [
+                        "location"
+                      ],
+                      "type": "OBJECT"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "previousRequest": "b4d6e60a9b97e7b98c63df9308728c5c88c0b40c398046772c63447b94608b4d",
+        "serverAddress": "generativelanguage.googleapis.com",
+        "port": 443,
+        "protocol": "https"
+      },
+      "shaSum": "8fc8f00824b36375bae88fa8d719b3c0ad06a0dda921b92b0ea6434f79f6df8a",
+      "response": {
+        "statusCode": 200,
+        "headers": {
+          "Content-Encoding": "gzip",
+          "Content-Length": "731",
+          "Content-Type": "application/json; charset=UTF-8",
+          "Date": "Mon, 04 May 2026 18:05:56 GMT",
+          "Server": "scaffolding on HTTPServer2",
+          "Server-Timing": "gfet4t7; dur=1156",
+          "Vary": "Origin, X-Origin, Referer",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "SAMEORIGIN",
+          "X-Gemini-Service-Tier": "standard",
+          "X-Xss-Protection": "0"
+        },
+        "bodySegments": [
+          {
+            "candidates": [
+              {
+                "content": {
+                  "parts": [
+                    {
+                      "functionCall": {
+                        "args": {
+                          "location": "Melbourne"
+                        },
+                        "id": "fu84qyxf",
+                        "name": "GetWeather"
+                      },
+                      "thoughtSignature": "EusBCugBAQw51sfU9xvXaOElhmMVagKvozYpXXTIYFy0MnL/Btwmk7gjKFlPgR4fuakiFdVdX2s4YoOwymI40jC4rQ69xlZBk1fGfkmMRRfggMXr4unXVymT+Zk0TlchI+UQjODjVeBMAKlisFxOOG9iKWjzdS4OglP3KsNq1ApVJgW1h1qWutDvrXn1HeWRNaZ/qTobRG/s5sAOCAkjSjRFu2PklYS47Xx7ph1leucd8C0BwV4tSPJrroBmyuBUpCaaIoRWgNUUJyKx1r33vSSvMi50PTg/jRBoqvYyftK/WMXf2uxpfdNYX+blpg=="
+                    }
+                  ],
+                  "role": "model"
+                },
+                "finishMessage": "Model generated function call(s).",
+                "finishReason": "STOP",
+                "index": 0
+              }
+            ],
+            "modelVersion": "gemini-3-flash-preview",
+            "responseId": "BOD4acWoHuaMjrEP1ZnTkQQ",
+            "turnToken": "v1_ChdCT0Q0YWNXb0h1YU1qckVQMVpuVGtRURIXQk9ENGFjV29IdWFNanJFUDFablRrUVE",
+            "usageMetadata": {
+              "candidatesTokenCount": 15,
+              "promptTokenCount": 54,
+              "promptTokensDetails": [
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 54
+                }
+              ],
+              "thoughtsTokenCount": 41,
+              "totalTokenCount": 110
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

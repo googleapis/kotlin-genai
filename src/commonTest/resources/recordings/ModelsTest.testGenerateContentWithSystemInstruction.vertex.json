@@ -1,0 +1,106 @@
+{
+  "recordID": "ModelsTest.testGenerateContentWithSystemInstruction.vertex",
+  "interactions": [
+    {
+      "request": {
+        "method": "POST",
+        "url": "/v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-3-flash-preview:generateContent",
+        "request": "POST /v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-3-flash-preview:generateContent HTTP/1.1",
+        "headers": {
+          "Accept": "*/*",
+          "Accept-Charset": "UTF-8",
+          "Accept-Encoding": "gzip",
+          "Connection": "Keep-Alive",
+          "Content-Length": "174",
+          "Content-Type": "application/json",
+          "Test-Name": "ModelsTest.testGenerateContentWithSystemInstruction.vertex"
+        },
+        "bodySegments": [
+          {
+            "contents": [
+              {
+                "parts": [
+                  {
+                    "text": "Say hello"
+                  }
+                ],
+                "role": "user"
+              }
+            ],
+            "generationConfig": {},
+            "systemInstruction": {
+              "parts": [
+                {
+                  "text": "You are a pirate. Always reply in pirate speak."
+                }
+              ]
+            }
+          }
+        ],
+        "previousRequest": "b4d6e60a9b97e7b98c63df9308728c5c88c0b40c398046772c63447b94608b4d",
+        "serverAddress": "aiplatform.googleapis.com",
+        "port": 443,
+        "protocol": "https"
+      },
+      "shaSum": "885795f743a87daedfce2fc491828f2589ba040febe6b775ea20e02f35026dd2",
+      "response": {
+        "statusCode": 200,
+        "headers": {
+          "Content-Encoding": "gzip",
+          "Content-Length": "1001",
+          "Content-Type": "application/json; charset=UTF-8",
+          "Date": "Mon, 04 May 2026 19:57:38 GMT",
+          "Server": "scaffolding on HTTPServer2",
+          "Vary": "Origin, X-Origin, Referer",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "SAMEORIGIN",
+          "X-Vertex-Ai-Llm-Request-Type": "dedicated",
+          "X-Xss-Protection": "0"
+        },
+        "bodySegments": [
+          {
+            "candidates": [
+              {
+                "content": {
+                  "parts": [
+                    {
+                      "text": "Ahoy there, ye scurvy dog! What be bringin' ye to these salty waters?",
+                      "thoughtSignature": "AY89a19nWUo9Bb7G4D+MAltbXcLUuU9hhCLsYsVxOoIwle1iIucQZx4cV1sOjx5HczLp2wmzrcXamhjiNv+BZ4byNkvxPL9eU1KWcxkZNb7fLdY5yK7LOFPPl1/6JVvDG+YfD3BNJV7N8ko8v7g17vbpLbgfYL5WbyGakeM/Zpwe5lDVVqNEoNiH6aVzcv42wL3C+bTeVFsDyiQO49iPJN+Ku31x1vasKNK/gIUAue36oAdqQzmIgdcy/Try7xRkvAqFYnlYHjlTNyjQgqxw5rt1bN6TwkH/IjPTJOBQwz8ixxBlW8HUQDYe+6tT7QCfdLbCbpKXJItID3bk1xiZzsk8at1EpH1lKAShksTwat+qdGzPpxEkzcYeJLOnYd2lqVlVIEEc5hOQe0dmPjSLt7/xSxjWsVbPRtkR6v5x6LN/+x/NRV+wGkO8yNthW3VuYNZPFiz6UQEgC8SfhhT+mGyNaNSG8wu0yqrqt7/endbMARajvL1R+55nI+kWTuTi6/+6OeanbswEdcXGNhdXyiiVWmUvml/GV+8ZR31yWQD5nWiRRzh7y3vgKT6/4r47fMzRWZ7iSBo5/TF58Rja7ha1GODhAg3HQyA4/9e/eEBeG9ACmdSr6pxEUXtZ9Fvx4n1aj82027ZoIJ/ui5HTsVFHvGQ="
+                    }
+                  ],
+                  "role": "model"
+                },
+                "finishReason": "STOP"
+              }
+            ],
+            "createTime": "2026-05-04T19:57:34.129663Z",
+            "modelVersion": "gemini-3-flash-preview",
+            "responseId": "Lvr4af_0B6KepucPg_ikgAE",
+            "usageMetadata": {
+              "billablePromptUsage": {
+                "textCount": 47
+              },
+              "candidatesTokenCount": 20,
+              "candidatesTokensDetails": [
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 20
+                }
+              ],
+              "promptTokenCount": 13,
+              "promptTokensDetails": [
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 13
+                }
+              ],
+              "thoughtsTokenCount": 147,
+              "totalTokenCount": 180,
+              "trafficType": "PROVISIONED_THROUGHPUT"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

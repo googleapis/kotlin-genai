@@ -1,0 +1,109 @@
+{
+  "recordID": "ModelsTest.testGenerateContentWithVideoYouTubeLink.vertex",
+  "interactions": [
+    {
+      "request": {
+        "method": "POST",
+        "url": "/v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-3-flash-preview:generateContent",
+        "request": "POST /v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-3-flash-preview:generateContent HTTP/1.1",
+        "headers": {
+          "Accept": "*/*",
+          "Accept-Charset": "UTF-8",
+          "Accept-Encoding": "gzip",
+          "Connection": "Keep-Alive",
+          "Content-Length": "188",
+          "Content-Type": "application/json",
+          "Test-Name": "ModelsTest.testGenerateContentWithVideoYouTubeLink.vertex"
+        },
+        "bodySegments": [
+          {
+            "contents": [
+              {
+                "parts": [
+                  {
+                    "fileData": {
+                      "fileUri": "https://www.youtube.com/watch?v=9hE5-98ZeCg",
+                      "mimeType": "video/mp4"
+                    }
+                  },
+                  {
+                    "text": "Please summarize the video in 3 sentences."
+                  }
+                ],
+                "role": "user"
+              }
+            ]
+          }
+        ],
+        "previousRequest": "b4d6e60a9b97e7b98c63df9308728c5c88c0b40c398046772c63447b94608b4d",
+        "serverAddress": "aiplatform.googleapis.com",
+        "port": 443,
+        "protocol": "https"
+      },
+      "shaSum": "7ee5f0625bcc3f68f0002c78e33d85afe4f880eabcf4c27871b2d13346c585bc",
+      "response": {
+        "statusCode": 200,
+        "headers": {
+          "Content-Encoding": "gzip",
+          "Content-Length": "3007",
+          "Content-Type": "application/json; charset=UTF-8",
+          "Date": "Tue, 12 May 2026 18:17:43 GMT",
+          "Server": "scaffolding on HTTPServer2",
+          "Vary": "Origin, X-Origin, Referer",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "SAMEORIGIN",
+          "X-Vertex-Ai-Llm-Request-Type": "dedicated",
+          "X-Xss-Protection": "0"
+        },
+        "bodySegments": [
+          {
+            "candidates": [
+              {
+                "content": {
+                  "parts": [
+                    {
+                      "text": "This video showcases a demonstration of the Gemini 2.0 Multimodal Live API, which allows AI agents to interact with live audio and video streams in real time. The demo highlights features such as screen understanding, interruption handling, and memory by having the AI read text from a document, define terms, and summarize the conversation. It concludes by inviting developers to begin building their own AI agents with Gemini 2.0 through Google's AI Studio.",
+                      "thoughtSignature": "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"
+                    }
+                  ],
+                  "role": "model"
+                },
+                "finishReason": "STOP"
+              }
+            ],
+            "createTime": "2026-05-12T18:17:37.148935Z",
+            "modelVersion": "gemini-3-flash-preview",
+            "responseId": "wW4DaseLCbKDpucP3Z-5mAY",
+            "usageMetadata": {
+              "candidatesTokenCount": 90,
+              "candidatesTokensDetails": [
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 90
+                }
+              ],
+              "promptTokenCount": 13574,
+              "promptTokensDetails": [
+                {
+                  "modality": "AUDIO",
+                  "tokenCount": 3731
+                },
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 9
+                },
+                {
+                  "modality": "VIDEO",
+                  "tokenCount": 9834
+                }
+              ],
+              "thoughtsTokenCount": 497,
+              "totalTokenCount": 14161,
+              "trafficType": "PROVISIONED_THROUGHPUT"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

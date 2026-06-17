@@ -1,0 +1,106 @@
+{
+  "recordID": "ModelsTest.testGenerateContentWithCommonConfig.vertex",
+  "interactions": [
+    {
+      "request": {
+        "method": "POST",
+        "url": "/v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-3-flash-preview:generateContent",
+        "request": "POST /v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-3-flash-preview:generateContent HTTP/1.1",
+        "headers": {
+          "Accept": "*/*",
+          "Accept-Charset": "UTF-8",
+          "Accept-Encoding": "gzip",
+          "Connection": "Keep-Alive",
+          "Content-Length": "174",
+          "Content-Type": "application/json",
+          "Test-Name": "ModelsTest.testGenerateContentWithCommonConfig.vertex"
+        },
+        "bodySegments": [
+          {
+            "contents": [
+              {
+                "parts": [
+                  {
+                    "text": "List the numbers from 1 to 5"
+                  }
+                ],
+                "role": "user"
+              }
+            ],
+            "generationConfig": {
+              "maxOutputTokens": 100,
+              "stopSequences": [
+                "3"
+              ],
+              "temperature": 0.1,
+              "topK": 1
+            }
+          }
+        ],
+        "previousRequest": "b4d6e60a9b97e7b98c63df9308728c5c88c0b40c398046772c63447b94608b4d",
+        "serverAddress": "aiplatform.googleapis.com",
+        "port": 443,
+        "protocol": "https"
+      },
+      "shaSum": "2f3da0f2a29bd27d756ed23442236bf2e4d4bedef674666fb14104c66a843c7f",
+      "response": {
+        "statusCode": 200,
+        "headers": {
+          "Content-Encoding": "gzip",
+          "Content-Length": "659",
+          "Content-Type": "application/json; charset=UTF-8",
+          "Date": "Mon, 04 May 2026 19:59:11 GMT",
+          "Server": "scaffolding on HTTPServer2",
+          "Vary": "Origin, X-Origin, Referer",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "SAMEORIGIN",
+          "X-Vertex-Ai-Llm-Request-Type": "dedicated",
+          "X-Xss-Protection": "0"
+        },
+        "bodySegments": [
+          {
+            "candidates": [
+              {
+                "content": {
+                  "parts": [
+                    {
+                      "text": "1, 2, ",
+                      "thoughtSignature": "AY89a18P8JSorVbXrE+nZqxzFQKOXrwK2pC1twU3HUXyTitwZJA4tlw/Dwtgi63bXRKpzJJrvlyKpiYHIuVjygmmVmA7Y2HwOUm6mV5WDil3XGKKubnY85gQctbxLHWY5jmfq43w1xFvjjNOGmlPBneRK+yeq12bht9s+CKjFqXWXiiudGZixFA4zmaEVxgUxPtT+ohTKXXbKNm1OSevfKVolcd3gd8igo+9MIZSVq1DtYwx9VYOOqJ+0qqWcdbfgE1yZcJgdUolWJocA0v99pL/tQFslj21iVLvU5btBPCqBg=="
+                    }
+                  ],
+                  "role": "model"
+                },
+                "finishReason": "STOP"
+              }
+            ],
+            "createTime": "2026-05-04T19:59:08.490907Z",
+            "modelVersion": "gemini-3-flash-preview",
+            "responseId": "jPr4aZv7HcuepucPqJWCwAo",
+            "usageMetadata": {
+              "billablePromptUsage": {
+                "textCount": 22
+              },
+              "candidatesTokenCount": 6,
+              "candidatesTokensDetails": [
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 6
+                }
+              ],
+              "promptTokenCount": 9,
+              "promptTokensDetails": [
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 9
+                }
+              ],
+              "thoughtsTokenCount": 68,
+              "totalTokenCount": 83,
+              "trafficType": "PROVISIONED_THROUGHPUT"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,102 @@
+{
+  "recordID": "ModelsTest.testGenerateContentEnumConstraint.mldev",
+  "interactions": [
+    {
+      "request": {
+        "method": "POST",
+        "url": "/v1beta/models/gemini-3-flash-preview:generateContent",
+        "request": "POST /v1beta/models/gemini-3-flash-preview:generateContent HTTP/1.1",
+        "headers": {
+          "Accept": "*/*",
+          "Accept-Charset": "UTF-8",
+          "Accept-Encoding": "gzip",
+          "Connection": "Keep-Alive",
+          "Content-Length": "270",
+          "Content-Type": "application/json",
+          "Test-Name": "ModelsTest.testGenerateContentEnumConstraint.mldev"
+        },
+        "bodySegments": [
+          {
+            "contents": [
+              {
+                "parts": [
+                  {
+                    "text": "What is your favorite ice cream flavor among chocolate, vanilla, and strawberry?"
+                  }
+                ],
+                "role": "user"
+              }
+            ],
+            "generationConfig": {
+              "responseMimeType": "application/json",
+              "responseSchema": {
+                "enum": [
+                  "chocolate",
+                  "vanilla",
+                  "strawberry"
+                ],
+                "type": "STRING"
+              }
+            }
+          }
+        ],
+        "previousRequest": "b4d6e60a9b97e7b98c63df9308728c5c88c0b40c398046772c63447b94608b4d",
+        "serverAddress": "generativelanguage.googleapis.com",
+        "port": 443,
+        "protocol": "https"
+      },
+      "shaSum": "196e02b320865e1ceeca266751f4084ad58c94d11680912b5004628e0610cec2",
+      "response": {
+        "statusCode": 200,
+        "headers": {
+          "Content-Encoding": "gzip",
+          "Content-Length": "1634",
+          "Content-Type": "application/json; charset=UTF-8",
+          "Date": "Mon, 11 May 2026 17:37:09 GMT",
+          "Server": "scaffolding on HTTPServer2",
+          "Server-Timing": "gfet4t7; dur=2418",
+          "Vary": "Origin, X-Origin, Referer",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "SAMEORIGIN",
+          "X-Gemini-Service-Tier": "standard",
+          "X-Xss-Protection": "0"
+        },
+        "bodySegments": [
+          {
+            "candidates": [
+              {
+                "content": {
+                  "parts": [
+                    {
+                      "text": "\"chocolate\"",
+                      "thoughtSignature": "EpEJCo4JAQw51sdDokwrPFTYiT23lKEOjg2vg7CX7hFVvEsdCg6rgWu5uJLwKSu3UHnE/kf9OOhPqbcXmPOQpGtnduec9MnrFrVKuV2689oX81OCi/0H3oqN0I0eAG8g8vE5it75mhtfumrTcIGUnxHeDzXQro5OCiY9aqNc34OOqfenaWyHyt8vZo5tFT6oSSFR7p/V3m9feMONuLKHH45YcH78TKwu9jNE2JX9W/LFUIIA7xXji8YQLRo/ANKPe7MYT3RdNjZtMS7tfIKp1bOGNOD2IVMZDMVLY1U9Mot9jzKKunHdn63zF1B8weRCBzKZD7cd6Ea17xg94sH7crXbVf0gGg9EFt18bxVvBv5Lkro9eXdv+AM4vcV5EriPtbFSxhHbkylqDuzB5+csL5RVVLBRPECUtbrrxU5edgmo5YQqVaYlQ3tjhyfu7rJE77wJjDi8Nsb+jUAOTTDzMdvc3tKXAZuENsr7pjXylyIrxda7YNQpgaSIiO5gwYFd+9tTdH4HA3GrsBGy3udK6Zp/ywm5pDv4jxbuUk8Qwuub1JAr1zosDK3VfVUXlDeHym/ks2vbCgh+7rgaeFYc2MCM3/3EjeQ9WTT4c2bRpEgdJPsdCbjX9fjWxCNaoIkonciJju1C67+MSydPg6c+h1IUWYqxN1oohfBOyJQC1bBdm1jxUMUtfxrr6izf98vM6MHQUrjmwBm8jAxDZ9AxWsDCz4no9HmBV0Cr8+zdTwgN1L4FT9fNtH0qmYE4M9GdpCCPZVeAEEpkrWmhiWOJrrecENE71/YhzKODGGwlQoHjBzprKizuiGvcy0pOuZuREKksgLSOhYqp9IXtEpNGPn5oAzPUOW1IzvxJXzVJi/Ybov0orRQDOuXlsli3eMuEOeMTfTTksSFhTcGGc/kkFCScZKUYsYwCOdAHMfexdeX1ukMEvzXqEB2R4vqom1puLWHV0FFWGcrohzqSCTa1oH7bZ/xj8qGaafwY8/ARtYT1FNxINOG+6wwcBv+9HnvAfSJDs3gzUguZSn7hMa+7TA4MTqe4GP3iyhckYt9UpSL0xCCB71ah+X8Xkih36eOJtUzw3Ww5NrSdAeuJOGproZuhPj3o2993giYNKBoSHILTe8m2lO6o5u9Pj3C10uqXqG/FIpQ1A8H1FZuRgxY0Lk99cRMQOSkHn3yTkDK0hRxdmp1RIaTkqu+o6+7E8sp4QcAbaJS+H7BPug6sGa5znwDSpvtG3m2pAAgLyDQGvpl/y7jOyczFquqfdbJwfJBpnVKa2atBzMUgnpNch6UZ6CRFcdXbyLzTBmUYwDvHdOWxyJ6SAmT81bqhbkIK3VhnGH3pyU+/gbR918YX8Zkv3S1eZRddr0x9AO662O3ioFuNzX8/tjdKZZNpnTt1SuxEKiaqtw3B0HpaCvnUh7QdDX5rDXptK+hgvaj9elCdoQ8GrzYIAImhpp2Tqh5dg6WuvBfMfl0znGTEhxjM+1Mk35oJ17T8B3rG9gjgAyAy+A0ggDjOLQ8um3h1Yn7BY6SwRJ9xp2g6ZYcHp62PZF9MoR6EgbA="
+                    }
+                  ],
+                  "role": "model"
+                },
+                "finishReason": "STOP",
+                "index": 0
+              }
+            ],
+            "modelVersion": "gemini-3-flash-preview",
+            "responseId": "wxMCatKeEfWa-8YPu5LY4A4",
+            "turnToken": "v1_Chd3eE1DYXRLZUVmV2EtOFlQdTVMWTRBNBIXd3hNQ2F0S2VFZldhLThZUHU1TFk0QTQ",
+            "usageMetadata": {
+              "candidatesTokenCount": 3,
+              "promptTokenCount": 16,
+              "promptTokensDetails": [
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 16
+                }
+              ],
+              "serviceTier": "standard",
+              "thoughtsTokenCount": 297,
+              "totalTokenCount": 316
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

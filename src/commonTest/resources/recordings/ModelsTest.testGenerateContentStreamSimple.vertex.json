@@ -1,0 +1,336 @@
+{
+  "recordID": "ModelsTest.testGenerateContentStreamSimple.vertex",
+  "interactions": [
+    {
+      "request": {
+        "method": "POST",
+        "url": "/v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-3-flash-preview:streamGenerateContent?alt=sse",
+        "request": "POST /v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-3-flash-preview:streamGenerateContent?alt=sse HTTP/1.1",
+        "headers": {
+          "Accept": "*/*",
+          "Accept-Charset": "UTF-8",
+          "Accept-Encoding": "gzip",
+          "Connection": "Keep-Alive",
+          "Content-Length": "93",
+          "Content-Type": "application/json",
+          "Test-Name": "ModelsTest.testGenerateContentStreamSimple.vertex"
+        },
+        "bodySegments": [
+          {
+            "contents": [
+              {
+                "parts": [
+                  {
+                    "text": "Tell me a story about Paris in 200 words."
+                  }
+                ],
+                "role": "user"
+              }
+            ]
+          }
+        ],
+        "previousRequest": "b4d6e60a9b97e7b98c63df9308728c5c88c0b40c398046772c63447b94608b4d",
+        "serverAddress": "aiplatform.googleapis.com",
+        "port": 443,
+        "protocol": "https"
+      },
+      "shaSum": "4e922e625eab02c26424b8813472053a9d942adf6b01241d36bb581fd69de108",
+      "response": {
+        "statusCode": 200,
+        "headers": {
+          "Content-Disposition": "attachment",
+          "Content-Type": "text/event-stream",
+          "Date": "Thu, 30 Apr 2026 21:41:55 GMT",
+          "Server": "scaffolding on HTTPServer2",
+          "Vary": "Origin, X-Origin, Referer",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "SAMEORIGIN",
+          "X-Xss-Protection": "0"
+        },
+        "bodySegments": [
+          {
+            "candidates": [
+              {
+                "content": {
+                  "parts": [
+                    {
+                      "text": "Clara"
+                    }
+                  ],
+                  "role": "model"
+                }
+              }
+            ],
+            "createTime": "2026-04-30T21:41:48.178243Z",
+            "modelVersion": "gemini-3-flash-preview",
+            "responseId": "nMzzacPwCqKepucPpcaW-Ao",
+            "usageMetadata": {
+              "trafficType": "PROVISIONED_THROUGHPUT"
+            }
+          },
+          {
+            "candidates": [
+              {
+                "content": {
+                  "parts": [
+                    {
+                      "text": " stepped off the Metro into the crisp evening air of Montmartre. It was twilight, that blue hour when Paris transitions"
+                    }
+                  ],
+                  "role": "model"
+                }
+              }
+            ],
+            "createTime": "2026-04-30T21:41:48.178243Z",
+            "modelVersion": "gemini-3-flash-preview",
+            "responseId": "nMzzacPwCqKepucPpcaW-Ao",
+            "usageMetadata": {
+              "trafficType": "PROVISIONED_THROUGHPUT"
+            }
+          },
+          {
+            "candidates": [
+              {
+                "content": {
+                  "parts": [
+                    {
+                      "text": " from limestone gray to flickering gold. A light rain had recently fallen, turning the cobblestones into polished mirrors that reflected the"
+                    }
+                  ],
+                  "role": "model"
+                }
+              }
+            ],
+            "createTime": "2026-04-30T21:41:48.178243Z",
+            "modelVersion": "gemini-3-flash-preview",
+            "responseId": "nMzzacPwCqKepucPpcaW-Ao",
+            "usageMetadata": {
+              "trafficType": "PROVISIONED_THROUGHPUT"
+            }
+          },
+          {
+            "candidates": [
+              {
+                "content": {
+                  "parts": [
+                    {
+                      "text": " neon glow of nearby bistros.\n\nShe climbed the winding streets, passing the artists in Place du Tertre. They"
+                    }
+                  ],
+                  "role": "model"
+                }
+              }
+            ],
+            "createTime": "2026-04-30T21:41:48.178243Z",
+            "modelVersion": "gemini-3-flash-preview",
+            "responseId": "nMzzacPwCqKepucPpcaW-Ao",
+            "usageMetadata": {
+              "trafficType": "PROVISIONED_THROUGHPUT"
+            }
+          },
+          {
+            "candidates": [
+              {
+                "content": {
+                  "parts": [
+                    {
+                      "text": " were packing up their easels, the scent of oil paint mingling with the aroma of roasting coffee and warm crêpes"
+                    }
+                  ],
+                  "role": "model"
+                }
+              }
+            ],
+            "createTime": "2026-04-30T21:41:48.178243Z",
+            "modelVersion": "gemini-3-flash-preview",
+            "responseId": "nMzzacPwCqKepucPpcaW-Ao",
+            "usageMetadata": {
+              "trafficType": "PROVISIONED_THROUGHPUT"
+            }
+          },
+          {
+            "candidates": [
+              {
+                "content": {
+                  "parts": [
+                    {
+                      "text": ". Clara wasn’t looking for a souvenir; she was looking for a feeling.\n\nIn a narrow alley, she"
+                    }
+                  ],
+                  "role": "model"
+                }
+              }
+            ],
+            "createTime": "2026-04-30T21:41:48.178243Z",
+            "modelVersion": "gemini-3-flash-preview",
+            "responseId": "nMzzacPwCqKepucPpcaW-Ao",
+            "usageMetadata": {
+              "trafficType": "PROVISIONED_THROUGHPUT"
+            }
+          },
+          {
+            "candidates": [
+              {
+                "content": {
+                  "parts": [
+                    {
+                      "text": " discovered \"Le Refuge.\" It was a tiny café with red-checkered curtains and a ginger cat dozing on a stack of"
+                    }
+                  ],
+                  "role": "model"
+                }
+              }
+            ],
+            "createTime": "2026-04-30T21:41:48.178243Z",
+            "modelVersion": "gemini-3-flash-preview",
+            "responseId": "nMzzacPwCqKepucPpcaW-Ao",
+            "usageMetadata": {
+              "trafficType": "PROVISIONED_THROUGHPUT"
+            }
+          },
+          {
+            "candidates": [
+              {
+                "content": {
+                  "parts": [
+                    {
+                      "text": " antique books. Inside, an old man played a melancholic melody on an accordion. Clara ordered a glass of Bordeaux and"
+                    }
+                  ],
+                  "role": "model"
+                }
+              }
+            ],
+            "createTime": "2026-04-30T21:41:48.178243Z",
+            "modelVersion": "gemini-3-flash-preview",
+            "responseId": "nMzzacPwCqKepucPpcaW-Ao",
+            "usageMetadata": {
+              "trafficType": "PROVISIONED_THROUGHPUT"
+            }
+          },
+          {
+            "candidates": [
+              {
+                "content": {
+                  "parts": [
+                    {
+                      "text": " took a seat by the window.\n\nThrough the condensation on the glass, she saw the Eiffel Tower begin its hourly shimmer"
+                    }
+                  ],
+                  "role": "model"
+                }
+              }
+            ],
+            "createTime": "2026-04-30T21:41:48.178243Z",
+            "modelVersion": "gemini-3-flash-preview",
+            "responseId": "nMzzacPwCqKepucPpcaW-Ao",
+            "usageMetadata": {
+              "trafficType": "PROVISIONED_THROUGHPUT"
+            }
+          },
+          {
+            "candidates": [
+              {
+                "content": {
+                  "parts": [
+                    {
+                      "text": " in the distance—a rhythmic pulse against the violet sky. In that quiet moment, the city didn’t feel like"
+                    }
+                  ],
+                  "role": "model"
+                }
+              }
+            ],
+            "createTime": "2026-04-30T21:41:48.178243Z",
+            "modelVersion": "gemini-3-flash-preview",
+            "responseId": "nMzzacPwCqKepucPpcaW-Ao",
+            "usageMetadata": {
+              "trafficType": "PROVISIONED_THROUGHPUT"
+            }
+          },
+          {
+            "candidates": [
+              {
+                "content": {
+                  "parts": [
+                    {
+                      "text": " a crowded capital; it felt like a secret shared only with her. Paris wasn't just a destination; it was"
+                    }
+                  ],
+                  "role": "model"
+                }
+              }
+            ],
+            "createTime": "2026-04-30T21:41:48.178243Z",
+            "modelVersion": "gemini-3-flash-preview",
+            "responseId": "nMzzacPwCqKepucPpcaW-Ao",
+            "usageMetadata": {
+              "trafficType": "PROVISIONED_THROUGHPUT"
+            }
+          },
+          {
+            "candidates": [
+              {
+                "content": {
+                  "parts": [
+                    {
+                      "text": " a conversation between the past and the present."
+                    }
+                  ],
+                  "role": "model"
+                }
+              }
+            ],
+            "createTime": "2026-04-30T21:41:48.178243Z",
+            "modelVersion": "gemini-3-flash-preview",
+            "responseId": "nMzzacPwCqKepucPpcaW-Ao",
+            "usageMetadata": {
+              "trafficType": "PROVISIONED_THROUGHPUT"
+            }
+          },
+          {
+            "candidates": [
+              {
+                "content": {
+                  "parts": [
+                    {
+                      "text": "",
+                      "thoughtSignature": "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"
+                    }
+                  ],
+                  "role": "model"
+                },
+                "finishReason": "STOP"
+              }
+            ],
+            "createTime": "2026-04-30T21:41:48.178243Z",
+            "modelVersion": "gemini-3-flash-preview",
+            "responseId": "nMzzacPwCqKepucPpcaW-Ao",
+            "usageMetadata": {
+              "billablePromptUsage": {
+                "textCount": 33
+              },
+              "candidatesTokenCount": 253,
+              "candidatesTokensDetails": [
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 253
+                }
+              ],
+              "promptTokenCount": 13,
+              "promptTokensDetails": [
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 13
+                }
+              ],
+              "thoughtsTokenCount": 1060,
+              "totalTokenCount": 1326,
+              "trafficType": "PROVISIONED_THROUGHPUT"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

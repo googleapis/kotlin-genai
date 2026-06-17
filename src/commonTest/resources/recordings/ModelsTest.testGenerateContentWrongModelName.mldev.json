@@ -1,0 +1,70 @@
+{
+  "recordID": "ModelsTest.testGenerateContentWrongModelName.mldev",
+  "interactions": [
+    {
+      "request": {
+        "method": "POST",
+        "url": "/v1beta/models/wrong-model-name:generateContent",
+        "request": "POST /v1beta/models/wrong-model-name:generateContent HTTP/1.1",
+        "headers": {
+          "Accept": "*/*",
+          "Accept-Charset": "UTF-8",
+          "Accept-Encoding": "gzip",
+          "Connection": "Keep-Alive",
+          "Content-Length": "82",
+          "Content-Type": "application/json",
+          "Test-Name": "ModelsTest.testGenerateContentWrongModelName.mldev"
+        },
+        "bodySegments": [
+          {
+            "contents": [
+              {
+                "parts": [
+                  {
+                    "text": "What is the capital of France?"
+                  }
+                ],
+                "role": "user"
+              }
+            ]
+          }
+        ],
+        "previousRequest": "b4d6e60a9b97e7b98c63df9308728c5c88c0b40c398046772c63447b94608b4d",
+        "serverAddress": "generativelanguage.googleapis.com",
+        "port": 443,
+        "protocol": "https"
+      },
+      "shaSum": "c6ee590434970cd68681f055357f15566f04e7340205e36302a6e846e8302695",
+      "response": {
+        "statusCode": 404,
+        "headers": {
+          "Content-Encoding": "gzip",
+          "Content-Length": "398",
+          "Content-Type": "application/json; charset=UTF-8",
+          "Date": "Thu, 30 Apr 2026 19:17:41 GMT",
+          "Server": "scaffolding on HTTPServer2",
+          "Server-Timing": "gfet4t7; dur=251",
+          "Vary": "Origin, X-Origin, Referer",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "SAMEORIGIN",
+          "X-Xss-Protection": "0"
+        },
+        "bodySegments": [
+          {
+            "error": {
+              "code": 404,
+              "details": [
+                {
+                  "@type": "type.googleapis.com/google.rpc.DebugInfo",
+                  "detail": "[ORIGINAL ERROR] generic::not_found: models/wrong-model-name is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods. [google.rpc.error_details_ext] { message: \"models/wrong-model-name is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.\" details { type_url: \"type.googleapis.com/language_labs.genai.debug.GeminiApiDebugInfo\" value: \":2\\n\\027models/wrong-model-name\\022\\006v1beta\\032\\017generateContent\" } }"
+                }
+              ],
+              "message": "models/wrong-model-name is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.",
+              "status": "NOT_FOUND"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

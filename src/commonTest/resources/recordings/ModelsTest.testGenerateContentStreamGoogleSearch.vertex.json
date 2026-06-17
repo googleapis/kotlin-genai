@@ -1,0 +1,460 @@
+{
+  "recordID": "ModelsTest.testGenerateContentStreamGoogleSearch.vertex",
+  "interactions": [
+    {
+      "request": {
+        "method": "POST",
+        "url": "/v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-3-flash-preview:streamGenerateContent?alt=sse",
+        "request": "POST /v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-3-flash-preview:streamGenerateContent?alt=sse HTTP/1.1",
+        "headers": {
+          "Accept": "*/*",
+          "Accept-Charset": "UTF-8",
+          "Accept-Encoding": "gzip",
+          "Connection": "Keep-Alive",
+          "Content-Length": "141",
+          "Content-Type": "application/json",
+          "Test-Name": "ModelsTest.testGenerateContentStreamGoogleSearch.vertex"
+        },
+        "bodySegments": [
+          {
+            "contents": [
+              {
+                "parts": [
+                  {
+                    "text": "What's the weather like in Melbourne?"
+                  }
+                ],
+                "role": "user"
+              }
+            ],
+            "generationConfig": {},
+            "tools": [
+              {
+                "googleSearch": {}
+              }
+            ]
+          }
+        ],
+        "previousRequest": "b4d6e60a9b97e7b98c63df9308728c5c88c0b40c398046772c63447b94608b4d",
+        "serverAddress": "aiplatform.googleapis.com",
+        "port": 443,
+        "protocol": "https"
+      },
+      "shaSum": "5bb2dab9f4c9c1747b40806e20fd48dc4b4f0aac8264c8d9ee4c1efeb81e56b4",
+      "response": {
+        "statusCode": 200,
+        "headers": {
+          "Content-Disposition": "attachment",
+          "Content-Type": "text/event-stream",
+          "Date": "Thu, 30 Apr 2026 19:17:55 GMT",
+          "Server": "scaffolding on HTTPServer2",
+          "Vary": "Origin, X-Origin, Referer",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "SAMEORIGIN",
+          "X-Xss-Protection": "0"
+        },
+        "bodySegments": [
+          {
+            "candidates": [
+              {
+                "content": {
+                  "parts": [
+                    {
+                      "text": ""
+                    }
+                  ],
+                  "role": "model"
+                }
+              }
+            ],
+            "createTime": "2026-04-30T19:17:53.511330Z",
+            "modelVersion": "gemini-3-flash-preview",
+            "responseId": "4arzaeKaH-WepucPpMmO8AU",
+            "usageMetadata": {
+              "trafficType": "PROVISIONED_THROUGHPUT"
+            }
+          },
+          {
+            "createTime": "2026-04-30T19:17:53.511330Z",
+            "modelVersion": "gemini-3-flash-preview",
+            "responseId": "4arzaeKaH-WepucPpMmO8AU",
+            "usageMetadata": {
+              "trafficType": "PROVISIONED_THROUGHPUT"
+            }
+          },
+          {
+            "candidates": [
+              {
+                "content": {
+                  "parts": [
+                    {
+                      "text": "As of **Thursday, April 30, 2026**, the weather in"
+                    }
+                  ],
+                  "role": "model"
+                }
+              }
+            ],
+            "createTime": "2026-04-30T19:17:53.511330Z",
+            "modelVersion": "gemini-3-flash-preview",
+            "responseId": "4arzaeKaH-WepucPpMmO8AU",
+            "usageMetadata": {
+              "trafficType": "PROVISIONED_THROUGHPUT"
+            }
+          },
+          {
+            "candidates": [
+              {
+                "content": {
+                  "parts": [
+                    {
+                      "text": " **Melbourne, Australia**, is currently mild and mostly cloudy.\n\n### **Current Conditions (Late Night/Early Morning)**\n*   "
+                    }
+                  ],
+                  "role": "model"
+                }
+              }
+            ],
+            "createTime": "2026-04-30T19:17:53.511330Z",
+            "modelVersion": "gemini-3-flash-preview",
+            "responseId": "4arzaeKaH-WepucPpMmO8AU",
+            "usageMetadata": {
+              "trafficType": "PROVISIONED_THROUGHPUT"
+            }
+          },
+          {
+            "candidates": [
+              {
+                "content": {
+                  "parts": [
+                    {
+                      "text": "**Temperature:** Approximately **17°C (63°F)**.\n*   **Conditions:** Mostly cloudy"
+                    }
+                  ],
+                  "role": "model"
+                }
+              }
+            ],
+            "createTime": "2026-04-30T19:17:53.511330Z",
+            "modelVersion": "gemini-3-flash-preview",
+            "responseId": "4arzaeKaH-WepucPpMmO8AU",
+            "usageMetadata": {
+              "trafficType": "PROVISIONED_THROUGHPUT"
+            }
+          },
+          {
+            "candidates": [
+              {
+                "content": {
+                  "parts": [
+                    {
+                      "text": " to clear skies.\n*   **Humidity:** Around 73%.\n*   **Wind:** Light northerly winds at"
+                    }
+                  ],
+                  "role": "model"
+                }
+              }
+            ],
+            "createTime": "2026-04-30T19:17:53.511330Z",
+            "modelVersion": "gemini-3-flash-preview",
+            "responseId": "4arzaeKaH-WepucPpMmO8AU",
+            "usageMetadata": {
+              "trafficType": "PROVISIONED_THROUGHPUT"
+            }
+          },
+          {
+            "candidates": [
+              {
+                "content": {
+                  "parts": [
+                    {
+                      "text": " about 14 km/h.\n\n### **Forecast for Friday, May 1**\nIt looks like a"
+                    }
+                  ],
+                  "role": "model"
+                }
+              }
+            ],
+            "createTime": "2026-04-30T19:17:53.511330Z",
+            "modelVersion": "gemini-3-flash-preview",
+            "responseId": "4arzaeKaH-WepucPpMmO8AU",
+            "usageMetadata": {
+              "trafficType": "PROVISIONED_THROUGHPUT"
+            }
+          },
+          {
+            "candidates": [
+              {
+                "content": {
+                  "parts": [
+                    {
+                      "text": " beautiful day ahead:\n*   **High:** 26°C (79°F)\n*   **"
+                    }
+                  ],
+                  "role": "model"
+                }
+              }
+            ],
+            "createTime": "2026-04-30T19:17:53.511330Z",
+            "modelVersion": "gemini-3-flash-preview",
+            "responseId": "4arzaeKaH-WepucPpMmO8AU",
+            "usageMetadata": {
+              "trafficType": "PROVISIONED_THROUGHPUT"
+            }
+          },
+          {
+            "candidates": [
+              {
+                "content": {
+                  "parts": [
+                    {
+                      "text": "Low:** 15°C (59°F)\n*   **Conditions:** Mostly sunny and warmer than usual for this"
+                    }
+                  ],
+                  "role": "model"
+                }
+              }
+            ],
+            "createTime": "2026-04-30T19:17:53.511330Z",
+            "modelVersion": "gemini-3-flash-preview",
+            "responseId": "4arzaeKaH-WepucPpMmO8AU",
+            "usageMetadata": {
+              "trafficType": "PROVISIONED_THROUGHPUT"
+            }
+          },
+          {
+            "candidates": [
+              {
+                "content": {
+                  "parts": [
+                    {
+                      "text": " time of year.\n\n### **Upcoming Weekend Outlook**\n*   **Saturday, May 2:** Mostly cloudy with"
+                    }
+                  ],
+                  "role": "model"
+                }
+              }
+            ],
+            "createTime": "2026-04-30T19:17:53.511330Z",
+            "modelVersion": "gemini-3-flash-preview",
+            "responseId": "4arzaeKaH-WepucPpMmO8AU",
+            "usageMetadata": {
+              "trafficType": "PROVISIONED_THROUGHPUT"
+            }
+          },
+          {
+            "candidates": [
+              {
+                "content": {
+                  "parts": [
+                    {
+                      "text": " a high of **25°C**. There is a slight chance of light rain late in the day.\n*"
+                    }
+                  ],
+                  "role": "model"
+                }
+              }
+            ],
+            "createTime": "2026-04-30T19:17:53.511330Z",
+            "modelVersion": "gemini-3-flash-preview",
+            "responseId": "4arzaeKaH-WepucPpMmO8AU",
+            "usageMetadata": {
+              "trafficType": "PROVISIONED_THROUGHPUT"
+            }
+          },
+          {
+            "candidates": [
+              {
+                "content": {
+                  "parts": [
+                    {
+                      "text": "   **Sunday, May 3:** Cooler with a high of **21°C** and a higher chance of showers (approx"
+                    }
+                  ],
+                  "role": "model"
+                }
+              }
+            ],
+            "createTime": "2026-04-30T19:17:53.511330Z",
+            "modelVersion": "gemini-3-flash-preview",
+            "responseId": "4arzaeKaH-WepucPpMmO8AU",
+            "usageMetadata": {
+              "trafficType": "PROVISIONED_THROUGHPUT"
+            }
+          },
+          {
+            "candidates": [
+              {
+                "content": {
+                  "parts": [
+                    {
+                      "text": ". 5–10mm expected).\n\n***\n\n*If you were asking about **Melbourne, Florida**, it"
+                    }
+                  ],
+                  "role": "model"
+                }
+              }
+            ],
+            "createTime": "2026-04-30T19:17:53.511330Z",
+            "modelVersion": "gemini-3-flash-preview",
+            "responseId": "4arzaeKaH-WepucPpMmO8AU",
+            "usageMetadata": {
+              "trafficType": "PROVISIONED_THROUGHPUT"
+            }
+          },
+          {
+            "candidates": [
+              {
+                "content": {
+                  "parts": [
+                    {
+                      "text": " is currently much warmer, with temperatures reaching a high of **26°C (79°F)** and clear,"
+                    }
+                  ],
+                  "role": "model"
+                }
+              }
+            ],
+            "createTime": "2026-04-30T19:17:53.511330Z",
+            "modelVersion": "gemini-3-flash-preview",
+            "responseId": "4arzaeKaH-WepucPpMmO8AU",
+            "usageMetadata": {
+              "trafficType": "PROVISIONED_THROUGHPUT"
+            }
+          },
+          {
+            "candidates": [
+              {
+                "content": {
+                  "parts": [
+                    {
+                      "text": " sunny skies.*"
+                    }
+                  ],
+                  "role": "model"
+                }
+              }
+            ],
+            "createTime": "2026-04-30T19:17:53.511330Z",
+            "modelVersion": "gemini-3-flash-preview",
+            "responseId": "4arzaeKaH-WepucPpMmO8AU",
+            "usageMetadata": {
+              "trafficType": "PROVISIONED_THROUGHPUT"
+            }
+          },
+          {
+            "candidates": [
+              {
+                "content": {
+                  "parts": [
+                    {
+                      "text": "",
+                      "thoughtSignature": "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"
+                    }
+                  ],
+                  "role": "model"
+                },
+                "finishReason": "STOP",
+                "groundingMetadata": {
+                  "groundingChunks": [
+                    {
+                      "web": {
+                        "title": "weatherzone.com.au",
+                        "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE_Gw4Q-heSg6NSdAKZrxJVYzxgCjuR-oWcuNLIptbfWxbXK10VZj6Wru9YwiHE3mXuPoCpzmNDIPcCbiZJf3vy5Emj1w2U4apqutuqJrK_P6IrrotMHhEL1u4_1r3oP137EeKzQY2Sf4xlUihufvko"
+                      }
+                    }
+                  ],
+                  "groundingSupports": [
+                    {
+                      "groundingChunkIndices": [
+                        0
+                      ],
+                      "segment": {
+                        "endIndex": 302,
+                        "startIndex": 273,
+                        "text": "*   **Humidity:** Around 73%."
+                      }
+                    },
+                    {
+                      "groundingChunkIndices": [
+                        0
+                      ],
+                      "segment": {
+                        "endIndex": 356,
+                        "startIndex": 303,
+                        "text": "*   **Wind:** Light northerly winds at about 14 km/h."
+                      }
+                    },
+                    {
+                      "groundingChunkIndices": [
+                        0
+                      ],
+                      "segment": {
+                        "endIndex": 661,
+                        "startIndex": 597,
+                        "text": "*   **Saturday, May 2:** Mostly cloudy with a high of **25°C**."
+                      }
+                    },
+                    {
+                      "groundingChunkIndices": [
+                        0
+                      ],
+                      "segment": {
+                        "endIndex": 717,
+                        "startIndex": 662,
+                        "text": "There is a slight chance of light rain late in the day."
+                      }
+                    },
+                    {
+                      "groundingChunkIndices": [
+                        0
+                      ],
+                      "segment": {
+                        "endIndex": 832,
+                        "startIndex": 718,
+                        "text": "*   **Sunday, May 3:** Cooler with a high of **21°C** and a higher chance of showers (approx. 5–10mm expected)."
+                      }
+                    }
+                  ],
+                  "searchEntryPoint": {
+                    "renderedContent": "\u003cstyle\u003e\n.container {\n  align-items: center;\n  border-radius: 8px;\n  display: flex;\n  font-family: Google Sans, Roboto, sans-serif;\n  font-size: 14px;\n  line-height: 20px;\n  padding: 8px 12px;\n}\n.chip {\n  display: inline-block;\n  border: solid 1px;\n  border-radius: 16px;\n  min-width: 14px;\n  padding: 5px 16px;\n  text-align: center;\n  user-select: none;\n  margin: 0 8px;\n  -webkit-tap-highlight-color: transparent;\n}\n.carousel {\n  overflow: auto;\n  scrollbar-width: none;\n  white-space: nowrap;\n  margin-right: -12px;\n}\n.headline {\n  display: flex;\n  margin-right: 4px;\n}\n.gradient-container {\n  position: relative;\n}\n.gradient {\n  position: absolute;\n  transform: translate(3px, -9px);\n  height: 36px;\n  width: 9px;\n}\n@media (prefers-color-scheme: light) {\n  .container {\n    background-color: #fafafa;\n    box-shadow: 0 0 0 1px #0000000f;\n  }\n  .headline-label {\n    color: #1f1f1f;\n  }\n  .chip {\n    background-color: #ffffff;\n    border-color: #d2d2d2;\n    color: #5e5e5e;\n    text-decoration: none;\n  }\n  .chip:hover {\n    background-color: #f2f2f2;\n  }\n  .chip:focus {\n    background-color: #f2f2f2;\n  }\n  .chip:active {\n    background-color: #d8d8d8;\n    border-color: #b6b6b6;\n  }\n  .logo-dark {\n    display: none;\n  }\n  .gradient {\n    background: linear-gradient(90deg, #fafafa 15%, #fafafa00 100%);\n  }\n}\n@media (prefers-color-scheme: dark) {\n  .container {\n    background-color: #1f1f1f;\n    box-shadow: 0 0 0 1px #ffffff26;\n  }\n  .headline-label {\n    color: #fff;\n  }\n  .chip {\n    background-color: #2c2c2c;\n    border-color: #3c4043;\n    color: #fff;\n    text-decoration: none;\n  }\n  .chip:hover {\n    background-color: #353536;\n  }\n  .chip:focus {\n    background-color: #353536;\n  }\n  .chip:active {\n    background-color: #464849;\n    border-color: #53575b;\n  }\n  .logo-light {\n    display: none;\n  }\n  .gradient {\n    background: linear-gradient(90deg, #1f1f1f 15%, #1f1f1f00 100%);\n  }\n}\n\u003c/style\u003e\n\u003cdiv class=\"container\"\u003e\n  \u003cdiv class=\"headline\"\u003e\n    \u003csvg class=\"logo-light\" width=\"18\" height=\"18\" viewBox=\"9 9 35 35\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"\u003e\n      \u003cpath fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M42.8622 27.0064C42.8622 25.7839 42.7525 24.6084 42.5487 23.4799H26.3109V30.1568H35.5897C35.1821 32.3041 33.9596 34.1222 32.1258 35.3448V39.6864H37.7213C40.9814 36.677 42.8622 32.2571 42.8622 27.0064V27.0064Z\" fill=\"#4285F4\"/\u003e\n      \u003cpath fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M26.3109 43.8555C30.9659 43.8555 34.8687 42.3195 37.7213 39.6863L32.1258 35.3447C30.5898 36.3792 28.6306 37.0061 26.3109 37.0061C21.8282 37.0061 18.0195 33.9811 16.6559 29.906H10.9194V34.3573C13.7563 39.9841 19.5712 43.8555 26.3109 43.8555V43.8555Z\" fill=\"#34A853\"/\u003e\n      \u003cpath fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M16.6559 29.8904C16.3111 28.8559 16.1074 27.7588 16.1074 26.6146C16.1074 25.4704 16.3111 24.3733 16.6559 23.3388V18.8875H10.9194C9.74388 21.2072 9.06992 23.8247 9.06992 26.6146C9.06992 29.4045 9.74388 32.022 10.9194 34.3417L15.3864 30.8621L16.6559 29.8904V29.8904Z\" fill=\"#FBBC05\"/\u003e\n      \u003cpath fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M26.3109 16.2386C28.85 16.2386 31.107 17.1164 32.9095 18.8091L37.8466 13.8719C34.853 11.082 30.9659 9.3736 26.3109 9.3736C19.5712 9.3736 13.7563 13.245 10.9194 18.8875L16.6559 23.3388C18.0195 19.2636 21.8282 16.2386 26.3109 16.2386V16.2386Z\" fill=\"#EA4335\"/\u003e\n    \u003c/svg\u003e\n    \u003csvg class=\"logo-dark\" width=\"18\" height=\"18\" viewBox=\"0 0 48 48\" xmlns=\"http://www.w3.org/2000/svg\"\u003e\n      \u003ccircle cx=\"24\" cy=\"23\" fill=\"#FFF\" r=\"22\"/\u003e\n      \u003cpath d=\"M33.76 34.26c2.75-2.56 4.49-6.37 4.49-11.26 0-.89-.08-1.84-.29-3H24.01v5.99h8.03c-.4 2.02-1.5 3.56-3.07 4.56v.75l3.91 2.97h.88z\" fill=\"#4285F4\"/\u003e\n      \u003cpath d=\"M15.58 25.77A8.845 8.845 0 0 0 24 31.86c1.92 0 3.62-.46 4.97-1.31l4.79 3.71C31.14 36.7 27.65 38 24 38c-5.93 0-11.01-3.4-13.45-8.36l.17-1.01 4.06-2.85h.8z\" fill=\"#34A853\"/\u003e\n      \u003cpath d=\"M15.59 20.21a8.864 8.864 0 0 0 0 5.58l-5.03 3.86c-.98-2-1.53-4.25-1.53-6.64 0-2.39.55-4.64 1.53-6.64l1-.22 3.81 2.98.22 1.08z\" fill=\"#FBBC05\"/\u003e\n      \u003cpath d=\"M24 14.14c2.11 0 4.02.75 5.52 1.98l4.36-4.36C31.22 9.43 27.81 8 24 8c-5.93 0-11.01 3.4-13.45 8.36l5.03 3.85A8.86 8.86 0 0 1 24 14.14z\" fill=\"#EA4335\"/\u003e\n    \u003c/svg\u003e\n    \u003cdiv class=\"gradient-container\"\u003e\u003cdiv class=\"gradient\"\u003e\u003c/div\u003e\u003c/div\u003e\n  \u003c/div\u003e\n  \u003cdiv class=\"carousel\"\u003e\n    \u003ca class=\"chip\" href=\"https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEYoShsGdCQOWExHwbU5UM5FuKHLafmdFysKGb6rZcWZ_PO3M_JATEhzjLq8LdszBPH-eXlLwZAKbyn-AfFfeEc85GwbnT4ZozGqa0SCYPKjUPaJfQ1dUBs09D2tPnCbWOPrvmblAZV_kZp5IzFw8JYBQQsVlsiTsbkSjxYVomTSXtFxuLJYQmOjxQZw7224n__Ybex6P2V6mb6qnZeh_yyQKTMmjvPGDk=\"\u003ecurrent weather in Melbourne Australia\u003c/a\u003e\n  \u003c/div\u003e\n\u003c/div\u003e\n"
+                  },
+                  "webSearchQueries": [
+                    "current weather in Melbourne Australia",
+                    "",
+                    "current weather in Melbourne Australia"
+                  ]
+                }
+              }
+            ],
+            "createTime": "2026-04-30T19:17:53.511330Z",
+            "modelVersion": "gemini-3-flash-preview",
+            "responseId": "4arzaeKaH-WepucPpMmO8AU",
+            "usageMetadata": {
+              "billablePromptUsage": {
+                "textCount": 32
+              },
+              "candidatesTokenCount": 299,
+              "candidatesTokensDetails": [
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 299
+                }
+              ],
+              "promptTokenCount": 9,
+              "promptTokensDetails": [
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 9
+                }
+              ],
+              "thoughtsTokenCount": 485,
+              "totalTokenCount": 793,
+              "trafficType": "PROVISIONED_THROUGHPUT"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

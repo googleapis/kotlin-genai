@@ -1,0 +1,418 @@
+{
+  "recordID": "ModelsTest.testGenerateContentStreamSimple.mldev",
+  "interactions": [
+    {
+      "request": {
+        "method": "POST",
+        "url": "/v1beta/models/gemini-3-flash-preview:streamGenerateContent?alt=sse",
+        "request": "POST /v1beta/models/gemini-3-flash-preview:streamGenerateContent?alt=sse HTTP/1.1",
+        "headers": {
+          "Accept": "*/*",
+          "Accept-Charset": "UTF-8",
+          "Accept-Encoding": "gzip",
+          "Connection": "Keep-Alive",
+          "Content-Length": "93",
+          "Content-Type": "application/json",
+          "Test-Name": "ModelsTest.testGenerateContentStreamSimple.mldev"
+        },
+        "bodySegments": [
+          {
+            "contents": [
+              {
+                "parts": [
+                  {
+                    "text": "Tell me a story about Paris in 200 words."
+                  }
+                ],
+                "role": "user"
+              }
+            ]
+          }
+        ],
+        "previousRequest": "b4d6e60a9b97e7b98c63df9308728c5c88c0b40c398046772c63447b94608b4d",
+        "serverAddress": "generativelanguage.googleapis.com",
+        "port": 443,
+        "protocol": "https"
+      },
+      "shaSum": "37d2868fb52523efb9b66aa0ecab6bf53ea185b61563443e0b3343d933322e9a",
+      "response": {
+        "statusCode": 200,
+        "headers": {
+          "Content-Disposition": "attachment",
+          "Content-Type": "text/event-stream",
+          "Date": "Thu, 30 Apr 2026 21:41:46 GMT",
+          "Server": "scaffolding on HTTPServer2",
+          "Server-Timing": "gfet4t7; dur=4355",
+          "Vary": "Origin, X-Origin, Referer",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "SAMEORIGIN",
+          "X-Xss-Protection": "0"
+        },
+        "bodySegments": [
+          {
+            "candidates": [
+              {
+                "content": {
+                  "parts": [
+                    {
+                      "text": "The rain in Paris didn't just fall; it misted, turning the Haussmann facades into silver ghosts."
+                    }
+                  ],
+                  "role": "model"
+                },
+                "index": 0
+              }
+            ],
+            "modelVersion": "gemini-3-flash-preview",
+            "responseId": "mszzaajNC_DrjrEPuaWG8QE",
+            "turnToken": "v1_Chdtc3p6YWFqTkNfRHJqckVQdWFXRzhRRRIXbXN6emFhak5DX0RyanJFUHVhV0c4UUU",
+            "usageMetadata": {
+              "candidatesTokenCount": 24,
+              "promptTokenCount": 14,
+              "promptTokensDetails": [
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 14
+                }
+              ],
+              "thoughtsTokenCount": 524,
+              "totalTokenCount": 562
+            }
+          },
+          {
+            "candidates": [
+              {
+                "content": {
+                  "parts": [
+                    {
+                      "text": " Elara ducked under a navy awning on Rue des Rosiers, her sketchbook tucked tight against her ribs. The scent"
+                    }
+                  ],
+                  "role": "model"
+                },
+                "index": 0
+              }
+            ],
+            "modelVersion": "gemini-3-flash-preview",
+            "responseId": "mszzaajNC_DrjrEPuaWG8QE",
+            "turnToken": "v1_Chdtc3p6YWFqTkNfRHJqckVQdWFXRzhRRRIXbXN6emFhak5DX0RyanJFUHVhV0c4UUU",
+            "usageMetadata": {
+              "candidatesTokenCount": 48,
+              "promptTokenCount": 14,
+              "promptTokensDetails": [
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 14
+                }
+              ],
+              "thoughtsTokenCount": 524,
+              "totalTokenCount": 586
+            }
+          },
+          {
+            "candidates": [
+              {
+                "content": {
+                  "parts": [
+                    {
+                      "text": " of toasted yeast and rain-soaked stone filled the air.\n\nInside the tiny boulangerie, an accordion hummed from a vintage radio."
+                    }
+                  ],
+                  "role": "model"
+                },
+                "index": 0
+              }
+            ],
+            "modelVersion": "gemini-3-flash-preview",
+            "responseId": "mszzaajNC_DrjrEPuaWG8QE",
+            "turnToken": "v1_Chdtc3p6YWFqTkNfRHJqckVQdWFXRzhRRRIXbXN6emFhak5DX0RyanJFUHVhV0c4UUU",
+            "usageMetadata": {
+              "candidatesTokenCount": 77,
+              "promptTokenCount": 14,
+              "promptTokensDetails": [
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 14
+                }
+              ],
+              "thoughtsTokenCount": 524,
+              "totalTokenCount": 615
+            }
+          },
+          {
+            "candidates": [
+              {
+                "content": {
+                  "parts": [
+                    {
+                      "text": " An old woman, her hair a cloud of spun sugar, handed Elara a croissant wrapped in tissue. \"Pour la"
+                    }
+                  ],
+                  "role": "model"
+                },
+                "index": 0
+              }
+            ],
+            "modelVersion": "gemini-3-flash-preview",
+            "responseId": "mszzaajNC_DrjrEPuaWG8QE",
+            "turnToken": "v1_Chdtc3p6YWFqTkNfRHJqckVQdWFXRzhRRRIXbXN6emFhak5DX0RyanJFUHVhV0c4UUU",
+            "usageMetadata": {
+              "candidatesTokenCount": 101,
+              "promptTokenCount": 14,
+              "promptTokensDetails": [
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 14
+                }
+              ],
+              "thoughtsTokenCount": 524,
+              "totalTokenCount": 639
+            }
+          },
+          {
+            "candidates": [
+              {
+                "content": {
+                  "parts": [
+                    {
+                      "text": " chance,\" she whispered. *For luck.*\n\nElara sat by the window. Outside, the world moved in a"
+                    }
+                  ],
+                  "role": "model"
+                },
+                "index": 0
+              }
+            ],
+            "modelVersion": "gemini-3-flash-preview",
+            "responseId": "mszzaajNC_DrjrEPuaWG8QE",
+            "turnToken": "v1_Chdtc3p6YWFqTkNfRHJqckVQdWFXRzhRRRIXbXN6emFhak5DX0RyanJFUHVhV0c4UUU",
+            "usageMetadata": {
+              "candidatesTokenCount": 125,
+              "promptTokenCount": 14,
+              "promptTokensDetails": [
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 14
+                }
+              ],
+              "thoughtsTokenCount": 524,
+              "totalTokenCount": 663
+            }
+          },
+          {
+            "candidates": [
+              {
+                "content": {
+                  "parts": [
+                    {
+                      "text": " blur of black umbrellas and yellow bicycle lights. She began to draw—not the Eiffel Tower, but the way the pudd"
+                    }
+                  ],
+                  "role": "model"
+                },
+                "index": 0
+              }
+            ],
+            "modelVersion": "gemini-3-flash-preview",
+            "responseId": "mszzaajNC_DrjrEPuaWG8QE",
+            "turnToken": "v1_Chdtc3p6YWFqTkNfRHJqckVQdWFXRzhRRRIXbXN6emFhak5DX0RyanJFUHVhV0c4UUU",
+            "usageMetadata": {
+              "candidatesTokenCount": 149,
+              "promptTokenCount": 14,
+              "promptTokensDetails": [
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 14
+                }
+              ],
+              "thoughtsTokenCount": 524,
+              "totalTokenCount": 687
+            }
+          },
+          {
+            "candidates": [
+              {
+                "content": {
+                  "parts": [
+                    {
+                      "text": "les reflected the neon \"Pharmacie\" sign like spilled jewels. \n\nAcross the street, a young cellist began"
+                    }
+                  ],
+                  "role": "model"
+                },
+                "index": 0
+              }
+            ],
+            "modelVersion": "gemini-3-flash-preview",
+            "responseId": "mszzaajNC_DrjrEPuaWG8QE",
+            "turnToken": "v1_Chdtc3p6YWFqTkNfRHJqckVQdWFXRzhRRRIXbXN6emFhak5DX0RyanJFUHVhV0c4UUU",
+            "usageMetadata": {
+              "candidatesTokenCount": 173,
+              "promptTokenCount": 14,
+              "promptTokensDetails": [
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 14
+                }
+              ],
+              "thoughtsTokenCount": 524,
+              "totalTokenCount": 711
+            }
+          },
+          {
+            "candidates": [
+              {
+                "content": {
+                  "parts": [
+                    {
+                      "text": " to play. The music wove through the steam of her coffee, anchoring her to the pavement. In this city, every alleyway"
+                    }
+                  ],
+                  "role": "model"
+                },
+                "index": 0
+              }
+            ],
+            "modelVersion": "gemini-3-flash-preview",
+            "responseId": "mszzaajNC_DrjrEPuaWG8QE",
+            "turnToken": "v1_Chdtc3p6YWFqTkNfRHJqckVQdWFXRzhRRRIXbXN6emFhak5DX0RyanJFUHVhV0c4UUU",
+            "usageMetadata": {
+              "candidatesTokenCount": 200,
+              "promptTokenCount": 14,
+              "promptTokensDetails": [
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 14
+                }
+              ],
+              "thoughtsTokenCount": 524,
+              "totalTokenCount": 738
+            }
+          },
+          {
+            "candidates": [
+              {
+                "content": {
+                  "parts": [
+                    {
+                      "text": " felt like a secret kept for centuries. Elara realized she wasn't lost; she was exactly where she belonged. As the clouds parted,"
+                    }
+                  ],
+                  "role": "model"
+                },
+                "index": 0
+              }
+            ],
+            "modelVersion": "gemini-3-flash-preview",
+            "responseId": "mszzaajNC_DrjrEPuaWG8QE",
+            "turnToken": "v1_Chdtc3p6YWFqTkNfRHJqckVQdWFXRzhRRRIXbXN6emFhak5DX0RyanJFUHVhV0c4UUU",
+            "usageMetadata": {
+              "candidatesTokenCount": 229,
+              "promptTokenCount": 14,
+              "promptTokensDetails": [
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 14
+                }
+              ],
+              "thoughtsTokenCount": 524,
+              "totalTokenCount": 767
+            }
+          },
+          {
+            "candidates": [
+              {
+                "content": {
+                  "parts": [
+                    {
+                      "text": " a single golden ray hit the cobblestones, turning the wet street into a path of gilded light. Paris wasn’t"
+                    }
+                  ],
+                  "role": "model"
+                },
+                "index": 0
+              }
+            ],
+            "modelVersion": "gemini-3-flash-preview",
+            "responseId": "mszzaajNC_DrjrEPuaWG8QE",
+            "turnToken": "v1_Chdtc3p6YWFqTkNfRHJqckVQdWFXRzhRRRIXbXN6emFhak5DX0RyanJFUHVhV0c4UUU",
+            "usageMetadata": {
+              "candidatesTokenCount": 253,
+              "promptTokenCount": 14,
+              "promptTokensDetails": [
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 14
+                }
+              ],
+              "thoughtsTokenCount": 524,
+              "totalTokenCount": 791
+            }
+          },
+          {
+            "candidates": [
+              {
+                "content": {
+                  "parts": [
+                    {
+                      "text": " just a city; it was a feeling."
+                    }
+                  ],
+                  "role": "model"
+                },
+                "index": 0
+              }
+            ],
+            "modelVersion": "gemini-3-flash-preview",
+            "responseId": "mszzaajNC_DrjrEPuaWG8QE",
+            "turnToken": "v1_Chdtc3p6YWFqTkNfRHJqckVQdWFXRzhRRRIXbXN6emFhak5DX0RyanJFUHVhV0c4UUU",
+            "usageMetadata": {
+              "candidatesTokenCount": 262,
+              "promptTokenCount": 14,
+              "promptTokensDetails": [
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 14
+                }
+              ],
+              "thoughtsTokenCount": 524,
+              "totalTokenCount": 800
+            }
+          },
+          {
+            "candidates": [
+              {
+                "content": {
+                  "parts": [
+                    {
+                      "text": "",
+                      "thoughtSignature": "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"
+                    }
+                  ],
+                  "role": "model"
+                },
+                "finishReason": "STOP",
+                "index": 0
+              }
+            ],
+            "modelVersion": "gemini-3-flash-preview",
+            "responseId": "mszzaajNC_DrjrEPuaWG8QE",
+            "turnToken": "v1_Chdtc3p6YWFqTkNfRHJqckVQdWFXRzhRRRIXbXN6emFhak5DX0RyanJFUHVhV0c4UUU",
+            "usageMetadata": {
+              "candidatesTokenCount": 262,
+              "promptTokenCount": 14,
+              "promptTokensDetails": [
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 14
+                }
+              ],
+              "thoughtsTokenCount": 524,
+              "totalTokenCount": 800
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

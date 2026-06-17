@@ -1,0 +1,105 @@
+{
+  "recordID": "ModelsTest.testGenerateContentWithThinkingConfig.vertex",
+  "interactions": [
+    {
+      "request": {
+        "method": "POST",
+        "url": "/v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-3-flash-preview:generateContent",
+        "request": "POST /v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-3-flash-preview:generateContent HTTP/1.1",
+        "headers": {
+          "Accept": "*/*",
+          "Accept-Charset": "UTF-8",
+          "Accept-Encoding": "gzip",
+          "Connection": "Keep-Alive",
+          "Content-Length": "167",
+          "Content-Type": "application/json",
+          "Test-Name": "ModelsTest.testGenerateContentWithThinkingConfig.vertex"
+        },
+        "bodySegments": [
+          {
+            "contents": [
+              {
+                "parts": [
+                  {
+                    "text": "What is the capital of France?"
+                  }
+                ],
+                "role": "user"
+              }
+            ],
+            "generationConfig": {
+              "thinkingConfig": {
+                "includeThoughts": true,
+                "thinkingLevel": "LOW"
+              }
+            }
+          }
+        ],
+        "previousRequest": "b4d6e60a9b97e7b98c63df9308728c5c88c0b40c398046772c63447b94608b4d",
+        "serverAddress": "aiplatform.googleapis.com",
+        "port": 443,
+        "protocol": "https"
+      },
+      "shaSum": "12b3e7839d824937d5843ade253d056750e500605f5b595f7679640b5336b622",
+      "response": {
+        "statusCode": 200,
+        "headers": {
+          "Content-Encoding": "gzip",
+          "Content-Length": "870",
+          "Content-Type": "application/json; charset=UTF-8",
+          "Date": "Mon, 11 May 2026 20:57:30 GMT",
+          "Server": "scaffolding on HTTPServer2",
+          "Vary": "Origin, X-Origin, Referer",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "SAMEORIGIN",
+          "X-Vertex-Ai-Llm-Request-Type": "dedicated",
+          "X-Xss-Protection": "0"
+        },
+        "bodySegments": [
+          {
+            "candidates": [
+              {
+                "content": {
+                  "parts": [
+                    {
+                      "text": "**My Thought Process on Identifying the Capital of France**\n\nAh, the user's request is quite direct, isn't it? They've posed a straightforward question: \"What is the capital of France?\" My internal knowledge base immediately accesses information pertaining to the nation of \"France.\" Within that data set, the primary geographical and political identifier for its capital city is readily available. And without a moment's hesitation, the answer emerges: Paris. So, the capital of France, in my assessment, is unequivocally Paris.\n\n",
+                      "thought": true
+                    },
+                    {
+                      "text": "The capital of France is **Paris**.",
+                      "thoughtSignature": "AY89a1+on3qUtkfs+FFOpRzQy2O/RQsEEllXPnovoG72I0hYmRDTr3/GQYdTyb1DAjh5bsGR0GPTje8TyTNS2pTNd3FSm41YMK7yk0SOqVxmn6VGGudZm2Y+2YWwxAWroSHXY5bodRee38kkxs//UaaSHUXIogUnrZ+oo/fpvZGlxvlxDN7V"
+                    }
+                  ],
+                  "role": "model"
+                },
+                "finishReason": "STOP"
+              }
+            ],
+            "createTime": "2026-05-11T20:57:29.105542Z",
+            "modelVersion": "gemini-3-flash-preview",
+            "responseId": "uUICasa4Bs2BpucP2JWDuQM",
+            "usageMetadata": {
+              "candidatesTokenCount": 8,
+              "candidatesTokensDetails": [
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 8
+                }
+              ],
+              "promptTokenCount": 7,
+              "promptTokensDetails": [
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 7
+                }
+              ],
+              "thoughtsTokenCount": 21,
+              "totalTokenCount": 36,
+              "trafficType": "PROVISIONED_THROUGHPUT"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

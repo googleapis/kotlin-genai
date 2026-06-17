@@ -1,0 +1,98 @@
+{
+  "recordID": "ModelsTest.testGenerateContentWithCommonConfig.mldev",
+  "interactions": [
+    {
+      "request": {
+        "method": "POST",
+        "url": "/v1beta/models/gemini-3-flash-preview:generateContent",
+        "request": "POST /v1beta/models/gemini-3-flash-preview:generateContent HTTP/1.1",
+        "headers": {
+          "Accept": "*/*",
+          "Accept-Charset": "UTF-8",
+          "Accept-Encoding": "gzip",
+          "Connection": "Keep-Alive",
+          "Content-Length": "174",
+          "Content-Type": "application/json",
+          "Test-Name": "ModelsTest.testGenerateContentWithCommonConfig.mldev"
+        },
+        "bodySegments": [
+          {
+            "contents": [
+              {
+                "parts": [
+                  {
+                    "text": "List the numbers from 1 to 5"
+                  }
+                ],
+                "role": "user"
+              }
+            ],
+            "generationConfig": {
+              "maxOutputTokens": 100,
+              "stopSequences": [
+                "3"
+              ],
+              "temperature": 0.1,
+              "topK": 1
+            }
+          }
+        ],
+        "previousRequest": "b4d6e60a9b97e7b98c63df9308728c5c88c0b40c398046772c63447b94608b4d",
+        "serverAddress": "generativelanguage.googleapis.com",
+        "port": 443,
+        "protocol": "https"
+      },
+      "shaSum": "29d617b67316a1e6490dde8677fabaa351f8656439eb80c4637674c407368c08",
+      "response": {
+        "statusCode": 200,
+        "headers": {
+          "Content-Encoding": "gzip",
+          "Content-Length": "639",
+          "Content-Type": "application/json; charset=UTF-8",
+          "Date": "Mon, 04 May 2026 19:59:07 GMT",
+          "Server": "scaffolding on HTTPServer2",
+          "Server-Timing": "gfet4t7; dur=1185",
+          "Vary": "Origin, X-Origin, Referer",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "SAMEORIGIN",
+          "X-Gemini-Service-Tier": "standard",
+          "X-Xss-Protection": "0"
+        },
+        "bodySegments": [
+          {
+            "candidates": [
+              {
+                "content": {
+                  "parts": [
+                    {
+                      "text": "1, 2, ",
+                      "thoughtSignature": "EucBCuQBAQw51sfiC9B20MOLzwsDgU8ik3wsmNwu8gCvi6CTB6ztTHCYRwBghn4TDNEtEaTBK1+9qieYH97EDEltP8FcK7mgTdjX5uvKIAmrLHl6LgnkDc81+PjAH85nKwIZp7JbTCl3T8jFjsSBKCOyWZ8Hy0VpSuZ5Wksi/4mwTNQIT28Fum6Er7VuWx8qKCJ8eSYxiDI7Xvhd18L9gkh3uzG9o5zaLDTmtWVOhX2G0H3+SsXitHRDexrRitK0vwTvxsMROf+CyKEBxufA6jv+FX5f6BD5Vn+ixt9D1VXdjecLDQfl4SDS"
+                    }
+                  ],
+                  "role": "model"
+                },
+                "finishReason": "STOP",
+                "index": 0
+              }
+            ],
+            "modelVersion": "gemini-3-flash-preview",
+            "responseId": "i_r4acv0D4GqjrEPj-HUyQs",
+            "turnToken": "v1_ChdpX3I0YWN2MEQ0R3FqckVQai1IVXlRcxIXaV9yNGFjdjBENEdxanJFUGotSFV5UXM",
+            "usageMetadata": {
+              "candidatesTokenCount": 6,
+              "promptTokenCount": 10,
+              "promptTokensDetails": [
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 10
+                }
+              ],
+              "thoughtsTokenCount": 68,
+              "totalTokenCount": 84
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,105 @@
+{
+  "recordID": "ModelsTest.testGenerateContentWithImageUrl.vertex",
+  "interactions": [
+    {
+      "request": {
+        "method": "POST",
+        "url": "/v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-3-flash-preview:generateContent",
+        "request": "POST /v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-3-flash-preview:generateContent HTTP/1.1",
+        "headers": {
+          "Accept": "*/*",
+          "Accept-Charset": "UTF-8",
+          "Accept-Encoding": "gzip",
+          "Connection": "Keep-Alive",
+          "Content-Length": "177",
+          "Content-Type": "application/json",
+          "Test-Name": "ModelsTest.testGenerateContentWithImageUrl.vertex"
+        },
+        "bodySegments": [
+          {
+            "contents": [
+              {
+                "parts": [
+                  {
+                    "fileData": {
+                      "fileUri": "gs://cloud-samples-data/generative-ai/image/scones.jpg",
+                      "mimeType": "image/jpeg"
+                    }
+                  },
+                  {
+                    "text": "Describe this image"
+                  }
+                ],
+                "role": "user"
+              }
+            ]
+          }
+        ],
+        "previousRequest": "b4d6e60a9b97e7b98c63df9308728c5c88c0b40c398046772c63447b94608b4d",
+        "serverAddress": "aiplatform.googleapis.com",
+        "port": 443,
+        "protocol": "https"
+      },
+      "shaSum": "08303278c165c359ba68e04cf14dfc35085814a3e3ca5e422810d3a083b118f8",
+      "response": {
+        "statusCode": 200,
+        "headers": {
+          "Content-Encoding": "gzip",
+          "Content-Length": "4906",
+          "Content-Type": "application/json; charset=UTF-8",
+          "Date": "Tue, 12 May 2026 17:44:49 GMT",
+          "Server": "scaffolding on HTTPServer2",
+          "Vary": "Origin, X-Origin, Referer",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "SAMEORIGIN",
+          "X-Vertex-Ai-Llm-Request-Type": "dedicated",
+          "X-Xss-Protection": "0"
+        },
+        "bodySegments": [
+          {
+            "candidates": [
+              {
+                "content": {
+                  "parts": [
+                    {
+                      "text": "This is a charming, overhead \"flat lay\" photograph of a rustic and inviting breakfast or snack scene. The composition is set against a dark, textured background and is bathed in soft, natural light.\n\n**Key elements include:**\n\n*   **Blueberry Scones:** Five large, round, golden-brown scones are the centerpiece. They appear crumbly and are bursting with dark purple cooked blueberries. They are scattered across a piece of white parchment paper that shows artistic purple stains from the berry juice. Granulated sugar is sprinkled over the scones and around the paper.\n*   **Coffee:** Two small white cups of coffee are positioned at opposite corners. The cup at the top left contains dark, black coffee, while the cup at the bottom right contains coffee lightened with cream or milk.\n*   **Fresh Berries and Mint:** A small dark bowl at the bottom center is filled with fresh, plump blueberries. More blueberries are scattered loosely across the parchment paper and the dark table surface. A single small sprig of fresh mint sits near the center.\n*   **Engraved Spoon:** A vintage-style silver spoon lies next to the bowl of blueberries. The bowl of the spoon is engraved with the playful phrase \"LET'S JAM.\"\n*   **Peonies:** Along the right side of the image, a bunch of lush pink and white peonies provides a soft, floral touch. Some are in full bloom while others are still tight buds, with their long green stems and leaves extending toward the bottom right.\n*   **Background Details:** The parchment paper rests on a dark, distressed surface. Tucked under the bottom right edge of the parchment is a glimpse of a printed magazine or patterned paper, adding to the layered, lifestyle aesthetic of the shot.",
+                      "thoughtSignature": "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"
+                    }
+                  ],
+                  "role": "model"
+                },
+                "finishReason": "STOP"
+              }
+            ],
+            "createTime": "2026-05-12T17:44:41.633964Z",
+            "modelVersion": "gemini-3-flash-preview",
+            "responseId": "CWcDauzYJs2BpucP2JWDuQM",
+            "usageMetadata": {
+              "candidatesTokenCount": 358,
+              "candidatesTokensDetails": [
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 358
+                }
+              ],
+              "promptTokenCount": 1083,
+              "promptTokensDetails": [
+                {
+                  "modality": "IMAGE",
+                  "tokenCount": 1080
+                },
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 3
+                }
+              ],
+              "thoughtsTokenCount": 787,
+              "totalTokenCount": 2228,
+              "trafficType": "PROVISIONED_THROUGHPUT"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

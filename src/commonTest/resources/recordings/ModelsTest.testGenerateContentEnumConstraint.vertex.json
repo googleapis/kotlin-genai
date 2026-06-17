@@ -1,0 +1,106 @@
+{
+  "recordID": "ModelsTest.testGenerateContentEnumConstraint.vertex",
+  "interactions": [
+    {
+      "request": {
+        "method": "POST",
+        "url": "/v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-3-flash-preview:generateContent",
+        "request": "POST /v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-3-flash-preview:generateContent HTTP/1.1",
+        "headers": {
+          "Accept": "*/*",
+          "Accept-Charset": "UTF-8",
+          "Accept-Encoding": "gzip",
+          "Connection": "Keep-Alive",
+          "Content-Length": "270",
+          "Content-Type": "application/json",
+          "Test-Name": "ModelsTest.testGenerateContentEnumConstraint.vertex"
+        },
+        "bodySegments": [
+          {
+            "contents": [
+              {
+                "parts": [
+                  {
+                    "text": "What is your favorite ice cream flavor among chocolate, vanilla, and strawberry?"
+                  }
+                ],
+                "role": "user"
+              }
+            ],
+            "generationConfig": {
+              "responseMimeType": "application/json",
+              "responseSchema": {
+                "enum": [
+                  "chocolate",
+                  "vanilla",
+                  "strawberry"
+                ],
+                "type": "STRING"
+              }
+            }
+          }
+        ],
+        "previousRequest": "b4d6e60a9b97e7b98c63df9308728c5c88c0b40c398046772c63447b94608b4d",
+        "serverAddress": "aiplatform.googleapis.com",
+        "port": 443,
+        "protocol": "https"
+      },
+      "shaSum": "0518da75e78c09ef45b94956c2b2b1b0dd6bcecfdf00f9272530a32cf5236035",
+      "response": {
+        "statusCode": 200,
+        "headers": {
+          "Content-Encoding": "gzip",
+          "Content-Length": "2222",
+          "Content-Type": "application/json; charset=UTF-8",
+          "Date": "Mon, 11 May 2026 17:37:13 GMT",
+          "Server": "scaffolding on HTTPServer2",
+          "Vary": "Origin, X-Origin, Referer",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "SAMEORIGIN",
+          "X-Vertex-Ai-Llm-Request-Type": "dedicated",
+          "X-Xss-Protection": "0"
+        },
+        "bodySegments": [
+          {
+            "candidates": [
+              {
+                "content": {
+                  "parts": [
+                    {
+                      "text": "\"chocolate\"",
+                      "thoughtSignature": "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"
+                    }
+                  ],
+                  "role": "model"
+                },
+                "finishReason": "STOP"
+              }
+            ],
+            "createTime": "2026-05-11T17:37:10.375395Z",
+            "modelVersion": "gemini-3-flash-preview",
+            "responseId": "xhMCauP0Fs2BpucP2JWDuQM",
+            "usageMetadata": {
+              "candidatesTokenCount": 3,
+              "candidatesTokensDetails": [
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 3
+                }
+              ],
+              "promptTokenCount": 41,
+              "promptTokensDetails": [
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 41
+                }
+              ],
+              "thoughtsTokenCount": 452,
+              "totalTokenCount": 496,
+              "trafficType": "PROVISIONED_THROUGHPUT"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
