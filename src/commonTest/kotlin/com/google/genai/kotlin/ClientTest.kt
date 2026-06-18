@@ -16,6 +16,8 @@
 
 package com.google.genai.kotlin
 
+import com.google.auth.oauth2.AccessToken
+import com.google.auth.oauth2.GoogleCredentials
 import io.mockk.every
 import io.mockk.mockk
 import kotlin.test.Test
@@ -27,6 +29,7 @@ class ClientTest {
   private val API_KEY = "test-api-key"
   private val PROJECT = "test-project"
   private val LOCATION = "us-central1"
+  private val MOCK_CREDENTIALS = GoogleCredentials.create(AccessToken("test-token", null))
 
   private val mockEnvironment = mockk<Environment>()
 
@@ -53,6 +56,7 @@ class ClientTest {
       Client(
         project = PROJECT,
         location = LOCATION,
+        credentials = MOCK_CREDENTIALS,
         enterprise = true,
         environment = mockEnvironment,
       )
@@ -64,7 +68,13 @@ class ClientTest {
   @Test
   fun testVertexClientInitialization_withProjectAndDefaultLocation() {
     clearEnv()
-    val client = Client(project = PROJECT, enterprise = true, environment = mockEnvironment)
+    val client =
+      Client(
+        project = PROJECT,
+        enterprise = true,
+        credentials = MOCK_CREDENTIALS,
+        environment = mockEnvironment,
+      )
     assertEquals(PROJECT, client.project)
     assertEquals("global", client.location)
     assertEquals(true, client.enterprise)
@@ -145,7 +155,7 @@ class ClientTest {
     setEnv("GOOGLE_CLOUD_LOCATION", LOCATION)
     setEnv("GOOGLE_GENAI_USE_ENTERPRISE", "true")
 
-    val client = Client(environment = mockEnvironment)
+    val client = Client(credentials = MOCK_CREDENTIALS, environment = mockEnvironment)
 
     assertEquals(PROJECT, client.project)
     assertEquals(LOCATION, client.location)
@@ -173,14 +183,9 @@ class ClientTest {
   @Test
   fun testClientInitialization_withApiKeyAndCredentials_throwsException() {
     clearEnv()
-    val mockCredentials = mockk<GoogleCredentials>()
     val exception =
       assertFailsWith<IllegalArgumentException> {
-        Client(
-          apiKey = API_KEY,
-          credentials = mockCredentials,
-          environment = mockEnvironment,
-        )
+        Client(apiKey = API_KEY, credentials = MOCK_CREDENTIALS, environment = mockEnvironment)
       }
     assertEquals(
       "Credentials and API key are mutually exclusive in the client initializer. Please provide only one of them.",

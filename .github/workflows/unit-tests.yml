@@ -1,0 +1,28 @@
+name: Kotlin Unit Tests
+
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+
+jobs:
+  unit-test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        java: [17, 21]
+      fail-fast: false
+    name: unit-test (${{matrix.java}})
+    steps:
+    - uses: actions/checkout@v4
+    - uses: actions/setup-java@v4
+      with:
+        distribution: 'temurin'
+        java-version: ${{matrix.java}}
+    - name: Setup Gradle
+      uses: gradle/actions/setup-gradle@v3
+    - name: Kotlin Unit Tests
+      run: ./gradlew test

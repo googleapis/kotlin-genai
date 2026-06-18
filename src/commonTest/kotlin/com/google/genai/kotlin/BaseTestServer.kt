@@ -16,6 +16,8 @@
 
 package com.google.genai.kotlin
 
+import com.google.auth.oauth2.AccessToken
+import com.google.auth.oauth2.GoogleCredentials
 import com.google.genai.kotlin.types.HttpOptions
 import com.google.testserver.TestServer
 import com.google.testserver.TestServerOptions
@@ -75,9 +77,16 @@ open class BaseTestServer {
     val httpOptions =
       HttpOptions(baseUrl = "http://localhost:$port", headers = mapOf("Test-Name" to testName))
     if (enterprise) {
+      val creds =
+        if (testMode == "replay") {
+          GoogleCredentials.create(AccessToken("test-token", null))
+        } else {
+          null
+        }
       return Client(
         project = project,
         location = location,
+        credentials = creds,
         enterprise = enterprise,
         httpOptions = httpOptions,
       )
