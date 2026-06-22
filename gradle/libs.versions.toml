@@ -21,6 +21,7 @@ kotlinx-datetime = "0.6.0"
 kotlinx-coroutines = "1.7.3"
 google-auth = "1.33.0"
 mockk = "1.13.9"
+dokka = "1.9.20"
 
 [libraries]
 kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinx-serialization" }
@@ -39,3 +40,4 @@ mockk = { module = "io.mockk:mockk", version.ref = "mockk" }
 kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 android-library = { id = "com.android.library", version.ref = "android-gradle-plugin" }
+dokka = { id = "org.jetbrains.dokka", version.ref = "dokka" }
