@@ -20,7 +20,7 @@ package com.google.genai.kotlin.types
 
 import kotlinx.serialization.Serializable
 
-/** Config for `des` parameter. */
+/** Config for `dest` parameter. */
 @Serializable
 data class BatchJobDestination(
 
