@@ -20,11 +20,22 @@ package com.google.genai.kotlin.types
 
 import kotlinx.serialization.Serializable
 
-/** Composite reinforcement tuning reward config. */
+/** Configuration for audio-specific output formatting. */
 @Serializable
-data class CompositeReinforcementTuningRewardConfig(
+data class AudioResponseFormat(
 
-  /** List of reward function configurations with weights. */
-  val weightedRewardConfigs: List<CompositeReinforcementTuningRewardConfigWeightedRewardConfig>? =
-    null
+  /**
+   * Optional. Bit rate in bits per second (bps). Only applicable for compressed formats (MP3,
+   * Opus).
+   */
+  val bitRate: Int? = null,
+
+  /** Optional. Delivery mode for the generated content. */
+  val delivery: Delivery? = null,
+
+  /** Optional. The MIME type of the audio output. */
+  val mimeType: String? = null,
+
+  /** Optional. Sample rate for the generated audio in Hertz. */
+  val sampleRate: Int? = null,
 )

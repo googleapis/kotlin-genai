@@ -56,4 +56,15 @@ data class DatasetStats(
 
   /** Output only. Dataset distributions for the user output tokens. */
   val userOutputTokenDistribution: DatasetDistribution? = null,
+
+  /** Output only. Dataset distributions for the number of contents per example. */
+  val contentsPerExampleDistribution: DatasetDistribution? = null,
+
+  /**
+   * Output only. Sample user dataset examples in the training dataset uri for Reinforcement Tuning.
+   */
+  val reinforcementTuningUserDatasetExamples: ReinforcementTuningUserDatasetExamples? = null,
+
+  /** Output only. Number of billable tokens in the tuning dataset. */
+  val totalBillableTokenCount: Long? = null,
 )

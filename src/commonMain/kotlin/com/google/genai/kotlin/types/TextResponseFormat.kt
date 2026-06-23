@@ -19,12 +19,18 @@
 package com.google.genai.kotlin.types
 
 import kotlinx.serialization.Serializable
+import kotlinx.serialization.json.JsonElement
 
-/** Composite reinforcement tuning reward config. */
+/** Configuration for text-specific output formatting. */
 @Serializable
-data class CompositeReinforcementTuningRewardConfig(
+data class TextResponseFormat(
 
-  /** List of reward function configurations with weights. */
-  val weightedRewardConfigs: List<CompositeReinforcementTuningRewardConfigWeightedRewardConfig>? =
-    null
+  /** Optional. The IANA standard MIME type of the response. */
+  val mimeType: String? = null,
+
+  /**
+   * Optional. The JSON schema that the output should conform to. Only applicable when mime_type is
+   * APPLICATION_JSON.
+   */
+  val schema: JsonElement? = null,
 )

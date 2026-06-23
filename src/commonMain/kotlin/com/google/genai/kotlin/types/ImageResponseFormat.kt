@@ -20,11 +20,19 @@ package com.google.genai.kotlin.types
 
 import kotlinx.serialization.Serializable
 
-/** Composite reinforcement tuning reward config. */
+/** Configuration for image-specific output formatting. */
 @Serializable
-data class CompositeReinforcementTuningRewardConfig(
+data class ImageResponseFormat(
 
-  /** List of reward function configurations with weights. */
-  val weightedRewardConfigs: List<CompositeReinforcementTuningRewardConfigWeightedRewardConfig>? =
-    null
+  /** Optional. The aspect ratio for the image output. */
+  val aspectRatio: AspectRatio? = null,
+
+  /** Optional. Delivery mode for the generated content. */
+  val delivery: Delivery? = null,
+
+  /** Optional. The size of the image output. */
+  val imageSize: ImageSize? = null,
+
+  /** Optional. The MIME type of the image output. */
+  val mimeType: String? = null,
 )

@@ -20,11 +20,22 @@ package com.google.genai.kotlin.types
 
 import kotlinx.serialization.Serializable
 
-/** Composite reinforcement tuning reward config. */
+/**
+ * Configuration for the model to configure output formatting and delivery. This data type is not
+ * supported in Gemini API.
+ */
 @Serializable
-data class CompositeReinforcementTuningRewardConfig(
+data class ResponseFormat(
 
-  /** List of reward function configurations with weights. */
-  val weightedRewardConfigs: List<CompositeReinforcementTuningRewardConfigWeightedRewardConfig>? =
-    null
+  /** Audio output format. */
+  val audio: AudioResponseFormat? = null,
+
+  /** Image output format. */
+  val image: ImageResponseFormat? = null,
+
+  /** Text output format. */
+  val text: TextResponseFormat? = null,
+
+  /** Video output format. */
+  val video: VideoResponseFormat? = null,
 )
