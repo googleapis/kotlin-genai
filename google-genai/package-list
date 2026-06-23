@@ -2845,15 +2845,6 @@ $dokka.location:com.google.genai.kotlin.types/WebhookConfig/WebhookConfig/#kotli
 $dokka.location:com.google.genai.kotlin.types/WebhookConfig/uris/#/PointingToDeclaration/google-genai/com.google.genai.kotlin.types/-webhook-config/uris.html
 $dokka.location:com.google.genai.kotlin.types/WebhookConfig/userMetadata/#/PointingToDeclaration/google-genai/com.google.genai.kotlin.types/-webhook-config/user-metadata.html
 $dokka.location:com.google.genai.kotlin////PointingToDeclaration/google-genai/com.google.genai.kotlin/index.html
-$dokka.location:com.google.genai.kotlin//applyToRequest/com.google.genai.kotlin.GoogleCredentials#io.ktor.client.request.HttpRequestBuilder/PointingToDeclaration/google-genai/com.google.genai.kotlin/apply-to-request.html
-$dokka.location:com.google.genai.kotlin//getDefaultCredentials/#/PointingToDeclaration/google-genai/com.google.genai.kotlin/get-default-credentials.html
-$dokka.location:com.google.genai.kotlin//getDefaultEngine/#/PointingToDeclaration/google-genai/com.google.genai.kotlin/get-default-engine.html
-$dokka.location:com.google.genai.kotlin/ApiResponse///PointingToDeclaration/google-genai/com.google.genai.kotlin/-api-response/index.html
-$dokka.location:com.google.genai.kotlin/ApiResponse/ApiResponse/#io.ktor.client.statement.HttpResponse/PointingToDeclaration/google-genai/com.google.genai.kotlin/-api-response/-api-response.html
-$dokka.location:com.google.genai.kotlin/ApiResponse/body/#/PointingToDeclaration/google-genai/com.google.genai.kotlin/-api-response/body.html
-$dokka.location:com.google.genai.kotlin/ApiResponse/deserialize/#/PointingToDeclaration/google-genai/com.google.genai.kotlin/-api-response/deserialize.html
-$dokka.location:com.google.genai.kotlin/ApiResponse/headers/#/PointingToDeclaration/google-genai/com.google.genai.kotlin/-api-response/headers.html
-$dokka.location:com.google.genai.kotlin/ApiResponse/statusCode/#/PointingToDeclaration/google-genai/com.google.genai.kotlin/-api-response/status-code.html
 $dokka.location:com.google.genai.kotlin/Client///PointingToDeclaration/google-genai/com.google.genai.kotlin/-client/index.html
 $dokka.location:com.google.genai.kotlin/Client/Client/#kotlin.String?#kotlin.String?#kotlin.String?#com.google.genai.kotlin.GoogleCredentials?#kotlin.Boolean?#com.google.genai.kotlin.types.HttpOptions?/PointingToDeclaration/google-genai/com.google.genai.kotlin/-client/-client.html
 $dokka.location:com.google.genai.kotlin/Client/apiKey/#/PointingToDeclaration/google-genai/com.google.genai.kotlin/-client/api-key.html
@@ -2865,7 +2856,6 @@ $dokka.location:com.google.genai.kotlin/Client/project/#/PointingToDeclaration/
 $dokka.location:com.google.genai.kotlin/ClientException///PointingToDeclaration/google-genai/com.google.genai.kotlin/-client-exception/index.html
 $dokka.location:com.google.genai.kotlin/ClientException/ClientException/#kotlin.Int#kotlin.String#kotlin.String/PointingToDeclaration/google-genai/com.google.genai.kotlin/-client-exception/-client-exception.html
 $dokka.location:com.google.genai.kotlin/GenAiApiException.Companion///PointingToDeclaration/google-genai/com.google.genai.kotlin/-gen-ai-api-exception/-companion/index.html
-$dokka.location:com.google.genai.kotlin/GenAiApiException.Companion/throwFromResponse/#kotlin.Int#kotlin.String/PointingToDeclaration/google-genai/com.google.genai.kotlin/-gen-ai-api-exception/-companion/throw-from-response.html
 $dokka.location:com.google.genai.kotlin/GenAiApiException///PointingToDeclaration/google-genai/com.google.genai.kotlin/-gen-ai-api-exception/index.html
 $dokka.location:com.google.genai.kotlin/GenAiApiException/GenAiApiException/#kotlin.Int#kotlin.String#kotlin.String/PointingToDeclaration/google-genai/com.google.genai.kotlin/-gen-ai-api-exception/-gen-ai-api-exception.html
 $dokka.location:com.google.genai.kotlin/GenAiApiException/code/#/PointingToDeclaration/google-genai/com.google.genai.kotlin/-gen-ai-api-exception/code.html
