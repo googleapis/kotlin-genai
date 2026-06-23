@@ -19,4 +19,4 @@ package com.google.genai.kotlin
 import io.ktor.client.engine.HttpClientEngine
 import io.ktor.client.engine.okhttp.OkHttp
 
-actual fun getDefaultEngine(): HttpClientEngine = OkHttp.create()
+internal actual fun getDefaultEngine(): HttpClientEngine = OkHttp.create()

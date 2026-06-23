@@ -40,7 +40,7 @@ open class GenAiApiException(val code: Int, val status: String, message: String)
      * @param code The HTTP status code.
      * @param body The response body as a string.
      */
-    fun throwFromResponse(code: Int, body: String) {
+    internal fun throwFromResponse(code: Int, body: String) {
       val jsonElement =
         try {
           Json.parseToJsonElement(body)

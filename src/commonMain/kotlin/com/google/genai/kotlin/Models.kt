@@ -29,6 +29,10 @@ import com.google.genai.kotlin.types.Part
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
+/**
+ * Provides methods for interacting with the available GenAI models. Instantiating this class is not
+ * required. After instantiating a [Client], access methods through `client.models` directly.
+ */
 class Models internal constructor(internal val apiClient: ApiClient) {
 
   internal fun authConfigToMldev(

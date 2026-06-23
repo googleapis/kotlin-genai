@@ -23,7 +23,7 @@ import kotlinx.serialization.json.Json
 import kotlinx.serialization.serializer
 
 /** A wrapper class for handling HTTP responses from the Google GenAI SDK. */
-class ApiResponse(private val rawResponse: HttpResponse) {
+internal class ApiResponse(private val rawResponse: HttpResponse) {
 
   /** The HTTP status code of the response. */
   val statusCode: Int

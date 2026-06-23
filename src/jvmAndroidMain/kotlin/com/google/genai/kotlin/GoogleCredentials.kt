@@ -22,12 +22,12 @@ import io.ktor.client.request.header
 
 actual typealias GoogleCredentials = JvmGoogleCredentials
 
-actual fun getDefaultCredentials(): GoogleCredentials? {
+internal actual fun getDefaultCredentials(): GoogleCredentials? {
   return JvmGoogleCredentials.getApplicationDefault()
     .createScoped("https://www.googleapis.com/auth/cloud-platform")
 }
 
-actual fun GoogleCredentials.applyToRequest(builder: HttpRequestBuilder) {
+internal actual fun GoogleCredentials.applyToRequest(builder: HttpRequestBuilder) {
   this.refreshIfExpired()
   val accessToken = this.accessToken.tokenValue
   builder.header("Authorization", "Bearer $accessToken")

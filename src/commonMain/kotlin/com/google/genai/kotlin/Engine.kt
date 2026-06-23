@@ -18,4 +18,4 @@ package com.google.genai.kotlin
 
 import io.ktor.client.engine.HttpClientEngine
 
-expect fun getDefaultEngine(): HttpClientEngine
+internal expect fun getDefaultEngine(): HttpClientEngine

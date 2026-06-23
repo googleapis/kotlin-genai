@@ -18,8 +18,14 @@ package com.google.genai.kotlin
 
 import io.ktor.client.request.HttpRequestBuilder
 
+/**
+ * Represents the credentials used to authenticate requests to the Google GenAI API.
+ *
+ * On JVM and Android platforms, this class is represented as a typealias to Google Auth's
+ * `com.google.auth.oauth2.GoogleCredentials`.
+ */
 expect class GoogleCredentials
 
-expect fun getDefaultCredentials(): GoogleCredentials?
+internal expect fun getDefaultCredentials(): GoogleCredentials?
 
-expect fun GoogleCredentials.applyToRequest(builder: HttpRequestBuilder)
+internal expect fun GoogleCredentials.applyToRequest(builder: HttpRequestBuilder)
