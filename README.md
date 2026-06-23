@@ -97,7 +97,7 @@ fun main() = runBlocking {
             text = "Why is the sky blue?"
         )
 
-        val text = response.candidates?.firstOrNull()?.content?.parts?.firstOrNull()?.text
+        val text = response.text
         println(text)
     }
 }
@@ -122,7 +122,7 @@ fun main() = runBlocking {
         )
 
         responseFlow.collect { response ->
-            val chunkText = response.candidates?.firstOrNull()?.content?.parts?.firstOrNull()?.text
+            val chunkText = response.text
             if (chunkText != null) {
                 print(chunkText)
             }

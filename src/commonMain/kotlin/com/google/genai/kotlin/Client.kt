@@ -24,7 +24,7 @@ import com.google.genai.kotlin.types.HttpOptions
  * Usage:
  * ```
  * val client = Client(apiKey = "YOUR_API_KEY")
- * val response = client.models.generateContent("gemini-3-pro-preview", "Hello, world!")
+ * val response = client.models.generateContent("gemini-3.5-flash", "Hello, world!")
  * println(response.text)
  * ```
  */
@@ -45,7 +45,8 @@ internal constructor(
    * @param apiKey The API key to use. For Gemini API or Gemini Enterprise Agent Platform API.
    * @param project The Google Cloud project ID. For Gemini Enterprise Agent Platform API only.
    * @param location The Google Cloud location. For Gemini Enterprise Agent Platform API only.
-   * @param credentials The Google credentials to use. For Gemini Enterprise Agent Platform API only.
+   * @param credentials The Google credentials to use. For Gemini Enterprise Agent Platform API
+   *   only.
    * @param enterprise Explicitly set whether to use Gemini Enterprise Agent Platform API. Default
    *   to false or from environment variable GOOGLE_GENAI_USE_ENTERPRISE.
    * @param httpOptions Custom HTTP options for the client.
