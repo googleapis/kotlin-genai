@@ -37,4 +37,7 @@ data class ComputerUse(
 
   /** Optional. Whether enable the prompt injection detection check on computer-use request. */
   val enablePromptInjectionDetection: Boolean? = null,
+
+  /** Optional. Disabled safety policies for computer use. */
+  val disabledSafetyPolicies: List<SafetyPolicy>? = null,
 )
