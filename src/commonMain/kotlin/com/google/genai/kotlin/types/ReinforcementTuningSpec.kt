@@ -24,23 +24,22 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class ReinforcementTuningSpec(
 
-  /**  */
+  /** Composite reward function configuration for reinforcement tuning. */
   val compositeRewardConfig: CompositeReinforcementTuningRewardConfig? = null,
 
   /**
-   * Cloud Storage path to file containing training dataset for tuning. The dataset must be
+   * Cloud Storage path to the file containing training dataset for tuning. The dataset must be
    * formatted as a JSONL file.
    */
   val trainingDatasetUri: String? = null,
 
   /**
-   * Cloud Storage path to file containing validation dataset for tuning. The dataset must be
-   * formatted as a JSONL file. If no validation dataset is provided, by default the API splits 25%
-   * of the training dataset or 50 examples, whichever is larger, as the validation dataset.
+   * Cloud Storage path to the file containing validation dataset for tuning. The dataset must be
+   * formatted as a JSONL file.
    */
   val validationDatasetUri: String? = null,
 
-  /** Additional hyper-parameters to use during tuning. */
+  /** Optional. Hyper-parameters for reinforcement tuning. */
   val hyperParameters: ReinforcementTuningHyperParameters? = null,
 
   /** Single reward function configuration for reinforcement tuning. */

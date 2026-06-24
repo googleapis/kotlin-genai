@@ -18,13 +18,28 @@
 
 package com.google.genai.kotlin.types
 
+import kotlin.time.Duration
 import kotlinx.serialization.Serializable
 
-/** Composite reinforcement tuning reward config. */
+/**
+ * Configuration for video-specific output formatting. This data type is not supported in Gemini
+ * API.
+ */
 @Serializable
-data class CompositeReinforcementTuningRewardConfig(
+data class VideoResponseFormat(
 
-  /** List of reward function configurations with weights. */
-  val weightedRewardConfigs: List<CompositeReinforcementTuningRewardConfigWeightedRewardConfig>? =
-    null
+  /** The aspect ratio for the video output. */
+  val aspectRatio: AspectRatio? = null,
+
+  /** Optional. Delivery mode for the generated content. */
+  val delivery: Delivery? = null,
+
+  /** Optional. The duration for the video output. */
+  val duration: Duration? = null,
+
+  /**
+   * Optional. The Google Cloud Storage URI to store the video output. Required for Vertex if
+   * delivery is URI.
+   */
+  val gcsUri: String? = null,
 )

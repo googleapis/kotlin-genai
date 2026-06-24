@@ -21,22 +21,26 @@ package com.google.genai.kotlin.types
 import kotlin.jvm.JvmInline
 import kotlinx.serialization.Serializable
 
-/** Match operation to use for evaluation. */
+/** Match operation to use for evaluating rewards. This enum is not supported in Gemini API. */
 @Serializable
 @JvmInline
 value class MatchOperation(val value: String) {
   companion object {
 
-    /** Default value. This value is unused. */
+    /** Default value. A user error will be returned if not set. */
     val MATCH_OPERATION_UNSPECIFIED = MatchOperation("MATCH_OPERATION_UNSPECIFIED")
 
-    /** Equivalent to GoogleSQL `REGEX_CONTAINS(target, expression)`. */
+    /**
+     * Equivalent to
+     * [GoogleSQL](https://cloud.google.com/bigquery/docs/reference/standard-sql/string_functions#regexp_contains)
+     * `REGEX_CONTAINS(target, expression)`.
+     */
     val REGEX_CONTAINS = MatchOperation("REGEX_CONTAINS")
 
-    /** `expression` is a substring of target. */
+    /** The match operation returns `true` if expression is a substring of the target. */
     val PARTIAL_MATCH = MatchOperation("PARTIAL_MATCH")
 
-    /** `expression` is an exact match of target. */
+    /** The match operation returns `true` expression is an exact match of the target. */
     val EXACT_MATCH = MatchOperation("EXACT_MATCH")
   }
 }

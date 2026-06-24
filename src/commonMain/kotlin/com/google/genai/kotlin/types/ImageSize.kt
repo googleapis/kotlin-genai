@@ -18,13 +18,28 @@
 
 package com.google.genai.kotlin.types
 
+import kotlin.jvm.JvmInline
 import kotlinx.serialization.Serializable
 
-/** Composite reinforcement tuning reward config. */
+/** The size of the image output. */
 @Serializable
-data class CompositeReinforcementTuningRewardConfig(
+@JvmInline
+value class ImageSize(val value: String) {
+  companion object {
 
-  /** List of reward function configurations with weights. */
-  val weightedRewardConfigs: List<CompositeReinforcementTuningRewardConfigWeightedRewardConfig>? =
-    null
-)
+    /** Default value. This value is unused. */
+    val IMAGE_SIZE_UNSPECIFIED = ImageSize("IMAGE_SIZE_UNSPECIFIED")
+
+    /** 512px image size. */
+    val IMAGE_SIZE_FIVE_TWELVE = ImageSize("IMAGE_SIZE_FIVE_TWELVE")
+
+    /** 1K image size. */
+    val IMAGE_SIZE_ONE_K = ImageSize("IMAGE_SIZE_ONE_K")
+
+    /** 2K image size. */
+    val IMAGE_SIZE_TWO_K = ImageSize("IMAGE_SIZE_TWO_K")
+
+    /** 4K image size. */
+    val IMAGE_SIZE_FOUR_K = ImageSize("IMAGE_SIZE_FOUR_K")
+  }
+}

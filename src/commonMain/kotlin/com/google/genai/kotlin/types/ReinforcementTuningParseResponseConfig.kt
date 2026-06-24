@@ -20,16 +20,25 @@ package com.google.genai.kotlin.types
 
 import kotlinx.serialization.Serializable
 
-/** Defines how to parse sample response for reinforcement tuning. */
+/**
+ * Defines how to parse sample response config for reinforcement tuning. The parsed response (i.e.,
+ * substring) will be passed to the reward functions. For example, the input prompt might be: >
+ * "Perform step-by-step thoughts first to problem A, finally output answer in the <ans> </ans>
+ * block." The sample response from the model under tuning might look like: > "<ans>Yes</ans>" Here,
+ * users can define the following parse config: ``` { "parseType": "REGEX_EXTRACT",
+ * "regexExtractExpression": ".*(.*?)" } ``` The resulting parsed response would be `"Yes"` and will
+ * be passed to the reward functions for evaluating rewards. This data type is not supported in
+ * Gemini API.
+ */
 @Serializable
 data class ReinforcementTuningParseResponseConfig(
 
-  /** Defines how to parse sample response. */
+  /** Defines the type for parsing sample response. */
   val parseType: ResponseParseType? = null,
 
   /**
-   * Defines the regex to extract the important part of sample response. This field is only used
-   * when `parse_type` is `REGEX_EXTRACT`.
+   * Defines the regex for extracting the important part of sample response. This field is only used
+   * when parse_type is ResponseParseType.REGEX_EXTRACT.
    */
   val regexExtractExpression: String? = null,
 )

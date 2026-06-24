@@ -21,16 +21,24 @@ package com.google.genai.kotlin.types
 import kotlinx.serialization.Serializable
 
 /**
- * Converts parsed responses to JSON format, finds the first-level matching key, then performs
- * StringMatchExpression on the value.
+ * JsonMatchExpression supports converting the parsed responses to JSON format, finding the value in
+ * the JSON response that matches the key_name in the first level, and performing
+ * StringMatchExpression operation on the matched JSON value. This data type is not supported in
+ * Gemini API.
  */
 @Serializable
 data class ReinforcementTuningStringMatchRewardScorerJsonMatchExpression(
 
-  /** Json key name to find the value to match against. */
+  /**
+   * The key name to find the value in the parsed response that's in JSON format. Only first-level
+   * key matching is supported.
+   */
   val keyName: String? = null,
 
-  /** String match expression to match against the value of json key. */
+  /**
+   * String match expression to match against the extracted value from the JSON representation of
+   * the parsed response.
+   */
   val valueStringMatchExpression: ReinforcementTuningStringMatchRewardScorerStringMatchExpression? =
     null,
 )

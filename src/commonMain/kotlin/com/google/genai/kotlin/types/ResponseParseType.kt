@@ -21,19 +21,24 @@ package com.google.genai.kotlin.types
 import kotlin.jvm.JvmInline
 import kotlinx.serialization.Serializable
 
-/** Defines how to parse sample response. */
+/** Defines the type for parsing sample response. This enum is not supported in Gemini API. */
 @Serializable
 @JvmInline
 value class ResponseParseType(val value: String) {
   companion object {
 
-    /** Default value. This value is unused. */
+    /** Default value. Fallback to IDENTITY */
     val RESPONSE_PARSE_TYPE_UNSPECIFIED = ResponseParseType("RESPONSE_PARSE_TYPE_UNSPECIFIED")
 
-    /** Use the sample response as is. */
+    /** Returns the sample response as is. */
     val IDENTITY = ResponseParseType("IDENTITY")
 
-    /** Use regex to extract the important part of sample response. */
+    /**
+     * Uses regex to extract the important part of sample response. Similar to
+     * [GoogleSQL](https://cloud.google.com/bigquery/docs/reference/standard-sql/string_functions#regexp_extract)
+     * `REGEX_EXTRACT(response, regex_extract_expression)`, but different in that if there are
+     * multiple matches, the last match will be returned.
+     */
     val REGEX_EXTRACT = ResponseParseType("REGEX_EXTRACT")
   }
 }

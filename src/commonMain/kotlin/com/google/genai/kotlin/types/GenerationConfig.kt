@@ -103,7 +103,7 @@ data class GenerationConfig(
    * Optional. The IANA standard MIME type of the response. The model will generate output that
    * conforms to this MIME type. Supported values include 'text/plain' (default) and
    * 'application/json'. The model needs to be prompted to output the appropriate response type,
-   * otherwise the behavior is undefined.
+   * otherwise the behavior is undefined. Deprecated: Use `response_format` instead.
    */
   val responseMimeType: String? = null,
 
@@ -119,7 +119,8 @@ data class GenerationConfig(
    * conforms to a particular structure. This is useful for generating structured data such as JSON.
    * The schema is a subset of the
    * [OpenAPI 3.0 schema object](https://spec.openapis.org/oas/v3.0.3#schema) object. When this
-   * field is set, you must also set the `response_mime_type` to `application/json`.
+   * field is set, you must also set the `response_mime_type` to `application/json`. Deprecated: Use
+   * `response_format` instead.
    */
   val responseSchema: Schema? = null,
 
@@ -182,4 +183,12 @@ data class GenerationConfig(
    * not supported in Vertex AI.
    */
   val enableEnhancedCivicAnswers: Boolean? = null,
+
+  /**
+   * Optional. New response format field for the model to configure output formatting and delivery.
+   */
+  val responseFormat: List<ResponseFormat>? = null,
+
+  /** Optional. Config for translation. This field is not supported in Vertex AI. */
+  val translationConfig: TranslationConfig? = null,
 )

@@ -20,11 +20,13 @@ package com.google.genai.kotlin.types
 
 import kotlinx.serialization.Serializable
 
-/** Composite reinforcement tuning reward config. */
+/**
+ * Sample reinforcement tuning user data in the training dataset. The contents are truncated for
+ * better UI showing. This data type is not supported in Gemini API.
+ */
 @Serializable
-data class CompositeReinforcementTuningRewardConfig(
+data class ReinforcementTuningUserDatasetExamples(
 
-  /** List of reward function configurations with weights. */
-  val weightedRewardConfigs: List<CompositeReinforcementTuningRewardConfigWeightedRewardConfig>? =
-    null
+  /** List of user datasset examples showing to user. */
+  val userDatasetExamples: List<ReinforcementTuningExample>? = null
 )

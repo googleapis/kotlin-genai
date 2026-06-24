@@ -27,6 +27,10 @@ data class ReinforcementTuningRewardInfo(
   /** Output only. The calculated reward for the reward function. */
   val reward: Double? = null,
 
-  /** Output only. The user-requested auxiliary info for the reward function. */
+  /**
+   * Output only. The user-requested auxiliary info for the reward function. This field is set only
+   * if the Cloud Run reward function configured by user returns a "user_requested_aux_info". Refer
+   * to ReinforcementTuningCloudRunRewardScorer for more details.
+   */
   val userRequestedAuxInfo: String? = null,
 )

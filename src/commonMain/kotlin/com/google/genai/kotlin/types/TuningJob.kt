@@ -82,7 +82,7 @@ data class TuningJob(
   /** Tuning Spec for Distillation. */
   val distillationSpec: DistillationSpec? = null,
 
-  /**  */
+  /** Tuning Spec for Reinforcement Tuning. */
   val reinforcementTuningSpec: ReinforcementTuningSpec? = null,
 
   /** Output only. The tuning data statistics associated with this TuningJob. */

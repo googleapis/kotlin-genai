@@ -24,9 +24,13 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class CompositeReinforcementTuningRewardConfigWeightedRewardConfig(
 
-  /**  */
+  /** Single reward configuration. */
   val rewardConfig: SingleReinforcementTuningRewardConfig? = null,
 
-  /** How much this single reward contributes to the total overall reward. */
+  /**
+   * How much this single reward contributes to the total overall reward. Total reward is a linear
+   * combination of single rewards with their corresponding weights, i.e., ``` total_reward = (
+   * weight_a * reward_a + weight_b * reward_b + ... ) / (weight_a + weight_b + ...) ```
+   */
   val weight: Double? = null,
 )

@@ -20,19 +20,31 @@ package com.google.genai.kotlin.types
 
 import kotlinx.serialization.Serializable
 
-/** Scores autorater responses by using exact string match reward scorer. */
+/**
+ * Scores autorater responses by using exact string match reward scorer. This data type is not
+ * supported in Gemini API.
+ */
 @Serializable
 data class ReinforcementTuningAutoraterScorerExactMatchScorer(
 
-  /** Assigns this reward score if parsed response string equals the expression. */
+  /** Assigns this reward score if the parsed response string equals the expression. */
   val correctAnswerReward: Double? = null,
 
-  /** Assigns this reward score if parsed reward value does not equal the expression. */
+  /** Assigns this reward score if the parsed reward value does not equal the expression. */
   val wrongAnswerReward: Double? = null,
 
   /**
-   * The string expression to match against. Supports substitution in the format of
-   * `references.reference` (wrapped in double curly braces) before matching. No regex support.
+   * The string expression to match against for scoring. This field supports placeholders in the
+   * format of {{references.key}} that will be replaced before matching. Regex is not supported for
+   * this expression. For example, users can define an ExactMatchScorer as follows: {
+   * "correctAnswerReward": 1.0, "wrongAnswerReward": -1.0, "expression":
+   * "{{references.concise_answer}}" } When evaluating the reward for each parsed autorater
+   * response, if the prompt references in the training/validation dataset has the following
+   * fields: ``` { "example": ..., "references": { "concise_ansser": "Yes", "verbose_answer": "The
+   * answer is Yes" } } ``` The above ExactMatchScorer will be replaced as follows for scoring: ```
+   * { "correctAnswerReward": 1.0, "wrongAnswerReward": -1.0, "expression": "Yes" } ``` If the
+   * *parsed* autorater response is equal to the string `"Yes"`, then the reward is `1.0`, otherwise
+   * the reward is `-1.0`.
    */
   val expression: String? = null,
 )

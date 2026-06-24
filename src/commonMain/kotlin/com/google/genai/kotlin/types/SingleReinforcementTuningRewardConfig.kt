@@ -27,21 +27,33 @@ data class SingleReinforcementTuningRewardConfig(
   /** Scores parsed responses for autorater use cases by using a model to compute the reward. */
   val autoraterScorer: ReinforcementTuningAutoraterScorer? = null,
 
-  /** A unique reward name used to identify each single reinforcement tuning reward. */
+  /** A unique reward name for identifying each single reinforcement tuning reward. */
   val rewardName: String? = null,
 
-  /** Defines how to parse sample response. */
+  /**
+   * Defines how to parse sample response. For example, given a sample response for evaluating the
+   * reward, users might want to extract the text only between `` and `` in the sample response, and
+   * keeps only the last one in case there are multiple such tags. To achieve such a purpose, they
+   * can define a regex `".*(.*?)"` using the
+   * ReinforcementTuningParseResponseConfig.ResponseParseType.REGEX_EXTRACT parse type.
+   */
   val parseResponseConfig: ReinforcementTuningParseResponseConfig? = null,
 
-  /** Scores parsed responses for code execution use cases. */
+  /**
+   * ReinforcementTuningCodeExecutionRewardScorer is used to score parsed responses for code
+   * execution use cases.
+   */
   val codeExecutionRewardScorer: ReinforcementTuningCodeExecutionRewardScorer? = null,
 
   /**
-   * Scores parsed responses for simple string matching use cases against reference answer without
-   * writing python code.
+   * ReinforcementTuningStringMatchRewardScorer is used to score parsed responses for simple string
+   * matching use cases against reference answers.
    */
   val stringMatchRewardScorer: ReinforcementTuningStringMatchRewardScorer? = null,
 
-  /** Scores parsed responses by calling a Cloud Run service. */
+  /**
+   * ReinforcementTuningCloudRunRewardScorer is used to score parsed responses by calling a Cloud
+   * Run service.
+   */
   val cloudRunRewardScorer: ReinforcementTuningCloudRunRewardScorer? = null,
 )

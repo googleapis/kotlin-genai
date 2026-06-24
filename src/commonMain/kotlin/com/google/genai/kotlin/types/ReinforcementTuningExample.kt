@@ -33,6 +33,6 @@ data class ReinforcementTuningExample(
    */
   val references: Map<String, String>? = null,
 
-  /** Corresponds to `system_instruction` in user-facing GenerateContentRequest. */
+  /** Corresponds to system_instruction in user-facing GenerateContentRequest. */
   val systemInstruction: Content? = null,
 )

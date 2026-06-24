@@ -19,12 +19,18 @@
 package com.google.genai.kotlin.types
 
 import kotlinx.serialization.Serializable
+import kotlinx.serialization.json.JsonElement
 
-/** Composite reinforcement tuning reward config. */
+/**
+ * ExaAiSearch tool type. A tool that uses the Exa.ai search engine for grounding. This data type is
+ * not supported in Gemini API.
+ */
 @Serializable
-data class CompositeReinforcementTuningRewardConfig(
+data class ToolExaAiSearch(
 
-  /** List of reward function configurations with weights. */
-  val weightedRewardConfigs: List<CompositeReinforcementTuningRewardConfigWeightedRewardConfig>? =
-    null
+  /** Required. The API key for ExaAiSearch. */
+  val apiKey: String? = null,
+
+  /** Optional. This field can be used to pass any parameter from the Exa.ai Search API. */
+  val customConfigs: Map<String, JsonElement>? = null,
 )
