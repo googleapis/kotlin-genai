@@ -21,34 +21,34 @@ package com.google.genai.kotlin.types
 import kotlin.jvm.JvmInline
 import kotlinx.serialization.Serializable
 
-/** Disabled safety policies for computer use. */
+/** SafetyPolicy */
 @Serializable
 @JvmInline
 value class SafetyPolicy(val value: String) {
   companion object {
 
-    /** Unspecified safety policy. This value should not be used. */
+    /** Unspecified safety policy. */
     val SAFETY_POLICY_UNSPECIFIED = SafetyPolicy("SAFETY_POLICY_UNSPECIFIED")
 
-    /** Financial transactions safety policy. */
+    /** Safety policy for financial transactions. */
     val FINANCIAL_TRANSACTIONS = SafetyPolicy("FINANCIAL_TRANSACTIONS")
 
-    /** Sensitive data modification safety policy. */
+    /** Safety policy for sensitive data modification. */
     val SENSITIVE_DATA_MODIFICATION = SafetyPolicy("SENSITIVE_DATA_MODIFICATION")
 
-    /** Communication tool safety policy. */
+    /** Safety policy for communication tools (e.g. Gmail, Chat, Meet). */
     val COMMUNICATION_TOOL = SafetyPolicy("COMMUNICATION_TOOL")
 
-    /** Account creation safety policy. */
+    /** Safety policy for account creation. */
     val ACCOUNT_CREATION = SafetyPolicy("ACCOUNT_CREATION")
 
-    /** Data modification safety policy. */
+    /** Safety policy for data modification. */
     val DATA_MODIFICATION = SafetyPolicy("DATA_MODIFICATION")
 
-    /** User consent management safety policy. */
+    /** Safety policy for user consent management. */
     val USER_CONSENT_MANAGEMENT = SafetyPolicy("USER_CONSENT_MANAGEMENT")
 
-    /** Legal terms and agreements safety policy. */
+    /** Safety policy for legal terms and agreements. */
     val LEGAL_TERMS_AND_AGREEMENTS = SafetyPolicy("LEGAL_TERMS_AND_AGREEMENTS")
   }
 }

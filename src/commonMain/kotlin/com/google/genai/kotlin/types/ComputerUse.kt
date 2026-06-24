@@ -28,16 +28,19 @@ data class ComputerUse(
   val environment: Environment? = null,
 
   /**
-   * By default, predefined functions are included in the final model call. Some of them can be
-   * explicitly excluded from being automatically included. This can serve two purposes:
-   * 1. Using a more restricted / different action space.
-   * 2. Improving the definitions / instructions of predefined functions.
+   * Optional. By default,
+   * [predefined functions](https://cloud.google.com/vertex-ai/generative-ai/docs/computer-use#supported-actions)
+   * are included in the final model call. Some of them can be explicitly excluded from being
+   * automatically included. This can serve two purposes: 1. Using a more restricted / different
+   * action space. 2. Improving the definitions / instructions of predefined functions.
    */
   val excludedPredefinedFunctions: List<String>? = null,
 
-  /** Optional. Whether enable the prompt injection detection check on computer-use request. */
+  /** Optional. Enables the prompt injection detection check on computer-use request. */
   val enablePromptInjectionDetection: Boolean? = null,
 
-  /** Optional. Disabled safety policies for computer use. */
+  /**
+   * Optional. Disabled safety policies for computer use. This field is not supported in Vertex AI.
+   */
   val disabledSafetyPolicies: List<SafetyPolicy>? = null,
 )

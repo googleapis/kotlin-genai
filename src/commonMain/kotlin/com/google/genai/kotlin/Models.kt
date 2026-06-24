@@ -265,6 +265,47 @@ class Models internal constructor(internal val apiClient: ApiClient) {
     return toObject
   }
 
+  internal fun computerUseToVertex(
+    fromObject: Map<String, Any?>?,
+    parentObject: MutableMap<String, Any?>?,
+    rootObject: Map<String, Any?>?,
+  ): MutableMap<String, Any?> {
+
+    val toObject = mutableMapOf<String, Any?>()
+    Common.getValueByPath(fromObject, arrayOf("environment"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("environment"),
+        Common.getValueByPath(fromObject, arrayOf("environment")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("excludedPredefinedFunctions"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("excludedPredefinedFunctions"),
+        Common.getValueByPath(fromObject, arrayOf("excludedPredefinedFunctions")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("enablePromptInjectionDetection"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("enablePromptInjectionDetection"),
+        Common.getValueByPath(fromObject, arrayOf("enablePromptInjectionDetection")),
+      )
+    }
+
+    if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("disabledSafetyPolicies")))) {
+      throw IllegalArgumentException(
+        "disabledSafetyPolicies parameter is not supported in Gemini Enterprise Agent Platform."
+          .toString()
+      )
+    }
+
+    return toObject
+  }
+
   internal fun contentToMldev(
     fromObject: Map<String, Any?>?,
     parentObject: MutableMap<String, Any?>?,
@@ -1921,7 +1962,11 @@ class Models internal constructor(internal val apiClient: ApiClient) {
       Common.setValueByPath(
         toObject,
         arrayOf("computerUse"),
-        Common.getValueByPath(fromObject, arrayOf("computerUse")),
+        computerUseToVertex(
+          Common.getValueByPath(fromObject, arrayOf("computerUse")) as Map<String, Any?>,
+          toObject,
+          rootObject,
+        ),
       )
     }
 
