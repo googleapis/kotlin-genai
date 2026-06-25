@@ -20,7 +20,7 @@ Add the dependency to your `build.gradle.kts` file:
 
 ```kotlin
 dependencies {
-    implementation("com.google.genai.kotlin:google-genai:0.1.0")
+    implementation("com.google.genai:google-genai-kotlin:0.1.0")
 }
 ```
 

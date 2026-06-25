@@ -21,7 +21,7 @@ plugins {
   alias(libs.plugins.dokka)
 }
 
-group = "com.google.genai.kotlin"
+group = "com.google.genai"
 
 version = "0.1.0-SNAPSHOT"
 

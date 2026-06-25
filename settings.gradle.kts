@@ -22,7 +22,7 @@ pluginManagement {
   }
 }
 
-rootProject.name = "google-genai"
+rootProject.name = "google-genai-kotlin"
 
 include("examples")
 
