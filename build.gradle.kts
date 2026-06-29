@@ -19,13 +19,19 @@ plugins {
   alias(libs.plugins.kotlin.serialization)
   alias(libs.plugins.android.library)
   alias(libs.plugins.dokka)
+  id("maven-publish")
+  id("signing")
+  id("com.google.cloud.artifactregistry.gradle-plugin") version "2.2.4" apply false
 }
 
 group = "com.google.genai"
 
 version = "0.1.0-SNAPSHOT"
 
-repositories { mavenCentral() }
+repositories {
+  google()
+  mavenCentral()
+}
 
 kotlin {
   compilerOptions { freeCompilerArgs.add("-Xexpect-actual-classes") }
@@ -90,6 +96,12 @@ android {
     sourceCompatibility = org.gradle.api.JavaVersion.VERSION_17
     targetCompatibility = org.gradle.api.JavaVersion.VERSION_17
   }
+
+  publishing {
+    singleVariant("release") {
+      withSourcesJar()
+    }
+  }
 }
 
 // Pass testMode property ONLY to JVM tests: ./gradlew jvmTest -PtestMode=record
@@ -101,4 +113,61 @@ tasks.named<Test>("jvmTest") {
       "replay"
     }
   environment("TEST_MODE", mode)
+}
+
+// Helper task to bundle Dokka HTML output as the required `-javadoc.jar`
+val dokkaJavadocJar = tasks.register<Jar>("dokkaJavadocJar") {
+  archiveClassifier.set("javadoc")
+  from(tasks.named("dokkaHtml"))
+}
+
+// Standard Maven Publishing Configuration
+publishing {
+  publications.withType<MavenPublication>().configureEach {
+    // Attach the generated KDoc javadoc jar
+    artifact(dokkaJavadocJar)
+
+    pom {
+      name.set("Google GenAI SDK for Kotlin")
+      description.set("The Google Gen AI Kotlin SDK provides an idiomatic Kotlin interface for developers to integrate Google's generative models into their applications. It supports both the Gemini Developer API and the Gemini Enterprise Agent Platform API (formerly Vertex AI).")
+      url.set("https://github.com/googleapis/kotlin-genai")
+      licenses {
+        license {
+          name.set("The Apache License, Version 2.0")
+          url.set("http://www.apache.org/licenses/LICENSE-2.0.txt")
+        }
+      }
+      developers {
+        developer {
+          organization.set("Google LLC")
+          organizationUrl.set("https://www.google.com")
+        }
+      }
+      scm {
+        connection.set("scm:git:git@github.com:googleapis/kotlin-genai.git")
+        developerConnection.set("scm:git:git@github.com:googleapis/kotlin-genai.git")
+        url.set("https://github.com/googleapis/kotlin-genai")
+      }
+    }
+  }
+}
+
+// Standard GPG Signing Configuration
+signing {
+  // Read signing parameters provided by Louhi during the release
+  val signingKey = providers.gradleProperty("signingInMemoryKey").orNull
+  val signingKeyId = providers.gradleProperty("signingInMemoryKeyId").orNull
+  val signingPassword = providers.gradleProperty("signingInMemoryKeyPassword").orNull
+
+  if (signingKey != null) {
+    useInMemoryPgpKeys(signingKeyId, signingKey, signingPassword)
+    sign(publishing.publications)
+  }
+}
+
+// Workaround for known Gradle KMP parallel publishing issue
+// (without this, parallel publish tasks fail with implicit dependency errors)
+tasks.withType<AbstractPublishToMaven>().configureEach {
+  val signingTasks = tasks.withType<Sign>()
+  mustRunAfter(signingTasks)
 }
