@@ -26,7 +26,7 @@ plugins {
 
 group = "com.google.genai"
 
-version = "0.1.0-rc1"
+version = "0.1.0"
 
 repositories {
   google()
