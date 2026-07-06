@@ -31,6 +31,7 @@ The SDK requires the following minimum platform versions:
 
 ## Installation
 
+[//]: # ({x-version-update-start:google-genai-kotlin:released})
 ### Kotlin Multiplatform (KMP)
 
 For multiplatform projects, add the dependency to your `commonMain` source set:
@@ -66,6 +67,7 @@ For Maven projects (JVM only), use the `-jvm` suffixed artifact:
     <version>0.1.0</version>
 </dependency>
 ```
+[//]: # ({x-version-update-end})
 
 ## Getting Started
 

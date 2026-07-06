@@ -26,7 +26,7 @@ plugins {
 
 group = "com.google.genai"
 
-version = "0.2.0-SNAPSHOT"
+version = "0.2.0-SNAPSHOT" // {x-version-update:google-genai-kotlin:current}
 
 repositories {
   google()
