@@ -14,6 +14,14 @@ and the
 > [!NOTE] This SDK is currently in early development. At this stage, only
 > `generateContent` and `generateContentStream` are supported.
 
+> [!WARNING]
+> **Mobile Security: API Keys & Cloud Credentials**
+>
+> While this SDK supports Android targets via Kotlin Multiplatform, **we strongly discourage embedding API keys or Google Cloud IAM credentials (such as Service Account JSON keys or OAuth tokens)** directly into public mobile client applications due to the risk of credential theft and cloud project compromise via reverse engineering.
+>
+> * **For public mobile apps** connecting directly to generative models from client devices, we strongly recommend using **[Firebase AI Logic](https://firebase.google.com/docs/ai-logic)** with **Firebase App Check** enabled. Firebase provides secure client-side authentication and device integrity protection without exposing your Google Cloud project credentials.
+> * **Use this SDK on Android** only when connecting through your own secure backend service, or for internal/prototype applications where credentials are securely managed.
+
 ## Requirements
 
 The SDK requires the following minimum platform versions:

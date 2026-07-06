@@ -21,6 +21,13 @@ import com.google.genai.kotlin.types.HttpOptions
 /**
  * The main entry point for the Google Gen AI SDK.
  *
+ * **Note on Mobile Security:** While this SDK supports Android targets via Kotlin Multiplatform, it
+ * is intended for server-side use or secure backend environments. We strongly discourage embedding
+ * API keys or Google Cloud IAM credentials (such as Service Account JSON keys or OAuth tokens)
+ * directly into public mobile client applications without protection. For public mobile apps
+ * connecting directly from client devices, please use
+ * [Firebase AI Logic](https://firebase.google.com/docs/ai-logic) with Firebase App Check enabled.
+ *
  * Usage:
  * ```
  * val client = Client(apiKey = "YOUR_API_KEY")
