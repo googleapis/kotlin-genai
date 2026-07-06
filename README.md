@@ -14,7 +14,30 @@ and the
 > [!NOTE] This SDK is currently in early development. At this stage, only
 > `generateContent` and `generateContentStream` are supported.
 
+## Requirements
+
+The SDK requires the following minimum platform versions:
+
+* **Java**: JDK 17
+* **Android**: API level 21 (Android 5.0)
+
 ## Installation
+
+### Kotlin Multiplatform (KMP)
+
+For multiplatform projects, add the dependency to your `commonMain` source set:
+
+```kotlin
+kotlin {
+    sourceSets {
+        commonMain.dependencies {
+            implementation("com.google.genai:google-genai-kotlin:0.1.0")
+        }
+    }
+}
+```
+
+### Gradle
 
 Add the dependency to your `build.gradle.kts` file:
 
@@ -22,6 +45,18 @@ Add the dependency to your `build.gradle.kts` file:
 dependencies {
     implementation("com.google.genai:google-genai-kotlin:0.1.0")
 }
+```
+
+### Maven
+
+For Maven projects (JVM only), use the `-jvm` suffixed artifact:
+
+```xml
+<dependency>
+    <groupId>com.google.genai</groupId>
+    <artifactId>google-genai-kotlin-jvm</artifactId>
+    <version>0.1.0</version>
+</dependency>
 ```
 
 ## Getting Started
