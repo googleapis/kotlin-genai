@@ -1940,12 +1940,6 @@ class Models internal constructor(internal val apiClient: ApiClient) {
       )
     }
 
-    if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("exaAiSearch")))) {
-      throw IllegalArgumentException(
-        "exaAiSearch parameter is not supported in Gemini API.".toString()
-      )
-    }
-
     return toObject
   }
 
@@ -2056,14 +2050,6 @@ class Models internal constructor(internal val apiClient: ApiClient) {
         }
       }
       Common.setValueByPath(toObject, arrayOf("mcpServers"), result)
-    }
-
-    Common.getValueByPath(fromObject, arrayOf("exaAiSearch"))?.let { node ->
-      Common.setValueByPath(
-        toObject,
-        arrayOf("exaAiSearch"),
-        Common.getValueByPath(fromObject, arrayOf("exaAiSearch")),
-      )
     }
 
     return toObject

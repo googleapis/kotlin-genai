@@ -22,8 +22,9 @@ import kotlin.jvm.JvmInline
 import kotlinx.serialization.Serializable
 
 /**
- * Specifies the function Behavior. If not specified, the system keeps the current function call
- * behavior. This field is currently only supported by the BidiGenerateContent method.
+ * Specifies the function Behavior. Currently only non-blocking functions are supported. If not
+ * specified, the system keeps the current function call behavior. This field is currently only
+ * supported by the BidiGenerateContent method.
  */
 @Serializable
 @JvmInline

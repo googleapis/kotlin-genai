@@ -87,11 +87,4 @@ data class Tool(
 
   /** Optional. MCP Servers to connect to. This field is not supported in Vertex AI. */
   val mcpServers: List<McpServer>? = null,
-
-  /**
-   * Optional. Uses Exa.ai to search for information to answer user queries. The search results will
-   * be grounded on Exa.ai and presented to the model for response generation. This field is not
-   * supported in Gemini API.
-   */
-  val exaAiSearch: ToolExaAiSearch? = null,
 )
