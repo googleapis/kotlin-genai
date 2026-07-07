@@ -769,6 +769,16 @@ class Models internal constructor(internal val apiClient: ApiClient) {
       )
     }
 
+    if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("routingConfig")))) {
+      throw IllegalArgumentException(
+        "routingConfig parameter is not supported in Gemini API.".toString()
+      )
+    }
+
+    if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("labels")))) {
+      throw IllegalArgumentException("labels parameter is not supported in Gemini API.".toString())
+    }
+
     return toObject
   }
 
@@ -1031,6 +1041,22 @@ class Models internal constructor(internal val apiClient: ApiClient) {
         parentObject,
         arrayOf("serviceTier"),
         Common.getValueByPath(fromObject, arrayOf("serviceTier")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("routingConfig"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("routingConfig"),
+        Common.getValueByPath(fromObject, arrayOf("routingConfig")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("labels"))?.let { node ->
+      Common.setValueByPath(
+        parentObject,
+        arrayOf("labels"),
+        Common.getValueByPath(fromObject, arrayOf("labels")),
       )
     }
 

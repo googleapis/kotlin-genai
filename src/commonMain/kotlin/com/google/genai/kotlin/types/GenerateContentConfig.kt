@@ -192,4 +192,10 @@ data class GenerateContentConfig(
 
   /** The service tier to use for the request. For example, ServiceTier.FLEX. */
   val serviceTier: ServiceTier? = null,
+
+  /** Configuration for model router requests. */
+  val routingConfig: GenerationConfigRoutingConfig? = null,
+
+  /** Labels with user-defined metadata to break down billed charges. */
+  val labels: Map<String, String>? = null,
 )
