@@ -386,7 +386,7 @@ class ApiClientTest {
 
   @Test
   fun testRequest_withRequestHttpOptions_appliesTimeout() = runTest {
-    val engine = MockEngine { request ->
+    val engine = MockEngine { _ ->
       kotlinx.coroutines.delay(1000)
       respond("ok")
     }

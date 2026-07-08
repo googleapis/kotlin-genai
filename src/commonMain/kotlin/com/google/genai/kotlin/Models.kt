@@ -51,39 +51,31 @@ class Models internal constructor(internal val apiClient: ApiClient) {
     }
 
     if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("apiKeyConfig")))) {
-      throw IllegalArgumentException(
-        "apiKeyConfig parameter is not supported in Gemini API.".toString()
-      )
+      throw IllegalArgumentException("apiKeyConfig parameter is not supported in Gemini API.")
     }
 
     if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("authType")))) {
-      throw IllegalArgumentException(
-        "authType parameter is not supported in Gemini API.".toString()
-      )
+      throw IllegalArgumentException("authType parameter is not supported in Gemini API.")
     }
 
     if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("googleServiceAccountConfig")))) {
       throw IllegalArgumentException(
-        "googleServiceAccountConfig parameter is not supported in Gemini API.".toString()
+        "googleServiceAccountConfig parameter is not supported in Gemini API."
       )
     }
 
     if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("httpBasicAuthConfig")))) {
       throw IllegalArgumentException(
-        "httpBasicAuthConfig parameter is not supported in Gemini API.".toString()
+        "httpBasicAuthConfig parameter is not supported in Gemini API."
       )
     }
 
     if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("oauthConfig")))) {
-      throw IllegalArgumentException(
-        "oauthConfig parameter is not supported in Gemini API.".toString()
-      )
+      throw IllegalArgumentException("oauthConfig parameter is not supported in Gemini API.")
     }
 
     if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("oidcConfig")))) {
-      throw IllegalArgumentException(
-        "oidcConfig parameter is not supported in Gemini API.".toString()
-      )
+      throw IllegalArgumentException("oidcConfig parameter is not supported in Gemini API.")
     }
 
     return toObject
@@ -105,9 +97,7 @@ class Models internal constructor(internal val apiClient: ApiClient) {
     }
 
     if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("displayName")))) {
-      throw IllegalArgumentException(
-        "displayName parameter is not supported in Gemini API.".toString()
-      )
+      throw IllegalArgumentException("displayName parameter is not supported in Gemini API.")
     }
 
     Common.getValueByPath(fromObject, arrayOf("mimeType"))?.let { node ->
@@ -258,7 +248,7 @@ class Models internal constructor(internal val apiClient: ApiClient) {
 
     if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("id")))) {
       throw IllegalArgumentException(
-        "id parameter is not supported in Gemini Enterprise Agent Platform.".toString()
+        "id parameter is not supported in Gemini Enterprise Agent Platform."
       )
     }
 
@@ -299,7 +289,6 @@ class Models internal constructor(internal val apiClient: ApiClient) {
     if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("disabledSafetyPolicies")))) {
       throw IllegalArgumentException(
         "disabledSafetyPolicies parameter is not supported in Gemini Enterprise Agent Platform."
-          .toString()
       )
     }
 
@@ -391,7 +380,7 @@ class Models internal constructor(internal val apiClient: ApiClient) {
 
     if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("id")))) {
       throw IllegalArgumentException(
-        "id parameter is not supported in Gemini Enterprise Agent Platform.".toString()
+        "id parameter is not supported in Gemini Enterprise Agent Platform."
       )
     }
 
@@ -406,9 +395,7 @@ class Models internal constructor(internal val apiClient: ApiClient) {
 
     val toObject = mutableMapOf<String, Any?>()
     if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("displayName")))) {
-      throw IllegalArgumentException(
-        "displayName parameter is not supported in Gemini API.".toString()
-      )
+      throw IllegalArgumentException("displayName parameter is not supported in Gemini API.")
     }
 
     Common.getValueByPath(fromObject, arrayOf("fileUri"))?.let { node ->
@@ -462,15 +449,11 @@ class Models internal constructor(internal val apiClient: ApiClient) {
     }
 
     if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("partialArgs")))) {
-      throw IllegalArgumentException(
-        "partialArgs parameter is not supported in Gemini API.".toString()
-      )
+      throw IllegalArgumentException("partialArgs parameter is not supported in Gemini API.")
     }
 
     if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("willContinue")))) {
-      throw IllegalArgumentException(
-        "willContinue parameter is not supported in Gemini API.".toString()
-      )
+      throw IllegalArgumentException("willContinue parameter is not supported in Gemini API.")
     }
 
     return toObject
@@ -501,7 +484,7 @@ class Models internal constructor(internal val apiClient: ApiClient) {
 
     if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("streamFunctionCallArguments")))) {
       throw IllegalArgumentException(
-        "streamFunctionCallArguments parameter is not supported in Gemini API.".toString()
+        "streamFunctionCallArguments parameter is not supported in Gemini API."
       )
     }
 
@@ -644,7 +627,7 @@ class Models internal constructor(internal val apiClient: ApiClient) {
 
     if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("modelSelectionConfig")))) {
       throw IllegalArgumentException(
-        "modelSelectionConfig parameter is not supported in Gemini API.".toString()
+        "modelSelectionConfig parameter is not supported in Gemini API."
       )
     }
 
@@ -722,9 +705,7 @@ class Models internal constructor(internal val apiClient: ApiClient) {
     }
 
     if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("audioTimestamp")))) {
-      throw IllegalArgumentException(
-        "audioTimestamp parameter is not supported in Gemini API.".toString()
-      )
+      throw IllegalArgumentException("audioTimestamp parameter is not supported in Gemini API.")
     }
 
     Common.getValueByPath(fromObject, arrayOf("thinkingConfig"))?.let { node ->
@@ -756,9 +737,7 @@ class Models internal constructor(internal val apiClient: ApiClient) {
     }
 
     if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("modelArmorConfig")))) {
-      throw IllegalArgumentException(
-        "modelArmorConfig parameter is not supported in Gemini API.".toString()
-      )
+      throw IllegalArgumentException("modelArmorConfig parameter is not supported in Gemini API.")
     }
 
     Common.getValueByPath(fromObject, arrayOf("serviceTier"))?.let { node ->
@@ -770,13 +749,11 @@ class Models internal constructor(internal val apiClient: ApiClient) {
     }
 
     if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("routingConfig")))) {
-      throw IllegalArgumentException(
-        "routingConfig parameter is not supported in Gemini API.".toString()
-      )
+      throw IllegalArgumentException("routingConfig parameter is not supported in Gemini API.")
     }
 
     if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("labels")))) {
-      throw IllegalArgumentException("labels parameter is not supported in Gemini API.".toString())
+      throw IllegalArgumentException("labels parameter is not supported in Gemini API.")
     }
 
     return toObject
@@ -1029,7 +1006,6 @@ class Models internal constructor(internal val apiClient: ApiClient) {
     if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("enableEnhancedCivicAnswers")))) {
       throw IllegalArgumentException(
         "enableEnhancedCivicAnswers parameter is not supported in Gemini Enterprise Agent Platform."
-          .toString()
       )
     }
 
@@ -1338,15 +1314,11 @@ class Models internal constructor(internal val apiClient: ApiClient) {
     }
 
     if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("blockingConfidence")))) {
-      throw IllegalArgumentException(
-        "blockingConfidence parameter is not supported in Gemini API.".toString()
-      )
+      throw IllegalArgumentException("blockingConfidence parameter is not supported in Gemini API.")
     }
 
     if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("excludeDomains")))) {
-      throw IllegalArgumentException(
-        "excludeDomains parameter is not supported in Gemini API.".toString()
-      )
+      throw IllegalArgumentException("excludeDomains parameter is not supported in Gemini API.")
     }
 
     Common.getValueByPath(fromObject, arrayOf("timeRangeFilter"))?.let { node ->
@@ -1384,33 +1356,25 @@ class Models internal constructor(internal val apiClient: ApiClient) {
     }
 
     if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("personGeneration")))) {
-      throw IllegalArgumentException(
-        "personGeneration parameter is not supported in Gemini API.".toString()
-      )
+      throw IllegalArgumentException("personGeneration parameter is not supported in Gemini API.")
     }
 
     if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("prominentPeople")))) {
-      throw IllegalArgumentException(
-        "prominentPeople parameter is not supported in Gemini API.".toString()
-      )
+      throw IllegalArgumentException("prominentPeople parameter is not supported in Gemini API.")
     }
 
     if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("outputMimeType")))) {
-      throw IllegalArgumentException(
-        "outputMimeType parameter is not supported in Gemini API.".toString()
-      )
+      throw IllegalArgumentException("outputMimeType parameter is not supported in Gemini API.")
     }
 
     if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("outputCompressionQuality")))) {
       throw IllegalArgumentException(
-        "outputCompressionQuality parameter is not supported in Gemini API.".toString()
+        "outputCompressionQuality parameter is not supported in Gemini API."
       )
     }
 
     if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("imageOutputOptions")))) {
-      throw IllegalArgumentException(
-        "imageOutputOptions parameter is not supported in Gemini API.".toString()
-      )
+      throw IllegalArgumentException("imageOutputOptions parameter is not supported in Gemini API.")
     }
 
     return toObject
@@ -1491,14 +1455,13 @@ class Models internal constructor(internal val apiClient: ApiClient) {
     val toObject = mutableMapOf<String, Any?>()
     if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("name")))) {
       throw IllegalArgumentException(
-        "name parameter is not supported in Gemini Enterprise Agent Platform.".toString()
+        "name parameter is not supported in Gemini Enterprise Agent Platform."
       )
     }
 
     if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("streamableHttpTransport")))) {
       throw IllegalArgumentException(
         "streamableHttpTransport parameter is not supported in Gemini Enterprise Agent Platform."
-          .toString()
       )
     }
 
@@ -1766,19 +1729,19 @@ class Models internal constructor(internal val apiClient: ApiClient) {
 
     if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("toolCall")))) {
       throw IllegalArgumentException(
-        "toolCall parameter is not supported in Gemini Enterprise Agent Platform.".toString()
+        "toolCall parameter is not supported in Gemini Enterprise Agent Platform."
       )
     }
 
     if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("toolResponse")))) {
       throw IllegalArgumentException(
-        "toolResponse parameter is not supported in Gemini Enterprise Agent Platform.".toString()
+        "toolResponse parameter is not supported in Gemini Enterprise Agent Platform."
       )
     }
 
     if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("partMetadata")))) {
       throw IllegalArgumentException(
-        "partMetadata parameter is not supported in Gemini Enterprise Agent Platform.".toString()
+        "partMetadata parameter is not supported in Gemini Enterprise Agent Platform."
       )
     }
 
@@ -1810,14 +1773,13 @@ class Models internal constructor(internal val apiClient: ApiClient) {
 
     if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("consentAudio")))) {
       throw IllegalArgumentException(
-        "consentAudio parameter is not supported in Gemini Enterprise Agent Platform.".toString()
+        "consentAudio parameter is not supported in Gemini Enterprise Agent Platform."
       )
     }
 
     if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("voiceConsentSignature")))) {
       throw IllegalArgumentException(
         "voiceConsentSignature parameter is not supported in Gemini Enterprise Agent Platform."
-          .toString()
       )
     }
 
@@ -1840,7 +1802,7 @@ class Models internal constructor(internal val apiClient: ApiClient) {
     }
 
     if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("method")))) {
-      throw IllegalArgumentException("method parameter is not supported in Gemini API.".toString())
+      throw IllegalArgumentException("method parameter is not supported in Gemini API.")
     }
 
     Common.getValueByPath(fromObject, arrayOf("threshold"))?.let { node ->
@@ -1993,7 +1955,6 @@ class Models internal constructor(internal val apiClient: ApiClient) {
     ) {
       throw IllegalArgumentException(
         "includeServerSideToolInvocations parameter is not supported in Gemini Enterprise Agent Platform."
-          .toString()
       )
     }
 
@@ -2008,9 +1969,7 @@ class Models internal constructor(internal val apiClient: ApiClient) {
 
     val toObject = mutableMapOf<String, Any?>()
     if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("retrieval")))) {
-      throw IllegalArgumentException(
-        "retrieval parameter is not supported in Gemini API.".toString()
-      )
+      throw IllegalArgumentException("retrieval parameter is not supported in Gemini API.")
     }
 
     Common.getValueByPath(fromObject, arrayOf("computerUse"))?.let { node ->
@@ -2063,7 +2022,7 @@ class Models internal constructor(internal val apiClient: ApiClient) {
 
     if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("enterpriseWebSearch")))) {
       throw IllegalArgumentException(
-        "enterpriseWebSearch parameter is not supported in Gemini API.".toString()
+        "enterpriseWebSearch parameter is not supported in Gemini API."
       )
     }
 
@@ -2084,9 +2043,7 @@ class Models internal constructor(internal val apiClient: ApiClient) {
     }
 
     if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("parallelAiSearch")))) {
-      throw IllegalArgumentException(
-        "parallelAiSearch parameter is not supported in Gemini API.".toString()
-      )
+      throw IllegalArgumentException("parallelAiSearch parameter is not supported in Gemini API.")
     }
 
     Common.getValueByPath(fromObject, arrayOf("urlContext"))?.let { node ->
@@ -2106,9 +2063,7 @@ class Models internal constructor(internal val apiClient: ApiClient) {
     }
 
     if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("exaAiSearch")))) {
-      throw IllegalArgumentException(
-        "exaAiSearch parameter is not supported in Gemini API.".toString()
-      )
+      throw IllegalArgumentException("exaAiSearch parameter is not supported in Gemini API.")
     }
 
     return toObject
@@ -2143,7 +2098,7 @@ class Models internal constructor(internal val apiClient: ApiClient) {
 
     if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("fileSearch")))) {
       throw IllegalArgumentException(
-        "fileSearch parameter is not supported in Gemini Enterprise Agent Platform.".toString()
+        "fileSearch parameter is not supported in Gemini Enterprise Agent Platform."
       )
     }
 
