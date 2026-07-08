@@ -989,7 +989,12 @@ class Models internal constructor(internal val apiClient: ApiClient) {
       Common.setValueByPath(
         toObject,
         arrayOf("speechConfig"),
-        Transformers.tSpeechConfig(Common.getValueByPath(fromObject, arrayOf("speechConfig"))),
+        speechConfigToVertex(
+          Transformers.tSpeechConfig(Common.getValueByPath(fromObject, arrayOf("speechConfig")))
+            as Map<String, Any?>,
+          toObject,
+          rootObject,
+        ),
       )
     }
 
@@ -1500,6 +1505,28 @@ class Models internal constructor(internal val apiClient: ApiClient) {
     return toObject
   }
 
+  internal fun multiSpeakerVoiceConfigToVertex(
+    fromObject: Map<String, Any?>?,
+    parentObject: MutableMap<String, Any?>?,
+    rootObject: Map<String, Any?>?,
+  ): MutableMap<String, Any?> {
+
+    val toObject = mutableMapOf<String, Any?>()
+    Common.getValueByPath(fromObject, arrayOf("speakerVoiceConfigs"))?.let { node ->
+      val keyArray = node as? List<*> ?: emptyList<Any?>()
+      val result = mutableListOf<Any?>()
+
+      for (item in keyArray) {
+        if (item is Map<*, *>) {
+          result.add(speakerVoiceConfigToVertex(item as Map<String, Any?>, toObject, rootObject))
+        }
+      }
+      Common.setValueByPath(toObject, arrayOf("speakerVoiceConfigs"), result)
+    }
+
+    return toObject
+  }
+
   internal fun partToMldev(
     fromObject: Map<String, Any?>?,
     parentObject: MutableMap<String, Any?>?,
@@ -1758,6 +1785,45 @@ class Models internal constructor(internal val apiClient: ApiClient) {
     return toObject
   }
 
+  internal fun replicatedVoiceConfigToVertex(
+    fromObject: Map<String, Any?>?,
+    parentObject: MutableMap<String, Any?>?,
+    rootObject: Map<String, Any?>?,
+  ): MutableMap<String, Any?> {
+
+    val toObject = mutableMapOf<String, Any?>()
+    Common.getValueByPath(fromObject, arrayOf("mimeType"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("mimeType"),
+        Common.getValueByPath(fromObject, arrayOf("mimeType")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("voiceSampleAudio"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("voiceSampleAudio"),
+        Common.getValueByPath(fromObject, arrayOf("voiceSampleAudio")),
+      )
+    }
+
+    if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("consentAudio")))) {
+      throw IllegalArgumentException(
+        "consentAudio parameter is not supported in Gemini Enterprise Agent Platform.".toString()
+      )
+    }
+
+    if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("voiceConsentSignature")))) {
+      throw IllegalArgumentException(
+        "voiceConsentSignature parameter is not supported in Gemini Enterprise Agent Platform."
+          .toString()
+      )
+    }
+
+    return toObject
+  }
+
   internal fun safetySettingToMldev(
     fromObject: Map<String, Any?>?,
     parentObject: MutableMap<String, Any?>?,
@@ -1782,6 +1848,79 @@ class Models internal constructor(internal val apiClient: ApiClient) {
         toObject,
         arrayOf("threshold"),
         Common.getValueByPath(fromObject, arrayOf("threshold")),
+      )
+    }
+
+    return toObject
+  }
+
+  internal fun speakerVoiceConfigToVertex(
+    fromObject: Map<String, Any?>?,
+    parentObject: MutableMap<String, Any?>?,
+    rootObject: Map<String, Any?>?,
+  ): MutableMap<String, Any?> {
+
+    val toObject = mutableMapOf<String, Any?>()
+    Common.getValueByPath(fromObject, arrayOf("speaker"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("speaker"),
+        Common.getValueByPath(fromObject, arrayOf("speaker")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("voiceConfig"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("voiceConfig"),
+        voiceConfigToVertex(
+          Common.getValueByPath(fromObject, arrayOf("voiceConfig")) as Map<String, Any?>,
+          toObject,
+          rootObject,
+        ),
+      )
+    }
+
+    return toObject
+  }
+
+  internal fun speechConfigToVertex(
+    fromObject: Map<String, Any?>?,
+    parentObject: MutableMap<String, Any?>?,
+    rootObject: Map<String, Any?>?,
+  ): MutableMap<String, Any?> {
+
+    val toObject = mutableMapOf<String, Any?>()
+    Common.getValueByPath(fromObject, arrayOf("voiceConfig"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("voiceConfig"),
+        voiceConfigToVertex(
+          Common.getValueByPath(fromObject, arrayOf("voiceConfig")) as Map<String, Any?>,
+          toObject,
+          rootObject,
+        ),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("languageCode"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("languageCode"),
+        Common.getValueByPath(fromObject, arrayOf("languageCode")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("multiSpeakerVoiceConfig"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("multiSpeakerVoiceConfig"),
+        multiSpeakerVoiceConfigToVertex(
+          Common.getValueByPath(fromObject, arrayOf("multiSpeakerVoiceConfig"))
+            as Map<String, Any?>,
+          toObject,
+          rootObject,
+        ),
       )
     }
 
@@ -2089,6 +2228,36 @@ class Models internal constructor(internal val apiClient: ApiClient) {
         toObject,
         arrayOf("exaAiSearch"),
         Common.getValueByPath(fromObject, arrayOf("exaAiSearch")),
+      )
+    }
+
+    return toObject
+  }
+
+  internal fun voiceConfigToVertex(
+    fromObject: Map<String, Any?>?,
+    parentObject: MutableMap<String, Any?>?,
+    rootObject: Map<String, Any?>?,
+  ): MutableMap<String, Any?> {
+
+    val toObject = mutableMapOf<String, Any?>()
+    Common.getValueByPath(fromObject, arrayOf("replicatedVoiceConfig"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("replicatedVoiceConfig"),
+        replicatedVoiceConfigToVertex(
+          Common.getValueByPath(fromObject, arrayOf("replicatedVoiceConfig")) as Map<String, Any?>,
+          toObject,
+          rootObject,
+        ),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("prebuiltVoiceConfig"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("prebuiltVoiceConfig"),
+        Common.getValueByPath(fromObject, arrayOf("prebuiltVoiceConfig")),
       )
     }
 
