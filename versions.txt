@@ -1,4 +1,4 @@
 # Format:
 # module:released-version:current-version
 
-google-genai-kotlin:0.1.0:0.2.0-SNAPSHOT
+google-genai-kotlin:0.2.0:0.2.0
