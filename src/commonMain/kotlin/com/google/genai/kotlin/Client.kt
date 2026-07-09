@@ -190,6 +190,9 @@ internal constructor(
   /** Service for interacting with Models API. */
   val models = Models(httpClient)
 
+  /** Service for interacting with Caches API. */
+  val caches = Caches(httpClient)
+
   /** Closes the Client instance and its underlying HTTP client. */
   override fun close() {
     httpClient.close()

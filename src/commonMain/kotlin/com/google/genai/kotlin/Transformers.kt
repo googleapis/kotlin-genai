@@ -130,6 +130,20 @@ internal object Transformers {
     }
   }
 
+  /** Transforms a model name to the correct format for the Caches API. */
+  fun tCachesModel(apiClient: ApiClient, origin: Any?): String {
+    val model = tModel(apiClient, origin)
+    if (apiClient.enterprise) {
+      if (model.startsWith("publishers/")) {
+        // Vertex caches only support model names starting with projects.
+        return "projects/${apiClient.project}/locations/${apiClient.location}/$model"
+      } else if (model.startsWith("models/")) {
+        return "projects/${apiClient.project}/locations/${apiClient.location}/publishers/google/$model"
+      }
+    }
+    return model
+  }
+
   /** Transforms an object to a cached content name for the API. */
   fun tCachedContentName(apiClient: ApiClient, origin: Any?): String? {
     if (origin == null) return null

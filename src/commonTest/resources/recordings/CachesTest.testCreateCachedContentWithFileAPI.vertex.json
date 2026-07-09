@@ -1,0 +1,83 @@
+{
+  "recordID": "CachesTest.testCreateCachedContentWithFileAPI.vertex",
+  "interactions": [
+    {
+      "request": {
+        "method": "POST",
+        "url": "/v1beta1/projects/REDACTED/locations/global/cachedContents",
+        "request": "POST /v1beta1/projects/REDACTED/locations/global/cachedContents HTTP/1.1",
+        "headers": {
+          "Accept": "*/*",
+          "Accept-Charset": "UTF-8",
+          "Accept-Encoding": "gzip",
+          "Connection": "Keep-Alive",
+          "Content-Length": "415",
+          "Content-Type": "application/json",
+          "Test-Name": "CachesTest.testCreateCachedContentWithFileAPI.vertex"
+        },
+        "bodySegments": [
+          {
+            "contents": [
+              {
+                "parts": [
+                  {
+                    "fileData": {
+                      "fileUri": "https://generativelanguage.googleapis.com/v1beta/files/v7ha4im3cnwu",
+                      "mimeType": "application/pdf"
+                    }
+                  }
+                ],
+                "role": "user"
+              }
+            ],
+            "displayName": "cached content file API",
+            "model": "projects/REDACTED/locations/global/publishers/google/models/gemini-3.5-flash",
+            "systemInstruction": {
+              "parts": [
+                {
+                  "text": "You are a pirate. Always reply in pirate speak."
+                }
+              ],
+              "role": "user"
+            },
+            "ttl": "86400s"
+          }
+        ],
+        "previousRequest": "b4d6e60a9b97e7b98c63df9308728c5c88c0b40c398046772c63447b94608b4d",
+        "serverAddress": "aiplatform.googleapis.com",
+        "port": 443,
+        "protocol": "https"
+      },
+      "shaSum": "9bfe0b9f345356f264ce61a206f0a2c5a2f14c45ad0808ba3675fdc652be4554",
+      "response": {
+        "statusCode": 500,
+        "headers": {
+          "Content-Encoding": "gzip",
+          "Content-Length": "949",
+          "Content-Type": "application/json; charset=UTF-8",
+          "Date": "Wed, 08 Jul 2026 18:59:40 GMT",
+          "Server": "ESF",
+          "Vary": "Origin, X-Origin, Referer",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "SAMEORIGIN",
+          "X-Xss-Protection": "0"
+        },
+        "bodySegments": [
+          {
+            "error": {
+              "code": 500,
+              "details": [
+                {
+                  "@type": "type.googleapis.com/google.rpc.DebugInfo",
+                  "detail": "[ORIGINAL ERROR] generic::internal: java.lang.IllegalArgumentException: Invalid Cloud Storage URI for file: https://generativelanguage.googleapis.com/v1beta/files/v7ha4im3cnwu\n\tat com.google.common.base.Preconditions.checkArgument(Preconditions.java:252)\n\tat com.google.cloud.ai.platform.boq.shared.common.files.GcsUri.parseUriWithObject(GcsUri.java:88)\n\tat com.google.cloud.ai.platform.boq.shared.api.genaicacheservice.CreateCachedContentHandler.lambda$getGenerationNumbers$1(CreateCachedContentHandler.java:1151)\n\tat java.base/java.util.stream.Collectors.lambda$toMap$0(Unknown Source)\n\tat java.base/java.util.stream.ReduceOps$3ReducingSink.accept(Unknown Source)\n\tat java.base/java.util.HashMap$KeySpliterator.forEachRemaining(Unknown Source)\n\tat java.base/java.util.stream.AbstractPipeline.copyInto(Unknown Source)\n\tat java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(Unknown Source)\n\tat java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(Unknown Source)\n\tat java.base/java.util.stream.AbstractPipeline.evaluate(Unknown Source)\n\tat java.base/java.util.stream.ReferencePipeline.collect(Unknown Source)\n\tat com.google.cloud.ai.platform.boq.shared.api.genaicacheservice.CreateCachedContentHandler.getGenerationNumbers(CreateCachedContentHandler.java:1145)\n\tat com.google.cloud.ai.platform.boq.shared.api.genaicacheservice.CreateCachedContentHandler.lambda$provisionPipelineAndInsertCachedContent$0(CreateCachedContentHandler.java:482)\n\tat com.google.async.promisegraph.ThenPromise.lambda$buildResultFromInputs$0(ThenPromise.java:91)\n\tat com.google.async.promisegraph.PromiseResult.fromSupplier(PromiseResult.java:29)\n\tat com.google.async.promisegraph.ThenPromise.buildResultFromInputs(ThenPromise.java:87)\n\tat com.google.async.promisegraph.AbstractPromise.complete(AbstractPromise.java:216)\n\tat com.google.async.promisegraph.GraphEnvironment.pumpLoop(GraphEnvironment.java:418)\n\tat com.google.async.promisegraph.GraphEnvironment.pumpWithoutBlocking(GraphEnvironment.java:344)\n\tat com.google.async.promisegraph.GraphEnvironment.executeWorkUntilBlockedOrCompleted(GraphEnvironment.java:617)\n\tat java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)\n\tat java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)\n\tat com.google.apps.framework.server.AbstractThreadPoolModule$InitializingThreadFactory.lambda$newThread$0(AbstractThreadPoolModule.java:466)\n\tat java.base/java.lang.Thread.run(Unknown Source)\n\tSuppressed: com.google.async.promisegraph.PromiseOriginException\n\t\tat com.google.cloud.ai.platform.boq.shared.api.genaicacheservice.CreateCachedContentHandler.provisionPipelineAndInsertCachedContent(CreateCachedContentHandler.java:482)\n\tSuppressed: java.util.concurrent.ExecutionException: \n"
+                }
+              ],
+              "message": "Internal error encountered.",
+              "status": "INTERNAL"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -18,12 +18,42 @@ package com.google.genai.kotlin.types
 
 import kotlin.io.encoding.Base64
 import kotlin.io.encoding.ExperimentalEncodingApi
+import kotlin.time.Duration
+import kotlin.time.Duration.Companion.seconds
+import kotlin.time.DurationUnit
 import kotlinx.serialization.KSerializer
+import kotlinx.serialization.SerializationException
 import kotlinx.serialization.descriptors.PrimitiveKind
 import kotlinx.serialization.descriptors.PrimitiveSerialDescriptor
 import kotlinx.serialization.descriptors.SerialDescriptor
 import kotlinx.serialization.encoding.Decoder
 import kotlinx.serialization.encoding.Encoder
+
+/** A custom serializer for [Duration] that formats it as a string ending in 's'. */
+object DurationStringSerializer : KSerializer<Duration> {
+  override val descriptor: SerialDescriptor =
+    PrimitiveSerialDescriptor("DurationString", PrimitiveKind.STRING)
+
+  override fun serialize(encoder: Encoder, value: Duration) {
+    val seconds = value.toDouble(DurationUnit.SECONDS)
+    val formatted =
+      if (seconds % 1.0 == 0.0) {
+        "${seconds.toLong()}s"
+      } else {
+        "${seconds}s"
+      }
+    encoder.encodeString(formatted)
+  }
+
+  override fun deserialize(decoder: Decoder): Duration {
+    val stringValue = decoder.decodeString()
+    if (!stringValue.endsWith("s")) {
+      throw SerializationException("Duration must end with 's'")
+    }
+    val value = stringValue.dropLast(1).toDouble()
+    return value.seconds
+  }
+}
 
 /** A custom serializer for [Instant] that encodes to and decodes from ISO-8601 strings. */
 object InstantSerializer : KSerializer<Instant> {

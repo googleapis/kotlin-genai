@@ -32,13 +32,13 @@ data class StreamableHttpTransport(
   val headers: Map<String, String>? = null,
 
   /** Timeout for SSE read operations. */
-  val sseReadTimeout: Duration? = null,
+  @Serializable(with = DurationStringSerializer::class) val sseReadTimeout: Duration? = null,
 
   /** Whether to close the client session when the transport closes. */
   val terminateOnClose: Boolean? = null,
 
   /** HTTP timeout for regular operations. */
-  val timeout: Duration? = null,
+  @Serializable(with = DurationStringSerializer::class) val timeout: Duration? = null,
 
   /** The full URL for the MCPServer endpoint. Example: "https://api.example.com/mcp". */
   val url: String? = null,

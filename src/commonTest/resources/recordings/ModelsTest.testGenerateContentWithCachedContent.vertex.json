@@ -1,0 +1,100 @@
+{
+  "recordID": "ModelsTest.testGenerateContentWithCachedContent.vertex",
+  "interactions": [
+    {
+      "request": {
+        "method": "POST",
+        "url": "/v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-3.5-flash:generateContent",
+        "request": "POST /v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-3.5-flash:generateContent HTTP/1.1",
+        "headers": {
+          "Accept": "*/*",
+          "Accept-Charset": "UTF-8",
+          "Accept-Encoding": "gzip",
+          "Connection": "Keep-Alive",
+          "Content-Length": "183",
+          "Content-Type": "application/json",
+          "Test-Name": "ModelsTest.testGenerateContentWithCachedContent.vertex"
+        },
+        "bodySegments": [
+          {
+            "cachedContent": "projects/REDACTED/locations/global/cachedContents/2522030231007526912",
+            "contents": [
+              {
+                "parts": [
+                  {
+                    "text": "Summarize the PDF"
+                  }
+                ],
+                "role": "user"
+              }
+            ],
+            "generationConfig": {}
+          }
+        ],
+        "previousRequest": "b4d6e60a9b97e7b98c63df9308728c5c88c0b40c398046772c63447b94608b4d",
+        "serverAddress": "aiplatform.googleapis.com",
+        "port": 443,
+        "protocol": "https"
+      },
+      "shaSum": "d20fcdcb5542d89c9f78797b05ef09d4c07bcd4651f774490ff1d895e837c2ae",
+      "response": {
+        "statusCode": 200,
+        "headers": {
+          "Content-Encoding": "gzip",
+          "Content-Length": "1820",
+          "Content-Type": "application/json; charset=UTF-8",
+          "Date": "Wed, 08 Jul 2026 19:12:51 GMT",
+          "Server": "scaffolding on HTTPServer2",
+          "Vary": "Origin, X-Origin, Referer",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "SAMEORIGIN",
+          "X-Xss-Protection": "0"
+        },
+        "bodySegments": [
+          {
+            "candidates": [
+              {
+                "content": {
+                  "parts": [
+                    {
+                      "text": "Ahoy, matey! Gather 'round and feast yer eyes on the grand tale of **Gemini 1.5 Pro**, Google DeepMind's newest ship in their fleet of massive language models! \n\nHere be the chest of secrets revealed in this scrolls-pack:\n\n### 1. The Mother of All Context Windows!\nThe greatest treasure of Gemini 1.5 Pro is its legendary **long-context window**, capable of holding up to **10 million tokens** (or at least 1 million with near-flawless recall)! \n*   This beast can swallow **10.5 hours of video**, **107 hours of audio**, or a mountain of parchment like the entire 1,440-page book *War and Peace* in a single gulp!\n*   In the \"Needle-in-a-Haystack\" trials, where they hide a tiny scrap of gold in a massive desert of data, the model retrieved the secret with **over 99% accuracy** across text, video, and audio alike!\n\n### 2. A Ship Built on Sparse MoE (Mixture of Experts)\nInstead of firing every cannon for a simple fly, this model uses a **Sparse Mixture-of-Experts (MoE) architecture**. It only calls upon a portion of its massive brain for any given task, making it highly efficient, using far less wind (compute power) to train and sail than older ships like Gemini 1.0 Ultra.\n\n### 3. Translation of Lost Tongues (In-Context Learning)\nThe beast has a rare magic: it can learn new skills right inside its prompt! When given a grammar manual and a dictionary for **Kalamang** (a rare Papuan tongue with fewer than 200 living speakers, virtually non-existent on the open seas of the web), Gemini 1.5 Pro learned to translate English to Kalamang at the same level as a human scholar studying the very same scrolls!\n\n### 4. Mastery Over Code and Lore\n*   **JAX Codebase:** It can ingest an entire codebase of over 740,000 tokens and pinpoint the exact line of code a coder seeks.\n*   **Les Misérables QA:** Given the massive 710,000-token novel, it answered complex questions about themes and characters without needing external search maps (RAG). It even located a scene in the book from a hand-drawn sketch!\n\n### 5. Outperforming the Old Fleet\nWhen compared to the older captains of the line, Gemini 1.5 Pro boasts an **87.9% win rate** over Gemini 1.0 Pro. Even more impressive, it beats or matches the massive flagship **Gemini 1.0 Ultra** across most benchmarks in math, coding, science, and multilinguality—despite being a much leaner, swifter vessel!\n\nAye, 'tis a formidable addition to Google's fleet, pushing the boundaries of what an AI can hold in its skull!",
+                      "thoughtSignature": "AY89a18G+kMxVl/Ttx3MtCWtrEcjp5FUVfZnrtkfZDkM5xHUmpE0TMmOLxDTrZAk54s="
+                    }
+                  ],
+                  "role": "model"
+                },
+                "finishReason": "STOP"
+              }
+            ],
+            "createTime": "2026-07-08T19:12:37.195608Z",
+            "modelVersion": "gemini-3.5-flash",
+            "responseId": "JaFOapj4C7XkodAP3tKSiAk",
+            "usageMetadata": {
+              "cachedContentTokenCount": 40052,
+              "candidatesTokenCount": 636,
+              "candidatesTokensDetails": [
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 636
+                }
+              ],
+              "promptTokenCount": 40055,
+              "promptTokensDetails": [
+                {
+                  "modality": "IMAGE",
+                  "tokenCount": 40040
+                },
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 15
+                }
+              ],
+              "totalTokenCount": 40691,
+              "trafficType": "ON_DEMAND"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

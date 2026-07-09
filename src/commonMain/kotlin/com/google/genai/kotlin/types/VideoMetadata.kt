@@ -29,7 +29,7 @@ import kotlinx.serialization.Serializable
 data class VideoMetadata(
 
   /** Optional. The end offset of the video. */
-  val endOffset: Duration? = null,
+  @Serializable(with = DurationStringSerializer::class) val endOffset: Duration? = null,
 
   /**
    * Optional. The frame rate of the video sent to the model. If not specified, the default value is
@@ -38,5 +38,5 @@ data class VideoMetadata(
   val fps: Double? = null,
 
   /** Optional. The start offset of the video. */
-  val startOffset: Duration? = null,
+  @Serializable(with = DurationStringSerializer::class) val startOffset: Duration? = null,
 )

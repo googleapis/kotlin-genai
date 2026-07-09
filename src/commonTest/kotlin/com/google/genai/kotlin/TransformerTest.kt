@@ -159,7 +159,7 @@ class TransformersTest {
 
   @Test
   fun testTModel_mldev() {
-    assertEquals("models/gemini-1.5-pro", Transformers.tModel(mldevClient, "gemini-1.5-pro"))
+    assertEquals("models/gemini-3.5-flash", Transformers.tModel(mldevClient, "gemini-3.5-flash"))
     assertEquals("models/gemini", Transformers.tModel(mldevClient, "models/gemini"))
     assertEquals("tunedModels/my-model", Transformers.tModel(mldevClient, "tunedModels/my-model"))
   }
@@ -168,8 +168,8 @@ class TransformersTest {
   fun testTModel_vertex() {
     // Standard model
     assertEquals(
-      "publishers/google/models/gemini-2.5-flash",
-      Transformers.tModel(vertexClient, "gemini-2.5-flash"),
+      "publishers/google/models/gemini-3.5-flash",
+      Transformers.tModel(vertexClient, "gemini-3.5-flash"),
     )
     // Third-party publisher
     assertEquals(
@@ -184,6 +184,38 @@ class TransformersTest {
     assertEquals(
       "projects/my-project/models/my-tuned",
       Transformers.tModel(vertexClient, "projects/my-project/models/my-tuned"),
+    )
+  }
+
+  @Test
+  fun testTCachesModel_mldev() {
+    assertEquals(
+      "models/gemini-3.5-flash",
+      Transformers.tCachesModel(mldevClient, "gemini-3.5-flash"),
+    )
+    assertEquals("models/gemini", Transformers.tCachesModel(mldevClient, "models/gemini"))
+  }
+
+  @Test
+  fun testTCachesModel_vertex() {
+    val expectedPrefix = "projects/test-project/locations/us-central1"
+
+    // Standard model without models/ or publishers/ prefix
+    assertEquals(
+      "$expectedPrefix/publishers/google/models/gemini-3.5-flash",
+      Transformers.tCachesModel(vertexClient, "gemini-3.5-flash"),
+    )
+
+    // Starting with publishers/
+    assertEquals(
+      "$expectedPrefix/publishers/google/models/gemini-3.5-flash",
+      Transformers.tCachesModel(vertexClient, "publishers/google/models/gemini-3.5-flash"),
+    )
+
+    // Starting with models/
+    assertEquals(
+      "$expectedPrefix/publishers/google/models/gemini-3.5-flash",
+      Transformers.tCachesModel(vertexClient, "models/gemini-3.5-flash"),
     )
   }
 

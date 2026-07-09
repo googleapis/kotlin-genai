@@ -1,0 +1,108 @@
+{
+  "recordID": "ModelsTest.testGenerateContentWithCachedContent.mldev",
+  "interactions": [
+    {
+      "request": {
+        "method": "POST",
+        "url": "/v1beta/models/gemini-3.5-flash:generateContent",
+        "request": "POST /v1beta/models/gemini-3.5-flash:generateContent HTTP/1.1",
+        "headers": {
+          "Accept": "*/*",
+          "Accept-Charset": "UTF-8",
+          "Accept-Encoding": "gzip",
+          "Connection": "Keep-Alive",
+          "Content-Length": "165",
+          "Content-Type": "application/json",
+          "Test-Name": "ModelsTest.testGenerateContentWithCachedContent.mldev"
+        },
+        "bodySegments": [
+          {
+            "cachedContent": "cachedContents/f4sg24rqje1qiire2bgpvphlq33kxg6o95moyret",
+            "contents": [
+              {
+                "parts": [
+                  {
+                    "text": "Summarize the PDF"
+                  }
+                ],
+                "role": "user"
+              }
+            ],
+            "generationConfig": {}
+          }
+        ],
+        "previousRequest": "b4d6e60a9b97e7b98c63df9308728c5c88c0b40c398046772c63447b94608b4d",
+        "serverAddress": "generativelanguage.googleapis.com",
+        "port": 443,
+        "protocol": "https"
+      },
+      "shaSum": "4f5f730c4e2b41c00d21d4192d84314d0e14119697266a565b50baa809b51e95",
+      "response": {
+        "statusCode": 200,
+        "headers": {
+          "Content-Encoding": "gzip",
+          "Content-Length": "7303",
+          "Content-Type": "application/json; charset=UTF-8",
+          "Date": "Wed, 08 Jul 2026 19:12:36 GMT",
+          "Server": "scaffolding on HTTPServer2",
+          "Server-Timing": "gfet4t7; dur=13555",
+          "Vary": "Origin, X-Origin, Referer",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "SAMEORIGIN",
+          "X-Gemini-Service-Tier": "standard",
+          "X-Xss-Protection": "0"
+        },
+        "bodySegments": [
+          {
+            "candidates": [
+              {
+                "content": {
+                  "parts": [
+                    {
+                      "text": "Ahoy, matey! Grab a flagon of grog and let me translate this scholarly parchment about the map of yer body’s senses—the **Somatosensory System**! It’s the magic that lets a pirate feel the wind on his face, the rumble of the deck, and the sting of a cutlass. \n\nHere be the treasure map of how yer vessel feels the world:\n\n### 1. The Spies in Yer Skin (Cutaneous Receptors)\nYer skin is crawling with tiny lookouts that tell yer brain-captain what’s happening on the outside. They be split into different crews based on how fast they adapt:\n\n*   **The Rapidly Adapting Swashbucklers:** These lads fire off quick signals when things change fast.\n    *   **Hair Receptors \u0026 Meissner’s Corpuscles:** These sit near the surface to detect a scurvy insect crawling on yer arm or help ye adjust yer grip on a slippery bottle of rum.\n    *   **Pacinian Corpuscles:** Deep-dwelling beasts that feel the rumble and vibrations of the ship's cannons.\n*   **The Slowly Adapting Deckhands:** These stay on duty, firing constant signals.\n    *   **Merkel’s Receptors:** High-density in yer fingertips for feeling the fine details of gold coins. They grow fewer as ye weather into an old salt!\n    *   **Ruffini’s Corpuscles:** Deep sensors that tell ye when yer skin is stretching, like when ye grab the rigging.\n\n---\n\n### 2. The Curse of Pain (Nociceptors)\nThese free-agent nerve endings are the bringers of bad news. They scream \"Danger!\" when ye get poked, burned (at scorching temperatures of 40–60°C), or splashed with acid. Yer pain comes in three flavors:\n1.  **First Pain:** A sharp, quick sting (like a splinter). Easy to locate and tolerate.\n2.  **Second Pain:** A slow, burning agony. Hard to pinpoint and makes a pirate weep.\n3.  **Third (Deep) Pain:** An ache from yer guts, bones, and joints—often causing \"referred pain\" elsewhere on yer hull.\n\n---\n\n### 3. Rigging the Sails (Muscle Spindles)\nDeep in yer meat-sails (muscles) lie **muscle spindles**, which are clever stretch-detectors. \n*   They consist of **intrafusal fibers** (on the inside) and **extrafusal fibers** (on the outside).\n*   **Alpha motor neurons** control the heavy-lifting outer muscles, while **Gamma motor neurons** adjust the sensitivity of the inner spindles so ye never lose track of yer limbs, even in the pitch black of night.\n\n---\n\n### 4. The Steering Compass (Joint Receptors)\nIn yer knees, elbows, and knuckles lie the **joint receptors**. They act as compasses divided into four groups, whispering to yer brain about the position, speed, and direction yer limbs are swinging. The \"Type 4\" crew members among them are secret nociceptors, waiting to yell if ye bend yer arm the wrong way!\n\nAye, that be the sum of it! Yer body is a finely-tuned ship, and these receptors be the crew keeping ye afloat!",
+                      "thoughtSignature": "EqonCqcnARFNMg996qdX8MeILpwgUumsFWqE41m+ou0t9tnrHyoY62cTQB2i3w49O7Nx4OlBfacc/17YpVTpI/YuukqwE9rynkWBJ1dPh+k2kzJXxxeBpGzg6P02f/qsJeKjM51lLZssMg+DKXvdXvaydne4EroGiwsOX5W3LrNrneAXtaB4XfzvdrDRkX/zbDKBGw0Utq5xiGz4p3KExhfEJvOsUApG6pJ0xRfiUCGSi2VLf6lRXMTwTx/araNWDbbsLOk4FLpU5yPJnPM8Yfe44x9bVfPepUGcH/vtVwuUwuuMAenQ0iHFRrRBaY7m/EJZZ+j9cx+Sll4pj5fRB0ee1uNZjdLhcydly50e5kSmgYRZOXPPsvTCjQ8ArltO1rBtF39PUz+7jc5mbELfgcFDEhTbQigZrOo43PI+JCvxKc0V5CnP6ju36QiFhqH1Boqshw1M4vnaYSVU3r9miZAfzONI8RdPrp3KZze8KSmoG18b4Ej9iSuJBCuqy0KdhwjzFN+ArQTJaXNzJ4Q4ER65b4pCKf7QVDO1KqoC4bZMgjs6p9+p+PjxwSsb7I95WNBO7Hbgrk+aqOV3r01oYqO12QIw8Gj6VkFDeDNT1fmBex+AImagjdoT9RkL9Q0B84VpNuTX8rzgtzf3/mXAajAQ+wUaKE3B0hjBfFMVft6BchjZAhPREq+kHF6P4sBkE6EGXREgWCMWY3cDILaYcSearEZ5oLIsj+SMIQaOmQHoY3vZTxXtVVsGW0aiX80Trz5OZUe3k4QaRxXNmhcC5vT5zEhFvMUOsFus/Qxvpk2dFFU2Ta2VyIFa43M3tdSfKdusRZo51GNjxek6HrtzaliR/n2Zmla9VT3rX/+aLEfxYShqP0l1pzWhVrA6D1LQY4HzonmERfMccJRj/0zj9+kRrA5c1KFDiSb5WM4xis6ZojHXu1sgqx2lRhuiHyhtAMzdsc9pQjo8s7J1RJPzxuewYmxowt6PPlfEVSLJEFNOjeZrX5yS9RILpoGlFD6W3bDr/tjuGF/HlS7E4TQmcZ6J7uoE5NJJLKiGQ6QZ+UuhNPtV6/bUq3d1bRarAQXCWqwL8up5pLzXtAUvu4jdTHX8wXJsWwuyCND9vSz6FL1cpsAqsW1ze8iEXcqk8XrFxsDhh1AzUEisoinOCegKx+kKD07Xl9h825oVLk3jJ6xSlQTjVdusps05IoiVGZNTVLSUEdVpLqxtASOal2P7MWxq6mEFODjxMmBjcxGvBJph0nU8CGNoKDyLPQEzlGj5aCg9fGAFqTe86GeCPU5AKDzqmlIkQSH/2Ze02S2U+s3oUW4HuTaP5Oc6gukdrjUYgO1AMSKmcvGS1kUEaP1qpBzWJLJKnney11sxUklextSP19OWqa1YR6fnqF5oRXuNgjV+pD9xqKMCowiWmroph8+EF/AmfVWvaQvjNflkRAtLxQWYYjivpZTa0dEzin7BfSMmrY229hFOsz+9zQzB6GCbasJ5D7oHvPX6Fbu1QK5bw5hscQELeGdvyUEbWpG9XaFo48p2SAjBXhKawNC0CWRqby+bZ/rcGzXRSY09ueH0S0Ug1ohM5xcgL6W2v5be9dQXDGZhlYq/xQBZnK+/GUSxTmx4DC153anvAce00YZiDbjgQFvjrCY3X5r7NvEGSZ8d46ExHr8TL0HDBUVkfYvefgR7iOTQTW7rIwM+g3w1OWzyzQAl2nMlDQB6ZCb9Bbrms/6ODyU1125FVkdgPq5mni0eYBGqv/58JNVFRBXrpHIpqI7120U3y3z8QpQizLxBatFREc298kGOkCys0gYGlJtn43ho6ldzEjXF5qE5B2rrm2TAaeCZn6Er4xA/jae02y+7qnX49pR1BZy0BDNBiWToHDym4Ys3Iu0jHltO5zoj0akKhDQTAuBzVenZ6A844XCR98okn5K/xnWY9/au4h6O6n/mFXBPK7STLXUH4D/HvJVkSpwZOSKAW4yollYz/1NCPRFiLTpAOwAtXs4zjZyZyeHvxFZ1Z34q7fJa9cqvag8YjRzYsiG4T81ypgqorY/XpWJ+P/6Smc0HIZeiPhKfSx8kbovrYZVrLtoaA2nXh8ZFoofhL9EzWUtIg8VnNjzE6nPrBk7t3h+7Vm6kV8Lh8xYqAj+6IcANIh25LjNuPbPBtm7BRzaempeneaZ+taYkKpoEi+9hopxraYg8tPqQGuk7cOuyivCxMOowE2VoEXiQZW/S8M0U57fYvQxRIHFJUSH3QAcZmIvL0scx7P4TPWiT4LVU+xOBpl/GoG4Q8jjbHTKUNUPZm2U9I92MJ9LSIFhyZR+jOAvtY1gw+CFSaSN1jfYKC/oMo+KXuUwaa1/wG0rc32HIpxvX8KQ0ABPzA+4MRawL/o+0/FSjYInXiD7Qo3TT6sDa+gaCvxm5NbMl6+qh6BHh4E8bA1KZU+vY9s7iip2YgBI6TZPFtvytEqhyX5bPRYQBsqd5ZlgauPfSrfyQ/858OkeyT13SctZHtKnzLXUx8e3vp4o2EwwFWR2mLy5Z1upFUKqALOyvj2+Z7pdoicsid59Nl+hcuGtMLXdWAltVVnDYMhIWxs1fBmsultWdrwZNsAEGUWI9L4lae6O2LIZU4KB6r1PMf5WBZwn3AvxQL8ORQDR5JK/CugPiSCqdsnepnUBrAghHsGRyR+b8Xp+dtx/+melYEH4FFcr5B6e0XRFrIyJBGJWcYWFCpvoOD5Vk5xorfr5Ac2qTqgNWik/rQWxpOS/G01mcRConiA7pXy04JcTltbAx6sZ33gsNuZQ2dAYTBgnTfAD81/lLaEykh1K7PNt4fVj+tYHyEzhUxfB2/6wZp6tTV/qsPjdtsqRQWe+XPNWY7SIS0g6QNNNUuISm/ZSvZUkhfYOuyhicgo22Hr8ewF95/keQPdbyOsc9qwCrb0jJvlcmkIE5V2N+Gp/tXKre3zuia6y+XXWH8Y9FgfXSxKG25V1FKI/NMwuHOZjkyNjUxdKbClODXYiLC2Df4yf/iC2mPHZDoKvEbnN+iBfjSbX3//9PzW6MgZh4S+Icug8SdcqRYBzeoy3QddppDFgXZJMQED76wxOo6sPYJ00aZHJW17qQj+u8Wv5107b3HXNI4acxMOP7k0zwYrR4cZnMA4BBIp9iW34vFGMr/D4EeA8qIJ7O/e5RF1FMZlgHDzmFcvM1yc0vLG5cy05D6lG+WpKXz/al1QXq5IXImhMLS4xI4cvOLTDV3IOaeV9Aa4aSpEjLzm8UBHFwgriCMwaN4N1PlAnR35Sygcm4O2Gr4y1YqWxJU/2YymTKmO6UkMRMkkS6i5fBl84EgfdGTdOeG0BKTg1I9kdZKpLF+GogGESwwXLphetQ0nHx6cZkrLgYKl9suL/4C5+kYUNbQvWyH3y5gwoMXFECWBTUNkJLOqJ90h2vtvOW/FlDagl3YgmDciFpuQnHD6527KpW9daJmQqLf+ONJ1eovpYEkP4nnqSn0nBZTcVU6iiqRePHONhburNolV+T67mnkMGnc0SXdD6DyDjNM+SLeCHVHqK/D11a0GbX9ab1EQPN5TWfsyd6dAekV3B9dDeJut5iNfXVvCW6QimxjIRx/6SJgiMSzTNDxajTQR8iwymqHasmC2RZvv0uzskTKt1KXN79cD/3140wzbV29eHYxV7lnqZLW6WyGgRNJu94tOjvaqs6Bv3/4A0hIKA4BSR95KIViuwlkKhOK86K//SSf5QtaYGqwBN6YCcvbqLICIt/igXM3/qs8YIside8tLgAI4IHnMF9UJfZtJ6kgGi+rK1UtfE0mFi3TrzHHJy4NkBoCpu0X5o37fYyXEiZoRSkZXOjoiOndq0yyrtyEKa5GLLJw5s8XYa45LZP516m73hdJ43NWOAbwOmXCZkRVnNI0D1rDfOtcaQyQzMyR0WOI0RD4SoQkiWj1apaRq6dx0jd/zMGEacIkPBcePs/613AOgNiZoSk7fAMP8jhEHIPb5kJAj0vV26UsYQTulT59gJSBexaJXb2dyT3Qk0Zguc460S/xjuj9++Lye4H15BnmRnEeU3g5oHISS4KqJl+j1NjW2pssW9985bAYCYQ2Cl3CUDUHv52Nmx4LIxBl+t7MTGxPz48a0rsNtSV7VsIms8YN/7abwBKlbyOYdNuu4b0OqTYN6NfzXLkG2b3xP5T7miWUhp7/B3CSErXgjjotkLk+E00oc9voe2BIc5MRDV4Y+VnyMn3WAnadB/CLryLVXyZ9YLkSM/V+rr1uObTcyuaYG+iiXp7cSTy3OJQspzFN8mWKuT5p2ALZm11JaRgOyGyIHzwOl1L9bOdFv7C7EuU0OvU5iWeXPQNfhnht5yeiHfPDj3msp8/IcEUR2DFtbEX1bGDKyQC++0NPvq1WMeuyfVwUJvIhdE4oBIXq+uMLzTDnnvxCSZA55w4dLVYhr4sdeDvddSrXC+Gw/t99J04MZv7MXxI6RQtt8rz53CEjF+CDfTceXLi+v2NBN+6xQp1q0794zFbdFM4ExCNCr5xXio7vlECohAcps2Rlo/MPmgfHPUmKILvb+dkmoGXqkPFSIEGJDzbaXauQrpafRnGnHUBgXQRITxcwa2OLm7Cp8SvH3UU0AvOUblIsSHi3xshwF6yui7+JVszfsEZuEWhL/Bow/a7CWnreX6RnKb5wpUEvgwhvGx+fynUwI3APPqPBBrryZihjvAHgEs/ldNhZrZcU/GRkNuJ1hzB039Mi1VBH/TQbLJOBYhy6tJUg/zOrCvuHjsCfbzabISluKVDn4HOsd+ziPy+UnbTMnRiE/WE/ijIpPERFub/1lmyRvSSirs1PyRzFjbT1IJGyRM36Lh1ZGmjuSmdfcQNz3rtBDCGapOdx8SHMY1VG0m1er78PR2XGOEzHbY+gdPEY32JbQyW8jvZLkJyliA0m+nRK7WmdvQy6vn2QwNBZFqKrKXB+12ZfqCTmpnMH32cCheeY6M2AVq9oVcGjIP5LtJpQAei7kEH6PZYqZdLLJwXE+Rct9NwxJ2Q6GlfUrejGS92d1nFY/CB96mwk92pGJuvzIKfP/Z3irzN3kBjfBIW7dKzHt8xzp/ZrVLOspBKkzPbWj4UzDOh3AdvwMaY8S1qDAD+lXNTySUUMufgQfkXE8wi/hyNJSi7aYdwwnYhjyi8uLY1uH9vvqVH/UY90OYTo5A8N6HgAJcNGeGmympvcl9MjWmklju3R1Jn2t8T7iqocJfxyl5lu3GDB4GxECdBDJCnhbJ6yzpEsLcMLOCvWjaIix4hySTH+k4D4G0Y4H0o5+SgJ0Q0H8tmRy4+rsAJIVVLVRiQnTQW/0uc3jLhbE9e6GpbQ3iJ/d3/FFVim6baygUVnaZQj3M+fSPAjabisbv9DMUZO2CJulqmETDRMaJ1MslaEk88S+WkGpZOphFlnpKw2DcM4g8mrtnxtsTI1T8aT5CmT69EZeCAcuK8qugzT4jrEe4Vb/xcVjQ/GVSLN31o5WCZWK8J4ynlzmUv88Jmjd5ZquYH8V+f3zFEelZ6vPubXui+0r7QxjXRXQ9vPa7NkIYUKqiRLpdx8nbOJJk3EYVMJF5K9EWi8zEKGg06ulITlhFfRQHE5drEgDJVnOi30fa+c5Bpa8dvn+HJOlq6sxemR5l70oEfe/trbqpFv6sBIedG/O2gOh40I4V75EjcsV+aeEaK5UqX7bJVE3OhEOOqrwk6hNVtY1OsGeGaDmoq9CFaQ0SuUxylTtj2d9927cfl/N94rABlmC8cF8XWbPU9yvGz4uJpGViQq/ZX5LgrzmmnJc37kPE37VY3+7afmJDN6QPCXsYlGTKWJ6qwmCAvGlBXatcnTjCq7QR95mphzOKVaPnSM3EkikZ0pHS1d7d8qV5+uVRLFmE3qBPLDp6nAgeDDJOO217jdeawdmemE5llw7qsmrbO3MReC/5Q57h3oq1FfCuKB0mwc4z1HvJR+JFb7NwNeDYC3GTXj5a3VY3Ph/peMPi39zomSv//t8YaumfylphJZS0B4u3pnQXjaHkRO5Jfpjj8Y4ZOTcFnDPh3LvWIULuqLE3y8gFUzAbOwlKpzEyUJa2sj+OA/Aa4d6nwhC2sSG0hd/F0RIRv2+Ug+71Abkq6M8i+yg0b7Jti9I84Rl0EIjnZHj5KCDxmkLoxrXf0sNXVeN/LqQmVdSobu5lMVd9zbITtii6AHRoMY/kJqxl9cJe9Mh+5FsLWWOq58M5qqfsiCkffQHW3tvVXFMTSB30dBkdbPnJ53UveI/yote/iMr14N4Y3Wg/OfCFIW8pePsQ8jzMT7b9sfYqlsXSz1IeG8o5VAj5vd+FUkmytg4r0fAuwXyMFJHP1sNjktSm6DBHqFtdXSUuWz8isbWpIGiMX/0x0bvVZ0ZXpdpyUlK9P65+Sa6yWcBbb2cNba7jbuOMRcBDH0APfI/odhM8juJq7FigX9rdj2d3zRAHZk5n0kZ3sVZ1AytW8AmMInk175T0f2tAoU+7Nk59hx1SbLVylHRn2qV63p2hBKuByvpdpR9CkRJrd6GuUP1Wbj61SAcXBRWem7W1ltuRKXom6Oy3Cn0dT4iNMjUAChJ1sGf5E4/4gHHwMRlguDFwEAeP3gKA2J6vUxOq8N7v+SOzO7V8rL04LvfQ4XMKzNy/j6ApQKbiOpPe0q6IQ8Y0NBgseArgRPl1TTQl7TB41DiFLS/kowrH8jLw16Mv5WJBwJsYyAsV2"
+                    }
+                  ],
+                  "role": "model"
+                },
+                "finishReason": "STOP",
+                "index": 0
+              }
+            ],
+            "modelVersion": "gemini-3.5-flash",
+            "responseId": "FqFOaoqJLdCi1MkP0MW8sQM",
+            "turnToken": "v1_ChdGcUZPYW9xSkxkQ2kxTWtQME1XOHNRTRIXRnFGT2FvcUpMZENpMU1rUDBNVzhzUU0",
+            "usageMetadata": {
+              "cacheTokensDetails": [
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 13
+                },
+                {
+                  "modality": "DOCUMENT",
+                  "tokenCount": 2240
+                }
+              ],
+              "cachedContentTokenCount": 2253,
+              "candidatesTokenCount": 705,
+              "promptTokenCount": 2202,
+              "promptTokensDetails": [
+                {
+                  "modality": "IMAGE",
+                  "tokenCount": 2184
+                },
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 18
+                }
+              ],
+              "serviceTier": "standard",
+              "thoughtsTokenCount": 1273,
+              "totalTokenCount": 4180
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

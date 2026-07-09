@@ -1,0 +1,46 @@
+{
+  "recordID": "CachesTest.testDeleteCachedContent.vertex",
+  "interactions": [
+    {
+      "request": {
+        "method": "DELETE",
+        "url": "/v1beta1/projects/REDACTED/locations/global/cachedContents/8046196551279706112",
+        "request": "DELETE /v1beta1/projects/REDACTED/locations/global/cachedContents/8046196551279706112 HTTP/1.1",
+        "headers": {
+          "Accept": "*/*",
+          "Accept-Charset": "UTF-8",
+          "Accept-Encoding": "gzip",
+          "Connection": "Keep-Alive",
+          "Content-Length": "2",
+          "Content-Type": "application/json",
+          "Test-Name": "CachesTest.testDeleteCachedContent.vertex"
+        },
+        "bodySegments": [
+          {}
+        ],
+        "previousRequest": "b4d6e60a9b97e7b98c63df9308728c5c88c0b40c398046772c63447b94608b4d",
+        "serverAddress": "aiplatform.googleapis.com",
+        "port": 443,
+        "protocol": "https"
+      },
+      "shaSum": "68cf70a03ae029068abeca24e44861351f511b10e2e54f75891e26b54de74afb",
+      "response": {
+        "statusCode": 200,
+        "headers": {
+          "Content-Encoding": "gzip",
+          "Content-Length": "23",
+          "Content-Type": "application/json; charset=UTF-8",
+          "Date": "Wed, 08 Jul 2026 18:34:21 GMT",
+          "Server": "ESF",
+          "Vary": "Origin, X-Origin, Referer",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "SAMEORIGIN",
+          "X-Xss-Protection": "0"
+        },
+        "bodySegments": [
+          {}
+        ]
+      }
+    }
+  ]
+}

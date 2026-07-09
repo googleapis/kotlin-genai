@@ -18,22 +18,12 @@
 
 package com.google.genai.kotlin.types
 
-import kotlin.time.Duration
 import kotlinx.serialization.Serializable
 
-/** Route information from Google Maps. This data type is not supported in Gemini API. */
+/** Empty response for caches.delete method. */
 @Serializable
-data class GroundingChunkMapsRoute(
+data class DeleteCachedContentResponse(
 
-  /** The total distance of the route, in meters. */
-  val distanceMeters: Int? = null,
-
-  /** The total duration of the route. */
-  @Serializable(with = DurationStringSerializer::class) val duration: Duration? = null,
-
-  /**
-   * An encoded polyline of the route. See
-   * https://developers.google.com/maps/documentation/utilities/polylinealgorithm
-   */
-  val encodedPolyline: String? = null,
+  /** Used to retain the full HTTP response. */
+  val sdkHttpResponse: HttpResponse? = null
 )

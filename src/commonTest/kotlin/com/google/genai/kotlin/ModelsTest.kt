@@ -638,4 +638,26 @@ class ModelsTest : BaseTestServer() {
       assertContains(response.text ?: "", "Gemini")
     }
   }
+
+  @Test
+  fun testGenerateContentWithCachedContent() = runLongTest {
+    listOf(false, true).forEach { enterprise ->
+      val suffix = if (enterprise) "vertex" else "mldev"
+      val testName = "ModelsTest.testGenerateContentWithCachedContent.$suffix"
+      val client = createClient(enterprise, testName)
+
+      val cachedContent =
+        if (enterprise) "cachedContents/2522030231007526912"
+        else "cachedContents/f4sg24rqje1qiire2bgpvphlq33kxg6o95moyret"
+
+      val response =
+        client.models.generateContent(
+          model = "gemini-3.5-flash",
+          text = "Summarize the PDF",
+          config = GenerateContentConfig(cachedContent = cachedContent),
+        )
+
+      assertNotNull(response.text)
+    }
+  }
 }

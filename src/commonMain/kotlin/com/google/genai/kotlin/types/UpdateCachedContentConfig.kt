@@ -21,19 +21,22 @@ package com.google.genai.kotlin.types
 import kotlin.time.Duration
 import kotlinx.serialization.Serializable
 
-/** Route information from Google Maps. This data type is not supported in Gemini API. */
+/** Optional parameters for caches.update method. */
 @Serializable
-data class GroundingChunkMapsRoute(
+data class UpdateCachedContentConfig(
 
-  /** The total distance of the route, in meters. */
-  val distanceMeters: Int? = null,
-
-  /** The total duration of the route. */
-  @Serializable(with = DurationStringSerializer::class) val duration: Duration? = null,
+  /** Used to override HTTP request options. */
+  val httpOptions: HttpOptions? = null,
 
   /**
-   * An encoded polyline of the route. See
-   * https://developers.google.com/maps/documentation/utilities/polylinealgorithm
+   * The TTL for this resource. The expiration time is computed: now + TTL. It is a duration string,
+   * with up to nine fractional digits, terminated by 's'. Example: "3.5s".
    */
-  val encodedPolyline: String? = null,
+  @Serializable(with = DurationStringSerializer::class) val ttl: Duration? = null,
+
+  /**
+   * Timestamp of when this resource is considered expired. Uses RFC 3339 format, Example:
+   * 2014-10-02T15:01:23Z.
+   */
+  @Serializable(with = InstantSerializer::class) val expireTime: Instant? = null,
 )

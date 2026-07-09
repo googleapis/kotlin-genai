@@ -1,0 +1,84 @@
+{
+  "recordID": "CachesTest.testCreateCachedContentWithGcsFile.mldev",
+  "interactions": [
+    {
+      "request": {
+        "method": "POST",
+        "url": "/v1beta/cachedContents",
+        "request": "POST /v1beta/cachedContents HTTP/1.1",
+        "headers": {
+          "Accept": "*/*",
+          "Accept-Charset": "UTF-8",
+          "Accept-Encoding": "gzip",
+          "Connection": "Keep-Alive",
+          "Content-Length": "347",
+          "Content-Type": "application/json",
+          "Test-Name": "CachesTest.testCreateCachedContentWithGcsFile.mldev"
+        },
+        "bodySegments": [
+          {
+            "contents": [
+              {
+                "parts": [
+                  {
+                    "fileData": {
+                      "fileUri": "gs://cloud-samples-data/generative-ai/pdf/2403.05530.pdf",
+                      "mimeType": "application/pdf"
+                    }
+                  }
+                ],
+                "role": "user"
+              }
+            ],
+            "displayName": "cached content gcs file",
+            "model": "models/gemini-3.5-flash",
+            "systemInstruction": {
+              "parts": [
+                {
+                  "text": "You are a pirate. Always reply in pirate speak."
+                }
+              ],
+              "role": "user"
+            },
+            "ttl": "86400s"
+          }
+        ],
+        "previousRequest": "b4d6e60a9b97e7b98c63df9308728c5c88c0b40c398046772c63447b94608b4d",
+        "serverAddress": "generativelanguage.googleapis.com",
+        "port": 443,
+        "protocol": "https"
+      },
+      "shaSum": "f24cabd9d58179d9aa1911c2cae015b7af037d47a9d388f400d2295e973fba03",
+      "response": {
+        "statusCode": 400,
+        "headers": {
+          "Content-Encoding": "gzip",
+          "Content-Length": "272",
+          "Content-Type": "application/json; charset=UTF-8",
+          "Date": "Wed, 08 Jul 2026 18:45:37 GMT",
+          "Server": "scaffolding on HTTPServer2",
+          "Server-Timing": "gfet4t7; dur=549",
+          "Vary": "Origin, X-Origin, Referer",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "SAMEORIGIN",
+          "X-Xss-Protection": "0"
+        },
+        "bodySegments": [
+          {
+            "error": {
+              "code": 400,
+              "details": [
+                {
+                  "@type": "type.googleapis.com/google.rpc.DebugInfo",
+                  "detail": "[ORIGINAL ERROR] generic::invalid_argument: Cannot fetch content from the provided URL.; While counting tokens [google.rpc.error_details_ext] { message: \"Cannot fetch content from the provided URL.\" }"
+                }
+              ],
+              "message": "Cannot fetch content from the provided URL.",
+              "status": "INVALID_ARGUMENT"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "recordID": "CachesTest.testGetCachedContent.mldev",
+  "interactions": [
+    {
+      "request": {
+        "method": "GET",
+        "url": "/v1beta/cachedContents/qfc05moswux9x0jtb8mct5ph1c2pvi978d7qsm3a",
+        "request": "GET /v1beta/cachedContents/qfc05moswux9x0jtb8mct5ph1c2pvi978d7qsm3a HTTP/1.1",
+        "headers": {
+          "Accept": "*/*",
+          "Accept-Charset": "UTF-8",
+          "Accept-Encoding": "gzip",
+          "Connection": "Keep-Alive",
+          "Content-Type": "application/json",
+          "Test-Name": "CachesTest.testGetCachedContent.mldev"
+        },
+        "bodySegments": [
+          null
+        ],
+        "previousRequest": "b4d6e60a9b97e7b98c63df9308728c5c88c0b40c398046772c63447b94608b4d",
+        "serverAddress": "generativelanguage.googleapis.com",
+        "port": 443,
+        "protocol": "https"
+      },
+      "shaSum": "063d65f9af58e26ea3f401267ae325c25323689f91480eb8989ceead637d1cf2",
+      "response": {
+        "statusCode": 200,
+        "headers": {
+          "Content-Encoding": "gzip",
+          "Content-Length": "250",
+          "Content-Type": "application/json; charset=UTF-8",
+          "Date": "Wed, 08 Jul 2026 18:34:04 GMT",
+          "Server": "scaffolding on HTTPServer2",
+          "Server-Timing": "gfet4t7; dur=251",
+          "Vary": "Origin, X-Origin, Referer",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "SAMEORIGIN",
+          "X-Xss-Protection": "0"
+        },
+        "bodySegments": [
+          {
+            "createTime": "2026-07-08T18:12:26.090218Z",
+            "displayName": "cached content inline bytes",
+            "expireTime": "2026-07-08T20:22:08.295262032Z",
+            "model": "models/gemini-3.5-flash",
+            "name": "cachedContents/qfc05moswux9x0jtb8mct5ph1c2pvi978d7qsm3a",
+            "updateTime": "2026-07-08T18:15:28.325131Z",
+            "usageMetadata": {
+              "totalTokenCount": 200014
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

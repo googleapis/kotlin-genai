@@ -2234,11 +2234,11 @@ class Models internal constructor(internal val apiClient: ApiClient) {
 
       body = generateContentParametersToVertex(this.apiClient, parameterMap, null, parameterMap)
 
-      path = Common.formatMap("{model}:generateContent", body["_url"] as Map<String, Any?>)
+      path = Common.formatMap("{model}:generateContent", body["_url"] as? Map<String, Any?>)
     } else {
 
       body = generateContentParametersToMldev(this.apiClient, parameterMap, null, parameterMap)
-      path = Common.formatMap("{model}:generateContent", body["_url"] as Map<String, Any?>)
+      path = Common.formatMap("{model}:generateContent", body["_url"] as? Map<String, Any?>)
     }
 
     val queryParams = body["_query"] as? Map<String, Any?>
@@ -2260,7 +2260,6 @@ class Models internal constructor(internal val apiClient: ApiClient) {
     }
 
     var responseMap = Common.jsonStringToMap(responseString)
-
     if (apiClient.enterprise) {
       responseMap = generateContentResponseFromVertex(responseMap, null, parameterMap)
     } else {
@@ -2288,12 +2287,18 @@ class Models internal constructor(internal val apiClient: ApiClient) {
       body = generateContentParametersToVertex(this.apiClient, parameterMap, null, parameterMap)
 
       path =
-        Common.formatMap("{model}:streamGenerateContent?alt=sse", body["_url"] as Map<String, Any?>)
+        Common.formatMap(
+          "{model}:streamGenerateContent?alt=sse",
+          body["_url"] as? Map<String, Any?>,
+        )
     } else {
 
       body = generateContentParametersToMldev(this.apiClient, parameterMap, null, parameterMap)
       path =
-        Common.formatMap("{model}:streamGenerateContent?alt=sse", body["_url"] as Map<String, Any?>)
+        Common.formatMap(
+          "{model}:streamGenerateContent?alt=sse",
+          body["_url"] as? Map<String, Any?>,
+        )
     }
 
     val queryParams = body["_query"] as? Map<String, Any?>

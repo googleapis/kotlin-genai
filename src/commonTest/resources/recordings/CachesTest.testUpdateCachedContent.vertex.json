@@ -1,0 +1,58 @@
+{
+  "recordID": "CachesTest.testUpdateCachedContent.vertex",
+  "interactions": [
+    {
+      "request": {
+        "method": "PATCH",
+        "url": "/v1beta1/projects/REDACTED/locations/global/cachedContents/8046196551279706112",
+        "request": "PATCH /v1beta1/projects/REDACTED/locations/global/cachedContents/8046196551279706112 HTTP/1.1",
+        "headers": {
+          "Accept": "*/*",
+          "Accept-Charset": "UTF-8",
+          "Accept-Encoding": "gzip",
+          "Connection": "Keep-Alive",
+          "Content-Length": "15",
+          "Content-Type": "application/json",
+          "Test-Name": "CachesTest.testUpdateCachedContent.vertex"
+        },
+        "bodySegments": [
+          {
+            "ttl": "7600s"
+          }
+        ],
+        "previousRequest": "b4d6e60a9b97e7b98c63df9308728c5c88c0b40c398046772c63447b94608b4d",
+        "serverAddress": "aiplatform.googleapis.com",
+        "port": 443,
+        "protocol": "https"
+      },
+      "shaSum": "d942f98c2063ffab02b4978c33770a10f0a227a766b019d7821c659cefcca29f",
+      "response": {
+        "statusCode": 200,
+        "headers": {
+          "Content-Encoding": "gzip",
+          "Content-Length": "268",
+          "Content-Type": "application/json; charset=UTF-8",
+          "Date": "Wed, 08 Jul 2026 18:15:30 GMT",
+          "Server": "ESF",
+          "Vary": "Origin, X-Origin, Referer",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "SAMEORIGIN",
+          "X-Xss-Protection": "0"
+        },
+        "bodySegments": [
+          {
+            "createTime": "2026-07-08T18:12:30.371016Z",
+            "displayName": "cached content inline bytes",
+            "expireTime": "2026-07-08T20:22:09.958344Z",
+            "model": "projects/REDACTED/locations/global/publishers/google/models/gemini-3.5-flash",
+            "name": "projects/REDACTED/locations/global/cachedContents/8046196551279706112",
+            "updateTime": "2026-07-08T18:15:29.975632Z",
+            "usageMetadata": {
+              "totalTokenCount": 200012
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

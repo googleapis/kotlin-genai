@@ -1,0 +1,82 @@
+{
+  "recordID": "CachesTest.testCreateCachedContentWithFileAPI.mldev",
+  "interactions": [
+    {
+      "request": {
+        "method": "POST",
+        "url": "/v1beta/cachedContents",
+        "request": "POST /v1beta/cachedContents HTTP/1.1",
+        "headers": {
+          "Accept": "*/*",
+          "Accept-Charset": "UTF-8",
+          "Accept-Encoding": "gzip",
+          "Connection": "Keep-Alive",
+          "Content-Length": "358",
+          "Content-Type": "application/json",
+          "Test-Name": "CachesTest.testCreateCachedContentWithFileAPI.mldev"
+        },
+        "bodySegments": [
+          {
+            "contents": [
+              {
+                "parts": [
+                  {
+                    "fileData": {
+                      "fileUri": "https://generativelanguage.googleapis.com/v1beta/files/v7ha4im3cnwu",
+                      "mimeType": "application/pdf"
+                    }
+                  }
+                ],
+                "role": "user"
+              }
+            ],
+            "displayName": "cached content file API",
+            "model": "models/gemini-3.5-flash",
+            "systemInstruction": {
+              "parts": [
+                {
+                  "text": "You are a pirate. Always reply in pirate speak."
+                }
+              ],
+              "role": "user"
+            },
+            "ttl": "86400s"
+          }
+        ],
+        "previousRequest": "b4d6e60a9b97e7b98c63df9308728c5c88c0b40c398046772c63447b94608b4d",
+        "serverAddress": "generativelanguage.googleapis.com",
+        "port": 443,
+        "protocol": "https"
+      },
+      "shaSum": "68945430ed1238b117028fa306eaeaeab79766df2d69f100564a74cbedc7fcae",
+      "response": {
+        "statusCode": 200,
+        "headers": {
+          "Content-Encoding": "gzip",
+          "Content-Length": "240",
+          "Content-Type": "application/json; charset=UTF-8",
+          "Date": "Wed, 08 Jul 2026 18:59:38 GMT",
+          "Server": "scaffolding on HTTPServer2",
+          "Server-Timing": "gfet4t7; dur=743",
+          "Vary": "Origin, X-Origin, Referer",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "SAMEORIGIN",
+          "X-Xss-Protection": "0"
+        },
+        "bodySegments": [
+          {
+            "createTime": "2026-07-08T18:59:38.789381Z",
+            "displayName": "cached content file API",
+            "expireTime": "2026-07-09T18:59:38.555634894Z",
+            "model": "models/gemini-3.5-flash",
+            "name": "cachedContents/f4sg24rqje1qiire2bgpvphlq33kxg6o95moyret",
+            "updateTime": "2026-07-08T18:59:38.789381Z",
+            "usageMetadata": {
+              "totalTokenCount": 2253
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

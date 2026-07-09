@@ -1,0 +1,81 @@
+{
+  "recordID": "CachesTest.testCreateCachedContentWithGcsFile.vertex",
+  "interactions": [
+    {
+      "request": {
+        "method": "POST",
+        "url": "/v1beta1/projects/REDACTED/locations/global/cachedContents",
+        "request": "POST /v1beta1/projects/REDACTED/locations/global/cachedContents HTTP/1.1",
+        "headers": {
+          "Accept": "*/*",
+          "Accept-Charset": "UTF-8",
+          "Accept-Encoding": "gzip",
+          "Connection": "Keep-Alive",
+          "Content-Length": "404",
+          "Content-Type": "application/json",
+          "Test-Name": "CachesTest.testCreateCachedContentWithGcsFile.vertex"
+        },
+        "bodySegments": [
+          {
+            "contents": [
+              {
+                "parts": [
+                  {
+                    "fileData": {
+                      "fileUri": "gs://cloud-samples-data/generative-ai/pdf/2403.05530.pdf",
+                      "mimeType": "application/pdf"
+                    }
+                  }
+                ],
+                "role": "user"
+              }
+            ],
+            "displayName": "cached content gcs file",
+            "model": "projects/REDACTED/locations/global/publishers/google/models/gemini-3.5-flash",
+            "systemInstruction": {
+              "parts": [
+                {
+                  "text": "You are a pirate. Always reply in pirate speak."
+                }
+              ],
+              "role": "user"
+            },
+            "ttl": "86400s"
+          }
+        ],
+        "previousRequest": "b4d6e60a9b97e7b98c63df9308728c5c88c0b40c398046772c63447b94608b4d",
+        "serverAddress": "aiplatform.googleapis.com",
+        "port": 443,
+        "protocol": "https"
+      },
+      "shaSum": "5596e461e3ed6f8b67f603913e5dad6bb61f2cab3d67db7a3b6cf4a9ece83ee9",
+      "response": {
+        "statusCode": 200,
+        "headers": {
+          "Content-Encoding": "gzip",
+          "Content-Length": "255",
+          "Content-Type": "application/json; charset=UTF-8",
+          "Date": "Wed, 08 Jul 2026 18:45:52 GMT",
+          "Server": "ESF",
+          "Vary": "Origin, X-Origin, Referer",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "SAMEORIGIN",
+          "X-Xss-Protection": "0"
+        },
+        "bodySegments": [
+          {
+            "createTime": "2026-07-08T18:45:39.112788Z",
+            "displayName": "cached content gcs file",
+            "expireTime": "2026-07-09T18:45:39.056397Z",
+            "model": "projects/REDACTED/locations/global/publishers/google/models/gemini-3.5-flash",
+            "name": "projects/REDACTED/locations/global/cachedContents/2522030231007526912",
+            "updateTime": "2026-07-08T18:45:39.112788Z",
+            "usageMetadata": {
+              "totalTokenCount": 40052
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
