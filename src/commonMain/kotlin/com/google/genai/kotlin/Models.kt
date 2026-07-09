@@ -35,6 +35,60 @@ import kotlinx.coroutines.flow.map
  */
 class Models internal constructor(internal val apiClient: ApiClient) {
 
+  internal fun audioTranscriptionConfigToMldev(
+    fromObject: Map<String, Any?>?,
+    parentObject: MutableMap<String, Any?>?,
+    rootObject: Map<String, Any?>?,
+  ): MutableMap<String, Any?> {
+
+    val toObject = mutableMapOf<String, Any?>()
+    if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("languageCodes")))) {
+      throw IllegalArgumentException("languageCodes parameter is not supported in Gemini API.")
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("languageAuto"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("languageAuto"),
+        Common.getValueByPath(fromObject, arrayOf("languageAuto")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("languageHints"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("languageHints"),
+        Common.getValueByPath(fromObject, arrayOf("languageHints")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("adaptationPhrases"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("adaptationPhrases"),
+        Common.getValueByPath(fromObject, arrayOf("adaptationPhrases")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("wordTimestamp"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("wordTimestamp"),
+        Common.getValueByPath(fromObject, arrayOf("wordTimestamp")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("diarization"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("diarization"),
+        Common.getValueByPath(fromObject, arrayOf("diarization")),
+      )
+    }
+
+    return toObject
+  }
+
   internal fun authConfigToMldev(
     fromObject: Map<String, Any?>?,
     parentObject: MutableMap<String, Any?>?,
@@ -756,6 +810,19 @@ class Models internal constructor(internal val apiClient: ApiClient) {
       throw IllegalArgumentException("labels parameter is not supported in Gemini API.")
     }
 
+    Common.getValueByPath(fromObject, arrayOf("audioTranscriptionConfig"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("audioTranscriptionConfig"),
+        audioTranscriptionConfigToMldev(
+          Common.getValueByPath(fromObject, arrayOf("audioTranscriptionConfig"))
+            as Map<String, Any?>,
+          toObject,
+          rootObject,
+        ),
+      )
+    }
+
     return toObject
   }
 
@@ -1038,6 +1105,14 @@ class Models internal constructor(internal val apiClient: ApiClient) {
         parentObject,
         arrayOf("labels"),
         Common.getValueByPath(fromObject, arrayOf("labels")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("audioTranscriptionConfig"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("audioTranscriptionConfig"),
+        Common.getValueByPath(fromObject, arrayOf("audioTranscriptionConfig")),
       )
     }
 
@@ -1621,6 +1696,14 @@ class Models internal constructor(internal val apiClient: ApiClient) {
       )
     }
 
+    Common.getValueByPath(fromObject, arrayOf("audioTranscription"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("audioTranscription"),
+        Common.getValueByPath(fromObject, arrayOf("audioTranscription")),
+      )
+    }
+
     return toObject
   }
 
@@ -1742,6 +1825,14 @@ class Models internal constructor(internal val apiClient: ApiClient) {
     if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("partMetadata")))) {
       throw IllegalArgumentException(
         "partMetadata parameter is not supported in Gemini Enterprise Agent Platform."
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("audioTranscription"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("audioTranscription"),
+        Common.getValueByPath(fromObject, arrayOf("audioTranscription")),
       )
     }
 
