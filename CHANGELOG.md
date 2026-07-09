@@ -14,5 +14,5 @@
 
 ### Documentation
 
-* Acknowledge that this SDK is not for model app usage ([a56dbf4](https://github.com/googleapis/kotlin-genai/commit/a56dbf4efbd98e383eae5ed0b37cb10d587b5c84))
+* Acknowledge that this SDK is not for mobile app usage ([a56dbf4](https://github.com/googleapis/kotlin-genai/commit/a56dbf4efbd98e383eae5ed0b37cb10d587b5c84))
 * Update README with installation guide ([5c4f0d9](https://github.com/googleapis/kotlin-genai/commit/5c4f0d9b11f72c5b33097d31a7ee02c854c3f831))
