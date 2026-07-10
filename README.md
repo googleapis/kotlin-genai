@@ -199,3 +199,63 @@ val response = client.models.generateContent(
     config = config
 )
 ```
+
+### Context Caching
+
+You can cache content to reduce latency and cost for repetitive requests.
+(Note: Listing cached contents is coming soon.)
+
+```kotlin
+import com.google.genai.kotlin.Client
+import com.google.genai.kotlin.types.Blob
+import com.google.genai.kotlin.types.Content
+import com.google.genai.kotlin.types.CreateCachedContentConfig
+import com.google.genai.kotlin.types.Part
+import kotlin.time.Duration.Companion.minutes
+import kotlinx.coroutines.runBlocking
+
+fun main() = runBlocking {
+    Client().use { client ->
+        // This is dummy data; use your own bytes data or file URI instead.
+        val bytesData = Part(
+            inlineData = Blob(
+                mimeType = "text/plain",
+                data = "Hello Gemini ".repeat(10_000).encodeToByteArray(),
+            )
+        )
+
+        val config = CreateCachedContentConfig(
+            systemInstruction = Content(parts = listOf(Part(text = "You are an expert."))),
+            ttl = 60.minutes,
+            contents = listOf(Content(role = "user", parts = listOf(bytesData)))
+        )
+
+        // Create cached content
+        val cachedContent = client.caches.create(model = "gemini-3.5-flash", config = config)
+        println("Created cached content: ${cachedContent.name}")
+
+        // Get cached content
+        val fetchedCache = client.caches.get(name = cachedContent.name!!)
+        println("Got cached content: ${fetchedCache.name}")
+
+        // Update cached content
+        val updatedCache =
+          client.caches.update(
+            name = cachedContent.name!!,
+            config = UpdateCachedContentConfig(ttl = 10.minutes),
+          )
+
+        // Use the cached content to generate content
+        val response =
+          client.models.generateContent(
+            model = "gemini-3.5-flash",
+            text = "Summarize the cached data.",
+            config = GenerateContentConfig(cachedContent = updatedCache.name!!),
+          )
+        println("Generate content with the cached content. Response: ${response.text}")
+
+        // Delete cached content
+        client.caches.delete(cachedContent.name!!)
+    }
+}
+```
