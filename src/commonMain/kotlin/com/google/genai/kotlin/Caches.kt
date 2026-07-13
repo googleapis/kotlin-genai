@@ -34,6 +34,7 @@ import com.google.genai.kotlin.types.ListCachedContentsParameters
 import com.google.genai.kotlin.types.ListCachedContentsResponse
 import com.google.genai.kotlin.types.UpdateCachedContentConfig
 import com.google.genai.kotlin.types.UpdateCachedContentParameters
+import java.net.URLEncoder
 
 /**
  * Provides methods for managing cached content. Instantiating this class is not required. After
@@ -1641,7 +1642,11 @@ class Caches internal constructor(internal val apiClient: ApiClient) {
     val finalBody = Common.mapToJsonObject(body.filterKeys { it != "_url" && it != "_query" })
 
     if (queryParams != null) {
-      path = "$path?${queryParams}"
+      val queryString =
+        queryParams.entries.joinToString("&") {
+          "${URLEncoder.encode(it.key.toString(), "UTF-8")}=${URLEncoder.encode(it.value.toString(), "UTF-8")}"
+        }
+      path = "$path?$queryString"
     }
 
     val response = apiClient.request("POST", path, finalBody, httpOptions = config?.httpOptions)
@@ -1683,7 +1688,11 @@ class Caches internal constructor(internal val apiClient: ApiClient) {
     val finalBody = Common.mapToJsonObject(body.filterKeys { it != "_url" && it != "_query" })
 
     if (queryParams != null) {
-      path = "$path?${queryParams}"
+      val queryString =
+        queryParams.entries.joinToString("&") {
+          "${URLEncoder.encode(it.key.toString(), "UTF-8")}=${URLEncoder.encode(it.value.toString(), "UTF-8")}"
+        }
+      path = "$path?$queryString"
     }
 
     val response = apiClient.request("GET", path, finalBody, httpOptions = config?.httpOptions)
@@ -1727,7 +1736,11 @@ class Caches internal constructor(internal val apiClient: ApiClient) {
     val finalBody = Common.mapToJsonObject(body.filterKeys { it != "_url" && it != "_query" })
 
     if (queryParams != null) {
-      path = "$path?${queryParams}"
+      val queryString =
+        queryParams.entries.joinToString("&") {
+          "${URLEncoder.encode(it.key.toString(), "UTF-8")}=${URLEncoder.encode(it.value.toString(), "UTF-8")}"
+        }
+      path = "$path?$queryString"
     }
 
     val response = apiClient.request("DELETE", path, finalBody, httpOptions = config?.httpOptions)
@@ -1776,7 +1789,11 @@ class Caches internal constructor(internal val apiClient: ApiClient) {
     val finalBody = Common.mapToJsonObject(body.filterKeys { it != "_url" && it != "_query" })
 
     if (queryParams != null) {
-      path = "$path?${queryParams}"
+      val queryString =
+        queryParams.entries.joinToString("&") {
+          "${URLEncoder.encode(it.key.toString(), "UTF-8")}=${URLEncoder.encode(it.value.toString(), "UTF-8")}"
+        }
+      path = "$path?$queryString"
     }
 
     val response = apiClient.request("PATCH", path, finalBody, httpOptions = config?.httpOptions)
@@ -1814,7 +1831,11 @@ class Caches internal constructor(internal val apiClient: ApiClient) {
     val finalBody = Common.mapToJsonObject(body.filterKeys { it != "_url" && it != "_query" })
 
     if (queryParams != null) {
-      path = "$path?${queryParams}"
+      val queryString =
+        queryParams.entries.joinToString("&") {
+          "${URLEncoder.encode(it.key.toString(), "UTF-8")}=${URLEncoder.encode(it.value.toString(), "UTF-8")}"
+        }
+      path = "$path?$queryString"
     }
 
     val response = apiClient.request("GET", path, finalBody, httpOptions = config?.httpOptions)

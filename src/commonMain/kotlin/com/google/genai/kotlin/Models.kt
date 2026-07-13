@@ -26,6 +26,7 @@ import com.google.genai.kotlin.types.GenerateContentParameters
 import com.google.genai.kotlin.types.GenerateContentResponse
 import com.google.genai.kotlin.types.HttpResponse
 import com.google.genai.kotlin.types.Part
+import java.net.URLEncoder
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
@@ -2245,7 +2246,11 @@ class Models internal constructor(internal val apiClient: ApiClient) {
     val finalBody = Common.mapToJsonObject(body.filterKeys { it != "_url" && it != "_query" })
 
     if (queryParams != null) {
-      path = "$path?${queryParams}"
+      val queryString =
+        queryParams.entries.joinToString("&") {
+          "${URLEncoder.encode(it.key.toString(), "UTF-8")}=${URLEncoder.encode(it.value.toString(), "UTF-8")}"
+        }
+      path = "$path?$queryString"
     }
 
     val response = apiClient.request("POST", path, finalBody, httpOptions = config?.httpOptions)
@@ -2305,7 +2310,11 @@ class Models internal constructor(internal val apiClient: ApiClient) {
     val finalBody = Common.mapToJsonObject(body.filterKeys { it != "_url" && it != "_query" })
 
     if (queryParams != null) {
-      path = "$path?${queryParams}"
+      val queryString =
+        queryParams.entries.joinToString("&") {
+          "${URLEncoder.encode(it.key.toString(), "UTF-8")}=${URLEncoder.encode(it.value.toString(), "UTF-8")}"
+        }
+      path = "$path?$queryString"
     }
 
     return apiClient
