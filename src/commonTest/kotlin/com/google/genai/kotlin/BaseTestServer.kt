@@ -21,6 +21,7 @@ import com.google.auth.oauth2.GoogleCredentials
 import com.google.genai.kotlin.types.HttpOptions
 import com.google.testserver.TestServer
 import com.google.testserver.TestServerOptions
+import java.io.File
 import kotlin.test.AfterTest
 import kotlin.test.BeforeTest
 
@@ -51,6 +52,7 @@ open class BaseTestServer {
         recordingDir = "src/commonTest/resources/recordings",
         mode = testMode,
         testServerSecrets = "$project,$apiKey",
+        outDir = File(System.getProperty("java.io.tmpdir"), "google_genai_test_server"),
       )
     testServer = TestServer(options)
     testServer.start()

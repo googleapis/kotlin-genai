@@ -28,6 +28,11 @@ group = "com.google.genai"
 
 version = "0.3.0-SNAPSHOT" // {x-version-update:google-genai-kotlin:current}
 
+if (project.projectDir.absolutePath.startsWith("/google/src/cloud")) {
+  val tempRoot = File(System.getProperty("java.io.tmpdir"), "google_genai_build")
+  layout.buildDirectory.set(tempRoot)
+}
+
 repositories {
   google()
   mavenCentral()
@@ -97,11 +102,7 @@ android {
     targetCompatibility = org.gradle.api.JavaVersion.VERSION_17
   }
 
-  publishing {
-    singleVariant("release") {
-      withSourcesJar()
-    }
-  }
+  publishing { singleVariant("release") { withSourcesJar() } }
 }
 
 // Pass testMode property ONLY to JVM tests: ./gradlew jvmTest -PtestMode=record
@@ -116,10 +117,11 @@ tasks.named<Test>("jvmTest") {
 }
 
 // Helper task to bundle Dokka HTML output as the required `-javadoc.jar`
-val dokkaJavadocJar = tasks.register<Jar>("dokkaJavadocJar") {
-  archiveClassifier.set("javadoc")
-  from(tasks.named("dokkaHtml"))
-}
+val dokkaJavadocJar =
+  tasks.register<Jar>("dokkaJavadocJar") {
+    archiveClassifier.set("javadoc")
+    from(tasks.named("dokkaHtml"))
+  }
 
 // Standard Maven Publishing Configuration
 publishing {
@@ -129,7 +131,9 @@ publishing {
 
     pom {
       name.set("Google GenAI SDK for Kotlin")
-      description.set("The Google Gen AI Kotlin SDK provides an idiomatic Kotlin interface for developers to integrate Google's generative models into their applications. It supports both the Gemini Developer API and the Gemini Enterprise Agent Platform API (formerly Vertex AI).")
+      description.set(
+        "The Google Gen AI Kotlin SDK provides an idiomatic Kotlin interface for developers to integrate Google's generative models into their applications. It supports both the Gemini Developer API and the Gemini Enterprise Agent Platform API (formerly Vertex AI)."
+      )
       url.set("https://github.com/googleapis/kotlin-genai")
       licenses {
         license {
