@@ -33,10 +33,6 @@ import io.ktor.client.statement.bodyAsText
 import io.ktor.http.ContentType
 import io.ktor.http.HttpMethod
 import io.ktor.http.contentType
-import io.ktor.http.URLBuilder
-import io.ktor.http.Url
-import io.ktor.http.HttpHeaders
-import io.ktor.http.content.ByteArrayContent
 import io.ktor.utils.io.readUTF8Line
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
@@ -104,43 +100,6 @@ internal class ApiClient(
   }
 
   /**
-   * Executes a request with a ByteArray body and returns the response as an ApiResponse.
-   *
-   * @param method The HTTP method (e.g., "POST").
-   * @param path The URL path.
-   * @param body The request body as a ByteArray.
-   * @param httpOptions Custom HTTP options for this request.
-   * @return The ApiResponse.
-   */
-  suspend fun request(
-    method: String,
-    path: String,
-    body: ByteArray,
-    httpOptions: HttpOptions? = null,
-  ): ApiResponse {
-    val response = client.request { buildRequest(method, path, body, httpOptions) }
-    return ApiResponse(response)
-  }
-
-  /**
-   * Executes a request without a body and returns the response as an ApiResponse.
-   *
-   * @param method The HTTP method (e.g., "GET").
-   * @param path The URL path.
-   * @param httpOptions Custom HTTP options for this request.
-   * @return The ApiResponse.
-   */
-  suspend fun requestChannel(
-    method: String,
-    path: String,
-    httpOptions: HttpOptions? = null,
-  ): ApiResponse {
-    val statement = client.prepareRequest { buildRequest(method, path, null, httpOptions) }
-    val response = statement.execute()
-    return ApiResponse(response)
-  }
-
-  /**
    * Executes a streaming request and returns the response as a [Flow] of lines.
    *
    * Throws [GenAiApiException] (or its subclasses) if the HTTP status code indicates an error (>=
@@ -191,30 +150,14 @@ internal class ApiClient(
     body: JsonObject?,
     requestHttpOptions: HttpOptions? = null,
   ) {
-    @Suppress("UNUSED_VARIABLE")
-    val unused = buildRequestInternal(method, path, requestHttpOptions)
-    if (body != null) {
-      setBody(body.toString())
-    }
-  }
-
-  private fun HttpRequestBuilder.buildRequest(
-    method: String,
-    path: String,
-    body: ByteArray,
-    requestHttpOptions: HttpOptions? = null,
-  ) {
-    val mergedOptions = buildRequestInternal(method, path, requestHttpOptions)
-    val contentTypeVal = mergedOptions.headers?.get("Content-Type") ?: "application/octet-stream"
-    setBody(ByteArrayContent(body, ContentType.parse(contentTypeVal)))
-  }
-
-  private fun HttpRequestBuilder.buildRequestInternal(
-    method: String,
-    path: String,
-    requestHttpOptions: HttpOptions? = null,
-  ): HttpOptions {
     this.method = HttpMethod.parse(method.uppercase())
+
+    var resolvedPath = path
+    val queryBaseModel =
+      method.uppercase() == "GET" && resolvedPath.startsWith("publishers/google/models")
+    if (enterprise && apiKey == null && !resolvedPath.startsWith("projects/") && !queryBaseModel) {
+      resolvedPath = "projects/$project/locations/$location/$resolvedPath"
+    }
 
     val mergedOptions = clientHttpOptions.merge(requestHttpOptions)
 
@@ -224,49 +167,18 @@ internal class ApiClient(
       }
     }
 
-    // Set Content-Type if explicitly passed in headers.
-    mergedOptions.headers?.get("Content-Type")?.let { contentTypeVal ->
-      contentType(ContentType.parse(contentTypeVal))
-      header(HttpHeaders.ContentType, contentTypeVal)
-    }
+    val baseUrl = mergedOptions.baseUrl ?: throw IllegalStateException("baseUrl is required")
+    val cleanBaseUrl = baseUrl.removeSuffix("/")
+    val apiVersion =
+      mergedOptions.apiVersion ?: throw IllegalStateException("apiVersion is required")
 
-    var resolvedPath = path
-    val isAbsoluteUrl = resolvedPath.startsWith("http://") || resolvedPath.startsWith("https://")
-
-    if (isAbsoluteUrl) {
-      val builder = URLBuilder(resolvedPath)
-      val baseUrlStr = mergedOptions.baseUrl
-      if (baseUrlStr != null) {
-        val baseUrl = Url(baseUrlStr)
-        // Rewrite scheme, host, and port if baseUrl is custom (e.g. not googleapis.com or contains localhost)
-        val isCustomBaseUrl = !baseUrl.host.endsWith("googleapis.com") || baseUrl.host == "localhost" || baseUrl.host == "127.0.0.1"
-        if (isCustomBaseUrl) {
-          builder.protocol = baseUrl.protocol
-          builder.host = baseUrl.host
-          builder.port = baseUrl.port
-        }
+    val requestUrl =
+      if (apiVersion.isEmpty()) {
+        "$cleanBaseUrl/$resolvedPath"
+      } else {
+        "$cleanBaseUrl/$apiVersion/$resolvedPath"
       }
-      url(builder.build())
-    } else {
-      val queryBaseModel =
-        method.uppercase() == "GET" && resolvedPath.startsWith("publishers/google/models")
-      if (enterprise && apiKey == null && !resolvedPath.startsWith("projects/") && !queryBaseModel) {
-        resolvedPath = "projects/$project/locations/$location/$resolvedPath"
-      }
-
-      val baseUrl = mergedOptions.baseUrl ?: throw IllegalStateException("baseUrl is required")
-      val cleanBaseUrl = baseUrl.removeSuffix("/")
-      val apiVersion =
-        mergedOptions.apiVersion ?: throw IllegalStateException("apiVersion is required")
-
-      val requestUrl =
-        if (apiVersion.isEmpty()) {
-          "$cleanBaseUrl/$resolvedPath"
-        } else {
-          "$cleanBaseUrl/$apiVersion/$resolvedPath"
-        }
-      url(requestUrl)
-    }
+    url(requestUrl)
 
     // Headers from HttpOptions
     mergedOptions.headers?.forEach { (k, v) ->
@@ -282,7 +194,10 @@ internal class ApiClient(
       credentials.applyToRequest(this)
     }
 
-    return mergedOptions
+    // Body
+    if (body != null) {
+      setBody(body.toString())
+    }
   }
 
   override fun close() {

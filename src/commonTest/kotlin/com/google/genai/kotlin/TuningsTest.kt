@@ -17,6 +17,7 @@
 package com.google.genai.kotlin
 
 import com.google.genai.kotlin.types.ListTuningJobsConfig
+import kotlin.test.BeforeTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFailsWith
@@ -34,13 +35,20 @@ private fun runTest(testBody: suspend TestScope.() -> Unit) =
 
 class TuningsTest : BaseTestServer() {
 
+  @BeforeTest
+  fun tuningsSetUp() {
+    if (System.getenv("GOOGLE_CLOUD_LOCATION").isNullOrEmpty()) {
+      location = "us-central1"
+    }
+  }
+
   @Test
   fun testListTuningJobs() = runTest {
     listOf(true).forEach { enterprise ->
       val suffix = if (enterprise) "vertex" else "mldev"
       val testName = "TuningsTest.testListTuningJobs.$suffix"
 
-      val client = createClient(enterprise, testName, locationOverride = "us-central1")
+      val client = createClient(enterprise, testName)
 
       val pager = client.tunings.list(ListTuningJobsConfig(pageSize = 10))
       assertEquals("tuning_jobs", pager.name)
@@ -63,7 +71,7 @@ class TuningsTest : BaseTestServer() {
       val suffix = if (enterprise) "vertex" else "mldev"
       val testName = "TuningsTest.testGetTuningJob.$suffix"
 
-      val client = createClient(enterprise, testName, locationOverride = "us-central1")
+      val client = createClient(enterprise, testName)
 
       // We need a known job name for this test, but since we are recording live,
       // it's easier to list jobs, pick the first one, and get it.
@@ -87,7 +95,7 @@ class TuningsTest : BaseTestServer() {
     listOf(true).forEach { enterprise ->
       val suffix = if (enterprise) "vertex" else "mldev"
       val testName = "TuningsTest.test_dataset_gcs_uri.$suffix"
-      val client = createClient(enterprise, testName, locationOverride = "us-central1")
+      val client = createClient(enterprise, testName)
 
       if (enterprise) {
         try {
@@ -112,7 +120,7 @@ class TuningsTest : BaseTestServer() {
     listOf(true).forEach { enterprise ->
       val suffix = if (enterprise) "vertex" else "mldev"
       val testName = "TuningsTest.test_tune_simple_dpo.$suffix"
-      val client = createClient(enterprise, testName, locationOverride = "us-central1")
+      val client = createClient(enterprise, testName)
 
       if (enterprise) {
         try {
@@ -142,7 +150,7 @@ class TuningsTest : BaseTestServer() {
     listOf(true).forEach { enterprise ->
       val suffix = if (enterprise) "vertex" else "mldev"
       val testName = "TuningsTest.test_tune_dpo_with_beta.$suffix"
-      val client = createClient(enterprise, testName, locationOverride = "us-central1")
+      val client = createClient(enterprise, testName)
 
       if (enterprise) {
         try {
@@ -173,7 +181,7 @@ class TuningsTest : BaseTestServer() {
     listOf(true).forEach { enterprise ->
       val suffix = if (enterprise) "vertex" else "mldev"
       val testName = "TuningsTest.test_non_pretuned_model_with_checkpoint_id.$suffix"
-      val client = createClient(enterprise, testName, locationOverride = "us-central1")
+      val client = createClient(enterprise, testName)
 
       if (enterprise) {
         try {
@@ -199,7 +207,7 @@ class TuningsTest : BaseTestServer() {
     listOf(true).forEach { enterprise ->
       val suffix = if (enterprise) "vertex" else "mldev"
       val testName = "TuningsTest.test_dataset_gcs_uri_all_parameters.$suffix"
-      val client = createClient(enterprise, testName, locationOverride = "us-central1")
+      val client = createClient(enterprise, testName)
 
       if (enterprise) {
         try {
@@ -235,7 +243,7 @@ class TuningsTest : BaseTestServer() {
     listOf(true).forEach { enterprise ->
       val suffix = if (enterprise) "vertex" else "mldev"
       val testName = "TuningsTest.test_tune_reinforcement.$suffix"
-      val client = createClient(enterprise, testName, locationOverride = "us-central1")
+      val client = createClient(enterprise, testName)
 
       if (enterprise) {
         try {
@@ -282,7 +290,7 @@ class TuningsTest : BaseTestServer() {
     listOf(true).forEach { enterprise ->
       val suffix = if (enterprise) "vertex" else "mldev"
       val testName = "TuningsTest.test_tune_reinforcement_composite.$suffix"
-      val client = createClient(enterprise, testName, locationOverride = "us-central1")
+      val client = createClient(enterprise, testName)
 
       if (enterprise) {
         try {

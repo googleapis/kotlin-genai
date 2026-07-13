@@ -27,6 +27,9 @@ import com.google.genai.kotlin.types.Content
 import com.google.genai.kotlin.types.CountTokensConfig
 import com.google.genai.kotlin.types.CountTokensParameters
 import com.google.genai.kotlin.types.CountTokensResponse
+import com.google.genai.kotlin.types.DeleteModelConfig
+import com.google.genai.kotlin.types.DeleteModelParameters
+import com.google.genai.kotlin.types.DeleteModelResponse
 import com.google.genai.kotlin.types.EmbedContentConfig
 import com.google.genai.kotlin.types.EmbedContentParametersPrivate
 import com.google.genai.kotlin.types.EmbedContentResponse
@@ -34,8 +37,16 @@ import com.google.genai.kotlin.types.EmbeddingApiType
 import com.google.genai.kotlin.types.GenerateContentConfig
 import com.google.genai.kotlin.types.GenerateContentParameters
 import com.google.genai.kotlin.types.GenerateContentResponse
+import com.google.genai.kotlin.types.GetModelConfig
+import com.google.genai.kotlin.types.GetModelParameters
 import com.google.genai.kotlin.types.HttpResponse
+import com.google.genai.kotlin.types.ListModelsConfig
+import com.google.genai.kotlin.types.ListModelsParameters
+import com.google.genai.kotlin.types.ListModelsResponse
+import com.google.genai.kotlin.types.Model
 import com.google.genai.kotlin.types.Part
+import com.google.genai.kotlin.types.UpdateModelConfig
+import com.google.genai.kotlin.types.UpdateModelParameters
 import io.ktor.http.encodeURLQueryComponent
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
@@ -698,6 +709,80 @@ class Models internal constructor(internal val apiClient: ApiClient) {
     return toObject
   }
 
+  internal fun deleteModelParametersToMldev(
+    apiClient: ApiClient,
+    fromObject: Map<String, Any?>?,
+    parentObject: MutableMap<String, Any?>?,
+    rootObject: Map<String, Any?>?,
+  ): MutableMap<String, Any?> {
+
+    val toObject = mutableMapOf<String, Any?>()
+    Common.getValueByPath(fromObject, arrayOf("model"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("_url", "name"),
+        Transformers.tModel(apiClient, Common.getValueByPath(fromObject, arrayOf("model"))),
+      )
+    }
+
+    return toObject
+  }
+
+  internal fun deleteModelParametersToVertex(
+    apiClient: ApiClient,
+    fromObject: Map<String, Any?>?,
+    parentObject: MutableMap<String, Any?>?,
+    rootObject: Map<String, Any?>?,
+  ): MutableMap<String, Any?> {
+
+    val toObject = mutableMapOf<String, Any?>()
+    Common.getValueByPath(fromObject, arrayOf("model"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("_url", "name"),
+        Transformers.tModel(apiClient, Common.getValueByPath(fromObject, arrayOf("model"))),
+      )
+    }
+
+    return toObject
+  }
+
+  internal fun deleteModelResponseFromMldev(
+    fromObject: Map<String, Any?>?,
+    parentObject: MutableMap<String, Any?>?,
+    rootObject: Map<String, Any?>?,
+  ): MutableMap<String, Any?> {
+
+    val toObject = mutableMapOf<String, Any?>()
+    Common.getValueByPath(fromObject, arrayOf("sdkHttpResponse"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("sdkHttpResponse"),
+        Common.getValueByPath(fromObject, arrayOf("sdkHttpResponse")),
+      )
+    }
+
+    return toObject
+  }
+
+  internal fun deleteModelResponseFromVertex(
+    fromObject: Map<String, Any?>?,
+    parentObject: MutableMap<String, Any?>?,
+    rootObject: Map<String, Any?>?,
+  ): MutableMap<String, Any?> {
+
+    val toObject = mutableMapOf<String, Any?>()
+    Common.getValueByPath(fromObject, arrayOf("sdkHttpResponse"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("sdkHttpResponse"),
+        Common.getValueByPath(fromObject, arrayOf("sdkHttpResponse")),
+      )
+    }
+
+    return toObject
+  }
+
   internal fun embedContentConfigToMldev(
     fromObject: Map<String, Any?>?,
     parentObject: MutableMap<String, Any?>?,
@@ -1143,6 +1228,32 @@ class Models internal constructor(internal val apiClient: ApiClient) {
           Common.setValueByPath(toObject, arrayOf("embeddings"), listOf(embedding))
         }
       }
+    }
+
+    return toObject
+  }
+
+  internal fun endpointFromVertex(
+    fromObject: Map<String, Any?>?,
+    parentObject: MutableMap<String, Any?>?,
+    rootObject: Map<String, Any?>?,
+  ): MutableMap<String, Any?> {
+
+    val toObject = mutableMapOf<String, Any?>()
+    Common.getValueByPath(fromObject, arrayOf("endpoint"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("name"),
+        Common.getValueByPath(fromObject, arrayOf("endpoint")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("deployedModelId"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("deployedModelId"),
+        Common.getValueByPath(fromObject, arrayOf("deployedModelId")),
+      )
     }
 
     return toObject
@@ -2271,6 +2382,44 @@ class Models internal constructor(internal val apiClient: ApiClient) {
     return toObject
   }
 
+  internal fun getModelParametersToMldev(
+    apiClient: ApiClient,
+    fromObject: Map<String, Any?>?,
+    parentObject: MutableMap<String, Any?>?,
+    rootObject: Map<String, Any?>?,
+  ): MutableMap<String, Any?> {
+
+    val toObject = mutableMapOf<String, Any?>()
+    Common.getValueByPath(fromObject, arrayOf("model"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("_url", "name"),
+        Transformers.tModel(apiClient, Common.getValueByPath(fromObject, arrayOf("model"))),
+      )
+    }
+
+    return toObject
+  }
+
+  internal fun getModelParametersToVertex(
+    apiClient: ApiClient,
+    fromObject: Map<String, Any?>?,
+    parentObject: MutableMap<String, Any?>?,
+    rootObject: Map<String, Any?>?,
+  ): MutableMap<String, Any?> {
+
+    val toObject = mutableMapOf<String, Any?>()
+    Common.getValueByPath(fromObject, arrayOf("model"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("_url", "name"),
+        Transformers.tModel(apiClient, Common.getValueByPath(fromObject, arrayOf("model"))),
+      )
+    }
+
+    return toObject
+  }
+
   internal fun googleMapsToMldev(
     fromObject: Map<String, Any?>?,
     parentObject: MutableMap<String, Any?>?,
@@ -2449,6 +2598,212 @@ class Models internal constructor(internal val apiClient: ApiClient) {
     return toObject
   }
 
+  internal fun listModelsConfigToMldev(
+    apiClient: ApiClient,
+    fromObject: Map<String, Any?>?,
+    parentObject: MutableMap<String, Any?>?,
+    rootObject: Map<String, Any?>?,
+  ): MutableMap<String, Any?> {
+
+    val toObject = mutableMapOf<String, Any?>()
+
+    Common.getValueByPath(fromObject, arrayOf("pageSize"))?.let { node ->
+      Common.setValueByPath(
+        parentObject,
+        arrayOf("_query", "pageSize"),
+        Common.getValueByPath(fromObject, arrayOf("pageSize")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("pageToken"))?.let { node ->
+      Common.setValueByPath(
+        parentObject,
+        arrayOf("_query", "pageToken"),
+        Common.getValueByPath(fromObject, arrayOf("pageToken")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("filter"))?.let { node ->
+      Common.setValueByPath(
+        parentObject,
+        arrayOf("_query", "filter"),
+        Common.getValueByPath(fromObject, arrayOf("filter")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("queryBase"))?.let { node ->
+      Common.setValueByPath(
+        parentObject,
+        arrayOf("_url", "models_url"),
+        Transformers.tModelsUrl(apiClient, Common.getValueByPath(fromObject, arrayOf("queryBase"))),
+      )
+    }
+
+    return toObject
+  }
+
+  internal fun listModelsConfigToVertex(
+    apiClient: ApiClient,
+    fromObject: Map<String, Any?>?,
+    parentObject: MutableMap<String, Any?>?,
+    rootObject: Map<String, Any?>?,
+  ): MutableMap<String, Any?> {
+
+    val toObject = mutableMapOf<String, Any?>()
+
+    Common.getValueByPath(fromObject, arrayOf("pageSize"))?.let { node ->
+      Common.setValueByPath(
+        parentObject,
+        arrayOf("_query", "pageSize"),
+        Common.getValueByPath(fromObject, arrayOf("pageSize")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("pageToken"))?.let { node ->
+      Common.setValueByPath(
+        parentObject,
+        arrayOf("_query", "pageToken"),
+        Common.getValueByPath(fromObject, arrayOf("pageToken")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("filter"))?.let { node ->
+      Common.setValueByPath(
+        parentObject,
+        arrayOf("_query", "filter"),
+        Common.getValueByPath(fromObject, arrayOf("filter")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("queryBase"))?.let { node ->
+      Common.setValueByPath(
+        parentObject,
+        arrayOf("_url", "models_url"),
+        Transformers.tModelsUrl(apiClient, Common.getValueByPath(fromObject, arrayOf("queryBase"))),
+      )
+    }
+
+    return toObject
+  }
+
+  internal fun listModelsParametersToMldev(
+    apiClient: ApiClient,
+    fromObject: Map<String, Any?>?,
+    parentObject: MutableMap<String, Any?>?,
+    rootObject: Map<String, Any?>?,
+  ): MutableMap<String, Any?> {
+
+    val toObject = mutableMapOf<String, Any?>()
+    Common.getValueByPath(fromObject, arrayOf("config"))?.let { node ->
+      val unused =
+        listModelsConfigToMldev(
+          apiClient,
+          Common.getValueByPath(fromObject, arrayOf("config")) as Map<String, Any?>,
+          toObject,
+          rootObject,
+        )
+    }
+
+    return toObject
+  }
+
+  internal fun listModelsParametersToVertex(
+    apiClient: ApiClient,
+    fromObject: Map<String, Any?>?,
+    parentObject: MutableMap<String, Any?>?,
+    rootObject: Map<String, Any?>?,
+  ): MutableMap<String, Any?> {
+
+    val toObject = mutableMapOf<String, Any?>()
+    Common.getValueByPath(fromObject, arrayOf("config"))?.let { node ->
+      val unused =
+        listModelsConfigToVertex(
+          apiClient,
+          Common.getValueByPath(fromObject, arrayOf("config")) as Map<String, Any?>,
+          toObject,
+          rootObject,
+        )
+    }
+
+    return toObject
+  }
+
+  internal fun listModelsResponseFromMldev(
+    fromObject: Map<String, Any?>?,
+    parentObject: MutableMap<String, Any?>?,
+    rootObject: Map<String, Any?>?,
+  ): MutableMap<String, Any?> {
+
+    val toObject = mutableMapOf<String, Any?>()
+    Common.getValueByPath(fromObject, arrayOf("sdkHttpResponse"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("sdkHttpResponse"),
+        Common.getValueByPath(fromObject, arrayOf("sdkHttpResponse")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("nextPageToken"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("nextPageToken"),
+        Common.getValueByPath(fromObject, arrayOf("nextPageToken")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("_self"))?.let { node ->
+      val keyArray = Transformers.tExtractModels(node) as? List<*> ?: emptyList<Any?>()
+      val result = mutableListOf<Any?>()
+
+      for (item in keyArray) {
+        if (item is Map<*, *>) {
+          result.add(modelFromMldev(item as Map<String, Any?>, toObject, rootObject))
+        }
+      }
+      Common.setValueByPath(toObject, arrayOf("models"), result)
+    }
+
+    return toObject
+  }
+
+  internal fun listModelsResponseFromVertex(
+    fromObject: Map<String, Any?>?,
+    parentObject: MutableMap<String, Any?>?,
+    rootObject: Map<String, Any?>?,
+  ): MutableMap<String, Any?> {
+
+    val toObject = mutableMapOf<String, Any?>()
+    Common.getValueByPath(fromObject, arrayOf("sdkHttpResponse"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("sdkHttpResponse"),
+        Common.getValueByPath(fromObject, arrayOf("sdkHttpResponse")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("nextPageToken"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("nextPageToken"),
+        Common.getValueByPath(fromObject, arrayOf("nextPageToken")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("_self"))?.let { node ->
+      val keyArray = Transformers.tExtractModels(node) as? List<*> ?: emptyList<Any?>()
+      val result = mutableListOf<Any?>()
+
+      for (item in keyArray) {
+        if (item is Map<*, *>) {
+          result.add(modelFromVertex(item as Map<String, Any?>, toObject, rootObject))
+        }
+      }
+      Common.setValueByPath(toObject, arrayOf("models"), result)
+    }
+
+    return toObject
+  }
+
   internal fun mcpServerToVertex(
     fromObject: Map<String, Any?>?,
     parentObject: MutableMap<String, Any?>?,
@@ -2465,6 +2820,210 @@ class Models internal constructor(internal val apiClient: ApiClient) {
     if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("streamableHttpTransport")))) {
       throw IllegalArgumentException(
         "streamableHttpTransport parameter is not supported in Gemini Enterprise Agent Platform."
+      )
+    }
+
+    return toObject
+  }
+
+  internal fun modelFromMldev(
+    fromObject: Map<String, Any?>?,
+    parentObject: MutableMap<String, Any?>?,
+    rootObject: Map<String, Any?>?,
+  ): MutableMap<String, Any?> {
+
+    val toObject = mutableMapOf<String, Any?>()
+    Common.getValueByPath(fromObject, arrayOf("name"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("name"),
+        Common.getValueByPath(fromObject, arrayOf("name")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("displayName"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("displayName"),
+        Common.getValueByPath(fromObject, arrayOf("displayName")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("description"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("description"),
+        Common.getValueByPath(fromObject, arrayOf("description")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("version"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("version"),
+        Common.getValueByPath(fromObject, arrayOf("version")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("_self"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("tunedModelInfo"),
+        Common.getValueByPath(fromObject, arrayOf("_self")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("inputTokenLimit"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("inputTokenLimit"),
+        Common.getValueByPath(fromObject, arrayOf("inputTokenLimit")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("outputTokenLimit"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("outputTokenLimit"),
+        Common.getValueByPath(fromObject, arrayOf("outputTokenLimit")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("supportedGenerationMethods"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("supportedActions"),
+        Common.getValueByPath(fromObject, arrayOf("supportedGenerationMethods")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("temperature"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("temperature"),
+        Common.getValueByPath(fromObject, arrayOf("temperature")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("maxTemperature"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("maxTemperature"),
+        Common.getValueByPath(fromObject, arrayOf("maxTemperature")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("topP"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("topP"),
+        Common.getValueByPath(fromObject, arrayOf("topP")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("topK"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("topK"),
+        Common.getValueByPath(fromObject, arrayOf("topK")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("thinking"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("thinking"),
+        Common.getValueByPath(fromObject, arrayOf("thinking")),
+      )
+    }
+
+    return toObject
+  }
+
+  internal fun modelFromVertex(
+    fromObject: Map<String, Any?>?,
+    parentObject: MutableMap<String, Any?>?,
+    rootObject: Map<String, Any?>?,
+  ): MutableMap<String, Any?> {
+
+    val toObject = mutableMapOf<String, Any?>()
+    Common.getValueByPath(fromObject, arrayOf("name"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("name"),
+        Common.getValueByPath(fromObject, arrayOf("name")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("displayName"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("displayName"),
+        Common.getValueByPath(fromObject, arrayOf("displayName")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("description"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("description"),
+        Common.getValueByPath(fromObject, arrayOf("description")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("versionId"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("version"),
+        Common.getValueByPath(fromObject, arrayOf("versionId")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("deployedModels"))?.let { node ->
+      val keyArray = node as? List<*> ?: emptyList<Any?>()
+      val result = mutableListOf<Any?>()
+
+      for (item in keyArray) {
+        if (item is Map<*, *>) {
+          result.add(endpointFromVertex(item as Map<String, Any?>, toObject, rootObject))
+        }
+      }
+      Common.setValueByPath(toObject, arrayOf("endpoints"), result)
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("labels"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("labels"),
+        Common.getValueByPath(fromObject, arrayOf("labels")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("_self"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("tunedModelInfo"),
+        tunedModelInfoFromVertex(
+          Common.getValueByPath(fromObject, arrayOf("_self")) as Map<String, Any?>,
+          toObject,
+          rootObject,
+        ),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("defaultCheckpointId"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("defaultCheckpointId"),
+        Common.getValueByPath(fromObject, arrayOf("defaultCheckpointId")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("checkpoints"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("checkpoints"),
+        Common.getValueByPath(fromObject, arrayOf("checkpoints")),
       )
     }
 
@@ -3192,6 +3751,182 @@ class Models internal constructor(internal val apiClient: ApiClient) {
     return toObject
   }
 
+  internal fun tunedModelInfoFromVertex(
+    fromObject: Map<String, Any?>?,
+    parentObject: MutableMap<String, Any?>?,
+    rootObject: Map<String, Any?>?,
+  ): MutableMap<String, Any?> {
+
+    val toObject = mutableMapOf<String, Any?>()
+    Common.getValueByPath(fromObject, arrayOf("labels", "google-vertex-llm-tuning-base-model-id"))
+      ?.let { node ->
+        Common.setValueByPath(
+          toObject,
+          arrayOf("baseModel"),
+          Common.getValueByPath(
+            fromObject,
+            arrayOf("labels", "google-vertex-llm-tuning-base-model-id"),
+          ),
+        )
+      }
+
+    Common.getValueByPath(fromObject, arrayOf("createTime"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("createTime"),
+        Common.getValueByPath(fromObject, arrayOf("createTime")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("updateTime"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("updateTime"),
+        Common.getValueByPath(fromObject, arrayOf("updateTime")),
+      )
+    }
+
+    return toObject
+  }
+
+  internal fun updateModelConfigToMldev(
+    fromObject: Map<String, Any?>?,
+    parentObject: MutableMap<String, Any?>?,
+    rootObject: Map<String, Any?>?,
+  ): MutableMap<String, Any?> {
+
+    val toObject = mutableMapOf<String, Any?>()
+
+    Common.getValueByPath(fromObject, arrayOf("displayName"))?.let { node ->
+      Common.setValueByPath(
+        parentObject,
+        arrayOf("displayName"),
+        Common.getValueByPath(fromObject, arrayOf("displayName")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("description"))?.let { node ->
+      Common.setValueByPath(
+        parentObject,
+        arrayOf("description"),
+        Common.getValueByPath(fromObject, arrayOf("description")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("defaultCheckpointId"))?.let { node ->
+      Common.setValueByPath(
+        parentObject,
+        arrayOf("defaultCheckpointId"),
+        Common.getValueByPath(fromObject, arrayOf("defaultCheckpointId")),
+      )
+    }
+
+    if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("updateMask")))) {
+      throw IllegalArgumentException("updateMask parameter is not supported in Gemini API.")
+    }
+
+    return toObject
+  }
+
+  internal fun updateModelConfigToVertex(
+    fromObject: Map<String, Any?>?,
+    parentObject: MutableMap<String, Any?>?,
+    rootObject: Map<String, Any?>?,
+  ): MutableMap<String, Any?> {
+
+    val toObject = mutableMapOf<String, Any?>()
+
+    Common.getValueByPath(fromObject, arrayOf("displayName"))?.let { node ->
+      Common.setValueByPath(
+        parentObject,
+        arrayOf("displayName"),
+        Common.getValueByPath(fromObject, arrayOf("displayName")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("description"))?.let { node ->
+      Common.setValueByPath(
+        parentObject,
+        arrayOf("description"),
+        Common.getValueByPath(fromObject, arrayOf("description")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("defaultCheckpointId"))?.let { node ->
+      Common.setValueByPath(
+        parentObject,
+        arrayOf("defaultCheckpointId"),
+        Common.getValueByPath(fromObject, arrayOf("defaultCheckpointId")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("updateMask"))?.let { node ->
+      Common.setValueByPath(
+        parentObject,
+        arrayOf("_query", "updateMask"),
+        Common.getValueByPath(fromObject, arrayOf("updateMask")),
+      )
+    }
+
+    return toObject
+  }
+
+  internal fun updateModelParametersToMldev(
+    apiClient: ApiClient,
+    fromObject: Map<String, Any?>?,
+    parentObject: MutableMap<String, Any?>?,
+    rootObject: Map<String, Any?>?,
+  ): MutableMap<String, Any?> {
+
+    val toObject = mutableMapOf<String, Any?>()
+    Common.getValueByPath(fromObject, arrayOf("model"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("_url", "name"),
+        Transformers.tModel(apiClient, Common.getValueByPath(fromObject, arrayOf("model"))),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("config"))?.let { node ->
+      val unused =
+        updateModelConfigToMldev(
+          Common.getValueByPath(fromObject, arrayOf("config")) as Map<String, Any?>,
+          toObject,
+          rootObject,
+        )
+    }
+
+    return toObject
+  }
+
+  internal fun updateModelParametersToVertex(
+    apiClient: ApiClient,
+    fromObject: Map<String, Any?>?,
+    parentObject: MutableMap<String, Any?>?,
+    rootObject: Map<String, Any?>?,
+  ): MutableMap<String, Any?> {
+
+    val toObject = mutableMapOf<String, Any?>()
+    Common.getValueByPath(fromObject, arrayOf("model"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("_url", "model"),
+        Transformers.tModel(apiClient, Common.getValueByPath(fromObject, arrayOf("model"))),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("config"))?.let { node ->
+      val unused =
+        updateModelConfigToVertex(
+          Common.getValueByPath(fromObject, arrayOf("config")) as Map<String, Any?>,
+          toObject,
+          rootObject,
+        )
+    }
+
+    return toObject
+  }
+
   internal fun voiceConfigToVertex(
     fromObject: Map<String, Any?>?,
     parentObject: MutableMap<String, Any?>?,
@@ -3393,6 +4128,241 @@ class Models internal constructor(internal val apiClient: ApiClient) {
     }
 
     val sdkResponse = Common.mapToDataClass<EmbedContentResponse>(responseMap)
+
+    return sdkResponse.copy(
+      sdkHttpResponse = HttpResponse(body = responseString, headers = headersMap)
+    )
+  }
+
+  /**
+   * Fetches information about a model by name.
+   *
+   * @param model The name of the model to get
+   * @param config A [GetModelConfig] instance that specifies the optional configurations
+   * @return A {@link com.google.genai.types.Model} instance
+   * @example
+   *
+   * ```kotlin
+   * val modelInfo = client.models.get("gemini-3.5-flash")
+   * ```
+   */
+  suspend fun get(model: String, config: GetModelConfig? = null): Model {
+    val parameters = GetModelParameters(model, config)
+    val parameterMap = Common.dataClassToMap(parameters)
+
+    var body: MutableMap<String, Any?>
+    var path: String
+
+    if (apiClient.enterprise) {
+
+      body = getModelParametersToVertex(this.apiClient, parameterMap, null, parameterMap)
+
+      path = Common.formatMap("{name}", body["_url"] as? Map<String, Any?>)
+    } else {
+
+      body = getModelParametersToMldev(this.apiClient, parameterMap, null, parameterMap)
+
+      path = Common.formatMap("{name}", body["_url"] as? Map<String, Any?>)
+    }
+
+    val queryParams = body["_query"] as? Map<String, Any?>
+    val filteredBody = body.filterKeys { it != "_url" && it != "_query" }
+    val finalBody = if (filteredBody.isEmpty()) null else Common.mapToJsonObject(filteredBody)
+
+    if (queryParams != null) {
+      val queryString =
+        queryParams.entries.joinToString("&") {
+          "${it.key.encodeURLQueryComponent()}=${it.value.toString().encodeURLQueryComponent()}"
+        }
+      path = "$path?$queryString"
+    }
+
+    val response = apiClient.request("GET", path, finalBody, httpOptions = config?.httpOptions)
+
+    val responseString = response.body()
+    val headersMap = response.headers.entries().associate { it.key to it.value.joinToString(",") }
+
+    var responseMap = Common.jsonStringToMap(responseString)
+    if (apiClient.enterprise) {
+      responseMap = modelFromVertex(responseMap, null, parameterMap)
+    } else {
+      responseMap = modelFromMldev(responseMap, null, parameterMap)
+    }
+
+    val sdkResponse = Common.mapToDataClass<Model>(responseMap)
+    return sdkResponse
+  }
+
+  internal suspend fun privateList(config: ListModelsConfig? = null): ListModelsResponse {
+    val parameters = ListModelsParameters(config)
+    val parameterMap = Common.dataClassToMap(parameters)
+
+    var body: MutableMap<String, Any?>
+    var path: String
+
+    if (apiClient.enterprise) {
+
+      body = listModelsParametersToVertex(this.apiClient, parameterMap, null, parameterMap)
+
+      path = Common.formatMap("{models_url}", body["_url"] as? Map<String, Any?>)
+    } else {
+
+      body = listModelsParametersToMldev(this.apiClient, parameterMap, null, parameterMap)
+
+      path = Common.formatMap("{models_url}", body["_url"] as? Map<String, Any?>)
+    }
+
+    val queryParams = body["_query"] as? Map<String, Any?>
+    val filteredBody = body.filterKeys { it != "_url" && it != "_query" }
+    val finalBody = if (filteredBody.isEmpty()) null else Common.mapToJsonObject(filteredBody)
+
+    if (queryParams != null) {
+      val queryString =
+        queryParams.entries.joinToString("&") {
+          "${it.key.encodeURLQueryComponent()}=${it.value.toString().encodeURLQueryComponent()}"
+        }
+      path = "$path?$queryString"
+    }
+
+    val response = apiClient.request("GET", path, finalBody, httpOptions = config?.httpOptions)
+
+    val responseString = response.body()
+    val headersMap = response.headers.entries().associate { it.key to it.value.joinToString(",") }
+
+    var responseMap = Common.jsonStringToMap(responseString)
+    if (apiClient.enterprise) {
+      responseMap = listModelsResponseFromVertex(responseMap, null, parameterMap)
+    } else {
+      responseMap = listModelsResponseFromMldev(responseMap, null, parameterMap)
+    }
+
+    val sdkResponse = Common.mapToDataClass<ListModelsResponse>(responseMap)
+
+    return sdkResponse.copy(
+      sdkHttpResponse = HttpResponse(body = responseString, headers = headersMap)
+    )
+  }
+
+  /**
+   * Updates a tuned [model] by its name using the optional [config].
+   *
+   * Returns the updated [Model] instance.
+   *
+   * ### Example
+   *
+   * ```kotlin
+   * val model = client.models.update(
+   *     "tunedModels/12345",
+   *     UpdateModelConfig(
+   *         displayName = "New display name",
+   *         description = "New description"
+   *     )
+   * )
+   * ```
+   */
+  suspend fun update(model: String, config: UpdateModelConfig? = null): Model {
+    val parameters = UpdateModelParameters(model, config)
+    val parameterMap = Common.dataClassToMap(parameters)
+
+    var body: MutableMap<String, Any?>
+    var path: String
+
+    if (apiClient.enterprise) {
+
+      body = updateModelParametersToVertex(this.apiClient, parameterMap, null, parameterMap)
+
+      path = Common.formatMap("{model}", body["_url"] as? Map<String, Any?>)
+    } else {
+
+      body = updateModelParametersToMldev(this.apiClient, parameterMap, null, parameterMap)
+
+      path = Common.formatMap("{name}", body["_url"] as? Map<String, Any?>)
+    }
+
+    val queryParams = body["_query"] as? Map<String, Any?>
+    val filteredBody = body.filterKeys { it != "_url" && it != "_query" }
+    val finalBody = if (filteredBody.isEmpty()) null else Common.mapToJsonObject(filteredBody)
+
+    if (queryParams != null) {
+      val queryString =
+        queryParams.entries.joinToString("&") {
+          "${it.key.encodeURLQueryComponent()}=${it.value.toString().encodeURLQueryComponent()}"
+        }
+      path = "$path?$queryString"
+    }
+
+    val response = apiClient.request("PATCH", path, finalBody, httpOptions = config?.httpOptions)
+
+    val responseString = response.body()
+    val headersMap = response.headers.entries().associate { it.key to it.value.joinToString(",") }
+
+    var responseMap = Common.jsonStringToMap(responseString)
+    if (apiClient.enterprise) {
+      responseMap = modelFromVertex(responseMap, null, parameterMap)
+    } else {
+      responseMap = modelFromMldev(responseMap, null, parameterMap)
+    }
+
+    val sdkResponse = Common.mapToDataClass<Model>(responseMap)
+    return sdkResponse
+  }
+
+  /**
+   * Deletes a tuned model by its name.
+   *
+   * @param model The name of the tuned model to delete
+   * @param config A [DeleteModelConfig] instance that specifies the optional configurations.
+   * @return The response from the API.
+   * @example
+   *
+   * ```kotlin
+   * val response = client.models.delete("tuned-model-name")
+   * ```
+   */
+  suspend fun delete(model: String, config: DeleteModelConfig? = null): DeleteModelResponse {
+    val parameters = DeleteModelParameters(model, config)
+    val parameterMap = Common.dataClassToMap(parameters)
+
+    var body: MutableMap<String, Any?>
+    var path: String
+
+    if (apiClient.enterprise) {
+
+      body = deleteModelParametersToVertex(this.apiClient, parameterMap, null, parameterMap)
+
+      path = Common.formatMap("{name}", body["_url"] as? Map<String, Any?>)
+    } else {
+
+      body = deleteModelParametersToMldev(this.apiClient, parameterMap, null, parameterMap)
+
+      path = Common.formatMap("{name}", body["_url"] as? Map<String, Any?>)
+    }
+
+    val queryParams = body["_query"] as? Map<String, Any?>
+    val filteredBody = body.filterKeys { it != "_url" && it != "_query" }
+    val finalBody = if (filteredBody.isEmpty()) null else Common.mapToJsonObject(filteredBody)
+
+    if (queryParams != null) {
+      val queryString =
+        queryParams.entries.joinToString("&") {
+          "${it.key.encodeURLQueryComponent()}=${it.value.toString().encodeURLQueryComponent()}"
+        }
+      path = "$path?$queryString"
+    }
+
+    val response = apiClient.request("DELETE", path, finalBody, httpOptions = config?.httpOptions)
+
+    val responseString = response.body()
+    val headersMap = response.headers.entries().associate { it.key to it.value.joinToString(",") }
+
+    var responseMap = Common.jsonStringToMap(responseString)
+    if (apiClient.enterprise) {
+      responseMap = deleteModelResponseFromVertex(responseMap, null, parameterMap)
+    } else {
+      responseMap = deleteModelResponseFromMldev(responseMap, null, parameterMap)
+    }
+
+    val sdkResponse = Common.mapToDataClass<DeleteModelResponse>(responseMap)
 
     return sdkResponse.copy(
       sdkHttpResponse = HttpResponse(body = responseString, headers = headersMap)
@@ -3793,6 +4763,36 @@ class Models internal constructor(internal val apiClient: ApiClient) {
       model = model,
       contents = listOf(Content(role = "user", parts = listOf(Part(text = text)))),
       config = config,
+    )
+  }
+
+  /**
+   * Lists the available models.
+   *
+   * @param config A [ListModelsConfig] for configuring the list request.
+   * @return A [Pager] of [Model] objects.
+   */
+  fun list(config: ListModelsConfig? = null): Pager<Model> {
+    var finalConfig = config ?: ListModelsConfig()
+
+    if (finalConfig.filter != null) {
+      throw IllegalArgumentException("Filter is currently not supported for list models.")
+    }
+
+    if (finalConfig.queryBase == null) {
+      finalConfig = finalConfig.copy(queryBase = true)
+    } else if (finalConfig.queryBase == false && apiClient.enterprise) {
+      finalConfig = finalConfig.copy(filter = "labels.tune-type:*")
+    }
+
+    return Pager<Model>(
+      name = "models",
+      pageSize = finalConfig.pageSize,
+      request = { pageToken ->
+        val cfg = if (pageToken != null) finalConfig.copy(pageToken = pageToken) else finalConfig
+        val resp = privateList(config = cfg)
+        Triple(resp.models, resp.nextPageToken, resp.sdkHttpResponse)
+      },
     )
   }
 }

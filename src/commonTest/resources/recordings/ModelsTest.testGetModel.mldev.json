@@ -1,0 +1,64 @@
+{
+  "recordID": "ModelsTest.testGetModel.mldev",
+  "interactions": [
+    {
+      "request": {
+        "method": "GET",
+        "url": "/v1beta/models/gemini-3-flash-preview",
+        "request": "GET /v1beta/models/gemini-3-flash-preview HTTP/1.1",
+        "headers": {
+          "Accept": "*/*",
+          "Accept-Charset": "UTF-8",
+          "Accept-Encoding": "gzip",
+          "Connection": "Keep-Alive",
+          "Content-Type": "application/json",
+          "Test-Name": "ModelsTest.testGetModel.mldev"
+        },
+        "bodySegments": [
+          null
+        ],
+        "previousRequest": "b4d6e60a9b97e7b98c63df9308728c5c88c0b40c398046772c63447b94608b4d",
+        "serverAddress": "generativelanguage.googleapis.com",
+        "port": 443,
+        "protocol": "https"
+      },
+      "shaSum": "41b9a2bb829ecdc87300a18160f1b095c491f19c1f4ab12f8290453231680006",
+      "response": {
+        "statusCode": 200,
+        "headers": {
+          "Content-Encoding": "gzip",
+          "Content-Length": "265",
+          "Content-Type": "application/json; charset=UTF-8",
+          "Date": "Tue, 21 Jul 2026 16:47:33 GMT",
+          "Server": "scaffolding on HTTPServer2",
+          "Server-Timing": "gfet4t7; dur=255",
+          "Vary": "Origin, X-Origin, Referer",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "SAMEORIGIN",
+          "X-Xss-Protection": "0"
+        },
+        "bodySegments": [
+          {
+            "description": "Gemini 3 Flash Preview",
+            "displayName": "Gemini 3 Flash Preview",
+            "inputTokenLimit": 1048576,
+            "maxTemperature": 2,
+            "name": "models/gemini-3-flash-preview",
+            "outputTokenLimit": 65536,
+            "supportedGenerationMethods": [
+              "generateContent",
+              "countTokens",
+              "createCachedContent",
+              "batchGenerateContent"
+            ],
+            "temperature": 1,
+            "thinking": true,
+            "topK": 64,
+            "topP": 0.95,
+            "version": "3-flash-preview-12-2025"
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "recordID": "ModelsTest.testDeleteModel.vertex",
+  "interactions": [
+    {
+      "request": {
+        "method": "DELETE",
+        "url": "/v1beta1/projects/REDACTED/locations/us-central1/models/2738785608255143936",
+        "request": "DELETE /v1beta1/projects/REDACTED/locations/us-central1/models/2738785608255143936 HTTP/1.1",
+        "headers": {
+          "Accept": "*/*",
+          "Accept-Charset": "UTF-8",
+          "Accept-Encoding": "gzip",
+          "Connection": "Keep-Alive",
+          "Content-Length": "0",
+          "Content-Type": "application/json",
+          "Test-Name": "ModelsTest.testDeleteModel.vertex"
+        },
+        "bodySegments": [
+          null
+        ],
+        "previousRequest": "b4d6e60a9b97e7b98c63df9308728c5c88c0b40c398046772c63447b94608b4d",
+        "serverAddress": "us-central1-aiplatform.googleapis.com",
+        "port": 443,
+        "protocol": "https"
+      },
+      "shaSum": "4bf4c3b351134d628b9329f0e9f842d78f9c93f93f30a5614ba4117b10919665",
+      "response": {
+        "statusCode": 200,
+        "headers": {
+          "Content-Encoding": "gzip",
+          "Content-Length": "281",
+          "Content-Type": "application/json; charset=UTF-8",
+          "Date": "Tue, 21 Jul 2026 18:35:49 GMT",
+          "Server": "ESF",
+          "Vary": "Origin, X-Origin, Referer",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "SAMEORIGIN",
+          "X-Xss-Protection": "0"
+        },
+        "bodySegments": [
+          {
+            "done": true,
+            "metadata": {
+              "@type": "type.googleapis.com/google.cloud.aiplatform.v1beta1.DeleteOperationMetadata",
+              "genericMetadata": {
+                "createTime": "2026-07-21T18:35:49.457936Z",
+                "updateTime": "2026-07-21T18:35:49.457936Z"
+              }
+            },
+            "name": "projects/REDACTED/locations/us-central1/models/2738785608255143936/operations/3584233294654341120",
+            "response": {
+              "@type": "type.googleapis.com/google.protobuf.Empty"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -16,9 +16,7 @@
 
 package com.google.genai.kotlin
 
-import com.google.genai.kotlin.types.Blob
 import com.google.genai.kotlin.types.Content
-import com.google.genai.kotlin.types.File
 import com.google.genai.kotlin.types.Part
 import com.google.genai.kotlin.types.PrebuiltVoiceConfig
 import com.google.genai.kotlin.types.Schema
@@ -86,11 +84,6 @@ internal object Transformers {
       }
       else -> throw IllegalArgumentException("Unsupported speechConfig type: ${origin::class}")
     }
-  }
-
-  /** Transforms an object to a LiveSpeechConfig data class. */
-  fun tLiveSpeechConfig(origin: Any?): Map<String, Any?>? {
-    return tSpeechConfig(origin)
   }
 
   /** Pass-through transformer for Tool lists. */
@@ -240,24 +233,6 @@ internal object Transformers {
   fun tBatchJobDestination(destination: Any?): Any? = destination
   fun tRecvBatchJobDestination(destination: Any?): Any? = destination
 
-  fun tFileName(origin: Any?): String? {
-    if (origin == null) return null
-    var name = when (origin) {
-      is String -> origin
-      is File -> origin.name ?: throw IllegalArgumentException("File name is required.")
-      else -> origin.toString().replace("\"", "")
-    }
-
-    if (name.startsWith("https://")) {
-      val suffix = name.substringAfter("files/")
-      val regex = Regex("[a-z0-9-]+")
-      name = regex.find(suffix)?.value ?: throw IllegalArgumentException("Invalid file URI: $origin")
-    } else if (name.startsWith("files/")) {
-      name = name.substringAfter("files/")
-    }
-    return name
-  }
-
   /** Checks if the model uses the vertex embedContent endpoint. */
   fun tIsVertexEmbedContentModel(model: String): Boolean {
     return (model.contains("gemini") && model != "gemini-embedding-001") || model.contains("maas")
@@ -304,30 +279,5 @@ internal object Transformers {
         }
       }
     }
-  }
-
-  /** Transforms an object to a list of Blobs. */
-  fun tBlobs(origin: Any?): Any? {
-    if (origin == null) return null
-    return when (origin) {
-      is List<*> -> origin
-      is Blob -> listOf(origin)
-      else -> origin
-    }
-  }
-
-  /** Pass-through transformer for a single Blob. */
-  fun tBlob(origin: Any?): Any? {
-    return origin
-  }
-
-  /** Transforms an object to an audio Blob. */
-  fun tAudioBlob(origin: Any?): Any? {
-    return tBlob(origin)
-  }
-
-  /** Transforms an object to an image Blob. */
-  fun tImageBlob(origin: Any?): Any? {
-    return tBlob(origin)
   }
 }

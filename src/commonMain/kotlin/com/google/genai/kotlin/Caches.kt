@@ -429,7 +429,10 @@ class Caches internal constructor(internal val apiClient: ApiClient) {
       Common.setValueByPath(
         toObject,
         arrayOf("model"),
-        Transformers.tCachesModel(apiClient, Common.getValueByPath(fromObject, arrayOf("model"))),
+        Transformers.tCachesModel(
+          this.apiClient,
+          Common.getValueByPath(fromObject, arrayOf("model")),
+        ),
       )
     }
 
@@ -455,7 +458,10 @@ class Caches internal constructor(internal val apiClient: ApiClient) {
       Common.setValueByPath(
         toObject,
         arrayOf("model"),
-        Transformers.tCachesModel(apiClient, Common.getValueByPath(fromObject, arrayOf("model"))),
+        Transformers.tCachesModel(
+          this.apiClient,
+          Common.getValueByPath(fromObject, arrayOf("model")),
+        ),
       )
     }
 
@@ -482,7 +488,7 @@ class Caches internal constructor(internal val apiClient: ApiClient) {
         toObject,
         arrayOf("_url", "name"),
         Transformers.tCachedContentName(
-          apiClient,
+          this.apiClient,
           Common.getValueByPath(fromObject, arrayOf("name")),
         ),
       )
@@ -503,7 +509,7 @@ class Caches internal constructor(internal val apiClient: ApiClient) {
         toObject,
         arrayOf("_url", "name"),
         Transformers.tCachedContentName(
-          apiClient,
+          this.apiClient,
           Common.getValueByPath(fromObject, arrayOf("name")),
         ),
       )
@@ -690,7 +696,7 @@ class Caches internal constructor(internal val apiClient: ApiClient) {
         toObject,
         arrayOf("_url", "name"),
         Transformers.tCachedContentName(
-          apiClient,
+          this.apiClient,
           Common.getValueByPath(fromObject, arrayOf("name")),
         ),
       )
@@ -711,7 +717,7 @@ class Caches internal constructor(internal val apiClient: ApiClient) {
         toObject,
         arrayOf("_url", "name"),
         Transformers.tCachedContentName(
-          apiClient,
+          this.apiClient,
           Common.getValueByPath(fromObject, arrayOf("name")),
         ),
       )
@@ -1561,7 +1567,7 @@ class Caches internal constructor(internal val apiClient: ApiClient) {
         toObject,
         arrayOf("_url", "name"),
         Transformers.tCachedContentName(
-          apiClient,
+          this.apiClient,
           Common.getValueByPath(fromObject, arrayOf("name")),
         ),
       )
@@ -1590,7 +1596,7 @@ class Caches internal constructor(internal val apiClient: ApiClient) {
         toObject,
         arrayOf("_url", "name"),
         Transformers.tCachedContentName(
-          apiClient,
+          this.apiClient,
           Common.getValueByPath(fromObject, arrayOf("name")),
         ),
       )
