@@ -32,9 +32,12 @@ import com.google.genai.kotlin.types.GetFileConfig
 import com.google.genai.kotlin.types.GetFileParameters
 import com.google.genai.kotlin.types.HttpOptions
 import com.google.genai.kotlin.types.HttpResponse
+import com.google.genai.kotlin.types.InternalRegisterFilesParameters
 import com.google.genai.kotlin.types.ListFilesConfig
 import com.google.genai.kotlin.types.ListFilesParameters
 import com.google.genai.kotlin.types.ListFilesResponse
+import com.google.genai.kotlin.types.RegisterFilesConfig
+import com.google.genai.kotlin.types.RegisterFilesResponse
 import com.google.genai.kotlin.types.UploadFileConfig
 import io.ktor.http.encodeURLQueryComponent
 import io.ktor.utils.io.ByteReadChannel
@@ -131,6 +134,23 @@ class Files internal constructor(internal val apiClient: ApiClient) {
     return toObject
   }
 
+  internal fun internalRegisterFilesParametersToMldev(
+    fromObject: Map<String, Any?>?,
+    parentObject: MutableMap<String, Any?>?,
+  ): MutableMap<String, Any?> {
+
+    val toObject = mutableMapOf<String, Any?>()
+    Common.getValueByPath(fromObject, arrayOf("uris"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("uris"),
+        Common.getValueByPath(fromObject, arrayOf("uris")),
+      )
+    }
+
+    return toObject
+  }
+
   internal fun listFilesConfigToMldev(
     fromObject: Map<String, Any?>?,
     parentObject: MutableMap<String, Any?>?,
@@ -207,6 +227,31 @@ class Files internal constructor(internal val apiClient: ApiClient) {
     return toObject
   }
 
+  internal fun registerFilesResponseFromMldev(
+    fromObject: Map<String, Any?>?,
+    parentObject: MutableMap<String, Any?>?,
+  ): MutableMap<String, Any?> {
+
+    val toObject = mutableMapOf<String, Any?>()
+    Common.getValueByPath(fromObject, arrayOf("sdkHttpResponse"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("sdkHttpResponse"),
+        Common.getValueByPath(fromObject, arrayOf("sdkHttpResponse")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("files"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("files"),
+        Common.getValueByPath(fromObject, arrayOf("files")),
+      )
+    }
+
+    return toObject
+  }
+
   internal suspend fun privateList(config: ListFilesConfig? = null): ListFilesResponse {
     val parameters = ListFilesParameters(config)
     val parameterMap = Common.dataClassToMap(parameters)
@@ -243,11 +288,7 @@ class Files internal constructor(internal val apiClient: ApiClient) {
     val headersMap = response.headers.entries().associate { it.key to it.value.joinToString(",") }
 
     var responseMap = Common.jsonStringToMap(responseString)
-    if (apiClient.enterprise) {
-      throw UnsupportedOperationException(
-        "This method is only supported in Gemini Developer API mode, not in Gemini Enterprise Agent Platform mode."
-      )
-    } else {
+    if (!apiClient.enterprise) {
       responseMap = listFilesResponseFromMldev(responseMap, null)
     }
 
@@ -323,11 +364,7 @@ class Files internal constructor(internal val apiClient: ApiClient) {
     }
 
     var responseMap = Common.jsonStringToMap(responseString)
-    if (apiClient.enterprise) {
-      throw UnsupportedOperationException(
-        "This method is only supported in Gemini Developer API mode, not in Gemini Enterprise Agent Platform mode."
-      )
-    } else {
+    if (!apiClient.enterprise) {
       responseMap = createFileResponseFromMldev(responseMap, null)
     }
 
@@ -378,11 +415,6 @@ class Files internal constructor(internal val apiClient: ApiClient) {
     val headersMap = response.headers.entries().associate { it.key to it.value.joinToString(",") }
 
     var responseMap = Common.jsonStringToMap(responseString)
-    if (apiClient.enterprise) {
-      throw UnsupportedOperationException(
-        "This method is only supported in Gemini Developer API mode, not in Gemini Enterprise Agent Platform mode."
-      )
-    }
 
     val sdkResponse = Common.mapToDataClass<File>(responseMap)
     return sdkResponse
@@ -431,11 +463,7 @@ class Files internal constructor(internal val apiClient: ApiClient) {
     val headersMap = response.headers.entries().associate { it.key to it.value.joinToString(",") }
 
     var responseMap = Common.jsonStringToMap(responseString)
-    if (apiClient.enterprise) {
-      throw UnsupportedOperationException(
-        "This method is only supported in Gemini Developer API mode, not in Gemini Enterprise Agent Platform mode."
-      )
-    } else {
+    if (!apiClient.enterprise) {
       responseMap = deleteFileResponseFromMldev(responseMap, null)
     }
 
@@ -444,6 +472,59 @@ class Files internal constructor(internal val apiClient: ApiClient) {
     return sdkResponse.copy(
       sdkHttpResponse = HttpResponse(body = responseString, headers = headersMap)
     )
+  }
+
+  internal suspend fun privateRegisterFiles(
+    uris: List<String>,
+    config: RegisterFilesConfig? = null,
+  ): RegisterFilesResponse {
+    val parameters = InternalRegisterFilesParameters(uris, config)
+    val parameterMap = Common.dataClassToMap(parameters)
+
+    var body: MutableMap<String, Any?>
+    var path: String
+
+    if (apiClient.enterprise) {
+      throw UnsupportedOperationException(
+        "This method is only supported in Gemini Developer API mode, not in Gemini Enterprise Agent Platform mode."
+      )
+    } else {
+
+      body = internalRegisterFilesParametersToMldev(parameterMap, null)
+
+      path = Common.formatMap("files:register", body["_url"] as? Map<String, Any?>)
+    }
+
+    val queryParams = body["_query"] as? Map<String, Any?>
+    val filteredBody = body.filterKeys { it != "_url" && it != "_query" }
+    val finalBody = if (filteredBody.isEmpty()) null else Common.mapToJsonObject(filteredBody)
+
+    if (queryParams != null) {
+      val queryString =
+        queryParams.entries.joinToString("&") {
+          "${it.key.encodeURLQueryComponent()}=${it.value.toString().encodeURLQueryComponent()}"
+        }
+      path = "$path?$queryString"
+    }
+
+    val response = apiClient.request("POST", path, finalBody, httpOptions = config?.httpOptions)
+
+    val responseString = response.body()
+    val headersMap = response.headers.entries().associate { it.key to it.value.joinToString(",") }
+
+    if (config?.shouldReturnHttpResponse == true) {
+      return RegisterFilesResponse(
+        sdkHttpResponse = HttpResponse(body = responseString, headers = headersMap)
+      )
+    }
+
+    var responseMap = Common.jsonStringToMap(responseString)
+    if (!apiClient.enterprise) {
+      responseMap = registerFilesResponseFromMldev(responseMap, null)
+    }
+
+    val sdkResponse = Common.mapToDataClass<RegisterFilesResponse>(responseMap)
+    return sdkResponse
   }
 
   /**
@@ -522,6 +603,38 @@ class Files internal constructor(internal val apiClient: ApiClient) {
   suspend fun download(file: File, config: DownloadFileConfig? = null): ByteReadChannel {
     val name = file.name ?: throw IllegalArgumentException("File name is required.")
     return download(name, config)
+  }
+
+  /**
+   * Registers a file.
+   *
+   * @param credentials The Google credentials used to authenticate.
+   * @param uris The list of URIs to register.
+   * @param config Optional configuration for the registration.
+   * @return The [RegisterFilesResponse] containing the registered files.
+   */
+  suspend fun registerFiles(
+    credentials: GoogleCredentials,
+    uris: List<String>,
+    config: RegisterFilesConfig? = null,
+  ): RegisterFilesResponse {
+    if (uris.isEmpty()) throw IllegalArgumentException("uris list must not be empty")
+
+    var updatedConfig = config
+    if (apiClient.credentials !== credentials) {
+      val builder = io.ktor.client.request.HttpRequestBuilder()
+      credentials.applyToRequest(builder)
+
+      val baseHeaders = config?.httpOptions?.headers ?: emptyMap()
+      val newHeaders = baseHeaders.toMutableMap()
+
+      builder.headers.entries().forEach { (k, v) -> newHeaders[k] = v.last() }
+
+      val updatedHttpOptions = (config?.httpOptions ?: HttpOptions()).copy(headers = newHeaders)
+      updatedConfig = (config ?: RegisterFilesConfig()).copy(httpOptions = updatedHttpOptions)
+    }
+
+    return privateRegisterFiles(uris = uris, config = updatedConfig)
   }
 
   private suspend fun createFileInApi(

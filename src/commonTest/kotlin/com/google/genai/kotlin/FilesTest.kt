@@ -34,6 +34,7 @@ import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertNotNull
 import kotlin.test.assertTrue
+import kotlin.test.assertFailsWith
 import kotlinx.coroutines.test.runTest
 import kotlinx.serialization.json.Json
 
@@ -370,5 +371,27 @@ class FilesTest {
       assertEquals(0L, file.sizeBytes)
       assertEquals(2, requests.size)
     }
+  }
+
+  @Test
+  fun testRegisterFiles_vertexThrows() = runTest {
+    val engine = MockEngine { request ->
+      respond("Not Found", status = HttpStatusCode.NotFound)
+    }
+
+    ApiClient(
+        apiKey = "test-token",
+        engine = engine,
+        enterprise = true
+      )
+      .use { apiClient ->
+        val files = Files(apiClient)
+        val exception =
+          assertFailsWith<UnsupportedOperationException> {
+            val dummyCreds = GoogleCredentials.create(com.google.auth.oauth2.AccessToken("test", null))
+            files.registerFiles(credentials = dummyCreds, uris = listOf("gs://bucket/object"))
+          }
+        assertTrue(exception.message!!.contains("Gemini Developer API mode"))
+      }
   }
 }

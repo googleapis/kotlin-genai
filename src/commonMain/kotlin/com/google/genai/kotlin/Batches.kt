@@ -2488,11 +2488,7 @@ class Batches internal constructor(internal val apiClient: ApiClient) {
     val headersMap = response.headers.entries().associate { it.key to it.value.joinToString(",") }
 
     var responseMap = Common.jsonStringToMap(responseString)
-    if (apiClient.enterprise) {
-      throw UnsupportedOperationException(
-        "This method is only supported in Gemini Developer API mode, not in Gemini Enterprise Agent Platform mode."
-      )
-    } else {
+    if (!apiClient.enterprise) {
       responseMap = batchJobFromMldev(responseMap, null)
     }
 

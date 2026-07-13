@@ -3515,10 +3515,6 @@ class Models internal constructor(internal val apiClient: ApiClient) {
     var responseMap = Common.jsonStringToMap(responseString)
     if (apiClient.enterprise) {
       responseMap = computeTokensResponseFromVertex(responseMap, null, parameterMap)
-    } else {
-      throw UnsupportedOperationException(
-        "This method is only supported in Gemini Enterprise Agent Platform mode, not in Gemini Developer API mode."
-      )
     }
 
     val sdkResponse = Common.mapToDataClass<ComputeTokensResponse>(responseMap)

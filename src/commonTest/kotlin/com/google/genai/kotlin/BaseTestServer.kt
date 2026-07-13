@@ -73,6 +73,7 @@ open class BaseTestServer {
     enterprise: Boolean,
     testName: String,
     locationOverride: String? = null,
+    credentials: GoogleCredentials? = null,
   ): Client {
     val effectiveLocation = locationOverride ?: location
     val port =
@@ -91,7 +92,7 @@ open class BaseTestServer {
       HttpOptions(baseUrl = "http://localhost:$port", headers = mapOf("Test-Name" to testName))
     if (enterprise) {
       val creds =
-        if (testMode == "replay") {
+        credentials ?: if (testMode == "replay") {
           GoogleCredentials.create(AccessToken("test-token", null))
         } else {
           null
