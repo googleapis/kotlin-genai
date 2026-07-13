@@ -4,8 +4,8 @@
     {
       "request": {
         "method": "POST",
-        "url": "/v1beta/models/gemini-3-flash-preview:generateContent",
-        "request": "POST /v1beta/models/gemini-3-flash-preview:generateContent HTTP/1.1",
+        "url": "/v1beta/models/gemini-3.5-flash:generateContent",
+        "request": "POST /v1beta/models/gemini-3.5-flash:generateContent HTTP/1.1",
         "headers": {
           "Accept": "*/*",
           "Accept-Charset": "UTF-8",
@@ -45,7 +45,7 @@
         "port": 443,
         "protocol": "https"
       },
-      "shaSum": "196e02b320865e1ceeca266751f4084ad58c94d11680912b5004628e0610cec2",
+      "shaSum": "aa9c03fed867351ff0db1a052ca9c5efd4081e71bce4ba58557e1da2ea6e37b6",
       "response": {
         "statusCode": 200,
         "headers": {
@@ -78,7 +78,7 @@
                 "index": 0
               }
             ],
-            "modelVersion": "gemini-3-flash-preview",
+            "modelVersion": "gemini-3.5-flash",
             "responseId": "wxMCatKeEfWa-8YPu5LY4A4",
             "turnToken": "v1_Chd3eE1DYXRLZUVmV2EtOFlQdTVMWTRBNBIXd3hNQ2F0S2VFZldhLThZUHU1TFk0QTQ",
             "usageMetadata": {

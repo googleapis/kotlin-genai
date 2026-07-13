@@ -11,7 +11,7 @@
           "Accept-Charset": "UTF-8",
           "Accept-Encoding": "gzip",
           "Connection": "Keep-Alive",
-          "Content-Length": "167",
+          "Content-Length": "166",
           "Content-Type": "application/json",
           "Test-Name": "ModelsTest.testGenerateContentResponseModalityImage.vertex"
         },
@@ -21,7 +21,7 @@
               {
                 "parts": [
                   {
-                    "text": "Can you generate a small image of a cat and describe it?"
+                    "text": "Can you introduce cat and generate a small image of it?"
                   }
                 ],
                 "role": "user"

@@ -4,8 +4,8 @@
     {
       "request": {
         "method": "POST",
-        "url": "/v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-3-flash-preview:generateContent",
-        "request": "POST /v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-3-flash-preview:generateContent HTTP/1.1",
+        "url": "/v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-3.5-flash:generateContent",
+        "request": "POST /v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-3.5-flash:generateContent HTTP/1.1",
         "headers": {
           "Accept": "*/*",
           "Accept-Charset": "UTF-8",
@@ -45,7 +45,7 @@
         "port": 443,
         "protocol": "https"
       },
-      "shaSum": "0518da75e78c09ef45b94956c2b2b1b0dd6bcecfdf00f9272530a32cf5236035",
+      "shaSum": "ba79d893ef0b4a51e472b74747fd4c8842bf0d6877818d1199786be8590eed02",
       "response": {
         "statusCode": 200,
         "headers": {
@@ -77,7 +77,7 @@
               }
             ],
             "createTime": "2026-05-11T17:37:10.375395Z",
-            "modelVersion": "gemini-3-flash-preview",
+            "modelVersion": "gemini-3.5-flash",
             "responseId": "xhMCauP0Fs2BpucP2JWDuQM",
             "usageMetadata": {
               "candidatesTokenCount": 3,

@@ -229,7 +229,7 @@ class ModelsTest : BaseTestServer() {
 
       val response =
         client.models.generateContent(
-          model = MODEL_NAME,
+          model = "gemini-3.5-flash",
           text = "What is your favorite ice cream flavor among chocolate, vanilla, and strawberry?",
           config =
             GenerateContentConfig(
