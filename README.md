@@ -12,7 +12,7 @@ and the
 (formerly Vertex AI).
 
 > [!NOTE] This SDK is currently in early development. At this stage, only
-> `generateContent` and `generateContentStream` are supported.
+> `generateContent`, `generateContentStream`, `embedContent`, and Context Caching (`caches`) are supported.
 
 > [!WARNING]
 > **Mobile Security: API Keys & Cloud Credentials**
@@ -197,6 +197,95 @@ val response = client.models.generateContent(
     model = "gemini-3.5-flash",
     text = "What is your name?",
     config = config
+)
+```
+
+### Embed Content
+
+Use `embedContent` to generate vector embeddings for text or multimodal content.
+
+```kotlin
+import com.google.genai.kotlin.Client
+import com.google.genai.kotlin.types.EmbedContentConfig
+import kotlinx.coroutines.runBlocking
+
+fun main() = runBlocking {
+    Client().use { client ->
+        // Generate embedding for text
+        val response = client.models.embedContent(
+            model = "gemini-embedding-2",
+            text = "What is the capital of France?"
+        )
+
+        val embeddings = response.embeddings
+        if (embeddings != null && embeddings.isNotEmpty()) {
+            val vector = embeddings[0].values
+            println("Embedding vector size: ${vector?.size}")
+            println("First 5 values: ${vector?.take(5)}")
+        }
+    }
+}
+```
+
+To configure task type or output dimensionality:
+
+```kotlin
+val config = EmbedContentConfig(
+    outputDimensionality = 16,
+    taskType = "RETRIEVAL_DOCUMENT",
+    title = "Document Title"
+)
+
+val response = client.models.embedContent(
+    model = "gemini-embedding-2",
+    text = "What is the capital of France?",
+    config = config
+)
+```
+
+#### Multimodal Embedding
+
+You can generate embeddings for multimodal content (text and images).
+
+**Using Inline Image Bytes (Works on both Gemini Developer API and Gemini Enterprise Agent Platform):**
+
+```kotlin
+import com.google.genai.kotlin.types.Blob
+import com.google.genai.kotlin.types.Content
+import com.google.genai.kotlin.types.Part
+
+val imageBytes: ByteArray = ... // Load your image bytes
+
+val response = client.models.embedContent(
+    model = "gemini-embedding-2",
+    contents = listOf(
+        Content(
+            parts = listOf(
+                Part(text = "Similar things to the following image:"),
+                Part(inlineData = Blob(mimeType = "image/png", data = imageBytes))
+            )
+        )
+    )
+)
+```
+
+**Using Google Cloud Storage (Gemini Enterprise Agent Platform only):**
+
+```kotlin
+import com.google.genai.kotlin.types.Content
+import com.google.genai.kotlin.types.FileData
+import com.google.genai.kotlin.types.Part
+
+val response = client.models.embedContent(
+    model = "gemini-embedding-2",
+    contents = listOf(
+        Content(
+            parts = listOf(
+                Part(text = "Similar things to the following image:"),
+                Part(fileData = FileData(fileUri = "gs://your-bucket/image.png", mimeType = "image/png"))
+            )
+        )
+    )
 )
 ```
 
