@@ -259,3 +259,56 @@ fun main() = runBlocking {
     }
 }
 ```
+
+### Count and Compute Tokens
+
+You can count the number of tokens in a prompt before sending it to the model.
+The SDK provides two methods for this: `countTokens` and `computeTokens`.
+
+Use `countTokens` to get the total number of tokens for a given prompt. This
+method is supported by both the Gemini Developer API and the Gemini Enterprise
+Agent Platform API.
+
+```kotlin
+import com.google.genai.kotlin.Client
+import kotlinx.coroutines.runBlocking
+
+fun main() = runBlocking {
+    Client().use { client ->
+        val response = client.models.countTokens(
+            model = "gemini-3.5-flash",
+            text = "Why is the sky blue?"
+        )
+
+        println("Total tokens: ${response.totalTokens}")
+    }
+}
+```
+
+To get detailed token information, including a list of token IDs and their
+corresponding representations, use `computeTokens`. `computeTokens` is only
+supported by the Gemini Enterprise Agent Platform API.
+
+```kotlin
+import com.google.genai.kotlin.Client
+import kotlinx.coroutines.runBlocking
+
+fun main() = runBlocking {
+    Client(
+        project = "your-project-id",
+        location = "us-central1",
+        enterprise = true
+    ).use { client ->
+        val response = client.models.computeTokens(
+            model = "gemini-3.5-flash",
+            text = "Why is the sky blue?"
+        )
+
+        response.tokensInfo?.forEach { info ->
+            println("Role: ${info.role}")
+            println("Token IDs: ${info.tokenIds}")
+            println("Tokens: ${info.tokens?.map { it.decodeToString() }}")
+        }
+    }
+}
+```
