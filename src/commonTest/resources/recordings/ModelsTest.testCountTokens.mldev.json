@@ -1,0 +1,75 @@
+{
+  "recordID": "ModelsTest.testCountTokens.mldev",
+  "interactions": [
+    {
+      "request": {
+        "method": "POST",
+        "url": "/v1beta/models/gemini-3-flash-preview:countTokens",
+        "request": "POST /v1beta/models/gemini-3-flash-preview:countTokens HTTP/1.1",
+        "headers": {
+          "Accept": "*/*",
+          "Accept-Charset": "UTF-8",
+          "Accept-Encoding": "gzip",
+          "Connection": "Keep-Alive",
+          "Content-Length": "76",
+          "Content-Type": "application/json",
+          "Test-Name": "ModelsTest.testCountTokens.mldev"
+        },
+        "bodySegments": [
+          {
+            "contents": [
+              {
+                "parts": [
+                  {
+                    "text": "How many tokens is this?"
+                  }
+                ],
+                "role": "user"
+              }
+            ]
+          }
+        ],
+        "previousRequest": "b4d6e60a9b97e7b98c63df9308728c5c88c0b40c398046772c63447b94608b4d",
+        "serverAddress": "generativelanguage.googleapis.com",
+        "port": 443,
+        "protocol": "https"
+      },
+      "shaSum": "352a6cbb3de182f69cb346655a1d3fd7b9fa37aa1dbd48ce1dac04584ab74459",
+      "response": {
+        "statusCode": 200,
+        "headers": {
+          "Content-Encoding": "gzip",
+          "Content-Length": "159",
+          "Content-Type": "application/json; charset=UTF-8",
+          "Date": "Thu, 09 Jul 2026 19:50:29 GMT",
+          "Server": "scaffolding on HTTPServer2",
+          "Server-Timing": "gfet4t7; dur=175",
+          "Vary": "Origin, X-Origin, Referer",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "SAMEORIGIN",
+          "X-Xss-Protection": "0"
+        },
+        "bodySegments": [
+          {
+            "contentTokens": [
+              {
+                "partTokens": [
+                  6
+                ],
+                "roleTokens": 1
+              }
+            ],
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 7
+              }
+            ],
+            "systemInstructionsTokens": {},
+            "totalTokens": 7
+          }
+        ]
+      }
+    }
+  ]
+}

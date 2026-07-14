@@ -1,0 +1,77 @@
+{
+  "recordID": "ModelsTest.testComputeTokensString.vertex",
+  "interactions": [
+    {
+      "request": {
+        "method": "POST",
+        "url": "/v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-3-flash-preview:computeTokens",
+        "request": "POST /v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-3-flash-preview:computeTokens HTTP/1.1",
+        "headers": {
+          "Accept": "*/*",
+          "Accept-Charset": "UTF-8",
+          "Accept-Encoding": "gzip",
+          "Connection": "Keep-Alive",
+          "Content-Length": "70",
+          "Content-Type": "application/json",
+          "Test-Name": "ModelsTest.testComputeTokensString.vertex"
+        },
+        "bodySegments": [
+          {
+            "contents": [
+              {
+                "parts": [
+                  {
+                    "text": "What is your name?"
+                  }
+                ],
+                "role": "user"
+              }
+            ]
+          }
+        ],
+        "previousRequest": "b4d6e60a9b97e7b98c63df9308728c5c88c0b40c398046772c63447b94608b4d",
+        "serverAddress": "aiplatform.googleapis.com",
+        "port": 443,
+        "protocol": "https"
+      },
+      "shaSum": "6c0b99fa60f388118ef163f928dba005c37711c7d36962aed57f1bb3173e2341",
+      "response": {
+        "statusCode": 200,
+        "headers": {
+          "Content-Encoding": "gzip",
+          "Content-Length": "145",
+          "Content-Type": "application/json; charset=UTF-8",
+          "Date": "Thu, 09 Jul 2026 19:37:32 GMT",
+          "Server": "scaffolding on HTTPServer2",
+          "Vary": "Origin, X-Origin, Referer",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "SAMEORIGIN",
+          "X-Xss-Protection": "0"
+        },
+        "bodySegments": [
+          {
+            "tokensInfo": [
+              {
+                "role": "user",
+                "tokenIds": [
+                  "3689",
+                  "563",
+                  "822",
+                  "1463",
+                  "236881"
+                ],
+                "tokens": [
+                  "V2hhdA==",
+                  "IGlz",
+                  "IHlvdXI=",
+                  "IG5hbWU=",
+                  "Pw=="
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

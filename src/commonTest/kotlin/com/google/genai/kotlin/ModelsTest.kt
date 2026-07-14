@@ -710,11 +710,7 @@ class ModelsTest : BaseTestServer() {
       val suffix = if (enterprise) "vertex" else "mldev"
       val testName = "ModelsTest.testEmbedContentGemini2.$suffix"
 
-      val client =
-        createClient(
-          enterprise,
-          testName,
-        )
+      val client = createClient(enterprise, testName)
 
       val response1 =
         client.models.embedContent(
@@ -810,11 +806,7 @@ class ModelsTest : BaseTestServer() {
       val suffix = if (enterprise) "vertex" else "mldev"
       val testName = "ModelsTest.testEmbedContentGemini2WithGcsImageAndConfig.$suffix"
 
-      val client =
-        createClient(
-          enterprise,
-          testName,
-        )
+      val client = createClient(enterprise, testName)
 
       val response =
         client.models.embedContent(
@@ -828,7 +820,8 @@ class ModelsTest : BaseTestServer() {
                     Part(
                       fileData =
                         FileData(
-                          fileUri = "gs://cloud-samples-data/generative-ai/image/a-man-and-a-dog.png",
+                          fileUri =
+                            "gs://cloud-samples-data/generative-ai/image/a-man-and-a-dog.png",
                           mimeType = "image/png",
                         )
                     ),
@@ -855,11 +848,7 @@ class ModelsTest : BaseTestServer() {
       val suffix = if (enterprise) "vertex" else "mldev"
       val testName = "ModelsTest.testEmbedContentGemini2MultiModal.$suffix"
 
-      val client =
-        createClient(
-          enterprise,
-          testName,
-        )
+      val client = createClient(enterprise, testName)
 
       val response =
         client.models.embedContent(
@@ -898,22 +887,14 @@ class ModelsTest : BaseTestServer() {
       val suffix = if (enterprise) "vertex" else "mldev"
       val testName = "ModelsTest.testEmbedContentGemini2VertexOnlyConfig.$suffix"
 
-      val client =
-        createClient(
-          enterprise,
-          testName,
-        )
+      val client = createClient(enterprise, testName)
 
       if (enterprise) {
         val response =
           client.models.embedContent(
             model = "gemini-embedding-2",
             text = "What is the capital of France?",
-            config =
-              EmbedContentConfig(
-                outputDimensionality = 10,
-                autoTruncate = true,
-              ),
+            config = EmbedContentConfig(outputDimensionality = 10, autoTruncate = true),
           )
         assertNotNull(response.embeddings)
         assertTrue(response.embeddings!!.isNotEmpty())
@@ -924,16 +905,137 @@ class ModelsTest : BaseTestServer() {
             client.models.embedContent(
               model = "gemini-embedding-2",
               text = "What is the capital of France?",
-              config =
-                EmbedContentConfig(
-                  outputDimensionality = 10,
-                  autoTruncate = true,
-                ),
+              config = EmbedContentConfig(outputDimensionality = 10, autoTruncate = true),
             )
           }
-        assertContains(exception.message ?: "", "autoTruncate parameter is not supported in Gemini API.")
+        assertContains(
+          exception.message ?: "",
+          "autoTruncate parameter is not supported in Gemini API.",
+        )
       }
     }
   }
 
+  @Test
+  fun testCountTokens() = runLongTest {
+    listOf(false, true).forEach { enterprise ->
+      val suffix = if (enterprise) "vertex" else "mldev"
+      val testName = "ModelsTest.testCountTokens.$suffix"
+      val client = createClient(enterprise, testName)
+
+      val response =
+        client.models.countTokens(
+          model = MODEL_NAME,
+          contents =
+            listOf(Content(role = "user", parts = listOf(Part(text = "How many tokens is this?")))),
+        )
+
+      assertNotNull(response.totalTokens)
+    }
+  }
+
+  @Test
+  fun testCountTokensString() = runLongTest {
+    listOf(false, true).forEach { enterprise ->
+      val suffix = if (enterprise) "vertex" else "mldev"
+      val testName = "ModelsTest.testCountTokensString.$suffix"
+      val client = createClient(enterprise, testName)
+
+      val response = client.models.countTokens(model = MODEL_NAME, text = "What is your name?")
+
+      assertNotNull(response.totalTokens)
+    }
+  }
+
+  @Test
+  fun testCountTokensContent() = runLongTest {
+    listOf(false, true).forEach { enterprise ->
+      val suffix = if (enterprise) "vertex" else "mldev"
+      val testName = "ModelsTest.testCountTokensContent.$suffix"
+      val client = createClient(enterprise, testName)
+
+      val response =
+        client.models.countTokens(
+          model = MODEL_NAME,
+          content = Content(role = "user", parts = listOf(Part(text = "What is your name?"))),
+        )
+
+      assertNotNull(response.totalTokens)
+    }
+  }
+
+  @Test
+  fun testComputeTokens() = runLongTest {
+    listOf(false, true).forEach { enterprise ->
+      val suffix = if (enterprise) "vertex" else "mldev"
+      val testName = "ModelsTest.testComputeTokens.$suffix"
+      val client = createClient(enterprise, testName)
+
+      val contentList =
+        listOf(Content(role = "user", parts = listOf(Part(text = "What is your name?"))))
+
+      if (enterprise) {
+        // Agent Platform supports computeTokens
+        val response = client.models.computeTokens(model = MODEL_NAME, contents = contentList)
+
+        assertNotNull(response.tokensInfo)
+      } else {
+        try {
+          client.models.computeTokens(model = MODEL_NAME, contents = contentList)
+          assertTrue(false, "Expected UnsupportedOperationException")
+        } catch (e: UnsupportedOperationException) {
+          // This is expected, Gemini Developer API does not support computeTokens.
+        }
+      }
+    }
+  }
+
+  @Test
+  fun testComputeTokensString() = runLongTest {
+    listOf(false, true).forEach { enterprise ->
+      val suffix = if (enterprise) "vertex" else "mldev"
+      val testName = "ModelsTest.testComputeTokensString.$suffix"
+      val client = createClient(enterprise, testName)
+
+      if (enterprise) {
+        val response = client.models.computeTokens(model = MODEL_NAME, text = "What is your name?")
+        assertNotNull(response.tokensInfo)
+      } else {
+        try {
+          client.models.computeTokens(model = MODEL_NAME, text = "What is your name?")
+          assertTrue(false, "Expected UnsupportedOperationException")
+        } catch (e: UnsupportedOperationException) {
+          // Expected
+        }
+      }
+    }
+  }
+
+  @Test
+  fun testComputeTokensContent() = runLongTest {
+    listOf(false, true).forEach { enterprise ->
+      val suffix = if (enterprise) "vertex" else "mldev"
+      val testName = "ModelsTest.testComputeTokensContent.$suffix"
+      val client = createClient(enterprise, testName)
+
+      if (enterprise) {
+        val response =
+          client.models.computeTokens(
+            model = MODEL_NAME,
+            content = Content(role = "user", parts = listOf(Part(text = "What is your name?"))),
+          )
+        assertNotNull(response.tokensInfo)
+      } else {
+        try {
+          client.models.computeTokens(
+            model = MODEL_NAME,
+            content = Content(role = "user", parts = listOf(Part(text = "What is your name?"))),
+          )
+          assertTrue(false, "Expected UnsupportedOperationException")
+        } catch (e: UnsupportedOperationException) {
+          // Expected
+        }
+      }
+    }
+  }
 }

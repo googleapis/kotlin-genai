@@ -1,0 +1,75 @@
+{
+  "recordID": "ModelsTest.testCountTokensContent.mldev",
+  "interactions": [
+    {
+      "request": {
+        "method": "POST",
+        "url": "/v1beta/models/gemini-3-flash-preview:countTokens",
+        "request": "POST /v1beta/models/gemini-3-flash-preview:countTokens HTTP/1.1",
+        "headers": {
+          "Accept": "*/*",
+          "Accept-Charset": "UTF-8",
+          "Accept-Encoding": "gzip",
+          "Connection": "Keep-Alive",
+          "Content-Length": "70",
+          "Content-Type": "application/json",
+          "Test-Name": "ModelsTest.testCountTokensContent.mldev"
+        },
+        "bodySegments": [
+          {
+            "contents": [
+              {
+                "parts": [
+                  {
+                    "text": "What is your name?"
+                  }
+                ],
+                "role": "user"
+              }
+            ]
+          }
+        ],
+        "previousRequest": "b4d6e60a9b97e7b98c63df9308728c5c88c0b40c398046772c63447b94608b4d",
+        "serverAddress": "generativelanguage.googleapis.com",
+        "port": 443,
+        "protocol": "https"
+      },
+      "shaSum": "e9efbf11b8d4fe8a2654ae0cc09c089b3f8fe659567e2c2c85ee011fdf2b5997",
+      "response": {
+        "statusCode": 200,
+        "headers": {
+          "Content-Encoding": "gzip",
+          "Content-Length": "159",
+          "Content-Type": "application/json; charset=UTF-8",
+          "Date": "Thu, 09 Jul 2026 19:40:00 GMT",
+          "Server": "scaffolding on HTTPServer2",
+          "Server-Timing": "gfet4t7; dur=191",
+          "Vary": "Origin, X-Origin, Referer",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "SAMEORIGIN",
+          "X-Xss-Protection": "0"
+        },
+        "bodySegments": [
+          {
+            "contentTokens": [
+              {
+                "partTokens": [
+                  5
+                ],
+                "roleTokens": 1
+              }
+            ],
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 6
+              }
+            ],
+            "systemInstructionsTokens": {},
+            "totalTokens": 6
+          }
+        ]
+      }
+    }
+  ]
+}

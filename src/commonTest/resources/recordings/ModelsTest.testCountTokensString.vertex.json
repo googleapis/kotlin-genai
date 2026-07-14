@@ -1,0 +1,66 @@
+{
+  "recordID": "ModelsTest.testCountTokensString.vertex",
+  "interactions": [
+    {
+      "request": {
+        "method": "POST",
+        "url": "/v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-3-flash-preview:countTokens",
+        "request": "POST /v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-3-flash-preview:countTokens HTTP/1.1",
+        "headers": {
+          "Accept": "*/*",
+          "Accept-Charset": "UTF-8",
+          "Accept-Encoding": "gzip",
+          "Connection": "Keep-Alive",
+          "Content-Length": "70",
+          "Content-Type": "application/json",
+          "Test-Name": "ModelsTest.testCountTokensString.vertex"
+        },
+        "bodySegments": [
+          {
+            "contents": [
+              {
+                "parts": [
+                  {
+                    "text": "What is your name?"
+                  }
+                ],
+                "role": "user"
+              }
+            ]
+          }
+        ],
+        "previousRequest": "b4d6e60a9b97e7b98c63df9308728c5c88c0b40c398046772c63447b94608b4d",
+        "serverAddress": "aiplatform.googleapis.com",
+        "port": 443,
+        "protocol": "https"
+      },
+      "shaSum": "53e8f9f3333304395137bc70a4f38d72924ddd5846a73c4a274192a777b58b6d",
+      "response": {
+        "statusCode": 200,
+        "headers": {
+          "Content-Encoding": "gzip",
+          "Content-Length": "127",
+          "Content-Type": "application/json; charset=UTF-8",
+          "Date": "Thu, 09 Jul 2026 19:39:30 GMT",
+          "Server": "scaffolding on HTTPServer2",
+          "Vary": "Origin, X-Origin, Referer",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "SAMEORIGIN",
+          "X-Xss-Protection": "0"
+        },
+        "bodySegments": [
+          {
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 5
+              }
+            ],
+            "totalBillableCharacters": 15,
+            "totalTokens": 5
+          }
+        ]
+      }
+    }
+  ]
+}

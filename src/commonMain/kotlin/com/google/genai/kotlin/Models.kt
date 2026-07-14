@@ -20,7 +20,13 @@
 
 package com.google.genai.kotlin
 
+import com.google.genai.kotlin.types.ComputeTokensConfig
+import com.google.genai.kotlin.types.ComputeTokensParameters
+import com.google.genai.kotlin.types.ComputeTokensResponse
 import com.google.genai.kotlin.types.Content
+import com.google.genai.kotlin.types.CountTokensConfig
+import com.google.genai.kotlin.types.CountTokensParameters
+import com.google.genai.kotlin.types.CountTokensResponse
 import com.google.genai.kotlin.types.EmbedContentConfig
 import com.google.genai.kotlin.types.EmbedContentParametersPrivate
 import com.google.genai.kotlin.types.EmbedContentResponse
@@ -260,6 +266,63 @@ class Models internal constructor(internal val apiClient: ApiClient) {
     return toObject
   }
 
+  internal fun computeTokensParametersToVertex(
+    apiClient: ApiClient,
+    fromObject: Map<String, Any?>?,
+    parentObject: MutableMap<String, Any?>?,
+    rootObject: Map<String, Any?>?,
+  ): MutableMap<String, Any?> {
+
+    val toObject = mutableMapOf<String, Any?>()
+    Common.getValueByPath(fromObject, arrayOf("model"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("_url", "model"),
+        Transformers.tModel(this.apiClient, Common.getValueByPath(fromObject, arrayOf("model"))),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("contents"))?.let { node ->
+      val keyArray = Transformers.tContents(node) as? List<*> ?: emptyList<Any?>()
+      val result = mutableListOf<Any?>()
+
+      for (item in keyArray) {
+        if (item is Map<*, *>) {
+          result.add(contentToVertex(item as Map<String, Any?>, toObject, rootObject))
+        }
+      }
+      Common.setValueByPath(toObject, arrayOf("contents"), result)
+    }
+
+    return toObject
+  }
+
+  internal fun computeTokensResponseFromVertex(
+    fromObject: Map<String, Any?>?,
+    parentObject: MutableMap<String, Any?>?,
+    rootObject: Map<String, Any?>?,
+  ): MutableMap<String, Any?> {
+
+    val toObject = mutableMapOf<String, Any?>()
+    Common.getValueByPath(fromObject, arrayOf("sdkHttpResponse"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("sdkHttpResponse"),
+        Common.getValueByPath(fromObject, arrayOf("sdkHttpResponse")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("tokensInfo"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("tokensInfo"),
+        Common.getValueByPath(fromObject, arrayOf("tokensInfo")),
+      )
+    }
+
+    return toObject
+  }
+
   internal fun computerUseToVertex(
     fromObject: Map<String, Any?>?,
     parentObject: MutableMap<String, Any?>?,
@@ -418,6 +481,217 @@ class Models internal constructor(internal val apiClient: ApiClient) {
         toObject,
         arrayOf("role"),
         Common.getValueByPath(fromObject, arrayOf("role")),
+      )
+    }
+
+    return toObject
+  }
+
+  internal fun countTokensConfigToMldev(
+    fromObject: Map<String, Any?>?,
+    parentObject: MutableMap<String, Any?>?,
+    rootObject: Map<String, Any?>?,
+  ): MutableMap<String, Any?> {
+
+    val toObject = mutableMapOf<String, Any?>()
+
+    if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("systemInstruction")))) {
+      throw IllegalArgumentException("systemInstruction parameter is not supported in Gemini API.")
+    }
+
+    if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("tools")))) {
+      throw IllegalArgumentException("tools parameter is not supported in Gemini API.")
+    }
+
+    if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("generationConfig")))) {
+      throw IllegalArgumentException("generationConfig parameter is not supported in Gemini API.")
+    }
+
+    return toObject
+  }
+
+  internal fun countTokensConfigToVertex(
+    fromObject: Map<String, Any?>?,
+    parentObject: MutableMap<String, Any?>?,
+    rootObject: Map<String, Any?>?,
+  ): MutableMap<String, Any?> {
+
+    val toObject = mutableMapOf<String, Any?>()
+
+    Common.getValueByPath(fromObject, arrayOf("systemInstruction"))?.let { node ->
+      Common.setValueByPath(
+        parentObject,
+        arrayOf("systemInstruction"),
+        contentToVertex(
+          Transformers.tContent(Common.getValueByPath(fromObject, arrayOf("systemInstruction")))
+            as Map<String, Any?>,
+          toObject,
+          rootObject,
+        ),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("tools"))?.let { node ->
+      val keyArray = node as? List<*> ?: emptyList<Any?>()
+      val result = mutableListOf<Any?>()
+
+      for (item in keyArray) {
+        if (item is Map<*, *>) {
+          result.add(toolToVertex(item as Map<String, Any?>, toObject, rootObject))
+        }
+      }
+      Common.setValueByPath(parentObject, arrayOf("tools"), result)
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("generationConfig"))?.let { node ->
+      Common.setValueByPath(
+        parentObject,
+        arrayOf("generationConfig"),
+        generationConfigToVertex(
+          Common.getValueByPath(fromObject, arrayOf("generationConfig")) as Map<String, Any?>,
+          toObject,
+          rootObject,
+        ),
+      )
+    }
+
+    return toObject
+  }
+
+  internal fun countTokensParametersToMldev(
+    apiClient: ApiClient,
+    fromObject: Map<String, Any?>?,
+    parentObject: MutableMap<String, Any?>?,
+    rootObject: Map<String, Any?>?,
+  ): MutableMap<String, Any?> {
+
+    val toObject = mutableMapOf<String, Any?>()
+    Common.getValueByPath(fromObject, arrayOf("model"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("_url", "model"),
+        Transformers.tModel(this.apiClient, Common.getValueByPath(fromObject, arrayOf("model"))),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("contents"))?.let { node ->
+      val keyArray = Transformers.tContents(node) as? List<*> ?: emptyList<Any?>()
+      val result = mutableListOf<Any?>()
+
+      for (item in keyArray) {
+        if (item is Map<*, *>) {
+          result.add(contentToMldev(item as Map<String, Any?>, toObject, rootObject))
+        }
+      }
+      Common.setValueByPath(toObject, arrayOf("contents"), result)
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("config"))?.let { node ->
+      val unused =
+        countTokensConfigToMldev(
+          Common.getValueByPath(fromObject, arrayOf("config")) as Map<String, Any?>,
+          toObject,
+          rootObject,
+        )
+    }
+
+    return toObject
+  }
+
+  internal fun countTokensParametersToVertex(
+    apiClient: ApiClient,
+    fromObject: Map<String, Any?>?,
+    parentObject: MutableMap<String, Any?>?,
+    rootObject: Map<String, Any?>?,
+  ): MutableMap<String, Any?> {
+
+    val toObject = mutableMapOf<String, Any?>()
+    Common.getValueByPath(fromObject, arrayOf("model"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("_url", "model"),
+        Transformers.tModel(this.apiClient, Common.getValueByPath(fromObject, arrayOf("model"))),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("contents"))?.let { node ->
+      val keyArray = Transformers.tContents(node) as? List<*> ?: emptyList<Any?>()
+      val result = mutableListOf<Any?>()
+
+      for (item in keyArray) {
+        if (item is Map<*, *>) {
+          result.add(contentToVertex(item as Map<String, Any?>, toObject, rootObject))
+        }
+      }
+      Common.setValueByPath(toObject, arrayOf("contents"), result)
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("config"))?.let { node ->
+      val unused =
+        countTokensConfigToVertex(
+          Common.getValueByPath(fromObject, arrayOf("config")) as Map<String, Any?>,
+          toObject,
+          rootObject,
+        )
+    }
+
+    return toObject
+  }
+
+  internal fun countTokensResponseFromMldev(
+    fromObject: Map<String, Any?>?,
+    parentObject: MutableMap<String, Any?>?,
+    rootObject: Map<String, Any?>?,
+  ): MutableMap<String, Any?> {
+
+    val toObject = mutableMapOf<String, Any?>()
+    Common.getValueByPath(fromObject, arrayOf("sdkHttpResponse"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("sdkHttpResponse"),
+        Common.getValueByPath(fromObject, arrayOf("sdkHttpResponse")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("totalTokens"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("totalTokens"),
+        Common.getValueByPath(fromObject, arrayOf("totalTokens")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("cachedContentTokenCount"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("cachedContentTokenCount"),
+        Common.getValueByPath(fromObject, arrayOf("cachedContentTokenCount")),
+      )
+    }
+
+    return toObject
+  }
+
+  internal fun countTokensResponseFromVertex(
+    fromObject: Map<String, Any?>?,
+    parentObject: MutableMap<String, Any?>?,
+    rootObject: Map<String, Any?>?,
+  ): MutableMap<String, Any?> {
+
+    val toObject = mutableMapOf<String, Any?>()
+    Common.getValueByPath(fromObject, arrayOf("sdkHttpResponse"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("sdkHttpResponse"),
+        Common.getValueByPath(fromObject, arrayOf("sdkHttpResponse")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("totalTokens"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("totalTokens"),
+        Common.getValueByPath(fromObject, arrayOf("totalTokens")),
       )
     }
 
@@ -1787,6 +2061,216 @@ class Models internal constructor(internal val apiClient: ApiClient) {
     return toObject
   }
 
+  internal fun generationConfigToVertex(
+    fromObject: Map<String, Any?>?,
+    parentObject: MutableMap<String, Any?>?,
+    rootObject: Map<String, Any?>?,
+  ): MutableMap<String, Any?> {
+
+    val toObject = mutableMapOf<String, Any?>()
+    Common.getValueByPath(fromObject, arrayOf("modelSelectionConfig"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("modelConfig"),
+        Common.getValueByPath(fromObject, arrayOf("modelSelectionConfig")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("responseJsonSchema"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("responseJsonSchema"),
+        Common.getValueByPath(fromObject, arrayOf("responseJsonSchema")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("audioTimestamp"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("audioTimestamp"),
+        Common.getValueByPath(fromObject, arrayOf("audioTimestamp")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("candidateCount"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("candidateCount"),
+        Common.getValueByPath(fromObject, arrayOf("candidateCount")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("enableAffectiveDialog"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("enableAffectiveDialog"),
+        Common.getValueByPath(fromObject, arrayOf("enableAffectiveDialog")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("frequencyPenalty"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("frequencyPenalty"),
+        Common.getValueByPath(fromObject, arrayOf("frequencyPenalty")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("logprobs"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("logprobs"),
+        Common.getValueByPath(fromObject, arrayOf("logprobs")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("maxOutputTokens"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("maxOutputTokens"),
+        Common.getValueByPath(fromObject, arrayOf("maxOutputTokens")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("mediaResolution"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("mediaResolution"),
+        Common.getValueByPath(fromObject, arrayOf("mediaResolution")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("presencePenalty"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("presencePenalty"),
+        Common.getValueByPath(fromObject, arrayOf("presencePenalty")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("responseLogprobs"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("responseLogprobs"),
+        Common.getValueByPath(fromObject, arrayOf("responseLogprobs")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("responseMimeType"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("responseMimeType"),
+        Common.getValueByPath(fromObject, arrayOf("responseMimeType")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("responseModalities"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("responseModalities"),
+        Common.getValueByPath(fromObject, arrayOf("responseModalities")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("responseSchema"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("responseSchema"),
+        Common.getValueByPath(fromObject, arrayOf("responseSchema")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("routingConfig"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("routingConfig"),
+        Common.getValueByPath(fromObject, arrayOf("routingConfig")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("seed"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("seed"),
+        Common.getValueByPath(fromObject, arrayOf("seed")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("speechConfig"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("speechConfig"),
+        speechConfigToVertex(
+          Common.getValueByPath(fromObject, arrayOf("speechConfig")) as Map<String, Any?>,
+          toObject,
+          rootObject,
+        ),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("stopSequences"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("stopSequences"),
+        Common.getValueByPath(fromObject, arrayOf("stopSequences")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("temperature"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("temperature"),
+        Common.getValueByPath(fromObject, arrayOf("temperature")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("thinkingConfig"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("thinkingConfig"),
+        Common.getValueByPath(fromObject, arrayOf("thinkingConfig")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("topK"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("topK"),
+        Common.getValueByPath(fromObject, arrayOf("topK")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("topP"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("topP"),
+        Common.getValueByPath(fromObject, arrayOf("topP")),
+      )
+    }
+
+    if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("enableEnhancedCivicAnswers")))) {
+      throw IllegalArgumentException(
+        "enableEnhancedCivicAnswers parameter is not supported in Gemini Enterprise Agent Platform."
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("responseFormat"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("responseFormat"),
+        Common.getValueByPath(fromObject, arrayOf("responseFormat")),
+      )
+    }
+
+    if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("translationConfig")))) {
+      throw IllegalArgumentException(
+        "translationConfig parameter is not supported in Gemini Enterprise Agent Platform."
+      )
+    }
+
+    return toObject
+  }
+
   internal fun googleMapsToMldev(
     fromObject: Map<String, Any?>?,
     parentObject: MutableMap<String, Any?>?,
@@ -2913,6 +3397,133 @@ class Models internal constructor(internal val apiClient: ApiClient) {
   }
 
   /**
+   * Counts the number of tokens in the given List<Content> object.
+   *
+   * @param model The model to use for counting tokens.
+   * @param contents The List<Content> to count tokens for.
+   * @param config Optional configuration for counting tokens.
+   * @return A [CountTokensResponse] object containing the token count.
+   */
+  suspend fun countTokens(
+    model: String,
+    contents: List<Content>,
+    config: CountTokensConfig? = null,
+  ): CountTokensResponse {
+    val parameters = CountTokensParameters(model, contents, config)
+    val parameterMap = Common.dataClassToMap(parameters)
+
+    var body: MutableMap<String, Any?>
+    var path: String
+
+    if (apiClient.enterprise) {
+
+      body = countTokensParametersToVertex(this.apiClient, parameterMap, null, parameterMap)
+
+      path = Common.formatMap("{model}:countTokens", body["_url"] as? Map<String, Any?>)
+    } else {
+
+      body = countTokensParametersToMldev(this.apiClient, parameterMap, null, parameterMap)
+
+      path = Common.formatMap("{model}:countTokens", body["_url"] as? Map<String, Any?>)
+    }
+
+    val queryParams = body["_query"] as? Map<String, Any?>
+    val finalBody = Common.mapToJsonObject(body.filterKeys { it != "_url" && it != "_query" })
+
+    if (queryParams != null) {
+      val queryString =
+        queryParams.entries.joinToString("&") {
+          "${URLEncoder.encode(it.key.toString(), "UTF-8")}=${URLEncoder.encode(it.value.toString(), "UTF-8")}"
+        }
+      path = "$path?$queryString"
+    }
+
+    val response = apiClient.request("POST", path, finalBody, httpOptions = config?.httpOptions)
+
+    val responseString = response.body()
+    val headersMap = response.headers.entries().associate { it.key to it.value.joinToString(",") }
+
+    var responseMap = Common.jsonStringToMap(responseString)
+    if (apiClient.enterprise) {
+      responseMap = countTokensResponseFromVertex(responseMap, null, parameterMap)
+    } else {
+      responseMap = countTokensResponseFromMldev(responseMap, null, parameterMap)
+    }
+
+    val sdkResponse = Common.mapToDataClass<CountTokensResponse>(responseMap)
+
+    return sdkResponse.copy(
+      sdkHttpResponse = HttpResponse(body = responseString, headers = headersMap)
+    )
+  }
+
+  /**
+   * Computes the number of tokens for the given List<Content> object.
+   *
+   * This method is not supported by the Gemini Developer API.
+   *
+   * @param model The model to use for computing tokens.
+   * @param contents The List<Content> to compute tokens for.
+   * @param config Optional configuration for computing tokens.
+   * @return A [ComputeTokensResponse] object containing the token information.
+   * @throws UnsupportedOperationException if called with a non-Gemini Enterprise Agent Platform
+   *   (previously known as Vertex AI) client.
+   */
+  suspend fun computeTokens(
+    model: String,
+    contents: List<Content>,
+    config: ComputeTokensConfig? = null,
+  ): ComputeTokensResponse {
+    val parameters = ComputeTokensParameters(model, contents, config)
+    val parameterMap = Common.dataClassToMap(parameters)
+
+    var body: MutableMap<String, Any?>
+    var path: String
+
+    if (apiClient.enterprise) {
+
+      body = computeTokensParametersToVertex(this.apiClient, parameterMap, null, parameterMap)
+
+      path = Common.formatMap("{model}:computeTokens", body["_url"] as? Map<String, Any?>)
+    } else {
+      throw UnsupportedOperationException(
+        "This method is only supported in Gemini Enterprise Agent Platform mode, not in Gemini Developer API mode."
+      )
+    }
+
+    val queryParams = body["_query"] as? Map<String, Any?>
+    val finalBody = Common.mapToJsonObject(body.filterKeys { it != "_url" && it != "_query" })
+
+    if (queryParams != null) {
+      val queryString =
+        queryParams.entries.joinToString("&") {
+          "${URLEncoder.encode(it.key.toString(), "UTF-8")}=${URLEncoder.encode(it.value.toString(), "UTF-8")}"
+        }
+      path = "$path?$queryString"
+    }
+
+    val response = apiClient.request("POST", path, finalBody, httpOptions = config?.httpOptions)
+
+    val responseString = response.body()
+    val headersMap = response.headers.entries().associate { it.key to it.value.joinToString(",") }
+
+    var responseMap = Common.jsonStringToMap(responseString)
+    if (apiClient.enterprise) {
+      responseMap = computeTokensResponseFromVertex(responseMap, null, parameterMap)
+    } else {
+      throw UnsupportedOperationException(
+        "This method is only supported in Gemini Enterprise Agent Platform mode, not in Gemini Developer API mode."
+      )
+    }
+
+    val sdkResponse = Common.mapToDataClass<ComputeTokensResponse>(responseMap)
+
+    return sdkResponse.copy(
+      sdkHttpResponse = HttpResponse(body = responseString, headers = headersMap)
+    )
+  }
+
+  /**
    * Generates content given a GenAI model and a list of content.
    *
    * @param model the name of the GenAI model to use for generation
@@ -3096,6 +3707,86 @@ class Models internal constructor(internal val apiClient: ApiClient) {
     return embedContent(
       model = model,
       contents = listOf(Content(parts = listOf(Part(text = text)), role = "user")),
+      config = config,
+    )
+  }
+
+  /**
+   * Counts the number of tokens in the provided Content object.
+   *
+   * @param model The model to use for counting tokens.
+   * @param content The Content object to count tokens for.
+   * @param config Optional configuration for counting tokens.
+   * @return A [CountTokensResponse] object containing the token count.
+   */
+  suspend fun countTokens(
+    model: String,
+    content: Content,
+    config: CountTokensConfig? = null,
+  ): CountTokensResponse {
+    return countTokens(model = model, contents = listOf(content), config = config)
+  }
+
+  /**
+   * Counts the number of tokens in the provided text string.
+   *
+   * @param model The model to use for counting tokens.
+   * @param text The text string to count tokens for.
+   * @param config Optional configuration for counting tokens.
+   * @return A [CountTokensResponse] object containing the token count.
+   */
+  suspend fun countTokens(
+    model: String,
+    text: String,
+    config: CountTokensConfig? = null,
+  ): CountTokensResponse {
+    return countTokens(
+      model = model,
+      contents = listOf(Content(role = "user", parts = listOf(Part(text = text)))),
+      config = config,
+    )
+  }
+
+  /**
+   * Computes the number of tokens for the provided Content object.
+   *
+   * This method is not supported by the Gemini Developer API.
+   *
+   * @param model The model to use for computing tokens.
+   * @param content The Content object to compute tokens for.
+   * @param config Optional configuration for computing tokens.
+   * @return A [ComputeTokensResponse] object containing the token information.
+   * @throws UnsupportedOperationException if called with a non-Gemini Enterprise Agent Platform
+   *   (previously known as Vertex AI) client.
+   */
+  suspend fun computeTokens(
+    model: String,
+    content: Content,
+    config: ComputeTokensConfig? = null,
+  ): ComputeTokensResponse {
+    return computeTokens(model = model, contents = listOf(content), config = config)
+  }
+
+  /**
+   * Computes the number of tokens for the provided text string.
+   *
+   * This method is not supported by the Gemini Developer API.
+   *
+   * @param model The model to use for computing tokens.
+   * @param text The text string to compute tokens for.
+   * @param config Optional configuration for computing tokens.
+   * @return A [ComputeTokensResponse] object containing the token information.
+   * @throws UnsupportedOperationException if called with a non-Gemini Enterprise Agent Platform
+   *   (previously known as Vertex AI) client.
+   */
+  suspend fun computeTokens(
+    model: String,
+    text: String,
+    config: ComputeTokensConfig? = null,
+  ): ComputeTokensResponse {
+    return computeTokens(
+      model = model,
+      contents = listOf(Content(role = "user", parts = listOf(Part(text = text)))),
       config = config,
     )
   }
