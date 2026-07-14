@@ -1,0 +1,91 @@
+{
+  "recordID": "ModelsTest.testEmbedContentGemini2WithConfig.mldev",
+  "interactions": [
+    {
+      "request": {
+        "method": "POST",
+        "url": "/v1beta/models/gemini-embedding-2-preview:batchEmbedContents",
+        "request": "POST /v1beta/models/gemini-embedding-2-preview:batchEmbedContents HTTP/1.1",
+        "headers": {
+          "Accept": "*/*",
+          "Accept-Charset": "UTF-8",
+          "Accept-Encoding": "gzip",
+          "Connection": "Keep-Alive",
+          "Content-Length": "217",
+          "Content-Type": "application/json",
+          "Test-Name": "ModelsTest.testEmbedContentGemini2WithConfig.mldev"
+        },
+        "bodySegments": [
+          {
+            "requests": [
+              {
+                "content": {
+                  "parts": [
+                    {
+                      "text": "What is the capital of France?"
+                    }
+                  ],
+                  "role": "user"
+                },
+                "model": "models/gemini-embedding-2-preview",
+                "outputDimensionality": 10,
+                "taskType": "RETRIEVAL_DOCUMENT",
+                "title": "test_title"
+              }
+            ]
+          }
+        ],
+        "previousRequest": "b4d6e60a9b97e7b98c63df9308728c5c88c0b40c398046772c63447b94608b4d",
+        "serverAddress": "generativelanguage.googleapis.com",
+        "port": 443,
+        "protocol": "https"
+      },
+      "shaSum": "bc77e95d64a624f9710356700fd4f07c0d05e6370867991bee75ef9c8f29453c",
+      "response": {
+        "statusCode": 200,
+        "headers": {
+          "Content-Encoding": "gzip",
+          "Content-Length": "238",
+          "Content-Type": "application/json; charset=UTF-8",
+          "Date": "Fri, 10 Jul 2026 21:40:37 GMT",
+          "Server": "scaffolding on HTTPServer2",
+          "Server-Timing": "gfet4t7; dur=504",
+          "Vary": "Origin, X-Origin, Referer",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "SAMEORIGIN",
+          "X-Xss-Protection": "0"
+        },
+        "bodySegments": [
+          {
+            "embeddings": [
+              {
+                "values": [
+                  0.36556685,
+                  -0.28787395,
+                  -0.13878064,
+                  0.2162272,
+                  0.20215674,
+                  0.020204725,
+                  -0.028372956,
+                  0.09545064,
+                  -0.030247543,
+                  -0.8157014
+                ]
+              }
+            ],
+            "tokenCount": "7",
+            "usageMetadata": {
+              "promptTokenCount": 7,
+              "promptTokenDetails": [
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 7
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

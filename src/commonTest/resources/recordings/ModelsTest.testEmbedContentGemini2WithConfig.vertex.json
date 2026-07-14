@@ -1,0 +1,85 @@
+{
+  "recordID": "ModelsTest.testEmbedContentGemini2WithConfig.vertex",
+  "interactions": [
+    {
+      "request": {
+        "method": "POST",
+        "url": "/v1beta1/projects/REDACTED/locations/us-central1/publishers/google/models/gemini-embedding-2-preview:embedContent",
+        "request": "POST /v1beta1/projects/REDACTED/locations/us-central1/publishers/google/models/gemini-embedding-2-preview:embedContent HTTP/1.1",
+        "headers": {
+          "Accept": "*/*",
+          "Accept-Charset": "UTF-8",
+          "Accept-Encoding": "gzip",
+          "Connection": "Keep-Alive",
+          "Content-Length": "181",
+          "Content-Type": "application/json",
+          "Test-Name": "ModelsTest.testEmbedContentGemini2WithConfig.vertex"
+        },
+        "bodySegments": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "What is the capital of France?"
+                }
+              ],
+              "role": "user"
+            },
+            "embedContentConfig": {
+              "outputDimensionality": 10,
+              "taskType": "RETRIEVAL_DOCUMENT",
+              "title": "test_title"
+            }
+          }
+        ],
+        "previousRequest": "b4d6e60a9b97e7b98c63df9308728c5c88c0b40c398046772c63447b94608b4d",
+        "serverAddress": "us-central1-aiplatform.googleapis.com",
+        "port": 443,
+        "protocol": "https"
+      },
+      "shaSum": "88297b1d9015edf3bb02da2571be7e46a9c196b0eded4e138ce6028cfe0e0272",
+      "response": {
+        "statusCode": 200,
+        "headers": {
+          "Content-Encoding": "gzip",
+          "Content-Length": "231",
+          "Content-Type": "application/json; charset=UTF-8",
+          "Date": "Fri, 10 Jul 2026 21:40:38 GMT",
+          "Server": "scaffolding on HTTPServer2",
+          "Vary": "Origin, X-Origin, Referer",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "SAMEORIGIN",
+          "X-Xss-Protection": "0"
+        },
+        "bodySegments": [
+          {
+            "embedding": {
+              "values": [
+                0.36556685,
+                -0.28787395,
+                -0.13878064,
+                0.2162272,
+                0.20215674,
+                0.020204725,
+                -0.028372956,
+                0.09545064,
+                -0.030247543,
+                -0.8157014
+              ]
+            },
+            "usageMetadata": {
+              "promptTokenCount": 7,
+              "promptTokensDetails": [
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 7
+                }
+              ],
+              "totalTokenCount": 7
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

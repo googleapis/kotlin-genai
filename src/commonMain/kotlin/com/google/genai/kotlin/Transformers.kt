@@ -36,6 +36,7 @@ internal object Transformers {
     return when (origin) {
       is String -> listOf(Content(parts = listOf(Part(text = origin))))
       is Content -> listOf(origin)
+      is List<*> -> origin.map { if (it is String) Content(parts = listOf(Part(text = it))) else it }
       else -> origin
     }
   }
@@ -177,6 +178,54 @@ internal object Transformers {
         "$resourcePrefix/$resourceName"
       } else {
         resourceName
+      }
+    }
+  }
+
+  /** Checks if the model uses the vertex embedContent endpoint. */
+  fun tIsVertexEmbedContentModel(model: String): Boolean {
+    return (model.contains("gemini") && model != "gemini-embedding-001") || model.contains("maas")
+  }
+
+  /** Transforms contents for embedding requests. */
+  fun tContentsForEmbed(apiClient: ApiClient, origin: Any?): Any? {
+    if (origin == null) return null
+    val list = when (origin) {
+      is List<*> -> origin
+      else -> listOf(origin)
+    }
+    if (apiClient.enterprise) {
+      val textParts = mutableListOf<String>()
+      for (item in list) {
+        if (item is Content) {
+          item.parts?.forEach { part ->
+            part.text?.let { textParts.add(it) }
+          }
+        } else if (item is Map<*, *>) {
+          val parts = item["parts"] as? List<*>
+          parts?.forEach { partObj ->
+            if (partObj is Part) {
+              partObj.text?.let { textParts.add(it) }
+            } else if (partObj is Map<*, *>) {
+              (partObj["text"] as? String)?.let { textParts.add(it) }
+            }
+          }
+        } else if (item is String) {
+          textParts.add(item)
+        }
+      }
+      return textParts
+    } else {
+      return list.mapNotNull { item ->
+        when (item) {
+          is String -> Common.dataClassToMap(Content(parts = listOf(Part(text = item))))
+          is Content -> Common.dataClassToMap(item)
+          is Map<*, *> -> {
+            @Suppress("UNCHECKED_CAST")
+            item as Map<String, Any?>
+          }
+          else -> null
+        }
       }
     }
   }

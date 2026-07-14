@@ -1,0 +1,57 @@
+{
+  "recordID": "ModelsTest.testEmbedContentGemini2MaaS.mldev",
+  "interactions": [
+    {
+      "request": {
+        "method": "POST",
+        "url": "/v1beta/models/publishers/intfloat/models/multilingual-e5-large-instruct-maas:batchEmbedContents",
+        "request": "POST /v1beta/models/publishers/intfloat/models/multilingual-e5-large-instruct-maas:batchEmbedContents HTTP/1.1",
+        "headers": {
+          "Accept": "*/*",
+          "Accept-Charset": "UTF-8",
+          "Accept-Encoding": "gzip",
+          "Connection": "Keep-Alive",
+          "Content-Length": "200",
+          "Content-Type": "application/json",
+          "Test-Name": "ModelsTest.testEmbedContentGemini2MaaS.mldev"
+        },
+        "bodySegments": [
+          {
+            "requests": [
+              {
+                "content": {
+                  "parts": [
+                    {
+                      "text": "What is the capital of France?"
+                    }
+                  ],
+                  "role": "user"
+                },
+                "model": "models/publishers/intfloat/models/multilingual-e5-large-instruct-maas",
+                "outputDimensionality": 10
+              }
+            ]
+          }
+        ],
+        "previousRequest": "b4d6e60a9b97e7b98c63df9308728c5c88c0b40c398046772c63447b94608b4d",
+        "serverAddress": "generativelanguage.googleapis.com",
+        "port": 443,
+        "protocol": "https"
+      },
+      "shaSum": "35fc36c555522ea503338c00cff2612c590b65c07c53242e22a5e6bebd915cb9",
+      "response": {
+        "statusCode": 404,
+        "headers": {
+          "Content-Length": "0",
+          "Content-Type": "text/html",
+          "Date": "Sun, 12 Jul 2026 19:01:28 GMT",
+          "Server": "scaffolding on HTTPServer2",
+          "Server-Timing": "gfet4t7; dur=263",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "SAMEORIGIN",
+          "X-Xss-Protection": "0"
+        }
+      }
+    }
+  ]
+}

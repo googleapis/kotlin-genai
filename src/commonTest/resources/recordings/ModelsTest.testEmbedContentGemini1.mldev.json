@@ -1,0 +1,179 @@
+{
+  "recordID": "ModelsTest.testEmbedContentGemini1.mldev",
+  "interactions": [
+    {
+      "request": {
+        "method": "POST",
+        "url": "/v1beta/models/gemini-embedding-001:batchEmbedContents",
+        "request": "POST /v1beta/models/gemini-embedding-001:batchEmbedContents HTTP/1.1",
+        "headers": {
+          "Accept": "*/*",
+          "Accept-Charset": "UTF-8",
+          "Accept-Encoding": "gzip",
+          "Connection": "Keep-Alive",
+          "Content-Length": "158",
+          "Content-Type": "application/json",
+          "Test-Name": "ModelsTest.testEmbedContentGemini1.mldev"
+        },
+        "bodySegments": [
+          {
+            "requests": [
+              {
+                "content": {
+                  "parts": [
+                    {
+                      "text": "What is the capital of France?"
+                    }
+                  ],
+                  "role": "user"
+                },
+                "model": "models/gemini-embedding-001",
+                "outputDimensionality": 10
+              }
+            ]
+          }
+        ],
+        "previousRequest": "b4d6e60a9b97e7b98c63df9308728c5c88c0b40c398046772c63447b94608b4d",
+        "serverAddress": "generativelanguage.googleapis.com",
+        "port": 443,
+        "protocol": "https"
+      },
+      "shaSum": "19d4aa8c1f025df385cef7c03888bf6982669fc81a16686b7227a3c9a12362be",
+      "response": {
+        "statusCode": 200,
+        "headers": {
+          "Content-Encoding": "gzip",
+          "Content-Length": "168",
+          "Content-Type": "application/json; charset=UTF-8",
+          "Date": "Sun, 12 Jul 2026 19:01:29 GMT",
+          "Server": "scaffolding on HTTPServer2",
+          "Server-Timing": "gfet4t7; dur=326",
+          "Vary": "Origin, X-Origin, Referer",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "SAMEORIGIN",
+          "X-Xss-Protection": "0"
+        },
+        "bodySegments": [
+          {
+            "embeddings": [
+              {
+                "values": [
+                  -0.032554302,
+                  0.01305496,
+                  0.015067407,
+                  -0.07128718,
+                  -0.031062366,
+                  -0.019940834,
+                  -0.013077609,
+                  -0.009117966,
+                  0.038935922,
+                  -0.01930863
+                ]
+              }
+            ],
+            "tokenCount": "8"
+          }
+        ]
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "url": "/v1beta/models/gemini-embedding-001:batchEmbedContents",
+        "request": "POST /v1beta/models/gemini-embedding-001:batchEmbedContents HTTP/1.1",
+        "headers": {
+          "Accept": "*/*",
+          "Accept-Charset": "UTF-8",
+          "Accept-Encoding": "gzip",
+          "Connection": "Keep-Alive",
+          "Content-Length": "224",
+          "Content-Type": "application/json",
+          "Test-Name": "ModelsTest.testEmbedContentGemini1.mldev"
+        },
+        "bodySegments": [
+          {
+            "requests": [
+              {
+                "content": {
+                  "parts": [
+                    {
+                      "text": "Hello"
+                    }
+                  ]
+                },
+                "model": "models/gemini-embedding-001",
+                "outputDimensionality": 10
+              },
+              {
+                "content": {
+                  "parts": [
+                    {
+                      "text": "World"
+                    }
+                  ]
+                },
+                "model": "models/gemini-embedding-001",
+                "outputDimensionality": 10
+              }
+            ]
+          }
+        ],
+        "previousRequest": "19d4aa8c1f025df385cef7c03888bf6982669fc81a16686b7227a3c9a12362be",
+        "serverAddress": "generativelanguage.googleapis.com",
+        "port": 443,
+        "protocol": "https"
+      },
+      "shaSum": "ab99517efa2faa98873829cf1bbe3977b24e6df236982d2559d89e3ca5e44982",
+      "response": {
+        "statusCode": 200,
+        "headers": {
+          "Content-Encoding": "gzip",
+          "Content-Length": "229",
+          "Content-Type": "application/json; charset=UTF-8",
+          "Date": "Sun, 12 Jul 2026 19:01:29 GMT",
+          "Server": "scaffolding on HTTPServer2",
+          "Server-Timing": "gfet4t7; dur=173",
+          "Vary": "Origin, X-Origin, Referer",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "SAMEORIGIN",
+          "X-Xss-Protection": "0"
+        },
+        "bodySegments": [
+          {
+            "embeddings": [
+              {
+                "values": [
+                  -0.033537783,
+                  0.010872099,
+                  -0.018638643,
+                  -0.07056481,
+                  -0.012396566,
+                  -0.014437605,
+                  -0.012173588,
+                  0.0077773663,
+                  0.022633733,
+                  -0.001237017
+                ]
+              },
+              {
+                "values": [
+                  -0.018994348,
+                  0.0012664916,
+                  0.02265229,
+                  -0.055758394,
+                  -0.010440645,
+                  0.006286945,
+                  -0.010687748,
+                  0.013835131,
+                  0.011066136,
+                  -0.03224044
+                ]
+              }
+            ],
+            "tokenCount": "2"
+          }
+        ]
+      }
+    }
+  ]
+}

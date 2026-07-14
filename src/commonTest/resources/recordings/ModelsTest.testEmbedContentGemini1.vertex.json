@@ -1,0 +1,180 @@
+{
+  "recordID": "ModelsTest.testEmbedContentGemini1.vertex",
+  "interactions": [
+    {
+      "request": {
+        "method": "POST",
+        "url": "/v1beta1/projects/REDACTED/locations/us-central1/publishers/google/models/gemini-embedding-001:predict",
+        "request": "POST /v1beta1/projects/REDACTED/locations/us-central1/publishers/google/models/gemini-embedding-001:predict HTTP/1.1",
+        "headers": {
+          "Accept": "*/*",
+          "Accept-Charset": "UTF-8",
+          "Accept-Encoding": "gzip",
+          "Connection": "Keep-Alive",
+          "Content-Length": "101",
+          "Content-Type": "application/json",
+          "Test-Name": "ModelsTest.testEmbedContentGemini1.vertex"
+        },
+        "bodySegments": [
+          {
+            "instances": [
+              {
+                "content": "What is the capital of France?"
+              }
+            ],
+            "parameters": {
+              "outputDimensionality": 10
+            }
+          }
+        ],
+        "previousRequest": "b4d6e60a9b97e7b98c63df9308728c5c88c0b40c398046772c63447b94608b4d",
+        "serverAddress": "us-central1-aiplatform.googleapis.com",
+        "port": 443,
+        "protocol": "https"
+      },
+      "shaSum": "c21ce6982de5db5f52bd691193eecb1fc54ed1193ad1b74d7eba9aaae86293aa",
+      "response": {
+        "statusCode": 200,
+        "headers": {
+          "Content-Encoding": "gzip",
+          "Content-Length": "293",
+          "Content-Type": "application/json; charset=UTF-8",
+          "Date": "Sun, 12 Jul 2026 19:01:30 GMT",
+          "Server": "scaffolding on HTTPServer2",
+          "Vary": "Origin, X-Origin, Referer",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "SAMEORIGIN",
+          "X-Xss-Protection": "0"
+        },
+        "bodySegments": [
+          {
+            "metadata": {
+              "billableCharacterCount": 25
+            },
+            "predictions": [
+              {
+                "embeddings": {
+                  "statistics": {
+                    "token_count": 7,
+                    "truncated": false
+                  },
+                  "values": [
+                    -0.032554302364587784,
+                    0.013054960407316685,
+                    0.015067406930029392,
+                    -0.07128717750310898,
+                    -0.03106236644089222,
+                    -0.019940834492444992,
+                    -0.013077609241008759,
+                    -0.009117965586483479,
+                    0.03893592208623886,
+                    -0.019308630377054214
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "url": "/v1beta1/projects/REDACTED/locations/us-central1/publishers/google/models/gemini-embedding-001:predict",
+        "request": "POST /v1beta1/projects/REDACTED/locations/us-central1/publishers/google/models/gemini-embedding-001:predict HTTP/1.1",
+        "headers": {
+          "Accept": "*/*",
+          "Accept-Charset": "UTF-8",
+          "Accept-Encoding": "gzip",
+          "Connection": "Keep-Alive",
+          "Content-Length": "96",
+          "Content-Type": "application/json",
+          "Test-Name": "ModelsTest.testEmbedContentGemini1.vertex"
+        },
+        "bodySegments": [
+          {
+            "instances": [
+              {
+                "content": "Hello"
+              },
+              {
+                "content": "World"
+              }
+            ],
+            "parameters": {
+              "outputDimensionality": 10
+            }
+          }
+        ],
+        "previousRequest": "c21ce6982de5db5f52bd691193eecb1fc54ed1193ad1b74d7eba9aaae86293aa",
+        "serverAddress": "us-central1-aiplatform.googleapis.com",
+        "port": 443,
+        "protocol": "https"
+      },
+      "shaSum": "17aa54edeb36a248d4e71a5efd7c8bf1367f3b6d224e2f6dfd40cd9449e9d598",
+      "response": {
+        "statusCode": 200,
+        "headers": {
+          "Content-Encoding": "gzip",
+          "Content-Length": "425",
+          "Content-Type": "application/json; charset=UTF-8",
+          "Date": "Sun, 12 Jul 2026 19:01:30 GMT",
+          "Server": "scaffolding on HTTPServer2",
+          "Vary": "Origin, X-Origin, Referer",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "SAMEORIGIN",
+          "X-Xss-Protection": "0"
+        },
+        "bodySegments": [
+          {
+            "metadata": {
+              "billableCharacterCount": 10
+            },
+            "predictions": [
+              {
+                "embeddings": {
+                  "statistics": {
+                    "token_count": 1,
+                    "truncated": false
+                  },
+                  "values": [
+                    -0.03353778272867203,
+                    0.010872098617255688,
+                    -0.018638642504811287,
+                    -0.07056480646133423,
+                    -0.01239656563848257,
+                    -0.014437604695558548,
+                    -0.012173588387668133,
+                    0.007777366321533918,
+                    0.022633733227849007,
+                    -0.0012370169861242175
+                  ]
+                }
+              },
+              {
+                "embeddings": {
+                  "statistics": {
+                    "token_count": 1,
+                    "truncated": false
+                  },
+                  "values": [
+                    -0.018994348123669624,
+                    0.00126649159938097,
+                    0.022652290761470795,
+                    -0.05575839430093765,
+                    -0.010440644808113575,
+                    0.006286945194005966,
+                    -0.010687747970223427,
+                    0.01383513119071722,
+                    0.011066135950386524,
+                    -0.03224043920636177
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

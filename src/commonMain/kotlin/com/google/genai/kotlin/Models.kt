@@ -21,6 +21,10 @@
 package com.google.genai.kotlin
 
 import com.google.genai.kotlin.types.Content
+import com.google.genai.kotlin.types.EmbedContentConfig
+import com.google.genai.kotlin.types.EmbedContentParametersPrivate
+import com.google.genai.kotlin.types.EmbedContentResponse
+import com.google.genai.kotlin.types.EmbeddingApiType
 import com.google.genai.kotlin.types.GenerateContentConfig
 import com.google.genai.kotlin.types.GenerateContentParameters
 import com.google.genai.kotlin.types.GenerateContentResponse
@@ -296,6 +300,70 @@ class Models internal constructor(internal val apiClient: ApiClient) {
     return toObject
   }
 
+  internal fun contentEmbeddingFromVertex(
+    fromObject: Map<String, Any?>?,
+    parentObject: MutableMap<String, Any?>?,
+    rootObject: Map<String, Any?>?,
+  ): MutableMap<String, Any?> {
+
+    val toObject = mutableMapOf<String, Any?>()
+    Common.getValueByPath(fromObject, arrayOf("values"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("values"),
+        Common.getValueByPath(fromObject, arrayOf("values")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("statistics"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("statistics"),
+        contentEmbeddingStatisticsFromVertex(
+          Common.getValueByPath(fromObject, arrayOf("statistics")) as Map<String, Any?>,
+          toObject,
+          rootObject,
+        ),
+      )
+    }
+
+    return toObject
+  }
+
+  internal fun contentEmbeddingStatisticsFromVertex(
+    fromObject: Map<String, Any?>?,
+    parentObject: MutableMap<String, Any?>?,
+    rootObject: Map<String, Any?>?,
+  ): MutableMap<String, Any?> {
+
+    val toObject = mutableMapOf<String, Any?>()
+    Common.getValueByPath(fromObject, arrayOf("truncated"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("truncated"),
+        Common.getValueByPath(fromObject, arrayOf("truncated")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("token_count"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("tokenCount"),
+        Common.getValueByPath(fromObject, arrayOf("token_count")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("tokensDetails"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("tokensDetails"),
+        Common.getValueByPath(fromObject, arrayOf("tokensDetails")),
+      )
+    }
+
+    return toObject
+  }
+
   internal fun contentToMldev(
     fromObject: Map<String, Any?>?,
     parentObject: MutableMap<String, Any?>?,
@@ -351,6 +419,456 @@ class Models internal constructor(internal val apiClient: ApiClient) {
         arrayOf("role"),
         Common.getValueByPath(fromObject, arrayOf("role")),
       )
+    }
+
+    return toObject
+  }
+
+  internal fun embedContentConfigToMldev(
+    fromObject: Map<String, Any?>?,
+    parentObject: MutableMap<String, Any?>?,
+    rootObject: Map<String, Any?>?,
+  ): MutableMap<String, Any?> {
+
+    val toObject = mutableMapOf<String, Any?>()
+    Common.getValueByPath(fromObject, arrayOf("taskType"))?.let { node ->
+      Common.setValueByPath(
+        parentObject,
+        arrayOf("requests[]", "taskType"),
+        Common.getValueByPath(fromObject, arrayOf("taskType")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("title"))?.let { node ->
+      Common.setValueByPath(
+        parentObject,
+        arrayOf("requests[]", "title"),
+        Common.getValueByPath(fromObject, arrayOf("title")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("outputDimensionality"))?.let { node ->
+      Common.setValueByPath(
+        parentObject,
+        arrayOf("requests[]", "outputDimensionality"),
+        Common.getValueByPath(fromObject, arrayOf("outputDimensionality")),
+      )
+    }
+
+    if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("mimeType")))) {
+      throw IllegalArgumentException("mimeType parameter is not supported in Gemini API.")
+    }
+
+    if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("autoTruncate")))) {
+      throw IllegalArgumentException("autoTruncate parameter is not supported in Gemini API.")
+    }
+
+    if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("documentOcr")))) {
+      throw IllegalArgumentException("documentOcr parameter is not supported in Gemini API.")
+    }
+
+    if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("audioTrackExtraction")))) {
+      throw IllegalArgumentException(
+        "audioTrackExtraction parameter is not supported in Gemini API."
+      )
+    }
+
+    return toObject
+  }
+
+  internal fun embedContentConfigToVertex(
+    fromObject: Map<String, Any?>?,
+    parentObject: MutableMap<String, Any?>?,
+    rootObject: Map<String, Any?>?,
+  ): MutableMap<String, Any?> {
+
+    val toObject = mutableMapOf<String, Any?>()
+
+    val discriminatorValueTaskType =
+      Common.getValueByPath(rootObject, arrayOf("embeddingApiType"))?.toString() ?: "PREDICT"
+
+    Common.getValueByPath(fromObject, arrayOf("taskType"))?.let { taskType ->
+      when (discriminatorValueTaskType) {
+        "PREDICT" -> {
+          Common.getValueByPath(fromObject, arrayOf("taskType"))?.let { node ->
+            Common.setValueByPath(
+              parentObject,
+              arrayOf("instances[]", "task_type"),
+              Common.getValueByPath(fromObject, arrayOf("taskType")),
+            )
+          }
+        }
+        "EMBED_CONTENT" -> {
+          Common.getValueByPath(fromObject, arrayOf("taskType"))?.let { node ->
+            Common.setValueByPath(
+              parentObject,
+              arrayOf("embedContentConfig", "taskType"),
+              Common.getValueByPath(fromObject, arrayOf("taskType")),
+            )
+          }
+        }
+        else -> {}
+      }
+    }
+
+    val discriminatorValueTitle =
+      Common.getValueByPath(rootObject, arrayOf("embeddingApiType"))?.toString() ?: "PREDICT"
+
+    Common.getValueByPath(fromObject, arrayOf("title"))?.let { title ->
+      when (discriminatorValueTitle) {
+        "PREDICT" -> {
+          Common.getValueByPath(fromObject, arrayOf("title"))?.let { node ->
+            Common.setValueByPath(
+              parentObject,
+              arrayOf("instances[]", "title"),
+              Common.getValueByPath(fromObject, arrayOf("title")),
+            )
+          }
+        }
+        "EMBED_CONTENT" -> {
+          Common.getValueByPath(fromObject, arrayOf("title"))?.let { node ->
+            Common.setValueByPath(
+              parentObject,
+              arrayOf("embedContentConfig", "title"),
+              Common.getValueByPath(fromObject, arrayOf("title")),
+            )
+          }
+        }
+        else -> {}
+      }
+    }
+
+    val discriminatorValueOutputDimensionality =
+      Common.getValueByPath(rootObject, arrayOf("embeddingApiType"))?.toString() ?: "PREDICT"
+
+    Common.getValueByPath(fromObject, arrayOf("outputDimensionality"))?.let { outputDimensionality
+      ->
+      when (discriminatorValueOutputDimensionality) {
+        "PREDICT" -> {
+          Common.getValueByPath(fromObject, arrayOf("outputDimensionality"))?.let { node ->
+            Common.setValueByPath(
+              parentObject,
+              arrayOf("parameters", "outputDimensionality"),
+              Common.getValueByPath(fromObject, arrayOf("outputDimensionality")),
+            )
+          }
+        }
+        "EMBED_CONTENT" -> {
+          Common.getValueByPath(fromObject, arrayOf("outputDimensionality"))?.let { node ->
+            Common.setValueByPath(
+              parentObject,
+              arrayOf("embedContentConfig", "outputDimensionality"),
+              Common.getValueByPath(fromObject, arrayOf("outputDimensionality")),
+            )
+          }
+        }
+        else -> {}
+      }
+    }
+
+    val discriminatorValueMimeType =
+      Common.getValueByPath(rootObject, arrayOf("embeddingApiType"))?.toString() ?: "PREDICT"
+
+    Common.getValueByPath(fromObject, arrayOf("mimeType"))?.let { mimeType ->
+      when (discriminatorValueMimeType) {
+        "PREDICT" -> {
+          Common.getValueByPath(fromObject, arrayOf("mimeType"))?.let { node ->
+            Common.setValueByPath(
+              parentObject,
+              arrayOf("instances[]", "mimeType"),
+              Common.getValueByPath(fromObject, arrayOf("mimeType")),
+            )
+          }
+        }
+        else -> {}
+      }
+    }
+
+    val discriminatorValueAutoTruncate =
+      Common.getValueByPath(rootObject, arrayOf("embeddingApiType"))?.toString() ?: "PREDICT"
+
+    Common.getValueByPath(fromObject, arrayOf("autoTruncate"))?.let { autoTruncate ->
+      when (discriminatorValueAutoTruncate) {
+        "PREDICT" -> {
+          Common.getValueByPath(fromObject, arrayOf("autoTruncate"))?.let { node ->
+            Common.setValueByPath(
+              parentObject,
+              arrayOf("parameters", "autoTruncate"),
+              Common.getValueByPath(fromObject, arrayOf("autoTruncate")),
+            )
+          }
+        }
+        "EMBED_CONTENT" -> {
+          Common.getValueByPath(fromObject, arrayOf("autoTruncate"))?.let { node ->
+            Common.setValueByPath(
+              parentObject,
+              arrayOf("embedContentConfig", "autoTruncate"),
+              Common.getValueByPath(fromObject, arrayOf("autoTruncate")),
+            )
+          }
+        }
+        else -> {}
+      }
+    }
+
+    val discriminatorValueDocumentOcr =
+      Common.getValueByPath(rootObject, arrayOf("embeddingApiType"))?.toString() ?: "PREDICT"
+
+    Common.getValueByPath(fromObject, arrayOf("documentOcr"))?.let { documentOcr ->
+      when (discriminatorValueDocumentOcr) {
+        "EMBED_CONTENT" -> {
+          Common.getValueByPath(fromObject, arrayOf("documentOcr"))?.let { node ->
+            Common.setValueByPath(
+              parentObject,
+              arrayOf("embedContentConfig", "documentOcr"),
+              Common.getValueByPath(fromObject, arrayOf("documentOcr")),
+            )
+          }
+        }
+        else -> {}
+      }
+    }
+
+    val discriminatorValueAudioTrackExtraction =
+      Common.getValueByPath(rootObject, arrayOf("embeddingApiType"))?.toString() ?: "PREDICT"
+
+    Common.getValueByPath(fromObject, arrayOf("audioTrackExtraction"))?.let { audioTrackExtraction
+      ->
+      when (discriminatorValueAudioTrackExtraction) {
+        "EMBED_CONTENT" -> {
+          Common.getValueByPath(fromObject, arrayOf("audioTrackExtraction"))?.let { node ->
+            Common.setValueByPath(
+              parentObject,
+              arrayOf("embedContentConfig", "audioTrackExtraction"),
+              Common.getValueByPath(fromObject, arrayOf("audioTrackExtraction")),
+            )
+          }
+        }
+        else -> {}
+      }
+    }
+
+    return toObject
+  }
+
+  internal fun embedContentParametersPrivateToMldev(
+    apiClient: ApiClient,
+    fromObject: Map<String, Any?>?,
+    parentObject: MutableMap<String, Any?>?,
+    rootObject: Map<String, Any?>?,
+  ): MutableMap<String, Any?> {
+
+    val toObject = mutableMapOf<String, Any?>()
+    Common.getValueByPath(fromObject, arrayOf("model"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("_url", "model"),
+        Transformers.tModel(this.apiClient, Common.getValueByPath(fromObject, arrayOf("model"))),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("contents"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("requests[]", "content"),
+        Transformers.tContentsForEmbed(
+          this.apiClient,
+          Common.getValueByPath(fromObject, arrayOf("contents")),
+        ),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("content"))?.let { node ->
+      val unused =
+        contentToMldev(
+          Transformers.tContent(Common.getValueByPath(fromObject, arrayOf("content")))
+            as Map<String, Any?>,
+          toObject,
+          rootObject,
+        )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("config"))?.let { node ->
+      val unused =
+        embedContentConfigToMldev(
+          Common.getValueByPath(fromObject, arrayOf("config")) as Map<String, Any?>,
+          toObject,
+          rootObject,
+        )
+    }
+
+    Common.setValueByPath(
+      toObject,
+      arrayOf("requests[]", "model"),
+      Transformers.tModel(apiClient, Common.getValueByPath(fromObject, arrayOf("model"))),
+    )
+
+    return toObject
+  }
+
+  internal fun embedContentParametersPrivateToVertex(
+    apiClient: ApiClient,
+    fromObject: Map<String, Any?>?,
+    parentObject: MutableMap<String, Any?>?,
+    rootObject: Map<String, Any?>?,
+  ): MutableMap<String, Any?> {
+
+    val toObject = mutableMapOf<String, Any?>()
+    Common.getValueByPath(fromObject, arrayOf("model"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("_url", "model"),
+        Transformers.tModel(this.apiClient, Common.getValueByPath(fromObject, arrayOf("model"))),
+      )
+    }
+
+    val discriminatorValueContents =
+      Common.getValueByPath(rootObject, arrayOf("embeddingApiType"))?.toString() ?: "PREDICT"
+
+    Common.getValueByPath(fromObject, arrayOf("contents"))?.let { contents ->
+      when (discriminatorValueContents) {
+        "PREDICT" -> {
+          Common.getValueByPath(fromObject, arrayOf("contents"))?.let { node ->
+            Common.setValueByPath(
+              toObject,
+              arrayOf("instances[]", "content"),
+              Transformers.tContentsForEmbed(
+                this.apiClient,
+                Common.getValueByPath(fromObject, arrayOf("contents")),
+              ),
+            )
+          }
+        }
+        else -> {}
+      }
+    }
+
+    val discriminatorValueContent =
+      Common.getValueByPath(rootObject, arrayOf("embeddingApiType"))?.toString() ?: "PREDICT"
+
+    Common.getValueByPath(fromObject, arrayOf("content"))?.let { content ->
+      when (discriminatorValueContent) {
+        "EMBED_CONTENT" -> {
+          Common.getValueByPath(fromObject, arrayOf("content"))?.let { node ->
+            Common.setValueByPath(
+              toObject,
+              arrayOf("content"),
+              contentToVertex(
+                Transformers.tContent(Common.getValueByPath(fromObject, arrayOf("content")))
+                  as Map<String, Any?>,
+                toObject,
+                rootObject,
+              ),
+            )
+          }
+        }
+        else -> {}
+      }
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("config"))?.let { node ->
+      val unused =
+        embedContentConfigToVertex(
+          Common.getValueByPath(fromObject, arrayOf("config")) as Map<String, Any?>,
+          toObject,
+          rootObject,
+        )
+    }
+
+    return toObject
+  }
+
+  internal fun embedContentResponseFromMldev(
+    fromObject: Map<String, Any?>?,
+    parentObject: MutableMap<String, Any?>?,
+    rootObject: Map<String, Any?>?,
+  ): MutableMap<String, Any?> {
+
+    val toObject = mutableMapOf<String, Any?>()
+    Common.getValueByPath(fromObject, arrayOf("sdkHttpResponse"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("sdkHttpResponse"),
+        Common.getValueByPath(fromObject, arrayOf("sdkHttpResponse")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("embeddings"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("embeddings"),
+        Common.getValueByPath(fromObject, arrayOf("embeddings")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("metadata"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("metadata"),
+        Common.getValueByPath(fromObject, arrayOf("metadata")),
+      )
+    }
+
+    return toObject
+  }
+
+  internal fun embedContentResponseFromVertex(
+    fromObject: Map<String, Any?>?,
+    parentObject: MutableMap<String, Any?>?,
+    rootObject: Map<String, Any?>?,
+  ): MutableMap<String, Any?> {
+
+    val toObject = mutableMapOf<String, Any?>()
+    Common.getValueByPath(fromObject, arrayOf("sdkHttpResponse"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("sdkHttpResponse"),
+        Common.getValueByPath(fromObject, arrayOf("sdkHttpResponse")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("predictions[]", "embeddings"))?.let { node ->
+      val keyArray = node as? List<*> ?: emptyList<Any?>()
+      val result = mutableListOf<Any?>()
+
+      for (item in keyArray) {
+        if (item is Map<*, *>) {
+          result.add(contentEmbeddingFromVertex(item as Map<String, Any?>, toObject, rootObject))
+        }
+      }
+      Common.setValueByPath(toObject, arrayOf("embeddings"), result)
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("metadata"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("metadata"),
+        Common.getValueByPath(fromObject, arrayOf("metadata")),
+      )
+    }
+
+    Common.getValueByPath(rootObject, arrayOf("embeddingApiType"))?.let { apiType ->
+      if (apiType.toString() == "EMBED_CONTENT") {
+        val embedding =
+          Common.getValueByPath(fromObject, arrayOf("embedding")) as? MutableMap<String, Any?>
+        if (embedding != null) {
+          val stats = mutableMapOf<String, Any?>()
+          val usageMetadata =
+            Common.getValueByPath(fromObject, arrayOf("usageMetadata")) as? Map<*, *>
+          if (usageMetadata != null && usageMetadata["promptTokenCount"] != null) {
+            stats["tokenCount"] = usageMetadata["promptTokenCount"]!!
+          }
+          if (usageMetadata != null && usageMetadata["promptTokensDetails"] != null) {
+            stats["tokensDetails"] = usageMetadata["promptTokensDetails"]!!
+          }
+          val truncated = Common.getValueByPath(fromObject, arrayOf("truncated"))
+          if (truncated != null) {
+            stats["truncated"] = truncated
+          }
+          embedding["statistics"] = stats
+          Common.setValueByPath(toObject, arrayOf("embeddings"), listOf(embedding))
+        }
+      }
     }
 
     return toObject
@@ -2239,6 +2757,7 @@ class Models internal constructor(internal val apiClient: ApiClient) {
     } else {
 
       body = generateContentParametersToMldev(this.apiClient, parameterMap, null, parameterMap)
+
       path = Common.formatMap("{model}:generateContent", body["_url"] as? Map<String, Any?>)
     }
 
@@ -2273,7 +2792,9 @@ class Models internal constructor(internal val apiClient: ApiClient) {
 
     val sdkResponse = Common.mapToDataClass<GenerateContentResponse>(responseMap)
 
-    return sdkResponse.copy(sdkHttpResponse = HttpResponse(headers = headersMap))
+    return sdkResponse.copy(
+      sdkHttpResponse = HttpResponse(body = responseString, headers = headersMap)
+    )
   }
 
   internal fun privateGenerateContentStream(
@@ -2299,6 +2820,7 @@ class Models internal constructor(internal val apiClient: ApiClient) {
     } else {
 
       body = generateContentParametersToMldev(this.apiClient, parameterMap, null, parameterMap)
+
       path =
         Common.formatMap(
           "{model}:streamGenerateContent?alt=sse",
@@ -2328,6 +2850,66 @@ class Models internal constructor(internal val apiClient: ApiClient) {
         }
         Common.mapToDataClass<GenerateContentResponse>(responseMap)
       }
+  }
+
+  internal suspend fun privateEmbedContent(
+    model: String,
+    contents: List<Content>? = null,
+    content: Content? = null,
+    embeddingApiType: EmbeddingApiType? = null,
+    config: EmbedContentConfig? = null,
+  ): EmbedContentResponse {
+    val parameters =
+      EmbedContentParametersPrivate(model, contents, content, embeddingApiType, config)
+    val parameterMap = Common.dataClassToMap(parameters)
+
+    var body: MutableMap<String, Any?>
+    var path: String
+
+    if (apiClient.enterprise) {
+
+      body = embedContentParametersPrivateToVertex(this.apiClient, parameterMap, null, parameterMap)
+
+      val modelName = parameterMap["model"] as? String ?: ""
+      val endpointUrl =
+        if (Transformers.tIsVertexEmbedContentModel(modelName)) "{model}:embedContent"
+        else "{model}:predict"
+      path = Common.formatMap(endpointUrl, body["_url"] as? Map<String, Any?>)
+    } else {
+
+      body = embedContentParametersPrivateToMldev(this.apiClient, parameterMap, null, parameterMap)
+
+      path = Common.formatMap("{model}:batchEmbedContents", body["_url"] as? Map<String, Any?>)
+    }
+
+    val queryParams = body["_query"] as? Map<String, Any?>
+    val finalBody = Common.mapToJsonObject(body.filterKeys { it != "_url" && it != "_query" })
+
+    if (queryParams != null) {
+      val queryString =
+        queryParams.entries.joinToString("&") {
+          "${URLEncoder.encode(it.key.toString(), "UTF-8")}=${URLEncoder.encode(it.value.toString(), "UTF-8")}"
+        }
+      path = "$path?$queryString"
+    }
+
+    val response = apiClient.request("POST", path, finalBody, httpOptions = config?.httpOptions)
+
+    val responseString = response.body()
+    val headersMap = response.headers.entries().associate { it.key to it.value.joinToString(",") }
+
+    var responseMap = Common.jsonStringToMap(responseString)
+    if (apiClient.enterprise) {
+      responseMap = embedContentResponseFromVertex(responseMap, null, parameterMap)
+    } else {
+      responseMap = embedContentResponseFromMldev(responseMap, null, parameterMap)
+    }
+
+    val sdkResponse = Common.mapToDataClass<EmbedContentResponse>(responseMap)
+
+    return sdkResponse.copy(
+      sdkHttpResponse = HttpResponse(body = responseString, headers = headersMap)
+    )
   }
 
   /**
@@ -2428,6 +3010,90 @@ class Models internal constructor(internal val apiClient: ApiClient) {
     config: GenerateContentConfig? = null,
   ): Flow<GenerateContentResponse> {
     return privateGenerateContentStream(
+      model = model,
+      contents = listOf(Content(parts = listOf(Part(text = text)), role = "user")),
+      config = config,
+    )
+  }
+
+  /**
+   * Calculates embeddings for the given content.
+   *
+   * @param model the name of the GenAI model to use for embedding
+   * @param contents a list of [Content] to embed
+   * @param config an [EmbedContentConfig] instance that specifies the optional configurations
+   * @return an [EmbedContentResponse] instance that contains response contents and other metadata
+   */
+  suspend fun embedContent(
+    model: String,
+    contents: List<Content>,
+    config: EmbedContentConfig? = null,
+  ): EmbedContentResponse {
+    val response =
+      if (!apiClient.enterprise) {
+        privateEmbedContent(
+          model = model,
+          contents = contents,
+          content = null,
+          embeddingApiType = null,
+          config = config,
+        )
+      } else if (Transformers.tIsVertexEmbedContentModel(model)) {
+        if (contents.size > 1) {
+          throw IllegalArgumentException(
+            "The embedContent API for this model only supports one content at a time."
+          )
+        }
+        privateEmbedContent(
+          model = model,
+          contents = null,
+          content = contents.firstOrNull(),
+          embeddingApiType = EmbeddingApiType.EMBED_CONTENT,
+          config = config,
+        )
+      } else {
+        privateEmbedContent(
+          model = model,
+          contents = contents,
+          content = null,
+          embeddingApiType = EmbeddingApiType.PREDICT,
+          config = config,
+        )
+      }
+
+    return response
+  }
+
+  /**
+   * Calculates embeddings for the given content.
+   *
+   * @param model the name of the GenAI model to use for embedding
+   * @param content a [Content] to embed
+   * @param config an [EmbedContentConfig] instance that specifies the optional configurations
+   * @return an [EmbedContentResponse] instance that contains response contents and other metadata
+   */
+  suspend fun embedContent(
+    model: String,
+    content: Content,
+    config: EmbedContentConfig? = null,
+  ): EmbedContentResponse {
+    return embedContent(model = model, contents = listOf(content), config = config)
+  }
+
+  /**
+   * Calculates embeddings for the given text string.
+   *
+   * @param model the name of the GenAI model to use for embedding
+   * @param text the text string to embed
+   * @param config an [EmbedContentConfig] instance that specifies the optional configurations
+   * @return an [EmbedContentResponse] instance that contains response contents and other metadata
+   */
+  suspend fun embedContent(
+    model: String,
+    text: String,
+    config: EmbedContentConfig? = null,
+  ): EmbedContentResponse {
+    return embedContent(
       model = model,
       contents = listOf(Content(parts = listOf(Part(text = text)), role = "user")),
       config = config,

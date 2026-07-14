@@ -1,0 +1,83 @@
+{
+  "recordID": "ModelsTest.testEmbedContentGemini2.vertex",
+  "interactions": [
+    {
+      "request": {
+        "method": "POST",
+        "url": "/v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-embedding-2:embedContent",
+        "request": "POST /v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-embedding-2:embedContent HTTP/1.1",
+        "headers": {
+          "Accept": "*/*",
+          "Accept-Charset": "UTF-8",
+          "Accept-Encoding": "gzip",
+          "Connection": "Keep-Alive",
+          "Content-Length": "128",
+          "Content-Type": "application/json",
+          "Test-Name": "ModelsTest.testEmbedContentGemini2.vertex"
+        },
+        "bodySegments": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "What is the capital of France?"
+                }
+              ],
+              "role": "user"
+            },
+            "embedContentConfig": {
+              "outputDimensionality": 10
+            }
+          }
+        ],
+        "previousRequest": "b4d6e60a9b97e7b98c63df9308728c5c88c0b40c398046772c63447b94608b4d",
+        "serverAddress": "aiplatform.googleapis.com",
+        "port": 443,
+        "protocol": "https"
+      },
+      "shaSum": "3e7d4ff39363a36f3aeaaff07e8e9c24141d2532ea1500f296758095b7786060",
+      "response": {
+        "statusCode": 200,
+        "headers": {
+          "Content-Encoding": "gzip",
+          "Content-Length": "231",
+          "Content-Type": "application/json; charset=UTF-8",
+          "Date": "Sun, 12 Jul 2026 19:01:31 GMT",
+          "Server": "scaffolding on HTTPServer2",
+          "Vary": "Origin, X-Origin, Referer",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "SAMEORIGIN",
+          "X-Xss-Protection": "0"
+        },
+        "bodySegments": [
+          {
+            "embedding": {
+              "values": [
+                0.36556685,
+                -0.28787395,
+                -0.13878064,
+                0.2162272,
+                0.20215674,
+                0.020204725,
+                -0.028372956,
+                0.09545064,
+                -0.030247543,
+                -0.8157014
+              ]
+            },
+            "usageMetadata": {
+              "promptTokenCount": 7,
+              "promptTokensDetails": [
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 7
+                }
+              ],
+              "totalTokenCount": 7
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

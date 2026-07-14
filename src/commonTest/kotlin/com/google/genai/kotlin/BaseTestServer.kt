@@ -64,14 +64,19 @@ open class BaseTestServer {
   }
 
   /** Creates a [Client] configured to use the test server. */
-  fun createClient(enterprise: Boolean, testName: String): Client {
+  fun createClient(
+    enterprise: Boolean,
+    testName: String,
+    locationOverride: String? = null,
+  ): Client {
+    val effectiveLocation = locationOverride ?: location
     val port =
       if (enterprise) {
-        when (location) {
+        when (effectiveLocation) {
           "global" -> 1455
           "us" -> 1456
           "us-central1" -> 1454
-          else -> throw IllegalArgumentException("Unsupported location for tests: $location")
+          else -> throw IllegalArgumentException("Unsupported location for tests: $effectiveLocation")
         }
       } else {
         1453
@@ -87,7 +92,7 @@ open class BaseTestServer {
         }
       return Client(
         project = project,
-        location = location,
+        location = effectiveLocation,
         credentials = creds,
         enterprise = enterprise,
         httpOptions = httpOptions,

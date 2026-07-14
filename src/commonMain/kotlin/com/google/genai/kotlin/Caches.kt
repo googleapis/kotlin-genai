@@ -1635,6 +1635,7 @@ class Caches internal constructor(internal val apiClient: ApiClient) {
     } else {
 
       body = createCachedContentParametersToMldev(this.apiClient, parameterMap, null)
+
       path = Common.formatMap("cachedContents", body["_url"] as? Map<String, Any?>)
     }
 
@@ -1681,6 +1682,7 @@ class Caches internal constructor(internal val apiClient: ApiClient) {
     } else {
 
       body = getCachedContentParametersToMldev(this.apiClient, parameterMap, null)
+
       path = Common.formatMap("{name}", body["_url"] as? Map<String, Any?>)
     }
 
@@ -1729,6 +1731,7 @@ class Caches internal constructor(internal val apiClient: ApiClient) {
     } else {
 
       body = deleteCachedContentParametersToMldev(this.apiClient, parameterMap, null)
+
       path = Common.formatMap("{name}", body["_url"] as? Map<String, Any?>)
     }
 
@@ -1757,7 +1760,9 @@ class Caches internal constructor(internal val apiClient: ApiClient) {
 
     val sdkResponse = Common.mapToDataClass<DeleteCachedContentResponse>(responseMap)
 
-    return sdkResponse.copy(sdkHttpResponse = HttpResponse(headers = headersMap))
+    return sdkResponse.copy(
+      sdkHttpResponse = HttpResponse(body = responseString, headers = headersMap)
+    )
   }
 
   /**
@@ -1782,6 +1787,7 @@ class Caches internal constructor(internal val apiClient: ApiClient) {
     } else {
 
       body = updateCachedContentParametersToMldev(this.apiClient, parameterMap, null)
+
       path = Common.formatMap("{name}", body["_url"] as? Map<String, Any?>)
     }
 
@@ -1824,6 +1830,7 @@ class Caches internal constructor(internal val apiClient: ApiClient) {
     } else {
 
       body = listCachedContentsParametersToMldev(parameterMap, null)
+
       path = Common.formatMap("cachedContents", body["_url"] as? Map<String, Any?>)
     }
 
@@ -1852,6 +1859,8 @@ class Caches internal constructor(internal val apiClient: ApiClient) {
 
     val sdkResponse = Common.mapToDataClass<ListCachedContentsResponse>(responseMap)
 
-    return sdkResponse.copy(sdkHttpResponse = HttpResponse(headers = headersMap))
+    return sdkResponse.copy(
+      sdkHttpResponse = HttpResponse(body = responseString, headers = headersMap)
+    )
   }
 }

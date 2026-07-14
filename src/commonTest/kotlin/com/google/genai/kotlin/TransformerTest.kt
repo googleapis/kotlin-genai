@@ -25,7 +25,7 @@ import kotlin.test.assertFailsWith
 import kotlin.test.assertNotNull
 import kotlin.test.assertNull
 
-class TransformersTest {
+class TransformerTest {
   private val vertexClient =
     ApiClient(
       apiKey = null,
@@ -263,5 +263,35 @@ class TransformersTest {
         "projects/other-project/cachedContents/my-cache",
       ),
     )
+  }
+
+  @Test
+  fun testTIsVertexEmbedContentModel() {
+    assertEquals(true, Transformers.tIsVertexEmbedContentModel("gemini-embedding-2-preview"))
+    assertEquals(false, Transformers.tIsVertexEmbedContentModel("gemini-embedding-001"))
+    assertEquals(true, Transformers.tIsVertexEmbedContentModel("gemini-3.5-flash"))
+    assertEquals(false, Transformers.tIsVertexEmbedContentModel("textembedding-gecko@001"))
+  }
+
+  @Test
+  fun testTContentsForEmbed_mldev() {
+    val result = Transformers.tContentsForEmbed(mldevClient, "Hello world") as List<*>
+    assertEquals(1, result.size)
+    val content = result[0] as Map<*, *>
+    val parts = content["parts"] as List<*>
+    val part = parts[0] as Map<*, *>
+    assertEquals("Hello world", part["text"])
+  }
+
+  @Test
+  fun testTContentsForEmbed_vertex() {
+    val result = Transformers.tContentsForEmbed(vertexClient, "Hello world") as List<*>
+    assertEquals(1, result.size)
+    assertEquals("Hello world", result[0])
+
+    val contentList = listOf(Content(parts = listOf(Part(text = "Hello content"))))
+    val result2 = Transformers.tContentsForEmbed(vertexClient, contentList) as List<*>
+    assertEquals(1, result2.size)
+    assertEquals("Hello content", result2[0])
   }
 }

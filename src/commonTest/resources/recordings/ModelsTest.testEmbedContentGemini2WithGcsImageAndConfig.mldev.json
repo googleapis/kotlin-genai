@@ -1,0 +1,100 @@
+{
+  "recordID": "ModelsTest.testEmbedContentGemini2WithGcsImageAndConfig.mldev",
+  "interactions": [
+    {
+      "request": {
+        "method": "POST",
+        "url": "/v1beta/models/gemini-embedding-2:batchEmbedContents",
+        "request": "POST /v1beta/models/gemini-embedding-2:batchEmbedContents HTTP/1.1",
+        "headers": {
+          "Accept": "*/*",
+          "Accept-Charset": "UTF-8",
+          "Accept-Encoding": "gzip",
+          "Connection": "Keep-Alive",
+          "Content-Length": "317",
+          "Content-Type": "application/json",
+          "Test-Name": "ModelsTest.testEmbedContentGemini2WithGcsImageAndConfig.mldev"
+        },
+        "bodySegments": [
+          {
+            "requests": [
+              {
+                "content": {
+                  "parts": [
+                    {
+                      "text": "Similar things to the following image:"
+                    },
+                    {
+                      "fileData": {
+                        "fileUri": "gs://cloud-samples-data/generative-ai/image/a-man-and-a-dog.png",
+                        "mimeType": "image/png"
+                      }
+                    }
+                  ]
+                },
+                "model": "models/gemini-embedding-2",
+                "outputDimensionality": 10,
+                "taskType": "RETRIEVAL_DOCUMENT",
+                "title": "test_title"
+              }
+            ]
+          }
+        ],
+        "previousRequest": "b4d6e60a9b97e7b98c63df9308728c5c88c0b40c398046772c63447b94608b4d",
+        "serverAddress": "generativelanguage.googleapis.com",
+        "port": 443,
+        "protocol": "https"
+      },
+      "shaSum": "5b53165bf672d07a7beaa31defee44c7a18f25741e64b876b0dfb987b86bf6ca",
+      "response": {
+        "statusCode": 200,
+        "headers": {
+          "Content-Encoding": "gzip",
+          "Content-Length": "257",
+          "Content-Type": "application/json; charset=UTF-8",
+          "Date": "Sun, 12 Jul 2026 19:01:25 GMT",
+          "Server": "scaffolding on HTTPServer2",
+          "Server-Timing": "gfet4t7; dur=2142",
+          "Vary": "Origin, X-Origin, Referer",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "SAMEORIGIN",
+          "X-Xss-Protection": "0"
+        },
+        "bodySegments": [
+          {
+            "embeddings": [
+              {
+                "values": [
+                  -0.10782176,
+                  -0.120693274,
+                  -0.06756713,
+                  -0.17718169,
+                  0.497745,
+                  -0.15165576,
+                  0.036988787,
+                  -0.0733053,
+                  0.047952432,
+                  -0.81120783
+                ]
+              }
+            ],
+            "tokenCount": "265",
+            "usageMetadata": {
+              "promptTokenCount": 265,
+              "promptTokenDetails": [
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 7
+                },
+                {
+                  "modality": "IMAGE",
+                  "tokenCount": 258
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
