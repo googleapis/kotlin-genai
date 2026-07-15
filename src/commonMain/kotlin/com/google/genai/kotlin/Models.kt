@@ -36,7 +36,7 @@ import com.google.genai.kotlin.types.GenerateContentParameters
 import com.google.genai.kotlin.types.GenerateContentResponse
 import com.google.genai.kotlin.types.HttpResponse
 import com.google.genai.kotlin.types.Part
-import java.net.URLEncoder
+import io.ktor.http.encodeURLQueryComponent
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
@@ -3251,7 +3251,7 @@ class Models internal constructor(internal val apiClient: ApiClient) {
     if (queryParams != null) {
       val queryString =
         queryParams.entries.joinToString("&") {
-          "${URLEncoder.encode(it.key.toString(), "UTF-8")}=${URLEncoder.encode(it.value.toString(), "UTF-8")}"
+          "${it.key.encodeURLQueryComponent()}=${it.value.toString().encodeURLQueryComponent()}"
         }
       path = "$path?$queryString"
     }
@@ -3318,7 +3318,7 @@ class Models internal constructor(internal val apiClient: ApiClient) {
     if (queryParams != null) {
       val queryString =
         queryParams.entries.joinToString("&") {
-          "${URLEncoder.encode(it.key.toString(), "UTF-8")}=${URLEncoder.encode(it.value.toString(), "UTF-8")}"
+          "${it.key.encodeURLQueryComponent()}=${it.value.toString().encodeURLQueryComponent()}"
         }
       path = "$path?$queryString"
     }
@@ -3372,7 +3372,7 @@ class Models internal constructor(internal val apiClient: ApiClient) {
     if (queryParams != null) {
       val queryString =
         queryParams.entries.joinToString("&") {
-          "${URLEncoder.encode(it.key.toString(), "UTF-8")}=${URLEncoder.encode(it.value.toString(), "UTF-8")}"
+          "${it.key.encodeURLQueryComponent()}=${it.value.toString().encodeURLQueryComponent()}"
         }
       path = "$path?$queryString"
     }
@@ -3433,7 +3433,7 @@ class Models internal constructor(internal val apiClient: ApiClient) {
     if (queryParams != null) {
       val queryString =
         queryParams.entries.joinToString("&") {
-          "${URLEncoder.encode(it.key.toString(), "UTF-8")}=${URLEncoder.encode(it.value.toString(), "UTF-8")}"
+          "${it.key.encodeURLQueryComponent()}=${it.value.toString().encodeURLQueryComponent()}"
         }
       path = "$path?$queryString"
     }
@@ -3497,7 +3497,7 @@ class Models internal constructor(internal val apiClient: ApiClient) {
     if (queryParams != null) {
       val queryString =
         queryParams.entries.joinToString("&") {
-          "${URLEncoder.encode(it.key.toString(), "UTF-8")}=${URLEncoder.encode(it.value.toString(), "UTF-8")}"
+          "${it.key.encodeURLQueryComponent()}=${it.value.toString().encodeURLQueryComponent()}"
         }
       path = "$path?$queryString"
     }

@@ -34,7 +34,7 @@ import com.google.genai.kotlin.types.ListCachedContentsParameters
 import com.google.genai.kotlin.types.ListCachedContentsResponse
 import com.google.genai.kotlin.types.UpdateCachedContentConfig
 import com.google.genai.kotlin.types.UpdateCachedContentParameters
-import java.net.URLEncoder
+import io.ktor.http.encodeURLQueryComponent
 
 /**
  * Provides methods for managing cached content. Instantiating this class is not required. After
@@ -1645,7 +1645,7 @@ class Caches internal constructor(internal val apiClient: ApiClient) {
     if (queryParams != null) {
       val queryString =
         queryParams.entries.joinToString("&") {
-          "${URLEncoder.encode(it.key.toString(), "UTF-8")}=${URLEncoder.encode(it.value.toString(), "UTF-8")}"
+          "${it.key.encodeURLQueryComponent()}=${it.value.toString().encodeURLQueryComponent()}"
         }
       path = "$path?$queryString"
     }
@@ -1692,7 +1692,7 @@ class Caches internal constructor(internal val apiClient: ApiClient) {
     if (queryParams != null) {
       val queryString =
         queryParams.entries.joinToString("&") {
-          "${URLEncoder.encode(it.key.toString(), "UTF-8")}=${URLEncoder.encode(it.value.toString(), "UTF-8")}"
+          "${it.key.encodeURLQueryComponent()}=${it.value.toString().encodeURLQueryComponent()}"
         }
       path = "$path?$queryString"
     }
@@ -1741,7 +1741,7 @@ class Caches internal constructor(internal val apiClient: ApiClient) {
     if (queryParams != null) {
       val queryString =
         queryParams.entries.joinToString("&") {
-          "${URLEncoder.encode(it.key.toString(), "UTF-8")}=${URLEncoder.encode(it.value.toString(), "UTF-8")}"
+          "${it.key.encodeURLQueryComponent()}=${it.value.toString().encodeURLQueryComponent()}"
         }
       path = "$path?$queryString"
     }
@@ -1797,7 +1797,7 @@ class Caches internal constructor(internal val apiClient: ApiClient) {
     if (queryParams != null) {
       val queryString =
         queryParams.entries.joinToString("&") {
-          "${URLEncoder.encode(it.key.toString(), "UTF-8")}=${URLEncoder.encode(it.value.toString(), "UTF-8")}"
+          "${it.key.encodeURLQueryComponent()}=${it.value.toString().encodeURLQueryComponent()}"
         }
       path = "$path?$queryString"
     }
@@ -1840,7 +1840,7 @@ class Caches internal constructor(internal val apiClient: ApiClient) {
     if (queryParams != null) {
       val queryString =
         queryParams.entries.joinToString("&") {
-          "${URLEncoder.encode(it.key.toString(), "UTF-8")}=${URLEncoder.encode(it.value.toString(), "UTF-8")}"
+          "${it.key.encodeURLQueryComponent()}=${it.value.toString().encodeURLQueryComponent()}"
         }
       path = "$path?$queryString"
     }
