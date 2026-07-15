@@ -1241,6 +1241,7 @@ $dokka.location:com.google.genai.kotlin/Caches///PointingToDeclaration/google-g
 $dokka.location:com.google.genai.kotlin/Caches/create/#kotlin.String#com.google.genai.kotlin.types.CreateCachedContentConfig?/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin/-caches/create.html
 $dokka.location:com.google.genai.kotlin/Caches/delete/#kotlin.String#com.google.genai.kotlin.types.DeleteCachedContentConfig?/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin/-caches/delete.html
 $dokka.location:com.google.genai.kotlin/Caches/get/#kotlin.String#com.google.genai.kotlin.types.GetCachedContentConfig?/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin/-caches/get.html
+$dokka.location:com.google.genai.kotlin/Caches/list/#com.google.genai.kotlin.types.ListCachedContentsConfig?/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin/-caches/list.html
 $dokka.location:com.google.genai.kotlin/Caches/update/#kotlin.String#com.google.genai.kotlin.types.UpdateCachedContentConfig?/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin/-caches/update.html
 $dokka.location:com.google.genai.kotlin/Client///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin/-client/index.html
 $dokka.location:com.google.genai.kotlin/Client/Client/#kotlin.String?#kotlin.String?#kotlin.String?#com.google.genai.kotlin.GoogleCredentials?#kotlin.Boolean?#com.google.genai.kotlin.types.HttpOptions?/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin/-client/-client.html
@@ -1276,6 +1277,17 @@ $dokka.location:com.google.genai.kotlin/Models/generateContent/#kotlin.String#ko
 $dokka.location:com.google.genai.kotlin/Models/generateContentStream/#kotlin.String#com.google.genai.kotlin.types.Content#com.google.genai.kotlin.types.GenerateContentConfig?/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin/-models/generate-content-stream.html
 $dokka.location:com.google.genai.kotlin/Models/generateContentStream/#kotlin.String#kotlin.String#com.google.genai.kotlin.types.GenerateContentConfig?/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin/-models/generate-content-stream.html
 $dokka.location:com.google.genai.kotlin/Models/generateContentStream/#kotlin.String#kotlin.collections.List[com.google.genai.kotlin.types.Content]#com.google.genai.kotlin.types.GenerateContentConfig?/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin/-models/generate-content-stream.html
+$dokka.location:com.google.genai.kotlin/Page///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin/-page/index.html
+$dokka.location:com.google.genai.kotlin/Page/Page/#kotlin.collections.List[TypeParam(bounds=[kotlin.Any?])]#kotlin.String?#com.google.genai.kotlin.types.HttpResponse?/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin/-page/-page.html
+$dokka.location:com.google.genai.kotlin/Page/items/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin/-page/items.html
+$dokka.location:com.google.genai.kotlin/Page/nextPageToken/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin/-page/next-page-token.html
+$dokka.location:com.google.genai.kotlin/Page/sdkHttpResponse/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin/-page/sdk-http-response.html
+$dokka.location:com.google.genai.kotlin/Pager///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin/-pager/index.html
+$dokka.location:com.google.genai.kotlin/Pager/Pager/#kotlin.String#kotlin.Int?#kotlin.coroutines.SuspendFunction1[kotlin.String?,kotlin.Triple[kotlin.collections.List[TypeParam(bounds=[kotlin.Any?])]?,kotlin.String?,com.google.genai.kotlin.types.HttpResponse?]]/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin/-pager/-pager.html
+$dokka.location:com.google.genai.kotlin/Pager/byPage/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin/-pager/by-page.html
+$dokka.location:com.google.genai.kotlin/Pager/collect/#kotlinx.coroutines.flow.FlowCollector[TypeParam(bounds=[kotlin.Any?])]/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin/-pager/collect.html
+$dokka.location:com.google.genai.kotlin/Pager/name/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin/-pager/name.html
+$dokka.location:com.google.genai.kotlin/Pager/pageSize/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin/-pager/page-size.html
 $dokka.location:com.google.genai.kotlin/ServerException///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin/-server-exception/index.html
 $dokka.location:com.google.genai.kotlin/ServerException/ServerException/#kotlin.Int#kotlin.String#kotlin.String/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin/-server-exception/-server-exception.html
 com.google.genai.kotlin
