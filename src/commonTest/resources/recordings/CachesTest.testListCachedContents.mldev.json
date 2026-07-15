@@ -1,0 +1,227 @@
+{
+  "recordID": "CachesTest.testListCachedContents.mldev",
+  "interactions": [
+    {
+      "request": {
+        "method": "GET",
+        "url": "/v1beta/cachedContents?pageSize=1",
+        "request": "GET /v1beta/cachedContents?pageSize=1 HTTP/1.1",
+        "headers": {
+          "Accept": "*/*",
+          "Accept-Charset": "UTF-8",
+          "Accept-Encoding": "gzip",
+          "Connection": "Keep-Alive",
+          "Content-Type": "application/json",
+          "Test-Name": "CachesTest.testListCachedContents.mldev"
+        },
+        "bodySegments": [
+          null
+        ],
+        "previousRequest": "b4d6e60a9b97e7b98c63df9308728c5c88c0b40c398046772c63447b94608b4d",
+        "serverAddress": "generativelanguage.googleapis.com",
+        "port": 443,
+        "protocol": "https"
+      },
+      "shaSum": "3aca8800b6c57a08524556d9c6a1491a3ca3c031380eed99cc81eaccd001af29",
+      "response": {
+        "statusCode": 200,
+        "headers": {
+          "Content-Encoding": "gzip",
+          "Content-Length": "329",
+          "Content-Type": "application/json; charset=UTF-8",
+          "Date": "Wed, 15 Jul 2026 18:20:14 GMT",
+          "Server": "scaffolding on HTTPServer2",
+          "Server-Timing": "gfet4t7; dur=155",
+          "Vary": "Origin, X-Origin, Referer",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "SAMEORIGIN",
+          "X-Xss-Protection": "0"
+        },
+        "bodySegments": [
+          {
+            "cachedContents": [
+              {
+                "createTime": "2026-07-15T18:19:43.623109Z",
+                "displayName": "",
+                "expireTime": "2026-07-16T18:19:43.230437294Z",
+                "model": "models/gemini-3.5-flash",
+                "name": "cachedContents/ovnmrx2wwokfdgwairuts21dwbkpepn575fjethd",
+                "updateTime": "2026-07-15T18:19:43.623109Z",
+                "usageMetadata": {
+                  "totalTokenCount": 50002
+                }
+              }
+            ],
+            "nextPageToken": "cj0KD4IBDAi_nt_SBhCIx4-pAgoqQihvdm5tcngyd3dva2ZkZ3dhaXJ1dHMyMWR3YmtwZXBuNTc1ZmpldGhk"
+          }
+        ]
+      }
+    },
+    {
+      "request": {
+        "method": "GET",
+        "url": "/v1beta/cachedContents?pageSize=1\u0026pageToken=cj0KD4IBDAi_nt_SBhCIx4-pAgoqQihvdm5tcngyd3dva2ZkZ3dhaXJ1dHMyMWR3YmtwZXBuNTc1ZmpldGhk",
+        "request": "GET /v1beta/cachedContents?pageSize=1\u0026pageToken=cj0KD4IBDAi_nt_SBhCIx4-pAgoqQihvdm5tcngyd3dva2ZkZ3dhaXJ1dHMyMWR3YmtwZXBuNTc1ZmpldGhk HTTP/1.1",
+        "headers": {
+          "Accept": "*/*",
+          "Accept-Charset": "UTF-8",
+          "Accept-Encoding": "gzip",
+          "Connection": "Keep-Alive",
+          "Content-Type": "application/json",
+          "Test-Name": "CachesTest.testListCachedContents.mldev"
+        },
+        "bodySegments": [
+          null
+        ],
+        "previousRequest": "3aca8800b6c57a08524556d9c6a1491a3ca3c031380eed99cc81eaccd001af29",
+        "serverAddress": "generativelanguage.googleapis.com",
+        "port": 443,
+        "protocol": "https"
+      },
+      "shaSum": "70df990b6b651116391b715e913e4329c293e4a2517b1a3166e50cd0a7ce3787",
+      "response": {
+        "statusCode": 200,
+        "headers": {
+          "Content-Encoding": "gzip",
+          "Content-Length": "244",
+          "Content-Type": "application/json; charset=UTF-8",
+          "Date": "Wed, 15 Jul 2026 18:20:14 GMT",
+          "Server": "scaffolding on HTTPServer2",
+          "Server-Timing": "gfet4t7; dur=203",
+          "Vary": "Origin, X-Origin, Referer",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "SAMEORIGIN",
+          "X-Xss-Protection": "0"
+        },
+        "bodySegments": [
+          {
+            "cachedContents": [
+              {
+                "createTime": "2026-07-15T18:19:42.740870Z",
+                "displayName": "",
+                "expireTime": "2026-07-16T18:19:42.446761552Z",
+                "model": "models/gemini-3.5-flash",
+                "name": "cachedContents/htry5l4w3hqr9mtik68x4xh6u5c7p9ovay060nmw",
+                "updateTime": "2026-07-15T18:19:42.740870Z",
+                "usageMetadata": {
+                  "totalTokenCount": 50002
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "request": {
+        "method": "GET",
+        "url": "/v1beta/cachedContents?pageSize=1",
+        "request": "GET /v1beta/cachedContents?pageSize=1 HTTP/1.1",
+        "headers": {
+          "Accept": "*/*",
+          "Accept-Charset": "UTF-8",
+          "Accept-Encoding": "gzip",
+          "Connection": "Keep-Alive",
+          "Content-Type": "application/json",
+          "Test-Name": "CachesTest.testListCachedContents.mldev"
+        },
+        "bodySegments": [
+          null
+        ],
+        "previousRequest": "70df990b6b651116391b715e913e4329c293e4a2517b1a3166e50cd0a7ce3787",
+        "serverAddress": "generativelanguage.googleapis.com",
+        "port": 443,
+        "protocol": "https"
+      },
+      "shaSum": "8a93561a102d7bebf7ee0dd4756a8b4a6a48abcb6631ce3d2e28492d5ef3d018",
+      "response": {
+        "statusCode": 200,
+        "headers": {
+          "Content-Encoding": "gzip",
+          "Content-Length": "329",
+          "Content-Type": "application/json; charset=UTF-8",
+          "Date": "Wed, 15 Jul 2026 18:20:15 GMT",
+          "Server": "scaffolding on HTTPServer2",
+          "Server-Timing": "gfet4t7; dur=151",
+          "Vary": "Origin, X-Origin, Referer",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "SAMEORIGIN",
+          "X-Xss-Protection": "0"
+        },
+        "bodySegments": [
+          {
+            "cachedContents": [
+              {
+                "createTime": "2026-07-15T18:19:43.623109Z",
+                "displayName": "",
+                "expireTime": "2026-07-16T18:19:43.230437294Z",
+                "model": "models/gemini-3.5-flash",
+                "name": "cachedContents/ovnmrx2wwokfdgwairuts21dwbkpepn575fjethd",
+                "updateTime": "2026-07-15T18:19:43.623109Z",
+                "usageMetadata": {
+                  "totalTokenCount": 50002
+                }
+              }
+            ],
+            "nextPageToken": "cj0KD4IBDAi_nt_SBhCIx4-pAgoqQihvdm5tcngyd3dva2ZkZ3dhaXJ1dHMyMWR3YmtwZXBuNTc1ZmpldGhk"
+          }
+        ]
+      }
+    },
+    {
+      "request": {
+        "method": "GET",
+        "url": "/v1beta/cachedContents?pageSize=1\u0026pageToken=cj0KD4IBDAi_nt_SBhCIx4-pAgoqQihvdm5tcngyd3dva2ZkZ3dhaXJ1dHMyMWR3YmtwZXBuNTc1ZmpldGhk",
+        "request": "GET /v1beta/cachedContents?pageSize=1\u0026pageToken=cj0KD4IBDAi_nt_SBhCIx4-pAgoqQihvdm5tcngyd3dva2ZkZ3dhaXJ1dHMyMWR3YmtwZXBuNTc1ZmpldGhk HTTP/1.1",
+        "headers": {
+          "Accept": "*/*",
+          "Accept-Charset": "UTF-8",
+          "Accept-Encoding": "gzip",
+          "Connection": "Keep-Alive",
+          "Content-Type": "application/json",
+          "Test-Name": "CachesTest.testListCachedContents.mldev"
+        },
+        "bodySegments": [
+          null
+        ],
+        "previousRequest": "8a93561a102d7bebf7ee0dd4756a8b4a6a48abcb6631ce3d2e28492d5ef3d018",
+        "serverAddress": "generativelanguage.googleapis.com",
+        "port": 443,
+        "protocol": "https"
+      },
+      "shaSum": "9361b667ebf3aeab2c17a65cef9d374c5417b5f64f447bf022f403692f1cc0f8",
+      "response": {
+        "statusCode": 200,
+        "headers": {
+          "Content-Encoding": "gzip",
+          "Content-Length": "244",
+          "Content-Type": "application/json; charset=UTF-8",
+          "Date": "Wed, 15 Jul 2026 18:20:15 GMT",
+          "Server": "scaffolding on HTTPServer2",
+          "Server-Timing": "gfet4t7; dur=235",
+          "Vary": "Origin, X-Origin, Referer",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "SAMEORIGIN",
+          "X-Xss-Protection": "0"
+        },
+        "bodySegments": [
+          {
+            "cachedContents": [
+              {
+                "createTime": "2026-07-15T18:19:42.740870Z",
+                "displayName": "",
+                "expireTime": "2026-07-16T18:19:42.446761552Z",
+                "model": "models/gemini-3.5-flash",
+                "name": "cachedContents/htry5l4w3hqr9mtik68x4xh6u5c7p9ovay060nmw",
+                "updateTime": "2026-07-15T18:19:42.740870Z",
+                "usageMetadata": {
+                  "totalTokenCount": 50002
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

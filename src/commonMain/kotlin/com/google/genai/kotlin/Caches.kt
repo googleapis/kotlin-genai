@@ -1640,7 +1640,8 @@ class Caches internal constructor(internal val apiClient: ApiClient) {
     }
 
     val queryParams = body["_query"] as? Map<String, Any?>
-    val finalBody = Common.mapToJsonObject(body.filterKeys { it != "_url" && it != "_query" })
+    val filteredBody = body.filterKeys { it != "_url" && it != "_query" }
+    val finalBody = if (filteredBody.isEmpty()) null else Common.mapToJsonObject(filteredBody)
 
     if (queryParams != null) {
       val queryString =
@@ -1687,7 +1688,8 @@ class Caches internal constructor(internal val apiClient: ApiClient) {
     }
 
     val queryParams = body["_query"] as? Map<String, Any?>
-    val finalBody = Common.mapToJsonObject(body.filterKeys { it != "_url" && it != "_query" })
+    val filteredBody = body.filterKeys { it != "_url" && it != "_query" }
+    val finalBody = if (filteredBody.isEmpty()) null else Common.mapToJsonObject(filteredBody)
 
     if (queryParams != null) {
       val queryString =
@@ -1736,7 +1738,8 @@ class Caches internal constructor(internal val apiClient: ApiClient) {
     }
 
     val queryParams = body["_query"] as? Map<String, Any?>
-    val finalBody = Common.mapToJsonObject(body.filterKeys { it != "_url" && it != "_query" })
+    val filteredBody = body.filterKeys { it != "_url" && it != "_query" }
+    val finalBody = if (filteredBody.isEmpty()) null else Common.mapToJsonObject(filteredBody)
 
     if (queryParams != null) {
       val queryString =
@@ -1792,7 +1795,8 @@ class Caches internal constructor(internal val apiClient: ApiClient) {
     }
 
     val queryParams = body["_query"] as? Map<String, Any?>
-    val finalBody = Common.mapToJsonObject(body.filterKeys { it != "_url" && it != "_query" })
+    val filteredBody = body.filterKeys { it != "_url" && it != "_query" }
+    val finalBody = if (filteredBody.isEmpty()) null else Common.mapToJsonObject(filteredBody)
 
     if (queryParams != null) {
       val queryString =
@@ -1835,7 +1839,8 @@ class Caches internal constructor(internal val apiClient: ApiClient) {
     }
 
     val queryParams = body["_query"] as? Map<String, Any?>
-    val finalBody = Common.mapToJsonObject(body.filterKeys { it != "_url" && it != "_query" })
+    val filteredBody = body.filterKeys { it != "_url" && it != "_query" }
+    val finalBody = if (filteredBody.isEmpty()) null else Common.mapToJsonObject(filteredBody)
 
     if (queryParams != null) {
       val queryString =
@@ -1861,6 +1866,26 @@ class Caches internal constructor(internal val apiClient: ApiClient) {
 
     return sdkResponse.copy(
       sdkHttpResponse = HttpResponse(body = responseString, headers = headersMap)
+    )
+  }
+
+  /**
+   * Makes an API request to list cachedContents.
+   *
+   * @param config A [ListCachedContentsConfig] for configuring the list request.
+   * @return A [Pager] of [CachedContent] objects.
+   */
+  fun list(config: ListCachedContentsConfig? = null): Pager<CachedContent> {
+    val initialConfig = config ?: ListCachedContentsConfig()
+    return Pager<CachedContent>(
+      name = "cached_contents",
+      pageSize = initialConfig.pageSize,
+      request = { pageToken ->
+        val cfg =
+          if (pageToken != null) initialConfig.copy(pageToken = pageToken) else initialConfig
+        val resp = privateList(config = cfg)
+        Triple(resp.cachedContents, resp.nextPageToken, resp.sdkHttpResponse)
+      },
     )
   }
 }

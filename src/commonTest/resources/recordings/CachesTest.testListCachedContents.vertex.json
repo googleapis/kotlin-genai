@@ -1,0 +1,331 @@
+{
+  "recordID": "CachesTest.testListCachedContents.vertex",
+  "interactions": [
+    {
+      "request": {
+        "method": "GET",
+        "url": "/v1beta1/projects/REDACTED/locations/global/cachedContents?pageSize=1",
+        "request": "GET /v1beta1/projects/REDACTED/locations/global/cachedContents?pageSize=1 HTTP/1.1",
+        "headers": {
+          "Accept": "*/*",
+          "Accept-Charset": "UTF-8",
+          "Accept-Encoding": "gzip",
+          "Connection": "Keep-Alive",
+          "Content-Type": "application/json",
+          "Test-Name": "CachesTest.testListCachedContents.vertex"
+        },
+        "bodySegments": [
+          null
+        ],
+        "previousRequest": "b4d6e60a9b97e7b98c63df9308728c5c88c0b40c398046772c63447b94608b4d",
+        "serverAddress": "aiplatform.googleapis.com",
+        "port": 443,
+        "protocol": "https"
+      },
+      "shaSum": "896cde78201383005f3cc748576e70448fe03d606ef6d0c22afb8cc70fc0ca08",
+      "response": {
+        "statusCode": 200,
+        "headers": {
+          "Content-Encoding": "gzip",
+          "Content-Length": "373",
+          "Content-Type": "application/json; charset=UTF-8",
+          "Date": "Wed, 15 Jul 2026 18:20:16 GMT",
+          "Server": "ESF",
+          "Vary": "Origin, X-Origin, Referer",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "SAMEORIGIN",
+          "X-Xss-Protection": "0"
+        },
+        "bodySegments": [
+          {
+            "cachedContents": [
+              {
+                "createTime": "2026-07-15T18:19:48.167068Z",
+                "expireTime": "2026-07-16T18:19:48.136478Z",
+                "model": "projects/REDACTED/locations/global/publishers/google/models/gemini-3.5-flash",
+                "name": "projects/REDACTED/locations/global/cachedContents/5045613857196736512",
+                "updateTime": "2026-07-15T18:19:48.167068Z",
+                "usageMetadata": {
+                  "totalTokenCount": 50001
+                }
+              }
+            ],
+            "nextPageToken": "AMEw9yON9GwcH_rRczxOwNj3YQ_8DcLd_u3Arkf1GI_-FHOeNQJosds9hN0Ln1wKDOVzYBA3lPbPHIbrrWZJhidlXXJddb5_MXZFEqw3fuAJXvF6YLw="
+          }
+        ]
+      }
+    },
+    {
+      "request": {
+        "method": "GET",
+        "url": "/v1beta1/projects/REDACTED/locations/global/cachedContents?pageSize=1\u0026pageToken=AMEw9yON9GwcH_rRczxOwNj3YQ_8DcLd_u3Arkf1GI_-FHOeNQJosds9hN0Ln1wKDOVzYBA3lPbPHIbrrWZJhidlXXJddb5_MXZFEqw3fuAJXvF6YLw=",
+        "request": "GET /v1beta1/projects/REDACTED/locations/global/cachedContents?pageSize=1\u0026pageToken=AMEw9yON9GwcH_rRczxOwNj3YQ_8DcLd_u3Arkf1GI_-FHOeNQJosds9hN0Ln1wKDOVzYBA3lPbPHIbrrWZJhidlXXJddb5_MXZFEqw3fuAJXvF6YLw= HTTP/1.1",
+        "headers": {
+          "Accept": "*/*",
+          "Accept-Charset": "UTF-8",
+          "Accept-Encoding": "gzip",
+          "Connection": "Keep-Alive",
+          "Content-Type": "application/json",
+          "Test-Name": "CachesTest.testListCachedContents.vertex"
+        },
+        "bodySegments": [
+          null
+        ],
+        "previousRequest": "896cde78201383005f3cc748576e70448fe03d606ef6d0c22afb8cc70fc0ca08",
+        "serverAddress": "aiplatform.googleapis.com",
+        "port": 443,
+        "protocol": "https"
+      },
+      "shaSum": "c110747d6d86e092c7b055fdc7f4bad80b03bbb8d1cc20c7e34ecad731855b77",
+      "response": {
+        "statusCode": 200,
+        "headers": {
+          "Content-Encoding": "gzip",
+          "Content-Length": "368",
+          "Content-Type": "application/json; charset=UTF-8",
+          "Date": "Wed, 15 Jul 2026 18:20:16 GMT",
+          "Server": "ESF",
+          "Vary": "Origin, X-Origin, Referer",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "SAMEORIGIN",
+          "X-Xss-Protection": "0"
+        },
+        "bodySegments": [
+          {
+            "cachedContents": [
+              {
+                "createTime": "2026-07-15T18:19:45.396928Z",
+                "expireTime": "2026-07-16T18:19:45.368229Z",
+                "model": "projects/REDACTED/locations/global/publishers/google/models/gemini-3.5-flash",
+                "name": "projects/REDACTED/locations/global/cachedContents/9131504619128619008",
+                "updateTime": "2026-07-15T18:19:45.396928Z",
+                "usageMetadata": {
+                  "totalTokenCount": 50001
+                }
+              }
+            ],
+            "nextPageToken": "AMEw9yOwayQE-gafML3QVdMZMKJqfUOiIPHMgN-oVIeMArXuWEbU3EsvDOnknQmvzPUoXs6sJul8NIniVNqhLWZd8pviQv8Cx_KxdPgT0CmiC1j5LiQZ"
+          }
+        ]
+      }
+    },
+    {
+      "request": {
+        "method": "GET",
+        "url": "/v1beta1/projects/REDACTED/locations/global/cachedContents?pageSize=1\u0026pageToken=AMEw9yOwayQE-gafML3QVdMZMKJqfUOiIPHMgN-oVIeMArXuWEbU3EsvDOnknQmvzPUoXs6sJul8NIniVNqhLWZd8pviQv8Cx_KxdPgT0CmiC1j5LiQZ",
+        "request": "GET /v1beta1/projects/REDACTED/locations/global/cachedContents?pageSize=1\u0026pageToken=AMEw9yOwayQE-gafML3QVdMZMKJqfUOiIPHMgN-oVIeMArXuWEbU3EsvDOnknQmvzPUoXs6sJul8NIniVNqhLWZd8pviQv8Cx_KxdPgT0CmiC1j5LiQZ HTTP/1.1",
+        "headers": {
+          "Accept": "*/*",
+          "Accept-Charset": "UTF-8",
+          "Accept-Encoding": "gzip",
+          "Connection": "Keep-Alive",
+          "Content-Type": "application/json",
+          "Test-Name": "CachesTest.testListCachedContents.vertex"
+        },
+        "bodySegments": [
+          null
+        ],
+        "previousRequest": "c110747d6d86e092c7b055fdc7f4bad80b03bbb8d1cc20c7e34ecad731855b77",
+        "serverAddress": "aiplatform.googleapis.com",
+        "port": 443,
+        "protocol": "https"
+      },
+      "shaSum": "acacc8fb2e243858a92e1f870989024286ac2e47907bc25d1828d0c466bfd3d5",
+      "response": {
+        "statusCode": 200,
+        "headers": {
+          "Content-Encoding": "gzip",
+          "Content-Length": "307",
+          "Content-Type": "application/json; charset=UTF-8",
+          "Date": "Wed, 15 Jul 2026 18:20:16 GMT",
+          "Server": "ESF",
+          "Vary": "Origin, X-Origin, Referer",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "SAMEORIGIN",
+          "X-Xss-Protection": "0"
+        },
+        "bodySegments": [
+          {
+            "cachedContents": [
+              {
+                "createTime": "2026-03-19T08:04:10.264295Z",
+                "displayName": "combined_cache_all_three",
+                "expireTime": "9999-12-31T00:00:00Z",
+                "model": "projects/cloud-llm-preview1/locations/global/publishers/google/models/gemini-3.1-pro-preview",
+                "name": "projects/REDACTED/locations/global/cachedContents/3982164690393366528",
+                "updateTime": "2026-03-19T08:04:10.264295Z",
+                "usageMetadata": {
+                  "textCount": 5067,
+                  "totalTokenCount": 1509
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "request": {
+        "method": "GET",
+        "url": "/v1beta1/projects/REDACTED/locations/global/cachedContents?pageSize=1",
+        "request": "GET /v1beta1/projects/REDACTED/locations/global/cachedContents?pageSize=1 HTTP/1.1",
+        "headers": {
+          "Accept": "*/*",
+          "Accept-Charset": "UTF-8",
+          "Accept-Encoding": "gzip",
+          "Connection": "Keep-Alive",
+          "Content-Type": "application/json",
+          "Test-Name": "CachesTest.testListCachedContents.vertex"
+        },
+        "bodySegments": [
+          null
+        ],
+        "previousRequest": "acacc8fb2e243858a92e1f870989024286ac2e47907bc25d1828d0c466bfd3d5",
+        "serverAddress": "aiplatform.googleapis.com",
+        "port": 443,
+        "protocol": "https"
+      },
+      "shaSum": "3d9c682574982e555c2d0348480ec67bbc3f937cafa87a5d4e4855d17457f9ea",
+      "response": {
+        "statusCode": 200,
+        "headers": {
+          "Content-Encoding": "gzip",
+          "Content-Length": "369",
+          "Content-Type": "application/json; charset=UTF-8",
+          "Date": "Wed, 15 Jul 2026 18:20:17 GMT",
+          "Server": "ESF",
+          "Vary": "Origin, X-Origin, Referer",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "SAMEORIGIN",
+          "X-Xss-Protection": "0"
+        },
+        "bodySegments": [
+          {
+            "cachedContents": [
+              {
+                "createTime": "2026-07-15T18:19:48.167068Z",
+                "expireTime": "2026-07-16T18:19:48.136478Z",
+                "model": "projects/REDACTED/locations/global/publishers/google/models/gemini-3.5-flash",
+                "name": "projects/REDACTED/locations/global/cachedContents/5045613857196736512",
+                "updateTime": "2026-07-15T18:19:48.167068Z",
+                "usageMetadata": {
+                  "totalTokenCount": 50001
+                }
+              }
+            ],
+            "nextPageToken": "AMEw9yMj6RqkavutpKeDTFksFTZx1EIRuf7VHYcchjLxOazQeUOy3AnKHnxDODwx1lPtZ-hp6dzaouWWgMpFZpRx2lgoebb2ZSRaRc2EfVO9_hiEuVA="
+          }
+        ]
+      }
+    },
+    {
+      "request": {
+        "method": "GET",
+        "url": "/v1beta1/projects/REDACTED/locations/global/cachedContents?pageSize=1\u0026pageToken=AMEw9yMj6RqkavutpKeDTFksFTZx1EIRuf7VHYcchjLxOazQeUOy3AnKHnxDODwx1lPtZ-hp6dzaouWWgMpFZpRx2lgoebb2ZSRaRc2EfVO9_hiEuVA=",
+        "request": "GET /v1beta1/projects/REDACTED/locations/global/cachedContents?pageSize=1\u0026pageToken=AMEw9yMj6RqkavutpKeDTFksFTZx1EIRuf7VHYcchjLxOazQeUOy3AnKHnxDODwx1lPtZ-hp6dzaouWWgMpFZpRx2lgoebb2ZSRaRc2EfVO9_hiEuVA= HTTP/1.1",
+        "headers": {
+          "Accept": "*/*",
+          "Accept-Charset": "UTF-8",
+          "Accept-Encoding": "gzip",
+          "Connection": "Keep-Alive",
+          "Content-Type": "application/json",
+          "Test-Name": "CachesTest.testListCachedContents.vertex"
+        },
+        "bodySegments": [
+          null
+        ],
+        "previousRequest": "3d9c682574982e555c2d0348480ec67bbc3f937cafa87a5d4e4855d17457f9ea",
+        "serverAddress": "aiplatform.googleapis.com",
+        "port": 443,
+        "protocol": "https"
+      },
+      "shaSum": "d7b095a7f9ee91a572f2b7c7908043446b024e0cdfad273e2813a9bf37be78c0",
+      "response": {
+        "statusCode": 200,
+        "headers": {
+          "Content-Encoding": "gzip",
+          "Content-Length": "367",
+          "Content-Type": "application/json; charset=UTF-8",
+          "Date": "Wed, 15 Jul 2026 18:20:17 GMT",
+          "Server": "ESF",
+          "Vary": "Origin, X-Origin, Referer",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "SAMEORIGIN",
+          "X-Xss-Protection": "0"
+        },
+        "bodySegments": [
+          {
+            "cachedContents": [
+              {
+                "createTime": "2026-07-15T18:19:45.396928Z",
+                "expireTime": "2026-07-16T18:19:45.368229Z",
+                "model": "projects/REDACTED/locations/global/publishers/google/models/gemini-3.5-flash",
+                "name": "projects/REDACTED/locations/global/cachedContents/9131504619128619008",
+                "updateTime": "2026-07-15T18:19:45.396928Z",
+                "usageMetadata": {
+                  "totalTokenCount": 50001
+                }
+              }
+            ],
+            "nextPageToken": "AMEw9yMVHOpHu7JAmb0PoEOGaQngM2wapmXfmEYzDFHSwkpcOxADQysLtfutXDiH6zqR8LDaqbdex9AewQlNEfjZiVyuxZfnwqgyf8H5-TyZfoaky0Rc"
+          }
+        ]
+      }
+    },
+    {
+      "request": {
+        "method": "GET",
+        "url": "/v1beta1/projects/REDACTED/locations/global/cachedContents?pageSize=1\u0026pageToken=AMEw9yMVHOpHu7JAmb0PoEOGaQngM2wapmXfmEYzDFHSwkpcOxADQysLtfutXDiH6zqR8LDaqbdex9AewQlNEfjZiVyuxZfnwqgyf8H5-TyZfoaky0Rc",
+        "request": "GET /v1beta1/projects/REDACTED/locations/global/cachedContents?pageSize=1\u0026pageToken=AMEw9yMVHOpHu7JAmb0PoEOGaQngM2wapmXfmEYzDFHSwkpcOxADQysLtfutXDiH6zqR8LDaqbdex9AewQlNEfjZiVyuxZfnwqgyf8H5-TyZfoaky0Rc HTTP/1.1",
+        "headers": {
+          "Accept": "*/*",
+          "Accept-Charset": "UTF-8",
+          "Accept-Encoding": "gzip",
+          "Connection": "Keep-Alive",
+          "Content-Type": "application/json",
+          "Test-Name": "CachesTest.testListCachedContents.vertex"
+        },
+        "bodySegments": [
+          null
+        ],
+        "previousRequest": "d7b095a7f9ee91a572f2b7c7908043446b024e0cdfad273e2813a9bf37be78c0",
+        "serverAddress": "aiplatform.googleapis.com",
+        "port": 443,
+        "protocol": "https"
+      },
+      "shaSum": "1318528afc78eb511df60f7b21031e170a8a5eb3a0767a6b7f0a90a2c1096a0e",
+      "response": {
+        "statusCode": 200,
+        "headers": {
+          "Content-Encoding": "gzip",
+          "Content-Length": "307",
+          "Content-Type": "application/json; charset=UTF-8",
+          "Date": "Wed, 15 Jul 2026 18:20:17 GMT",
+          "Server": "ESF",
+          "Vary": "Origin, X-Origin, Referer",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "SAMEORIGIN",
+          "X-Xss-Protection": "0"
+        },
+        "bodySegments": [
+          {
+            "cachedContents": [
+              {
+                "createTime": "2026-03-19T08:04:10.264295Z",
+                "displayName": "combined_cache_all_three",
+                "expireTime": "9999-12-31T00:00:00Z",
+                "model": "projects/cloud-llm-preview1/locations/global/publishers/google/models/gemini-3.1-pro-preview",
+                "name": "projects/REDACTED/locations/global/cachedContents/3982164690393366528",
+                "updateTime": "2026-03-19T08:04:10.264295Z",
+                "usageMetadata": {
+                  "textCount": 5067,
+                  "totalTokenCount": 1509
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

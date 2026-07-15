@@ -20,10 +20,16 @@ import com.google.genai.kotlin.types.Blob
 import com.google.genai.kotlin.types.Content
 import com.google.genai.kotlin.types.CreateCachedContentConfig
 import com.google.genai.kotlin.types.FileData
+import com.google.genai.kotlin.Page
+import com.google.genai.kotlin.types.CachedContent
+import com.google.genai.kotlin.types.ListCachedContentsConfig
 import com.google.genai.kotlin.types.Part
 import com.google.genai.kotlin.types.UpdateCachedContentConfig
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.toList
 import kotlin.test.Test
 import kotlin.test.assertEquals
+import kotlin.test.assertNotNull
 import kotlin.test.assertTrue
 import kotlin.time.Duration.Companion.seconds
 import kotlinx.coroutines.test.TestScope
@@ -218,6 +224,37 @@ class CachesTest : BaseTestServer() {
       val name = if (enterprise) VERTEX_CACHED_CONTENT_NAME else MLDEV_CACHED_CONTENT_NAME
 
       client.caches.delete(name = name)
+    }
+  }
+
+  @Test
+  fun testListCachedContents() = runTest {
+    listOf(false, true).forEach { enterprise ->
+      val suffix = if (enterprise) "vertex" else "mldev"
+      val testName = "CachesTest.testListCachedContents.$suffix"
+
+      val client = createClient(enterprise, testName)
+
+      val allCaches = mutableListOf<CachedContent>()
+      client.caches.list(ListCachedContentsConfig(pageSize = 1)).collect {
+        allCaches.add(it)
+      }
+
+      val pages = mutableListOf<Page<CachedContent>>()
+      client.caches.list(ListCachedContentsConfig(pageSize = 1)).byPage().collect { page ->
+        pages.add(page)
+      }
+
+      if (!enterprise) {
+        assertTrue(allCaches.size >= 2)
+        assertTrue(pages.size >= 2)
+        assertNotNull(pages[0].nextPageToken)
+        assertTrue(pages[0].nextPageToken!!.isNotEmpty())
+      }
+
+      if (pages.isNotEmpty()) {
+        assertTrue(pages.last().nextPageToken.isNullOrEmpty())
+      }
     }
   }
 }

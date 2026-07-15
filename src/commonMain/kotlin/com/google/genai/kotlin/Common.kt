@@ -32,9 +32,11 @@ import kotlinx.serialization.json.longOrNull
 /** Common utility methods for the GenAI SDK. */
 internal object Common {
 
+  @Suppress("OPT_IN_USAGE")
   val JSON = Json {
     ignoreUnknownKeys = true
     explicitNulls = false
+    allowSpecialFloatingPointValues = true
   }
 
   /**

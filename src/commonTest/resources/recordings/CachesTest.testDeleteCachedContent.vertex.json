@@ -11,19 +11,18 @@
           "Accept-Charset": "UTF-8",
           "Accept-Encoding": "gzip",
           "Connection": "Keep-Alive",
-          "Content-Length": "2",
           "Content-Type": "application/json",
           "Test-Name": "CachesTest.testDeleteCachedContent.vertex"
         },
         "bodySegments": [
-          {}
+          null
         ],
         "previousRequest": "b4d6e60a9b97e7b98c63df9308728c5c88c0b40c398046772c63447b94608b4d",
         "serverAddress": "aiplatform.googleapis.com",
         "port": 443,
         "protocol": "https"
       },
-      "shaSum": "68cf70a03ae029068abeca24e44861351f511b10e2e54f75891e26b54de74afb",
+      "shaSum": "9bb58f799942774985d21e90f700ac9889fdf572d4706d4a7f04b862455b3d74",
       "response": {
         "statusCode": 200,
         "headers": {

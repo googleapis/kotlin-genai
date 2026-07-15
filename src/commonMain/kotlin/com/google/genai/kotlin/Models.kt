@@ -3246,7 +3246,8 @@ class Models internal constructor(internal val apiClient: ApiClient) {
     }
 
     val queryParams = body["_query"] as? Map<String, Any?>
-    val finalBody = Common.mapToJsonObject(body.filterKeys { it != "_url" && it != "_query" })
+    val filteredBody = body.filterKeys { it != "_url" && it != "_query" }
+    val finalBody = if (filteredBody.isEmpty()) null else Common.mapToJsonObject(filteredBody)
 
     if (queryParams != null) {
       val queryString =
@@ -3313,7 +3314,8 @@ class Models internal constructor(internal val apiClient: ApiClient) {
     }
 
     val queryParams = body["_query"] as? Map<String, Any?>
-    val finalBody = Common.mapToJsonObject(body.filterKeys { it != "_url" && it != "_query" })
+    val filteredBody = body.filterKeys { it != "_url" && it != "_query" }
+    val finalBody = if (filteredBody.isEmpty()) null else Common.mapToJsonObject(filteredBody)
 
     if (queryParams != null) {
       val queryString =
@@ -3367,7 +3369,8 @@ class Models internal constructor(internal val apiClient: ApiClient) {
     }
 
     val queryParams = body["_query"] as? Map<String, Any?>
-    val finalBody = Common.mapToJsonObject(body.filterKeys { it != "_url" && it != "_query" })
+    val filteredBody = body.filterKeys { it != "_url" && it != "_query" }
+    val finalBody = if (filteredBody.isEmpty()) null else Common.mapToJsonObject(filteredBody)
 
     if (queryParams != null) {
       val queryString =
@@ -3428,7 +3431,8 @@ class Models internal constructor(internal val apiClient: ApiClient) {
     }
 
     val queryParams = body["_query"] as? Map<String, Any?>
-    val finalBody = Common.mapToJsonObject(body.filterKeys { it != "_url" && it != "_query" })
+    val filteredBody = body.filterKeys { it != "_url" && it != "_query" }
+    val finalBody = if (filteredBody.isEmpty()) null else Common.mapToJsonObject(filteredBody)
 
     if (queryParams != null) {
       val queryString =
@@ -3492,7 +3496,8 @@ class Models internal constructor(internal val apiClient: ApiClient) {
     }
 
     val queryParams = body["_query"] as? Map<String, Any?>
-    val finalBody = Common.mapToJsonObject(body.filterKeys { it != "_url" && it != "_query" })
+    val filteredBody = body.filterKeys { it != "_url" && it != "_query" }
+    val finalBody = if (filteredBody.isEmpty()) null else Common.mapToJsonObject(filteredBody)
 
     if (queryParams != null) {
       val queryString =
