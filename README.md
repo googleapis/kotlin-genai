@@ -349,6 +349,50 @@ fun main() = runBlocking {
 }
 ```
 
+### Tunings
+
+The SDK provides methods for creating and managing fine-tuned models. Tunings are only supported in the Gemini Enterprise Agent Platform API.
+
+```kotlin
+import com.google.genai.kotlin.Client
+import com.google.genai.kotlin.types.CreateTuningJobConfig
+import com.google.genai.kotlin.types.TuningDataset
+import kotlinx.coroutines.runBlocking
+
+fun main() = runBlocking {
+    Client(
+        project = "your-project-id",
+        location = "us-central1",
+        enterprise = true
+    ).use { client ->
+        // Create a tuning job
+        val tuningJob = client.tunings.tune(
+            baseModel = "gemini-3.5-flash",
+            trainingDataset = TuningDataset(
+                gcsUri = "gs://your-bucket/training-data.jsonl"
+            ),
+            config = CreateTuningJobConfig(
+                tunedModelDisplayName = "my-tuned-model"
+            )
+        )
+        println("Tuning job created: ${tuningJob.name}")
+
+        // Get a tuning job
+        val fetchedJob = client.tunings.get(name = tuningJob.name!!)
+        println("Job state: ${fetchedJob.state}")
+
+        // List tuning jobs
+        val jobs = client.tunings.list()
+        jobs.collect { job ->
+            println("Found job: ${job.name}")
+        }
+
+        // Cancel a tuning job
+        client.tunings.cancel(name = tuningJob.name!!)
+    }
+}
+```
+
 ### Count and Compute Tokens
 
 You can count the number of tokens in a prompt before sending it to the model.
