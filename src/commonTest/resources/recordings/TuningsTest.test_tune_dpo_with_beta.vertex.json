@@ -1,0 +1,70 @@
+{
+  "recordID": "TuningsTest.test_tune_dpo_with_beta.vertex",
+  "interactions": [
+    {
+      "request": {
+        "method": "POST",
+        "url": "/v1beta1/projects/REDACTED/locations/us-central1/tuningJobs",
+        "request": "POST /v1beta1/projects/REDACTED/locations/us-central1/tuningJobs HTTP/1.1",
+        "headers": {
+          "Accept": "*/*",
+          "Accept-Charset": "UTF-8",
+          "Accept-Encoding": "gzip",
+          "Connection": "Keep-Alive",
+          "Content-Length": "264",
+          "Content-Type": "application/json",
+          "Test-Name": "TuningsTest.test_tune_dpo_with_beta.vertex"
+        },
+        "bodySegments": [
+          {
+            "baseModel": "gemini-2.5-flash",
+            "preferenceOptimizationSpec": {
+              "hyperParameters": {
+                "beta": 0.5,
+                "epochCount": 1
+              },
+              "trainingDatasetUri": "gs://cloud-samples-data/ai-platform/generative_ai/gemini-1_5/text/sft_train_data.jsonl"
+            },
+            "tunedModelDisplayName": "Model display name"
+          }
+        ],
+        "previousRequest": "b4d6e60a9b97e7b98c63df9308728c5c88c0b40c398046772c63447b94608b4d",
+        "serverAddress": "us-central1-aiplatform.googleapis.com",
+        "port": 443,
+        "protocol": "https"
+      },
+      "shaSum": "b989c3b32af0f7bbaa8251d026a1f603bd488d40c61199c4f9249900f9ad8650",
+      "response": {
+        "statusCode": 200,
+        "headers": {
+          "Content-Encoding": "gzip",
+          "Content-Length": "354",
+          "Content-Type": "application/json; charset=UTF-8",
+          "Date": "Wed, 08 Jul 2026 21:06:36 GMT",
+          "Server": "ESF",
+          "Vary": "Origin, X-Origin, Referer",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "SAMEORIGIN",
+          "X-Xss-Protection": "0"
+        },
+        "bodySegments": [
+          {
+            "baseModel": "gemini-2.5-flash",
+            "createTime": "2026-07-08T21:06:36.274097Z",
+            "name": "projects/801452371447/locations/us-central1/tuningJobs/7706437975009132544",
+            "preferenceOptimizationSpec": {
+              "hyperParameters": {
+                "beta": 0.5,
+                "epochCount": "1"
+              },
+              "trainingDatasetUri": "gs://cloud-samples-data/ai-platform/generative_ai/gemini-1_5/text/sft_train_data.jsonl"
+            },
+            "state": "JOB_STATE_PENDING",
+            "tunedModelDisplayName": "Model display name",
+            "updateTime": "2026-07-08T21:06:36.274097Z"
+          }
+        ]
+      }
+    }
+  ]
+}

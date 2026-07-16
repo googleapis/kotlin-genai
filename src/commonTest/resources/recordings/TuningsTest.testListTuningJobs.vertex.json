@@ -1,0 +1,2031 @@
+{
+  "recordID": "TuningsTest.testListTuningJobs.vertex",
+  "interactions": [
+    {
+      "request": {
+        "method": "GET",
+        "url": "/v1beta1/projects/REDACTED/locations/us-central1/tuningJobs?pageSize=10",
+        "request": "GET /v1beta1/projects/REDACTED/locations/us-central1/tuningJobs?pageSize=10 HTTP/1.1",
+        "headers": {
+          "Accept": "*/*",
+          "Accept-Charset": "UTF-8",
+          "Accept-Encoding": "gzip",
+          "Connection": "Keep-Alive",
+          "Content-Type": "application/json",
+          "Test-Name": "TuningsTest.testListTuningJobs.vertex"
+        },
+        "bodySegments": [
+          null
+        ],
+        "previousRequest": "b4d6e60a9b97e7b98c63df9308728c5c88c0b40c398046772c63447b94608b4d",
+        "serverAddress": "us-central1-aiplatform.googleapis.com",
+        "port": 443,
+        "protocol": "https"
+      },
+      "shaSum": "fc968731f85bc8e0e2640cb77dc1406ec9f30622f62b79e8112a6241a245d7a2",
+      "response": {
+        "statusCode": 200,
+        "headers": {
+          "Content-Encoding": "gzip",
+          "Content-Length": "6960",
+          "Content-Type": "application/json; charset=UTF-8",
+          "Date": "Mon, 13 Jul 2026 20:12:29 GMT",
+          "Server": "ESF",
+          "Vary": "Origin, X-Origin, Referer",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "SAMEORIGIN",
+          "X-Xss-Protection": "0"
+        },
+        "bodySegments": [
+          {
+            "nextPageToken": "AMEw9yMTKWymA9Rx3vo4paSr6-tskWpV_3klGTS0Ppve50_VoaJ_GHACE2fo6mwADSN8mJWyZ0NOMlwK3PM-iZD6lju9hKeh5zahfA==",
+            "tuningJobs": [
+              {
+                "baseModel": "gemini-3.5-flash",
+                "createTime": "2026-07-13T19:15:56.925603Z",
+                "experiment": "projects/801452371447/locations/us-central1/metadataStores/default/contexts/tuning-experiment-20260713121620934770",
+                "name": "projects/801452371447/locations/us-central1/tuningJobs/3156423563783700480",
+                "reinforcementTuningSpec": {
+                  "compositeRewardConfig": {
+                    "weightedRewardConfigs": [
+                      {
+                        "rewardConfig": {
+                          "parseResponseConfig": {
+                            "parseType": "REGEX_EXTRACT",
+                            "regexExtractExpression": "\u003cthink\u003e.*\u003c/think\u003e\\s*\u003canswer\u003e(.*?)\u003c/answer\u003e"
+                          },
+                          "rewardName": "binary_format",
+                          "stringMatchRewardScorer": {
+                            "correctAnswerReward": 1,
+                            "stringMatchExpression": {
+                              "expression": "(?:0|1)",
+                              "matchOperation": "REGEX_CONTAINS"
+                            },
+                            "wrongAnswerReward": -1
+                          }
+                        },
+                        "weight": 1
+                      },
+                      {
+                        "rewardConfig": {
+                          "parseResponseConfig": {
+                            "parseType": "REGEX_EXTRACT",
+                            "regexExtractExpression": "\u003canswer\u003e(.*?)\u003c/answer\u003e"
+                          },
+                          "rewardName": "binary_ans",
+                          "stringMatchRewardScorer": {
+                            "correctAnswerReward": 1,
+                            "stringMatchExpression": {
+                              "expression": "{{references.reference}}",
+                              "matchOperation": "EXACT_MATCH"
+                            },
+                            "wrongAnswerReward": -1
+                          }
+                        },
+                        "weight": 1
+                      }
+                    ]
+                  },
+                  "hyperParameters": {
+                    "adapterSize": "ADAPTER_SIZE_FOUR",
+                    "batchSize": 8,
+                    "checkpointInterval": 50,
+                    "epochCount": "4",
+                    "evaluateInterval": 10,
+                    "learningRateMultiplier": 1,
+                    "maxOutputTokens": 32768,
+                    "samplesPerPrompt": 8,
+                    "thinkingLevel": "HIGH"
+                  },
+                  "trainingDatasetUri": "gs://camera-motion-data-llm-preview1-260612/cam_control_sft_data/concatenated_veo_omni_cambench_train_data_Gemini_3.5_Flash___NO_CAT___high_THK_PMPT_V2_MOT_EXP_V2_EXP_CATS_STRICT_OF_TEXT_IRES=LOW_no_gc___SC_no_scene_change.jsonl",
+                  "validationDatasetUri": "gs://camera-motion-data-llm-preview1-260612/cam_control_sft_data/concatenated_veo_omni_cambench_test_data_Gemini_3.5_Flash___NO_CAT___high_THK_PMPT_V2_MOT_EXP_V2_EXP_CATS_STRICT_OF_TEXT_IRES=LOW_no_gc___SC_no_scene_change.jsonl"
+                },
+                "startTime": "2026-07-13T19:15:57.157852Z",
+                "state": "JOB_STATE_RUNNING",
+                "tunedModel": {
+                  "model": "projects/801452371447/locations/us/models/8308578362545143808@1"
+                },
+                "tunedModelDisplayName": "cam_motion_all_data_v2_pmpt_rl_of_text_fps_1_r1_no_sc_g35f",
+                "tuningDataStats": {
+                  "reinforcementTuningDataStats": {
+                    "contentsPerExampleDistribution": {
+                      "buckets": [
+                        {
+                          "count": "2382",
+                          "left": 1,
+                          "right": 1
+                        }
+                      ],
+                      "max": 1,
+                      "mean": 1,
+                      "median": 1,
+                      "min": 1,
+                      "p5": 1,
+                      "p95": 1,
+                      "sum": 2382
+                    },
+                    "reinforcementTuningUserDatasetExamples": {
+                      "userDatasetExamples": [
+                        {
+                          "contents": [
+                            {
+                              "parts": [
+                                {
+                                  "text": "\n\n[Optical Flow Textual Analysis]: Below is an automated 3x3 grid motion summary sampled at 2.0 FPS.\n\n--- Time interval: 0.0s to 1.0s ---\n  Top-Left: Magnitude 0.4 px, Dominant Direction NONE\n  Top-Center: Magnitude 1.0 px, Dominant Direction NONE\n  Top-Right: Magnitude 1.1 px, Dominant Direction DOWN-LEFT\n  Center-Left: Magnitude 2.4 px, Dominant Direction DOWN\n  Center: Magnitude 2.0 px, Domi..."
+                                }
+                              ],
+                              "role": "user"
+                            }
+                          ],
+                          "references": {
+                            "reference": "0"
+                          }
+                        },
+                        {
+                          "contents": [
+                            {
+                              "parts": [
+                                {
+                                  "text": "\n\n[Optical Flow Textual Analysis]: Below is an automated 3x3 grid motion summary sampled at 2.0 FPS.\n\n--- Time interval: 0.0s to 1.0s ---\n  Top-Left: Magnitude 6.3 px, Dominant Direction LEFT\n  Top-Center: Magnitude 3.3 px, Dominant Direction LEFT\n  Top-Right: Magnitude 7.6 px, Dominant Direction LEFT\n  Center-Left: Magnitude 5.5 px, Dominant Direction LEFT\n  Center: Magnitude 5.2 px, Dominant ..."
+                                }
+                              ],
+                              "role": "user"
+                            }
+                          ],
+                          "references": {
+                            "reference": "1"
+                          }
+                        },
+                        {
+                          "contents": [
+                            {
+                              "parts": [
+                                {
+                                  "text": "\n\n[Optical Flow Textual Analysis]: Below is an automated 3x3 grid motion summary sampled at 2.0 FPS.\n\n--- Time interval: 0.0s to 1.0s ---\n  Top-Left: Magnitude 0.0 px, Dominant Direction NONE\n  Top-Center: Magnitude 6.8 px, Dominant Direction DOWN-LEFT\n  Top-Right: Magnitude 2.0 px, Dominant Direction DOWN-LEFT\n  Center-Left: Magnitude 0.3 px, Dominant Direction NONE\n  Center: Magnitude 3.4 px,..."
+                                }
+                              ],
+                              "role": "user"
+                            }
+                          ],
+                          "references": {
+                            "reference": "0"
+                          }
+                        }
+                      ]
+                    },
+                    "tuningDatasetExampleCount": "2382",
+                    "userInputTokenDistribution": {
+                      "buckets": [
+                        {
+                          "count": "1066",
+                          "left": 2220,
+                          "right": 4311
+                        },
+                        {
+                          "count": "999",
+                          "left": 4312,
+                          "right": 6402
+                        },
+                        {
+                          "count": "300",
+                          "left": 6403,
+                          "right": 8494
+                        },
+                        {
+                          "count": "7",
+                          "left": 8495,
+                          "right": 10585
+                        },
+                        {
+                          "count": "5",
+                          "left": 10586,
+                          "right": 12677
+                        },
+                        {
+                          "count": "5",
+                          "left": 12678,
+                          "right": 14768
+                        }
+                      ],
+                      "max": 14768,
+                      "mean": 4653.476070528967,
+                      "median": 5469,
+                      "min": 2220,
+                      "p5": 2501,
+                      "p95": 6474,
+                      "sum": 11084580
+                    }
+                  }
+                },
+                "updateTime": "2026-07-13T20:12:21.493183Z"
+              },
+              {
+                "baseModel": "gemini-3.5-flash",
+                "createTime": "2026-07-13T19:24:05.632585Z",
+                "experiment": "projects/801452371447/locations/us-central1/metadataStores/default/contexts/tuning-experiment-20260713122429316229",
+                "name": "projects/801452371447/locations/us-central1/tuningJobs/1255341571079929856",
+                "reinforcementTuningSpec": {
+                  "compositeRewardConfig": {
+                    "weightedRewardConfigs": [
+                      {
+                        "rewardConfig": {
+                          "parseResponseConfig": {
+                            "parseType": "REGEX_EXTRACT",
+                            "regexExtractExpression": "\u003cthink\u003e.*\u003c/think\u003e\\s*\u003canswer\u003e(.*?)\u003c/answer\u003e"
+                          },
+                          "rewardName": "binary_format",
+                          "stringMatchRewardScorer": {
+                            "correctAnswerReward": 1,
+                            "stringMatchExpression": {
+                              "expression": "(?:0|1)",
+                              "matchOperation": "REGEX_CONTAINS"
+                            },
+                            "wrongAnswerReward": -1
+                          }
+                        },
+                        "weight": 1
+                      },
+                      {
+                        "rewardConfig": {
+                          "parseResponseConfig": {
+                            "parseType": "REGEX_EXTRACT",
+                            "regexExtractExpression": "\u003canswer\u003e(.*?)\u003c/answer\u003e"
+                          },
+                          "rewardName": "binary_ans",
+                          "stringMatchRewardScorer": {
+                            "correctAnswerReward": 1,
+                            "stringMatchExpression": {
+                              "expression": "{{references.reference}}",
+                              "matchOperation": "EXACT_MATCH"
+                            },
+                            "wrongAnswerReward": -1
+                          }
+                        },
+                        "weight": 1
+                      }
+                    ]
+                  },
+                  "hyperParameters": {
+                    "adapterSize": "ADAPTER_SIZE_FOUR",
+                    "batchSize": 8,
+                    "checkpointInterval": 50,
+                    "epochCount": "4",
+                    "evaluateInterval": 10,
+                    "learningRateMultiplier": 1,
+                    "maxOutputTokens": 32768,
+                    "samplesPerPrompt": 8,
+                    "thinkingLevel": "HIGH"
+                  },
+                  "trainingDatasetUri": "gs://camera-motion-data-llm-preview1-260612/cam_control_sft_data/concatenated_cambench_train_data_Gemini_3.5_Flash___NO_CAT___THK_PMPT_V2_MOT_EXP_V2_EXP_CATS_OF_TEXT_IRES=LOW_SLOW_VID_AUG_PM_no_gc___FPS=2.0___SC_no_scene_change.jsonl",
+                  "validationDatasetUri": "gs://camera-motion-data-llm-preview1-260612/cam_control_sft_data/concatenated_cambench_test_data_Gemini_3.5_Flash___NO_CAT___THK_PMPT_V2_MOT_EXP_V2_EXP_CATS_OF_TEXT_IRES=LOW_SLOW_VID_AUG_PM_no_gc___FPS=2.0___SC_no_scene_change.jsonl"
+                },
+                "startTime": "2026-07-13T19:24:05.683479Z",
+                "state": "JOB_STATE_RUNNING",
+                "tunedModel": {
+                  "model": "projects/801452371447/locations/us/models/1309984541611393024@1"
+                },
+                "tunedModelDisplayName": "cam_motion_cambench_slow_vid_v2_moderate_pmpt_rl_all_aug_pm_of_text_fps_2_no_sc_g35f",
+                "tuningDataStats": {
+                  "reinforcementTuningDataStats": {
+                    "contentsPerExampleDistribution": {
+                      "buckets": [
+                        {
+                          "count": "1881",
+                          "left": 1,
+                          "right": 1
+                        }
+                      ],
+                      "max": 1,
+                      "mean": 1,
+                      "median": 1,
+                      "min": 1,
+                      "p5": 1,
+                      "p95": 1,
+                      "sum": 1881
+                    },
+                    "reinforcementTuningUserDatasetExamples": {
+                      "userDatasetExamples": [
+                        {
+                          "contents": [
+                            {
+                              "parts": [
+                                {
+                                  "text": "\n\n[Optical Flow Textual Analysis]: Below is an automated 3x3 grid motion summary sampled at 1.0 FPS.\n\n--- Time interval: 0.0s to 1.0s ---\n  Top-Left: Magnitude 0.4 px, Dominant Direction NONE\n  Top-Center: Magnitude 2.9 px, Dominant Direction RIGHT\n  Top-Right: Magnitude 1.9 px, Dominant Direction DOWN-LEFT\n  Center-Left: Magnitude 4.5 px, Dominant Direction DOWN\n  Center: Magnitude 4.3 px, Dom..."
+                                }
+                              ],
+                              "role": "user"
+                            }
+                          ],
+                          "references": {
+                            "reference": "0"
+                          }
+                        },
+                        {
+                          "contents": [
+                            {
+                              "parts": [
+                                {
+                                  "text": "\n\n[Optical Flow Textual Analysis]: Below is an automated 3x3 grid motion summary sampled at 1.0 FPS.\n\n--- Time interval: 0.0s to 1.0s ---\n  Top-Left: Magnitude 0.1 px, Dominant Direction NONE\n  Top-Center: Magnitude 6.5 px, Dominant Direction DOWN-LEFT\n  Top-Right: Magnitude 2.0 px, Dominant Direction DOWN-LEFT\n  Center-Left: Magnitude 0.3 px, Dominant Direction NONE\n  Center: Magnitude 1.1 px,..."
+                                }
+                              ],
+                              "role": "user"
+                            }
+                          ],
+                          "references": {
+                            "reference": "0"
+                          }
+                        },
+                        {
+                          "contents": [
+                            {
+                              "parts": [
+                                {
+                                  "text": "\n\n[Optical Flow Textual Analysis]: Below is an automated 3x3 grid motion summary sampled at 1.0 FPS.\n\n--- Time interval: 0.0s to 1.0s ---\n  Top-Left: Magnitude 5.6 px, Dominant Direction LEFT\n  Top-Center: Magnitude 3.0 px, Dominant Direction LEFT\n  Top-Right: Magnitude 7.5 px, Dominant Direction LEFT\n  Center-Left: Magnitude 7.0 px, Dominant Direction LEFT\n  Center: Magnitude 5.0 px, Dominant ..."
+                                }
+                              ],
+                              "role": "user"
+                            }
+                          ],
+                          "references": {
+                            "reference": "1"
+                          }
+                        }
+                      ]
+                    },
+                    "tuningDatasetExampleCount": "1881",
+                    "userInputTokenDistribution": {
+                      "buckets": [
+                        {
+                          "count": "1649",
+                          "left": 2227,
+                          "right": 6431
+                        },
+                        {
+                          "count": "186",
+                          "left": 6432,
+                          "right": 10635
+                        },
+                        {
+                          "count": "23",
+                          "left": 10636,
+                          "right": 14839
+                        },
+                        {
+                          "count": "17",
+                          "left": 14840,
+                          "right": 19043
+                        },
+                        {
+                          "count": "6",
+                          "left": 23248,
+                          "right": 27451
+                        }
+                      ],
+                      "max": 27451,
+                      "mean": 4755.421052631579,
+                      "median": 4128,
+                      "min": 2227,
+                      "p5": 2770,
+                      "p95": 8347,
+                      "sum": 8944947
+                    }
+                  }
+                },
+                "updateTime": "2026-07-13T20:12:17.411679Z"
+              },
+              {
+                "baseModel": "gemini-3.5-flash",
+                "createTime": "2026-07-13T19:22:00.794196Z",
+                "experiment": "projects/801452371447/locations/us-central1/metadataStores/default/contexts/tuning-experiment-20260713122223250542",
+                "name": "projects/801452371447/locations/us-central1/tuningJobs/2559133663203688448",
+                "reinforcementTuningSpec": {
+                  "compositeRewardConfig": {
+                    "weightedRewardConfigs": [
+                      {
+                        "rewardConfig": {
+                          "parseResponseConfig": {
+                            "parseType": "REGEX_EXTRACT",
+                            "regexExtractExpression": "\u003cthink\u003e.*\u003c/think\u003e\\s*\u003canswer\u003e(.*?)\u003c/answer\u003e"
+                          },
+                          "rewardName": "binary_format",
+                          "stringMatchRewardScorer": {
+                            "correctAnswerReward": 1,
+                            "stringMatchExpression": {
+                              "expression": "(?:0|1)",
+                              "matchOperation": "REGEX_CONTAINS"
+                            },
+                            "wrongAnswerReward": -1
+                          }
+                        },
+                        "weight": 1
+                      },
+                      {
+                        "rewardConfig": {
+                          "parseResponseConfig": {
+                            "parseType": "REGEX_EXTRACT",
+                            "regexExtractExpression": "\u003canswer\u003e(.*?)\u003c/answer\u003e"
+                          },
+                          "rewardName": "binary_ans",
+                          "stringMatchRewardScorer": {
+                            "correctAnswerReward": 1,
+                            "stringMatchExpression": {
+                              "expression": "{{references.reference}}",
+                              "matchOperation": "EXACT_MATCH"
+                            },
+                            "wrongAnswerReward": -1
+                          }
+                        },
+                        "weight": 1
+                      }
+                    ]
+                  },
+                  "hyperParameters": {
+                    "adapterSize": "ADAPTER_SIZE_FOUR",
+                    "batchSize": 8,
+                    "checkpointInterval": 50,
+                    "epochCount": "4",
+                    "evaluateInterval": 10,
+                    "learningRateMultiplier": 1,
+                    "maxOutputTokens": 32768,
+                    "samplesPerPrompt": 8,
+                    "thinkingLevel": "HIGH"
+                  },
+                  "trainingDatasetUri": "gs://camera-motion-data-llm-preview1-260612/cam_control_sft_data/concatenated_cambench_train_data_Gemini_3.5_Flash___NO_CAT___THK_PMPT_V2_MOT_EXP_V2_EXP_CATS_STRICT_OF_TEXT_IRES=LOW_SLOW_VID_AUG_PM_no_gc___FPS=2.0___SC_no_scene_change.jsonl",
+                  "validationDatasetUri": "gs://camera-motion-data-llm-preview1-260612/cam_control_sft_data/concatenated_cambench_test_data_Gemini_3.5_Flash___NO_CAT___THK_PMPT_V2_MOT_EXP_V2_EXP_CATS_STRICT_OF_TEXT_IRES=LOW_SLOW_VID_AUG_PM_no_gc___FPS=2.0___SC_no_scene_change.jsonl"
+                },
+                "startTime": "2026-07-13T19:22:00.841417Z",
+                "state": "JOB_STATE_RUNNING",
+                "tunedModel": {
+                  "model": "projects/801452371447/locations/us/models/4948893040526753792@1"
+                },
+                "tunedModelDisplayName": "cam_motion_cambench_slow_vid_v2_pmpt_rl_all_aug_pm_of_text_fps_2_no_sc_g35f",
+                "tuningDataStats": {
+                  "reinforcementTuningDataStats": {
+                    "contentsPerExampleDistribution": {
+                      "buckets": [
+                        {
+                          "count": "1881",
+                          "left": 1,
+                          "right": 1
+                        }
+                      ],
+                      "max": 1,
+                      "mean": 1,
+                      "median": 1,
+                      "min": 1,
+                      "p5": 1,
+                      "p95": 1,
+                      "sum": 1881
+                    },
+                    "reinforcementTuningUserDatasetExamples": {
+                      "userDatasetExamples": [
+                        {
+                          "contents": [
+                            {
+                              "parts": [
+                                {
+                                  "text": "\n\n[Optical Flow Textual Analysis]: Below is an automated 3x3 grid motion summary sampled at 1.0 FPS.\n\n--- Time interval: 0.0s to 1.0s ---\n  Top-Left: Magnitude 0.4 px, Dominant Direction NONE\n  Top-Center: Magnitude 2.9 px, Dominant Direction RIGHT\n  Top-Right: Magnitude 1.9 px, Dominant Direction DOWN-LEFT\n  Center-Left: Magnitude 4.5 px, Dominant Direction DOWN\n  Center: Magnitude 4.3 px, Dom..."
+                                }
+                              ],
+                              "role": "user"
+                            }
+                          ],
+                          "references": {
+                            "reference": "0"
+                          }
+                        },
+                        {
+                          "contents": [
+                            {
+                              "parts": [
+                                {
+                                  "text": "\n\n[Optical Flow Textual Analysis]: Below is an automated 3x3 grid motion summary sampled at 1.0 FPS.\n\n--- Time interval: 0.0s to 1.0s ---\n  Top-Left: Magnitude 0.1 px, Dominant Direction NONE\n  Top-Center: Magnitude 6.5 px, Dominant Direction DOWN-LEFT\n  Top-Right: Magnitude 2.0 px, Dominant Direction DOWN-LEFT\n  Center-Left: Magnitude 0.3 px, Dominant Direction NONE\n  Center: Magnitude 1.1 px,..."
+                                }
+                              ],
+                              "role": "user"
+                            }
+                          ],
+                          "references": {
+                            "reference": "0"
+                          }
+                        },
+                        {
+                          "contents": [
+                            {
+                              "parts": [
+                                {
+                                  "text": "\n\n[Optical Flow Textual Analysis]: Below is an automated 3x3 grid motion summary sampled at 1.0 FPS.\n\n--- Time interval: 0.0s to 1.0s ---\n  Top-Left: Magnitude 0.0 px, Dominant Direction NONE\n  Top-Center: Magnitude 0.0 px, Dominant Direction NONE\n  Top-Right: Magnitude 0.0 px, Dominant Direction NONE\n  Center-Left: Magnitude 0.2 px, Dominant Direction NONE\n  Center: Magnitude 0.0 px, Dominant ..."
+                                }
+                              ],
+                              "role": "user"
+                            }
+                          ],
+                          "references": {
+                            "reference": "0"
+                          }
+                        }
+                      ]
+                    },
+                    "tuningDatasetExampleCount": "1881",
+                    "userInputTokenDistribution": {
+                      "buckets": [
+                        {
+                          "count": "1649",
+                          "left": 2272,
+                          "right": 6476
+                        },
+                        {
+                          "count": "186",
+                          "left": 6477,
+                          "right": 10680
+                        },
+                        {
+                          "count": "23",
+                          "left": 10681,
+                          "right": 14884
+                        },
+                        {
+                          "count": "17",
+                          "left": 14885,
+                          "right": 19088
+                        },
+                        {
+                          "count": "6",
+                          "left": 23293,
+                          "right": 27496
+                        }
+                      ],
+                      "max": 27496,
+                      "mean": 4800.421052631579,
+                      "median": 4173,
+                      "min": 2272,
+                      "p5": 2815,
+                      "p95": 8392,
+                      "sum": 9029592
+                    }
+                  }
+                },
+                "updateTime": "2026-07-13T20:12:16.294815Z"
+              },
+              {
+                "baseModel": "gemini-3.5-flash",
+                "createTime": "2026-07-13T19:21:16.471920Z",
+                "experiment": "projects/801452371447/locations/us-central1/metadataStores/default/contexts/tuning-experiment-20260713122145007108",
+                "name": "projects/801452371447/locations/us-central1/tuningJobs/3782423911988199424",
+                "reinforcementTuningSpec": {
+                  "compositeRewardConfig": {
+                    "weightedRewardConfigs": [
+                      {
+                        "rewardConfig": {
+                          "parseResponseConfig": {
+                            "parseType": "REGEX_EXTRACT",
+                            "regexExtractExpression": "\u003cthink\u003e.*\u003c/think\u003e\\s*\u003canswer\u003e(.*?)\u003c/answer\u003e"
+                          },
+                          "rewardName": "binary_format",
+                          "stringMatchRewardScorer": {
+                            "correctAnswerReward": 1,
+                            "stringMatchExpression": {
+                              "expression": "(?:0|1)",
+                              "matchOperation": "REGEX_CONTAINS"
+                            },
+                            "wrongAnswerReward": -1
+                          }
+                        },
+                        "weight": 1
+                      },
+                      {
+                        "rewardConfig": {
+                          "parseResponseConfig": {
+                            "parseType": "REGEX_EXTRACT",
+                            "regexExtractExpression": "\u003canswer\u003e(.*?)\u003c/answer\u003e"
+                          },
+                          "rewardName": "binary_ans",
+                          "stringMatchRewardScorer": {
+                            "correctAnswerReward": 1,
+                            "stringMatchExpression": {
+                              "expression": "{{references.reference}}",
+                              "matchOperation": "EXACT_MATCH"
+                            },
+                            "wrongAnswerReward": -1
+                          }
+                        },
+                        "weight": 1
+                      }
+                    ]
+                  },
+                  "hyperParameters": {
+                    "adapterSize": "ADAPTER_SIZE_FOUR",
+                    "batchSize": 8,
+                    "checkpointInterval": 50,
+                    "epochCount": "2",
+                    "evaluateInterval": 10,
+                    "learningRateMultiplier": 1,
+                    "maxOutputTokens": 32768,
+                    "samplesPerPrompt": 8,
+                    "thinkingLevel": "HIGH"
+                  },
+                  "trainingDatasetUri": "gs://camera-motion-data-llm-preview1-260612/cam_control_sft_data/concatenated_all_train_data_Gemini_3.5_Flash___NO_CAT___THK_PMPT_V2_MOT_EXP_V2_EXP_CATS_STRICT_OF_TEXT_IRES=LOW_SLOW_VID_AUG_PM_no_gc___FPS=2.0___SC_no_scene_change.jsonl",
+                  "validationDatasetUri": "gs://camera-motion-data-llm-preview1-260612/cam_control_sft_data/concatenated_all_test_data_Gemini_3.5_Flash___NO_CAT___THK_PMPT_V2_MOT_EXP_V2_EXP_CATS_STRICT_OF_TEXT_IRES=LOW_SLOW_VID_AUG_PM_no_gc___FPS=2.0___SC_no_scene_change.jsonl"
+                },
+                "startTime": "2026-07-13T19:21:16.947921Z",
+                "state": "JOB_STATE_RUNNING",
+                "tunedModel": {
+                  "model": "projects/801452371447/locations/us/models/8200491971488251904@1"
+                },
+                "tunedModelDisplayName": "cam_motion_all_data_slow_vid_v2_pmpt_rl_all_aug_pm_of_text_fps_2_no_sc_g35f",
+                "tuningDataStats": {
+                  "reinforcementTuningDataStats": {
+                    "contentsPerExampleDistribution": {
+                      "buckets": [
+                        {
+                          "count": "3731",
+                          "left": 1,
+                          "right": 1
+                        }
+                      ],
+                      "max": 1,
+                      "mean": 1,
+                      "median": 1,
+                      "min": 1,
+                      "p5": 1,
+                      "p95": 1,
+                      "sum": 3731
+                    },
+                    "reinforcementTuningUserDatasetExamples": {
+                      "userDatasetExamples": [
+                        {
+                          "contents": [
+                            {
+                              "parts": [
+                                {
+                                  "text": "\n\n[Optical Flow Textual Analysis]: Below is an automated 3x3 grid motion summary sampled at 1.0 FPS.\n\n--- Time interval: 0.0s to 1.0s ---\n  Top-Left: Magnitude 0.4 px, Dominant Direction NONE\n  Top-Center: Magnitude 2.9 px, Dominant Direction RIGHT\n  Top-Right: Magnitude 1.9 px, Dominant Direction DOWN-LEFT\n  Center-Left: Magnitude 4.5 px, Dominant Direction DOWN\n  Center: Magnitude 4.3 px, Dom..."
+                                }
+                              ],
+                              "role": "user"
+                            }
+                          ],
+                          "references": {
+                            "reference": "0"
+                          }
+                        },
+                        {
+                          "contents": [
+                            {
+                              "parts": [
+                                {
+                                  "text": "\n\n[Optical Flow Textual Analysis]: Below is an automated 3x3 grid motion summary sampled at 1.0 FPS.\n\n--- Time interval: 0.0s to 1.0s ---\n  Top-Left: Magnitude 0.1 px, Dominant Direction NONE\n  Top-Center: Magnitude 6.5 px, Dominant Direction DOWN-LEFT\n  Top-Right: Magnitude 2.0 px, Dominant Direction DOWN-LEFT\n  Center-Left: Magnitude 0.3 px, Dominant Direction NONE\n  Center: Magnitude 1.1 px,..."
+                                }
+                              ],
+                              "role": "user"
+                            }
+                          ],
+                          "references": {
+                            "reference": "0"
+                          }
+                        },
+                        {
+                          "contents": [
+                            {
+                              "parts": [
+                                {
+                                  "text": "\n\n[Optical Flow Textual Analysis]: Below is an automated 3x3 grid motion summary sampled at 1.0 FPS.\n\n--- Time interval: 0.0s to 1.0s ---\n  Top-Left: Magnitude 0.0 px, Dominant Direction NONE\n  Top-Center: Magnitude 0.0 px, Dominant Direction NONE\n  Top-Right: Magnitude 0.0 px, Dominant Direction NONE\n  Center-Left: Magnitude 0.2 px, Dominant Direction NONE\n  Center: Magnitude 0.0 px, Dominant ..."
+                                }
+                              ],
+                              "role": "user"
+                            }
+                          ],
+                          "references": {
+                            "reference": "0"
+                          }
+                        }
+                      ]
+                    },
+                    "tuningDatasetExampleCount": "3731",
+                    "userInputTokenDistribution": {
+                      "buckets": [
+                        {
+                          "count": "2816",
+                          "left": 2272,
+                          "right": 6476
+                        },
+                        {
+                          "count": "869",
+                          "left": 6477,
+                          "right": 10680
+                        },
+                        {
+                          "count": "23",
+                          "left": 10681,
+                          "right": 14884
+                        },
+                        {
+                          "count": "17",
+                          "left": 14885,
+                          "right": 19088
+                        },
+                        {
+                          "count": "6",
+                          "left": 23293,
+                          "right": 27496
+                        }
+                      ],
+                      "max": 27496,
+                      "mean": 5556.15625837577,
+                      "median": 5935,
+                      "min": 2272,
+                      "p5": 3053,
+                      "p95": 7058,
+                      "sum": 20730019
+                    }
+                  }
+                },
+                "updateTime": "2026-07-13T20:12:09.577055Z"
+              },
+              {
+                "baseModel": "gemini-3.5-flash",
+                "createTime": "2026-07-13T19:15:37.741601Z",
+                "experiment": "projects/801452371447/locations/us-central1/metadataStores/default/contexts/tuning-experiment-20260713121559166374",
+                "name": "projects/801452371447/locations/us-central1/tuningJobs/1107285733330124800",
+                "reinforcementTuningSpec": {
+                  "compositeRewardConfig": {
+                    "weightedRewardConfigs": [
+                      {
+                        "rewardConfig": {
+                          "parseResponseConfig": {
+                            "parseType": "REGEX_EXTRACT",
+                            "regexExtractExpression": "\u003cthink\u003e.*\u003c/think\u003e\\s*\u003canswer\u003e(.*?)\u003c/answer\u003e"
+                          },
+                          "rewardName": "binary_format",
+                          "stringMatchRewardScorer": {
+                            "correctAnswerReward": 1,
+                            "stringMatchExpression": {
+                              "expression": "(?:0|1)",
+                              "matchOperation": "REGEX_CONTAINS"
+                            },
+                            "wrongAnswerReward": -1
+                          }
+                        },
+                        "weight": 1
+                      },
+                      {
+                        "rewardConfig": {
+                          "parseResponseConfig": {
+                            "parseType": "REGEX_EXTRACT",
+                            "regexExtractExpression": "\u003canswer\u003e(.*?)\u003c/answer\u003e"
+                          },
+                          "rewardName": "binary_ans",
+                          "stringMatchRewardScorer": {
+                            "correctAnswerReward": 1,
+                            "stringMatchExpression": {
+                              "expression": "{{references.reference}}",
+                              "matchOperation": "EXACT_MATCH"
+                            },
+                            "wrongAnswerReward": -1
+                          }
+                        },
+                        "weight": 1
+                      }
+                    ]
+                  },
+                  "hyperParameters": {
+                    "adapterSize": "ADAPTER_SIZE_FOUR",
+                    "batchSize": 8,
+                    "checkpointInterval": 50,
+                    "epochCount": "4",
+                    "evaluateInterval": 10,
+                    "learningRateMultiplier": 1,
+                    "maxOutputTokens": 32768,
+                    "samplesPerPrompt": 8,
+                    "thinkingLevel": "HIGH"
+                  },
+                  "trainingDatasetUri": "gs://camera-motion-data-llm-preview1-260612/cam_control_sft_data/concatenated_cambench_train_data_Gemini_3.5_Flash___NO_CAT___high_THK_PMPT_V2_MOT_EXP_V2_EXP_CATS_STRICT_OF_TEXT_IRES=LOW_no_gc___SC_no_scene_change.jsonl",
+                  "validationDatasetUri": "gs://camera-motion-data-llm-preview1-260612/cam_control_sft_data/concatenated_cambench_test_data_Gemini_3.5_Flash___NO_CAT___high_THK_PMPT_V2_MOT_EXP_V2_EXP_CATS_STRICT_OF_TEXT_IRES=LOW_no_gc___SC_no_scene_change.jsonl"
+                },
+                "startTime": "2026-07-13T19:15:37.807741Z",
+                "state": "JOB_STATE_RUNNING",
+                "tunedModel": {
+                  "model": "projects/801452371447/locations/us/models/337207022099365888@1"
+                },
+                "tunedModelDisplayName": "cam_motion_cambench_v2_pmpt_rl_of_text_fps_1_r1_no_sc_g35f",
+                "tuningDataStats": {
+                  "reinforcementTuningDataStats": {
+                    "contentsPerExampleDistribution": {
+                      "buckets": [
+                        {
+                          "count": "1254",
+                          "left": 1,
+                          "right": 1
+                        }
+                      ],
+                      "max": 1,
+                      "mean": 1,
+                      "median": 1,
+                      "min": 1,
+                      "p5": 1,
+                      "p95": 1,
+                      "sum": 1254
+                    },
+                    "reinforcementTuningUserDatasetExamples": {
+                      "userDatasetExamples": [
+                        {
+                          "contents": [
+                            {
+                              "parts": [
+                                {
+                                  "text": "\n\n[Optical Flow Textual Analysis]: Below is an automated 3x3 grid motion summary sampled at 2.0 FPS.\n\n--- Time interval: 0.0s to 1.0s ---\n  Top-Left: Magnitude 0.4 px, Dominant Direction NONE\n  Top-Center: Magnitude 1.0 px, Dominant Direction NONE\n  Top-Right: Magnitude 1.1 px, Dominant Direction DOWN-LEFT\n  Center-Left: Magnitude 2.4 px, Dominant Direction DOWN\n  Center: Magnitude 2.0 px, Domi..."
+                                }
+                              ],
+                              "role": "user"
+                            }
+                          ],
+                          "references": {
+                            "reference": "0"
+                          }
+                        },
+                        {
+                          "contents": [
+                            {
+                              "parts": [
+                                {
+                                  "text": "\n\n[Optical Flow Textual Analysis]: Below is an automated 3x3 grid motion summary sampled at 2.0 FPS.\n\n--- Time interval: 0.0s to 1.0s ---\n  Top-Left: Magnitude 6.3 px, Dominant Direction LEFT\n  Top-Center: Magnitude 3.3 px, Dominant Direction LEFT\n  Top-Right: Magnitude 7.6 px, Dominant Direction LEFT\n  Center-Left: Magnitude 5.5 px, Dominant Direction LEFT\n  Center: Magnitude 5.2 px, Dominant ..."
+                                }
+                              ],
+                              "role": "user"
+                            }
+                          ],
+                          "references": {
+                            "reference": "1"
+                          }
+                        },
+                        {
+                          "contents": [
+                            {
+                              "parts": [
+                                {
+                                  "text": "\n\n[Optical Flow Textual Analysis]: Below is an automated 3x3 grid motion summary sampled at 2.0 FPS.\n\n--- Time interval: 0.0s to 1.0s ---\n  Top-Left: Magnitude 0.0 px, Dominant Direction NONE\n  Top-Center: Magnitude 6.8 px, Dominant Direction DOWN-LEFT\n  Top-Right: Magnitude 2.0 px, Dominant Direction DOWN-LEFT\n  Center-Left: Magnitude 0.3 px, Dominant Direction NONE\n  Center: Magnitude 3.4 px,..."
+                                }
+                              ],
+                              "role": "user"
+                            }
+                          ],
+                          "references": {
+                            "reference": "0"
+                          }
+                        }
+                      ]
+                    },
+                    "tuningDatasetExampleCount": "1254",
+                    "userInputTokenDistribution": {
+                      "buckets": [
+                        {
+                          "count": "1066",
+                          "left": 2220,
+                          "right": 4311
+                        },
+                        {
+                          "count": "151",
+                          "left": 4312,
+                          "right": 6402
+                        },
+                        {
+                          "count": "20",
+                          "left": 6403,
+                          "right": 8494
+                        },
+                        {
+                          "count": "7",
+                          "left": 8495,
+                          "right": 10585
+                        },
+                        {
+                          "count": "5",
+                          "left": 10586,
+                          "right": 12677
+                        },
+                        {
+                          "count": "5",
+                          "left": 12678,
+                          "right": 14768
+                        }
+                      ],
+                      "max": 14768,
+                      "mean": 3562.5510366826156,
+                      "median": 3279,
+                      "min": 2220,
+                      "p5": 2484,
+                      "p95": 5583,
+                      "sum": 4467439
+                    }
+                  }
+                },
+                "updateTime": "2026-07-13T20:12:03.969487Z"
+              },
+              {
+                "baseModel": "gemini-3.5-flash",
+                "createTime": "2026-07-13T19:19:53.414269Z",
+                "endTime": "2026-07-13T19:21:32.355388Z",
+                "error": {
+                  "code": 1,
+                  "message": "CANCELED"
+                },
+                "experiment": "projects/801452371447/locations/us-central1/metadataStores/default/contexts/tuning-experiment-20260713122015666603",
+                "name": "projects/801452371447/locations/us-central1/tuningJobs/9089353122890907648",
+                "reinforcementTuningSpec": {
+                  "compositeRewardConfig": {
+                    "weightedRewardConfigs": [
+                      {
+                        "rewardConfig": {
+                          "parseResponseConfig": {
+                            "parseType": "REGEX_EXTRACT",
+                            "regexExtractExpression": "\u003cthink\u003e.*\u003c/think\u003e\\s*\u003canswer\u003e(.*?)\u003c/answer\u003e"
+                          },
+                          "rewardName": "binary_format",
+                          "stringMatchRewardScorer": {
+                            "correctAnswerReward": 1,
+                            "stringMatchExpression": {
+                              "expression": "(?:0|1)",
+                              "matchOperation": "REGEX_CONTAINS"
+                            },
+                            "wrongAnswerReward": -1
+                          }
+                        },
+                        "weight": 1
+                      },
+                      {
+                        "rewardConfig": {
+                          "parseResponseConfig": {
+                            "parseType": "REGEX_EXTRACT",
+                            "regexExtractExpression": "\u003canswer\u003e(.*?)\u003c/answer\u003e"
+                          },
+                          "rewardName": "binary_ans",
+                          "stringMatchRewardScorer": {
+                            "correctAnswerReward": 1,
+                            "stringMatchExpression": {
+                              "expression": "{{references.reference}}",
+                              "matchOperation": "EXACT_MATCH"
+                            },
+                            "wrongAnswerReward": -1
+                          }
+                        },
+                        "weight": 1
+                      }
+                    ]
+                  },
+                  "hyperParameters": {
+                    "adapterSize": "ADAPTER_SIZE_FOUR",
+                    "batchSize": 8,
+                    "checkpointInterval": 50,
+                    "epochCount": "4",
+                    "evaluateInterval": 10,
+                    "learningRateMultiplier": 1,
+                    "maxOutputTokens": 32768,
+                    "samplesPerPrompt": 8,
+                    "thinkingLevel": "HIGH"
+                  },
+                  "trainingDatasetUri": "gs://camera-motion-data-llm-preview1-260612/cam_control_sft_data/concatenated_cambench_train_data_Gemini_3.5_Flash___NO_CAT___THK_PMPT_V2_MOT_EXP_V2_EXP_CATS_STRICT_OF_TEXT_IRES=LOW_SLOW_VID_AUG_PM_no_gc___FPS=2.0___SC_no_scene_change.jsonl",
+                  "validationDatasetUri": "gs://camera-motion-data-llm-preview1-260612/cam_control_sft_data/concatenated_cambench_test_data_Gemini_3.5_Flash___NO_CAT___THK_PMPT_V2_MOT_EXP_V2_EXP_CATS_STRICT_OF_TEXT_IRES=LOW_SLOW_VID_AUG_PM_no_gc___FPS=2.0___SC_no_scene_change.jsonl"
+                },
+                "startTime": "2026-07-13T19:19:53.461189Z",
+                "state": "JOB_STATE_CANCELLED",
+                "tunedModel": {
+                  "model": "projects/801452371447/locations/us/models/6606217703399096320@1"
+                },
+                "tunedModelDisplayName": "cam_motion_cambench_slow_vid_moderate_pmpt_rl_all_aug_pm_of_text_fps_2_no_sc_g35f",
+                "updateTime": "2026-07-13T19:21:32.355388Z"
+              },
+              {
+                "createTime": "2026-07-12T19:31:14.631952Z",
+                "endTime": "2026-07-12T20:03:05.190595Z",
+                "experiment": "projects/801452371447/locations/us-central1/metadataStores/default/contexts/tuning-experiment-20260712123218923310",
+                "name": "projects/801452371447/locations/us-central1/tuningJobs/5606302596236050432",
+                "preTunedModel": {
+                  "baseModel": "gemini-2.5-flash",
+                  "checkpointId": "3",
+                  "tunedModelName": "projects/801452371447/locations/us-central1/models/9030969596621881344@1"
+                },
+                "startTime": "2026-07-12T19:31:14.678549Z",
+                "state": "JOB_STATE_SUCCEEDED",
+                "supervisedTuningSpec": {
+                  "hyperParameters": {
+                    "adapterSize": "ADAPTER_SIZE_FOUR",
+                    "epochCount": "7",
+                    "learningRateMultiplier": 5
+                  },
+                  "trainingDatasetUri": "gs://cloud-samples-data/ai-platform/generative_ai/gemini-2_0/text/sft_train_data.jsonl"
+                },
+                "tunedModel": {
+                  "checkpoints": [
+                    {
+                      "checkpointId": "1",
+                      "endpoint": "projects/801452371447/locations/us-central1/endpoints/2689062943668043776",
+                      "epoch": "2",
+                      "step": "34"
+                    },
+                    {
+                      "checkpointId": "2",
+                      "endpoint": "projects/801452371447/locations/us-central1/endpoints/2941264522800791552",
+                      "epoch": "3",
+                      "step": "68"
+                    },
+                    {
+                      "checkpointId": "3",
+                      "endpoint": "projects/801452371447/locations/us-central1/endpoints/8930207602273419264",
+                      "epoch": "4",
+                      "step": "102"
+                    },
+                    {
+                      "checkpointId": "4",
+                      "endpoint": "projects/801452371447/locations/us-central1/endpoints/4837279965923770368",
+                      "epoch": "5",
+                      "step": "136"
+                    },
+                    {
+                      "checkpointId": "5",
+                      "endpoint": "projects/801452371447/locations/us-central1/endpoints/7250364941264224256",
+                      "epoch": "6",
+                      "step": "170"
+                    },
+                    {
+                      "checkpointId": "6",
+                      "endpoint": "projects/801452371447/locations/us-central1/endpoints/6391021837366591488",
+                      "epoch": "7",
+                      "step": "204"
+                    },
+                    {
+                      "checkpointId": "7",
+                      "endpoint": "projects/801452371447/locations/us-central1/endpoints/3773586028934201344",
+                      "epoch": "7",
+                      "step": "233"
+                    }
+                  ],
+                  "endpoint": "projects/801452371447/locations/us-central1/endpoints/3773586028934201344",
+                  "model": "projects/801452371447/locations/us-central1/models/1081867214929264640@1"
+                },
+                "tunedModelDisplayName": "My Further Tuned Model",
+                "tuningDataStats": {
+                  "supervisedTuningDataStats": {
+                    "totalBillableTokenCount": "255243",
+                    "tuningDatasetExampleCount": "500",
+                    "userDatasetExamples": [
+                      {
+                        "parts": [
+                          {
+                            "text": "Honesty is usually the best policy. It is disrespectful to lie to someone. If you don't want to date someone, you should say so.  Sometimes it is easy to be honest. For example, you might be able to truthfully say, \"No, thank you, I already have a date for that party.\" Other times, you might need to find a kinder way to be nice. Maybe you are not attracted to the person. Instead of bluntly sayi..."
+                          }
+                        ],
+                        "role": "user"
+                      },
+                      {
+                        "parts": [
+                          {
+                            "text": "Tell the truth. Use a \"compliment sandwich\". Be direct. Treat the person with respect. Communicate effectively."
+                          }
+                        ],
+                        "role": "model"
+                      },
+                      {
+                        "parts": [
+                          {
+                            "text": "Go online and simply search “Decor Style Quizzes” in order to get some direction. These quizzes will determine your personal style by having you choose between different rooms, accessories, and pieces of furniture. As you take the quiz, reflect on whether or not you could see yourself relaxing and/or entertaining guests in each space. Some styles that these quizzes may determine you have includ..."
+                          }
+                        ],
+                        "role": "user"
+                      },
+                      {
+                        "parts": [
+                          {
+                            "text": "Take a quiz online to find your style. Look online and in magazines for inspiration. Go through what you already own before you purchase new pieces. Match your decor to your personality and lifestyle."
+                          }
+                        ],
+                        "role": "model"
+                      },
+                      {
+                        "parts": [
+                          {
+                            "text": "The size of a shuffleboard table can range anywhere from nine feet to twenty-two feet. Keep in mind the amount of space you have to build and store it. You wouldn’t want to build a fourteen foot long table in a twelve foot shed. Remember you need at least two feet of additional space on each end of the table to actually play. The size you decide on will affect what dimensions and plans you use ..."
+                          }
+                        ],
+                        "role": "user"
+                      },
+                      {
+                        "parts": [
+                          {
+                            "text": "Determine what size you want your table to be. Plan or find dimensions for each part of the table. Decide on the type of wood for the playing surface."
+                          }
+                        ],
+                        "role": "model"
+                      }
+                    ],
+                    "userInputTokenDistribution": {
+                      "buckets": [
+                        {
+                          "count": 326,
+                          "left": 25,
+                          "right": 509
+                        },
+                        {
+                          "count": 148,
+                          "left": 510,
+                          "right": 994
+                        },
+                        {
+                          "count": 20,
+                          "left": 995,
+                          "right": 1478
+                        },
+                        {
+                          "count": 5,
+                          "left": 1479,
+                          "right": 1963
+                        },
+                        {
+                          "count": 1,
+                          "left": 2449,
+                          "right": 2932
+                        }
+                      ],
+                      "max": 2932,
+                      "mean": 467.184,
+                      "median": 414,
+                      "min": 25,
+                      "p5": 101,
+                      "p95": 1016,
+                      "sum": "233592"
+                    },
+                    "userMessagePerExampleDistribution": {
+                      "buckets": [
+                        {
+                          "count": 500,
+                          "left": 2,
+                          "right": 2
+                        }
+                      ],
+                      "max": 2,
+                      "mean": 2,
+                      "median": 2,
+                      "min": 2,
+                      "p5": 2,
+                      "p95": 2,
+                      "sum": "1000"
+                    },
+                    "userOutputTokenDistribution": {
+                      "buckets": [
+                        {
+                          "count": 298,
+                          "left": 3,
+                          "right": 42
+                        },
+                        {
+                          "count": 164,
+                          "left": 43,
+                          "right": 81
+                        },
+                        {
+                          "count": 29,
+                          "left": 82,
+                          "right": 120
+                        },
+                        {
+                          "count": 5,
+                          "left": 121,
+                          "right": 159
+                        },
+                        {
+                          "count": 3,
+                          "left": 160,
+                          "right": 198
+                        },
+                        {
+                          "count": 1,
+                          "left": 199,
+                          "right": 237
+                        }
+                      ],
+                      "max": 237,
+                      "mean": 43.302,
+                      "median": 37,
+                      "min": 3,
+                      "p5": 15,
+                      "p95": 89,
+                      "sum": "21651"
+                    }
+                  }
+                },
+                "tuningJobMetadata": {
+                  "completedEpochCount": "7"
+                },
+                "updateTime": "2026-07-12T20:03:05.190595Z"
+              },
+              {
+                "baseModel": "gemini-2.5-flash",
+                "createTime": "2026-07-12T19:30:36.508356Z",
+                "endTime": "2026-07-12T19:56:58.994485Z",
+                "experiment": "projects/801452371447/locations/us-central1/metadataStores/default/contexts/tuning-experiment-20260712123132842516",
+                "name": "projects/801452371447/locations/us-central1/tuningJobs/2886128421304270848",
+                "startTime": "2026-07-12T19:30:36.557035Z",
+                "state": "JOB_STATE_SUCCEEDED",
+                "supervisedTuningSpec": {
+                  "hyperParameters": {
+                    "adapterSize": "ADAPTER_SIZE_ONE",
+                    "epochCount": "1",
+                    "learningRateMultiplier": 1
+                  },
+                  "trainingDatasetUri": "gs://cloud-samples-data/ai-platform/generative_ai/gemini-1_5/text/sft_train_data.jsonl"
+                },
+                "tunedModel": {
+                  "checkpoints": [
+                    {
+                      "checkpointId": "1",
+                      "endpoint": "projects/801452371447/locations/us-central1/endpoints/1779335818939203584",
+                      "epoch": "1",
+                      "step": "33"
+                    }
+                  ],
+                  "endpoint": "projects/801452371447/locations/us-central1/endpoints/1779335818939203584",
+                  "model": "projects/801452371447/locations/us-central1/models/4683058066965397504@1"
+                },
+                "tunedModelDisplayName": "My Supervised Tuned Model",
+                "tuningDataStats": {
+                  "supervisedTuningDataStats": {
+                    "totalBillableTokenCount": "255243",
+                    "tuningDatasetExampleCount": "500",
+                    "userDatasetExamples": [
+                      {
+                        "parts": [
+                          {
+                            "text": "Honesty is usually the best policy. It is disrespectful to lie to someone. If you don't want to date someone, you should say so.  Sometimes it is easy to be honest. For example, you might be able to truthfully say, \"No, thank you, I already have a date for that party.\" Other times, you might need to find a kinder way to be nice. Maybe you are not attracted to the person. Instead of bluntly sayi..."
+                          }
+                        ],
+                        "role": "user"
+                      },
+                      {
+                        "parts": [
+                          {
+                            "text": "Tell the truth. Use a \"compliment sandwich\". Be direct. Treat the person with respect. Communicate effectively."
+                          }
+                        ],
+                        "role": "model"
+                      },
+                      {
+                        "parts": [
+                          {
+                            "text": "Go online and simply search “Decor Style Quizzes” in order to get some direction. These quizzes will determine your personal style by having you choose between different rooms, accessories, and pieces of furniture. As you take the quiz, reflect on whether or not you could see yourself relaxing and/or entertaining guests in each space. Some styles that these quizzes may determine you have includ..."
+                          }
+                        ],
+                        "role": "user"
+                      },
+                      {
+                        "parts": [
+                          {
+                            "text": "Take a quiz online to find your style. Look online and in magazines for inspiration. Go through what you already own before you purchase new pieces. Match your decor to your personality and lifestyle."
+                          }
+                        ],
+                        "role": "model"
+                      },
+                      {
+                        "parts": [
+                          {
+                            "text": "The size of a shuffleboard table can range anywhere from nine feet to twenty-two feet. Keep in mind the amount of space you have to build and store it. You wouldn’t want to build a fourteen foot long table in a twelve foot shed. Remember you need at least two feet of additional space on each end of the table to actually play. The size you decide on will affect what dimensions and plans you use ..."
+                          }
+                        ],
+                        "role": "user"
+                      },
+                      {
+                        "parts": [
+                          {
+                            "text": "Determine what size you want your table to be. Plan or find dimensions for each part of the table. Decide on the type of wood for the playing surface."
+                          }
+                        ],
+                        "role": "model"
+                      }
+                    ],
+                    "userInputTokenDistribution": {
+                      "buckets": [
+                        {
+                          "count": 326,
+                          "left": 25,
+                          "right": 509
+                        },
+                        {
+                          "count": 148,
+                          "left": 510,
+                          "right": 994
+                        },
+                        {
+                          "count": 20,
+                          "left": 995,
+                          "right": 1478
+                        },
+                        {
+                          "count": 5,
+                          "left": 1479,
+                          "right": 1963
+                        },
+                        {
+                          "count": 1,
+                          "left": 2449,
+                          "right": 2932
+                        }
+                      ],
+                      "max": 2932,
+                      "mean": 467.184,
+                      "median": 414,
+                      "min": 25,
+                      "p5": 101,
+                      "p95": 1016,
+                      "sum": "233592"
+                    },
+                    "userMessagePerExampleDistribution": {
+                      "buckets": [
+                        {
+                          "count": 500,
+                          "left": 2,
+                          "right": 2
+                        }
+                      ],
+                      "max": 2,
+                      "mean": 2,
+                      "median": 2,
+                      "min": 2,
+                      "p5": 2,
+                      "p95": 2,
+                      "sum": "1000"
+                    },
+                    "userOutputTokenDistribution": {
+                      "buckets": [
+                        {
+                          "count": 298,
+                          "left": 3,
+                          "right": 42
+                        },
+                        {
+                          "count": 164,
+                          "left": 43,
+                          "right": 81
+                        },
+                        {
+                          "count": 29,
+                          "left": 82,
+                          "right": 120
+                        },
+                        {
+                          "count": 5,
+                          "left": 121,
+                          "right": 159
+                        },
+                        {
+                          "count": 3,
+                          "left": 160,
+                          "right": 198
+                        },
+                        {
+                          "count": 1,
+                          "left": 199,
+                          "right": 237
+                        }
+                      ],
+                      "max": 237,
+                      "mean": 43.302,
+                      "median": 37,
+                      "min": 3,
+                      "p5": 15,
+                      "p95": 89,
+                      "sum": "21651"
+                    }
+                  }
+                },
+                "tuningJobMetadata": {
+                  "completedEpochCount": "1"
+                },
+                "updateTime": "2026-07-12T19:56:58.994485Z"
+              },
+              {
+                "baseModel": "qwen/qwen3@qwen3-4b",
+                "createTime": "2026-07-12T19:31:11.712984Z",
+                "distillationSpec": {
+                  "baseTeacherModel": "deepseek-ai/deepseek-r1-0528-maas",
+                  "hyperParameters": {
+                    "epochCount": "20",
+                    "learningRate": 0.00001,
+                    "learningRateMultiplier": 1
+                  },
+                  "promptDatasetUri": "gs://nathreya-oss-tuning-sdk-test/distillation-openai-opposites.jsonl",
+                  "validationDatasetUri": "gs://nathreya-oss-tuning-sdk-test/distillation-val-openai-opposites.jsonl"
+                },
+                "endTime": "2026-07-12T19:52:25.433610Z",
+                "experiment": "projects/801452371447/locations/us-central1/metadataStores/default/contexts/tuning-experiment-20260712123118353913",
+                "name": "projects/801452371447/locations/us-central1/tuningJobs/5247703475906674688",
+                "outputUri": "gs://nathreya-oss-tuning-sdk-test/ayushagra-distillation-test-folder/",
+                "startTime": "2026-07-12T19:31:14.783542Z",
+                "state": "JOB_STATE_SUCCEEDED",
+                "tunedModel": {
+                  "model": "projects/801452371447/locations/us-central1/models/4336280895657869312@1"
+                },
+                "tunedModelDisplayName": "My Distilled Model",
+                "tuningDataStats": {
+                  "distillationDataStats": {
+                    "trainingDatasetStats": {
+                      "totalBillableTokenCount": "17941",
+                      "totalTuningCharacterCount": "72876",
+                      "tuningDatasetExampleCount": "104",
+                      "tuningStepCount": "20",
+                      "userDatasetExamples": [
+                        {
+                          "parts": [
+                            {
+                              "text": "Output the opposite of the given word (single word response)."
+                            }
+                          ],
+                          "role": "system"
+                        },
+                        {
+                          "parts": [
+                            {
+                              "text": "below"
+                            }
+                          ],
+                          "role": "user"
+                        },
+                        {
+                          "parts": [
+                            {
+                              "text": "\u003cthink\u003e\nWe are to output the opposite of the given word.\n The word given is \"below\".\n The opposite of \"below\" is typically \"above\".\n Therefore, the answer is \"above\".\n\u003c/think\u003e\nabove"
+                            }
+                          ],
+                          "role": "assistant"
+                        },
+                        {
+                          "parts": [
+                            {
+                              "text": "Output the opposite of the given word (single word response)."
+                            }
+                          ],
+                          "role": "system"
+                        },
+                        {
+                          "parts": [
+                            {
+                              "text": "shallow"
+                            }
+                          ],
+                          "role": "user"
+                        },
+                        {
+                          "parts": [
+                            {
+                              "text": "\u003cthink\u003e\nWe are to output the opposite of the given word \"shallow\".\n The opposite of \"shallow\" in the context of depth is \"deep\". \n However, note that \"shallow\" can have other meanings (like superficial), but the most common antonym in the primary sense (depth) is \"deep\".\n Therefore, we output \"deep\".\n\u003c/think\u003e\ndeep"
+                            }
+                          ],
+                          "role": "assistant"
+                        },
+                        {
+                          "parts": [
+                            {
+                              "text": "Output the opposite of the given word (single word response)."
+                            }
+                          ],
+                          "role": "system"
+                        },
+                        {
+                          "parts": [
+                            {
+                              "text": "freeze"
+                            }
+                          ],
+                          "role": "user"
+                        },
+                        {
+                          "parts": [
+                            {
+                              "text": "\u003cthink\u003e\nWe are supposed to output the opposite of the given word. The given word is \"freeze\".\n The opposite of \"freeze\" in terms of temperature or state would be \"thaw\" or \"melt\". However, the instruction says \"single word response\".\n Another common opposite of \"freeze\" (meaning to solidify by cold) is to \"melt\" (to become liquid by heat) or \"boil\" (liquid to gas). But note that \"freeze\" can also mean to stop moving, so the opposite might be \"move\" or \"unfreeze\".\n\n However, the most direct opposite in the context of temperature is \"melt\". Let's consider:\n\n - Freeze: to turn from liquid to solid due to cold.\n - Melt: to turn from solid to liquid due to heat.\n\n Therefore, the opposite word is \"melt\".\n\n But note: sometimes \"thaw\" is used for the process of ice becoming water, but \"thaw\" is more specific to the process after freezing, and \"melt\" is more general.\n\n Since the instruction is for a single word, and \"melt\" is a direct antonym, we choose \"melt\".\n\n However, let's double-check: \n   - Freeze: verb, meaning to become hardened into ice or into a solid body.\n   - Antonyms for freeze (from thesaurus): melt, thaw, unfreeze, warm.\n\n Since the problem says \"opposite\", and \"melt\" is the most common and direct antonym, we'll go with \"melt\".\n\n But note: the instruction says \"single word response\", so we must output only one word.\n\n Therefore, the answer is: melt\n\u003c/think\u003e\nmelt"
+                            }
+                          ],
+                          "role": "assistant"
+                        }
+                      ],
+                      "userInputTokenDistribution": {
+                        "buckets": [
+                          {
+                            "count": "89",
+                            "left": 28,
+                            "right": 28.1
+                          },
+                          {
+                            "left": 28.1,
+                            "right": 28.2
+                          },
+                          {
+                            "left": 28.2,
+                            "right": 28.3
+                          },
+                          {
+                            "left": 28.3,
+                            "right": 28.4
+                          },
+                          {
+                            "left": 28.4,
+                            "right": 28.5
+                          },
+                          {
+                            "left": 28.5,
+                            "right": 28.6
+                          },
+                          {
+                            "left": 28.6,
+                            "right": 28.7
+                          },
+                          {
+                            "left": 28.7,
+                            "right": 28.8
+                          },
+                          {
+                            "left": 28.8,
+                            "right": 28.9
+                          },
+                          {
+                            "count": "15",
+                            "left": 28.9,
+                            "right": 29
+                          }
+                        ],
+                        "max": 29,
+                        "mean": 28.14423076923077,
+                        "median": 28,
+                        "min": 28,
+                        "p5": 28,
+                        "p95": 29,
+                        "sum": 2927
+                      },
+                      "userOutputTokenDistribution": {
+                        "buckets": [
+                          {
+                            "count": "78",
+                            "left": 31,
+                            "right": 153.2
+                          },
+                          {
+                            "count": "13",
+                            "left": 153.2,
+                            "right": 275.4
+                          },
+                          {
+                            "count": "5",
+                            "left": 275.4,
+                            "right": 397.6
+                          },
+                          {
+                            "count": "1",
+                            "left": 397.6,
+                            "right": 519.8
+                          },
+                          {
+                            "count": "3",
+                            "left": 519.8,
+                            "right": 642
+                          },
+                          {
+                            "count": "1",
+                            "left": 642,
+                            "right": 764.2
+                          },
+                          {
+                            "count": "1",
+                            "left": 764.2,
+                            "right": 886.4
+                          },
+                          {
+                            "count": "1",
+                            "left": 886.4,
+                            "right": 1008.6
+                          },
+                          {
+                            "left": 1008.6,
+                            "right": 1130.8
+                          },
+                          {
+                            "count": "1",
+                            "left": 1130.8,
+                            "right": 1253
+                          }
+                        ],
+                        "max": 1253,
+                        "mean": 144.3653846153846,
+                        "median": 69,
+                        "min": 31,
+                        "p5": 36,
+                        "p95": 579.0499999999998,
+                        "sum": 15014
+                      }
+                    }
+                  }
+                },
+                "updateTime": "2026-07-12T19:52:25.442421Z"
+              },
+              {
+                "baseModel": "gemini-2.5-flash",
+                "createTime": "2026-07-12T19:31:09.779070Z",
+                "endTime": "2026-07-12T19:46:26.515282Z",
+                "experiment": "projects/801452371447/locations/us-central1/metadataStores/default/contexts/tuning-experiment-20260712123213831650",
+                "name": "projects/801452371447/locations/us-central1/tuningJobs/1334075399721713664",
+                "startTime": "2026-07-12T19:31:09.829877Z",
+                "state": "JOB_STATE_SUCCEEDED",
+                "supervisedTuningSpec": {
+                  "hyperParameters": {
+                    "adapterSize": "ADAPTER_SIZE_ONE",
+                    "epochCount": "1",
+                    "learningRateMultiplier": 1
+                  },
+                  "trainingDatasetUri": "gs://cloud-samples-data/ai-platform/generative_ai/gemini-1_5/text/sft_train_data.jsonl"
+                },
+                "tunedModel": {
+                  "checkpoints": [
+                    {
+                      "checkpointId": "1",
+                      "endpoint": "projects/801452371447/locations/us-central1/endpoints/4886819561824845824",
+                      "epoch": "1",
+                      "step": "33"
+                    }
+                  ],
+                  "endpoint": "projects/801452371447/locations/us-central1/endpoints/4886819561824845824",
+                  "model": "projects/801452371447/locations/us-central1/models/918048778483662848@1"
+                },
+                "tunedModelDisplayName": "My Supervised Tuned Model",
+                "tuningDataStats": {
+                  "supervisedTuningDataStats": {
+                    "totalBillableTokenCount": "255243",
+                    "tuningDatasetExampleCount": "500",
+                    "userDatasetExamples": [
+                      {
+                        "parts": [
+                          {
+                            "text": "Honesty is usually the best policy. It is disrespectful to lie to someone. If you don't want to date someone, you should say so.  Sometimes it is easy to be honest. For example, you might be able to truthfully say, \"No, thank you, I already have a date for that party.\" Other times, you might need to find a kinder way to be nice. Maybe you are not attracted to the person. Instead of bluntly sayi..."
+                          }
+                        ],
+                        "role": "user"
+                      },
+                      {
+                        "parts": [
+                          {
+                            "text": "Tell the truth. Use a \"compliment sandwich\". Be direct. Treat the person with respect. Communicate effectively."
+                          }
+                        ],
+                        "role": "model"
+                      },
+                      {
+                        "parts": [
+                          {
+                            "text": "Go online and simply search “Decor Style Quizzes” in order to get some direction. These quizzes will determine your personal style by having you choose between different rooms, accessories, and pieces of furniture. As you take the quiz, reflect on whether or not you could see yourself relaxing and/or entertaining guests in each space. Some styles that these quizzes may determine you have includ..."
+                          }
+                        ],
+                        "role": "user"
+                      },
+                      {
+                        "parts": [
+                          {
+                            "text": "Take a quiz online to find your style. Look online and in magazines for inspiration. Go through what you already own before you purchase new pieces. Match your decor to your personality and lifestyle."
+                          }
+                        ],
+                        "role": "model"
+                      },
+                      {
+                        "parts": [
+                          {
+                            "text": "The size of a shuffleboard table can range anywhere from nine feet to twenty-two feet. Keep in mind the amount of space you have to build and store it. You wouldn’t want to build a fourteen foot long table in a twelve foot shed. Remember you need at least two feet of additional space on each end of the table to actually play. The size you decide on will affect what dimensions and plans you use ..."
+                          }
+                        ],
+                        "role": "user"
+                      },
+                      {
+                        "parts": [
+                          {
+                            "text": "Determine what size you want your table to be. Plan or find dimensions for each part of the table. Decide on the type of wood for the playing surface."
+                          }
+                        ],
+                        "role": "model"
+                      }
+                    ],
+                    "userInputTokenDistribution": {
+                      "buckets": [
+                        {
+                          "count": 326,
+                          "left": 25,
+                          "right": 509
+                        },
+                        {
+                          "count": 148,
+                          "left": 510,
+                          "right": 994
+                        },
+                        {
+                          "count": 20,
+                          "left": 995,
+                          "right": 1478
+                        },
+                        {
+                          "count": 5,
+                          "left": 1479,
+                          "right": 1963
+                        },
+                        {
+                          "count": 1,
+                          "left": 2449,
+                          "right": 2932
+                        }
+                      ],
+                      "max": 2932,
+                      "mean": 467.184,
+                      "median": 414,
+                      "min": 25,
+                      "p5": 101,
+                      "p95": 1016,
+                      "sum": "233592"
+                    },
+                    "userMessagePerExampleDistribution": {
+                      "buckets": [
+                        {
+                          "count": 500,
+                          "left": 2,
+                          "right": 2
+                        }
+                      ],
+                      "max": 2,
+                      "mean": 2,
+                      "median": 2,
+                      "min": 2,
+                      "p5": 2,
+                      "p95": 2,
+                      "sum": "1000"
+                    },
+                    "userOutputTokenDistribution": {
+                      "buckets": [
+                        {
+                          "count": 298,
+                          "left": 3,
+                          "right": 42
+                        },
+                        {
+                          "count": 164,
+                          "left": 43,
+                          "right": 81
+                        },
+                        {
+                          "count": 29,
+                          "left": 82,
+                          "right": 120
+                        },
+                        {
+                          "count": 5,
+                          "left": 121,
+                          "right": 159
+                        },
+                        {
+                          "count": 3,
+                          "left": 160,
+                          "right": 198
+                        },
+                        {
+                          "count": 1,
+                          "left": 199,
+                          "right": 237
+                        }
+                      ],
+                      "max": 237,
+                      "mean": 43.302,
+                      "median": 37,
+                      "min": 3,
+                      "p5": 15,
+                      "p95": 89,
+                      "sum": "21651"
+                    }
+                  }
+                },
+                "tuningJobMetadata": {
+                  "completedEpochCount": "1"
+                },
+                "updateTime": "2026-07-12T19:46:26.515282Z"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "request": {
+        "method": "GET",
+        "url": "/v1beta1/projects/801452371447/locations/us-central1/tuningJobs/3156423563783700480",
+        "request": "GET /v1beta1/projects/801452371447/locations/us-central1/tuningJobs/3156423563783700480 HTTP/1.1",
+        "headers": {
+          "Accept": "*/*",
+          "Accept-Charset": "UTF-8",
+          "Accept-Encoding": "gzip",
+          "Connection": "Keep-Alive",
+          "Content-Type": "application/json",
+          "Test-Name": "TuningsTest.testListTuningJobs.vertex"
+        },
+        "bodySegments": [
+          null
+        ],
+        "previousRequest": "fc968731f85bc8e0e2640cb77dc1406ec9f30622f62b79e8112a6241a245d7a2",
+        "serverAddress": "us-central1-aiplatform.googleapis.com",
+        "port": 443,
+        "protocol": "https"
+      },
+      "shaSum": "54a8a9e6c17577117e4e8fea375357fd43a65d5f3f5fecc562b79dd2ca156034",
+      "response": {
+        "statusCode": 200,
+        "headers": {
+          "Content-Encoding": "gzip",
+          "Content-Length": "1655",
+          "Content-Type": "application/json; charset=UTF-8",
+          "Date": "Mon, 13 Jul 2026 20:12:31 GMT",
+          "Server": "ESF",
+          "Vary": "Origin, X-Origin, Referer",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "SAMEORIGIN",
+          "X-Xss-Protection": "0"
+        },
+        "bodySegments": [
+          {
+            "baseModel": "gemini-3.5-flash",
+            "createTime": "2026-07-13T19:15:56.925603Z",
+            "experiment": "projects/801452371447/locations/us-central1/metadataStores/default/contexts/tuning-experiment-20260713121620934770",
+            "name": "projects/801452371447/locations/us-central1/tuningJobs/3156423563783700480",
+            "reinforcementTuningSpec": {
+              "compositeRewardConfig": {
+                "weightedRewardConfigs": [
+                  {
+                    "rewardConfig": {
+                      "parseResponseConfig": {
+                        "parseType": "REGEX_EXTRACT",
+                        "regexExtractExpression": "\u003cthink\u003e.*\u003c/think\u003e\\s*\u003canswer\u003e(.*?)\u003c/answer\u003e"
+                      },
+                      "rewardName": "binary_format",
+                      "stringMatchRewardScorer": {
+                        "correctAnswerReward": 1,
+                        "stringMatchExpression": {
+                          "expression": "(?:0|1)",
+                          "matchOperation": "REGEX_CONTAINS"
+                        },
+                        "wrongAnswerReward": -1
+                      }
+                    },
+                    "weight": 1
+                  },
+                  {
+                    "rewardConfig": {
+                      "parseResponseConfig": {
+                        "parseType": "REGEX_EXTRACT",
+                        "regexExtractExpression": "\u003canswer\u003e(.*?)\u003c/answer\u003e"
+                      },
+                      "rewardName": "binary_ans",
+                      "stringMatchRewardScorer": {
+                        "correctAnswerReward": 1,
+                        "stringMatchExpression": {
+                          "expression": "{{references.reference}}",
+                          "matchOperation": "EXACT_MATCH"
+                        },
+                        "wrongAnswerReward": -1
+                      }
+                    },
+                    "weight": 1
+                  }
+                ]
+              },
+              "hyperParameters": {
+                "adapterSize": "ADAPTER_SIZE_FOUR",
+                "batchSize": 8,
+                "checkpointInterval": 50,
+                "epochCount": "4",
+                "evaluateInterval": 10,
+                "learningRateMultiplier": 1,
+                "maxOutputTokens": 32768,
+                "samplesPerPrompt": 8,
+                "thinkingLevel": "HIGH"
+              },
+              "trainingDatasetUri": "gs://camera-motion-data-llm-preview1-260612/cam_control_sft_data/concatenated_veo_omni_cambench_train_data_Gemini_3.5_Flash___NO_CAT___high_THK_PMPT_V2_MOT_EXP_V2_EXP_CATS_STRICT_OF_TEXT_IRES=LOW_no_gc___SC_no_scene_change.jsonl",
+              "validationDatasetUri": "gs://camera-motion-data-llm-preview1-260612/cam_control_sft_data/concatenated_veo_omni_cambench_test_data_Gemini_3.5_Flash___NO_CAT___high_THK_PMPT_V2_MOT_EXP_V2_EXP_CATS_STRICT_OF_TEXT_IRES=LOW_no_gc___SC_no_scene_change.jsonl"
+            },
+            "startTime": "2026-07-13T19:15:57.157852Z",
+            "state": "JOB_STATE_RUNNING",
+            "tunedModel": {
+              "model": "projects/801452371447/locations/us/models/8308578362545143808@1"
+            },
+            "tunedModelDisplayName": "cam_motion_all_data_v2_pmpt_rl_of_text_fps_1_r1_no_sc_g35f",
+            "tuningDataStats": {
+              "reinforcementTuningDataStats": {
+                "contentsPerExampleDistribution": {
+                  "buckets": [
+                    {
+                      "count": "2382",
+                      "left": 1,
+                      "right": 1
+                    }
+                  ],
+                  "max": 1,
+                  "mean": 1,
+                  "median": 1,
+                  "min": 1,
+                  "p5": 1,
+                  "p95": 1,
+                  "sum": 2382
+                },
+                "reinforcementTuningUserDatasetExamples": {
+                  "userDatasetExamples": [
+                    {
+                      "contents": [
+                        {
+                          "parts": [
+                            {
+                              "text": "\n\n[Optical Flow Textual Analysis]: Below is an automated 3x3 grid motion summary sampled at 2.0 FPS.\n\n--- Time interval: 0.0s to 1.0s ---\n  Top-Left: Magnitude 0.4 px, Dominant Direction NONE\n  Top-Center: Magnitude 1.0 px, Dominant Direction NONE\n  Top-Right: Magnitude 1.1 px, Dominant Direction DOWN-LEFT\n  Center-Left: Magnitude 2.4 px, Dominant Direction DOWN\n  Center: Magnitude 2.0 px, Domi..."
+                            }
+                          ],
+                          "role": "user"
+                        }
+                      ],
+                      "references": {
+                        "reference": "0"
+                      }
+                    },
+                    {
+                      "contents": [
+                        {
+                          "parts": [
+                            {
+                              "text": "\n\n[Optical Flow Textual Analysis]: Below is an automated 3x3 grid motion summary sampled at 2.0 FPS.\n\n--- Time interval: 0.0s to 1.0s ---\n  Top-Left: Magnitude 6.3 px, Dominant Direction LEFT\n  Top-Center: Magnitude 3.3 px, Dominant Direction LEFT\n  Top-Right: Magnitude 7.6 px, Dominant Direction LEFT\n  Center-Left: Magnitude 5.5 px, Dominant Direction LEFT\n  Center: Magnitude 5.2 px, Dominant ..."
+                            }
+                          ],
+                          "role": "user"
+                        }
+                      ],
+                      "references": {
+                        "reference": "1"
+                      }
+                    },
+                    {
+                      "contents": [
+                        {
+                          "parts": [
+                            {
+                              "text": "\n\n[Optical Flow Textual Analysis]: Below is an automated 3x3 grid motion summary sampled at 2.0 FPS.\n\n--- Time interval: 0.0s to 1.0s ---\n  Top-Left: Magnitude 0.0 px, Dominant Direction NONE\n  Top-Center: Magnitude 6.8 px, Dominant Direction DOWN-LEFT\n  Top-Right: Magnitude 2.0 px, Dominant Direction DOWN-LEFT\n  Center-Left: Magnitude 0.3 px, Dominant Direction NONE\n  Center: Magnitude 3.4 px,..."
+                            }
+                          ],
+                          "role": "user"
+                        }
+                      ],
+                      "references": {
+                        "reference": "0"
+                      }
+                    }
+                  ]
+                },
+                "tuningDatasetExampleCount": "2382",
+                "userInputTokenDistribution": {
+                  "buckets": [
+                    {
+                      "count": "1066",
+                      "left": 2220,
+                      "right": 4311
+                    },
+                    {
+                      "count": "999",
+                      "left": 4312,
+                      "right": 6402
+                    },
+                    {
+                      "count": "300",
+                      "left": 6403,
+                      "right": 8494
+                    },
+                    {
+                      "count": "7",
+                      "left": 8495,
+                      "right": 10585
+                    },
+                    {
+                      "count": "5",
+                      "left": 10586,
+                      "right": 12677
+                    },
+                    {
+                      "count": "5",
+                      "left": 12678,
+                      "right": 14768
+                    }
+                  ],
+                  "max": 14768,
+                  "mean": 4653.476070528967,
+                  "median": 5469,
+                  "min": 2220,
+                  "p5": 2501,
+                  "p95": 6474,
+                  "sum": 11084580
+                }
+              }
+            },
+            "updateTime": "2026-07-13T20:12:21.493183Z"
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -193,6 +193,9 @@ internal constructor(
   /** Service for interacting with Caches API. */
   val caches = Caches(httpClient)
 
+  /** Service for interacting with Tunings API. */
+  val tunings = Tunings(httpClient)
+
   /** Closes the Client instance and its underlying HTTP client. */
   override fun close() {
     httpClient.close()

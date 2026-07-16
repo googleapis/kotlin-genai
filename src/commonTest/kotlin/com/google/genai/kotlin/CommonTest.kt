@@ -104,6 +104,48 @@ class CommonTest {
   }
 
   @Test
+  fun testSetValueByPath_selfKey_deepMerge() {
+    val data = mutableMapOf<String, Any?>(
+      "a" to mutableMapOf<String, Any?>("b" to "v1", "c" to mutableMapOf<String, Any?>("d" to "v2"))
+    )
+    val value = mapOf(
+      "a" to mapOf("c" to mapOf("e" to "v3"), "f" to "v4"),
+      "g" to "v5"
+    )
+    Common.setValueByPath(data, arrayOf("_self"), value)
+
+    val aNode = data["a"] as Map<*, *>
+    assertEquals("v1", aNode["b"])
+    assertEquals("v4", aNode["f"])
+
+    val cNode = aNode["c"] as Map<*, *>
+    assertEquals("v2", cNode["d"])
+    assertEquals("v3", cNode["e"])
+
+    assertEquals("v5", data["g"])
+  }
+
+  @Test
+  fun testSetValueByPath_regularKey_deepMerge() {
+    val data = mutableMapOf<String, Any?>(
+      "target" to mutableMapOf<String, Any?>("b" to "v1", "c" to mutableMapOf<String, Any?>("d" to "v2"))
+    )
+    val value = mapOf(
+      "c" to mapOf("e" to "v3"),
+      "f" to "v4"
+    )
+    Common.setValueByPath(data, arrayOf("target"), value)
+
+    val targetNode = data["target"] as Map<*, *>
+    assertEquals("v1", targetNode["b"])
+    assertEquals("v4", targetNode["f"])
+
+    val cNode = targetNode["c"] as Map<*, *>
+    assertEquals("v2", cNode["d"])
+    assertEquals("v3", cNode["e"])
+  }
+
+  @Test
   fun testGetValueByPath_simpleObject() {
     // {"a": {"b": "v"}}
     val data = mapOf("a" to mapOf("b" to "v"))

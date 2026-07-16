@@ -110,9 +110,27 @@ internal object Common {
 
     val keyToSet = path.last()
     if (keyToSet == "_self" && value is Map<*, *>) {
-      @Suppress("UNCHECKED_CAST") currentObject.putAll(value as Map<String, Any?>)
+      @Suppress("UNCHECKED_CAST") deepMergeMaps(currentObject, value as Map<String, Any?>)
     } else {
-      currentObject[keyToSet] = value
+      val existingValue = currentObject[keyToSet]
+      if (existingValue is MutableMap<*, *> && value is Map<*, *>) {
+        @Suppress("UNCHECKED_CAST")
+        deepMergeMaps(existingValue as MutableMap<String, Any?>, value as Map<String, Any?>)
+      } else {
+        currentObject[keyToSet] = value
+      }
+    }
+  }
+
+  private fun deepMergeMaps(target: MutableMap<String, Any?>, source: Map<String, Any?>) {
+    for ((key, value) in source) {
+      val existingValue = target[key]
+      if (existingValue is MutableMap<*, *> && value is Map<*, *>) {
+        @Suppress("UNCHECKED_CAST")
+        deepMergeMaps(existingValue as MutableMap<String, Any?>, value as Map<String, Any?>)
+      } else {
+        target[key] = value
+      }
     }
   }
 

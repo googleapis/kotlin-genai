@@ -182,6 +182,32 @@ internal object Transformers {
     }
   }
 
+  fun tExtractModels(origin: Any?): Any? {
+    if (origin == null) return emptyList<Any?>()
+    val response = origin as? Map<*, *> ?: return emptyList<Any?>()
+    return response["models"] ?: response["tunedModels"] ?: response["publisherModels"] ?: emptyList<Any?>()
+  }
+
+  fun tModelsUrl(apiClient: ApiClient, baseModels: Any?): String {
+    val isBaseModel = baseModels as? Boolean ?: false
+    if (isBaseModel) {
+      return if (apiClient.enterprise) "publishers/google/models" else "models"
+    } else {
+      return if (apiClient.enterprise) "models" else "tunedModels"
+    }
+  }
+
+  fun tTuningJobStatus(status: Any?): String? {
+    val statusStr = status as? String ?: return null
+    return when (statusStr) {
+      "STATE_UNSPECIFIED" -> "JOB_STATE_UNSPECIFIED"
+      "CREATING" -> "JOB_STATE_RUNNING"
+      "ACTIVE" -> "JOB_STATE_SUCCEEDED"
+      "FAILED" -> "JOB_STATE_FAILED"
+      else -> statusStr
+    }
+  }
+
   /** Checks if the model uses the vertex embedContent endpoint. */
   fun tIsVertexEmbedContentModel(model: String): Boolean {
     return (model.contains("gemini") && model != "gemini-embedding-001") || model.contains("maas")
