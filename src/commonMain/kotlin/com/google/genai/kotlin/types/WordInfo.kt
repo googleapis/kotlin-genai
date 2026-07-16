@@ -20,13 +20,16 @@ package com.google.genai.kotlin.types
 
 import kotlinx.serialization.Serializable
 
-/** Retrieval config. */
+/** Information about a single recognized word. */
 @Serializable
-data class RetrievalConfig(
+data class WordInfo(
 
-  /** The language code of the user. */
-  val languageCode: String? = null,
+  /** Transcript of the word. */
+  val word: String? = null,
 
-  /** The location of the user. */
-  val latLng: LatLng? = null,
+  /** Start offset in time of the word relative to the start of the audio. */
+  val startOffset: String? = null,
+
+  /** End offset in time of the word relative to the start of the audio. */
+  val endOffset: String? = null,
 )

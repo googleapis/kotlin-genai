@@ -27,6 +27,12 @@ data class ReinforcementTuningSpec(
   /** Composite reward function configuration for reinforcement tuning. */
   val compositeRewardConfig: CompositeReinforcementTuningRewardConfig? = null,
 
+  /** Single reward function configuration for reinforcement tuning. */
+  val singleRewardConfig: SingleReinforcementTuningRewardConfig? = null,
+
+  /** Additional hyper-parameters to use during tuning. */
+  val hyperParameters: ReinforcementTuningHyperParameters? = null,
+
   /**
    * Cloud Storage path to the file containing training dataset for tuning. The dataset must be
    * formatted as a JSONL file.
@@ -38,10 +44,4 @@ data class ReinforcementTuningSpec(
    * formatted as a JSONL file.
    */
   val validationDatasetUri: String? = null,
-
-  /** Additional hyper-parameters to use during tuning. */
-  val hyperParameters: ReinforcementTuningHyperParameters? = null,
-
-  /** Single reward function configuration for reinforcement tuning. */
-  val singleRewardConfig: SingleReinforcementTuningRewardConfig? = null,
 )

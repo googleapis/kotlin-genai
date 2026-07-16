@@ -24,9 +24,9 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class SearchTypes(
 
-  /** Optional. Setting this field enables web search. Only text results are returned. */
-  val webSearch: WebSearch? = null,
-
   /** Optional. Setting this field enables image search. Image bytes are returned. */
   val imageSearch: ImageSearch? = null,
+
+  /** Optional. Setting this field enables web search. Only text results are returned. */
+  val webSearch: WebSearch? = null,
 )

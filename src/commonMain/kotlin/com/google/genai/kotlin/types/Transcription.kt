@@ -20,13 +20,22 @@ package com.google.genai.kotlin.types
 
 import kotlinx.serialization.Serializable
 
-/** Retrieval config. */
+/** Audio transcription in Server Content. */
 @Serializable
-data class RetrievalConfig(
+data class Transcription(
 
-  /** The language code of the user. */
+  /** Optional. Transcription text. */
+  val text: String? = null,
+
+  /** Optional. The bool indicates the end of the transcription. */
+  val finished: Boolean? = null,
+
+  /** The BCP-47 language code of the transcription. */
   val languageCode: String? = null,
 
-  /** The location of the user. */
-  val latLng: LatLng? = null,
+  /** A label identifying the speaker of this audio segment (e.g. "spk_1", "spk_2"). */
+  val speakerLabel: String? = null,
+
+  /** Detailed word-level transcriptions and timing details. */
+  val words: List<WordInfo>? = null,
 )

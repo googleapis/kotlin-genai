@@ -34,6 +34,9 @@ data class GenerationConfig(
    */
   val responseJsonSchema: JsonElement? = null,
 
+  /** Optional. Configuration for audio transcription (speech recognition). */
+  val audioTranscriptionConfig: AudioTranscriptionConfig? = null,
+
   /**
    * Optional. If enabled, audio timestamps will be included in the request to the model. This can
    * be useful for synchronizing audio with other modalities in the response. This field is not
@@ -90,6 +93,11 @@ data class GenerationConfig(
    * from [-2.0, 2.0].
    */
   val presencePenalty: Double? = null,
+
+  /**
+   * Optional. New response format field for the model to configure output formatting and delivery.
+   */
+  val responseFormat: List<ResponseFormat>? = null,
 
   /**
    * Optional. If set to true, the log probabilities of the output tokens are returned. Log
@@ -183,11 +191,6 @@ data class GenerationConfig(
    * not supported in Vertex AI.
    */
   val enableEnhancedCivicAnswers: Boolean? = null,
-
-  /**
-   * Optional. New response format field for the model to configure output formatting and delivery.
-   */
-  val responseFormat: List<ResponseFormat>? = null,
 
   /** Optional. Config for translation. This field is not supported in Vertex AI. */
   val translationConfig: TranslationConfig? = null,

@@ -41,6 +41,9 @@ data class ReinforcementTuningAutoraterScorer(
    */
   val autoraterResponseParseConfig: ReinforcementTuningParseResponseConfig? = null,
 
+  /** Scores autorater responses by using string match reward scorer. */
+  val exactMatchScorer: ReinforcementTuningAutoraterScorerExactMatchScorer? = null,
+
   /**
    * Scores autorater responses by directly converting parsed autorater response to a float reward.
    * Note: Reward is clipped to be within `[-1, 1]`, i.e., `reward = max(min(reward, 1.0), -1.0)`.
@@ -48,7 +51,4 @@ data class ReinforcementTuningAutoraterScorer(
   val parsedResponseConversionScorer:
     ReinforcementTuningAutoraterScorerParsedResponseConversionScorer? =
     null,
-
-  /** Scores autorater responses by using string match reward scorer. */
-  val exactMatchScorer: ReinforcementTuningAutoraterScorerExactMatchScorer? = null,
 )

@@ -24,14 +24,14 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class ReinforcementTuningExample(
 
-  /** Multi-turn contents that represents the Prompt. */
-  val contents: List<Content>? = null,
-
   /**
    * References for the given prompt. The key is the name of the reference, and the value is the
    * reference itself.
    */
   val references: Map<String, String>? = null,
+
+  /** Multi-turn contents that represents the Prompt. */
+  val contents: List<Content>? = null,
 
   /** Corresponds to system_instruction in user-facing GenerateContentRequest. */
   val systemInstruction: Content? = null,

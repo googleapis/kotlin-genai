@@ -153,6 +153,14 @@ class Caches internal constructor(internal val apiClient: ApiClient) {
   ): MutableMap<String, Any?> {
 
     val toObject = mutableMapOf<String, Any?>()
+    Common.getValueByPath(fromObject, arrayOf("enablePromptInjectionDetection"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("enablePromptInjectionDetection"),
+        Common.getValueByPath(fromObject, arrayOf("enablePromptInjectionDetection")),
+      )
+    }
+
     Common.getValueByPath(fromObject, arrayOf("environment"))?.let { node ->
       Common.setValueByPath(
         toObject,
@@ -166,14 +174,6 @@ class Caches internal constructor(internal val apiClient: ApiClient) {
         toObject,
         arrayOf("excludedPredefinedFunctions"),
         Common.getValueByPath(fromObject, arrayOf("excludedPredefinedFunctions")),
-      )
-    }
-
-    Common.getValueByPath(fromObject, arrayOf("enablePromptInjectionDetection"))?.let { node ->
-      Common.setValueByPath(
-        toObject,
-        arrayOf("enablePromptInjectionDetection"),
-        Common.getValueByPath(fromObject, arrayOf("enablePromptInjectionDetection")),
       )
     }
 
@@ -618,19 +618,19 @@ class Caches internal constructor(internal val apiClient: ApiClient) {
   ): MutableMap<String, Any?> {
 
     val toObject = mutableMapOf<String, Any?>()
-    Common.getValueByPath(fromObject, arrayOf("id"))?.let { node ->
-      Common.setValueByPath(
-        toObject,
-        arrayOf("id"),
-        Common.getValueByPath(fromObject, arrayOf("id")),
-      )
-    }
-
     Common.getValueByPath(fromObject, arrayOf("args"))?.let { node ->
       Common.setValueByPath(
         toObject,
         arrayOf("args"),
         Common.getValueByPath(fromObject, arrayOf("args")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("id"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("id"),
+        Common.getValueByPath(fromObject, arrayOf("id")),
       )
     }
 
@@ -760,20 +760,20 @@ class Caches internal constructor(internal val apiClient: ApiClient) {
   ): MutableMap<String, Any?> {
 
     val toObject = mutableMapOf<String, Any?>()
-    Common.getValueByPath(fromObject, arrayOf("searchTypes"))?.let { node ->
-      Common.setValueByPath(
-        toObject,
-        arrayOf("searchTypes"),
-        Common.getValueByPath(fromObject, arrayOf("searchTypes")),
-      )
-    }
-
     if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("blockingConfidence")))) {
       throw IllegalArgumentException("blockingConfidence parameter is not supported in Gemini API.")
     }
 
     if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("excludeDomains")))) {
       throw IllegalArgumentException("excludeDomains parameter is not supported in Gemini API.")
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("searchTypes"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("searchTypes"),
+        Common.getValueByPath(fromObject, arrayOf("searchTypes")),
+      )
     }
 
     Common.getValueByPath(fromObject, arrayOf("timeRangeFilter"))?.let { node ->
@@ -974,6 +974,30 @@ class Caches internal constructor(internal val apiClient: ApiClient) {
       )
     }
 
+    Common.getValueByPath(fromObject, arrayOf("toolCall"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("toolCall"),
+        Common.getValueByPath(fromObject, arrayOf("toolCall")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("toolResponse"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("toolResponse"),
+        Common.getValueByPath(fromObject, arrayOf("toolResponse")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("audioTranscription"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("audioTranscription"),
+        Common.getValueByPath(fromObject, arrayOf("audioTranscription")),
+      )
+    }
+
     Common.getValueByPath(fromObject, arrayOf("codeExecutionResult"))?.let { node ->
       Common.setValueByPath(
         toObject,
@@ -1063,22 +1087,6 @@ class Caches internal constructor(internal val apiClient: ApiClient) {
       )
     }
 
-    Common.getValueByPath(fromObject, arrayOf("toolCall"))?.let { node ->
-      Common.setValueByPath(
-        toObject,
-        arrayOf("toolCall"),
-        Common.getValueByPath(fromObject, arrayOf("toolCall")),
-      )
-    }
-
-    Common.getValueByPath(fromObject, arrayOf("toolResponse"))?.let { node ->
-      Common.setValueByPath(
-        toObject,
-        arrayOf("toolResponse"),
-        Common.getValueByPath(fromObject, arrayOf("toolResponse")),
-      )
-    }
-
     Common.getValueByPath(fromObject, arrayOf("partMetadata"))?.let { node ->
       Common.setValueByPath(
         toObject,
@@ -1101,6 +1109,26 @@ class Caches internal constructor(internal val apiClient: ApiClient) {
         toObject,
         arrayOf("mediaResolution"),
         Common.getValueByPath(fromObject, arrayOf("mediaResolution")),
+      )
+    }
+
+    if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("toolCall")))) {
+      throw IllegalArgumentException(
+        "toolCall parameter is not supported in Gemini Enterprise Agent Platform."
+      )
+    }
+
+    if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("toolResponse")))) {
+      throw IllegalArgumentException(
+        "toolResponse parameter is not supported in Gemini Enterprise Agent Platform."
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("audioTranscription"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("audioTranscription"),
+        Common.getValueByPath(fromObject, arrayOf("audioTranscription")),
       )
     }
 
@@ -1190,18 +1218,6 @@ class Caches internal constructor(internal val apiClient: ApiClient) {
       )
     }
 
-    if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("toolCall")))) {
-      throw IllegalArgumentException(
-        "toolCall parameter is not supported in Gemini Enterprise Agent Platform."
-      )
-    }
-
-    if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("toolResponse")))) {
-      throw IllegalArgumentException(
-        "toolResponse parameter is not supported in Gemini Enterprise Agent Platform."
-      )
-    }
-
     if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("partMetadata")))) {
       throw IllegalArgumentException(
         "partMetadata parameter is not supported in Gemini Enterprise Agent Platform."
@@ -1217,14 +1233,6 @@ class Caches internal constructor(internal val apiClient: ApiClient) {
   ): MutableMap<String, Any?> {
 
     val toObject = mutableMapOf<String, Any?>()
-    Common.getValueByPath(fromObject, arrayOf("retrievalConfig"))?.let { node ->
-      Common.setValueByPath(
-        toObject,
-        arrayOf("retrievalConfig"),
-        Common.getValueByPath(fromObject, arrayOf("retrievalConfig")),
-      )
-    }
-
     Common.getValueByPath(fromObject, arrayOf("functionCallingConfig"))?.let { node ->
       Common.setValueByPath(
         toObject,
@@ -1233,6 +1241,14 @@ class Caches internal constructor(internal val apiClient: ApiClient) {
           Common.getValueByPath(fromObject, arrayOf("functionCallingConfig")) as Map<String, Any?>,
           toObject,
         ),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("retrievalConfig"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("retrievalConfig"),
+        Common.getValueByPath(fromObject, arrayOf("retrievalConfig")),
       )
     }
 
@@ -1253,19 +1269,19 @@ class Caches internal constructor(internal val apiClient: ApiClient) {
   ): MutableMap<String, Any?> {
 
     val toObject = mutableMapOf<String, Any?>()
-    Common.getValueByPath(fromObject, arrayOf("retrievalConfig"))?.let { node ->
-      Common.setValueByPath(
-        toObject,
-        arrayOf("retrievalConfig"),
-        Common.getValueByPath(fromObject, arrayOf("retrievalConfig")),
-      )
-    }
-
     Common.getValueByPath(fromObject, arrayOf("functionCallingConfig"))?.let { node ->
       Common.setValueByPath(
         toObject,
         arrayOf("functionCallingConfig"),
         Common.getValueByPath(fromObject, arrayOf("functionCallingConfig")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("retrievalConfig"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("retrievalConfig"),
+        Common.getValueByPath(fromObject, arrayOf("retrievalConfig")),
       )
     }
 
@@ -1290,33 +1306,6 @@ class Caches internal constructor(internal val apiClient: ApiClient) {
       throw IllegalArgumentException("retrieval parameter is not supported in Gemini API.")
     }
 
-    Common.getValueByPath(fromObject, arrayOf("computerUse"))?.let { node ->
-      Common.setValueByPath(
-        toObject,
-        arrayOf("computerUse"),
-        Common.getValueByPath(fromObject, arrayOf("computerUse")),
-      )
-    }
-
-    Common.getValueByPath(fromObject, arrayOf("fileSearch"))?.let { node ->
-      Common.setValueByPath(
-        toObject,
-        arrayOf("fileSearch"),
-        Common.getValueByPath(fromObject, arrayOf("fileSearch")),
-      )
-    }
-
-    Common.getValueByPath(fromObject, arrayOf("googleSearch"))?.let { node ->
-      Common.setValueByPath(
-        toObject,
-        arrayOf("googleSearch"),
-        googleSearchToMldev(
-          Common.getValueByPath(fromObject, arrayOf("googleSearch")) as Map<String, Any?>,
-          toObject,
-        ),
-      )
-    }
-
     Common.getValueByPath(fromObject, arrayOf("googleMaps"))?.let { node ->
       Common.setValueByPath(
         toObject,
@@ -1328,11 +1317,27 @@ class Caches internal constructor(internal val apiClient: ApiClient) {
       )
     }
 
+    Common.getValueByPath(fromObject, arrayOf("mcpServers"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("mcpServers"),
+        Common.getValueByPath(fromObject, arrayOf("mcpServers")),
+      )
+    }
+
     Common.getValueByPath(fromObject, arrayOf("codeExecution"))?.let { node ->
       Common.setValueByPath(
         toObject,
         arrayOf("codeExecution"),
         Common.getValueByPath(fromObject, arrayOf("codeExecution")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("computerUse"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("computerUse"),
+        Common.getValueByPath(fromObject, arrayOf("computerUse")),
       )
     }
 
@@ -1342,11 +1347,26 @@ class Caches internal constructor(internal val apiClient: ApiClient) {
       )
     }
 
+    if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("exaAiSearch")))) {
+      throw IllegalArgumentException("exaAiSearch parameter is not supported in Gemini API.")
+    }
+
     Common.getValueByPath(fromObject, arrayOf("functionDeclarations"))?.let { node ->
       Common.setValueByPath(
         toObject,
         arrayOf("functionDeclarations"),
         Common.getValueByPath(fromObject, arrayOf("functionDeclarations")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("googleSearch"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("googleSearch"),
+        googleSearchToMldev(
+          Common.getValueByPath(fromObject, arrayOf("googleSearch")) as Map<String, Any?>,
+          toObject,
+        ),
       )
     }
 
@@ -1370,16 +1390,12 @@ class Caches internal constructor(internal val apiClient: ApiClient) {
       )
     }
 
-    Common.getValueByPath(fromObject, arrayOf("mcpServers"))?.let { node ->
+    Common.getValueByPath(fromObject, arrayOf("fileSearch"))?.let { node ->
       Common.setValueByPath(
         toObject,
-        arrayOf("mcpServers"),
-        Common.getValueByPath(fromObject, arrayOf("mcpServers")),
+        arrayOf("fileSearch"),
+        Common.getValueByPath(fromObject, arrayOf("fileSearch")),
       )
-    }
-
-    if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("exaAiSearch")))) {
-      throw IllegalArgumentException("exaAiSearch parameter is not supported in Gemini API.")
     }
 
     return toObject
@@ -1399,6 +1415,34 @@ class Caches internal constructor(internal val apiClient: ApiClient) {
       )
     }
 
+    Common.getValueByPath(fromObject, arrayOf("googleMaps"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("googleMaps"),
+        Common.getValueByPath(fromObject, arrayOf("googleMaps")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("mcpServers"))?.let { node ->
+      val keyArray = node as? List<*> ?: emptyList<Any?>()
+      val result = mutableListOf<Any?>()
+
+      for (item in keyArray) {
+        if (item is Map<*, *>) {
+          result.add(mcpServerToVertex(item as Map<String, Any?>, toObject))
+        }
+      }
+      Common.setValueByPath(toObject, arrayOf("mcpServers"), result)
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("codeExecution"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("codeExecution"),
+        Common.getValueByPath(fromObject, arrayOf("codeExecution")),
+      )
+    }
+
     Common.getValueByPath(fromObject, arrayOf("computerUse"))?.let { node ->
       Common.setValueByPath(
         toObject,
@@ -1410,36 +1454,6 @@ class Caches internal constructor(internal val apiClient: ApiClient) {
       )
     }
 
-    if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("fileSearch")))) {
-      throw IllegalArgumentException(
-        "fileSearch parameter is not supported in Gemini Enterprise Agent Platform."
-      )
-    }
-
-    Common.getValueByPath(fromObject, arrayOf("googleSearch"))?.let { node ->
-      Common.setValueByPath(
-        toObject,
-        arrayOf("googleSearch"),
-        Common.getValueByPath(fromObject, arrayOf("googleSearch")),
-      )
-    }
-
-    Common.getValueByPath(fromObject, arrayOf("googleMaps"))?.let { node ->
-      Common.setValueByPath(
-        toObject,
-        arrayOf("googleMaps"),
-        Common.getValueByPath(fromObject, arrayOf("googleMaps")),
-      )
-    }
-
-    Common.getValueByPath(fromObject, arrayOf("codeExecution"))?.let { node ->
-      Common.setValueByPath(
-        toObject,
-        arrayOf("codeExecution"),
-        Common.getValueByPath(fromObject, arrayOf("codeExecution")),
-      )
-    }
-
     Common.getValueByPath(fromObject, arrayOf("enterpriseWebSearch"))?.let { node ->
       Common.setValueByPath(
         toObject,
@@ -1448,11 +1462,27 @@ class Caches internal constructor(internal val apiClient: ApiClient) {
       )
     }
 
+    Common.getValueByPath(fromObject, arrayOf("exaAiSearch"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("exaAiSearch"),
+        Common.getValueByPath(fromObject, arrayOf("exaAiSearch")),
+      )
+    }
+
     Common.getValueByPath(fromObject, arrayOf("functionDeclarations"))?.let { node ->
       Common.setValueByPath(
         toObject,
         arrayOf("functionDeclarations"),
         Common.getValueByPath(fromObject, arrayOf("functionDeclarations")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("googleSearch"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("googleSearch"),
+        Common.getValueByPath(fromObject, arrayOf("googleSearch")),
       )
     }
 
@@ -1480,23 +1510,9 @@ class Caches internal constructor(internal val apiClient: ApiClient) {
       )
     }
 
-    Common.getValueByPath(fromObject, arrayOf("mcpServers"))?.let { node ->
-      val keyArray = node as? List<*> ?: emptyList<Any?>()
-      val result = mutableListOf<Any?>()
-
-      for (item in keyArray) {
-        if (item is Map<*, *>) {
-          result.add(mcpServerToVertex(item as Map<String, Any?>, toObject))
-        }
-      }
-      Common.setValueByPath(toObject, arrayOf("mcpServers"), result)
-    }
-
-    Common.getValueByPath(fromObject, arrayOf("exaAiSearch"))?.let { node ->
-      Common.setValueByPath(
-        toObject,
-        arrayOf("exaAiSearch"),
-        Common.getValueByPath(fromObject, arrayOf("exaAiSearch")),
+    if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("fileSearch")))) {
+      throw IllegalArgumentException(
+        "fileSearch parameter is not supported in Gemini Enterprise Agent Platform."
       )
     }
 

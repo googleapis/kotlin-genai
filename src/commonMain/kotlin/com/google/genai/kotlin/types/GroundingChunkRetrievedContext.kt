@@ -63,15 +63,15 @@ data class GroundingChunkRetrievedContext(
   val fileSearchStore: String? = null,
 
   /**
-   * Optional. Page number of the retrieved context, if applicable. This field is not supported in
-   * Vertex AI.
-   */
-  val pageNumber: Int? = null,
-
-  /**
    * Optional. The media blob resource name for multimodal file search results. Format:
    * fileSearchStores/{file_search_store_id}/media/{blob_id}. This field is not supported in Vertex
    * AI.
    */
   val mediaId: String? = null,
+
+  /**
+   * Optional. Page number of the retrieved context, if applicable. This field is not supported in
+   * Vertex AI.
+   */
+  val pageNumber: Int? = null,
 )

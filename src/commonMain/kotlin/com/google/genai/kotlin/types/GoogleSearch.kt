@@ -24,9 +24,6 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class GoogleSearch(
 
-  /** Optional. The set of search types to enable. If not set, web search is enabled by default. */
-  val searchTypes: SearchTypes? = null,
-
   /**
    * Optional. Sites with confidence level chosen & above this value will be blocked from the search
    * results. This field is not supported in Gemini API.
@@ -38,6 +35,9 @@ data class GoogleSearch(
    * domains. Example: ["amazon.com", "facebook.com"]. This field is not supported in Gemini API.
    */
   val excludeDomains: List<String>? = null,
+
+  /** Optional. The set of search types to enable. If not set, web search is enabled by default. */
+  val searchTypes: SearchTypes? = null,
 
   /**
    * Optional. Filter search results to a specific time range. If customers set a start time, they

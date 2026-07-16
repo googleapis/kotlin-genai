@@ -79,6 +79,9 @@ data class TuningJob(
   /** Tuning Spec for Preference Optimization. */
   val preferenceOptimizationSpec: PreferenceOptimizationSpec? = null,
 
+  /**  */
+  val distillationSamplingSpec: DistillationSamplingSpec? = null,
+
   /** Tuning Spec for Distillation. */
   val distillationSpec: DistillationSpec? = null,
 
@@ -153,18 +156,15 @@ data class TuningJob(
    */
   val tunedModelDisplayName: String? = null,
 
-  /** Output only. The detail state of the tuning job (while the overall `JobState` is running). */
-  val tuningJobState: TuningJobState? = null,
-
-  /** Tuning Spec for Veo Tuning. */
-  val veoTuningSpec: VeoTuningSpec? = null,
-
   /** Output only. Tuning Job metadata. */
   val tuningJobMetadata: TuningJobMetadata? = null,
+
+  /** Output only. The detail state of the tuning job (while the overall `JobState` is running). */
+  val tuningJobState: TuningJobState? = null,
 
   /** Tuning Spec for Veo LoRA Tuning. */
   val veoLoraTuningSpec: VeoLoraTuningSpec? = null,
 
-  /**  */
-  val distillationSamplingSpec: DistillationSamplingSpec? = null,
+  /** Tuning Spec for Veo Tuning. */
+  val veoTuningSpec: VeoTuningSpec? = null,
 )

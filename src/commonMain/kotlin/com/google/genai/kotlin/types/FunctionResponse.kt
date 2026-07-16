@@ -31,29 +31,6 @@ import kotlinx.serialization.json.JsonElement
 data class FunctionResponse(
 
   /**
-   * Optional. Signals that function call continues, and more responses will be returned, turning
-   * the function call into a generator. Is only applicable to NON_BLOCKING function calls, is
-   * ignored otherwise. If set to false, future responses will not be considered. It is allowed to
-   * return empty `response` with `will_continue=False` to signal that the function call is
-   * finished. This may still trigger the model generation. To avoid triggering the generation and
-   * finish the function call, additionally set `scheduling` to `SILENT`. This field is not
-   * supported in Vertex AI.
-   */
-  val willContinue: Boolean? = null,
-
-  /**
-   * Optional. Specifies how the response should be scheduled in the conversation. Only applicable
-   * to NON_BLOCKING function calls, is ignored otherwise. Defaults to WHEN_IDLE.
-   */
-  val scheduling: FunctionResponseScheduling? = null,
-
-  /**
-   * Optional. Ordered `Parts` that constitute a function response. Parts may have different IANA
-   * MIME types.
-   */
-  val parts: List<FunctionResponsePart>? = null,
-
-  /**
    * Optional. The id of the function call this response is for. Populated by the client to match
    * the corresponding function call `id`.
    */
@@ -66,9 +43,32 @@ data class FunctionResponse(
   val name: String? = null,
 
   /**
+   * Optional. Ordered `Parts` that constitute a function response. Parts may have different IANA
+   * MIME types.
+   */
+  val parts: List<FunctionResponsePart>? = null,
+
+  /**
    * Required. The function response in JSON object format. Use "output" key to specify function
    * output and "error" key to specify error details (if any). If "output" and "error" keys are not
    * specified, then whole "response" is treated as function output.
    */
   val response: Map<String, JsonElement>? = null,
+
+  /**
+   * Optional. Specifies how the response should be scheduled in the conversation. Only applicable
+   * to NON_BLOCKING function calls, is ignored otherwise. Defaults to WHEN_IDLE.
+   */
+  val scheduling: FunctionResponseScheduling? = null,
+
+  /**
+   * Optional. Signals that function call continues, and more responses will be returned, turning
+   * the function call into a generator. Is only applicable to NON_BLOCKING function calls, is
+   * ignored otherwise. If set to false, future responses will not be considered. It is allowed to
+   * return empty `response` with `will_continue=False` to signal that the function call is
+   * finished. This may still trigger the model generation. To avoid triggering the generation and
+   * finish the function call, additionally set `scheduling` to `SILENT`. This field is not
+   * supported in Vertex AI.
+   */
+  val willContinue: Boolean? = null,
 )

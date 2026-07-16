@@ -25,6 +25,18 @@ import kotlinx.serialization.Serializable
 data class DistillationSamplingSpec(
 
   /**
+   * Cloud Storage path to file containing prompt dataset for distillation. The dataset must be
+   * formatted as a JSONL file.
+   */
+  val promptDatasetUri: String? = null,
+
+  /**
+   * Cloud Storage path to file containing validation dataset for distillation. The dataset must be
+   * formatted as a JSONL file.
+   */
+  val validationDatasetUri: String? = null,
+
+  /**
    * The base teacher model that is being distilled. See
    * [Supported models](https://cloud.google.com/vertex-ai/generative-ai/docs/model-reference/tuning#supported_models).
    */
@@ -35,18 +47,6 @@ data class DistillationSamplingSpec(
    * `projects/{project}/locations/{location}/models/{model}`.
    */
   val tunedTeacherModelSource: String? = null,
-
-  /**
-   * Cloud Storage path to file containing validation dataset for distillation. The dataset must be
-   * formatted as a JSONL file.
-   */
-  val validationDatasetUri: String? = null,
-
-  /**
-   * Cloud Storage path to file containing prompt dataset for distillation. The dataset must be
-   * formatted as a JSONL file.
-   */
-  val promptDatasetUri: String? = null,
 
   /** Hyperparameters for distillation tuning. */
   val hyperparameters: DistillationHyperParameters? = null,

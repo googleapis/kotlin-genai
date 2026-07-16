@@ -20,13 +20,10 @@ package com.google.genai.kotlin.types
 
 import kotlinx.serialization.Serializable
 
-/** Retrieval config. */
+/** Provides hints to the model about possible languages present in the audio. */
 @Serializable
-data class RetrievalConfig(
+data class LanguageHints(
 
-  /** The language code of the user. */
-  val languageCode: String? = null,
-
-  /** The location of the user. */
-  val latLng: LatLng? = null,
+  /** BCP-47 language codes. At least one must be specified. */
+  val languageCodes: List<String>? = null
 )

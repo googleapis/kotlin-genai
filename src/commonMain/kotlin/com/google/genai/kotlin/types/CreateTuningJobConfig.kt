@@ -111,13 +111,6 @@ data class CreateTuningJobConfig(
   /** The Google Cloud Storage location where the tuning job outputs are written. */
   val outputUri: String? = null,
 
-  /**
-   * The encryption spec of the tuning job. Customer-managed encryption key options for a TuningJob.
-   * If this is set, then all resources created by the TuningJob will be encrypted with provided
-   * encryption key.
-   */
-  val encryptionSpec: EncryptionSpec? = null,
-
   /** Reward function configuration for reinforcement tuning. Reinforcement tuning only. */
   val rewardConfig: SingleReinforcementTuningRewardConfig? = null,
 
@@ -153,4 +146,11 @@ data class CreateTuningJobConfig(
    * Reinforcement tuning only.
    */
   val validationDatasetUri: String? = null,
+
+  /**
+   * The encryption spec of the tuning job. Customer-managed encryption key options for a TuningJob.
+   * If this is set, then all resources created by the TuningJob will be encrypted with provided
+   * encryption key.
+   */
+  val encryptionSpec: EncryptionSpec? = null,
 )

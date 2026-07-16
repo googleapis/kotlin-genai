@@ -33,15 +33,15 @@ data class BatchJobSource(
   /** The BigQuery URI to input table. */
   val bigqueryUri: String? = null,
 
-  /** The Gemini Developer API's file resource name of the input data (e.g. "files/12345"). */
-  val fileName: String? = null,
-
-  /** The Gemini Developer API's inlined input data to run batch job. */
-  val inlinedRequests: List<InlinedRequest>? = null,
-
   /**
    * This field is experimental and may change in future versions. The Vertex AI dataset resource
    * name to use as input. Must be of type multimodal.
    */
   val vertexDatasetName: String? = null,
+
+  /** The Gemini Developer API's file resource name of the input data (e.g. "files/12345"). */
+  val fileName: String? = null,
+
+  /** The Gemini Developer API's inlined input data to run batch job. */
+  val inlinedRequests: List<InlinedRequest>? = null,
 )

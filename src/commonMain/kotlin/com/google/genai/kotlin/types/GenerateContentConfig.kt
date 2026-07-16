@@ -36,6 +36,9 @@ data class GenerateContentConfig(
   /** If true, the raw HTTP response will be returned in the 'sdk_http_response' field. */
   val shouldReturnHttpResponse: Boolean? = null,
 
+  /** The service tier to use for the request. For example, ServiceTier.FLEX. */
+  val serviceTier: ServiceTier? = null,
+
   /**
    * Instructions for the model to steer it toward better performance. For example, "Answer as
    * concisely as possible" or "Don't use technical terms in your response".
@@ -139,6 +142,9 @@ data class GenerateContentConfig(
    */
   val responseJsonSchema: JsonElement? = null,
 
+  /** Configuration for model router requests. */
+  val routingConfig: GenerationConfigRoutingConfig? = null,
+
   /** Configuration for model selection. */
   val modelSelectionConfig: ModelSelectionConfig? = null,
 
@@ -153,6 +159,9 @@ data class GenerateContentConfig(
 
   /** Associates model output to a specific function call. */
   val toolConfig: ToolConfig? = null,
+
+  /** Labels with user-defined metadata to break down billed charges. */
+  val labels: Map<String, String>? = null,
 
   /** Resource name of a context cache that can be used in subsequent requests. */
   val cachedContent: String? = null,
@@ -175,6 +184,9 @@ data class GenerateContentConfig(
   /** The thinking features configuration. */
   val thinkingConfig: ThinkingConfig? = null,
 
+  /** Optional. Configuration for audio transcription (speech recognition). */
+  val audioTranscriptionConfig: AudioTranscriptionConfig? = null,
+
   /** The image generation configuration. */
   val imageConfig: ImageConfig? = null,
 
@@ -189,13 +201,4 @@ data class GenerateContentConfig(
    * safety_settings must not be supplied.
    */
   val modelArmorConfig: ModelArmorConfig? = null,
-
-  /** The service tier to use for the request. For example, ServiceTier.FLEX. */
-  val serviceTier: ServiceTier? = null,
-
-  /** Configuration for model router requests. */
-  val routingConfig: GenerationConfigRoutingConfig? = null,
-
-  /** Labels with user-defined metadata to break down billed charges. */
-  val labels: Map<String, String>? = null,
 )

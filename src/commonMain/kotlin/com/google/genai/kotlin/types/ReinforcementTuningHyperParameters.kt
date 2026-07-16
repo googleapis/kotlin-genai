@@ -24,17 +24,11 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class ReinforcementTuningHyperParameters(
 
-  /** Optional. Number of training epoches for the tuning job. */
-  val epochCount: Long? = null,
-
   /** Learning rate multiplier for Reinforcement Learning. */
   val learningRateMultiplier: Double? = null,
 
   /** Optional. Adapter size for Reinforcement Tuning. */
   val adapterSize: AdapterSize? = null,
-
-  /** Optional. Number of different responses to generate per prompt during tuning. */
-  val samplesPerPrompt: Int? = null,
 
   /**
    * Optional. Batch size for the tuning job. How many prompts to process at a train step. If not
@@ -43,27 +37,26 @@ data class ReinforcementTuningHyperParameters(
   val batchSize: Int? = null,
 
   /**
-   * Optional. How often at steps to evaluate the tuning job during training. If not set, evel will
-   * be run per epoch. `total_steps = epoch_count * samples_per_prompt / total_prompts_in_dataset`
-   */
-  val evaluateInterval: Int? = null,
-
-  /**
    * Optional. How often at steps to save checkpoints during training. If not set, one checkpoint
    * per epoch will be set. ```total_steps = epoch_count * samples_per_prompt /
    * total_prompts_in_dataset```
    */
   val checkpointInterval: Int? = null,
 
+  /** Optional. Number of training epoches for the tuning job. */
+  val epochCount: Long? = null,
+
+  /**
+   * Optional. How often at steps to evaluate the tuning job during training. If not set, evel will
+   * be run per epoch. `total_steps = epoch_count * samples_per_prompt / total_prompts_in_dataset`
+   */
+  val evaluateInterval: Int? = null,
+
   /** Optional. The maximum number of tokens to generate per prompt. Default to 32768. */
   val maxOutputTokens: Int? = null,
 
-  /**
-   * Indicates the maximum thinking depth during tuning. Starting from Gemini 3.5 models, the old
-   * thinking_budget will no longer be supported and will result in a user error if set. Instead,
-   * users should use the thinking_level parameter to control the maximum thinking depth.
-   */
-  val thinkingLevel: ReinforcementTuningThinkingLevel? = null,
+  /** Optional. Number of different responses to generate per prompt during tuning. */
+  val samplesPerPrompt: Int? = null,
 
   /**
    * Optional. The thinking budget for the tuning job to optimize for (Gemini 2.5 only). * -1 means
@@ -71,4 +64,11 @@ data class ReinforcementTuningHyperParameters(
    * default to -1 (dynamic thinking).
    */
   val thinkingBudget: Int? = null,
+
+  /**
+   * Indicates the maximum thinking depth during tuning. Starting from Gemini 3.5 models, the old
+   * thinking_budget will no longer be supported and will result in a user error if set. Instead,
+   * users should use the thinking_level parameter to control the maximum thinking depth.
+   */
+  val thinkingLevel: ReinforcementTuningThinkingLevel? = null,
 )

@@ -20,13 +20,5 @@ package com.google.genai.kotlin.types
 
 import kotlinx.serialization.Serializable
 
-/** Retrieval config. */
-@Serializable
-data class RetrievalConfig(
-
-  /** The language code of the user. */
-  val languageCode: String? = null,
-
-  /** The location of the user. */
-  val latLng: LatLng? = null,
-)
+/** Indicates the language of the audio should be automatically detected. */
+@Serializable class LanguageAuto()

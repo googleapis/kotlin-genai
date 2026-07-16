@@ -33,6 +33,21 @@ data class Part(
   /** Media resolution for the input media. */
   val mediaResolution: PartMediaResolution? = null,
 
+  /**
+   * Server-side tool call. This field is populated when the model predicts a tool invocation that
+   * should be executed on the server. The client is expected to echo this message back to the API.
+   */
+  val toolCall: ToolCall? = null,
+
+  /**
+   * The output from a server-side ToolCall execution. This field is populated by the client with
+   * the results of executing the corresponding ToolCall.
+   */
+  val toolResponse: ToolResponse? = null,
+
+  /** Output only. The transcription of the audio part. */
+  val audioTranscription: Transcription? = null,
+
   /** Optional. The result of executing the ExecutableCode. */
   val codeExecutionResult: CodeExecutionResult? = null,
 
@@ -81,18 +96,6 @@ data class Part(
    * presented in inline_data or file_data.
    */
   val videoMetadata: VideoMetadata? = null,
-
-  /**
-   * Server-side tool call. This field is populated when the model predicts a tool invocation that
-   * should be executed on the server. The client is expected to echo this message back to the API.
-   */
-  val toolCall: ToolCall? = null,
-
-  /**
-   * The output from a server-side ToolCall execution. This field is populated by the client with
-   * the results of executing the corresponding ToolCall.
-   */
-  val toolResponse: ToolResponse? = null,
 
   /**
    * Custom metadata associated with the Part. Agents using genai.Part as content representation may

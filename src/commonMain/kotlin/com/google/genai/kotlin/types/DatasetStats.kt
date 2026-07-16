@@ -24,6 +24,9 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class DatasetStats(
 
+  /** Output only. Dataset distributions for the number of contents per example. */
+  val contentsPerExampleDistribution: DatasetDistribution? = null,
+
   /** Output only. A partial sample of the indices (starting from 1) of the dropped examples. */
   val droppedExampleIndices: List<Long>? = null,
 
@@ -33,8 +36,16 @@ data class DatasetStats(
    */
   val droppedExampleReasons: List<String>? = null,
 
+  /**
+   * Output only. Sample user dataset examples in the training dataset uri for Reinforcement Tuning.
+   */
+  val reinforcementTuningUserDatasetExamples: ReinforcementTuningUserDatasetExamples? = null,
+
   /** Output only. Number of billable characters in the tuning dataset. */
   val totalBillableCharacterCount: Long? = null,
+
+  /** Output only. Number of billable tokens in the tuning dataset. */
+  val totalBillableTokenCount: Long? = null,
 
   /** Output only. Number of tuning characters in the tuning dataset. */
   val totalTuningCharacterCount: Long? = null,
@@ -56,15 +67,4 @@ data class DatasetStats(
 
   /** Output only. Dataset distributions for the user output tokens. */
   val userOutputTokenDistribution: DatasetDistribution? = null,
-
-  /** Output only. Dataset distributions for the number of contents per example. */
-  val contentsPerExampleDistribution: DatasetDistribution? = null,
-
-  /**
-   * Output only. Sample user dataset examples in the training dataset uri for Reinforcement Tuning.
-   */
-  val reinforcementTuningUserDatasetExamples: ReinforcementTuningUserDatasetExamples? = null,
-
-  /** Output only. Number of billable tokens in the tuning dataset. */
-  val totalBillableTokenCount: Long? = null,
 )

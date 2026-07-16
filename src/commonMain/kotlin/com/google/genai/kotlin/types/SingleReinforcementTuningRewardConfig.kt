@@ -27,8 +27,17 @@ data class SingleReinforcementTuningRewardConfig(
   /** Scores parsed responses for autorater use cases by using a model to compute the reward. */
   val autoraterScorer: ReinforcementTuningAutoraterScorer? = null,
 
-  /** A unique reward name for identifying each single reinforcement tuning reward. */
-  val rewardName: String? = null,
+  /**
+   * ReinforcementTuningCloudRunRewardScorer is used to score parsed responses by calling a Cloud
+   * Run service.
+   */
+  val cloudRunRewardScorer: ReinforcementTuningCloudRunRewardScorer? = null,
+
+  /**
+   * ReinforcementTuningCodeExecutionRewardScorer is used to score parsed responses for code
+   * execution use cases.
+   */
+  val codeExecutionRewardScorer: ReinforcementTuningCodeExecutionRewardScorer? = null,
 
   /**
    * Defines how to parse sample response. For example, given a sample response for evaluating the
@@ -39,21 +48,12 @@ data class SingleReinforcementTuningRewardConfig(
    */
   val parseResponseConfig: ReinforcementTuningParseResponseConfig? = null,
 
-  /**
-   * ReinforcementTuningCodeExecutionRewardScorer is used to score parsed responses for code
-   * execution use cases.
-   */
-  val codeExecutionRewardScorer: ReinforcementTuningCodeExecutionRewardScorer? = null,
+  /** A unique reward name for identifying each single reinforcement tuning reward. */
+  val rewardName: String? = null,
 
   /**
    * ReinforcementTuningStringMatchRewardScorer is used to score parsed responses for simple string
    * matching use cases against reference answers.
    */
   val stringMatchRewardScorer: ReinforcementTuningStringMatchRewardScorer? = null,
-
-  /**
-   * ReinforcementTuningCloudRunRewardScorer is used to score parsed responses by calling a Cloud
-   * Run service.
-   */
-  val cloudRunRewardScorer: ReinforcementTuningCloudRunRewardScorer? = null,
 )

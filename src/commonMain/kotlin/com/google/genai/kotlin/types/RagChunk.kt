@@ -27,15 +27,15 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class RagChunk(
 
-  /** If populated, represents where the chunk starts and ends in the document. */
-  val pageSpan: RagChunkPageSpan? = null,
-
-  /** The content of the chunk. */
-  val text: String? = null,
-
   /** The ID of the chunk. */
   val chunkId: String? = null,
 
   /** The ID of the file that the chunk belongs to. */
   val fileId: String? = null,
+
+  /** If populated, represents where the chunk starts and ends in the document. */
+  val pageSpan: RagChunkPageSpan? = null,
+
+  /** The content of the chunk. */
+  val text: String? = null,
 )

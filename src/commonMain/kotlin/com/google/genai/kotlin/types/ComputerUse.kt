@@ -24,6 +24,9 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class ComputerUse(
 
+  /** Optional. Enables the prompt injection detection check on computer-use request. */
+  val enablePromptInjectionDetection: Boolean? = null,
+
   /** Required. The environment being operated. */
   val environment: Environment? = null,
 
@@ -35,9 +38,6 @@ data class ComputerUse(
    * action space. 2. Improving the definitions / instructions of predefined functions.
    */
   val excludedPredefinedFunctions: List<String>? = null,
-
-  /** Optional. Enables the prompt injection detection check on computer-use request. */
-  val enablePromptInjectionDetection: Boolean? = null,
 
   /**
    * Optional. Disabled safety policies for computer use. This field is not supported in Vertex AI.

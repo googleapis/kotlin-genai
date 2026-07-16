@@ -27,9 +27,6 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class FunctionResponseBlob(
 
-  /** Required. The IANA standard MIME type of the source data. */
-  val mimeType: String? = null,
-
   /** Required. Raw bytes. */
   @Serializable(with = ByteArrayAsBase64Serializer::class) val data: ByteArray? = null,
 
@@ -40,4 +37,7 @@ data class FunctionResponseBlob(
    * url_context) are enabled. This field is not supported in Gemini API.
    */
   val displayName: String? = null,
+
+  /** Required. The IANA standard MIME type of the source data. */
+  val mimeType: String? = null,
 )

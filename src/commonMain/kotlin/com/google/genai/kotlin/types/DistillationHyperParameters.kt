@@ -24,14 +24,20 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class DistillationHyperParameters(
 
-  /** The size of the adapter. Can be 'small', 'medium', or 'large'. */
-  val adapterSize: AdapterSize? = null,
-
   /** Number of complete passes the model makes over the entire training dataset during training. */
   val epochCount: Long? = null,
 
   /** Multiplier for adjusting the default learning rate. */
   val learningRateMultiplier: Double? = null,
+
+  /** The size of the adapter. Can be 'small', 'medium', or 'large'. */
+  val adapterSize: AdapterSize? = null,
+
+  /** Batch size for tuning. This feature is only available for open source models. */
+  val batchSize: Int? = null,
+
+  /** The learning rate for distillation tuning. */
+  val learningRate: Double? = null,
 
   /**
    * Generation config for Distillation teacher model sampling. Only the following fields are
@@ -43,10 +49,4 @@ data class DistillationHyperParameters(
    * - thinking_config
    */
   val generationConfig: GenerationConfig? = null,
-
-  /** The learning rate for distillation tuning. */
-  val learningRate: Double? = null,
-
-  /** Batch size for tuning. This feature is only available for open source models. */
-  val batchSize: Int? = null,
 )

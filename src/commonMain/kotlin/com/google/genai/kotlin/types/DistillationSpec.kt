@@ -25,12 +25,6 @@ import kotlinx.serialization.Serializable
 data class DistillationSpec(
 
   /**
-   * Optional. Cloud Storage path to file containing prompt dataset for distillation. The dataset
-   * must be formatted as a JSONL file.
-   */
-  val promptDatasetUri: String? = null,
-
-  /**
    * The base teacher model that is being distilled. See
    * [Supported models](https://cloud.google.com/vertex-ai/generative-ai/docs/model-reference/tuning#supported_models).
    */
@@ -45,6 +39,12 @@ data class DistillationSpec(
    * output artifacts.
    */
   val pipelineRootDirectory: String? = null,
+
+  /**
+   * Optional. Cloud Storage path to file containing prompt dataset for distillation. The dataset
+   * must be formatted as a JSONL file.
+   */
+  val promptDatasetUri: String? = null,
 
   /**
    * The student model that is being tuned, e.g., "google/gemma-2b-1.1-it". Deprecated. Use
@@ -65,14 +65,14 @@ data class DistillationSpec(
   val tunedTeacherModelSource: String? = null,
 
   /**
-   * Optional. Cloud Storage path to file containing validation dataset for tuning. The dataset must
-   * be formatted as a JSONL file.
-   */
-  val validationDatasetUri: String? = null,
-
-  /**
    * Optional. Specifies the tuning mode for distillation (sft part). This feature is only available
    * for open source models.
    */
   val tuningMode: TuningMode? = null,
+
+  /**
+   * Optional. Cloud Storage path to file containing validation dataset for tuning. The dataset must
+   * be formatted as a JSONL file.
+   */
+  val validationDatasetUri: String? = null,
 )

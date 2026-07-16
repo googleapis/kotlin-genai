@@ -42,6 +42,67 @@ import io.ktor.http.encodeURLQueryComponent
 
 class Batches internal constructor(internal val apiClient: ApiClient) {
 
+  internal fun audioTranscriptionConfigToMldev(
+    fromObject: Map<String, Any?>?,
+    parentObject: MutableMap<String, Any?>?,
+  ): MutableMap<String, Any?> {
+
+    val toObject = mutableMapOf<String, Any?>()
+    if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("languageCodes")))) {
+      throw IllegalArgumentException("languageCodes parameter is not supported in Gemini API.")
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("languageAuto"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("languageAuto"),
+        Common.getValueByPath(fromObject, arrayOf("languageAuto")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("languageHints"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("languageHints"),
+        Common.getValueByPath(fromObject, arrayOf("languageHints")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("customVocabulary"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("customVocabulary"),
+        Common.getValueByPath(fromObject, arrayOf("customVocabulary")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("adaptationPhrases"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("adaptationPhrases"),
+        Common.getValueByPath(fromObject, arrayOf("adaptationPhrases")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("wordTimestamp"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("wordTimestamp"),
+        Common.getValueByPath(fromObject, arrayOf("wordTimestamp")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("diarization"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("diarization"),
+        Common.getValueByPath(fromObject, arrayOf("diarization")),
+      )
+    }
+
+    return toObject
+  }
+
   internal fun authConfigToMldev(
     fromObject: Map<String, Any?>?,
     parentObject: MutableMap<String, Any?>?,
@@ -205,6 +266,17 @@ class Batches internal constructor(internal val apiClient: ApiClient) {
       )
     }
 
+    Common.getValueByPath(fromObject, arrayOf("vertexDataset"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("vertexMultimodalDatasetDestination"),
+        vertexMultimodalDatasetDestinationToVertex(
+          Common.getValueByPath(fromObject, arrayOf("vertexDataset")) as Map<String, Any?>,
+          toObject,
+        ),
+      )
+    }
+
     if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("fileName")))) {
       throw IllegalArgumentException(
         "fileName parameter is not supported in Gemini Enterprise Agent Platform."
@@ -222,17 +294,6 @@ class Batches internal constructor(internal val apiClient: ApiClient) {
     ) {
       throw IllegalArgumentException(
         "inlinedEmbedContentResponses parameter is not supported in Gemini Enterprise Agent Platform."
-      )
-    }
-
-    Common.getValueByPath(fromObject, arrayOf("vertexDataset"))?.let { node ->
-      Common.setValueByPath(
-        toObject,
-        arrayOf("vertexMultimodalDatasetDestination"),
-        vertexMultimodalDatasetDestinationToVertex(
-          Common.getValueByPath(fromObject, arrayOf("vertexDataset")) as Map<String, Any?>,
-          toObject,
-        ),
       )
     }
 
@@ -419,19 +480,19 @@ class Batches internal constructor(internal val apiClient: ApiClient) {
       )
     }
 
-    Common.getValueByPath(fromObject, arrayOf("completionStats"))?.let { node ->
-      Common.setValueByPath(
-        toObject,
-        arrayOf("completionStats"),
-        Common.getValueByPath(fromObject, arrayOf("completionStats")),
-      )
-    }
-
     Common.getValueByPath(fromObject, arrayOf("outputInfo"))?.let { node ->
       Common.setValueByPath(
         toObject,
         arrayOf("outputInfo"),
         Common.getValueByPath(fromObject, arrayOf("outputInfo")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("completionStats"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("completionStats"),
+        Common.getValueByPath(fromObject, arrayOf("completionStats")),
       )
     }
 
@@ -499,6 +560,10 @@ class Batches internal constructor(internal val apiClient: ApiClient) {
       throw IllegalArgumentException("bigqueryUri parameter is not supported in Gemini API.")
     }
 
+    if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("vertexDatasetName")))) {
+      throw IllegalArgumentException("vertexDatasetName parameter is not supported in Gemini API.")
+    }
+
     Common.getValueByPath(fromObject, arrayOf("fileName"))?.let { node ->
       Common.setValueByPath(
         toObject,
@@ -517,10 +582,6 @@ class Batches internal constructor(internal val apiClient: ApiClient) {
         }
       }
       Common.setValueByPath(toObject, arrayOf("requests", "requests"), result)
-    }
-
-    if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("vertexDatasetName")))) {
-      throw IllegalArgumentException("vertexDatasetName parameter is not supported in Gemini API.")
     }
 
     return toObject
@@ -556,6 +617,14 @@ class Batches internal constructor(internal val apiClient: ApiClient) {
       )
     }
 
+    Common.getValueByPath(fromObject, arrayOf("vertexDatasetName"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("vertexMultimodalDatasetSource", "datasetName"),
+        Common.getValueByPath(fromObject, arrayOf("vertexDatasetName")),
+      )
+    }
+
     if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("fileName")))) {
       throw IllegalArgumentException(
         "fileName parameter is not supported in Gemini Enterprise Agent Platform."
@@ -565,14 +634,6 @@ class Batches internal constructor(internal val apiClient: ApiClient) {
     if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("inlinedRequests")))) {
       throw IllegalArgumentException(
         "inlinedRequests parameter is not supported in Gemini Enterprise Agent Platform."
-      )
-    }
-
-    Common.getValueByPath(fromObject, arrayOf("vertexDatasetName"))?.let { node ->
-      Common.setValueByPath(
-        toObject,
-        arrayOf("vertexMultimodalDatasetSource", "datasetName"),
-        Common.getValueByPath(fromObject, arrayOf("vertexDatasetName")),
       )
     }
 
@@ -1150,6 +1211,7 @@ class Batches internal constructor(internal val apiClient: ApiClient) {
   ): MutableMap<String, Any?> {
 
     val toObject = mutableMapOf<String, Any?>()
+
     Common.getValueByPath(fromObject, arrayOf("taskType"))?.let { node ->
       Common.setValueByPath(
         parentObject,
@@ -1260,19 +1322,19 @@ class Batches internal constructor(internal val apiClient: ApiClient) {
   ): MutableMap<String, Any?> {
 
     val toObject = mutableMapOf<String, Any?>()
-    Common.getValueByPath(fromObject, arrayOf("id"))?.let { node ->
-      Common.setValueByPath(
-        toObject,
-        arrayOf("id"),
-        Common.getValueByPath(fromObject, arrayOf("id")),
-      )
-    }
-
     Common.getValueByPath(fromObject, arrayOf("args"))?.let { node ->
       Common.setValueByPath(
         toObject,
         arrayOf("args"),
         Common.getValueByPath(fromObject, arrayOf("args")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("id"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("id"),
+        Common.getValueByPath(fromObject, arrayOf("id")),
       )
     }
 
@@ -1333,6 +1395,14 @@ class Batches internal constructor(internal val apiClient: ApiClient) {
   ): MutableMap<String, Any?> {
 
     val toObject = mutableMapOf<String, Any?>()
+
+    Common.getValueByPath(fromObject, arrayOf("serviceTier"))?.let { node ->
+      Common.setValueByPath(
+        parentObject,
+        arrayOf("serviceTier"),
+        Common.getValueByPath(fromObject, arrayOf("serviceTier")),
+      )
+    }
 
     Common.getValueByPath(fromObject, arrayOf("systemInstruction"))?.let { node ->
       Common.setValueByPath(
@@ -1458,6 +1528,10 @@ class Batches internal constructor(internal val apiClient: ApiClient) {
       )
     }
 
+    if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("routingConfig")))) {
+      throw IllegalArgumentException("routingConfig parameter is not supported in Gemini API.")
+    }
+
     if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("modelSelectionConfig")))) {
       throw IllegalArgumentException(
         "modelSelectionConfig parameter is not supported in Gemini API."
@@ -1497,6 +1571,10 @@ class Batches internal constructor(internal val apiClient: ApiClient) {
           toObject,
         ),
       )
+    }
+
+    if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("labels")))) {
+      throw IllegalArgumentException("labels parameter is not supported in Gemini API.")
     }
 
     Common.getValueByPath(fromObject, arrayOf("cachedContent"))?.let { node ->
@@ -1546,6 +1624,18 @@ class Batches internal constructor(internal val apiClient: ApiClient) {
       )
     }
 
+    Common.getValueByPath(fromObject, arrayOf("audioTranscriptionConfig"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("audioTranscriptionConfig"),
+        audioTranscriptionConfigToMldev(
+          Common.getValueByPath(fromObject, arrayOf("audioTranscriptionConfig"))
+            as Map<String, Any?>,
+          toObject,
+        ),
+      )
+    }
+
     Common.getValueByPath(fromObject, arrayOf("imageConfig"))?.let { node ->
       Common.setValueByPath(
         toObject,
@@ -1567,22 +1657,6 @@ class Batches internal constructor(internal val apiClient: ApiClient) {
 
     if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("modelArmorConfig")))) {
       throw IllegalArgumentException("modelArmorConfig parameter is not supported in Gemini API.")
-    }
-
-    Common.getValueByPath(fromObject, arrayOf("serviceTier"))?.let { node ->
-      Common.setValueByPath(
-        parentObject,
-        arrayOf("serviceTier"),
-        Common.getValueByPath(fromObject, arrayOf("serviceTier")),
-      )
-    }
-
-    if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("routingConfig")))) {
-      throw IllegalArgumentException("routingConfig parameter is not supported in Gemini API.")
-    }
-
-    if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("labels")))) {
-      throw IllegalArgumentException("labels parameter is not supported in Gemini API.")
     }
 
     return toObject
@@ -1733,20 +1807,20 @@ class Batches internal constructor(internal val apiClient: ApiClient) {
   ): MutableMap<String, Any?> {
 
     val toObject = mutableMapOf<String, Any?>()
-    Common.getValueByPath(fromObject, arrayOf("searchTypes"))?.let { node ->
-      Common.setValueByPath(
-        toObject,
-        arrayOf("searchTypes"),
-        Common.getValueByPath(fromObject, arrayOf("searchTypes")),
-      )
-    }
-
     if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("blockingConfidence")))) {
       throw IllegalArgumentException("blockingConfidence parameter is not supported in Gemini API.")
     }
 
     if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("excludeDomains")))) {
       throw IllegalArgumentException("excludeDomains parameter is not supported in Gemini API.")
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("searchTypes"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("searchTypes"),
+        Common.getValueByPath(fromObject, arrayOf("searchTypes")),
+      )
     }
 
     Common.getValueByPath(fromObject, arrayOf("timeRangeFilter"))?.let { node ->
@@ -1786,10 +1860,6 @@ class Batches internal constructor(internal val apiClient: ApiClient) {
       throw IllegalArgumentException("personGeneration parameter is not supported in Gemini API.")
     }
 
-    if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("prominentPeople")))) {
-      throw IllegalArgumentException("prominentPeople parameter is not supported in Gemini API.")
-    }
-
     if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("outputMimeType")))) {
       throw IllegalArgumentException("outputMimeType parameter is not supported in Gemini API.")
     }
@@ -1802,6 +1872,10 @@ class Batches internal constructor(internal val apiClient: ApiClient) {
 
     if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("imageOutputOptions")))) {
       throw IllegalArgumentException("imageOutputOptions parameter is not supported in Gemini API.")
+    }
+
+    if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("prominentPeople")))) {
+      throw IllegalArgumentException("prominentPeople parameter is not supported in Gemini API.")
     }
 
     return toObject
@@ -2079,6 +2153,30 @@ class Batches internal constructor(internal val apiClient: ApiClient) {
       )
     }
 
+    Common.getValueByPath(fromObject, arrayOf("toolCall"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("toolCall"),
+        Common.getValueByPath(fromObject, arrayOf("toolCall")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("toolResponse"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("toolResponse"),
+        Common.getValueByPath(fromObject, arrayOf("toolResponse")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("audioTranscription"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("audioTranscription"),
+        Common.getValueByPath(fromObject, arrayOf("audioTranscription")),
+      )
+    }
+
     Common.getValueByPath(fromObject, arrayOf("codeExecutionResult"))?.let { node ->
       Common.setValueByPath(
         toObject,
@@ -2168,22 +2266,6 @@ class Batches internal constructor(internal val apiClient: ApiClient) {
       )
     }
 
-    Common.getValueByPath(fromObject, arrayOf("toolCall"))?.let { node ->
-      Common.setValueByPath(
-        toObject,
-        arrayOf("toolCall"),
-        Common.getValueByPath(fromObject, arrayOf("toolCall")),
-      )
-    }
-
-    Common.getValueByPath(fromObject, arrayOf("toolResponse"))?.let { node ->
-      Common.setValueByPath(
-        toObject,
-        arrayOf("toolResponse"),
-        Common.getValueByPath(fromObject, arrayOf("toolResponse")),
-      )
-    }
-
     Common.getValueByPath(fromObject, arrayOf("partMetadata"))?.let { node ->
       Common.setValueByPath(
         toObject,
@@ -2230,14 +2312,6 @@ class Batches internal constructor(internal val apiClient: ApiClient) {
   ): MutableMap<String, Any?> {
 
     val toObject = mutableMapOf<String, Any?>()
-    Common.getValueByPath(fromObject, arrayOf("retrievalConfig"))?.let { node ->
-      Common.setValueByPath(
-        toObject,
-        arrayOf("retrievalConfig"),
-        Common.getValueByPath(fromObject, arrayOf("retrievalConfig")),
-      )
-    }
-
     Common.getValueByPath(fromObject, arrayOf("functionCallingConfig"))?.let { node ->
       Common.setValueByPath(
         toObject,
@@ -2246,6 +2320,14 @@ class Batches internal constructor(internal val apiClient: ApiClient) {
           Common.getValueByPath(fromObject, arrayOf("functionCallingConfig")) as Map<String, Any?>,
           toObject,
         ),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("retrievalConfig"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("retrievalConfig"),
+        Common.getValueByPath(fromObject, arrayOf("retrievalConfig")),
       )
     }
 
@@ -2270,33 +2352,6 @@ class Batches internal constructor(internal val apiClient: ApiClient) {
       throw IllegalArgumentException("retrieval parameter is not supported in Gemini API.")
     }
 
-    Common.getValueByPath(fromObject, arrayOf("computerUse"))?.let { node ->
-      Common.setValueByPath(
-        toObject,
-        arrayOf("computerUse"),
-        Common.getValueByPath(fromObject, arrayOf("computerUse")),
-      )
-    }
-
-    Common.getValueByPath(fromObject, arrayOf("fileSearch"))?.let { node ->
-      Common.setValueByPath(
-        toObject,
-        arrayOf("fileSearch"),
-        Common.getValueByPath(fromObject, arrayOf("fileSearch")),
-      )
-    }
-
-    Common.getValueByPath(fromObject, arrayOf("googleSearch"))?.let { node ->
-      Common.setValueByPath(
-        toObject,
-        arrayOf("googleSearch"),
-        googleSearchToMldev(
-          Common.getValueByPath(fromObject, arrayOf("googleSearch")) as Map<String, Any?>,
-          toObject,
-        ),
-      )
-    }
-
     Common.getValueByPath(fromObject, arrayOf("googleMaps"))?.let { node ->
       Common.setValueByPath(
         toObject,
@@ -2308,11 +2363,27 @@ class Batches internal constructor(internal val apiClient: ApiClient) {
       )
     }
 
+    Common.getValueByPath(fromObject, arrayOf("mcpServers"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("mcpServers"),
+        Common.getValueByPath(fromObject, arrayOf("mcpServers")),
+      )
+    }
+
     Common.getValueByPath(fromObject, arrayOf("codeExecution"))?.let { node ->
       Common.setValueByPath(
         toObject,
         arrayOf("codeExecution"),
         Common.getValueByPath(fromObject, arrayOf("codeExecution")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("computerUse"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("computerUse"),
+        Common.getValueByPath(fromObject, arrayOf("computerUse")),
       )
     }
 
@@ -2322,11 +2393,26 @@ class Batches internal constructor(internal val apiClient: ApiClient) {
       )
     }
 
+    if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("exaAiSearch")))) {
+      throw IllegalArgumentException("exaAiSearch parameter is not supported in Gemini API.")
+    }
+
     Common.getValueByPath(fromObject, arrayOf("functionDeclarations"))?.let { node ->
       Common.setValueByPath(
         toObject,
         arrayOf("functionDeclarations"),
         Common.getValueByPath(fromObject, arrayOf("functionDeclarations")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("googleSearch"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("googleSearch"),
+        googleSearchToMldev(
+          Common.getValueByPath(fromObject, arrayOf("googleSearch")) as Map<String, Any?>,
+          toObject,
+        ),
       )
     }
 
@@ -2350,16 +2436,12 @@ class Batches internal constructor(internal val apiClient: ApiClient) {
       )
     }
 
-    Common.getValueByPath(fromObject, arrayOf("mcpServers"))?.let { node ->
+    Common.getValueByPath(fromObject, arrayOf("fileSearch"))?.let { node ->
       Common.setValueByPath(
         toObject,
-        arrayOf("mcpServers"),
-        Common.getValueByPath(fromObject, arrayOf("mcpServers")),
+        arrayOf("fileSearch"),
+        Common.getValueByPath(fromObject, arrayOf("fileSearch")),
       )
-    }
-
-    if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("exaAiSearch")))) {
-      throw IllegalArgumentException("exaAiSearch parameter is not supported in Gemini API.")
     }
 
     return toObject

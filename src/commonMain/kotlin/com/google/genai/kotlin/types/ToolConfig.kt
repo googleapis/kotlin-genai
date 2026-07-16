@@ -24,11 +24,11 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class ToolConfig(
 
-  /** Optional. Retrieval config. */
-  val retrievalConfig: RetrievalConfig? = null,
-
   /** Optional. Function calling config. */
   val functionCallingConfig: FunctionCallingConfig? = null,
+
+  /** Optional. Retrieval config. */
+  val retrievalConfig: RetrievalConfig? = null,
 
   /**
    * Optional. If true, the API response will include the server-side tool calls and responses

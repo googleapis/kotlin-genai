@@ -24,12 +24,6 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class FunctionResponseFileData(
 
-  /** Required. URI. */
-  val fileUri: String? = null,
-
-  /** Required. The IANA standard MIME type of the source data. */
-  val mimeType: String? = null,
-
   /**
    * Optional. Display name of the file data. Used to provide a label or filename to distinguish
    * file datas. This field is only returned in PromptMessage for prompt management. It is currently
@@ -37,4 +31,10 @@ data class FunctionResponseFileData(
    * google_search, and url_context) are enabled.
    */
   val displayName: String? = null,
+
+  /** Required. URI. */
+  val fileUri: String? = null,
+
+  /** Required. The IANA standard MIME type of the source data. */
+  val mimeType: String? = null,
 )

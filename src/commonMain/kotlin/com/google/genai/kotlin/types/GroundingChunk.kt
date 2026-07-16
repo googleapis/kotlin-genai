@@ -29,9 +29,6 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class GroundingChunk(
 
-  /** A grounding chunk from an image search result. See the `Image` message for details. */
-  val image: GroundingChunkImage? = null,
-
   /**
    * A `Maps` chunk is a piece of evidence that comes from Google Maps.
    *
@@ -39,6 +36,9 @@ data class GroundingChunk(
    * provide the user with rich, location-based information.
    */
   val maps: GroundingChunkMaps? = null,
+
+  /** A grounding chunk from an image search result. See the `Image` message for details. */
+  val image: GroundingChunkImage? = null,
 
   /**
    * A grounding chunk from a data source retrieved by a retrieval tool, such as Vertex AI Search.

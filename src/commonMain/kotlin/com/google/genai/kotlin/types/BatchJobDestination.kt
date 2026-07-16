@@ -34,6 +34,12 @@ data class BatchJobDestination(
   val bigqueryUri: String? = null,
 
   /**
+   * This field is experimental and may change in future versions. The Vertex AI dataset
+   * destination.
+   */
+  val vertexDataset: VertexMultimodalDatasetDestination? = null,
+
+  /**
    * The Gemini Developer API's file resource name of the output data (e.g. "files/12345"). The file
    * will be a JSONL file with a single response per line. The responses will be
    * GenerateContentResponse messages formatted as JSON. The responses will be written in the same
@@ -52,10 +58,4 @@ data class BatchJobDestination(
    * requests. The responses will be in the same order as the input requests.
    */
   val inlinedEmbedContentResponses: List<InlinedEmbedContentResponse>? = null,
-
-  /**
-   * This field is experimental and may change in future versions. The Vertex AI dataset
-   * destination.
-   */
-  val vertexDataset: VertexMultimodalDatasetDestination? = null,
 )

@@ -30,9 +30,6 @@ data class ReinforcementTuningAutoraterScorerExactMatchScorer(
   /** Assigns this reward score if the parsed response string equals the expression. */
   val correctAnswerReward: Double? = null,
 
-  /** Assigns this reward score if the parsed reward value does not equal the expression. */
-  val wrongAnswerReward: Double? = null,
-
   /**
    * The string expression to match against for scoring. This field supports placeholders in the
    * format of {{references.key}} that will be replaced before matching. Regex is not supported for
@@ -47,4 +44,7 @@ data class ReinforcementTuningAutoraterScorerExactMatchScorer(
    * the reward is `-1.0`.
    */
   val expression: String? = null,
+
+  /** Assigns this reward score if the parsed reward value does not equal the expression. */
+  val wrongAnswerReward: Double? = null,
 )

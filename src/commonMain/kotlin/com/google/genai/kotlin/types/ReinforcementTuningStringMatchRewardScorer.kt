@@ -31,21 +31,21 @@ import kotlinx.serialization.Serializable
 data class ReinforcementTuningStringMatchRewardScorer(
 
   /**
-   * Wrong answer reward is returned if the parsed response is evaluated as `false`. All wrong
-   * answers get the same reward.
-   */
-  val wrongAnswerReward: Double? = null,
-
-  /**
    * Correct answer rewawrd is returned if the parsed response is evaluated as `true`. All correct
    * answers get the same reward.
    */
   val correctAnswerReward: Double? = null,
 
+  /** Uses json match expression to evaluate parsed response. */
+  val jsonMatchExpression: ReinforcementTuningStringMatchRewardScorerJsonMatchExpression? = null,
+
   /** Uses string match expression to evaluate parsed response. */
   val stringMatchExpression: ReinforcementTuningStringMatchRewardScorerStringMatchExpression? =
     null,
 
-  /** Uses json match expression to evaluate parsed response. */
-  val jsonMatchExpression: ReinforcementTuningStringMatchRewardScorerJsonMatchExpression? = null,
+  /**
+   * Wrong answer reward is returned if the parsed response is evaluated as `false`. All wrong
+   * answers get the same reward.
+   */
+  val wrongAnswerReward: Double? = null,
 )

@@ -28,9 +28,6 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class ReinforcementTuningStringMatchRewardScorerStringMatchExpression(
 
-  /** Match operation to use for evaluating rewards. */
-  val matchOperation: MatchOperation? = null,
-
   /**
    * A string or a regular expression to match against for evaluating rewards. Users can also
    * provide a references map of `{key: value}` whose `value` will be used to replace the
@@ -43,4 +40,7 @@ data class ReinforcementTuningStringMatchRewardScorerStringMatchExpression(
    * "REGEX_CONTAINS", "expression": ".*Yes.*" } ```
    */
   val expression: String? = null,
+
+  /** Match operation to use for evaluating rewards. */
+  val matchOperation: MatchOperation? = null,
 )

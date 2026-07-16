@@ -32,6 +32,13 @@ import kotlinx.serialization.json.JsonElement
 data class FunctionDeclaration(
 
   /**
+   * Optional. Specifies the function Behavior. If not specified, the system keeps the current
+   * function call behavior. This field is currently only supported by the BidiGenerateContent
+   * method.
+   */
+  val behavior: Behavior? = null,
+
+  /**
    * Optional. Description and purpose of the function. Model uses it to decide how and whether to
    * call the function.
    */
@@ -75,11 +82,4 @@ data class FunctionDeclaration(
    * `response`.
    */
   val responseJsonSchema: JsonElement? = null,
-
-  /**
-   * Optional. Specifies the function Behavior. If not specified, the system keeps the current
-   * function call behavior. This field is currently only supported by the BidiGenerateContent
-   * method.
-   */
-  val behavior: Behavior? = null,
 )

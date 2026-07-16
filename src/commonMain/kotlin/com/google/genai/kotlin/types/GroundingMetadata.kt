@@ -25,13 +25,6 @@ import kotlinx.serialization.Serializable
 data class GroundingMetadata(
 
   /**
-   * Optional. The image search queries that were used to generate the content. This field is
-   * populated only when the grounding source is Google Search with the Image Search search_type
-   * enabled.
-   */
-  val imageSearchQueries: List<String>? = null,
-
-  /**
    * A list of supporting references retrieved from the grounding source. This field is populated
    * when the grounding source is Google Search, Vertex AI Search, or Google Maps.
    */
@@ -56,6 +49,13 @@ data class GroundingMetadata(
    * contextual data. This field is populated only when the grounding source is Google Maps.
    */
   val googleMapsWidgetContextToken: String? = null,
+
+  /**
+   * Optional. The image search queries that were used to generate the content. This field is
+   * populated only when the grounding source is Google Search with the Image Search search_type
+   * enabled.
+   */
+  val imageSearchQueries: List<String>? = null,
 
   /**
    * Optional. The queries that were executed by the retrieval tools. This field is populated only

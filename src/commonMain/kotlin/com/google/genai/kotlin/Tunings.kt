@@ -289,10 +289,6 @@ class Tunings internal constructor(internal val apiClient: ApiClient) {
       throw IllegalArgumentException("outputUri parameter is not supported in Gemini API.")
     }
 
-    if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("encryptionSpec")))) {
-      throw IllegalArgumentException("encryptionSpec parameter is not supported in Gemini API.")
-    }
-
     if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("rewardConfig")))) {
       throw IllegalArgumentException("rewardConfig parameter is not supported in Gemini API.")
     }
@@ -327,6 +323,10 @@ class Tunings internal constructor(internal val apiClient: ApiClient) {
       throw IllegalArgumentException(
         "validationDatasetUri parameter is not supported in Gemini API."
       )
+    }
+
+    if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("encryptionSpec")))) {
+      throw IllegalArgumentException("encryptionSpec parameter is not supported in Gemini API.")
     }
 
     return toObject
@@ -748,14 +748,6 @@ class Tunings internal constructor(internal val apiClient: ApiClient) {
       )
     }
 
-    Common.getValueByPath(fromObject, arrayOf("encryptionSpec"))?.let { node ->
-      Common.setValueByPath(
-        parentObject,
-        arrayOf("encryptionSpec"),
-        Common.getValueByPath(fromObject, arrayOf("encryptionSpec")),
-      )
-    }
-
     Common.getValueByPath(fromObject, arrayOf("rewardConfig"))?.let { node ->
       Common.setValueByPath(
         parentObject,
@@ -817,6 +809,14 @@ class Tunings internal constructor(internal val apiClient: ApiClient) {
         parentObject,
         arrayOf("reinforcementTuningSpec", "validationDatasetUri"),
         Common.getValueByPath(fromObject, arrayOf("validationDatasetUri")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("encryptionSpec"))?.let { node ->
+      Common.setValueByPath(
+        parentObject,
+        arrayOf("encryptionSpec"),
+        Common.getValueByPath(fromObject, arrayOf("encryptionSpec")),
       )
     }
 
@@ -918,14 +918,6 @@ class Tunings internal constructor(internal val apiClient: ApiClient) {
   ): MutableMap<String, Any?> {
 
     val toObject = mutableMapOf<String, Any?>()
-    Common.getValueByPath(fromObject, arrayOf("adapterSize"))?.let { node ->
-      Common.setValueByPath(
-        toObject,
-        arrayOf("adapterSize"),
-        Common.getValueByPath(fromObject, arrayOf("adapterSize")),
-      )
-    }
-
     Common.getValueByPath(fromObject, arrayOf("epochCount"))?.let { node ->
       Common.setValueByPath(
         toObject,
@@ -942,15 +934,19 @@ class Tunings internal constructor(internal val apiClient: ApiClient) {
       )
     }
 
-    Common.getValueByPath(fromObject, arrayOf("generationConfig"))?.let { node ->
+    Common.getValueByPath(fromObject, arrayOf("adapterSize"))?.let { node ->
       Common.setValueByPath(
         toObject,
-        arrayOf("generationConfig"),
-        generationConfigFromVertex(
-          Common.getValueByPath(fromObject, arrayOf("generationConfig")) as Map<String, Any?>,
-          toObject,
-          rootObject,
-        ),
+        arrayOf("adapterSize"),
+        Common.getValueByPath(fromObject, arrayOf("adapterSize")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("batchSize"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("batchSize"),
+        Common.getValueByPath(fromObject, arrayOf("batchSize")),
       )
     }
 
@@ -962,11 +958,15 @@ class Tunings internal constructor(internal val apiClient: ApiClient) {
       )
     }
 
-    Common.getValueByPath(fromObject, arrayOf("batchSize"))?.let { node ->
+    Common.getValueByPath(fromObject, arrayOf("generationConfig"))?.let { node ->
       Common.setValueByPath(
         toObject,
-        arrayOf("batchSize"),
-        Common.getValueByPath(fromObject, arrayOf("batchSize")),
+        arrayOf("generationConfig"),
+        generationConfigFromVertex(
+          Common.getValueByPath(fromObject, arrayOf("generationConfig")) as Map<String, Any?>,
+          toObject,
+          rootObject,
+        ),
       )
     }
 
@@ -980,6 +980,22 @@ class Tunings internal constructor(internal val apiClient: ApiClient) {
   ): MutableMap<String, Any?> {
 
     val toObject = mutableMapOf<String, Any?>()
+    Common.getValueByPath(fromObject, arrayOf("promptDatasetUri"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("promptDatasetUri"),
+        Common.getValueByPath(fromObject, arrayOf("promptDatasetUri")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("validationDatasetUri"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("validationDatasetUri"),
+        Common.getValueByPath(fromObject, arrayOf("validationDatasetUri")),
+      )
+    }
+
     Common.getValueByPath(fromObject, arrayOf("baseTeacherModel"))?.let { node ->
       Common.setValueByPath(
         toObject,
@@ -993,22 +1009,6 @@ class Tunings internal constructor(internal val apiClient: ApiClient) {
         toObject,
         arrayOf("tunedTeacherModelSource"),
         Common.getValueByPath(fromObject, arrayOf("tunedTeacherModelSource")),
-      )
-    }
-
-    Common.getValueByPath(fromObject, arrayOf("validationDatasetUri"))?.let { node ->
-      Common.setValueByPath(
-        toObject,
-        arrayOf("validationDatasetUri"),
-        Common.getValueByPath(fromObject, arrayOf("validationDatasetUri")),
-      )
-    }
-
-    Common.getValueByPath(fromObject, arrayOf("promptDatasetUri"))?.let { node ->
-      Common.setValueByPath(
-        toObject,
-        arrayOf("promptDatasetUri"),
-        Common.getValueByPath(fromObject, arrayOf("promptDatasetUri")),
       )
     }
 
@@ -1034,14 +1034,6 @@ class Tunings internal constructor(internal val apiClient: ApiClient) {
   ): MutableMap<String, Any?> {
 
     val toObject = mutableMapOf<String, Any?>()
-    Common.getValueByPath(fromObject, arrayOf("promptDatasetUri"))?.let { node ->
-      Common.setValueByPath(
-        toObject,
-        arrayOf("promptDatasetUri"),
-        Common.getValueByPath(fromObject, arrayOf("promptDatasetUri")),
-      )
-    }
-
     Common.getValueByPath(fromObject, arrayOf("baseTeacherModel"))?.let { node ->
       Common.setValueByPath(
         toObject,
@@ -1070,6 +1062,14 @@ class Tunings internal constructor(internal val apiClient: ApiClient) {
       )
     }
 
+    Common.getValueByPath(fromObject, arrayOf("promptDatasetUri"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("promptDatasetUri"),
+        Common.getValueByPath(fromObject, arrayOf("promptDatasetUri")),
+      )
+    }
+
     Common.getValueByPath(fromObject, arrayOf("studentModel"))?.let { node ->
       Common.setValueByPath(
         toObject,
@@ -1094,19 +1094,19 @@ class Tunings internal constructor(internal val apiClient: ApiClient) {
       )
     }
 
-    Common.getValueByPath(fromObject, arrayOf("validationDatasetUri"))?.let { node ->
-      Common.setValueByPath(
-        toObject,
-        arrayOf("validationDatasetUri"),
-        Common.getValueByPath(fromObject, arrayOf("validationDatasetUri")),
-      )
-    }
-
     Common.getValueByPath(fromObject, arrayOf("tuningMode"))?.let { node ->
       Common.setValueByPath(
         toObject,
         arrayOf("tuningMode"),
         Common.getValueByPath(fromObject, arrayOf("tuningMode")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("validationDatasetUri"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("validationDatasetUri"),
+        Common.getValueByPath(fromObject, arrayOf("validationDatasetUri")),
       )
     }
 
@@ -1165,6 +1165,14 @@ class Tunings internal constructor(internal val apiClient: ApiClient) {
         toObject,
         arrayOf("responseJsonSchema"),
         Common.getValueByPath(fromObject, arrayOf("responseJsonSchema")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("audioTranscriptionConfig"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("audioTranscriptionConfig"),
+        Common.getValueByPath(fromObject, arrayOf("audioTranscriptionConfig")),
       )
     }
 
@@ -1229,6 +1237,14 @@ class Tunings internal constructor(internal val apiClient: ApiClient) {
         toObject,
         arrayOf("presencePenalty"),
         Common.getValueByPath(fromObject, arrayOf("presencePenalty")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("responseFormat"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("responseFormat"),
+        Common.getValueByPath(fromObject, arrayOf("responseFormat")),
       )
     }
 
@@ -1325,14 +1341,6 @@ class Tunings internal constructor(internal val apiClient: ApiClient) {
         toObject,
         arrayOf("topP"),
         Common.getValueByPath(fromObject, arrayOf("topP")),
-      )
-    }
-
-    Common.getValueByPath(fromObject, arrayOf("responseFormat"))?.let { node ->
-      Common.setValueByPath(
-        toObject,
-        arrayOf("responseFormat"),
-        Common.getValueByPath(fromObject, arrayOf("responseFormat")),
       )
     }
 
@@ -1482,6 +1490,26 @@ class Tunings internal constructor(internal val apiClient: ApiClient) {
       )
     }
 
+    if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("toolCall")))) {
+      throw IllegalArgumentException(
+        "toolCall parameter is not supported in Gemini Enterprise Agent Platform."
+      )
+    }
+
+    if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("toolResponse")))) {
+      throw IllegalArgumentException(
+        "toolResponse parameter is not supported in Gemini Enterprise Agent Platform."
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("audioTranscription"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("audioTranscription"),
+        Common.getValueByPath(fromObject, arrayOf("audioTranscription")),
+      )
+    }
+
     Common.getValueByPath(fromObject, arrayOf("codeExecutionResult"))?.let { node ->
       Common.setValueByPath(
         toObject,
@@ -1570,18 +1598,6 @@ class Tunings internal constructor(internal val apiClient: ApiClient) {
       )
     }
 
-    if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("toolCall")))) {
-      throw IllegalArgumentException(
-        "toolCall parameter is not supported in Gemini Enterprise Agent Platform."
-      )
-    }
-
-    if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("toolResponse")))) {
-      throw IllegalArgumentException(
-        "toolResponse parameter is not supported in Gemini Enterprise Agent Platform."
-      )
-    }
-
     if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("partMetadata")))) {
       throw IllegalArgumentException(
         "partMetadata parameter is not supported in Gemini Enterprise Agent Platform."
@@ -1598,6 +1614,14 @@ class Tunings internal constructor(internal val apiClient: ApiClient) {
   ): MutableMap<String, Any?> {
 
     val toObject = mutableMapOf<String, Any?>()
+    Common.getValueByPath(fromObject, arrayOf("references"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("references"),
+        Common.getValueByPath(fromObject, arrayOf("references")),
+      )
+    }
+
     Common.getValueByPath(fromObject, arrayOf("contents"))?.let { node ->
       val keyArray = node as? List<*> ?: emptyList<Any?>()
       val result = mutableListOf<Any?>()
@@ -1608,14 +1632,6 @@ class Tunings internal constructor(internal val apiClient: ApiClient) {
         }
       }
       Common.setValueByPath(toObject, arrayOf("contents"), result)
-    }
-
-    Common.getValueByPath(fromObject, arrayOf("references"))?.let { node ->
-      Common.setValueByPath(
-        toObject,
-        arrayOf("references"),
-        Common.getValueByPath(fromObject, arrayOf("references")),
-      )
     }
 
     Common.getValueByPath(fromObject, arrayOf("systemInstruction"))?.let { node ->
@@ -2010,6 +2026,19 @@ class Tunings internal constructor(internal val apiClient: ApiClient) {
       )
     }
 
+    Common.getValueByPath(fromObject, arrayOf("distillationSamplingSpec"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("distillationSamplingSpec"),
+        distillationSamplingSpecFromVertex(
+          Common.getValueByPath(fromObject, arrayOf("distillationSamplingSpec"))
+            as Map<String, Any?>,
+          toObject,
+          rootObject,
+        ),
+      )
+    }
+
     Common.getValueByPath(fromObject, arrayOf("distillationSpec"))?.let { node ->
       Common.setValueByPath(
         toObject,
@@ -2126,27 +2155,19 @@ class Tunings internal constructor(internal val apiClient: ApiClient) {
       )
     }
 
-    Common.getValueByPath(fromObject, arrayOf("tuningJobState"))?.let { node ->
-      Common.setValueByPath(
-        toObject,
-        arrayOf("tuningJobState"),
-        Common.getValueByPath(fromObject, arrayOf("tuningJobState")),
-      )
-    }
-
-    Common.getValueByPath(fromObject, arrayOf("veoTuningSpec"))?.let { node ->
-      Common.setValueByPath(
-        toObject,
-        arrayOf("veoTuningSpec"),
-        Common.getValueByPath(fromObject, arrayOf("veoTuningSpec")),
-      )
-    }
-
     Common.getValueByPath(fromObject, arrayOf("tuningJobMetadata"))?.let { node ->
       Common.setValueByPath(
         toObject,
         arrayOf("tuningJobMetadata"),
         Common.getValueByPath(fromObject, arrayOf("tuningJobMetadata")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("tuningJobState"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("tuningJobState"),
+        Common.getValueByPath(fromObject, arrayOf("tuningJobState")),
       )
     }
 
@@ -2158,16 +2179,11 @@ class Tunings internal constructor(internal val apiClient: ApiClient) {
       )
     }
 
-    Common.getValueByPath(fromObject, arrayOf("distillationSamplingSpec"))?.let { node ->
+    Common.getValueByPath(fromObject, arrayOf("veoTuningSpec"))?.let { node ->
       Common.setValueByPath(
         toObject,
-        arrayOf("distillationSamplingSpec"),
-        distillationSamplingSpecFromVertex(
-          Common.getValueByPath(fromObject, arrayOf("distillationSamplingSpec"))
-            as Map<String, Any?>,
-          toObject,
-          rootObject,
-        ),
+        arrayOf("veoTuningSpec"),
+        Common.getValueByPath(fromObject, arrayOf("veoTuningSpec")),
       )
     }
 

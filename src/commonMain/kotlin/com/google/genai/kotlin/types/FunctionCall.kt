@@ -29,16 +29,16 @@ import kotlinx.serialization.json.JsonElement
 data class FunctionCall(
 
   /**
-   * Optional. The unique id of the function call. If populated, the client to execute the
-   * `function_call` and return the response with the matching `id`.
-   */
-  val id: String? = null,
-
-  /**
    * Optional. The function parameters and values in JSON object format. See
    * FunctionDeclaration.parameters for parameter details.
    */
   val args: Map<String, JsonElement>? = null,
+
+  /**
+   * Optional. The unique id of the function call. If populated, the client to execute the
+   * `function_call` and return the response with the matching `id`.
+   */
+  val id: String? = null,
 
   /** Optional. The name of the function to call. Matches FunctionDeclaration.name. */
   val name: String? = null,

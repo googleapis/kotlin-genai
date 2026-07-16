@@ -30,9 +30,9 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class FunctionResponsePart(
 
-  /** Inline media bytes. */
-  val inlineData: FunctionResponseBlob? = null,
-
   /** URI based data. This field is not supported in Gemini API. */
   val fileData: FunctionResponseFileData? = null,
+
+  /** Inline media bytes. */
+  val inlineData: FunctionResponseBlob? = null,
 )

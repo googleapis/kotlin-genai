@@ -62,12 +62,12 @@ data class BatchJob(
   /** Configuration for the output data. */
   val dest: BatchJobDestination? = null,
 
+  /** Information further describing the output of this job. Output only. */
+  val outputInfo: BatchJobOutputInfo? = null,
+
   /**
    * Statistics on completed and failed prediction instances. This field is for Gemini Enterprise
    * Agent Platform only.
    */
   val completionStats: CompletionStats? = null,
-
-  /** Information further describing the output of this job. Output only. */
-  val outputInfo: BatchJobOutputInfo? = null,
 )

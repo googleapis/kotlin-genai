@@ -24,6 +24,9 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class EmbedContentConfig(
 
+  /** Used to override HTTP request options. */
+  val httpOptions: HttpOptions? = null,
+
   /** Type of task for which the embedding will be used. */
   val taskType: String? = null,
 
@@ -58,7 +61,4 @@ data class EmbedContentConfig(
    * applicable to Gemini Embedding 2 models.
    */
   val audioTrackExtraction: Boolean? = null,
-
-  /** Used to override HTTP request options. */
-  val httpOptions: HttpOptions? = null,
 )

@@ -28,15 +28,15 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class GroundingChunkImage(
 
-  /** The URI of the image search result page. */
-  val sourceUri: String? = null,
+  /** The domain of the image search result page. */
+  val domain: String? = null,
 
   /** The URI of the image. */
   val imageUri: String? = null,
 
+  /** The URI of the image search result page. */
+  val sourceUri: String? = null,
+
   /** The title of the image search result page. */
   val title: String? = null,
-
-  /** The domain of the image search result page. */
-  val domain: String? = null,
 )

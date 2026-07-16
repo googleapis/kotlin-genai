@@ -24,6 +24,9 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class VeoHyperParameters(
 
+  /** Optional. The adapter size for LoRA tuning. */
+  val adapterSize: AdapterSize? = null,
+
   /**
    * Optional. Number of complete passes the model makes over the entire training dataset during
    * training.
@@ -32,6 +35,9 @@ data class VeoHyperParameters(
 
   /** Optional. Multiplier for adjusting the default learning rate. */
   val learningRateMultiplier: Double? = null,
+
+  /** The speed of the tuning job. Only supported for Veo 3.0 models. */
+  val tuningSpeed: TuningSpeed? = null,
 
   /** The tuning task for Veo. */
   val tuningTask: TuningTask? = null,
@@ -42,10 +48,4 @@ data class VeoHyperParameters(
    * training. If not set, the default value is 0.1.
    */
   val veoDataMixtureRatio: Double? = null,
-
-  /** Optional. The adapter size for LoRA tuning. */
-  val adapterSize: AdapterSize? = null,
-
-  /** The speed of the tuning job. Only supported for Veo 3.0 models. */
-  val tuningSpeed: TuningSpeed? = null,
 )

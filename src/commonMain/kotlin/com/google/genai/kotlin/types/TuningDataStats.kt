@@ -35,9 +35,9 @@ data class TuningDataStats(
   /** Output only. Statistics for preference optimization. */
   val preferenceOptimizationDataStats: PreferenceOptimizationDataStats? = null,
 
-  /** The SFT Tuning data stats. */
-  val supervisedTuningDataStats: SupervisedTuningDataStats? = null,
-
   /** Output only. Statistics for reinforcement tuning. */
   val reinforcementTuningDataStats: DatasetStats? = null,
+
+  /** The SFT Tuning data stats. */
+  val supervisedTuningDataStats: SupervisedTuningDataStats? = null,
 )

@@ -41,14 +41,6 @@ data class ImageConfig(
    */
   val personGeneration: String? = null,
 
-  /**
-   * Optional. Controls whether prominent people (celebrities) generation is allowed. If used with
-   * personGeneration, personGeneration enum would take precedence. For instance, if ALLOW_NONE is
-   * set, all person generation would be blocked. If this field is unspecified, the default behavior
-   * is to allow prominent people. This field is not supported in Gemini API.
-   */
-  val prominentPeople: ProminentPeople? = null,
-
   /** MIME type of the generated image. This field is not supported in Gemini API. */
   val outputMimeType: String? = null,
 
@@ -63,4 +55,12 @@ data class ImageConfig(
    * API.
    */
   val imageOutputOptions: ImageConfigImageOutputOptions? = null,
+
+  /**
+   * Optional. Controls whether prominent people (celebrities) generation is allowed. If used with
+   * personGeneration, personGeneration enum would take precedence. For instance, if ALLOW_NONE is
+   * set, all person generation would be blocked. If this field is unspecified, the default behavior
+   * is to allow prominent people. This field is not supported in Gemini API.
+   */
+  val prominentPeople: ProminentPeople? = null,
 )
