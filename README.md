@@ -393,6 +393,77 @@ fun main() = runBlocking {
 }
 ```
 
+### Batches
+
+The SDK provides methods for creating and managing batch jobs.
+
+```kotlin
+import com.google.genai.kotlin.Client
+import com.google.genai.kotlin.types.BatchJobSource
+import kotlinx.coroutines.runBlocking
+
+fun main() = runBlocking {
+    Client().use { client ->
+        // Create a batch job
+        val src = BatchJobSource(
+            fileName = "YOUR_FILE_NAME" // Or use gcsUri/bigqueryUri for Gemini Enterprise Agent Platform
+        )
+
+        val batchJob = client.batches.create(
+            model = "gemini-3.5-flash",
+            src = src
+        )
+        println("Created batch job: ${batchJob.name}")
+
+        // Get a batch job
+        val fetchedJob = client.batches.get(name = batchJob.name!!)
+        println("Job state: ${fetchedJob.state}")
+
+        // List batch jobs
+        val jobs = client.batches.list()
+        jobs.collect { job ->
+            println("Batch Job name: ${job.name}")
+        }
+
+        // Delete a batch job
+        client.batches.delete(name = batchJob.name!!)
+    }
+}
+```
+
+#### Batch Embeddings
+
+You can also create batch jobs specifically for embeddings. This feature is only supported by the Gemini Developer API.
+
+```kotlin
+import com.google.genai.kotlin.Client
+import com.google.genai.kotlin.types.Content
+import com.google.genai.kotlin.types.EmbedContentBatch
+import com.google.genai.kotlin.types.EmbeddingsBatchJobSource
+import com.google.genai.kotlin.types.Part
+import kotlinx.coroutines.runBlocking
+
+fun main() = runBlocking {
+    Client().use { client ->
+        // Create an embeddings batch job with inlined requests
+        val src = EmbeddingsBatchJobSource(
+            inlinedRequests = EmbedContentBatch(
+                contents = listOf(
+                    Content(parts = listOf(Part(text = "Hello world"))),
+                    Content(parts = listOf(Part(text = "Batch embedding example")))
+                )
+            )
+        )
+
+        val batchJob = client.batches.createEmbeddings(
+            model = "gemini-embedding-2",
+            src = src
+        )
+        println("Created batch embeddings job: ${batchJob.name}")
+    }
+}
+```
+
 ### Count and Compute Tokens
 
 You can count the number of tokens in a prompt before sending it to the model.
