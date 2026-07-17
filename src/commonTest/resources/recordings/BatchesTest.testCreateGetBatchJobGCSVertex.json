@@ -1,0 +1,151 @@
+{
+  "recordID": "BatchesTest.testCreateGetBatchJobGCSVertex",
+  "interactions": [
+    {
+      "request": {
+        "method": "POST",
+        "url": "/v1beta1/projects/REDACTED/locations/global/batchPredictionJobs",
+        "request": "POST /v1beta1/projects/REDACTED/locations/global/batchPredictionJobs HTTP/1.1",
+        "headers": {
+          "Accept": "*/*",
+          "Accept-Charset": "UTF-8",
+          "Accept-Encoding": "gzip",
+          "Connection": "Keep-Alive",
+          "Content-Length": "346",
+          "Content-Type": "application/json",
+          "Test-Name": "BatchesTest.testCreateGetBatchJobGCSVertex"
+        },
+        "bodySegments": [
+          {
+            "displayName": "test_batch_gcs",
+            "inputConfig": {
+              "gcsSource": {
+                "uris": [
+                  "gs://unified-genai-tests/batches/input/generate_content_requests.jsonl"
+                ]
+              },
+              "instancesFormat": "jsonl"
+            },
+            "model": "publishers/google/models/gemini-2.5-flash",
+            "outputConfig": {
+              "gcsDestination": {
+                "outputUriPrefix": "gs://unified-genai-tests/batches/output"
+              },
+              "predictionsFormat": "jsonl"
+            }
+          }
+        ],
+        "previousRequest": "b4d6e60a9b97e7b98c63df9308728c5c88c0b40c398046772c63447b94608b4d",
+        "serverAddress": "aiplatform.googleapis.com",
+        "port": 443,
+        "protocol": "https"
+      },
+      "shaSum": "b59b3aad4eb8fca8429dfbd2501da6c0fdc253784067cb9059017af68d43e644",
+      "response": {
+        "statusCode": 200,
+        "headers": {
+          "Content-Encoding": "gzip",
+          "Content-Length": "415",
+          "Content-Type": "application/json; charset=UTF-8",
+          "Date": "Sun, 12 Jul 2026 21:20:42 GMT",
+          "Server": "ESF",
+          "Vary": "Origin, X-Origin, Referer",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "SAMEORIGIN",
+          "X-Xss-Protection": "0"
+        },
+        "bodySegments": [
+          {
+            "createTime": "2026-07-12T21:20:42.493915Z",
+            "displayName": "test_batch_gcs",
+            "encryptionSpec": {},
+            "inputConfig": {
+              "gcsSource": {
+                "uris": [
+                  "gs://unified-genai-tests/batches/input/generate_content_requests.jsonl"
+                ]
+              },
+              "instancesFormat": "jsonl"
+            },
+            "model": "publishers/google/models/gemini-2.5-flash",
+            "modelMonitoringStatus": {},
+            "modelVersionId": "1",
+            "name": "projects/REDACTED/locations/global/batchPredictionJobs/5044826804439744512",
+            "outputConfig": {
+              "gcsDestination": {
+                "outputUriPrefix": "gs://unified-genai-tests/batches/output"
+              },
+              "predictionsFormat": "jsonl"
+            },
+            "state": "JOB_STATE_PENDING",
+            "updateTime": "2026-07-12T21:20:42.493915Z"
+          }
+        ]
+      }
+    },
+    {
+      "request": {
+        "method": "GET",
+        "url": "/v1beta1/projects/REDACTED/locations/global/batchPredictionJobs/5044826804439744512",
+        "request": "GET /v1beta1/projects/REDACTED/locations/global/batchPredictionJobs/5044826804439744512 HTTP/1.1",
+        "headers": {
+          "Accept": "*/*",
+          "Accept-Charset": "UTF-8",
+          "Accept-Encoding": "gzip",
+          "Connection": "Keep-Alive",
+          "Content-Type": "application/json",
+          "Test-Name": "BatchesTest.testCreateGetBatchJobGCSVertex"
+        },
+        "bodySegments": [
+          null
+        ],
+        "previousRequest": "b59b3aad4eb8fca8429dfbd2501da6c0fdc253784067cb9059017af68d43e644",
+        "serverAddress": "aiplatform.googleapis.com",
+        "port": 443,
+        "protocol": "https"
+      },
+      "shaSum": "25f6ca6f309565a2959bf0da4cc3fb6f8f218afa67cd84b1cd612a633246b90b",
+      "response": {
+        "statusCode": 200,
+        "headers": {
+          "Content-Encoding": "gzip",
+          "Content-Length": "415",
+          "Content-Type": "application/json; charset=UTF-8",
+          "Date": "Sun, 12 Jul 2026 21:20:42 GMT",
+          "Server": "ESF",
+          "Vary": "Origin, X-Origin, Referer",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "SAMEORIGIN",
+          "X-Xss-Protection": "0"
+        },
+        "bodySegments": [
+          {
+            "createTime": "2026-07-12T21:20:42.493915Z",
+            "displayName": "test_batch_gcs",
+            "encryptionSpec": {},
+            "inputConfig": {
+              "gcsSource": {
+                "uris": [
+                  "gs://unified-genai-tests/batches/input/generate_content_requests.jsonl"
+                ]
+              },
+              "instancesFormat": "jsonl"
+            },
+            "model": "publishers/google/models/gemini-2.5-flash",
+            "modelMonitoringStatus": {},
+            "modelVersionId": "1",
+            "name": "projects/REDACTED/locations/global/batchPredictionJobs/5044826804439744512",
+            "outputConfig": {
+              "gcsDestination": {
+                "outputUriPrefix": "gs://unified-genai-tests/batches/output"
+              },
+              "predictionsFormat": "jsonl"
+            },
+            "state": "JOB_STATE_PENDING",
+            "updateTime": "2026-07-12T21:20:42.493915Z"
+          }
+        ]
+      }
+    }
+  ]
+}

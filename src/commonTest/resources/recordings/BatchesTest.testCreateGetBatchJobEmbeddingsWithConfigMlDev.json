@@ -1,0 +1,164 @@
+{
+  "recordID": "BatchesTest.testCreateGetBatchJobEmbeddingsWithConfigMlDev",
+  "interactions": [
+    {
+      "request": {
+        "method": "POST",
+        "url": "/v1beta/models/gemini-embedding-001:asyncBatchEmbedContent",
+        "request": "POST /v1beta/models/gemini-embedding-001:asyncBatchEmbedContent HTTP/1.1",
+        "headers": {
+          "Accept": "*/*",
+          "Accept-Charset": "UTF-8",
+          "Accept-Encoding": "gzip",
+          "Connection": "Keep-Alive",
+          "Content-Length": "359",
+          "Content-Type": "application/json",
+          "Test-Name": "BatchesTest.testCreateGetBatchJobEmbeddingsWithConfigMlDev"
+        },
+        "bodySegments": [
+          {
+            "batch": {
+              "inputConfig": {
+                "requests": {
+                  "requests": [
+                    {
+                      "request": {
+                        "content": {
+                          "parts": [
+                            {
+                              "text": "1"
+                            }
+                          ]
+                        },
+                        "taskType": "RETRIEVAL_DOCUMENT",
+                        "title": "test_title"
+                      }
+                    },
+                    {
+                      "request": {
+                        "content": {
+                          "parts": [
+                            {
+                              "text": "2"
+                            }
+                          ]
+                        },
+                        "taskType": "RETRIEVAL_DOCUMENT",
+                        "title": "test_title"
+                      }
+                    },
+                    {
+                      "request": {
+                        "content": {
+                          "parts": [
+                            {
+                              "text": "3"
+                            }
+                          ]
+                        },
+                        "taskType": "RETRIEVAL_DOCUMENT",
+                        "title": "test_title"
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        ],
+        "previousRequest": "b4d6e60a9b97e7b98c63df9308728c5c88c0b40c398046772c63447b94608b4d",
+        "serverAddress": "generativelanguage.googleapis.com",
+        "port": 443,
+        "protocol": "https"
+      },
+      "shaSum": "d36bf883bd7f99c78a8b6277c9abaedac7d5261aa81b08adca407e3fe95b437c",
+      "response": {
+        "statusCode": 200,
+        "headers": {
+          "Content-Encoding": "gzip",
+          "Content-Length": "297",
+          "Content-Type": "application/json; charset=UTF-8",
+          "Date": "Mon, 13 Jul 2026 21:15:20 GMT",
+          "Server": "scaffolding on HTTPServer2",
+          "Server-Timing": "gfet4t7; dur=4483",
+          "Vary": "Origin, X-Origin, Referer",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "SAMEORIGIN",
+          "X-Xss-Protection": "0"
+        },
+        "bodySegments": [
+          {
+            "metadata": {
+              "@type": "type.googleapis.com/google.ai.generativelanguage.v1main.EmbedContentBatch",
+              "batchStats": {
+                "pendingRequestCount": "3",
+                "requestCount": "3"
+              },
+              "createTime": "2026-07-13T21:15:16.406456943Z",
+              "model": "models/gemini-embedding-001",
+              "name": "batches/afiywiavcl4cqbockzh0jle4nrdxorvduhv9",
+              "state": "BATCH_STATE_PENDING",
+              "updateTime": "2026-07-13T21:15:16.406456943Z"
+            },
+            "name": "batches/afiywiavcl4cqbockzh0jle4nrdxorvduhv9"
+          }
+        ]
+      }
+    },
+    {
+      "request": {
+        "method": "GET",
+        "url": "/v1beta/batches/afiywiavcl4cqbockzh0jle4nrdxorvduhv9",
+        "request": "GET /v1beta/batches/afiywiavcl4cqbockzh0jle4nrdxorvduhv9 HTTP/1.1",
+        "headers": {
+          "Accept": "*/*",
+          "Accept-Charset": "UTF-8",
+          "Accept-Encoding": "gzip",
+          "Connection": "Keep-Alive",
+          "Content-Type": "application/json",
+          "Test-Name": "BatchesTest.testCreateGetBatchJobEmbeddingsWithConfigMlDev"
+        },
+        "bodySegments": [
+          null
+        ],
+        "previousRequest": "d36bf883bd7f99c78a8b6277c9abaedac7d5261aa81b08adca407e3fe95b437c",
+        "serverAddress": "generativelanguage.googleapis.com",
+        "port": 443,
+        "protocol": "https"
+      },
+      "shaSum": "5feaffdcae8a1ca059094f3489715a0c46a0a16558c297c040bfdf62b771b5bf",
+      "response": {
+        "statusCode": 200,
+        "headers": {
+          "Content-Encoding": "gzip",
+          "Content-Length": "296",
+          "Content-Type": "application/json; charset=UTF-8",
+          "Date": "Mon, 13 Jul 2026 21:15:20 GMT",
+          "Server": "scaffolding on HTTPServer2",
+          "Server-Timing": "gfet4t7; dur=149",
+          "Vary": "Origin, X-Origin, Referer",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "SAMEORIGIN",
+          "X-Xss-Protection": "0"
+        },
+        "bodySegments": [
+          {
+            "metadata": {
+              "@type": "type.googleapis.com/google.ai.generativelanguage.v1main.EmbedContentBatch",
+              "batchStats": {
+                "pendingRequestCount": "3",
+                "requestCount": "3"
+              },
+              "createTime": "2026-07-13T21:15:16.406456943Z",
+              "model": "models/gemini-embedding-001",
+              "name": "batches/afiywiavcl4cqbockzh0jle4nrdxorvduhv9",
+              "state": "BATCH_STATE_RUNNING",
+              "updateTime": "2026-07-13T21:15:16.406456943Z"
+            },
+            "name": "batches/afiywiavcl4cqbockzh0jle4nrdxorvduhv9"
+          }
+        ]
+      }
+    }
+  ]
+}

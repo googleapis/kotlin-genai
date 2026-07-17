@@ -1,0 +1,753 @@
+{
+  "recordID": "BatchesTest.testListBatchJobsVertex",
+  "interactions": [
+    {
+      "request": {
+        "method": "GET",
+        "url": "/v1beta1/projects/REDACTED/locations/global/batchPredictionJobs",
+        "request": "GET /v1beta1/projects/REDACTED/locations/global/batchPredictionJobs HTTP/1.1",
+        "headers": {
+          "Accept": "*/*",
+          "Accept-Charset": "UTF-8",
+          "Accept-Encoding": "gzip",
+          "Connection": "Keep-Alive",
+          "Content-Type": "application/json",
+          "Test-Name": "BatchesTest.testListBatchJobsVertex"
+        },
+        "bodySegments": [
+          null
+        ],
+        "previousRequest": "b4d6e60a9b97e7b98c63df9308728c5c88c0b40c398046772c63447b94608b4d",
+        "serverAddress": "aiplatform.googleapis.com",
+        "port": 443,
+        "protocol": "https"
+      },
+      "shaSum": "1d6afb17b22e5be414f01110ddd840fdc0655413b4f2ae57250bb87fd066cbfe",
+      "response": {
+        "statusCode": 200,
+        "headers": {
+          "Content-Encoding": "gzip",
+          "Content-Length": "2583",
+          "Content-Type": "application/json; charset=UTF-8",
+          "Date": "Mon, 13 Jul 2026 21:24:54 GMT",
+          "Server": "ESF",
+          "Vary": "Origin, X-Origin, Referer",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "SAMEORIGIN",
+          "X-Xss-Protection": "0"
+        },
+        "bodySegments": [
+          {
+            "batchPredictionJobs": [
+              {
+                "createTime": "2026-07-13T21:23:51.322731Z",
+                "displayName": "test_batch_cancel_gcs",
+                "encryptionSpec": {},
+                "endTime": "2026-07-13T21:23:52.040376Z",
+                "error": {
+                  "code": 9,
+                  "message": "Failed to get GCS bucket location for unified-genai-tests. Please check that the bucket exists and permissions are set correctly."
+                },
+                "inputConfig": {
+                  "gcsSource": {
+                    "uris": [
+                      "gs://unified-genai-tests/batches/input/generate_content_requests.jsonl"
+                    ]
+                  },
+                  "instancesFormat": "jsonl"
+                },
+                "model": "publishers/google/models/gemini-2.5-flash",
+                "modelMonitoringStatus": {},
+                "modelVersionId": "1",
+                "name": "projects/801452371447/locations/global/batchPredictionJobs/4126998478037450752",
+                "outputConfig": {
+                  "gcsDestination": {
+                    "outputUriPrefix": "gs://unified-genai-tests/batches/output"
+                  },
+                  "predictionsFormat": "jsonl"
+                },
+                "state": "JOB_STATE_FAILED",
+                "updateTime": "2026-07-13T21:23:52.040376Z"
+              },
+              {
+                "createTime": "2026-07-12T21:20:42.493915Z",
+                "displayName": "test_batch_gcs",
+                "encryptionSpec": {},
+                "endTime": "2026-07-12T21:20:43.608058Z",
+                "error": {
+                  "code": 9,
+                  "message": "Failed to get GCS bucket location for unified-genai-tests. Please check that the bucket exists and permissions are set correctly."
+                },
+                "inputConfig": {
+                  "gcsSource": {
+                    "uris": [
+                      "gs://unified-genai-tests/batches/input/generate_content_requests.jsonl"
+                    ]
+                  },
+                  "instancesFormat": "jsonl"
+                },
+                "model": "publishers/google/models/gemini-2.5-flash",
+                "modelMonitoringStatus": {},
+                "modelVersionId": "1",
+                "name": "projects/801452371447/locations/global/batchPredictionJobs/5044826804439744512",
+                "outputConfig": {
+                  "gcsDestination": {
+                    "outputUriPrefix": "gs://unified-genai-tests/batches/output"
+                  },
+                  "predictionsFormat": "jsonl"
+                },
+                "state": "JOB_STATE_FAILED",
+                "updateTime": "2026-07-12T21:20:43.608058Z"
+              },
+              {
+                "createTime": "2026-07-12T21:20:41.028426Z",
+                "displayName": "test_batch_vertex_dataset",
+                "encryptionSpec": {},
+                "endTime": "2026-07-12T21:20:42.421637Z",
+                "error": {
+                  "code": 9,
+                  "message": "Failed to get Vertex dataset resource: projects/vertex-sdk-dev/locations/us-central1/datasets/7857316250517504000. message=Dataset not found."
+                },
+                "inputConfig": {
+                  "instancesFormat": "vertex-dataset",
+                  "vertexMultimodalDatasetSource": {
+                    "datasetName": "projects/vertex-sdk-dev/locations/us-central1/datasets/7857316250517504000"
+                  }
+                },
+                "model": "publishers/google/models/gemini-2.5-flash",
+                "modelMonitoringStatus": {},
+                "modelVersionId": "1",
+                "name": "projects/801452371447/locations/global/batchPredictionJobs/595270372597694464",
+                "outputConfig": {
+                  "predictionsFormat": "vertex-dataset",
+                  "vertexMultimodalDatasetDestination": {
+                    "bigqueryDestination": {
+                      "outputUri": "bq://vertex-sdk-dev.unified_genai_tests_batches.generate_content_output"
+                    },
+                    "displayName": "test_batch_output"
+                  }
+                },
+                "state": "JOB_STATE_FAILED",
+                "updateTime": "2026-07-12T21:20:42.421637Z"
+              },
+              {
+                "createTime": "2026-07-12T21:19:36.120890Z",
+                "displayName": "test_batch",
+                "encryptionSpec": {},
+                "endTime": "2026-07-12T21:19:37.291751Z",
+                "error": {
+                  "code": 9,
+                  "message": "Failed to get Vertex dataset resource: projects/vertex-sdk-dev/locations/us-central1/datasets/7857316250517504000. message=Dataset not found."
+                },
+                "inputConfig": {
+                  "instancesFormat": "vertex-dataset",
+                  "vertexMultimodalDatasetSource": {
+                    "datasetName": "projects/vertex-sdk-dev/locations/us-central1/datasets/7857316250517504000"
+                  }
+                },
+                "model": "publishers/google/models/gemini-2.5-flash",
+                "modelMonitoringStatus": {},
+                "modelVersionId": "1",
+                "name": "projects/801452371447/locations/global/batchPredictionJobs/4126092480456163328",
+                "outputConfig": {
+                  "predictionsFormat": "vertex-dataset",
+                  "vertexMultimodalDatasetDestination": {
+                    "bigqueryDestination": {
+                      "outputUri": "bq://vertex-sdk-dev.unified_genai_tests_batches.generate_content_output"
+                    },
+                    "displayName": "test_batch_output"
+                  }
+                },
+                "state": "JOB_STATE_FAILED",
+                "updateTime": "2026-07-12T21:19:37.291751Z"
+              },
+              {
+                "createTime": "2026-07-12T21:19:35.344412Z",
+                "displayName": "test_batch",
+                "encryptionSpec": {},
+                "endTime": "2026-07-12T21:19:36.416828Z",
+                "error": {
+                  "code": 9,
+                  "message": "Failed to get GCS bucket location for unified-genai-tests. Please check that the bucket exists and permissions are set correctly."
+                },
+                "inputConfig": {
+                  "gcsSource": {
+                    "uris": [
+                      "gs://unified-genai-tests/batches/input/generate_content_requests.jsonl"
+                    ]
+                  },
+                  "instancesFormat": "jsonl"
+                },
+                "model": "publishers/google/models/gemini-2.5-flash",
+                "modelMonitoringStatus": {},
+                "modelVersionId": "1",
+                "name": "projects/801452371447/locations/global/batchPredictionJobs/9188138461620600832",
+                "outputConfig": {
+                  "gcsDestination": {
+                    "outputUriPrefix": "gs://unified-genai-tests/batches/output"
+                  },
+                  "predictionsFormat": "jsonl"
+                },
+                "state": "JOB_STATE_FAILED",
+                "updateTime": "2026-07-12T21:19:36.416828Z"
+              },
+              {
+                "createTime": "2026-07-12T21:15:10.709676Z",
+                "displayName": "test_batch_bigquery",
+                "encryptionSpec": {},
+                "endTime": "2026-07-12T21:15:11.953574Z",
+                "error": {
+                  "code": 9,
+                  "message": "Failed to access input dataset. Please check dataset configuration and permissions are correct."
+                },
+                "inputConfig": {
+                  "bigquerySource": {
+                    "inputUri": "bq://vertex-sdk-dev.unified_genai_tests_batches.generate_content_requests"
+                  },
+                  "instancesFormat": "bigquery"
+                },
+                "model": "publishers/google/models/gemini-2.5-flash",
+                "modelMonitoringStatus": {},
+                "modelVersionId": "1",
+                "name": "projects/801452371447/locations/global/batchPredictionJobs/629610319756394496",
+                "outputConfig": {
+                  "bigqueryDestination": {
+                    "outputUri": "bq://vertex-sdk-dev.unified_genai_tests_batches.generate_content_output"
+                  },
+                  "predictionsFormat": "bigquery"
+                },
+                "state": "JOB_STATE_FAILED",
+                "updateTime": "2026-07-12T21:15:11.953574Z"
+              },
+              {
+                "createTime": "2026-06-12T17:25:59.468915Z",
+                "displayName": "test batch",
+                "encryptionSpec": {},
+                "endTime": "2026-06-12T17:26:01.919965Z",
+                "error": {
+                  "code": 9,
+                  "message": "Failed to access input dataset. Please check dataset configuration and permissions are correct."
+                },
+                "inputConfig": {
+                  "bigquerySource": {
+                    "inputUri": "bq://vertex-sdk-dev.unified_genai_tests_batches.generate_content_requests"
+                  },
+                  "instancesFormat": "bigquery"
+                },
+                "model": "publishers/google/models/gemini-3.5-flash",
+                "modelMonitoringStatus": {},
+                "modelVersionId": "1",
+                "name": "projects/801452371447/locations/global/batchPredictionJobs/6715640550839549952",
+                "outputConfig": {
+                  "bigqueryDestination": {
+                    "outputUri": "bq://vertex-sdk-dev.unified_genai_tests_batches.generate_content_output"
+                  },
+                  "predictionsFormat": "bigquery"
+                },
+                "state": "JOB_STATE_FAILED",
+                "updateTime": "2026-06-12T17:26:01.919965Z"
+              },
+              {
+                "createTime": "2026-06-12T17:25:57.271901Z",
+                "displayName": "summarize the pdf",
+                "encryptionSpec": {},
+                "endTime": "2026-06-12T17:25:58.146493Z",
+                "error": {
+                  "code": 9,
+                  "message": "Failed to get GCS bucket location for unified-genai-tests. Please check that the bucket exists and permissions are set correctly."
+                },
+                "inputConfig": {
+                  "gcsSource": {
+                    "uris": [
+                      "gs://unified-genai-tests/batches/input/generate_content_requests.jsonl"
+                    ]
+                  },
+                  "instancesFormat": "jsonl"
+                },
+                "model": "publishers/google/models/gemini-3.5-flash",
+                "modelMonitoringStatus": {},
+                "modelVersionId": "1",
+                "name": "projects/801452371447/locations/global/batchPredictionJobs/8249679173912625152",
+                "outputConfig": {
+                  "gcsDestination": {
+                    "outputUriPrefix": "gs://unified-genai-tests/batches/output"
+                  },
+                  "predictionsFormat": "jsonl"
+                },
+                "state": "JOB_STATE_FAILED",
+                "updateTime": "2026-06-12T17:25:58.146493Z"
+              },
+              {
+                "createTime": "2026-06-12T17:06:57.578444Z",
+                "displayName": "summarize the pdf",
+                "encryptionSpec": {},
+                "endTime": "2026-06-12T17:06:58.461507Z",
+                "error": {
+                  "code": 9,
+                  "message": "Failed to get GCS bucket location for unified-genai-tests. Please check that the bucket exists and permissions are set correctly."
+                },
+                "inputConfig": {
+                  "gcsSource": {
+                    "uris": [
+                      "gs://unified-genai-tests/batches/input/generate_content_requests.jsonl"
+                    ]
+                  },
+                  "instancesFormat": "jsonl"
+                },
+                "model": "publishers/google/models/gemini-3.5-flash",
+                "modelMonitoringStatus": {},
+                "modelVersionId": "1",
+                "name": "projects/801452371447/locations/global/batchPredictionJobs/7440720090846199808",
+                "outputConfig": {
+                  "gcsDestination": {
+                    "outputUriPrefix": "gs://unified-genai-tests/batches/output"
+                  },
+                  "predictionsFormat": "jsonl"
+                },
+                "state": "JOB_STATE_FAILED",
+                "updateTime": "2026-06-12T17:06:58.461507Z"
+              },
+              {
+                "createTime": "2026-06-12T17:06:56.751416Z",
+                "displayName": "test batch",
+                "encryptionSpec": {},
+                "endTime": "2026-06-12T17:06:58.172946Z",
+                "error": {
+                  "code": 9,
+                  "message": "Failed to access input dataset. Please check dataset configuration and permissions are correct."
+                },
+                "inputConfig": {
+                  "bigquerySource": {
+                    "inputUri": "bq://vertex-sdk-dev.unified_genai_tests_batches.generate_content_requests"
+                  },
+                  "instancesFormat": "bigquery"
+                },
+                "model": "publishers/google/models/gemini-3.5-flash",
+                "modelMonitoringStatus": {},
+                "modelVersionId": "1",
+                "name": "projects/801452371447/locations/global/batchPredictionJobs/397090273638744064",
+                "outputConfig": {
+                  "bigqueryDestination": {
+                    "outputUri": "bq://vertex-sdk-dev.unified_genai_tests_batches.generate_content_output"
+                  },
+                  "predictionsFormat": "bigquery"
+                },
+                "state": "JOB_STATE_FAILED",
+                "updateTime": "2026-06-12T17:06:58.172946Z"
+              },
+              {
+                "createTime": "2026-05-18T05:30:16.010849Z",
+                "displayName": "vertex-gemini-billing-batch-prediction-job",
+                "encryptionSpec": {},
+                "endTime": "2026-05-18T05:30:16.929510Z",
+                "error": {
+                  "code": 9,
+                  "message": "Failed to get GCS bucket location for gemini-billing-manual-test-batch. Please check that the bucket exists and permissions are set correctly."
+                },
+                "inputConfig": {
+                  "gcsSource": {
+                    "uris": [
+                      "gs://gemini-billing-manual-test-batch/gemini_batch_prober_input.jsonl"
+                    ]
+                  },
+                  "instancesFormat": "jsonl"
+                },
+                "model": "publishers/google/models/gemini-3.5-flash",
+                "modelMonitoringStatus": {},
+                "modelVersionId": "1",
+                "name": "projects/801452371447/locations/global/batchPredictionJobs/3478592556760039424",
+                "outputConfig": {
+                  "gcsDestination": {
+                    "outputUriPrefix": "gs://gemini-billing-manual-test-batch/output"
+                  },
+                  "predictionsFormat": "jsonl"
+                },
+                "state": "JOB_STATE_FAILED",
+                "updateTime": "2026-05-18T05:30:16.929510Z"
+              },
+              {
+                "createTime": "2026-05-18T05:29:13.588119Z",
+                "displayName": "vertex-gemini-billing-batch-prediction-job",
+                "encryptionSpec": {},
+                "endTime": "2026-05-18T05:29:14.793475Z",
+                "error": {
+                  "code": 9,
+                  "message": "Failed to get GCS bucket location for gemini-billing-manual-test-batch. Please check that the bucket exists and permissions are set correctly."
+                },
+                "inputConfig": {
+                  "gcsSource": {
+                    "uris": [
+                      "gs://gemini-billing-manual-test-batch/gemini_batch_prober_input.jsonl"
+                    ]
+                  },
+                  "instancesFormat": "jsonl"
+                },
+                "model": "publishers/google/models/gemini-3.5-flash",
+                "modelMonitoringStatus": {},
+                "modelVersionId": "1",
+                "name": "projects/801452371447/locations/global/batchPredictionJobs/5784435565973733376",
+                "outputConfig": {
+                  "gcsDestination": {
+                    "outputUriPrefix": "gs://gemini-billing-manual-test-batch/output"
+                  },
+                  "predictionsFormat": "jsonl"
+                },
+                "state": "JOB_STATE_FAILED",
+                "updateTime": "2026-05-18T05:29:14.793475Z"
+              },
+              {
+                "createTime": "2026-03-04T16:08:57.226962Z",
+                "displayName": "Batch Inference Job",
+                "encryptionSpec": {},
+                "endTime": "2026-03-04T16:08:58.055769Z",
+                "error": {
+                  "code": 9,
+                  "message": "Failed to get GCS bucket location for 0-shifei-demo. Please check that the bucket exists and permissions are set correctly."
+                },
+                "inputConfig": {
+                  "gcsSource": {
+                    "uris": [
+                      "gs://0-shifei-demo/429/input.jsonl"
+                    ]
+                  },
+                  "instancesFormat": "jsonl"
+                },
+                "model": "publishers/google/models/gemini-3-flash-preview",
+                "modelMonitoringStatus": {},
+                "modelVersionId": "1",
+                "name": "projects/801452371447/locations/global/batchPredictionJobs/1727681312422100992",
+                "outputConfig": {
+                  "gcsDestination": {
+                    "outputUriPrefix": "gs://0-shifei-demo/429/output/"
+                  },
+                  "predictionsFormat": "jsonl"
+                },
+                "state": "JOB_STATE_FAILED",
+                "updateTime": "2026-03-04T16:08:58.055769Z"
+              },
+              {
+                "createTime": "2026-03-04T14:41:02.540014Z",
+                "displayName": "Batch Inference Job",
+                "encryptionSpec": {},
+                "endTime": "2026-03-04T14:41:03.267865Z",
+                "error": {
+                  "code": 9,
+                  "message": "Failed to get GCS bucket location for 0-shifei-demo. Please check that the bucket exists and permissions are set correctly."
+                },
+                "inputConfig": {
+                  "gcsSource": {
+                    "uris": [
+                      "gs://0-shifei-demo/429/input.jsonl"
+                    ]
+                  },
+                  "instancesFormat": "jsonl"
+                },
+                "model": "publishers/google/models/gemini-3.1-flash-lite-preview",
+                "modelMonitoringStatus": {},
+                "modelVersionId": "1",
+                "name": "projects/801452371447/locations/global/batchPredictionJobs/3953866903226679296",
+                "outputConfig": {
+                  "gcsDestination": {
+                    "outputUriPrefix": "gs://0-shifei-demo/429/output/"
+                  },
+                  "predictionsFormat": "jsonl"
+                },
+                "state": "JOB_STATE_FAILED",
+                "updateTime": "2026-03-04T14:41:03.267865Z"
+              },
+              {
+                "completionStats": {
+                  "successfulCount": "2"
+                },
+                "createTime": "2025-12-16T00:51:45.237915Z",
+                "displayName": "fff",
+                "encryptionSpec": {},
+                "endTime": "2025-12-16T00:58:00.586742Z",
+                "inputConfig": {
+                  "bigquerySource": {
+                    "inputUri": "bq://REDACTED.batchinput.gemini_pro_input"
+                  },
+                  "instancesFormat": "bigquery"
+                },
+                "model": "publishers/google/models/gemini-2.5-flash",
+                "modelMonitoringStatus": {},
+                "modelVersionId": "1",
+                "name": "projects/801452371447/locations/global/batchPredictionJobs/9094799545149161472",
+                "outputConfig": {
+                  "bigqueryDestination": {
+                    "outputUri": "bq://REDACTED.bq_llm_12345.123"
+                  },
+                  "predictionsFormat": "bigquery"
+                },
+                "outputInfo": {
+                  "bigqueryOutputTable": "bq://REDACTED.bq_llm_12345.123"
+                },
+                "startTime": "2025-12-16T00:53:06.593159Z",
+                "state": "JOB_STATE_SUCCEEDED",
+                "updateTime": "2025-12-16T00:58:00.586742Z"
+              },
+              {
+                "createTime": "2025-12-08T22:03:55.717399Z",
+                "displayName": "test batch",
+                "encryptionSpec": {},
+                "endTime": "2025-12-08T22:03:56.462688Z",
+                "error": {
+                  "code": 9,
+                  "message": "Failed to access input dataset. Please check dataset configuration and permissions are correct."
+                },
+                "inputConfig": {
+                  "bigquerySource": {
+                    "inputUri": "bq://vertex-sdk-dev.unified_genai_tests_batches.generate_content_requests"
+                  },
+                  "instancesFormat": "bigquery"
+                },
+                "model": "publishers/google/models/gemini-2.5-flash",
+                "modelMonitoringStatus": {},
+                "modelVersionId": "1",
+                "name": "projects/801452371447/locations/global/batchPredictionJobs/3503826898373312512",
+                "outputConfig": {
+                  "bigqueryDestination": {
+                    "outputUri": "bq://vertex-sdk-dev.unified_genai_tests_batches.generate_content_output"
+                  },
+                  "predictionsFormat": "bigquery"
+                },
+                "state": "JOB_STATE_FAILED",
+                "updateTime": "2025-12-08T22:03:56.462688Z"
+              },
+              {
+                "createTime": "2025-12-08T22:03:53.526014Z",
+                "displayName": "summarize the pdf",
+                "encryptionSpec": {},
+                "endTime": "2025-12-08T22:03:54.082897Z",
+                "error": {
+                  "code": 9,
+                  "message": "Failed to get GCS bucket location for unified-genai-tests. Please check that the bucket exists and permissions are set correctly."
+                },
+                "inputConfig": {
+                  "gcsSource": {
+                    "uris": [
+                      "gs://unified-genai-tests/batches/input/generate_content_requests.jsonl"
+                    ]
+                  },
+                  "instancesFormat": "jsonl"
+                },
+                "model": "publishers/google/models/gemini-2.5-flash",
+                "modelMonitoringStatus": {},
+                "modelVersionId": "1",
+                "name": "projects/801452371447/locations/global/batchPredictionJobs/175613997188382720",
+                "outputConfig": {
+                  "gcsDestination": {
+                    "outputUriPrefix": "gs://unified-genai-tests/batches/output"
+                  },
+                  "predictionsFormat": "jsonl"
+                },
+                "state": "JOB_STATE_FAILED",
+                "updateTime": "2025-12-08T22:03:54.082897Z"
+              },
+              {
+                "createTime": "2025-11-18T19:58:03.100756Z",
+                "displayName": "summarize the pdf",
+                "encryptionSpec": {},
+                "endTime": "2025-11-18T19:58:03.434562Z",
+                "error": {
+                  "code": 9,
+                  "message": "Failed to get GCS bucket location for unified-genai-tests. Please check that the bucket exists and permissions are set correctly."
+                },
+                "inputConfig": {
+                  "gcsSource": {
+                    "uris": [
+                      "gs://unified-genai-tests/batches/input/generate_content_requests.jsonl"
+                    ]
+                  },
+                  "instancesFormat": "jsonl"
+                },
+                "model": "publishers/google/models/gemini-3-pro-preview",
+                "modelMonitoringStatus": {},
+                "modelVersionId": "1",
+                "name": "projects/801452371447/locations/global/batchPredictionJobs/8205963141348065280",
+                "outputConfig": {
+                  "gcsDestination": {
+                    "outputUriPrefix": "gs://unified-genai-tests/batches/output"
+                  },
+                  "predictionsFormat": "jsonl"
+                },
+                "state": "JOB_STATE_FAILED",
+                "updateTime": "2025-11-18T19:58:03.434562Z"
+              },
+              {
+                "completionStats": {
+                  "errorCounts": [
+                    {
+                      "count": "2",
+                      "status": {
+                        "code": 3
+                      }
+                    }
+                  ],
+                  "failedCount": "2"
+                },
+                "createTime": "2025-10-09T06:02:02.375857Z",
+                "displayName": "genai_batch_job_20251009060201_03c7d",
+                "encryptionSpec": {},
+                "endTime": "2025-10-09T06:05:19.389646Z",
+                "inputConfig": {
+                  "gcsSource": {
+                    "uris": [
+                      "gs://distillation-testing/test_logits.jsonl"
+                    ]
+                  },
+                  "instancesFormat": "jsonl"
+                },
+                "model": "publishers/google/models/gemini-2.5-flash",
+                "modelMonitoringStatus": {},
+                "modelVersionId": "1",
+                "name": "projects/801452371447/locations/global/batchPredictionJobs/1399071371740315648",
+                "outputConfig": {
+                  "gcsDestination": {
+                    "outputUriPrefix": "gs://distillation-testing"
+                  },
+                  "predictionsFormat": "jsonl"
+                },
+                "outputInfo": {
+                  "gcsOutputDirectory": "gs://distillation-testing/prediction-model-2025-10-09T06:02:02.091690Z"
+                },
+                "startTime": "2025-10-09T06:03:20.723805Z",
+                "state": "JOB_STATE_SUCCEEDED",
+                "updateTime": "2025-10-09T06:05:19.389646Z"
+              },
+              {
+                "createTime": "2025-10-09T05:58:01.630637Z",
+                "displayName": "genai_batch_job_20251009055800_ff5b0",
+                "encryptionSpec": {},
+                "endTime": "2025-10-09T05:58:16.055432Z",
+                "error": {
+                  "code": 3,
+                  "message": "The lines in the specified input JSONL file must contain the \"request\" property. Please refer to https://cloud.google.com/vertex-ai/generative-ai/docs/multimodal/batch-prediction-gemini#cloud-storage"
+                },
+                "inputConfig": {
+                  "gcsSource": {
+                    "uris": [
+                      "gs://distillation-testing/test_logits.jsonl"
+                    ]
+                  },
+                  "instancesFormat": "jsonl"
+                },
+                "model": "publishers/google/models/gemini-2.5-flash",
+                "modelMonitoringStatus": {},
+                "modelVersionId": "1",
+                "name": "projects/801452371447/locations/global/batchPredictionJobs/4943404278480896000",
+                "outputConfig": {
+                  "gcsDestination": {
+                    "outputUriPrefix": "gs://distillation-testing"
+                  },
+                  "predictionsFormat": "jsonl"
+                },
+                "state": "JOB_STATE_FAILED",
+                "updateTime": "2025-10-09T05:58:16.055432Z"
+              },
+              {
+                "completionStats": {
+                  "successfulCount": "2"
+                },
+                "createTime": "2025-10-06T19:49:58.451044Z",
+                "displayName": "genai_batch_job_20251006194957_6c142",
+                "encryptionSpec": {},
+                "endTime": "2025-10-06T19:53:45.648106Z",
+                "inputConfig": {
+                  "gcsSource": {
+                    "uris": [
+                      "gs://cloud-samples-data/generative-ai/batch/batch_requests_for_multimodal_input_2.jsonl"
+                    ]
+                  },
+                  "instancesFormat": "jsonl"
+                },
+                "model": "publishers/google/models/gemini-2.5-flash",
+                "modelMonitoringStatus": {},
+                "modelVersionId": "1",
+                "name": "projects/801452371447/locations/global/batchPredictionJobs/5132555462830456832",
+                "outputConfig": {
+                  "gcsDestination": {
+                    "outputUriPrefix": "gs://REDACTED-20251006194930"
+                  },
+                  "predictionsFormat": "jsonl"
+                },
+                "outputInfo": {
+                  "gcsOutputDirectory": "gs://REDACTED-20251006194930/prediction-model-2025-10-06T19:49:58.095421Z"
+                },
+                "startTime": "2025-10-06T19:51:19.112375Z",
+                "state": "JOB_STATE_SUCCEEDED",
+                "updateTime": "2025-10-06T19:53:45.648106Z"
+              },
+              {
+                "completionStats": {
+                  "successfulCount": "2"
+                },
+                "createTime": "2025-10-06T16:49:00.029893Z",
+                "displayName": "genai_batch_job_20251006164858_72341",
+                "encryptionSpec": {},
+                "endTime": "2025-10-06T16:52:38.121069Z",
+                "inputConfig": {
+                  "gcsSource": {
+                    "uris": [
+                      "gs://cloud-samples-data/generative-ai/batch/batch_requests_for_multimodal_input_2.jsonl"
+                    ]
+                  },
+                  "instancesFormat": "jsonl"
+                },
+                "model": "publishers/google/models/gemini-2.0-flash-001",
+                "modelMonitoringStatus": {},
+                "modelVersionId": "1",
+                "name": "projects/801452371447/locations/global/batchPredictionJobs/520869444403068928",
+                "outputConfig": {
+                  "gcsDestination": {
+                    "outputUriPrefix": "gs://REDACTED-20251006164852"
+                  },
+                  "predictionsFormat": "jsonl"
+                },
+                "outputInfo": {
+                  "gcsOutputDirectory": "gs://REDACTED-20251006164852/prediction-model-2025-10-06T16:48:59.640189Z"
+                },
+                "startTime": "2025-10-06T16:50:18.494615Z",
+                "state": "JOB_STATE_SUCCEEDED",
+                "updateTime": "2025-10-06T16:52:38.121069Z"
+              },
+              {
+                "completionStats": {
+                  "successfulCount": "2"
+                },
+                "createTime": "2025-10-06T13:27:27.746967Z",
+                "displayName": "genai_batch_job_20251006132726_44f43",
+                "encryptionSpec": {},
+                "endTime": "2025-10-06T13:31:58.553038Z",
+                "inputConfig": {
+                  "gcsSource": {
+                    "uris": [
+                      "gs://cloud-samples-data/generative-ai/batch/batch_requests_for_multimodal_input_2.jsonl"
+                    ]
+                  },
+                  "instancesFormat": "jsonl"
+                },
+                "model": "publishers/google/models/gemini-2.0-flash-001",
+                "modelMonitoringStatus": {},
+                "modelVersionId": "1",
+                "name": "projects/801452371447/locations/global/batchPredictionJobs/118923177660252160",
+                "outputConfig": {
+                  "gcsDestination": {
+                    "outputUriPrefix": "gs://REDACTED-20251006132719"
+                  },
+                  "predictionsFormat": "jsonl"
+                },
+                "outputInfo": {
+                  "gcsOutputDirectory": "gs://REDACTED-20251006132719/prediction-model-2025-10-06T13:27:27.430633Z"
+                },
+                "startTime": "2025-10-06T13:29:53.902506Z",
+                "state": "JOB_STATE_SUCCEEDED",
+                "updateTime": "2025-10-06T13:31:58.553038Z"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

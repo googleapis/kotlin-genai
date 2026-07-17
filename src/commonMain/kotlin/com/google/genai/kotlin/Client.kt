@@ -196,6 +196,9 @@ internal constructor(
   /** Service for interacting with Tunings API. */
   val tunings = Tunings(httpClient)
 
+  /** Service for interacting with Batches API. */
+  val batches = Batches(httpClient)
+
   /** Closes the Client instance and its underlying HTTP client. */
   override fun close() {
     httpClient.close()

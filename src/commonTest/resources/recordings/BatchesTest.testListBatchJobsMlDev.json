@@ -1,0 +1,135 @@
+{
+  "recordID": "BatchesTest.testListBatchJobsMlDev",
+  "interactions": [
+    {
+      "request": {
+        "method": "GET",
+        "url": "/v1beta/batches",
+        "request": "GET /v1beta/batches HTTP/1.1",
+        "headers": {
+          "Accept": "*/*",
+          "Accept-Charset": "UTF-8",
+          "Accept-Encoding": "gzip",
+          "Connection": "Keep-Alive",
+          "Content-Type": "application/json",
+          "Test-Name": "BatchesTest.testListBatchJobsMlDev"
+        },
+        "bodySegments": [
+          null
+        ],
+        "previousRequest": "b4d6e60a9b97e7b98c63df9308728c5c88c0b40c398046772c63447b94608b4d",
+        "serverAddress": "generativelanguage.googleapis.com",
+        "port": 443,
+        "protocol": "https"
+      },
+      "shaSum": "c6b04a450afa5d26e4fd6cd39a5e214407dbb5dd160be822c304362848d9d072",
+      "response": {
+        "statusCode": 200,
+        "headers": {
+          "Content-Encoding": "gzip",
+          "Content-Length": "738",
+          "Content-Type": "application/json; charset=UTF-8",
+          "Date": "Mon, 13 Jul 2026 20:30:41 GMT",
+          "Server": "scaffolding on HTTPServer2",
+          "Server-Timing": "gfet4t7; dur=377",
+          "Vary": "Origin, X-Origin, Referer",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "SAMEORIGIN",
+          "X-Xss-Protection": "0"
+        },
+        "bodySegments": [
+          {
+            "nextPageToken": "cjkKD4IBDAjEhdDSBhDs7_6kAwomQiR5c3VpNGw4YXlnYjhyMnR6YzdjenJhMXk2cXg1ZGx2ZTdyNnI",
+            "operations": [
+              {
+                "done": true,
+                "metadata": {
+                  "@type": "type.googleapis.com/google.ai.generativelanguage.v1main.EmbedContentBatch",
+                  "batchStats": {
+                    "pendingRequestCount": "3",
+                    "requestCount": "3"
+                  },
+                  "createTime": "2026-07-12T21:18:46.017079519Z",
+                  "endTime": "2026-07-12T21:20:23.081476603Z",
+                  "model": "models/gemini-embedding-001",
+                  "name": "batches/bygkf8q5eqyf5w6k4a0xcdl4wlrm5wyqy1v5",
+                  "state": "BATCH_STATE_SUCCEEDED",
+                  "updateTime": "2026-07-12T21:20:23.081476623Z"
+                },
+                "name": "batches/bygkf8q5eqyf5w6k4a0xcdl4wlrm5wyqy1v5"
+              },
+              {
+                "done": true,
+                "metadata": {
+                  "@type": "type.googleapis.com/google.ai.generativelanguage.v1main.GenerateContentBatch",
+                  "batchStats": {
+                    "pendingRequestCount": "1",
+                    "requestCount": "1"
+                  },
+                  "createTime": "2026-07-12T21:18:41.300446990Z",
+                  "endTime": "2026-07-12T21:20:17.572151311Z",
+                  "model": "models/gemini-3.5-flash",
+                  "name": "batches/tkr9bzlyohqmiei5z1fjiqb8cl9azaf34xcn",
+                  "state": "BATCH_STATE_SUCCEEDED",
+                  "updateTime": "2026-07-12T21:20:17.572151331Z"
+                },
+                "name": "batches/tkr9bzlyohqmiei5z1fjiqb8cl9azaf34xcn"
+              },
+              {
+                "done": true,
+                "metadata": {
+                  "@type": "type.googleapis.com/google.ai.generativelanguage.v1main.EmbedContentBatch",
+                  "batchStats": {
+                    "pendingRequestCount": "3",
+                    "requestCount": "3"
+                  },
+                  "createTime": "2026-07-12T21:15:04.186033658Z",
+                  "endTime": "2026-07-12T21:16:10.602117439Z",
+                  "model": "models/gemini-embedding-001",
+                  "name": "batches/pkdpa6syhoeebkz25i7ht1f160x1ruiufb6x",
+                  "state": "BATCH_STATE_SUCCEEDED",
+                  "updateTime": "2026-07-12T21:16:10.602117469Z"
+                },
+                "name": "batches/pkdpa6syhoeebkz25i7ht1f160x1ruiufb6x"
+              },
+              {
+                "done": true,
+                "metadata": {
+                  "@type": "type.googleapis.com/google.ai.generativelanguage.v1main.EmbedContentBatch",
+                  "batchStats": {
+                    "pendingRequestCount": "3",
+                    "requestCount": "3"
+                  },
+                  "createTime": "2026-07-12T21:14:16.344277582Z",
+                  "endTime": "2026-07-12T21:15:42.260600893Z",
+                  "model": "models/gemini-embedding-001",
+                  "name": "batches/5e82zwsltlj6e2fj8merrgsyrljw58m9lydm",
+                  "state": "BATCH_STATE_SUCCEEDED",
+                  "updateTime": "2026-07-12T21:15:42.260600913Z"
+                },
+                "name": "batches/5e82zwsltlj6e2fj8merrgsyrljw58m9lydm"
+              },
+              {
+                "done": true,
+                "metadata": {
+                  "@type": "type.googleapis.com/google.ai.generativelanguage.v1main.EmbedContentBatch",
+                  "batchStats": {
+                    "pendingRequestCount": "3",
+                    "requestCount": "3"
+                  },
+                  "createTime": "2026-07-12T21:10:28.882882540Z",
+                  "endTime": "2026-07-12T21:12:24.843928789Z",
+                  "model": "models/gemini-embedding-001",
+                  "name": "batches/ysui4l8aygb8r2tzc7czra1y6qx5dlve7r6r",
+                  "state": "BATCH_STATE_SUCCEEDED",
+                  "updateTime": "2026-07-12T21:12:24.843928819Z"
+                },
+                "name": "batches/ysui4l8aygb8r2tzc7czra1y6qx5dlve7r6r"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,128 @@
+{
+  "recordID": "BatchesTest.testCancelBatchJobVertex",
+  "interactions": [
+    {
+      "request": {
+        "method": "POST",
+        "url": "/v1beta1/projects/REDACTED/locations/global/batchPredictionJobs",
+        "request": "POST /v1beta1/projects/REDACTED/locations/global/batchPredictionJobs HTTP/1.1",
+        "headers": {
+          "Accept": "*/*",
+          "Accept-Charset": "UTF-8",
+          "Accept-Encoding": "gzip",
+          "Connection": "Keep-Alive",
+          "Content-Length": "353",
+          "Content-Type": "application/json",
+          "Test-Name": "BatchesTest.testCancelBatchJobVertex"
+        },
+        "bodySegments": [
+          {
+            "displayName": "test_batch_cancel_gcs",
+            "inputConfig": {
+              "gcsSource": {
+                "uris": [
+                  "gs://unified-genai-tests/batches/input/generate_content_requests.jsonl"
+                ]
+              },
+              "instancesFormat": "jsonl"
+            },
+            "model": "publishers/google/models/gemini-2.5-flash",
+            "outputConfig": {
+              "gcsDestination": {
+                "outputUriPrefix": "gs://unified-genai-tests/batches/output"
+              },
+              "predictionsFormat": "jsonl"
+            }
+          }
+        ],
+        "previousRequest": "b4d6e60a9b97e7b98c63df9308728c5c88c0b40c398046772c63447b94608b4d",
+        "serverAddress": "aiplatform.googleapis.com",
+        "port": 443,
+        "protocol": "https"
+      },
+      "shaSum": "9efb192f6642b9459a9db0d0713a4f706f64fc8bb573425fe3d9c3f0c601780f",
+      "response": {
+        "statusCode": 200,
+        "headers": {
+          "Content-Encoding": "gzip",
+          "Content-Length": "420",
+          "Content-Type": "application/json; charset=UTF-8",
+          "Date": "Mon, 13 Jul 2026 21:36:26 GMT",
+          "Server": "ESF",
+          "Vary": "Origin, X-Origin, Referer",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "SAMEORIGIN",
+          "X-Xss-Protection": "0"
+        },
+        "bodySegments": [
+          {
+            "createTime": "2026-07-13T21:36:26.006323Z",
+            "displayName": "test_batch_cancel_gcs",
+            "encryptionSpec": {},
+            "inputConfig": {
+              "gcsSource": {
+                "uris": [
+                  "gs://unified-genai-tests/batches/input/generate_content_requests.jsonl"
+                ]
+              },
+              "instancesFormat": "jsonl"
+            },
+            "model": "publishers/google/models/gemini-2.5-flash",
+            "modelMonitoringStatus": {},
+            "modelVersionId": "1",
+            "name": "projects/801452371447/locations/global/batchPredictionJobs/4149516476174303232",
+            "outputConfig": {
+              "gcsDestination": {
+                "outputUriPrefix": "gs://unified-genai-tests/batches/output"
+              },
+              "predictionsFormat": "jsonl"
+            },
+            "state": "JOB_STATE_PENDING",
+            "updateTime": "2026-07-13T21:36:26.006323Z"
+          }
+        ]
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "url": "/v1beta1/projects/REDACTED/locations/global/batchPredictionJobs/4149516476174303232:cancel",
+        "request": "POST /v1beta1/projects/REDACTED/locations/global/batchPredictionJobs/4149516476174303232:cancel HTTP/1.1",
+        "headers": {
+          "Accept": "*/*",
+          "Accept-Charset": "UTF-8",
+          "Accept-Encoding": "gzip",
+          "Connection": "Keep-Alive",
+          "Content-Length": "0",
+          "Content-Type": "application/json",
+          "Test-Name": "BatchesTest.testCancelBatchJobVertex"
+        },
+        "bodySegments": [
+          null
+        ],
+        "previousRequest": "9efb192f6642b9459a9db0d0713a4f706f64fc8bb573425fe3d9c3f0c601780f",
+        "serverAddress": "aiplatform.googleapis.com",
+        "port": 443,
+        "protocol": "https"
+      },
+      "shaSum": "9c3d4a84cbe3b8f70a7b3b712a2779a1d2008645ea8f4a85306af4197b232510",
+      "response": {
+        "statusCode": 200,
+        "headers": {
+          "Content-Encoding": "gzip",
+          "Content-Length": "23",
+          "Content-Type": "application/json; charset=UTF-8",
+          "Date": "Mon, 13 Jul 2026 21:36:26 GMT",
+          "Server": "ESF",
+          "Vary": "Origin, X-Origin, Referer",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "SAMEORIGIN",
+          "X-Xss-Protection": "0"
+        },
+        "bodySegments": [
+          {}
+        ]
+      }
+    }
+  ]
+}

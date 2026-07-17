@@ -196,6 +196,103 @@ internal object Common {
   }
 
   /**
+   * Moves a value from one path to another in the jsonObject based on pathMap.
+   *
+   * <p>moveValueByPath({'requests': [{'content': v1}, {'content': v2}]}, {'requests[].*':
+   * 'requests[].request.*'}) -> {'requests': [{'request': {'content': v1}}, {'request': {'content':
+   * v2}}]}
+   */
+  fun moveValueByPath(jsonObject: MutableMap<String, Any?>?, pathMap: Map<String, String>) {
+    if (jsonObject == null) return
+    for ((sourcePathStr, toPathStr) in pathMap) {
+      val sourceKeys = sourcePathStr.split(".").toTypedArray()
+      val destKeys = toPathStr.split(".").toTypedArray()
+
+      val excludeKeys = mutableSetOf<String>()
+      var wildcardIdx = -1
+      for (i in sourceKeys.indices) {
+        if (sourceKeys[i] == "*") {
+          wildcardIdx = i
+          break
+        }
+      }
+
+      if (wildcardIdx != -1 && destKeys.size > wildcardIdx) {
+        for (i in wildcardIdx until destKeys.size) {
+          val key = destKeys[i]
+          if (key != "*" && !key.endsWith("[]") && !key.endsWith("[0]")) {
+            excludeKeys.add(key)
+          }
+        }
+      }
+
+      moveValueRecursive(jsonObject, sourceKeys, destKeys, 0, excludeKeys)
+    }
+  }
+
+  private fun moveValueRecursive(
+    data: Any?,
+    sourceKeys: Array<String>,
+    destKeys: Array<String>,
+    keyIdx: Int,
+    excludeKeys: Set<String>,
+  ) {
+    if (keyIdx >= sourceKeys.size || data == null) return
+
+    val key = sourceKeys[keyIdx]
+
+    if (key.endsWith("[]")) {
+      val keyName = key.removeSuffix("[]")
+      if (data is MutableMap<*, *> && data.containsKey(keyName)) {
+        val arrayNode = data[keyName]
+        if (arrayNode is Iterable<*>) {
+          for (item in arrayNode) {
+            moveValueRecursive(item, sourceKeys, destKeys, keyIdx + 1, excludeKeys)
+          }
+        }
+      }
+    } else if (key == "*") {
+      if (data is MutableMap<*, *>) {
+        @Suppress("UNCHECKED_CAST") val objectNode = data as MutableMap<String, Any?>
+        val keysToMove = mutableListOf<String>()
+        for (fieldName in objectNode.keys) {
+          if (!fieldName.startsWith("_") && !excludeKeys.contains(fieldName)) {
+            keysToMove.add(fieldName)
+          }
+        }
+
+        val valuesToMove = mutableMapOf<String, Any?>()
+        for (k in keysToMove) {
+          valuesToMove[k] = objectNode[k]
+        }
+
+        for ((k, v) in valuesToMove) {
+          val newDestKeysList = mutableListOf<String>()
+          for (i in keyIdx until destKeys.size) {
+            val dk = destKeys[i]
+            if (dk == "*") {
+              newDestKeysList.add(k)
+            } else {
+              newDestKeysList.add(dk)
+            }
+          }
+          val newDestKeys = newDestKeysList.toTypedArray()
+          setValueByPath(objectNode, newDestKeys, v)
+        }
+
+        for (k in keysToMove) {
+          objectNode.remove(k)
+        }
+      }
+    } else {
+      if (data is MutableMap<*, *> && data.containsKey(key)) {
+        val nextNode = data[key]
+        moveValueRecursive(nextNode, sourceKeys, destKeys, keyIdx + 1, excludeKeys)
+      }
+    }
+  }
+
+  /**
    * Formats a template with a map of data.
    *
    * <p>formatMap("{model}:generateContent", "gemini-3.0-flash") ->

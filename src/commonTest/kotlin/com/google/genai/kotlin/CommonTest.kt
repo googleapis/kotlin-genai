@@ -105,13 +105,12 @@ class CommonTest {
 
   @Test
   fun testSetValueByPath_selfKey_deepMerge() {
-    val data = mutableMapOf<String, Any?>(
-      "a" to mutableMapOf<String, Any?>("b" to "v1", "c" to mutableMapOf<String, Any?>("d" to "v2"))
-    )
-    val value = mapOf(
-      "a" to mapOf("c" to mapOf("e" to "v3"), "f" to "v4"),
-      "g" to "v5"
-    )
+    val data =
+      mutableMapOf<String, Any?>(
+        "a" to
+          mutableMapOf<String, Any?>("b" to "v1", "c" to mutableMapOf<String, Any?>("d" to "v2"))
+      )
+    val value = mapOf("a" to mapOf("c" to mapOf("e" to "v3"), "f" to "v4"), "g" to "v5")
     Common.setValueByPath(data, arrayOf("_self"), value)
 
     val aNode = data["a"] as Map<*, *>
@@ -127,13 +126,12 @@ class CommonTest {
 
   @Test
   fun testSetValueByPath_regularKey_deepMerge() {
-    val data = mutableMapOf<String, Any?>(
-      "target" to mutableMapOf<String, Any?>("b" to "v1", "c" to mutableMapOf<String, Any?>("d" to "v2"))
-    )
-    val value = mapOf(
-      "c" to mapOf("e" to "v3"),
-      "f" to "v4"
-    )
+    val data =
+      mutableMapOf<String, Any?>(
+        "target" to
+          mutableMapOf<String, Any?>("b" to "v1", "c" to mutableMapOf<String, Any?>("d" to "v2"))
+      )
+    val value = mapOf("c" to mapOf("e" to "v3"), "f" to "v4")
     Common.setValueByPath(data, arrayOf("target"), value)
 
     val targetNode = data["target"] as Map<*, *>
@@ -406,5 +404,43 @@ class CommonTest {
     // Everything else should be null
     assertNull(config.systemInstruction)
     assertNull(config.responseMimeType)
+  }
+
+  @Test
+  fun testMoveValueByPath_arrayWildcard() {
+    val data =
+      mutableMapOf<String, Any?>(
+        "requests" to
+          mutableListOf(
+            mutableMapOf<String, Any?>("content" to "v1"),
+            mutableMapOf<String, Any?>("content" to "v2"),
+          )
+      )
+    val pathMap = mapOf("requests[].*" to "requests[].request.*")
+    Common.moveValueByPath(data, pathMap)
+
+    val requests = data["requests"] as List<*>
+    val firstRequest = requests[0] as Map<*, *>
+    val firstRequestInner = firstRequest["request"] as Map<*, *>
+    assertEquals("v1", firstRequestInner["content"])
+    assertFalse(firstRequest.containsKey("content"))
+
+    val secondRequest = requests[1] as Map<*, *>
+    val secondRequestInner = secondRequest["request"] as Map<*, *>
+    assertEquals("v2", secondRequestInner["content"])
+    assertFalse(secondRequest.containsKey("content"))
+  }
+
+  @Test
+  fun testMoveValueByPath_rootWildcard() {
+    val data = mutableMapOf<String, Any?>("content" to "v1", "model" to "v2")
+    val pathMap = mapOf("*" to "request.*")
+    Common.moveValueByPath(data, pathMap)
+
+    val request = data["request"] as Map<*, *>
+    assertEquals("v1", request["content"])
+    assertEquals("v2", request["model"])
+    assertFalse(data.containsKey("content"))
+    assertFalse(data.containsKey("model"))
   }
 }

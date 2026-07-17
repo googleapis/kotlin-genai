@@ -208,6 +208,31 @@ internal object Transformers {
     }
   }
 
+  fun tBatchJobName(apiClient: ApiClient, name: Any?): Any? {
+    if (name == null) return null
+    val nameStr = name.toString().replace("\"", "")
+    if (apiClient.enterprise) {
+      if (nameStr.startsWith("projects/") && nameStr.contains("/batchPredictionJobs/")) {
+        return nameStr.substringAfterLast("/")
+      }
+      return nameStr
+    } else {
+      if (nameStr.startsWith("batches/")) {
+        return nameStr.substringAfterLast("/")
+      }
+      return nameStr
+    }
+  }
+
+  fun tJobState(state: Any?): Any? {
+    if (state == null) return null
+    return state.toString().replace("BATCH_STATE_", "JOB_STATE_")
+  }
+
+  fun tBatchJobSource(source: Any?): Any? = source
+  fun tBatchJobDestination(destination: Any?): Any? = destination
+  fun tRecvBatchJobDestination(destination: Any?): Any? = destination
+
   /** Checks if the model uses the vertex embedContent endpoint. */
   fun tIsVertexEmbedContentModel(model: String): Boolean {
     return (model.contains("gemini") && model != "gemini-embedding-001") || model.contains("maas")

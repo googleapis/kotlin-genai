@@ -1,0 +1,126 @@
+{
+  "recordID": "BatchesTest.testCancelBatchJobMlDev",
+  "interactions": [
+    {
+      "request": {
+        "method": "POST",
+        "url": "/v1beta/models/gemini-3.5-flash:batchGenerateContent",
+        "request": "POST /v1beta/models/gemini-3.5-flash:batchGenerateContent HTTP/1.1",
+        "headers": {
+          "Accept": "*/*",
+          "Accept-Charset": "UTF-8",
+          "Accept-Encoding": "gzip",
+          "Connection": "Keep-Alive",
+          "Content-Length": "138",
+          "Content-Type": "application/json",
+          "Test-Name": "BatchesTest.testCancelBatchJobMlDev"
+        },
+        "bodySegments": [
+          {
+            "batch": {
+              "inputConfig": {
+                "requests": {
+                  "requests": [
+                    {
+                      "request": {
+                        "contents": [
+                          {
+                            "parts": [
+                              {
+                                "text": "Why is the sky blue?"
+                              }
+                            ],
+                            "role": "user"
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        ],
+        "previousRequest": "b4d6e60a9b97e7b98c63df9308728c5c88c0b40c398046772c63447b94608b4d",
+        "serverAddress": "generativelanguage.googleapis.com",
+        "port": 443,
+        "protocol": "https"
+      },
+      "shaSum": "89332908f59fea62da789b953c792015d6dc292c727c4e0a116d6cdbce3138bb",
+      "response": {
+        "statusCode": 200,
+        "headers": {
+          "Content-Encoding": "gzip",
+          "Content-Length": "294",
+          "Content-Type": "application/json; charset=UTF-8",
+          "Date": "Mon, 13 Jul 2026 20:40:48 GMT",
+          "Server": "scaffolding on HTTPServer2",
+          "Server-Timing": "gfet4t7; dur=4532",
+          "Vary": "Origin, X-Origin, Referer",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "SAMEORIGIN",
+          "X-Xss-Protection": "0"
+        },
+        "bodySegments": [
+          {
+            "metadata": {
+              "@type": "type.googleapis.com/google.ai.generativelanguage.v1main.GenerateContentBatch",
+              "batchStats": {
+                "pendingRequestCount": "1",
+                "requestCount": "1"
+              },
+              "createTime": "2026-07-13T20:40:44.611136778Z",
+              "model": "models/gemini-3.5-flash",
+              "name": "batches/f2evg2uss3g5442ulgzg3fximrrnf0xolyjm",
+              "state": "BATCH_STATE_PENDING",
+              "updateTime": "2026-07-13T20:40:44.611136778Z"
+            },
+            "name": "batches/f2evg2uss3g5442ulgzg3fximrrnf0xolyjm"
+          }
+        ]
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "url": "/v1beta/batches/f2evg2uss3g5442ulgzg3fximrrnf0xolyjm:cancel",
+        "request": "POST /v1beta/batches/f2evg2uss3g5442ulgzg3fximrrnf0xolyjm:cancel HTTP/1.1",
+        "headers": {
+          "Accept": "*/*",
+          "Accept-Charset": "UTF-8",
+          "Accept-Encoding": "gzip",
+          "Connection": "Keep-Alive",
+          "Content-Length": "0",
+          "Content-Type": "application/json",
+          "Test-Name": "BatchesTest.testCancelBatchJobMlDev"
+        },
+        "bodySegments": [
+          null
+        ],
+        "previousRequest": "89332908f59fea62da789b953c792015d6dc292c727c4e0a116d6cdbce3138bb",
+        "serverAddress": "generativelanguage.googleapis.com",
+        "port": 443,
+        "protocol": "https"
+      },
+      "shaSum": "7646628fa71e7b7875c2d5001cac701da7f4bccd2134b2e1f969002553d312bc",
+      "response": {
+        "statusCode": 200,
+        "headers": {
+          "Content-Encoding": "gzip",
+          "Content-Length": "23",
+          "Content-Type": "application/json; charset=UTF-8",
+          "Date": "Mon, 13 Jul 2026 20:40:49 GMT",
+          "Server": "scaffolding on HTTPServer2",
+          "Server-Timing": "gfet4t7; dur=705",
+          "Vary": "Origin, X-Origin, Referer",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "SAMEORIGIN",
+          "X-Xss-Protection": "0"
+        },
+        "bodySegments": [
+          {}
+        ]
+      }
+    }
+  ]
+}
