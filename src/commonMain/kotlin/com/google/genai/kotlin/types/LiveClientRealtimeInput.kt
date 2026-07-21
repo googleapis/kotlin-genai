@@ -46,4 +46,22 @@ data class LiveClientRealtimeInput(
 
   /** Marks the end of user activity. */
   val activityEnd: ActivityEnd? = null,
+
+  /** The realtime audio input stream. */
+  val audio: Blob? = null,
+
+  /**
+   * Indicates that the audio stream has ended, e.g. because the microphone was turned off.
+   *
+   * This should only be sent when automatic activity detection is enabled (which is the default).
+   *
+   * The client can reopen the stream by sending an audio message.
+   */
+  val audioStreamEnd: Boolean? = null,
+
+  /** The realtime video input stream. */
+  val video: Blob? = null,
+
+  /** The realtime text input stream. */
+  val text: String? = null,
 )

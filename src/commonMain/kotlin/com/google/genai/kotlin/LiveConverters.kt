@@ -779,7 +779,10 @@ internal object LiveConverters {
       Common.setValueByPath(
         toObject,
         arrayOf("realtimeInput"),
-        Common.getValueByPath(fromObject, arrayOf("realtimeInput")),
+        liveClientRealtimeInputToVertex(
+          Common.getValueByPath(fromObject, arrayOf("realtimeInput")) as Map<String, Any?>,
+          toObject,
+        ),
       )
     }
 
@@ -825,6 +828,107 @@ internal object LiveConverters {
         toObject,
         arrayOf("activityEnd"),
         Common.getValueByPath(fromObject, arrayOf("activityEnd")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("audio"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("audio"),
+        blobToMldev(
+          Common.getValueByPath(fromObject, arrayOf("audio")) as Map<String, Any?>,
+          toObject,
+        ),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("audioStreamEnd"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("audioStreamEnd"),
+        Common.getValueByPath(fromObject, arrayOf("audioStreamEnd")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("video"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("video"),
+        blobToMldev(
+          Common.getValueByPath(fromObject, arrayOf("video")) as Map<String, Any?>,
+          toObject,
+        ),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("text"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("text"),
+        Common.getValueByPath(fromObject, arrayOf("text")),
+      )
+    }
+
+    return toObject
+  }
+
+  internal fun liveClientRealtimeInputToVertex(
+    fromObject: Map<String, Any?>?,
+    parentObject: MutableMap<String, Any?>?,
+  ): MutableMap<String, Any?> {
+
+    val toObject = mutableMapOf<String, Any?>()
+    Common.getValueByPath(fromObject, arrayOf("mediaChunks"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("mediaChunks"),
+        Common.getValueByPath(fromObject, arrayOf("mediaChunks")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("activityStart"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("activityStart"),
+        Common.getValueByPath(fromObject, arrayOf("activityStart")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("activityEnd"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("activityEnd"),
+        Common.getValueByPath(fromObject, arrayOf("activityEnd")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("audio"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("audio"),
+        Common.getValueByPath(fromObject, arrayOf("audio")),
+      )
+    }
+
+    if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("audioStreamEnd")))) {
+      throw IllegalArgumentException(
+        "audioStreamEnd parameter is not supported in Gemini Enterprise Agent Platform."
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("video"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("video"),
+        Common.getValueByPath(fromObject, arrayOf("video")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("text"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("text"),
+        Common.getValueByPath(fromObject, arrayOf("text")),
       )
     }
 
@@ -960,6 +1064,14 @@ internal object LiveConverters {
       )
     }
 
+    Common.getValueByPath(fromObject, arrayOf("realtimeInputConfig"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("realtimeInputConfig"),
+        Common.getValueByPath(fromObject, arrayOf("realtimeInputConfig")),
+      )
+    }
+
     return toObject
   }
 
@@ -1081,6 +1193,14 @@ internal object LiveConverters {
         toObject,
         arrayOf("historyConfig"),
         Common.getValueByPath(fromObject, arrayOf("historyConfig")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("realtimeInputConfig"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("realtimeInputConfig"),
+        Common.getValueByPath(fromObject, arrayOf("realtimeInputConfig")),
       )
     }
 
