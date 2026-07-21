@@ -20,5 +20,5 @@ package com.google.genai.kotlin.types
 
 import kotlinx.serialization.Serializable
 
-/** Indicates the language of the audio should be automatically detected. */
+/** Deprecated: Language auto-detection is now the default when language_codes is omitted. */
 @Serializable class LanguageAuto()
