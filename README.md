@@ -336,6 +336,38 @@ fun main() = runBlocking {
 }
 ```
 
+#### Register Files
+
+You can register a file using a URI (e.g. Google Cloud Storage). This requires Google Cloud credentials (OAuth) instead of an API key, but it still targets the Gemini Developer API.
+
+```kotlin
+import com.google.genai.kotlin.Client
+import com.google.auth.oauth2.GoogleCredentials
+import kotlinx.coroutines.runBlocking
+
+fun main() = runBlocking {
+    // Use Application Default Credentials which provide the necessary OAuth tokens
+    val credentials = GoogleCredentials.getApplicationDefault()
+        .createScoped(
+            listOf(
+                "https://www.googleapis.com/auth/cloud-platform",
+                "https://www.googleapis.com/auth/devstorage.read_only"
+            )
+        )
+
+    Client(credentials = credentials).use { client ->
+        val gcsUri = "gs://cloud-samples-data/generative-ai/image/a-man-and-a-dog.png"
+        val response = client.files.registerFiles(
+            credentials = credentials,
+            uris = listOf(gcsUri)
+        )
+
+        val registeredFile = response.files?.firstOrNull()
+        println("Registered file: ${registeredFile?.name}")
+    }
+}
+```
+
 ### Context Caching
 
 You can cache content to reduce latency and cost for repetitive requests.
