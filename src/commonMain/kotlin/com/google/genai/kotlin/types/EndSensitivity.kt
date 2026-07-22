@@ -21,16 +21,13 @@ package com.google.genai.kotlin.types
 import kotlin.jvm.JvmInline
 import kotlinx.serialization.Serializable
 
-/** End of speech sensitivity. */
+/** Determines how likely detected speech is ended. This enum is not supported in Vertex AI. */
 @Serializable
 @JvmInline
 value class EndSensitivity(val value: String) {
   companion object {
 
-    /**
-     * The default is END_SENSITIVITY_LOW for Gemini Enterprise Agent Platform and
-     * END_SENSITIVITY_HIGH for Gemini Live.
-     */
+    /** The default is END_SENSITIVITY_HIGH. */
     val END_SENSITIVITY_UNSPECIFIED = EndSensitivity("END_SENSITIVITY_UNSPECIFIED")
 
     /** Automatic detection ends speech more often. */

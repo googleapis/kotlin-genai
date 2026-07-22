@@ -45,4 +45,20 @@ data class ToolParallelAiSearch(
    * "max_age_seconds": 3600 } }
    */
   val customConfigs: Map<String, JsonElement>? = null,
+
+  /**
+   * Optional. Deprecated: Use `enable_zero_data_retention` instead. Instructs Vertex Grounding to
+   * use Parallel's Zero Data Retention Marketplace product. If this value is "false" or omitted,
+   * the Parallel Web Search for Grounding standard subscription will be used. If this value is
+   * "true", the Parallel Web Search for Grounding - ZDR subscription will be used.
+   */
+  val enableDataRetention: Boolean? = null,
+
+  /**
+   * Optional. Instructs Vertex Grounding to use Parallel's Zero Data Retention Marketplace product.
+   * If this value is "false" or omitted, the Parallel Web Search for Grounding standard
+   * subscription will be used. If this value is "true", the Parallel Web Search for Grounding - ZDR
+   * subscription will be used.
+   */
+  val enableZeroDataRetention: Boolean? = null,
 )

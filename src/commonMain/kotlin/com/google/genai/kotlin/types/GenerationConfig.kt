@@ -51,7 +51,7 @@ data class GenerationConfig(
   /**
    * Optional. If enabled, the model will detect emotions and adapt its responses accordingly. For
    * example, if the model detects that the user is frustrated, it may provide a more empathetic
-   * response. This field is not supported in Gemini API.
+   * response.
    */
   val enableAffectiveDialog: Boolean? = null,
 

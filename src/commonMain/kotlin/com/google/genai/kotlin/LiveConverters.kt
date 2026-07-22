@@ -67,6 +67,58 @@ internal object LiveConverters {
     return toObject
   }
 
+  internal fun audioTranscriptionConfigToVertex(
+    fromObject: Map<String, Any?>?,
+    parentObject: MutableMap<String, Any?>?,
+  ): MutableMap<String, Any?> {
+
+    val toObject = mutableMapOf<String, Any?>()
+    Common.getValueByPath(fromObject, arrayOf("languageCodes"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("languageCodes"),
+        Common.getValueByPath(fromObject, arrayOf("languageCodes")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("languageAuto"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("languageAuto"),
+        Common.getValueByPath(fromObject, arrayOf("languageAuto")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("languageHints"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("languageHints"),
+        languageHintsToVertex(
+          Common.getValueByPath(fromObject, arrayOf("languageHints")) as Map<String, Any?>,
+          toObject,
+        ),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("customVocabulary"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("customVocabulary"),
+        Common.getValueByPath(fromObject, arrayOf("customVocabulary")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("adaptationPhrases"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("adaptationPhrases"),
+        Common.getValueByPath(fromObject, arrayOf("adaptationPhrases")),
+      )
+    }
+
+    return toObject
+  }
+
   internal fun authConfigToMldev(
     fromObject: Map<String, Any?>?,
     parentObject: MutableMap<String, Any?>?,
@@ -263,6 +315,27 @@ internal object LiveConverters {
         toObject,
         arrayOf("role"),
         Common.getValueByPath(fromObject, arrayOf("role")),
+      )
+    }
+
+    return toObject
+  }
+
+  internal fun contextWindowCompressionConfigToVertex(
+    fromObject: Map<String, Any?>?,
+    parentObject: MutableMap<String, Any?>?,
+  ): MutableMap<String, Any?> {
+
+    val toObject = mutableMapOf<String, Any?>()
+    if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("triggerTokens")))) {
+      throw IllegalArgumentException(
+        "triggerTokens parameter is not supported in Gemini Enterprise Agent Platform."
+      )
+    }
+
+    if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("slidingWindow")))) {
+      throw IllegalArgumentException(
+        "slidingWindow parameter is not supported in Gemini Enterprise Agent Platform."
       )
     }
 
@@ -633,6 +706,38 @@ internal object LiveConverters {
         toObject,
         arrayOf("timeRangeFilter"),
         Common.getValueByPath(fromObject, arrayOf("timeRangeFilter")),
+      )
+    }
+
+    return toObject
+  }
+
+  internal fun historyConfigToVertex(
+    fromObject: Map<String, Any?>?,
+    parentObject: MutableMap<String, Any?>?,
+  ): MutableMap<String, Any?> {
+
+    val toObject = mutableMapOf<String, Any?>()
+    if (
+      !Common.isZero(Common.getValueByPath(fromObject, arrayOf("initialHistoryInClientContent")))
+    ) {
+      throw IllegalArgumentException(
+        "initialHistoryInClientContent parameter is not supported in Gemini Enterprise Agent Platform."
+      )
+    }
+
+    return toObject
+  }
+
+  internal fun languageHintsToVertex(
+    fromObject: Map<String, Any?>?,
+    parentObject: MutableMap<String, Any?>?,
+  ): MutableMap<String, Any?> {
+
+    val toObject = mutableMapOf<String, Any?>()
+    if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("languageCodes")))) {
+      throw IllegalArgumentException(
+        "languageCodes parameter is not supported in Gemini Enterprise Agent Platform."
       )
     }
 
@@ -1016,7 +1121,10 @@ internal object LiveConverters {
       Common.setValueByPath(
         toObject,
         arrayOf("sessionResumption"),
-        Common.getValueByPath(fromObject, arrayOf("sessionResumption")),
+        sessionResumptionConfigToVertex(
+          Common.getValueByPath(fromObject, arrayOf("sessionResumption")) as Map<String, Any?>,
+          toObject,
+        ),
       )
     }
 
@@ -1024,7 +1132,11 @@ internal object LiveConverters {
       Common.setValueByPath(
         toObject,
         arrayOf("contextWindowCompression"),
-        Common.getValueByPath(fromObject, arrayOf("contextWindowCompression")),
+        contextWindowCompressionConfigToVertex(
+          Common.getValueByPath(fromObject, arrayOf("contextWindowCompression"))
+            as Map<String, Any?>,
+          toObject,
+        ),
       )
     }
 
@@ -1032,7 +1144,11 @@ internal object LiveConverters {
       Common.setValueByPath(
         toObject,
         arrayOf("inputAudioTranscription"),
-        Common.getValueByPath(fromObject, arrayOf("inputAudioTranscription")),
+        audioTranscriptionConfigToVertex(
+          Common.getValueByPath(fromObject, arrayOf("inputAudioTranscription"))
+            as Map<String, Any?>,
+          toObject,
+        ),
       )
     }
 
@@ -1040,7 +1156,11 @@ internal object LiveConverters {
       Common.setValueByPath(
         toObject,
         arrayOf("outputAudioTranscription"),
-        Common.getValueByPath(fromObject, arrayOf("outputAudioTranscription")),
+        audioTranscriptionConfigToVertex(
+          Common.getValueByPath(fromObject, arrayOf("outputAudioTranscription"))
+            as Map<String, Any?>,
+          toObject,
+        ),
       )
     }
 
@@ -1080,7 +1200,10 @@ internal object LiveConverters {
       Common.setValueByPath(
         toObject,
         arrayOf("historyConfig"),
-        Common.getValueByPath(fromObject, arrayOf("historyConfig")),
+        historyConfigToVertex(
+          Common.getValueByPath(fromObject, arrayOf("historyConfig")) as Map<String, Any?>,
+          toObject,
+        ),
       )
     }
 
@@ -1411,7 +1534,10 @@ internal object LiveConverters {
       Common.setValueByPath(
         parentObject,
         arrayOf("setup", "sessionResumption"),
-        Common.getValueByPath(fromObject, arrayOf("sessionResumption")),
+        sessionResumptionConfigToVertex(
+          Common.getValueByPath(fromObject, arrayOf("sessionResumption")) as Map<String, Any?>,
+          toObject,
+        ),
       )
     }
 
@@ -1419,7 +1545,11 @@ internal object LiveConverters {
       Common.setValueByPath(
         parentObject,
         arrayOf("setup", "inputAudioTranscription"),
-        Common.getValueByPath(fromObject, arrayOf("inputAudioTranscription")),
+        audioTranscriptionConfigToVertex(
+          Common.getValueByPath(fromObject, arrayOf("inputAudioTranscription"))
+            as Map<String, Any?>,
+          toObject,
+        ),
       )
     }
 
@@ -1427,7 +1557,11 @@ internal object LiveConverters {
       Common.setValueByPath(
         parentObject,
         arrayOf("setup", "outputAudioTranscription"),
-        Common.getValueByPath(fromObject, arrayOf("outputAudioTranscription")),
+        audioTranscriptionConfigToVertex(
+          Common.getValueByPath(fromObject, arrayOf("outputAudioTranscription"))
+            as Map<String, Any?>,
+          toObject,
+        ),
       )
     }
 
@@ -1435,7 +1569,10 @@ internal object LiveConverters {
       Common.setValueByPath(
         parentObject,
         arrayOf("setup", "realtimeInputConfig"),
-        Common.getValueByPath(fromObject, arrayOf("realtimeInputConfig")),
+        realtimeInputConfigToVertex(
+          Common.getValueByPath(fromObject, arrayOf("realtimeInputConfig")) as Map<String, Any?>,
+          toObject,
+        ),
       )
     }
 
@@ -1443,7 +1580,11 @@ internal object LiveConverters {
       Common.setValueByPath(
         parentObject,
         arrayOf("setup", "contextWindowCompression"),
-        Common.getValueByPath(fromObject, arrayOf("contextWindowCompression")),
+        contextWindowCompressionConfigToVertex(
+          Common.getValueByPath(fromObject, arrayOf("contextWindowCompression"))
+            as Map<String, Any?>,
+          toObject,
+        ),
       )
     }
 
@@ -2212,6 +2353,33 @@ internal object LiveConverters {
     return toObject
   }
 
+  internal fun realtimeInputConfigToVertex(
+    fromObject: Map<String, Any?>?,
+    parentObject: MutableMap<String, Any?>?,
+  ): MutableMap<String, Any?> {
+
+    val toObject = mutableMapOf<String, Any?>()
+    if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("automaticActivityDetection")))) {
+      throw IllegalArgumentException(
+        "automaticActivityDetection parameter is not supported in Gemini Enterprise Agent Platform."
+      )
+    }
+
+    if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("activityHandling")))) {
+      throw IllegalArgumentException(
+        "activityHandling parameter is not supported in Gemini Enterprise Agent Platform."
+      )
+    }
+
+    if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("turnCoverage")))) {
+      throw IllegalArgumentException(
+        "turnCoverage parameter is not supported in Gemini Enterprise Agent Platform."
+      )
+    }
+
+    return toObject
+  }
+
   internal fun replicatedVoiceConfigToVertex(
     fromObject: Map<String, Any?>?,
     parentObject: MutableMap<String, Any?>?,
@@ -2294,6 +2462,29 @@ internal object LiveConverters {
 
     if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("transparent")))) {
       throw IllegalArgumentException("transparent parameter is not supported in Gemini API.")
+    }
+
+    return toObject
+  }
+
+  internal fun sessionResumptionConfigToVertex(
+    fromObject: Map<String, Any?>?,
+    parentObject: MutableMap<String, Any?>?,
+  ): MutableMap<String, Any?> {
+
+    val toObject = mutableMapOf<String, Any?>()
+    if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("handle")))) {
+      throw IllegalArgumentException(
+        "handle parameter is not supported in Gemini Enterprise Agent Platform."
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("transparent"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("transparent"),
+        Common.getValueByPath(fromObject, arrayOf("transparent")),
+      )
     }
 
     return toObject
