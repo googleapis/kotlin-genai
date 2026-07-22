@@ -289,6 +289,53 @@ val response = client.models.embedContent(
 )
 ```
 
+### Files
+
+The SDK provides methods for managing files, which is useful for uploading media files or datasets to the Gemini Developer API.
+
+> [!NOTE] The files API is only supported in the Gemini Developer API.
+
+```kotlin
+import com.google.genai.kotlin.Client
+import com.google.genai.kotlin.types.UploadFileConfig
+import com.google.genai.kotlin.types.ListFilesConfig
+import kotlinx.coroutines.runBlocking
+
+fun main() = runBlocking {
+    Client().use { client ->
+        // Upload a file using a ByteArray
+        // This is dummy data; replace with your actual file data.
+        val fileData = "Dummy file content".encodeToByteArray()
+        val file = client.files.upload(
+            byteArray = fileData,
+            config = UploadFileConfig(
+                mimeType = "text/plain",
+                displayName = "my-file.txt"
+            )
+        )
+        println("Uploaded file: ${file.name}")
+
+        // Get a file
+        val retrievedFile = client.files.get(name = file.name!!)
+        println("File state: ${retrievedFile.state}")
+
+        // List files
+        val pager = client.files.list(config = ListFilesConfig(pageSize = 10))
+        pager.forEach { f ->
+            println("Found file: ${f.name}")
+        }
+
+        // Delete a file
+        client.files.delete(name = file.name!!)
+        println("Deleted file: ${file.name}")
+
+        // Download a generated file (for files that have a downloadUri)
+        // val channel = client.files.download(retrievedFile)
+        // You can then read from this ByteReadChannel
+    }
+}
+```
+
 ### Context Caching
 
 You can cache content to reduce latency and cost for repetitive requests.
