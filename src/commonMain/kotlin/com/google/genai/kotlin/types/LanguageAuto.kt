@@ -20,5 +20,8 @@ package com.google.genai.kotlin.types
 
 import kotlinx.serialization.Serializable
 
-/** Indicates the language of the audio should be automatically detected. */
+/**
+ * Indicates the language of the audio should be automatically detected. This data type is not
+ * supported in Vertex AI.
+ */
 @Serializable class LanguageAuto()

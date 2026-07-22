@@ -21,7 +21,7 @@ package com.google.genai.kotlin.types
 import kotlin.jvm.JvmInline
 import kotlinx.serialization.Serializable
 
-/** The different ways of handling user activity. */
+/** Defines what effect activity has. This enum is not supported in Vertex AI. */
 @Serializable
 @JvmInline
 value class ActivityHandling(val value: String) {
