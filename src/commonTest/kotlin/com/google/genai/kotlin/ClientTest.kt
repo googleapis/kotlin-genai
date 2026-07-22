@@ -20,9 +20,12 @@ import com.google.auth.oauth2.AccessToken
 import com.google.auth.oauth2.GoogleCredentials
 import io.mockk.every
 import io.mockk.mockk
+import com.google.genai.kotlin.types.HttpOptions
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFailsWith
+import kotlin.test.assertFalse
+import kotlin.test.assertTrue
 
 class ClientTest {
 
@@ -81,13 +84,23 @@ class ClientTest {
   }
 
   @Test
+  fun testGeminiClientInitialization_throwsException() {
+    clearEnv()
+    val exception =
+      assertFailsWith<IllegalArgumentException> {
+        Client(environment = mockEnvironment)
+      }
+    assertEquals("API key must either be provided or set in the environment variable GOOGLE_API_KEY or GEMINI_API_KEY.", exception.message)
+  }
+
+  @Test
   fun testGeminiClientInitialization_withProjectLocation_throwsException() {
     clearEnv()
     val exception =
       assertFailsWith<IllegalArgumentException> {
         Client(project = PROJECT, location = LOCATION, environment = mockEnvironment)
       }
-    assertEquals("For Gemini APIs, API key must be set.", exception.message)
+    assertEquals("Gemini API do not support project/location.", exception.message)
   }
 
   @Test
@@ -98,9 +111,33 @@ class ClientTest {
         Client(enterprise = true, environment = mockEnvironment)
       }
     assertEquals(
-      "For Gemini Enterprise Agent Platform APIs, either project or API key must be set.",
+      "Authentication is not set up. Please provide either a project and location, or an API key, or a custom base URL.",
       exception.message,
     )
+  }
+
+  @Test
+  fun testGeminiClientInitialization_withCustomBaseUrl_success() {
+    clearEnv()
+    val client = Client(
+        apiKey = "test-key",
+        httpOptions = HttpOptions(baseUrl = "https://my-endpoint.com"),
+        environment = mockEnvironment
+    )
+    assertFalse(client.enterprise)
+    assertEquals("https://my-endpoint.com", client.httpClient.httpOptions?.baseUrl)
+  }
+
+  @Test
+  fun testVertexClientInitialization_withCustomBaseUrl_success() {
+    clearEnv()
+    val client = Client(
+        enterprise = true,
+        httpOptions = HttpOptions(baseUrl = "https://my-endpoint.com"),
+        environment = mockEnvironment
+    )
+    assertTrue(client.enterprise)
+    assertEquals("https://my-endpoint.com", client.httpClient.httpOptions?.baseUrl)
   }
 
   @Test
@@ -111,7 +148,7 @@ class ClientTest {
         Client(project = PROJECT, apiKey = API_KEY, environment = mockEnvironment)
       }
     assertEquals(
-      "Project and API key are mutually exclusive in the client initializer. Please provide only one of them.",
+      "Project/location and API key are mutually exclusive in the client initializer. Please provide only one of them.",
       exception.message,
     )
 
@@ -120,7 +157,29 @@ class ClientTest {
         Client(location = LOCATION, apiKey = API_KEY, environment = mockEnvironment)
       }
     assertEquals(
-      "Location and API key are mutually exclusive in the client initializer. Please provide only one of them.",
+      "Project/location and API key are mutually exclusive in the client initializer. Please provide only one of them.",
+      exception.message,
+    )
+  }
+
+  @Test
+  fun testGeminiClientInitialization_withProjectOrLocation_throwsException() {
+    clearEnv()
+    var exception =
+      assertFailsWith<IllegalArgumentException> {
+        Client(project = PROJECT, environment = mockEnvironment)
+      }
+    assertEquals(
+      "Gemini API do not support project/location.",
+      exception.message,
+    )
+
+    exception =
+      assertFailsWith<IllegalArgumentException> {
+        Client(location = LOCATION, environment = mockEnvironment)
+      }
+    assertEquals(
+      "Gemini API do not support project/location.",
       exception.message,
     )
   }

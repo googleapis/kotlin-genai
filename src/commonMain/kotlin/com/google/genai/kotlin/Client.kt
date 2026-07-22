@@ -114,16 +114,15 @@ internal constructor(
     val hasEnvProject = environment.get("GOOGLE_CLOUD_PROJECT")?.isNotEmpty() == true
     val hasEnvLocation = environment.get("GOOGLE_CLOUD_LOCATION")?.isNotEmpty() == true
 
-    if (hasProject && hasApiKey) {
-      throw IllegalArgumentException(
-        "Project and API key are mutually exclusive in the client initializer. Please provide only one of them."
-      )
-    }
-
-    if (hasLocation && hasApiKey) {
-      throw IllegalArgumentException(
-        "Location and API key are mutually exclusive in the client initializer. Please provide only one of them."
-      )
+    if (hasProject || hasLocation) {
+      if (hasApiKey) {
+        throw IllegalArgumentException(
+          "Project/location and API key are mutually exclusive in the client initializer. Please provide only one of them."
+        )
+      }
+      if (!useEnterprise) {
+        throw IllegalArgumentException("Gemini API do not support project/location.")
+      }
     }
 
     if (hasCredentials && hasApiKey) {
@@ -150,22 +149,45 @@ internal constructor(
       }
     }
 
+    val customBaseUrl = httpOptions?.baseUrl
+    val hasCustomBaseUrl = customBaseUrl != null
+    val isGoogleApis =
+      customBaseUrl?.endsWith(".googleapis.com") == true ||
+        customBaseUrl?.endsWith(".googleapis.com/") == true
+
     if (resolvedLocation == null && resolvedApiKey == null) {
-      resolvedLocation = "global"
+      if (!hasCustomBaseUrl || isGoogleApis) {
+        resolvedLocation = "global"
+      }
+    }
+
+    val hasConstructorAuth = (hasProject && hasLocation) || hasApiKey
+    if (useEnterprise && hasCustomBaseUrl && !isGoogleApis && !hasConstructorAuth) {
+      resolvedProject = null
+      resolvedLocation = null
+      resolvedApiKey = null
     }
 
     if (!useEnterprise && resolvedApiKey == null) {
-      throw IllegalArgumentException("For Gemini APIs, API key must be set.")
-    }
-
-    if (useEnterprise && resolvedProject == null && resolvedApiKey == null) {
       throw IllegalArgumentException(
-        "For Gemini Enterprise Agent Platform APIs, either project or API key must be set."
+        "API key must either be provided or set in the environment variable GOOGLE_API_KEY or GEMINI_API_KEY."
       )
     }
 
+    if (useEnterprise) {
+      val hasSufficientAuth =
+        (resolvedProject != null && resolvedLocation != null) || resolvedApiKey != null
+      if (!hasSufficientAuth && !hasCustomBaseUrl) {
+        throw IllegalArgumentException(
+          "Authentication is not set up. Please provide either a project and location, or an API key, or a custom base URL."
+        )
+      }
+    }
+
     val resolvedCredentials =
-      if (!useEnterprise || resolvedProject == null) {
+      if (!useEnterprise) {
+        null
+      } else if (resolvedProject == null) {
         null
       } else {
         credentials ?: getDefaultCredentials()
