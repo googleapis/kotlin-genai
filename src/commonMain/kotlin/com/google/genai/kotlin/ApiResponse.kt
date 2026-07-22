@@ -17,8 +17,10 @@
 package com.google.genai.kotlin
 
 import io.ktor.client.statement.HttpResponse
+import io.ktor.client.statement.bodyAsChannel
 import io.ktor.client.statement.bodyAsText
 import io.ktor.http.Headers
+import io.ktor.utils.io.ByteReadChannel
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.serializer
 
@@ -43,6 +45,23 @@ internal class ApiResponse(private val rawResponse: HttpResponse) {
       GenAiApiException.throwFromResponse(statusCode, responseText)
     }
     return responseText
+  }
+
+  /**
+   * Returns the response body as a ByteReadChannel.
+   *
+   * Throws [GenAiApiException] (or its subclasses) if the HTTP status code indicates an error (>=
+   * 300).
+   *
+   * @return The response body ByteReadChannel.
+   */
+  suspend fun bodyAsChannel(): ByteReadChannel {
+    val status = rawResponse.status.value
+    if (status >= 300) {
+      val errorBody = rawResponse.bodyAsText()
+      GenAiApiException.throwFromResponse(status, errorBody)
+    }
+    return rawResponse.bodyAsChannel()
   }
 
   /** Deserializes the response body into an object of type [T]. */

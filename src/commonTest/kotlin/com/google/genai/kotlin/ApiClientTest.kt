@@ -399,4 +399,34 @@ class ApiClientTest {
       }
     }
   }
+
+  @Test
+  fun testRequest_withByteArrayBody_sendsCorrectData() = runTest {
+    var capturedRequest: HttpRequestData? = null
+    val engine = createMockEngine { capturedRequest = it }
+
+    val testBody = "hello world".encodeToByteArray()
+
+    ApiClient(apiKey = "test-api-key", engine = engine).use { client ->
+      client.request("POST", "test/path", body = testBody)
+    }
+
+    assertNotNull(capturedRequest)
+    assertEquals(HttpMethod.Post, capturedRequest!!.method)
+    val body = capturedRequest!!.body
+    assert(body is io.ktor.http.content.ByteArrayContent)
+  }
+
+  @Test
+  fun testRequestChannel_returnsApiResponse() = runTest {
+    var capturedRequest: HttpRequestData? = null
+    val engine = createMockEngine { capturedRequest = it }
+
+    ApiClient(apiKey = "test-api-key", engine = engine).use { client ->
+      client.requestChannel("GET", "test/path")
+    }
+
+    assertNotNull(capturedRequest)
+    assertEquals(HttpMethod.Get, capturedRequest!!.method)
+  }
 }

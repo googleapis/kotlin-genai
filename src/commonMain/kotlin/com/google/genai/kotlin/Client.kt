@@ -199,6 +199,9 @@ internal constructor(
   /** Service for interacting with Batches API. */
   val batches = Batches(httpClient)
 
+  /** Service for interacting with Files API. */
+  val files = Files(httpClient)
+
   /** Closes the Client instance and its underlying HTTP client. */
   override fun close() {
     httpClient.close()

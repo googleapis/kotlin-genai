@@ -17,6 +17,7 @@
 package com.google.genai.kotlin
 
 import com.google.genai.kotlin.types.Content
+import com.google.genai.kotlin.types.File
 import com.google.genai.kotlin.types.Part
 import com.google.genai.kotlin.types.PrebuiltVoiceConfig
 import com.google.genai.kotlin.types.Schema
@@ -232,6 +233,24 @@ internal object Transformers {
   fun tBatchJobSource(source: Any?): Any? = source
   fun tBatchJobDestination(destination: Any?): Any? = destination
   fun tRecvBatchJobDestination(destination: Any?): Any? = destination
+
+  fun tFileName(origin: Any?): String? {
+    if (origin == null) return null
+    var name = when (origin) {
+      is String -> origin
+      is File -> origin.name ?: throw IllegalArgumentException("File name is required.")
+      else -> origin.toString().replace("\"", "")
+    }
+
+    if (name.startsWith("https://")) {
+      val suffix = name.substringAfter("files/")
+      val regex = Regex("[a-z0-9-]+")
+      name = regex.find(suffix)?.value ?: throw IllegalArgumentException("Invalid file URI: $origin")
+    } else if (name.startsWith("files/")) {
+      name = name.substringAfter("files/")
+    }
+    return name
+  }
 
   /** Checks if the model uses the vertex embedContent endpoint. */
   fun tIsVertexEmbedContentModel(model: String): Boolean {

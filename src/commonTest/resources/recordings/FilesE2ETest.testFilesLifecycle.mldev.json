@@ -1,0 +1,155 @@
+{
+  "recordID": "FilesE2ETest.testFilesLifecycle.mldev",
+  "interactions": [
+    {
+      "request": {
+        "method": "GET",
+        "url": "/v1beta/files/x6epcgntsxvu",
+        "request": "GET /v1beta/files/x6epcgntsxvu HTTP/1.1",
+        "headers": {
+          "Accept": "*/*",
+          "Accept-Charset": "UTF-8",
+          "Accept-Encoding": "gzip",
+          "Connection": "Keep-Alive",
+          "Content-Type": "application/json",
+          "Test-Name": "FilesE2ETest.testFilesLifecycle.mldev"
+        },
+        "bodySegments": [
+          null
+        ],
+        "previousRequest": "b4d6e60a9b97e7b98c63df9308728c5c88c0b40c398046772c63447b94608b4d",
+        "serverAddress": "generativelanguage.googleapis.com",
+        "port": 443,
+        "protocol": "https"
+      },
+      "shaSum": "95ae5457ff91cd77487d7e3783892ede4afb76df6ca355f3d37ada499b7669a7",
+      "response": {
+        "statusCode": 200,
+        "headers": {
+          "Content-Encoding": "gzip",
+          "Content-Length": "316",
+          "Content-Type": "application/json; charset=UTF-8",
+          "Date": "Mon, 13 Jul 2026 04:39:49 GMT",
+          "Server": "scaffolding on HTTPServer2",
+          "Server-Timing": "gfet4t7; dur=262",
+          "Vary": "Origin, X-Origin, Referer",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "SAMEORIGIN",
+          "X-Xss-Protection": "0"
+        },
+        "bodySegments": [
+          {
+            "createTime": "2026-07-13T04:39:03.707329Z",
+            "expirationTime": "2026-07-15T04:39:03.520109353Z",
+            "mimeType": "text/plain",
+            "name": "files/x6epcgntsxvu",
+            "sha256Hash": "Yjk0ZDI3Yjk5MzRkM2UwOGE1MmU1MmQ3ZGE3ZGFiZmFjNDg0ZWZlMzdhNTM4MGVlOTA4OGY3YWNlMmVmY2RlOQ==",
+            "sizeBytes": "11",
+            "source": "UPLOADED",
+            "state": "ACTIVE",
+            "updateTime": "2026-07-13T04:39:03.707329Z",
+            "uri": "https://generativelanguage.googleapis.com/v1beta/files/x6epcgntsxvu"
+          }
+        ]
+      }
+    },
+    {
+      "request": {
+        "method": "GET",
+        "url": "/v1beta/files?pageSize=10",
+        "request": "GET /v1beta/files?pageSize=10 HTTP/1.1",
+        "headers": {
+          "Accept": "*/*",
+          "Accept-Charset": "UTF-8",
+          "Accept-Encoding": "gzip",
+          "Connection": "Keep-Alive",
+          "Content-Type": "application/json",
+          "Test-Name": "FilesE2ETest.testFilesLifecycle.mldev"
+        },
+        "bodySegments": [
+          null
+        ],
+        "previousRequest": "95ae5457ff91cd77487d7e3783892ede4afb76df6ca355f3d37ada499b7669a7",
+        "serverAddress": "generativelanguage.googleapis.com",
+        "port": 443,
+        "protocol": "https"
+      },
+      "shaSum": "7b58323bcad6ab87f6eb3d0e5c94326ed953f9e775806871c317929f40b2f156",
+      "response": {
+        "statusCode": 200,
+        "headers": {
+          "Content-Encoding": "gzip",
+          "Content-Length": "337",
+          "Content-Type": "application/json; charset=UTF-8",
+          "Date": "Mon, 13 Jul 2026 04:39:50 GMT",
+          "Server": "scaffolding on HTTPServer2",
+          "Server-Timing": "gfet4t7; dur=98",
+          "Vary": "Origin, X-Origin, Referer",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "SAMEORIGIN",
+          "X-Xss-Protection": "0"
+        },
+        "bodySegments": [
+          {
+            "files": [
+              {
+                "createTime": "2026-07-13T04:39:03.707329Z",
+                "expirationTime": "2026-07-15T04:39:03.520109353Z",
+                "mimeType": "text/plain",
+                "name": "files/x6epcgntsxvu",
+                "sha256Hash": "Yjk0ZDI3Yjk5MzRkM2UwOGE1MmU1MmQ3ZGE3ZGFiZmFjNDg0ZWZlMzdhNTM4MGVlOTA4OGY3YWNlMmVmY2RlOQ==",
+                "sizeBytes": "11",
+                "source": "UPLOADED",
+                "state": "ACTIVE",
+                "updateTime": "2026-07-13T04:39:03.707329Z",
+                "uri": "https://generativelanguage.googleapis.com/v1beta/files/x6epcgntsxvu"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "request": {
+        "method": "DELETE",
+        "url": "/v1beta/files/x6epcgntsxvu",
+        "request": "DELETE /v1beta/files/x6epcgntsxvu HTTP/1.1",
+        "headers": {
+          "Accept": "*/*",
+          "Accept-Charset": "UTF-8",
+          "Accept-Encoding": "gzip",
+          "Connection": "Keep-Alive",
+          "Content-Length": "0",
+          "Content-Type": "application/json",
+          "Test-Name": "FilesE2ETest.testFilesLifecycle.mldev"
+        },
+        "bodySegments": [
+          null
+        ],
+        "previousRequest": "7b58323bcad6ab87f6eb3d0e5c94326ed953f9e775806871c317929f40b2f156",
+        "serverAddress": "generativelanguage.googleapis.com",
+        "port": 443,
+        "protocol": "https"
+      },
+      "shaSum": "002ecb2aa9b37f21d3cf77736206dfc31d019ccb68034f0df75ee90c2495171c",
+      "response": {
+        "statusCode": 200,
+        "headers": {
+          "Content-Encoding": "gzip",
+          "Content-Length": "23",
+          "Content-Type": "application/json; charset=UTF-8",
+          "Date": "Mon, 13 Jul 2026 04:39:50 GMT",
+          "Server": "scaffolding on HTTPServer2",
+          "Server-Timing": "gfet4t7; dur=475",
+          "Vary": "Origin, X-Origin, Referer",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "SAMEORIGIN",
+          "X-Xss-Protection": "0"
+        },
+        "bodySegments": [
+          {}
+        ]
+      }
+    }
+  ]
+}
