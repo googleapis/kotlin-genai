@@ -1336,6 +1336,14 @@ class Tunings internal constructor(internal val apiClient: ApiClient) {
       )
     }
 
+    Common.getValueByPath(fromObject, arrayOf("audioTranscriptionConfig"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("audioTranscriptionConfig"),
+        Common.getValueByPath(fromObject, arrayOf("audioTranscriptionConfig")),
+      )
+    }
+
     return toObject
   }
 
@@ -1585,6 +1593,14 @@ class Tunings internal constructor(internal val apiClient: ApiClient) {
     if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("partMetadata")))) {
       throw IllegalArgumentException(
         "partMetadata parameter is not supported in Gemini Enterprise Agent Platform."
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("audioTranscription"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("audioTranscription"),
+        Common.getValueByPath(fromObject, arrayOf("audioTranscription")),
       )
     }
 

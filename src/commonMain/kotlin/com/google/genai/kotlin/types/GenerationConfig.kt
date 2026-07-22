@@ -191,4 +191,7 @@ data class GenerationConfig(
 
   /** Optional. Config for translation. This field is not supported in Vertex AI. */
   val translationConfig: TranslationConfig? = null,
+
+  /** Optional. Configuration for audio transcription (speech recognition). */
+  val audioTranscriptionConfig: AudioTranscriptionConfig? = null,
 )

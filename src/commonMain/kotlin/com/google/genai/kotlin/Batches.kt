@@ -42,6 +42,67 @@ import io.ktor.http.encodeURLQueryComponent
 
 class Batches internal constructor(internal val apiClient: ApiClient) {
 
+  internal fun audioTranscriptionConfigToMldev(
+    fromObject: Map<String, Any?>?,
+    parentObject: MutableMap<String, Any?>?,
+  ): MutableMap<String, Any?> {
+
+    val toObject = mutableMapOf<String, Any?>()
+    if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("languageCodes")))) {
+      throw IllegalArgumentException("languageCodes parameter is not supported in Gemini API.")
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("languageAuto"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("languageAuto"),
+        Common.getValueByPath(fromObject, arrayOf("languageAuto")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("languageHints"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("languageHints"),
+        Common.getValueByPath(fromObject, arrayOf("languageHints")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("customVocabulary"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("customVocabulary"),
+        Common.getValueByPath(fromObject, arrayOf("customVocabulary")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("adaptationPhrases"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("adaptationPhrases"),
+        Common.getValueByPath(fromObject, arrayOf("adaptationPhrases")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("diarization"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("diarization"),
+        Common.getValueByPath(fromObject, arrayOf("diarization")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("wordTimestamp"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("wordTimestamp"),
+        Common.getValueByPath(fromObject, arrayOf("wordTimestamp")),
+      )
+    }
+
+    return toObject
+  }
+
   internal fun authConfigToMldev(
     fromObject: Map<String, Any?>?,
     parentObject: MutableMap<String, Any?>?,
@@ -1585,6 +1646,18 @@ class Batches internal constructor(internal val apiClient: ApiClient) {
       throw IllegalArgumentException("labels parameter is not supported in Gemini API.")
     }
 
+    Common.getValueByPath(fromObject, arrayOf("audioTranscriptionConfig"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("audioTranscriptionConfig"),
+        audioTranscriptionConfigToMldev(
+          Common.getValueByPath(fromObject, arrayOf("audioTranscriptionConfig"))
+            as Map<String, Any?>,
+          toObject,
+        ),
+      )
+    }
+
     return toObject
   }
 
@@ -2189,6 +2262,14 @@ class Batches internal constructor(internal val apiClient: ApiClient) {
         toObject,
         arrayOf("partMetadata"),
         Common.getValueByPath(fromObject, arrayOf("partMetadata")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("audioTranscription"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("audioTranscription"),
+        Common.getValueByPath(fromObject, arrayOf("audioTranscription")),
       )
     }
 
