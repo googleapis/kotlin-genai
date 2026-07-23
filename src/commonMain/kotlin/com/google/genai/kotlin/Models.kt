@@ -278,7 +278,7 @@ class Models internal constructor(internal val apiClient: ApiClient) {
       Common.setValueByPath(
         toObject,
         arrayOf("_url", "model"),
-        Transformers.tModel(this.apiClient, Common.getValueByPath(fromObject, arrayOf("model"))),
+        Transformers.tModel(apiClient, Common.getValueByPath(fromObject, arrayOf("model"))),
       )
     }
 
@@ -570,7 +570,7 @@ class Models internal constructor(internal val apiClient: ApiClient) {
       Common.setValueByPath(
         toObject,
         arrayOf("_url", "model"),
-        Transformers.tModel(this.apiClient, Common.getValueByPath(fromObject, arrayOf("model"))),
+        Transformers.tModel(apiClient, Common.getValueByPath(fromObject, arrayOf("model"))),
       )
     }
 
@@ -610,7 +610,7 @@ class Models internal constructor(internal val apiClient: ApiClient) {
       Common.setValueByPath(
         toObject,
         arrayOf("_url", "model"),
-        Transformers.tModel(this.apiClient, Common.getValueByPath(fromObject, arrayOf("model"))),
+        Transformers.tModel(apiClient, Common.getValueByPath(fromObject, arrayOf("model"))),
       )
     }
 
@@ -937,7 +937,7 @@ class Models internal constructor(internal val apiClient: ApiClient) {
       Common.setValueByPath(
         toObject,
         arrayOf("_url", "model"),
-        Transformers.tModel(this.apiClient, Common.getValueByPath(fromObject, arrayOf("model"))),
+        Transformers.tModel(apiClient, Common.getValueByPath(fromObject, arrayOf("model"))),
       )
     }
 
@@ -946,7 +946,7 @@ class Models internal constructor(internal val apiClient: ApiClient) {
         toObject,
         arrayOf("requests[]", "content"),
         Transformers.tContentsForEmbed(
-          this.apiClient,
+          apiClient,
           Common.getValueByPath(fromObject, arrayOf("contents")),
         ),
       )
@@ -992,7 +992,7 @@ class Models internal constructor(internal val apiClient: ApiClient) {
       Common.setValueByPath(
         toObject,
         arrayOf("_url", "model"),
-        Transformers.tModel(this.apiClient, Common.getValueByPath(fromObject, arrayOf("model"))),
+        Transformers.tModel(apiClient, Common.getValueByPath(fromObject, arrayOf("model"))),
       )
     }
 
@@ -1007,7 +1007,7 @@ class Models internal constructor(internal val apiClient: ApiClient) {
               toObject,
               arrayOf("instances[]", "content"),
               Transformers.tContentsForEmbed(
-                this.apiClient,
+                apiClient,
                 Common.getValueByPath(fromObject, arrayOf("contents")),
               ),
             )
@@ -1467,7 +1467,7 @@ class Models internal constructor(internal val apiClient: ApiClient) {
         parentObject,
         arrayOf("cachedContent"),
         Transformers.tCachedContentName(
-          this.apiClient,
+          apiClient,
           Common.getValueByPath(fromObject, arrayOf("cachedContent")),
         ),
       )
@@ -1733,7 +1733,7 @@ class Models internal constructor(internal val apiClient: ApiClient) {
         parentObject,
         arrayOf("cachedContent"),
         Transformers.tCachedContentName(
-          this.apiClient,
+          apiClient,
           Common.getValueByPath(fromObject, arrayOf("cachedContent")),
         ),
       )
@@ -1849,7 +1849,7 @@ class Models internal constructor(internal val apiClient: ApiClient) {
       Common.setValueByPath(
         toObject,
         arrayOf("_url", "model"),
-        Transformers.tModel(this.apiClient, Common.getValueByPath(fromObject, arrayOf("model"))),
+        Transformers.tModel(apiClient, Common.getValueByPath(fromObject, arrayOf("model"))),
       )
     }
 
@@ -1893,7 +1893,7 @@ class Models internal constructor(internal val apiClient: ApiClient) {
       Common.setValueByPath(
         toObject,
         arrayOf("_url", "model"),
-        Transformers.tModel(this.apiClient, Common.getValueByPath(fromObject, arrayOf("model"))),
+        Transformers.tModel(apiClient, Common.getValueByPath(fromObject, arrayOf("model"))),
       )
     }
 

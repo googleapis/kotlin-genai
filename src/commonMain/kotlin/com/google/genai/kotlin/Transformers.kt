@@ -16,6 +16,7 @@
 
 package com.google.genai.kotlin
 
+import com.google.genai.kotlin.types.Blob
 import com.google.genai.kotlin.types.Content
 import com.google.genai.kotlin.types.File
 import com.google.genai.kotlin.types.Part
@@ -85,6 +86,11 @@ internal object Transformers {
       }
       else -> throw IllegalArgumentException("Unsupported speechConfig type: ${origin::class}")
     }
+  }
+
+  /** Transforms an object to a LiveSpeechConfig data class. */
+  fun tLiveSpeechConfig(origin: Any?): Map<String, Any?>? {
+    return tSpeechConfig(origin)
   }
 
   /** Pass-through transformer for Tool lists. */
@@ -298,5 +304,30 @@ internal object Transformers {
         }
       }
     }
+  }
+
+  /** Transforms an object to a list of Blobs. */
+  fun tBlobs(origin: Any?): Any? {
+    if (origin == null) return null
+    return when (origin) {
+      is List<*> -> origin
+      is Blob -> listOf(origin)
+      else -> origin
+    }
+  }
+
+  /** Pass-through transformer for a single Blob. */
+  fun tBlob(origin: Any?): Any? {
+    return origin
+  }
+
+  /** Transforms an object to an audio Blob. */
+  fun tAudioBlob(origin: Any?): Any? {
+    return tBlob(origin)
+  }
+
+  /** Transforms an object to an image Blob. */
+  fun tImageBlob(origin: Any?): Any? {
+    return tBlob(origin)
   }
 }
