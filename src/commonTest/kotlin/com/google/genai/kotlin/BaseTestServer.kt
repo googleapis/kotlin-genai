@@ -43,7 +43,12 @@ open class BaseTestServer {
   fun setUp() {
     testMode = System.getenv("TEST_MODE")?.takeIf { it.isNotEmpty() } ?: "replay"
     project = System.getenv("GOOGLE_CLOUD_PROJECT")?.takeIf { it.isNotEmpty() } ?: "test-project"
-    location = System.getenv("GOOGLE_CLOUD_LOCATION")?.takeIf { it.isNotEmpty() } ?: "global"
+    location =
+      if (testMode == "replay") {
+        "global"
+      } else {
+        System.getenv("GOOGLE_CLOUD_LOCATION")?.takeIf { it.isNotEmpty() } ?: "global"
+      }
     apiKey = System.getenv("GOOGLE_API_KEY")?.takeIf { it.isNotEmpty() } ?: "test-api-key"
 
     val options =
@@ -76,7 +81,8 @@ open class BaseTestServer {
           "global" -> 1455
           "us" -> 1456
           "us-central1" -> 1454
-          else -> throw IllegalArgumentException("Unsupported location for tests: $effectiveLocation")
+          else ->
+            throw IllegalArgumentException("Unsupported location for tests: $effectiveLocation")
         }
       } else {
         1453
