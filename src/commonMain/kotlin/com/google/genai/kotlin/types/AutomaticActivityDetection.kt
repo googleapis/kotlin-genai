@@ -20,33 +20,33 @@ package com.google.genai.kotlin.types
 
 import kotlinx.serialization.Serializable
 
-/** Configures automatic detection of activity. */
+/** Configures automatic detection of activity. This data type is not supported in Vertex AI. */
 @Serializable
 data class AutomaticActivityDetection(
 
   /**
-   * If enabled, detected voice and text input count as activity. If disabled, the client must send
-   * activity signals.
+   * Optional. If enabled (the default), detected voice and text input count as activity. If
+   * disabled, the client must send activity signals.
    */
   val disabled: Boolean? = null,
 
-  /** Determines how likely speech is to be detected. */
+  /** Optional. Determines how likely speech is to be detected. */
   val startOfSpeechSensitivity: StartSensitivity? = null,
 
-  /** Determines how likely detected speech is ended. */
+  /** Optional. Determines how likely detected speech is ended. */
   val endOfSpeechSensitivity: EndSensitivity? = null,
 
   /**
-   * The required duration of detected speech before start-of-speech is committed. The lower this
-   * value the more sensitive the start-of-speech detection is and the shorter speech can be
+   * Optional. The required duration of detected speech before start-of-speech is committed. The
+   * lower this value, the more sensitive the start-of-speech detection is and shorter speech can be
    * recognized. However, this also increases the probability of false positives.
    */
   val prefixPaddingMs: Int? = null,
 
   /**
-   * The required duration of detected non-speech (e.g. silence) before end-of-speech is committed.
-   * The larger this value, the longer speech gaps can be without interrupting the user's activity
-   * but this will increase the model's latency.
+   * Optional. The required duration of detected non-speech (e.g. silence) before end-of-speech is
+   * committed. The larger this value, the longer speech gaps can be without interrupting the user's
+   * activity but this will increase the model's latency.
    */
   val silenceDurationMs: Int? = null,
 )
