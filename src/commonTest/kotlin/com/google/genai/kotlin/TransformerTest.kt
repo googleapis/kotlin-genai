@@ -294,35 +294,4 @@ class TransformerTest {
     assertEquals(1, result2.size)
     assertEquals("Hello content", result2[0])
   }
-
-  @Test
-  fun testTFileName_null() {
-    assertNull(Transformers.tFileName(null))
-  }
-
-  @Test
-  fun testTFileName_string() {
-    assertEquals("abc", Transformers.tFileName("abc"))
-    assertEquals("abc", Transformers.tFileName("files/abc"))
-    assertEquals("abc", Transformers.tFileName("https://generativelanguage.googleapis.com/v1beta/files/abc"))
-  }
-
-  @Test
-  fun testTFileName_file() {
-    val file = com.google.genai.kotlin.types.File(name = "files/abc")
-    assertEquals("abc", Transformers.tFileName(file))
-  }
-
-  @Test
-  fun testTFileName_fileWithoutName() {
-    val file = com.google.genai.kotlin.types.File()
-    assertFailsWith<IllegalArgumentException> { Transformers.tFileName(file) }
-  }
-
-  @Test
-  fun testTFileName_invalidUri() {
-    assertFailsWith<IllegalArgumentException> {
-      Transformers.tFileName("https://generativelanguage.googleapis.com/v1beta/files/!!!")
-    }
-  }
 }

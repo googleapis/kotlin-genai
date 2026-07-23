@@ -619,7 +619,10 @@ class Batches internal constructor(internal val apiClient: ApiClient) {
       Common.setValueByPath(
         toObject,
         arrayOf("_url", "name"),
-        Transformers.tBatchJobName(apiClient, Common.getValueByPath(fromObject, arrayOf("name"))),
+        Transformers.tBatchJobName(
+          this.apiClient,
+          Common.getValueByPath(fromObject, arrayOf("name")),
+        ),
       )
     }
 
@@ -637,7 +640,10 @@ class Batches internal constructor(internal val apiClient: ApiClient) {
       Common.setValueByPath(
         toObject,
         arrayOf("_url", "name"),
-        Transformers.tBatchJobName(apiClient, Common.getValueByPath(fromObject, arrayOf("name"))),
+        Transformers.tBatchJobName(
+          this.apiClient,
+          Common.getValueByPath(fromObject, arrayOf("name")),
+        ),
       )
     }
 
@@ -859,7 +865,7 @@ class Batches internal constructor(internal val apiClient: ApiClient) {
       Common.setValueByPath(
         toObject,
         arrayOf("_url", "model"),
-        Transformers.tModel(apiClient, Common.getValueByPath(fromObject, arrayOf("model"))),
+        Transformers.tModel(this.apiClient, Common.getValueByPath(fromObject, arrayOf("model"))),
       )
     }
 
@@ -898,7 +904,7 @@ class Batches internal constructor(internal val apiClient: ApiClient) {
       Common.setValueByPath(
         toObject,
         arrayOf("model"),
-        Transformers.tModel(apiClient, Common.getValueByPath(fromObject, arrayOf("model"))),
+        Transformers.tModel(this.apiClient, Common.getValueByPath(fromObject, arrayOf("model"))),
       )
     }
 
@@ -954,7 +960,7 @@ class Batches internal constructor(internal val apiClient: ApiClient) {
       Common.setValueByPath(
         toObject,
         arrayOf("_url", "model"),
-        Transformers.tModel(apiClient, Common.getValueByPath(fromObject, arrayOf("model"))),
+        Transformers.tModel(this.apiClient, Common.getValueByPath(fromObject, arrayOf("model"))),
       )
     }
 
@@ -992,7 +998,10 @@ class Batches internal constructor(internal val apiClient: ApiClient) {
       Common.setValueByPath(
         toObject,
         arrayOf("_url", "name"),
-        Transformers.tBatchJobName(apiClient, Common.getValueByPath(fromObject, arrayOf("name"))),
+        Transformers.tBatchJobName(
+          this.apiClient,
+          Common.getValueByPath(fromObject, arrayOf("name")),
+        ),
       )
     }
 
@@ -1010,7 +1019,10 @@ class Batches internal constructor(internal val apiClient: ApiClient) {
       Common.setValueByPath(
         toObject,
         arrayOf("_url", "name"),
-        Transformers.tBatchJobName(apiClient, Common.getValueByPath(fromObject, arrayOf("name"))),
+        Transformers.tBatchJobName(
+          this.apiClient,
+          Common.getValueByPath(fromObject, arrayOf("name")),
+        ),
       )
     }
 
@@ -1111,7 +1123,7 @@ class Batches internal constructor(internal val apiClient: ApiClient) {
         toObject,
         arrayOf("requests[]", "request", "content"),
         Transformers.tContentsForEmbed(
-          apiClient,
+          this.apiClient,
           Common.getValueByPath(fromObject, arrayOf("contents")),
         ),
       )
@@ -1492,7 +1504,7 @@ class Batches internal constructor(internal val apiClient: ApiClient) {
         parentObject,
         arrayOf("cachedContent"),
         Transformers.tCachedContentName(
-          apiClient,
+          this.apiClient,
           Common.getValueByPath(fromObject, arrayOf("cachedContent")),
         ),
       )
@@ -1656,7 +1668,10 @@ class Batches internal constructor(internal val apiClient: ApiClient) {
       Common.setValueByPath(
         toObject,
         arrayOf("_url", "name"),
-        Transformers.tBatchJobName(apiClient, Common.getValueByPath(fromObject, arrayOf("name"))),
+        Transformers.tBatchJobName(
+          this.apiClient,
+          Common.getValueByPath(fromObject, arrayOf("name")),
+        ),
       )
     }
 
@@ -1674,7 +1689,10 @@ class Batches internal constructor(internal val apiClient: ApiClient) {
       Common.setValueByPath(
         toObject,
         arrayOf("_url", "name"),
-        Transformers.tBatchJobName(apiClient, Common.getValueByPath(fromObject, arrayOf("name"))),
+        Transformers.tBatchJobName(
+          this.apiClient,
+          Common.getValueByPath(fromObject, arrayOf("name")),
+        ),
       )
     }
 
@@ -1800,7 +1818,7 @@ class Batches internal constructor(internal val apiClient: ApiClient) {
       Common.setValueByPath(
         toObject,
         arrayOf("request", "model"),
-        Transformers.tModel(apiClient, Common.getValueByPath(fromObject, arrayOf("model"))),
+        Transformers.tModel(this.apiClient, Common.getValueByPath(fromObject, arrayOf("model"))),
       )
     }
 

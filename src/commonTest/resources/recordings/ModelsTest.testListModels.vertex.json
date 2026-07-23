@@ -1,0 +1,396 @@
+{
+  "recordID": "ModelsTest.testListModels.vertex",
+  "interactions": [
+    {
+      "request": {
+        "method": "GET",
+        "url": "/v1beta1/publishers/google/models?pageSize=2",
+        "request": "GET /v1beta1/publishers/google/models?pageSize=2 HTTP/1.1",
+        "headers": {
+          "Accept": "*/*",
+          "Accept-Charset": "UTF-8",
+          "Accept-Encoding": "gzip",
+          "Connection": "Keep-Alive",
+          "Content-Type": "application/json",
+          "Test-Name": "ModelsTest.testListModels.vertex"
+        },
+        "bodySegments": [
+          null
+        ],
+        "previousRequest": "b4d6e60a9b97e7b98c63df9308728c5c88c0b40c398046772c63447b94608b4d",
+        "serverAddress": "us-central1-aiplatform.googleapis.com",
+        "port": 443,
+        "protocol": "https"
+      },
+      "shaSum": "13205e8b80a2e46c25e231814748423660aba1c05d1975a54e34aa56486083bb",
+      "response": {
+        "statusCode": 200,
+        "headers": {
+          "Content-Encoding": "gzip",
+          "Content-Length": "584",
+          "Content-Type": "application/json; charset=UTF-8",
+          "Date": "Thu, 16 Jul 2026 16:29:25 GMT",
+          "Server": "ESF",
+          "Vary": "Origin, X-Origin, Referer",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "SAMEORIGIN",
+          "X-Xss-Protection": "0"
+        },
+        "bodySegments": [
+          {
+            "nextPageToken": "AMEw9yPfvQVoVq-SCDE7JwqT6JbRunMQKzZU6Dwgm2SvjwDV48MIraJjuw==",
+            "publisherModels": [
+              {
+                "launchStage": "PUBLIC_PREVIEW",
+                "name": "publishers/google/models/imageclassification-efficientnet",
+                "openSourceCategory": "GOOGLE_OWNED_OSS",
+                "publisherModelTemplate": "projects/{project}/locations/{location}/publishers/google/models/imageclassification-efficientnet@001",
+                "supportedActions": {
+                  "openNotebook": {
+                    "references": {
+                      "us-central1": {
+                        "uri": "https://colab.research.google.com/github/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/community/model_garden/model_garden_tfvision_image_classification.ipynb"
+                      }
+                    },
+                    "title": "Open Notebook"
+                  },
+                  "openNotebooks": {
+                    "notebooks": [
+                      {
+                        "references": {
+                          "us-central1": {
+                            "uri": "https://colab.research.google.com/github/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/community/model_garden/model_garden_tfvision_image_classification.ipynb"
+                          }
+                        },
+                        "title": "Open Notebook"
+                      }
+                    ]
+                  }
+                },
+                "versionId": "001"
+              },
+              {
+                "launchStage": "PUBLIC_PREVIEW",
+                "name": "publishers/google/models/occupancy-analytics",
+                "supportedActions": {
+                  "createApplication": {
+                    "references": {
+                      "us-central1": {
+                        "uri": "builtin:occupancy-count"
+                      }
+                    },
+                    "title": "Build Vertex AI Vision App"
+                  }
+                },
+                "versionId": "001"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "request": {
+        "method": "GET",
+        "url": "/v1beta1/publishers/google/models?pageSize=2\u0026pageToken=AMEw9yPfvQVoVq-SCDE7JwqT6JbRunMQKzZU6Dwgm2SvjwDV48MIraJjuw==",
+        "request": "GET /v1beta1/publishers/google/models?pageSize=2\u0026pageToken=AMEw9yPfvQVoVq-SCDE7JwqT6JbRunMQKzZU6Dwgm2SvjwDV48MIraJjuw== HTTP/1.1",
+        "headers": {
+          "Accept": "*/*",
+          "Accept-Charset": "UTF-8",
+          "Accept-Encoding": "gzip",
+          "Connection": "Keep-Alive",
+          "Content-Type": "application/json",
+          "Test-Name": "ModelsTest.testListModels.vertex"
+        },
+        "bodySegments": [
+          null
+        ],
+        "previousRequest": "13205e8b80a2e46c25e231814748423660aba1c05d1975a54e34aa56486083bb",
+        "serverAddress": "us-central1-aiplatform.googleapis.com",
+        "port": 443,
+        "protocol": "https"
+      },
+      "shaSum": "618592ed25a7270e8f449919993114e10b74f5444fe6efd90815562f2b3a2fc8",
+      "response": {
+        "statusCode": 200,
+        "headers": {
+          "Content-Encoding": "gzip",
+          "Content-Length": "300",
+          "Content-Type": "application/json; charset=UTF-8",
+          "Date": "Thu, 16 Jul 2026 16:29:26 GMT",
+          "Server": "ESF",
+          "Vary": "Origin, X-Origin, Referer",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "SAMEORIGIN",
+          "X-Xss-Protection": "0"
+        },
+        "bodySegments": [
+          {
+            "nextPageToken": "AMEw9yMr-ry8g4aXPtIhT1Z0lpY1sebSFdoS3l2zzVEN0FC2_iGHxKweiw==",
+            "publisherModels": [
+              {
+                "launchStage": "GA",
+                "name": "publishers/google/models/multimodalembedding",
+                "openSourceCategory": "PROPRIETARY",
+                "publisherModelTemplate": "projects/{project}/locations/{location}/publishers/google/models/multimodalembedding@001",
+                "versionId": "001"
+              },
+              {
+                "launchStage": "PUBLIC_PREVIEW",
+                "name": "publishers/google/models/pt-test",
+                "openSourceCategory": "PROPRIETARY",
+                "versionId": "001"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "request": {
+        "method": "GET",
+        "url": "/v1beta1/publishers/google/models?pageSize=2\u0026pageToken=AMEw9yMr-ry8g4aXPtIhT1Z0lpY1sebSFdoS3l2zzVEN0FC2_iGHxKweiw==",
+        "request": "GET /v1beta1/publishers/google/models?pageSize=2\u0026pageToken=AMEw9yMr-ry8g4aXPtIhT1Z0lpY1sebSFdoS3l2zzVEN0FC2_iGHxKweiw== HTTP/1.1",
+        "headers": {
+          "Accept": "*/*",
+          "Accept-Charset": "UTF-8",
+          "Accept-Encoding": "gzip",
+          "Connection": "Keep-Alive",
+          "Content-Type": "application/json",
+          "Test-Name": "ModelsTest.testListModels.vertex"
+        },
+        "bodySegments": [
+          null
+        ],
+        "previousRequest": "618592ed25a7270e8f449919993114e10b74f5444fe6efd90815562f2b3a2fc8",
+        "serverAddress": "us-central1-aiplatform.googleapis.com",
+        "port": 443,
+        "protocol": "https"
+      },
+      "shaSum": "de3ffe562935c43478a7e25f3ba0cbcfebc86e6e05506de1def9d3b74e4011e0",
+      "response": {
+        "statusCode": 200,
+        "headers": {
+          "Content-Encoding": "gzip",
+          "Content-Length": "685",
+          "Content-Type": "application/json; charset=UTF-8",
+          "Date": "Thu, 16 Jul 2026 16:29:26 GMT",
+          "Server": "ESF",
+          "Vary": "Origin, X-Origin, Referer",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "SAMEORIGIN",
+          "X-Xss-Protection": "0"
+        },
+        "bodySegments": [
+          {
+            "nextPageToken": "AMEw9yNaDgs3vMr5_AXdjVAHCyJeYGDlR39ouoWwaG1IPDjC5KSDHG2bPg==",
+            "publisherModels": [
+              {
+                "launchStage": "PUBLIC_PREVIEW",
+                "name": "publishers/google/models/imageclassification-vit",
+                "openSourceCategory": "GOOGLE_OWNED_OSS",
+                "publisherModelTemplate": "projects/{project}/locations/{location}/publishers/google/models/imageclassification-vit@001",
+                "supportedActions": {
+                  "openNotebook": {
+                    "references": {
+                      "us-central1": {
+                        "uri": "https://colab.research.google.com/github/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/community/model_garden/model_garden_tfvision_image_classification.ipynb"
+                      }
+                    },
+                    "title": "Open Notebook"
+                  },
+                  "openNotebooks": {
+                    "notebooks": [
+                      {
+                        "references": {
+                          "us-central1": {
+                            "uri": "https://colab.research.google.com/github/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/community/model_garden/model_garden_tfvision_image_classification.ipynb"
+                          }
+                        },
+                        "title": "Open Notebook"
+                      }
+                    ]
+                  }
+                },
+                "versionId": "001"
+              },
+              {
+                "launchStage": "PUBLIC_PREVIEW",
+                "name": "publishers/google/models/bert-base",
+                "openSourceCategory": "PROPRIETARY",
+                "supportedActions": {
+                  "openFineTuningPipeline": {
+                    "references": {
+                      "us-central1": {
+                        "uri": "https://us-kfp.pkg.dev/ml-pipeline/google-cloud-registry/bert-finetuning/sha256:0caf76450a3db5d768462d4846b4fb164845b0fc68383f6b4d7494be6bb7cf30"
+                      }
+                    },
+                    "title": "Open Fine Tuning Pipeline"
+                  },
+                  "openFineTuningPipelines": {
+                    "fineTuningPipelines": [
+                      {
+                        "references": {
+                          "us-central1": {
+                            "uri": "https://us-kfp.pkg.dev/ml-pipeline/google-cloud-registry/bert-finetuning/sha256:0caf76450a3db5d768462d4846b4fb164845b0fc68383f6b4d7494be6bb7cf30"
+                          }
+                        },
+                        "title": "Open Fine Tuning Pipeline"
+                      }
+                    ]
+                  }
+                },
+                "versionId": "001"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "request": {
+        "method": "GET",
+        "url": "/v1beta1/publishers/google/models?pageSize=2",
+        "request": "GET /v1beta1/publishers/google/models?pageSize=2 HTTP/1.1",
+        "headers": {
+          "Accept": "*/*",
+          "Accept-Charset": "UTF-8",
+          "Accept-Encoding": "gzip",
+          "Connection": "Keep-Alive",
+          "Content-Type": "application/json",
+          "Test-Name": "ModelsTest.testListModels.vertex"
+        },
+        "bodySegments": [
+          null
+        ],
+        "previousRequest": "de3ffe562935c43478a7e25f3ba0cbcfebc86e6e05506de1def9d3b74e4011e0",
+        "serverAddress": "us-central1-aiplatform.googleapis.com",
+        "port": 443,
+        "protocol": "https"
+      },
+      "shaSum": "c47077a3e86c3163358e5e3aa7c8400bea49f8541d8aa5a50d0df33325bf6d21",
+      "response": {
+        "statusCode": 200,
+        "headers": {
+          "Content-Encoding": "gzip",
+          "Content-Length": "582",
+          "Content-Type": "application/json; charset=UTF-8",
+          "Date": "Thu, 16 Jul 2026 16:29:26 GMT",
+          "Server": "ESF",
+          "Vary": "Origin, X-Origin, Referer",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "SAMEORIGIN",
+          "X-Xss-Protection": "0"
+        },
+        "bodySegments": [
+          {
+            "nextPageToken": "AMEw9yO2JxYNRDooHiIVnv4re4vUNVp1wt97YPBwXvhCR8bxnQiA2fUYJw==",
+            "publisherModels": [
+              {
+                "launchStage": "PUBLIC_PREVIEW",
+                "name": "publishers/google/models/imageclassification-efficientnet",
+                "openSourceCategory": "GOOGLE_OWNED_OSS",
+                "publisherModelTemplate": "projects/{project}/locations/{location}/publishers/google/models/imageclassification-efficientnet@001",
+                "supportedActions": {
+                  "openNotebook": {
+                    "references": {
+                      "us-central1": {
+                        "uri": "https://colab.research.google.com/github/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/community/model_garden/model_garden_tfvision_image_classification.ipynb"
+                      }
+                    },
+                    "title": "Open Notebook"
+                  },
+                  "openNotebooks": {
+                    "notebooks": [
+                      {
+                        "references": {
+                          "us-central1": {
+                            "uri": "https://colab.research.google.com/github/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/community/model_garden/model_garden_tfvision_image_classification.ipynb"
+                          }
+                        },
+                        "title": "Open Notebook"
+                      }
+                    ]
+                  }
+                },
+                "versionId": "001"
+              },
+              {
+                "launchStage": "PUBLIC_PREVIEW",
+                "name": "publishers/google/models/occupancy-analytics",
+                "supportedActions": {
+                  "createApplication": {
+                    "references": {
+                      "us-central1": {
+                        "uri": "builtin:occupancy-count"
+                      }
+                    },
+                    "title": "Build Vertex AI Vision App"
+                  }
+                },
+                "versionId": "001"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "request": {
+        "method": "GET",
+        "url": "/v1beta1/publishers/google/models?pageSize=2\u0026pageToken=AMEw9yO2JxYNRDooHiIVnv4re4vUNVp1wt97YPBwXvhCR8bxnQiA2fUYJw==",
+        "request": "GET /v1beta1/publishers/google/models?pageSize=2\u0026pageToken=AMEw9yO2JxYNRDooHiIVnv4re4vUNVp1wt97YPBwXvhCR8bxnQiA2fUYJw== HTTP/1.1",
+        "headers": {
+          "Accept": "*/*",
+          "Accept-Charset": "UTF-8",
+          "Accept-Encoding": "gzip",
+          "Connection": "Keep-Alive",
+          "Content-Type": "application/json",
+          "Test-Name": "ModelsTest.testListModels.vertex"
+        },
+        "bodySegments": [
+          null
+        ],
+        "previousRequest": "c47077a3e86c3163358e5e3aa7c8400bea49f8541d8aa5a50d0df33325bf6d21",
+        "serverAddress": "us-central1-aiplatform.googleapis.com",
+        "port": 443,
+        "protocol": "https"
+      },
+      "shaSum": "16c30ccc621896491e7dd3d86a6a51c73f590ebb1991d402f157f1f67f2816eb",
+      "response": {
+        "statusCode": 200,
+        "headers": {
+          "Content-Encoding": "gzip",
+          "Content-Length": "301",
+          "Content-Type": "application/json; charset=UTF-8",
+          "Date": "Thu, 16 Jul 2026 16:29:26 GMT",
+          "Server": "ESF",
+          "Vary": "Origin, X-Origin, Referer",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "SAMEORIGIN",
+          "X-Xss-Protection": "0"
+        },
+        "bodySegments": [
+          {
+            "nextPageToken": "AMEw9yNKgDt0jCDJFblgdhFw6R1W3gu4ySGsxIBe_c_O6SMhHKW1h3pVLg==",
+            "publisherModels": [
+              {
+                "launchStage": "GA",
+                "name": "publishers/google/models/multimodalembedding",
+                "openSourceCategory": "PROPRIETARY",
+                "publisherModelTemplate": "projects/{project}/locations/{location}/publishers/google/models/multimodalembedding@001",
+                "versionId": "001"
+              },
+              {
+                "launchStage": "PUBLIC_PREVIEW",
+                "name": "publishers/google/models/pt-test",
+                "openSourceCategory": "PROPRIETARY",
+                "versionId": "001"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

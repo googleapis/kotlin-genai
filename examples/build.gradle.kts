@@ -26,7 +26,6 @@ dependencies {
 
   implementation(kotlin("stdlib"))
   implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
-  implementation(libs.ktor.client.core)
 }
 
 application {
