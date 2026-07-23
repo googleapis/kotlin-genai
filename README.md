@@ -40,7 +40,7 @@ For multiplatform projects, add the dependency to your `commonMain` source set:
 kotlin {
     sourceSets {
         commonMain.dependencies {
-            implementation("com.google.genai:google-genai-kotlin:0.2.0")
+            implementation("com.google.genai:google-genai-kotlin:0.3.0")
         }
     }
 }
@@ -52,7 +52,7 @@ Add the dependency to your `build.gradle.kts` file:
 
 ```kotlin
 dependencies {
-    implementation("com.google.genai:google-genai-kotlin:0.2.0")
+    implementation("com.google.genai:google-genai-kotlin:0.3.0")
 }
 ```
 
@@ -64,7 +64,7 @@ For Maven projects (JVM only), use the `-jvm` suffixed artifact:
 <dependency>
     <groupId>com.google.genai</groupId>
     <artifactId>google-genai-kotlin-jvm</artifactId>
-    <version>0.2.0</version>
+    <version>0.3.0</version>
 </dependency>
 ```
 [//]: # ({x-version-update-end})

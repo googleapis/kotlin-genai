@@ -26,7 +26,7 @@ plugins {
 
 group = "com.google.genai"
 
-version = "0.3.0-SNAPSHOT" // {x-version-update:google-genai-kotlin:current}
+version = "0.3.0" // {x-version-update:google-genai-kotlin:current}
 
 if (project.projectDir.absolutePath.startsWith("/google/src/cloud")) {
   val tempRoot = File(System.getProperty("java.io.tmpdir"), "google_genai_build")
