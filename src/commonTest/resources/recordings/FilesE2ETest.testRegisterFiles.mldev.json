@@ -1,0 +1,104 @@
+{
+  "recordID": "FilesE2ETest.testRegisterFiles.mldev",
+  "interactions": [
+    {
+      "request": {
+        "method": "POST",
+        "url": "/v1beta/files:register",
+        "request": "POST /v1beta/files:register HTTP/1.1",
+        "headers": {
+          "Accept": "*/*",
+          "Accept-Charset": "UTF-8",
+          "Accept-Encoding": "gzip",
+          "Connection": "Keep-Alive",
+          "Content-Length": "76",
+          "Content-Type": "application/json",
+          "Test-Name": "FilesE2ETest.testRegisterFiles.mldev"
+        },
+        "bodySegments": [
+          {
+            "uris": [
+              "gs://cloud-samples-data/generative-ai/image/a-man-and-a-dog.png"
+            ]
+          }
+        ],
+        "previousRequest": "b4d6e60a9b97e7b98c63df9308728c5c88c0b40c398046772c63447b94608b4d",
+        "serverAddress": "generativelanguage.googleapis.com",
+        "port": 443,
+        "protocol": "https"
+      },
+      "shaSum": "70486540a3e8b9e67161a2dcf479fd4e4bb34a3d3ea79caf12002152b331cd9f",
+      "response": {
+        "statusCode": 200,
+        "headers": {
+          "Content-Encoding": "gzip",
+          "Content-Length": "193",
+          "Content-Type": "application/json; charset=UTF-8",
+          "Date": "Tue, 14 Jul 2026 18:46:44 GMT",
+          "Server": "scaffolding on HTTPServer2",
+          "Server-Timing": "gfet4t7; dur=424",
+          "Vary": "Origin, X-Origin, Referer",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "SAMEORIGIN",
+          "X-Xss-Protection": "0"
+        },
+        "bodySegments": [
+          {
+            "files": [
+              {
+                "displayName": "cpulc0cabf1z",
+                "mimeType": "image/png",
+                "name": "files/cpulc0cabf1z",
+                "sizeBytes": "4376280",
+                "source": "REGISTERED",
+                "uri": "https://generativelanguage.googleapis.com/v1beta/files/cpulc0cabf1z"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "request": {
+        "method": "DELETE",
+        "url": "/v1beta/files/cpulc0cabf1z",
+        "request": "DELETE /v1beta/files/cpulc0cabf1z HTTP/1.1",
+        "headers": {
+          "Accept": "*/*",
+          "Accept-Charset": "UTF-8",
+          "Accept-Encoding": "gzip",
+          "Connection": "Keep-Alive",
+          "Content-Length": "0",
+          "Content-Type": "application/json",
+          "Test-Name": "FilesE2ETest.testRegisterFiles.mldev"
+        },
+        "bodySegments": [
+          null
+        ],
+        "previousRequest": "70486540a3e8b9e67161a2dcf479fd4e4bb34a3d3ea79caf12002152b331cd9f",
+        "serverAddress": "generativelanguage.googleapis.com",
+        "port": 443,
+        "protocol": "https"
+      },
+      "shaSum": "289070482d060612a535d418c05bee2973e3c35bbf3ea17133c9dc4d80555bac",
+      "response": {
+        "statusCode": 200,
+        "headers": {
+          "Content-Encoding": "gzip",
+          "Content-Length": "23",
+          "Content-Type": "application/json; charset=UTF-8",
+          "Date": "Tue, 14 Jul 2026 18:46:45 GMT",
+          "Server": "scaffolding on HTTPServer2",
+          "Server-Timing": "gfet4t7; dur=364",
+          "Vary": "Origin, X-Origin, Referer",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "SAMEORIGIN",
+          "X-Xss-Protection": "0"
+        },
+        "bodySegments": [
+          {}
+        ]
+      }
+    }
+  ]
+}

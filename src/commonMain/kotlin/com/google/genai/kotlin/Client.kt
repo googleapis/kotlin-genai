@@ -165,7 +165,9 @@ internal constructor(
     }
 
     val resolvedCredentials =
-      if (!useEnterprise || resolvedProject == null) {
+      if (!useEnterprise) {
+        null
+      } else if (resolvedProject == null) {
         null
       } else {
         credentials ?: getDefaultCredentials()
