@@ -44,6 +44,7 @@ internal constructor(
   enterprise: Boolean? = null,
   httpOptions: HttpOptions? = null,
   private val environment: Environment = getDefaultEnvironment(),
+  engine: io.ktor.client.engine.HttpClientEngine? = null,
 ) : AutoCloseable {
 
   /**
@@ -179,6 +180,7 @@ internal constructor(
         credentials = resolvedCredentials,
         enterprise = useEnterprise,
         httpOptions = httpOptions,
+        engine = engine ?: getDefaultEngine(),
       )
 
     this.apiKey = resolvedApiKey
@@ -201,6 +203,9 @@ internal constructor(
 
   /** Service for interacting with Files API. */
   val files = Files(httpClient)
+
+  /** Service for interacting with Live API. */
+  val live = Live(httpClient)
 
   /** Closes the Client instance and its underlying HTTP client. */
   override fun close() {
