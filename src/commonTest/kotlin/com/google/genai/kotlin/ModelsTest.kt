@@ -16,6 +16,7 @@
 
 package com.google.genai.kotlin
 
+import com.google.genai.kotlin.Page
 import com.google.genai.kotlin.types.Blob
 import com.google.genai.kotlin.types.Content
 import com.google.genai.kotlin.types.EmbedContentConfig
@@ -25,6 +26,8 @@ import com.google.genai.kotlin.types.GenerateContentConfig
 import com.google.genai.kotlin.types.GoogleSearch
 import com.google.genai.kotlin.types.HarmBlockThreshold
 import com.google.genai.kotlin.types.HarmCategory
+import com.google.genai.kotlin.types.ListModelsConfig
+import com.google.genai.kotlin.types.Model
 import com.google.genai.kotlin.types.Part
 import com.google.genai.kotlin.types.PrebuiltVoiceConfig
 import com.google.genai.kotlin.types.SafetySetting
@@ -34,6 +37,7 @@ import com.google.genai.kotlin.types.ThinkingConfig
 import com.google.genai.kotlin.types.ThinkingLevel
 import com.google.genai.kotlin.types.Tool
 import com.google.genai.kotlin.types.Type
+import com.google.genai.kotlin.types.UpdateModelConfig
 import com.google.genai.kotlin.types.VoiceConfig
 import kotlin.test.Ignore
 import kotlin.test.Test
@@ -45,6 +49,7 @@ import kotlin.test.assertNotNull
 import kotlin.test.assertTrue
 import kotlin.time.Duration.Companion.seconds
 import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.take
 import kotlinx.coroutines.test.TestScope
 import kotlinx.coroutines.test.runTest
 
@@ -1036,6 +1041,120 @@ class ModelsTest : BaseTestServer() {
           // Expected
         }
       }
+    }
+  }
+
+  @Test
+  fun testGetModel() = runLongTest {
+    listOf(false, true).forEach { enterprise ->
+      val suffix = if (enterprise) "vertex" else "mldev"
+      val testName = "ModelsTest.testGetModel.$suffix"
+      val client = createClient(enterprise, testName)
+
+      val response = client.models.get(model = MODEL_NAME)
+
+      assertNotNull(response.name)
+      assertTrue(response.name!!.contains(MODEL_NAME))
+    }
+  }
+
+  @Test
+  fun testUpdateModel() = runLongTest {
+    // Only run this for Agent Platform
+    listOf(true).forEach { enterprise ->
+      val suffix = if (enterprise) "vertex" else "mldev"
+      val testName = "ModelsTest.testUpdateModel.$suffix"
+      val client =
+        createClient(
+          enterprise,
+          testName,
+          locationOverride = if (enterprise) "us-central1" else null,
+        )
+
+      val modelName = "projects/${client.project}/locations/us-central1/models/2941236485254283264"
+
+      val response =
+        client.models.update(
+          model = modelName,
+          config =
+            UpdateModelConfig(
+              displayName = "Updated Model Name",
+              description = "This model was updated via the Kotlin SDK test",
+              updateMask = "displayName,description",
+            ),
+        )
+
+      assertNotNull(response.name)
+      println("response: $response")
+      assertEquals("Updated Model Name", response.displayName)
+    }
+  }
+
+  @Test
+  fun testDeleteModel() = runLongTest {
+    listOf(true).forEach { enterprise ->
+      val suffix = if (enterprise) "vertex" else "mldev"
+      val testName = "ModelsTest.testDeleteModel.$suffix"
+      val client =
+        createClient(
+          enterprise,
+          testName,
+          locationOverride = if (enterprise) "us-central1" else null,
+        )
+
+      val modelName = "projects/${client.project}/locations/us-central1/models/2738785608255143936"
+
+      val response = client.models.delete(model = modelName)
+
+      assertNotNull(response.sdkHttpResponse)
+    }
+  }
+
+  @Test
+  fun testListModels() = runTest {
+    listOf(false, true).forEach { enterprise ->
+      val suffix = if (enterprise) "vertex" else "mldev"
+      val testName = "ModelsTest.testListModels.$suffix"
+
+      val client =
+        createClient(
+          enterprise,
+          testName,
+          locationOverride = if (enterprise) "us-central1" else null,
+        )
+
+      val allModels = mutableListOf<Model>()
+      client.models.list(ListModelsConfig(pageSize = 2)).take(5).collect { allModels.add(it) }
+      assertTrue(allModels.isNotEmpty())
+
+      val pages = mutableListOf<Page<Model>>()
+      client.models.list(ListModelsConfig(pageSize = 2)).byPage().take(2).collect { page ->
+        pages.add(page)
+      }
+      assertTrue(pages.isNotEmpty())
+    }
+  }
+
+  @Test
+  fun testListTunedModels() = runTest {
+    // Tuning is only supported on Agent Platform
+    listOf(true).forEach { enterprise ->
+      val suffix = if (enterprise) "vertex" else "mldev"
+      val testName = "ModelsTest.testListTunedModels.$suffix"
+
+      val client =
+        createClient(
+          enterprise,
+          testName,
+          locationOverride = if (enterprise) "us-central1" else null,
+        )
+
+      val tunedModels = mutableListOf<Model>()
+      // Set queryBase = false to specifically request tuned models
+      client.models.list(ListModelsConfig(queryBase = false, pageSize = 2)).take(2).collect {
+        tunedModels.add(it)
+      }
+      assertNotNull(tunedModels)
     }
   }
 }

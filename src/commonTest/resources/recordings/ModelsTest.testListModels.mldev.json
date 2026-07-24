@@ -1,0 +1,415 @@
+{
+  "recordID": "ModelsTest.testListModels.mldev",
+  "interactions": [
+    {
+      "request": {
+        "method": "GET",
+        "url": "/v1beta/models?pageSize=2",
+        "request": "GET /v1beta/models?pageSize=2 HTTP/1.1",
+        "headers": {
+          "Accept": "*/*",
+          "Accept-Charset": "UTF-8",
+          "Accept-Encoding": "gzip",
+          "Connection": "Keep-Alive",
+          "Content-Type": "application/json",
+          "Test-Name": "ModelsTest.testListModels.mldev"
+        },
+        "bodySegments": [
+          null
+        ],
+        "previousRequest": "b4d6e60a9b97e7b98c63df9308728c5c88c0b40c398046772c63447b94608b4d",
+        "serverAddress": "generativelanguage.googleapis.com",
+        "port": 443,
+        "protocol": "https"
+      },
+      "shaSum": "330dea379eac28a15a6be49470c8c153a684f62babe30b158b22c2b980905295",
+      "response": {
+        "statusCode": 200,
+        "headers": {
+          "Content-Encoding": "gzip",
+          "Content-Length": "426",
+          "Content-Type": "application/json; charset=UTF-8",
+          "Date": "Thu, 16 Jul 2026 16:29:25 GMT",
+          "Server": "scaffolding on HTTPServer2",
+          "Server-Timing": "gfet4t7; dur=180",
+          "Vary": "Origin, X-Origin, Referer",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "SAMEORIGIN",
+          "X-Xss-Protection": "0"
+        },
+        "bodySegments": [
+          {
+            "models": [
+              {
+                "description": "Gemini 2.0 Flash",
+                "displayName": "Gemini 2.0 Flash",
+                "inputTokenLimit": 1048576,
+                "maxTemperature": 2,
+                "modelStage": "LEGACY",
+                "name": "models/gemini-2.0-flash",
+                "outputTokenLimit": 8192,
+                "supportedGenerationMethods": [
+                  "generateContent",
+                  "countTokens",
+                  "createCachedContent",
+                  "batchGenerateContent"
+                ],
+                "temperature": 1,
+                "topK": 40,
+                "topP": 0.95,
+                "version": "2.0"
+              },
+              {
+                "description": "Stable version of Gemini 2.0 Flash, our fast and versatile multimodal model for scaling across diverse tasks, released in January of 2025.",
+                "displayName": "Gemini 2.0 Flash 001",
+                "inputTokenLimit": 1048576,
+                "maxTemperature": 2,
+                "modelStage": "LEGACY",
+                "name": "models/gemini-2.0-flash-001",
+                "outputTokenLimit": 8192,
+                "supportedGenerationMethods": [
+                  "generateContent",
+                  "countTokens",
+                  "createCachedContent",
+                  "batchGenerateContent"
+                ],
+                "temperature": 1,
+                "topK": 40,
+                "topP": 0.95,
+                "version": "2.0"
+              }
+            ],
+            "nextPageToken": "Chttb2RlbHMvZ2VtaW5pLTIuMC1mbGFzaC0wMDE="
+          }
+        ]
+      }
+    },
+    {
+      "request": {
+        "method": "GET",
+        "url": "/v1beta/models?pageSize=2\u0026pageToken=Chttb2RlbHMvZ2VtaW5pLTIuMC1mbGFzaC0wMDE=",
+        "request": "GET /v1beta/models?pageSize=2\u0026pageToken=Chttb2RlbHMvZ2VtaW5pLTIuMC1mbGFzaC0wMDE= HTTP/1.1",
+        "headers": {
+          "Accept": "*/*",
+          "Accept-Charset": "UTF-8",
+          "Accept-Encoding": "gzip",
+          "Connection": "Keep-Alive",
+          "Content-Type": "application/json",
+          "Test-Name": "ModelsTest.testListModels.mldev"
+        },
+        "bodySegments": [
+          null
+        ],
+        "previousRequest": "330dea379eac28a15a6be49470c8c153a684f62babe30b158b22c2b980905295",
+        "serverAddress": "generativelanguage.googleapis.com",
+        "port": 443,
+        "protocol": "https"
+      },
+      "shaSum": "355f7bded0ede309d87eb8c44025fb4dec8db80dec72033888e244b9a5853385",
+      "response": {
+        "statusCode": 200,
+        "headers": {
+          "Content-Encoding": "gzip",
+          "Content-Length": "363",
+          "Content-Type": "application/json; charset=UTF-8",
+          "Date": "Thu, 16 Jul 2026 16:29:25 GMT",
+          "Server": "scaffolding on HTTPServer2",
+          "Server-Timing": "gfet4t7; dur=67",
+          "Vary": "Origin, X-Origin, Referer",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "SAMEORIGIN",
+          "X-Xss-Protection": "0"
+        },
+        "bodySegments": [
+          {
+            "models": [
+              {
+                "description": "Stable version of Gemini 2.0 Flash-Lite",
+                "displayName": "Gemini 2.0 Flash-Lite 001",
+                "inputTokenLimit": 1048576,
+                "maxTemperature": 2,
+                "modelStage": "LEGACY",
+                "name": "models/gemini-2.0-flash-lite-001",
+                "outputTokenLimit": 8192,
+                "supportedGenerationMethods": [
+                  "generateContent",
+                  "countTokens",
+                  "createCachedContent",
+                  "batchGenerateContent"
+                ],
+                "temperature": 1,
+                "topK": 40,
+                "topP": 0.95,
+                "version": "2.0"
+              },
+              {
+                "description": "Gemini 2.0 Flash-Lite",
+                "displayName": "Gemini 2.0 Flash-Lite",
+                "inputTokenLimit": 1048576,
+                "maxTemperature": 2,
+                "modelStage": "LEGACY",
+                "name": "models/gemini-2.0-flash-lite",
+                "outputTokenLimit": 8192,
+                "supportedGenerationMethods": [
+                  "generateContent",
+                  "countTokens",
+                  "createCachedContent",
+                  "batchGenerateContent"
+                ],
+                "temperature": 1,
+                "topK": 40,
+                "topP": 0.95,
+                "version": "2.0"
+              }
+            ],
+            "nextPageToken": "Chxtb2RlbHMvZ2VtaW5pLTIuMC1mbGFzaC1saXRl"
+          }
+        ]
+      }
+    },
+    {
+      "request": {
+        "method": "GET",
+        "url": "/v1beta/models?pageSize=2\u0026pageToken=Chxtb2RlbHMvZ2VtaW5pLTIuMC1mbGFzaC1saXRl",
+        "request": "GET /v1beta/models?pageSize=2\u0026pageToken=Chxtb2RlbHMvZ2VtaW5pLTIuMC1mbGFzaC1saXRl HTTP/1.1",
+        "headers": {
+          "Accept": "*/*",
+          "Accept-Charset": "UTF-8",
+          "Accept-Encoding": "gzip",
+          "Connection": "Keep-Alive",
+          "Content-Type": "application/json",
+          "Test-Name": "ModelsTest.testListModels.mldev"
+        },
+        "bodySegments": [
+          null
+        ],
+        "previousRequest": "355f7bded0ede309d87eb8c44025fb4dec8db80dec72033888e244b9a5853385",
+        "serverAddress": "generativelanguage.googleapis.com",
+        "port": 443,
+        "protocol": "https"
+      },
+      "shaSum": "f291f3c8e215bee5bb5ef0a1b7fae75b47304bc101563feee2108375922f0130",
+      "response": {
+        "statusCode": 200,
+        "headers": {
+          "Content-Encoding": "gzip",
+          "Content-Length": "358",
+          "Content-Type": "application/json; charset=UTF-8",
+          "Date": "Thu, 16 Jul 2026 16:29:25 GMT",
+          "Server": "scaffolding on HTTPServer2",
+          "Server-Timing": "gfet4t7; dur=109",
+          "Vary": "Origin, X-Origin, Referer",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "SAMEORIGIN",
+          "X-Xss-Protection": "0"
+        },
+        "bodySegments": [
+          {
+            "models": [
+              {
+                "description": "Gemini 2.5 Flash Preview TTS",
+                "displayName": "Gemini 2.5 Flash Preview TTS",
+                "inputTokenLimit": 8192,
+                "maxTemperature": 2,
+                "name": "models/gemini-2.5-flash-preview-tts",
+                "outputTokenLimit": 16384,
+                "supportedGenerationMethods": [
+                  "countTokens",
+                  "generateContent"
+                ],
+                "temperature": 1,
+                "topK": 64,
+                "topP": 0.95,
+                "version": "gemini-2.5-flash-exp-tts-2025-05-19"
+              },
+              {
+                "description": "Gemini 2.5 Pro Preview TTS",
+                "displayName": "Gemini 2.5 Pro Preview TTS",
+                "inputTokenLimit": 8192,
+                "maxTemperature": 2,
+                "name": "models/gemini-2.5-pro-preview-tts",
+                "outputTokenLimit": 16384,
+                "supportedGenerationMethods": [
+                  "countTokens",
+                  "generateContent",
+                  "batchGenerateContent"
+                ],
+                "temperature": 1,
+                "topK": 64,
+                "topP": 0.95,
+                "version": "gemini-2.5-pro-preview-tts-2025-05-19"
+              }
+            ],
+            "nextPageToken": "CiFtb2RlbHMvZ2VtaW5pLTIuNS1wcm8tcHJldmlldy10dHM="
+          }
+        ]
+      }
+    },
+    {
+      "request": {
+        "method": "GET",
+        "url": "/v1beta/models?pageSize=2",
+        "request": "GET /v1beta/models?pageSize=2 HTTP/1.1",
+        "headers": {
+          "Accept": "*/*",
+          "Accept-Charset": "UTF-8",
+          "Accept-Encoding": "gzip",
+          "Connection": "Keep-Alive",
+          "Content-Type": "application/json",
+          "Test-Name": "ModelsTest.testListModels.mldev"
+        },
+        "bodySegments": [
+          null
+        ],
+        "previousRequest": "f291f3c8e215bee5bb5ef0a1b7fae75b47304bc101563feee2108375922f0130",
+        "serverAddress": "generativelanguage.googleapis.com",
+        "port": 443,
+        "protocol": "https"
+      },
+      "shaSum": "f25615c80622ebca35ed0bdc224c789116bf8e0c635537e78f75166a2cb13e3a",
+      "response": {
+        "statusCode": 200,
+        "headers": {
+          "Content-Encoding": "gzip",
+          "Content-Length": "426",
+          "Content-Type": "application/json; charset=UTF-8",
+          "Date": "Thu, 16 Jul 2026 16:29:25 GMT",
+          "Server": "scaffolding on HTTPServer2",
+          "Server-Timing": "gfet4t7; dur=81",
+          "Vary": "Origin, X-Origin, Referer",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "SAMEORIGIN",
+          "X-Xss-Protection": "0"
+        },
+        "bodySegments": [
+          {
+            "models": [
+              {
+                "description": "Gemini 2.0 Flash",
+                "displayName": "Gemini 2.0 Flash",
+                "inputTokenLimit": 1048576,
+                "maxTemperature": 2,
+                "modelStage": "LEGACY",
+                "name": "models/gemini-2.0-flash",
+                "outputTokenLimit": 8192,
+                "supportedGenerationMethods": [
+                  "generateContent",
+                  "countTokens",
+                  "createCachedContent",
+                  "batchGenerateContent"
+                ],
+                "temperature": 1,
+                "topK": 40,
+                "topP": 0.95,
+                "version": "2.0"
+              },
+              {
+                "description": "Stable version of Gemini 2.0 Flash, our fast and versatile multimodal model for scaling across diverse tasks, released in January of 2025.",
+                "displayName": "Gemini 2.0 Flash 001",
+                "inputTokenLimit": 1048576,
+                "maxTemperature": 2,
+                "modelStage": "LEGACY",
+                "name": "models/gemini-2.0-flash-001",
+                "outputTokenLimit": 8192,
+                "supportedGenerationMethods": [
+                  "generateContent",
+                  "countTokens",
+                  "createCachedContent",
+                  "batchGenerateContent"
+                ],
+                "temperature": 1,
+                "topK": 40,
+                "topP": 0.95,
+                "version": "2.0"
+              }
+            ],
+            "nextPageToken": "Chttb2RlbHMvZ2VtaW5pLTIuMC1mbGFzaC0wMDE="
+          }
+        ]
+      }
+    },
+    {
+      "request": {
+        "method": "GET",
+        "url": "/v1beta/models?pageSize=2\u0026pageToken=Chttb2RlbHMvZ2VtaW5pLTIuMC1mbGFzaC0wMDE=",
+        "request": "GET /v1beta/models?pageSize=2\u0026pageToken=Chttb2RlbHMvZ2VtaW5pLTIuMC1mbGFzaC0wMDE= HTTP/1.1",
+        "headers": {
+          "Accept": "*/*",
+          "Accept-Charset": "UTF-8",
+          "Accept-Encoding": "gzip",
+          "Connection": "Keep-Alive",
+          "Content-Type": "application/json",
+          "Test-Name": "ModelsTest.testListModels.mldev"
+        },
+        "bodySegments": [
+          null
+        ],
+        "previousRequest": "f25615c80622ebca35ed0bdc224c789116bf8e0c635537e78f75166a2cb13e3a",
+        "serverAddress": "generativelanguage.googleapis.com",
+        "port": 443,
+        "protocol": "https"
+      },
+      "shaSum": "3d3cdc4f99d44c0bb909b9b066344d7e76ddca7e68be9a5699893439c5b43c44",
+      "response": {
+        "statusCode": 200,
+        "headers": {
+          "Content-Encoding": "gzip",
+          "Content-Length": "363",
+          "Content-Type": "application/json; charset=UTF-8",
+          "Date": "Thu, 16 Jul 2026 16:29:25 GMT",
+          "Server": "scaffolding on HTTPServer2",
+          "Server-Timing": "gfet4t7; dur=133",
+          "Vary": "Origin, X-Origin, Referer",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "SAMEORIGIN",
+          "X-Xss-Protection": "0"
+        },
+        "bodySegments": [
+          {
+            "models": [
+              {
+                "description": "Stable version of Gemini 2.0 Flash-Lite",
+                "displayName": "Gemini 2.0 Flash-Lite 001",
+                "inputTokenLimit": 1048576,
+                "maxTemperature": 2,
+                "modelStage": "LEGACY",
+                "name": "models/gemini-2.0-flash-lite-001",
+                "outputTokenLimit": 8192,
+                "supportedGenerationMethods": [
+                  "generateContent",
+                  "countTokens",
+                  "createCachedContent",
+                  "batchGenerateContent"
+                ],
+                "temperature": 1,
+                "topK": 40,
+                "topP": 0.95,
+                "version": "2.0"
+              },
+              {
+                "description": "Gemini 2.0 Flash-Lite",
+                "displayName": "Gemini 2.0 Flash-Lite",
+                "inputTokenLimit": 1048576,
+                "maxTemperature": 2,
+                "modelStage": "LEGACY",
+                "name": "models/gemini-2.0-flash-lite",
+                "outputTokenLimit": 8192,
+                "supportedGenerationMethods": [
+                  "generateContent",
+                  "countTokens",
+                  "createCachedContent",
+                  "batchGenerateContent"
+                ],
+                "temperature": 1,
+                "topK": 40,
+                "topP": 0.95,
+                "version": "2.0"
+              }
+            ],
+            "nextPageToken": "Chxtb2RlbHMvZ2VtaW5pLTIuMC1mbGFzaC1saXRl"
+          }
+        ]
+      }
+    }
+  ]
+}

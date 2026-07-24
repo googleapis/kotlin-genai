@@ -1,0 +1,71 @@
+{
+  "recordID": "ModelsTest.testUpdateModel.vertex",
+  "interactions": [
+    {
+      "request": {
+        "method": "PATCH",
+        "url": "/v1beta1/projects/REDACTED/locations/us-central1/models/2941236485254283264?updateMask=displayName,description",
+        "request": "PATCH /v1beta1/projects/REDACTED/locations/us-central1/models/2941236485254283264?updateMask=displayName,description HTTP/1.1",
+        "headers": {
+          "Accept": "*/*",
+          "Accept-Charset": "UTF-8",
+          "Accept-Encoding": "gzip",
+          "Connection": "Keep-Alive",
+          "Content-Length": "99",
+          "Content-Type": "application/json",
+          "Test-Name": "ModelsTest.testUpdateModel.vertex"
+        },
+        "bodySegments": [
+          {
+            "description": "This model was updated via the Kotlin SDK test",
+            "displayName": "Updated Model Name"
+          }
+        ],
+        "previousRequest": "b4d6e60a9b97e7b98c63df9308728c5c88c0b40c398046772c63447b94608b4d",
+        "serverAddress": "us-central1-aiplatform.googleapis.com",
+        "port": 443,
+        "protocol": "https"
+      },
+      "shaSum": "b524476897165e6fe92657722e1056f4edf72e6654a5b46aac6ccf37ba174592",
+      "response": {
+        "statusCode": 200,
+        "headers": {
+          "Content-Encoding": "gzip",
+          "Content-Length": "472",
+          "Content-Type": "application/json; charset=UTF-8",
+          "Date": "Tue, 21 Jul 2026 18:29:45 GMT",
+          "Server": "ESF",
+          "Vary": "Origin, X-Origin, Referer",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "SAMEORIGIN",
+          "X-Xss-Protection": "0"
+        },
+        "bodySegments": [
+          {
+            "baseModelSource": {
+              "genieSource": {
+                "originalPublisherBasedModelId": "gemini-2.5-flash"
+              }
+            },
+            "createTime": "2026-04-01T01:12:40.954808Z",
+            "description": "This model was updated via the Kotlin SDK test",
+            "displayName": "Updated Model Name",
+            "etag": "AMEw9yNmtEaFGmZDxbrrI3C2uXwrhIQ0tW87PHbWLiANZ8jAk1XT4k-LB0rPdopj8Tgz",
+            "labels": {
+              "goog-drz-vertex-ai-tuning-location": "us-central1",
+              "goog-drz-vertex-ai-tuning-uuid": "2138013124853235712",
+              "google-vertex-llm-tuning-base-model-id": "gemini-2_5-flash",
+              "google-vertex-llm-tuning-job-id": "2138013124853235712",
+              "tune-type": "sft"
+            },
+            "modelSourceInfo": {
+              "sourceType": "GENIE"
+            },
+            "name": "projects/REDACTED/locations/us-central1/models/2941236485254283264",
+            "updateTime": "2026-07-21T18:29:45.703122Z"
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,129 @@
+{
+  "recordID": "ModelsTest.testListTunedModels.vertex",
+  "interactions": [
+    {
+      "request": {
+        "method": "GET",
+        "url": "/v1beta1/projects/REDACTED/locations/us-central1/models?pageSize=2\u0026filter=labels.tune-type:*",
+        "request": "GET /v1beta1/projects/REDACTED/locations/us-central1/models?pageSize=2\u0026filter=labels.tune-type:* HTTP/1.1",
+        "headers": {
+          "Accept": "*/*",
+          "Accept-Charset": "UTF-8",
+          "Accept-Encoding": "gzip",
+          "Connection": "Keep-Alive",
+          "Content-Type": "application/json",
+          "Test-Name": "ModelsTest.testListTunedModels.vertex"
+        },
+        "bodySegments": [
+          null
+        ],
+        "previousRequest": "b4d6e60a9b97e7b98c63df9308728c5c88c0b40c398046772c63447b94608b4d",
+        "serverAddress": "us-central1-aiplatform.googleapis.com",
+        "port": 443,
+        "protocol": "https"
+      },
+      "shaSum": "0f0a5305625bc1ac582ab9b2f9694d6fe24932aa74f113fdcbcad7c20ceb73f8",
+      "response": {
+        "statusCode": 200,
+        "headers": {
+          "Content-Encoding": "gzip",
+          "Content-Length": "939",
+          "Content-Type": "application/json; charset=UTF-8",
+          "Date": "Tue, 21 Jul 2026 18:31:14 GMT",
+          "Server": "ESF",
+          "Vary": "Origin, X-Origin, Referer",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "SAMEORIGIN",
+          "X-Xss-Protection": "0"
+        },
+        "bodySegments": [
+          {
+            "models": [
+              {
+                "baseModelSource": {
+                  "genieSource": {
+                    "originalPublisherBasedModelId": "gemini-2.5-flash"
+                  }
+                },
+                "checkpoints": [
+                  {
+                    "checkpointId": "1",
+                    "epoch": "1",
+                    "step": "33"
+                  }
+                ],
+                "createTime": "2026-04-01T01:12:40.954808Z",
+                "defaultCheckpointId": "1",
+                "description": "This model was updated via the Kotlin SDK test",
+                "displayName": "Updated Model Name",
+                "etag": "AMEw9yNGiPIG0lfhvVDTVCjOlEhp4yhW-2UnQAd1gHBNVjGz3-DFzuZaABeaV6-nUkfQ",
+                "labels": {
+                  "goog-drz-vertex-ai-tuning-location": "us-central1",
+                  "goog-drz-vertex-ai-tuning-uuid": "2138013124853235712",
+                  "google-vertex-llm-tuning-base-model-id": "gemini-2_5-flash",
+                  "google-vertex-llm-tuning-job-id": "2138013124853235712",
+                  "tune-type": "sft"
+                },
+                "modelSourceInfo": {
+                  "sourceType": "GENIE"
+                },
+                "name": "projects/REDACTED/locations/us-central1/models/2941236485254283264",
+                "updateTime": "2026-07-21T18:29:45.703122Z",
+                "versionAliases": [
+                  "default"
+                ],
+                "versionCreateTime": "2026-04-01T01:12:40.954808Z",
+                "versionId": "1",
+                "versionUpdateTime": "2026-04-01T01:26:37.285164Z"
+              },
+              {
+                "baseModelSource": {
+                  "genieSource": {
+                    "originalPublisherBasedModelId": "gemini-2.5-pro"
+                  }
+                },
+                "checkpoints": [
+                  {
+                    "checkpointId": "1",
+                    "epoch": "1",
+                    "step": "33"
+                  }
+                ],
+                "createTime": "2026-07-21T16:27:49.358098Z",
+                "defaultCheckpointId": "1",
+                "deployedModels": [
+                  {
+                    "checkpointId": "1",
+                    "deployedModelId": "8277392364490719232",
+                    "endpoint": "projects/REDACTED/locations/us-central1/endpoints/6644503248034070528"
+                  }
+                ],
+                "displayName": "gemini-2.5-pro-09dfc066-9ad6-40a7-9825-e9a0e8d570cb",
+                "etag": "AMEw9yOtmDWoEmAc7nYyuVW4y_fo7DEHr35Ks8mZlcGPJNzgbmZyvEXDAix-2AqXSb8t",
+                "labels": {
+                  "goog-drz-vertex-ai-tuning-location": "us-central1",
+                  "goog-drz-vertex-ai-tuning-uuid": "6774311324521332736",
+                  "google-vertex-llm-tuning-base-model-id": "gemini-2_5-pro",
+                  "google-vertex-llm-tuning-job-id": "6774311324521332736",
+                  "tune-type": "sft"
+                },
+                "modelSourceInfo": {
+                  "sourceType": "GENIE"
+                },
+                "name": "projects/REDACTED/locations/us-central1/models/6877225879169138688",
+                "updateTime": "2026-07-21T16:27:49.644331Z",
+                "versionAliases": [
+                  "default"
+                ],
+                "versionCreateTime": "2026-07-21T16:27:49.358098Z",
+                "versionId": "1",
+                "versionUpdateTime": "2026-07-21T17:05:38.969209Z"
+              }
+            ],
+            "nextPageToken": "AMEw9yNGrGI7PeX0Tx9wwNh5YK2dALyuxa-Xiga7mBcRwtwMRTVKDeB7MwNGQekSxbW-TumJlNpWYG0jIg8MjHONWJBUnlPb_mBuFg=="
+          }
+        ]
+      }
+    }
+  ]
+}
