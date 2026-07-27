@@ -64,6 +64,22 @@ internal object LiveConverters {
       )
     }
 
+    Common.getValueByPath(fromObject, arrayOf("diarization"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("diarization"),
+        Common.getValueByPath(fromObject, arrayOf("diarization")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("wordTimestamp"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("wordTimestamp"),
+        Common.getValueByPath(fromObject, arrayOf("wordTimestamp")),
+      )
+    }
+
     return toObject
   }
 
@@ -572,6 +588,14 @@ internal object LiveConverters {
     if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("translationConfig")))) {
       throw IllegalArgumentException(
         "translationConfig parameter is not supported in Gemini Enterprise Agent Platform."
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("audioTranscriptionConfig"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("audioTranscriptionConfig"),
+        Common.getValueByPath(fromObject, arrayOf("audioTranscriptionConfig")),
       )
     }
 
@@ -2088,6 +2112,14 @@ internal object LiveConverters {
       )
     }
 
+    Common.getValueByPath(fromObject, arrayOf("audioTranscription"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("audioTranscription"),
+        Common.getValueByPath(fromObject, arrayOf("audioTranscription")),
+      )
+    }
+
     return toObject
   }
 
@@ -2206,6 +2238,14 @@ internal object LiveConverters {
     if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("partMetadata")))) {
       throw IllegalArgumentException(
         "partMetadata parameter is not supported in Gemini Enterprise Agent Platform."
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("audioTranscription"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("audioTranscription"),
+        Common.getValueByPath(fromObject, arrayOf("audioTranscription")),
       )
     }
 

@@ -20,22 +20,16 @@ package com.google.genai.kotlin.types
 
 import kotlinx.serialization.Serializable
 
-/** Audio transcription in Server Content. */
+/** Information about a single recognized word. */
 @Serializable
-data class Transcription(
+data class WordInfo(
 
-  /** Optional. Transcription text. */
-  val text: String? = null,
+  /** Transcript of the word. */
+  val word: String? = null,
 
-  /** Optional. The bool indicates the end of the transcription. */
-  val finished: Boolean? = null,
+  /** Start offset in time of the word relative to the start of the audio. */
+  val startOffset: String? = null,
 
-  /** The BCP-47 language code of the transcription. */
-  val languageCode: String? = null,
-
-  /** A label identifying the speaker of this audio segment (e.g. "spk_1", "spk_2"). */
-  val speakerLabel: String? = null,
-
-  /** Detailed word-level transcriptions and timing details. */
-  val words: List<WordInfo>? = null,
+  /** End offset in time of the word relative to the start of the audio. */
+  val endOffset: String? = null,
 )

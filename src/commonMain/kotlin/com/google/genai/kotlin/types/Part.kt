@@ -101,4 +101,7 @@ data class Part(
    * supported in Vertex AI.
    */
   val partMetadata: Map<String, JsonElement>? = null,
+
+  /** Output only. The transcription of the audio part. */
+  val audioTranscription: Transcription? = null,
 )

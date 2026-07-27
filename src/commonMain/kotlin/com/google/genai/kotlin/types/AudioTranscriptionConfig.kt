@@ -44,4 +44,10 @@ data class AudioTranscriptionConfig(
    * recognition of these specific terms.
    */
   val adaptationPhrases: List<String>? = null,
+
+  /** Configures speaker diarization. */
+  val diarization: Boolean? = null,
+
+  /** Configures word-level timestamp generation. */
+  val wordTimestamp: Boolean? = null,
 )

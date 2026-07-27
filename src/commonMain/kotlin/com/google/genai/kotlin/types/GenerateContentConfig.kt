@@ -198,4 +198,7 @@ data class GenerateContentConfig(
 
   /** Labels with user-defined metadata to break down billed charges. */
   val labels: Map<String, String>? = null,
+
+  /** Optional. Configuration for audio transcription (speech recognition). */
+  val audioTranscriptionConfig: AudioTranscriptionConfig? = null,
 )
