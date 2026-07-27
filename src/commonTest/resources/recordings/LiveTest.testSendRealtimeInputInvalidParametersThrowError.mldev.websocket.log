@@ -1,0 +1,5 @@
+>111 {"setup":{"model":"models/gemini-3.1-flash-live-preview","generationConfig":{"responseModalities":["AUDIO"]}}}
+<27 {
+  "setupComplete": {}
+}
+

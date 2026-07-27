@@ -1,0 +1,53 @@
+>393 {"setup":{"model":"projects/REDACTED/locations/us-central1/publishers/google/models/gemini-live-2.5-flash-native-audio","generationConfig":{"responseModalities":["AUDIO"]},"tools":[{"functionDeclarations":[{"description":"return the real time weather of the location","name":"GetWeather","parameters":{"properties":{"location":{"type":"STRING"}},"required":["location"],"type":"OBJECT"}}]}]}}
+>61 {"realtimeInput":{"text":"What is the weather in Seattle?"}}
+<86 {
+  "setupComplete": {
+    "sessionId": "57f3404e-ac5a-4f0d-9543-bfeb855c2bff"
+  }
+}
+
+<214 {
+  "toolCall": {
+    "functionCalls": [
+      {
+        "name": "GetWeather",
+        "args": {
+          "location": "Seattle"
+        },
+        "id": "9aaadaa6-ce44-4247-9908-28e71607440b"
+      }
+    ]
+  }
+}
+
+<61 {
+  "serverContent": {
+    "generationComplete": true
+  }
+}
+
+<406 {
+  "serverContent": {
+    "turnComplete": true,
+    "groundingMetadata": {}
+  },
+  "usageMetadata": {
+    "promptTokenCount": 7,
+    "candidatesTokenCount": 4,
+    "totalTokenCount": 11,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 7
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 4
+      }
+    ]
+  }
+}
+
+>140 {"toolResponse":{"functionResponses":[{"id":"9aaadaa6-ce44-4247-9908-28e71607440b","name":"GetWeather","response":{"temperature":"72F"}}]}}

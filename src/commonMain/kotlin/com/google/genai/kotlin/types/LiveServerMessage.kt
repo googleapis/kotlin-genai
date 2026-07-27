@@ -56,4 +56,40 @@ data class LiveServerMessage(
 
   /** Voice activity signal. */
   val voiceActivity: VoiceActivity? = null,
-)
+) {
+
+  /**
+   * Returns the concatenation of all text parts in the [LiveServerContent.modelTurn].
+   *
+   * If there are non-text parts in the response, only the concatenated text result from text parts
+   * will be returned. Parts where [Part.thought] is true are skipped.
+   */
+  val text: String?
+    get() {
+      val parts = serverContent?.modelTurn?.parts ?: return null
+      val textParts = parts.filter { it.thought != true }.mapNotNull { it.text }
+      return if (textParts.isNotEmpty()) textParts.joinToString("") else null
+    }
+
+  /**
+   * Returns the concatenation of all inline data parts in the [LiveServerContent.modelTurn].
+   *
+   * If there are non-data parts in the response, only the concatenated data result from the data
+   * parts will be returned.
+   */
+  val data: ByteArray?
+    get() {
+      val parts = serverContent?.modelTurn?.parts ?: return null
+      val dataParts = parts.mapNotNull { it.inlineData?.data }
+      if (dataParts.isEmpty()) return null
+
+      val totalSize = dataParts.sumOf { it.size }
+      val result = ByteArray(totalSize)
+      var offset = 0
+      for (bytes in dataParts) {
+        bytes.copyInto(result, destinationOffset = offset)
+        offset += bytes.size
+      }
+      return result
+    }
+}
