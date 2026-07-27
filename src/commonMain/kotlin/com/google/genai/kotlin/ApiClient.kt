@@ -22,6 +22,9 @@ import io.ktor.client.engine.HttpClientEngine
 import io.ktor.client.plugins.HttpTimeout
 import io.ktor.client.plugins.defaultRequest
 import io.ktor.client.plugins.timeout
+import io.ktor.client.plugins.websocket.DefaultClientWebSocketSession
+import io.ktor.client.plugins.websocket.WebSockets
+import io.ktor.client.plugins.websocket.webSocketSession
 import io.ktor.client.request.HttpRequestBuilder
 import io.ktor.client.request.header
 import io.ktor.client.request.prepareRequest
@@ -31,12 +34,12 @@ import io.ktor.client.request.url
 import io.ktor.client.statement.bodyAsChannel
 import io.ktor.client.statement.bodyAsText
 import io.ktor.http.ContentType
+import io.ktor.http.HttpHeaders
 import io.ktor.http.HttpMethod
-import io.ktor.http.contentType
 import io.ktor.http.URLBuilder
 import io.ktor.http.Url
-import io.ktor.http.HttpHeaders
 import io.ktor.http.content.ByteArrayContent
+import io.ktor.http.contentType
 import io.ktor.utils.io.readUTF8Line
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
@@ -85,6 +88,16 @@ internal class ApiClient(
   private val client =
     HttpClient(engine) {
       defaultRequest { contentType(ContentType.Application.Json) }
+      install(HttpTimeout) {
+        requestTimeoutMillis = Long.MAX_VALUE
+        connectTimeoutMillis = Long.MAX_VALUE
+        socketTimeoutMillis = Long.MAX_VALUE
+      }
+    }
+
+  private val webSocketClient =
+    HttpClient(engine) {
+      install(WebSockets)
       install(HttpTimeout) {
         requestTimeoutMillis = Long.MAX_VALUE
         connectTimeoutMillis = Long.MAX_VALUE
@@ -191,8 +204,7 @@ internal class ApiClient(
     body: JsonObject?,
     requestHttpOptions: HttpOptions? = null,
   ) {
-    @Suppress("UNUSED_VARIABLE")
-    val unused = buildRequestInternal(method, path, requestHttpOptions)
+    @Suppress("UNUSED_VARIABLE") val unused = buildRequestInternal(method, path, requestHttpOptions)
     if (body != null) {
       setBody(body.toString())
     }
@@ -216,12 +228,10 @@ internal class ApiClient(
   ): HttpOptions {
     this.method = HttpMethod.parse(method.uppercase())
 
-    val mergedOptions = clientHttpOptions.merge(requestHttpOptions)
+    val (requestUrl, mergedOptions) = constructRequestUrl(method, path, requestHttpOptions)
 
     mergedOptions.timeout?.let { timeoutMs ->
-      timeout {
-        requestTimeoutMillis = timeoutMs.toLong()
-      }
+      timeout { requestTimeoutMillis = timeoutMs.toLong() }
     }
 
     // Set Content-Type if explicitly passed in headers.
@@ -230,43 +240,7 @@ internal class ApiClient(
       header(HttpHeaders.ContentType, contentTypeVal)
     }
 
-    var resolvedPath = path
-    val isAbsoluteUrl = resolvedPath.startsWith("http://") || resolvedPath.startsWith("https://")
-
-    if (isAbsoluteUrl) {
-      val builder = URLBuilder(resolvedPath)
-      val baseUrlStr = mergedOptions.baseUrl
-      if (baseUrlStr != null) {
-        val baseUrl = Url(baseUrlStr)
-        // Rewrite scheme, host, and port if baseUrl is custom (e.g. not googleapis.com or contains localhost)
-        val isCustomBaseUrl = !baseUrl.host.endsWith("googleapis.com") || baseUrl.host == "localhost" || baseUrl.host == "127.0.0.1"
-        if (isCustomBaseUrl) {
-          builder.protocol = baseUrl.protocol
-          builder.host = baseUrl.host
-          builder.port = baseUrl.port
-        }
-      }
-      url(builder.build())
-    } else {
-      val queryBaseModel =
-        method.uppercase() == "GET" && resolvedPath.startsWith("publishers/google/models")
-      if (enterprise && apiKey == null && !resolvedPath.startsWith("projects/") && !queryBaseModel) {
-        resolvedPath = "projects/$project/locations/$location/$resolvedPath"
-      }
-
-      val baseUrl = mergedOptions.baseUrl ?: throw IllegalStateException("baseUrl is required")
-      val cleanBaseUrl = baseUrl.removeSuffix("/")
-      val apiVersion =
-        mergedOptions.apiVersion ?: throw IllegalStateException("apiVersion is required")
-
-      val requestUrl =
-        if (apiVersion.isEmpty()) {
-          "$cleanBaseUrl/$resolvedPath"
-        } else {
-          "$cleanBaseUrl/$apiVersion/$resolvedPath"
-        }
-      url(requestUrl)
-    }
+    url(requestUrl)
 
     // Headers from HttpOptions
     mergedOptions.headers?.forEach { (k, v) ->
@@ -285,8 +259,93 @@ internal class ApiClient(
     return mergedOptions
   }
 
+  /** Opens a WebSocket session for the Live API. */
+  internal suspend fun openWebSocketSession(
+    httpOptions: HttpOptions? = null
+  ): DefaultClientWebSocketSession {
+    val mergedOptions = clientHttpOptions.merge(httpOptions)
+    val baseUrl = mergedOptions.baseUrl ?: throw IllegalStateException("baseUrl is required")
+    val cleanBaseUrl = baseUrl.removeSuffix("/")
+
+    val wsUrl =
+      if (enterprise) {
+        val version = mergedOptions.apiVersion ?: "v1beta1"
+        "${cleanBaseUrl.replaceFirst("http://", "ws://").replaceFirst("https://", "wss://")}/ws/google.cloud.aiplatform.$version.LlmBidiService/BidiGenerateContent"
+      } else {
+        val version = mergedOptions.apiVersion ?: "v1beta"
+        "${cleanBaseUrl.replaceFirst("http://", "ws://").replaceFirst("https://", "wss://")}/ws/google.ai.generativelanguage.$version.GenerativeService.BidiGenerateContent"
+      }
+
+    return webSocketClient.webSocketSession(wsUrl) {
+      mergedOptions.headers?.forEach { (k, v) ->
+        if (k != "Content-Type") {
+          headers[k] = v
+        }
+      }
+      if (apiKey != null) {
+        header("x-goog-api-key", apiKey)
+      } else if (credentials != null) {
+        credentials.applyToRequest(this)
+      }
+    }
+  }
+
+  private fun constructRequestUrl(
+    method: String,
+    path: String,
+    httpOptions: HttpOptions? = null,
+  ): Pair<String, HttpOptions> {
+    var resolvedPath = path
+    val isAbsoluteUrl = resolvedPath.startsWith("http://") || resolvedPath.startsWith("https://")
+
+    val mergedOptions = clientHttpOptions.merge(httpOptions)
+
+    if (isAbsoluteUrl) {
+      val builder = URLBuilder(resolvedPath)
+      val baseUrlStr = mergedOptions.baseUrl
+      if (baseUrlStr != null) {
+        val baseUrl = Url(baseUrlStr)
+        // Rewrite scheme, host, and port if baseUrl is custom (e.g. not googleapis.com or contains
+        // localhost)
+        val isCustomBaseUrl =
+          !baseUrl.host.endsWith("googleapis.com") ||
+            baseUrl.host == "localhost" ||
+            baseUrl.host == "127.0.0.1"
+        if (isCustomBaseUrl) {
+          builder.protocol = baseUrl.protocol
+          builder.host = baseUrl.host
+          builder.port = baseUrl.port
+        }
+      }
+      return Pair(builder.build().toString(), mergedOptions)
+    }
+
+    val queryBaseModel =
+      method.uppercase() == "GET" &&
+        resolvedPath.startsWith("publishers/google/models") &&
+        !resolvedPath.contains(":")
+    if (enterprise && apiKey == null && !resolvedPath.startsWith("projects/") && !queryBaseModel) {
+      resolvedPath = "projects/$project/locations/$location/$resolvedPath"
+    }
+
+    val baseUrl = mergedOptions.baseUrl ?: throw IllegalStateException("baseUrl is required")
+    val cleanBaseUrl = baseUrl.removeSuffix("/")
+    val apiVersion =
+      mergedOptions.apiVersion ?: throw IllegalStateException("apiVersion is required")
+
+    val requestUrl =
+      if (apiVersion.isEmpty()) {
+        "$cleanBaseUrl/$resolvedPath"
+      } else {
+        "$cleanBaseUrl/$apiVersion/$resolvedPath"
+      }
+
+    return Pair(requestUrl, mergedOptions)
+  }
+
   override fun close() {
     client.close()
+    webSocketClient.close()
   }
 }
 

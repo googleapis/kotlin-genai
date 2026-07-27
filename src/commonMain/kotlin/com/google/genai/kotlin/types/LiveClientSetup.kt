@@ -86,4 +86,7 @@ data class LiveClientSetup(
 
   /** Configures the exchange of history between the client and the server. */
   val historyConfig: HistoryConfig? = null,
+
+  /** Configures the realtime input behavior in BidiGenerateContent. */
+  val realtimeInputConfig: RealtimeInputConfig? = null,
 )

@@ -88,7 +88,7 @@ open class BaseTestServer {
         1453
       }
     val httpOptions =
-      HttpOptions(baseUrl = "http://localhost:$port", headers = mapOf("Test-Name" to testName))
+      HttpOptions(baseUrl = "http://127.0.0.1:$port", headers = mapOf("Test-Name" to testName))
     if (enterprise) {
       val creds =
         if (testMode == "replay") {
