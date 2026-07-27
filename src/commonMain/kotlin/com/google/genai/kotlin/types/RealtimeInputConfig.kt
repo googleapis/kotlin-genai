@@ -21,22 +21,21 @@ package com.google.genai.kotlin.types
 import kotlinx.serialization.Serializable
 
 /**
- * Marks the end of user activity.
- *
- * This can only be sent if automatic (i.e. server-side) activity detection is disabled.
+ * Configures the realtime input behavior in `BidiGenerateContent`. This data type is not supported
+ * in Vertex AI.
  */
 @Serializable
 data class RealtimeInputConfig(
 
   /**
-   * If not set, automatic activity detection is enabled by default. If automatic voice detection is
-   * disabled, the client must send activity signals.
+   * Optional. If not set, automatic activity detection is enabled by default. If automatic voice
+   * detection is disabled, the client must send activity signals.
    */
   val automaticActivityDetection: AutomaticActivityDetection? = null,
 
-  /** Defines what effect activity has. */
+  /** Optional. Defines what effect activity has. */
   val activityHandling: ActivityHandling? = null,
 
-  /** Defines which input is included in the user's turn. */
+  /** Optional. Defines which input is included in the user's turn. */
   val turnCoverage: TurnCoverage? = null,
 )
