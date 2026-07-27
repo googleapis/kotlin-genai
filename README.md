@@ -11,9 +11,6 @@ and the
 [Gemini Enterprise Agent Platform API](https://cloud.google.com/vertex-ai/generative-ai/docs/learn/overview)
 (formerly Vertex AI).
 
-> [!NOTE] This SDK is currently in early development. At this stage, only
-> `generateContent`, `generateContentStream`, `embedContent`, and Context Caching (`caches`) are supported.
-
 > [!WARNING]
 > **Mobile Security: API Keys & Cloud Credentials**
 >
@@ -198,6 +195,164 @@ val response = client.models.generateContent(
     text = "What is your name?",
     config = config
 )
+```
+
+### Live API
+
+The Gemini Live API allows for real-time, bidirectional interaction with
+Gemini models over a persistent WebSocket connection, supporting audio, text,
+and function calling.
+
+#### Overview
+
+Key concepts:
+* **Session**: A persistent WebSocket connection to the model managed via
+  `client.live.connect(...)`.
+* **Config**: Settings for modalities (text, audio transcription), tools, and
+  system instructions via `LiveConnectConfig`.
+* **Real-time Input**: Asynchronously streaming text, audio, or video frames to
+  the session.
+
+#### Connecting to the Live API
+
+Start a Live API session using `client.live.connect(model, config)`. The
+returned session object manages the underlying WebSocket connection.
+
+```kotlin
+import com.google.genai.kotlin.Client
+import com.google.genai.kotlin.types.AudioTranscriptionConfig
+import com.google.genai.kotlin.types.LiveConnectConfig
+import kotlinx.coroutines.runBlocking
+
+fun main() = runBlocking {
+    // Optional. Configure the Live session (e.g. audio transcription).
+    val config = LiveConnectConfig(
+        outputAudioTranscription = AudioTranscriptionConfig()
+    )
+    val model = if (client.enterprise) "gemini-live-2.5-flash-native-audio"
+            else "gemini-3.1-flash-live-preview"
+
+    client.live.connect(model, config).use { session ->
+        println("Connected to Live session!")
+        // Send and receive content here...
+    }
+}
+```
+
+#### Sending text
+
+Text messages can be sent to an active session using
+`sendRealtimeInput(text = ...)`.
+
+> [!NOTE]
+> For **Gemini 3.1**, `sendClientContent` is only supported for seeding initial
+> context history (requiring `initialHistoryInClientContent` in session config).
+> Use `sendRealtimeInput` to send text messages during the conversation. For
+> **Gemini 2.5**, `sendClientContent` is supported throughout the conversation.
+
+```kotlin
+session.sendRealtimeInput(text = "Hello, how are you?")
+```
+
+#### Sending audio
+
+Audio chunks (such as 16kHz, 16-bit mono raw PCM data) are sent using
+`sendRealtimeInput(audio = Blob(...))`.
+
+```kotlin
+import com.google.genai.kotlin.types.Blob
+
+val pcmBytes: ByteArray = ... // Raw PCM audio data (16kHz, 16-bit, mono)
+
+session.sendRealtimeInput(
+    audio = Blob(data = pcmBytes, mimeType = "audio/pcm;rate=16000")
+)
+// Signal the end of an audio stream input (most time the model auto-detects the
+// end of audio so this is not needed)
+session.sendRealtimeInput(audioStreamEnd = true)
+```
+
+#### Receiving audio
+
+The model streams audio responses back as raw binary data chunks in
+`serverMessage.data`.
+
+```kotlin
+session.receive().collect { serverMessage ->
+    serverMessage.data?.let { audioData ->
+        println("Received model audio chunk: ${audioData.size} bytes")
+        // Process or play audio bytes
+    }
+}
+```
+
+#### Receiving text
+
+Transcriptions for both user input and model output are available in
+`serverContent` when transcription is enabled through `LiveConnectConfig`.
+
+```kotlin
+session.receive().collect { serverMessage ->
+    serverMessage.serverContent?.run {
+        inputTranscription?.text?.let { println("[User]: $it") }
+        outputTranscription?.text?.let { println("[Model]: $it") }
+
+        if (turnComplete == true || interrupted == true) {
+            println("[Turn Complete]")
+            session.closeSession()
+        }
+    }
+}
+```
+
+#### Handling tool calls (Function calling)
+
+When the model requests a tool call, a `toolCall` is received in
+`serverMessage`. Execute the function and return the response using
+`sendToolResponse`.
+
+```kotlin
+import com.google.genai.kotlin.Client
+import com.google.genai.kotlin.types.FunctionDeclaration
+import com.google.genai.kotlin.types.FunctionResponse
+import com.google.genai.kotlin.types.LiveConnectConfig
+import com.google.genai.kotlin.types.Schema
+import com.google.genai.kotlin.types.Tool
+import com.google.genai.kotlin.types.Type
+import kotlinx.serialization.json.JsonPrimitive
+
+val getWeatherDeclaration = FunctionDeclaration(
+    name = "GetWeather",
+    description = "return the real time weather of the location",
+    parameters = Schema(
+        type = Type.OBJECT,
+        properties = mapOf("location" to Schema(type = Type.STRING)),
+        required = listOf("location")
+    )
+)
+
+val config = LiveConnectConfig(
+    tools = listOf(Tool(functionDeclarations = listOf(getWeatherDeclaration)))
+)
+
+client.live.connect(model, config).use { session ->
+    session.sendRealtimeInput(text = "What is the weather in Seattle?")
+
+    session.receive().collect { serverMessage ->
+        serverMessage.toolCall?.let { toolCall ->
+            val functionResponses = toolCall.functionCalls?.map { call ->
+                FunctionResponse(
+                    id = call.id,
+                    name = call.name,
+                    response = mapOf("temperature" to JsonPrimitive("72F"))
+                )
+            }
+            if (functionResponses != null) {
+                session.sendToolResponse(functionResponses)
+            }
+        }
+    }
+}
 ```
 
 ### Embed Content
