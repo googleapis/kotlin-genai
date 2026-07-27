@@ -563,3 +563,103 @@ fun main() = runBlocking {
     }
 }
 ```
+
+### Get a Model
+
+To retrieve information about a model by its name, use `models.get`.
+
+```kotlin
+import com.google.genai.kotlin.Client
+import kotlinx.coroutines.runBlocking
+
+fun main() = runBlocking {
+    Client().use { client ->
+        // Gemini Enterprise Agent Platform also supports getting info on a
+        // tuned model. To do this, instantiate a Client with your project and
+        // location and pass the tuned model ID to get, i.e.
+        // "projects/your-project-id/locations/us-central1/models/your-model-id"
+        val modelInfo = client.models.get(model = "gemini-3.5-flash")
+
+        println("Model Name: ${modelInfo.name}")
+        println("Display Name: ${modelInfo.displayName}")
+        println("Input Token Limit: ${modelInfo.inputTokenLimit}")
+    }
+}
+```
+
+### Update a Tuned Model
+
+Use `models.update` to update the properties of an existing tuned model.
+
+**Note**:`models.update` is only supported on Gemini Enterprise Agent
+Platform.
+
+```kotlin
+import com.google.genai.kotlin.Client
+import com.google.genai.kotlin.types.UpdateModelConfig
+import kotlinx.coroutines.runBlocking
+
+fun main() = runBlocking {
+    Client(
+        project = "your-project-id",
+        location = "us-central1",
+        enterprise = true
+    ).use { client ->
+        val config = UpdateModelConfig(
+            displayName = "New Display Name",
+            description = "Updated description for my tuned model",
+            updateMask = "display_name,description"
+        )
+        val updatedModel = client.models.update(
+            model = "projects/your-project-id/locations/us-central1/models/your-model-id",
+            config = config
+        )
+        println("Successfully updated model: ${updatedModel.name}")
+    }
+}
+```
+
+### Delete a Tuned Model
+
+Use `models.delete` to delete a tuned model.
+
+**Note**:`models.delete` is only supported on Gemini Enterprise Agent
+Platform.
+
+```kotlin
+import com.google.genai.kotlin.Client
+import kotlinx.coroutines.runBlocking
+
+fun main() = runBlocking {
+    Client(
+        project = "your-project-id",
+        location = "us-central1",
+        enterprise = true
+    ).use { client ->
+        client.models.delete(model = "projects/your-project-id/locations/us-central1/models/your-model-id")
+        println("Tuned model successfully deleted.")
+    }
+}
+```
+
+### List Models
+
+Use `list` to retrieve the available base models. The method returns a
+`Pager<Model>` that you can iterate over.
+
+```kotlin
+import com.google.genai.kotlin.Client
+import com.google.genai.kotlin.types.ListModelsConfig
+import kotlinx.coroutines.flow.take
+import kotlinx.coroutines.runBlocking
+
+fun main() = runBlocking {
+    Client().use { client ->
+        println("Available Base Models:")
+        // List models and process the first 5 results
+        client.models.list(ListModelsConfig(pageSize = 5)).take(5).collect { model ->
+            println("- ${model.name} (${model.displayName})")
+        }
+    }
+}
+```
