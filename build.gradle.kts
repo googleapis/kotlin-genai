@@ -98,6 +98,8 @@ android {
 
   defaultConfig { minSdk = 21 }
 
+  sourceSets { getByName("test") { resources.srcDirs("src/commonTest/resources") } }
+
   compileOptions {
     sourceCompatibility = org.gradle.api.JavaVersion.VERSION_17
     targetCompatibility = org.gradle.api.JavaVersion.VERSION_17

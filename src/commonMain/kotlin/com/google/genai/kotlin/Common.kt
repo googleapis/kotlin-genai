@@ -199,8 +199,8 @@ internal object Common {
    * Moves a value from one path to another in the jsonObject based on pathMap.
    *
    * <p>moveValueByPath({'requests': [{'content': v1}, {'content': v2}]}, {'requests[].*':
-   * 'requests[].request.*'}) -> {'requests': [{'request': {'content': v1}}, {'request': {'content':
-   * v2}}]}
+   * 'requests[].request.*'}) -> {'requests':
+   * [{'request': {'content': v1}}, {'request': {'content': v2}}]}
    */
   fun moveValueByPath(jsonObject: MutableMap<String, Any?>?, pathMap: Map<String, String>) {
     if (jsonObject == null) return
@@ -400,3 +400,6 @@ internal object Common {
     }
   }
 }
+
+/** Reads a resource file as a ByteArray. This is intended to be used in tests. */
+internal expect fun readTestResource(name: String): ByteArray

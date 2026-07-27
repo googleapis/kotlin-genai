@@ -16,7 +16,6 @@
 
 package com.google.genai.kotlin
 
-import com.google.genai.kotlin.Page
 import com.google.genai.kotlin.types.Blob
 import com.google.genai.kotlin.types.Content
 import com.google.genai.kotlin.types.EmbedContentConfig
@@ -571,7 +570,9 @@ class ModelsTest : BaseTestServer() {
           role = "user",
           parts =
             listOf(
-              Part(inlineData = Blob(mimeType = "image/png", data = googlePngBytes)),
+              Part(
+                inlineData = Blob(mimeType = "image/png", data = readTestResource("google.png"))
+              ),
               Part(text = "Describe this image"),
             ),
         )
@@ -864,7 +865,10 @@ class ModelsTest : BaseTestServer() {
                 parts =
                   listOf(
                     Part(text = "The jetpack is cool"),
-                    Part(inlineData = Blob(mimeType = "image/png", data = googlePngBytes)),
+                    Part(
+                      inlineData =
+                        Blob(mimeType = "image/png", data = readTestResource("google.png"))
+                    ),
                   )
               )
             ),
