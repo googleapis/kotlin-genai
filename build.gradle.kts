@@ -109,14 +109,21 @@ android {
 }
 
 // Pass testMode property ONLY to JVM tests: ./gradlew jvmTest -PtestMode=record
-tasks.named<Test>("jvmTest") {
+tasks.withType<Test> {
   val mode =
-    if (project.hasProperty("testMode")) {
+    if (project.hasProperty("testMode") && name == "jvmTest") {
       project.property("testMode").toString()
     } else {
       "replay"
     }
   environment("TEST_MODE", mode)
+
+  if (mode == "replay") {
+    environment.remove("GOOGLE_CLOUD_PROJECT")
+    environment.remove("GOOGLE_API_KEY")
+    environment.remove("GOOGLE_CLOUD_LOCATION")
+    environment.remove("GOOGLE_GENAI_USE_ENTERPRISE")
+  }
 }
 
 // Helper task to bundle Dokka HTML output as the required `-javadoc.jar`

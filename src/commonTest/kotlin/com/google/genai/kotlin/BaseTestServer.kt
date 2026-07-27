@@ -104,7 +104,7 @@ open class BaseTestServer {
         httpOptions = httpOptions,
       )
     } else {
-      return Client(apiKey = apiKey, httpOptions = httpOptions)
+      return Client(apiKey = apiKey, enterprise = enterprise, httpOptions = httpOptions)
     }
   }
 }
