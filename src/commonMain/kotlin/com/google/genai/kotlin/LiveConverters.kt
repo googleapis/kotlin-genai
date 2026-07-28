@@ -16,7 +16,12 @@
 
 // Auto-generated code. Do not edit.
 
-@file:Suppress("UNCHECKED_CAST", "UNUSED_PARAMETER", "UNUSED_ANONYMOUS_PARAMETER")
+@file:Suppress(
+  "UNCHECKED_CAST",
+  "UNUSED_PARAMETER",
+  "UNUSED_ANONYMOUS_PARAMETER",
+  "UNUSED_VARIABLE",
+)
 
 package com.google.genai.kotlin
 

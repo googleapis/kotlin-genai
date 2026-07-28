@@ -16,7 +16,12 @@
 
 // Auto-generated code. Do not edit.
 
-@file:Suppress("UNCHECKED_CAST", "UNUSED_PARAMETER", "UNUSED_ANONYMOUS_PARAMETER")
+@file:Suppress(
+  "UNCHECKED_CAST",
+  "UNUSED_PARAMETER",
+  "UNUSED_ANONYMOUS_PARAMETER",
+  "UNUSED_VARIABLE",
+)
 
 package com.google.genai.kotlin
 
@@ -4287,7 +4292,6 @@ class Models internal constructor(internal val apiClient: ApiClient) {
     val response = apiClient.request("GET", path, finalBody, httpOptions = config?.httpOptions)
 
     val responseString = response.body()
-    val headersMap = response.headers.entries().associate { it.key to it.value.joinToString(",") }
 
     var responseMap = Common.jsonStringToMap(responseString)
     if (apiClient.enterprise) {
@@ -4401,7 +4405,6 @@ class Models internal constructor(internal val apiClient: ApiClient) {
     val response = apiClient.request("PATCH", path, finalBody, httpOptions = config?.httpOptions)
 
     val responseString = response.body()
-    val headersMap = response.headers.entries().associate { it.key to it.value.joinToString(",") }
 
     var responseMap = Common.jsonStringToMap(responseString)
     if (apiClient.enterprise) {

@@ -57,6 +57,7 @@ internal class ApiClient(
   internal val engine: HttpClientEngine = getDefaultEngine(),
 ) : AutoCloseable {
 
+  @Suppress("OPT_IN_USAGE")
   private val json = Json {
     ignoreUnknownKeys = true
     encodeDefaults = false
