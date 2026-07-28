@@ -20,10 +20,10 @@ package com.google.genai.kotlin.types
 
 import kotlinx.serialization.Serializable
 
-/** Provides hints to the model about possible languages present in the audio. */
+/** Deprecated: Use AudioTranscriptionConfig.language_codes instead. */
 @Serializable
 data class LanguageHints(
 
-  /** BCP-47 language codes. At least one must be specified. */
+  /** Deprecated. BCP-47 language codes. */
   val languageCodes: List<String>? = null
 )

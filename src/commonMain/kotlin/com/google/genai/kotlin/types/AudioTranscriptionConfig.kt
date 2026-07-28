@@ -24,13 +24,22 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class AudioTranscriptionConfig(
 
-  /** Deprecated: use LanguageAuto or LanguageHints instead. */
+  /**
+   * BCP-47 language codes providing hints about the languages present in the audio. If omitted or
+   * empty, defaults to automatic language detection.
+   */
   val languageCodes: List<String>? = null,
 
-  /** The model will detect the language automatically. Do not use together with LanguageHints. */
+  /**
+   * Deprecated: Auto-detection is now the default when language_codes is omitted. This field will
+   * be removed in a future version.
+   */
   val languageAuto: LanguageAuto? = null,
 
-  /** Specifies one or more languages in the audio. Do not use together with LanguageAuto. */
+  /**
+   * Deprecated: Use top-level language_codes instead. This field will be removed in a future
+   * version.
+   */
   val languageHints: LanguageHints? = null,
 
   /**
