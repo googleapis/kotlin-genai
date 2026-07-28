@@ -123,6 +123,30 @@ class ApiClientTest {
   }
 
   @Test
+  fun testRequest_enterpriseWithApiKeyAndProjectLocation_constructsCorrectUrl() = runTest {
+    var capturedRequest: HttpRequestData? = null
+    val engine = createMockEngine { capturedRequest = it }
+
+    ApiClient(
+        apiKey = "test-api-key",
+        project = "test-project",
+        location = "us-central1",
+        enterprise = true,
+        engine = engine,
+      )
+      .use { client -> client.request("POST", "publishers/google/models/test-model:predict") }
+
+    assertNotNull(capturedRequest)
+    assertEquals("us-central1-aiplatform.googleapis.com", capturedRequest!!.url.host)
+    assertEquals(
+      "/v1beta1/projects/test-project/locations/us-central1/publishers/google/models/test-model:predict",
+      capturedRequest!!.url.encodedPath,
+    )
+    assertEquals("test-api-key", capturedRequest!!.headers["x-goog-api-key"])
+    assertEquals("https", capturedRequest!!.url.protocol.name)
+  }
+
+  @Test
   fun testRequest_sendsCorrectBody() = runTest {
     var capturedRequest: HttpRequestData? = null
     val engine = createMockEngine { capturedRequest = it }

@@ -87,7 +87,10 @@ class ClientTest {
       assertFailsWith<IllegalArgumentException> {
         Client(project = PROJECT, location = LOCATION, environment = mockEnvironment)
       }
-    assertEquals("For Gemini APIs, API key must be set.", exception.message)
+    assertEquals(
+      "Project and location are not supported for the Gemini API backend.",
+      exception.message,
+    )
   }
 
   @Test
@@ -104,14 +107,14 @@ class ClientTest {
   }
 
   @Test
-  fun testClientInitialization_withApiKeyAndProject_throwsException() {
+  fun testGeminiClientInitialization_withApiKeyAndProjectOrLocation_throwsException() {
     clearEnv()
     var exception =
       assertFailsWith<IllegalArgumentException> {
         Client(project = PROJECT, apiKey = API_KEY, environment = mockEnvironment)
       }
     assertEquals(
-      "Project and API key are mutually exclusive in the client initializer. Please provide only one of them.",
+      "Project and location are not supported for the Gemini API backend.",
       exception.message,
     )
 
@@ -120,7 +123,7 @@ class ClientTest {
         Client(location = LOCATION, apiKey = API_KEY, environment = mockEnvironment)
       }
     assertEquals(
-      "Location and API key are mutually exclusive in the client initializer. Please provide only one of them.",
+      "Project and location are not supported for the Gemini API backend.",
       exception.message,
     )
   }
@@ -213,5 +216,72 @@ class ClientTest {
     assertEquals(LOCATION, client.location)
     assertEquals(true, client.enterprise)
     assertEquals(mockCredentials, client.httpClient.credentials)
+  }
+
+  @Test
+  fun testVertexClientInitialization_withApiKeyAndProjectLocation() {
+    clearEnv()
+    val client =
+      Client(
+        apiKey = API_KEY,
+        project = PROJECT,
+        location = LOCATION,
+        enterprise = true,
+        environment = mockEnvironment,
+      )
+    assertEquals(API_KEY, client.apiKey)
+    assertEquals(PROJECT, client.project)
+    assertEquals(LOCATION, client.location)
+    assertEquals(true, client.enterprise)
+    assertEquals(null, client.httpClient.credentials)
+  }
+
+  @Test
+  fun testVertexClientInitialization_withExplicitApiKeyAndEnvProjectLocation() {
+    clearEnv()
+    setEnv("GOOGLE_CLOUD_PROJECT", PROJECT)
+    setEnv("GOOGLE_CLOUD_LOCATION", LOCATION)
+    setEnv("GOOGLE_GENAI_USE_ENTERPRISE", "true")
+
+    val client = Client(apiKey = API_KEY, environment = mockEnvironment)
+
+    assertEquals(API_KEY, client.apiKey)
+    assertEquals(null, client.project)
+    assertEquals("global", client.location)
+    assertEquals(true, client.enterprise)
+  }
+
+  @Test
+  fun testVertexClientInitialization_withExplicitProjectLocationAndEnvApiKey() {
+    clearEnv()
+    setEnv("GOOGLE_API_KEY", API_KEY)
+    setEnv("GOOGLE_GENAI_USE_ENTERPRISE", "true")
+
+    val client =
+      Client(
+        project = PROJECT,
+        location = LOCATION,
+        credentials = MOCK_CREDENTIALS,
+        environment = mockEnvironment,
+      )
+
+    assertEquals(null, client.apiKey)
+    assertEquals(PROJECT, client.project)
+    assertEquals(LOCATION, client.location)
+    assertEquals(true, client.enterprise)
+  }
+
+  @Test
+  fun testGeminiClientInitialization_withEnvApiKeyAndEnvProjectLocation() {
+    clearEnv()
+    setEnv("GEMINI_API_KEY", API_KEY)
+    setEnv("GOOGLE_CLOUD_PROJECT", PROJECT)
+    setEnv("GOOGLE_CLOUD_LOCATION", LOCATION)
+
+    val client = Client(environment = mockEnvironment)
+
+    assertEquals(API_KEY, client.apiKey)
+    assertEquals(null, client.project)
+    assertEquals(false, client.enterprise)
   }
 }

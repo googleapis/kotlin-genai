@@ -115,15 +115,9 @@ internal constructor(
     val hasEnvProject = environment.get("GOOGLE_CLOUD_PROJECT")?.isNotEmpty() == true
     val hasEnvLocation = environment.get("GOOGLE_CLOUD_LOCATION")?.isNotEmpty() == true
 
-    if (hasProject && hasApiKey) {
+    if ((hasProject || hasLocation) && !useEnterprise) {
       throw IllegalArgumentException(
-        "Project and API key are mutually exclusive in the client initializer. Please provide only one of them."
-      )
-    }
-
-    if (hasLocation && hasApiKey) {
-      throw IllegalArgumentException(
-        "Location and API key are mutually exclusive in the client initializer. Please provide only one of them."
+        "Project and location are not supported for the Gemini API backend."
       )
     }
 
@@ -137,12 +131,14 @@ internal constructor(
       resolvedApiKey = null
     }
 
-    if (hasApiKey && (hasEnvProject || hasEnvLocation)) {
+    if (hasApiKey && !hasProject && !hasLocation && (hasEnvProject || hasEnvLocation)) {
       resolvedProject = null
       resolvedLocation = null
-    } else if ((hasProject || hasLocation) && hasEnvApiKey) {
+    } else if ((hasProject || hasLocation) && !hasApiKey && hasEnvApiKey) {
       resolvedApiKey = null
-    } else if ((hasEnvProject || hasEnvLocation) && hasEnvApiKey) {
+    } else if (
+      !hasProject && !hasLocation && !hasApiKey && (hasEnvProject || hasEnvLocation) && hasEnvApiKey
+    ) {
       if (useEnterprise) {
         resolvedApiKey = null
       } else {
@@ -151,7 +147,7 @@ internal constructor(
       }
     }
 
-    if (resolvedLocation == null && resolvedApiKey == null) {
+    if (useEnterprise && resolvedLocation == null) {
       resolvedLocation = "global"
     }
 
@@ -166,7 +162,7 @@ internal constructor(
     }
 
     val resolvedCredentials =
-      if (!useEnterprise || resolvedProject == null) {
+      if (!useEnterprise || resolvedProject == null || resolvedApiKey != null) {
         null
       } else {
         credentials ?: getDefaultCredentials()

@@ -324,7 +324,13 @@ internal class ApiClient(
       method.uppercase() == "GET" &&
         resolvedPath.startsWith("publishers/google/models") &&
         !resolvedPath.contains(":")
-    if (enterprise && apiKey == null && !resolvedPath.startsWith("projects/") && !queryBaseModel) {
+    if (
+      enterprise &&
+        project != null &&
+        location != null &&
+        !resolvedPath.startsWith("projects/") &&
+        !queryBaseModel
+    ) {
       resolvedPath = "projects/$project/locations/$location/$resolvedPath"
     }
 
