@@ -571,6 +571,10 @@ internal object LiveConverters {
       )
     }
 
+    if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("groundingTypes")))) {
+      throw IllegalArgumentException("groundingTypes parameter is not supported in Gemini API.")
+    }
+
     return toObject
   }
 

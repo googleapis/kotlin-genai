@@ -20,26 +20,21 @@ package com.google.genai.kotlin.types
 
 import kotlinx.serialization.Serializable
 
-/** Tool to retrieve knowledge from Google Maps. */
+/**
+ * Defines the types of Google Maps grounding that can be enabled and their configurations. This
+ * data type is not supported in Gemini API.
+ */
 @Serializable
-data class GoogleMaps(
+data class GoogleMapsGroundingTypes(
 
   /**
-   * The authentication config to access the API. Only API key is supported. This field is not
-   * supported in Gemini API.
+   * Optional. Enables grounding with Google Maps Places. This is the default grounding type when no
+   * `GroundingTypes` are specified.
    */
-  val authConfig: AuthConfig? = null,
+  val places: GoogleMapsPlaces? = null,
 
   /**
-   * Deprecated. The Google Maps contextual widget behavior in Grounding with Google Maps is being
-   * deprecated; this field is planned for removal and no longer has any effect once removed.
-   * Optional. Whether to return a widget context token in the GroundingMetadata of the response.
+   * Optional. Enables grounding with Google Maps Routing APIs (ComputeRoutes and SearchAlongRoute).
    */
-  val enableWidget: Boolean? = null,
-
-  /**
-   * Optional. Specifies the types of Google Maps grounding to enable. This field is not supported
-   * in Gemini API.
-   */
-  val groundingTypes: GoogleMapsGroundingTypes? = null,
+  val routing: GoogleMapsRouting? = null,
 )
