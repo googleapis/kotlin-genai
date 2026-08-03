@@ -183,6 +183,8 @@ internal constructor(
     this.project = resolvedProject
     this.location = resolvedLocation
     this.enterprise = useEnterprise
+
+    validateSecurityContext(resolvedApiKey != null, resolvedCredentials != null)
   }
 
   /** Service for interacting with Models API. */

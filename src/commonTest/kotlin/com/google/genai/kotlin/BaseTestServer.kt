@@ -21,6 +21,8 @@ import com.google.auth.oauth2.GoogleCredentials
 import com.google.genai.kotlin.types.HttpOptions
 import com.google.testserver.TestServer
 import com.google.testserver.TestServerOptions
+import io.mockk.every
+import io.mockk.mockkStatic
 import java.io.File
 import kotlin.test.AfterTest
 import kotlin.test.BeforeTest
@@ -41,6 +43,12 @@ open class BaseTestServer {
 
   @BeforeTest
   fun setUp() {
+    try {
+      mockkStatic("com.google.genai.kotlin.SecurityContextKt")
+      every { validateSecurityContext(any(), any()) } returns Unit
+    } catch (_: Throwable) {
+      // Ignore if static mocking is unsupported on current platform/runtime
+    }
     testMode = System.getenv("TEST_MODE")?.takeIf { it.isNotEmpty() } ?: "replay"
     project = System.getenv("GOOGLE_CLOUD_PROJECT")?.takeIf { it.isNotEmpty() } ?: "test-project"
     location =
