@@ -1,5 +1,47 @@
 # Changelog
 
+## [0.3.0](https://github.com/googleapis/kotlin-genai/compare/v0.2.0...v0.3.0) (2026-08-03)
+
+
+### ⚠ BREAKING CHANGES
+
+* **android:** block Client initialization with API key or credentials on Android
+
+### Features
+
+* [GenerateContentConfig] Add GenerationConfig.audio_transcription_config and Part.audio_transcription. ([80094fc](https://github.com/googleapis/kotlin-genai/commit/80094fc7b2c0516e5ffb6e319702393a7b859606))
+* Add Batches module, methods: 'create', 'create_embeddings', 'get', 'cancel', 'list', 'delete' ([340f315](https://github.com/googleapis/kotlin-genai/commit/340f3159cab9df90d574a989abf030eb3a853b1d))
+* Add countTokens and computeTokens methods ([eef2bf1](https://github.com/googleapis/kotlin-genai/commit/eef2bf15b311bee82552f7611760effec6def9de))
+* Add Files module, methods: get, upload, list, download, delete ([059e99c](https://github.com/googleapis/kotlin-genai/commit/059e99c405c84ab0bc9cb684ceb0535a92f43c50))
+* Add flat `language_codes` field to `AudioTranscriptionConfig`. ([055b8d5](https://github.com/googleapis/kotlin-genai/commit/055b8d531a920827a808f10dc7c0bb085dd645f2))
+* Add helper methods to LiveServerMessage to quickly access text and data ([f916666](https://github.com/googleapis/kotlin-genai/commit/f916666475259c288fad04e776e160bc83c78fd7))
+* Add Live API types ([bdbade2](https://github.com/googleapis/kotlin-genai/commit/bdbade26132533941e3b6c721cc7584fcdb4a2af))
+* Add Models.get, Models.delete, Models.list and Models.UpdateTunedModel methods ([295daca](https://github.com/googleapis/kotlin-genai/commit/295daca465e0d4d99fabffca8fd45a9890a275bd))
+* add Pager&lt;T&gt; and support Caches.list() method ([f701987](https://github.com/googleapis/kotlin-genai/commit/f701987c3cf51e26598cad90cc5da71126ee1ca1))
+* Add support for Live API, including connect(), receive(), sendRealtimeInput(), sendClientContent(), and sendToolResponse() ([fe0967e](https://github.com/googleapis/kotlin-genai/commit/fe0967e041464fdf31e901aa8f28127cb1f27c7a))
+* Add Tunings module, methods: get, list, cancel, tune, validate_reward ([6f9027f](https://github.com/googleapis/kotlin-genai/commit/6f9027f80d3fa71ca14c593be8728eeda4945e14))
+* Allow api key + proj/location for enterprise mode ([d43ec22](https://github.com/googleapis/kotlin-genai/commit/d43ec2281942ea739f930189b5548838e9c1c538))
+* Support GoogleMaps Tool grounding_types places and routing ([1a73730](https://github.com/googleapis/kotlin-genai/commit/1a73730c2bb8740203e0016b31f2116dd09107d5))
+* support models.embedContent() ([9229adf](https://github.com/googleapis/kotlin-genai/commit/9229adffc546b70422786f5dbc64ebfa901fc37a))
+
+
+### Bug Fixes
+
+* **android:** block Client initialization with API key or credentials on Android ([ac6d089](https://github.com/googleapis/kotlin-genai/commit/ac6d08938f8c6a573c924c4789c031e38097cbcf))
+
+
+### Documentation
+
+* Add examples and README for Caches API ([44123b8](https://github.com/googleapis/kotlin-genai/commit/44123b894f5e68f79e110cdb4bfe69bc212f4dd3))
+* Add examples for countTokens and computeTokens ([150f3f0](https://github.com/googleapis/kotlin-genai/commit/150f3f0b6c53ec924196b30d16a0613042633dd3))
+* Add examples for Live API usage ([7f823d3](https://github.com/googleapis/kotlin-genai/commit/7f823d33f03fb9ddb9e64a901953ff811289ced0))
+* Add readme example for computeTokens and countTokens ([f46e08a](https://github.com/googleapis/kotlin-genai/commit/f46e08a13cdb47086950825336b66ef674cec0a2))
+* Add README update for Batches ([d09f97a](https://github.com/googleapis/kotlin-genai/commit/d09f97a85f991385c695bd75558d7e5d403a59f1))
+* Add README update for Files ([a47d4ba](https://github.com/googleapis/kotlin-genai/commit/a47d4bae58cc1c7c5432bed9e052da0f271c4a09))
+* Add README update for Models.embedContent() ([b942d4d](https://github.com/googleapis/kotlin-genai/commit/b942d4d29e2337c4b55c30a11e8a6892bde2c7c5))
+* Add README update for Tunings ([af174d5](https://github.com/googleapis/kotlin-genai/commit/af174d5a0e49fcb1025b7fe0a342042026094b68))
+* Add samples for models.get, models.update, models.list, and models.delete ([0db4dd9](https://github.com/googleapis/kotlin-genai/commit/0db4dd94bfad201ec0a7138160b5536d0db7980a))
+
 ## [0.2.0](https://github.com/googleapis/kotlin-genai/compare/v0.1.0...v0.2.0) (2026-07-09)
 
 
