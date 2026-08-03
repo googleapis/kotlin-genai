@@ -71,4 +71,7 @@ data class ReinforcementTuningHyperParameters(
    * default to -1 (dynamic thinking).
    */
   val thinkingBudget: Int? = null,
+
+  /** Optional. Number of steps for the tuning job (mutually exclusive with epoch_count). */
+  val stepCount: Long? = null,
 )

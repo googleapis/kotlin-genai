@@ -35,7 +35,7 @@ data class CodeExecutionResult(
 
   /**
    * Optional. The identifier of the `ExecutableCode` part this result is for. Only populated if the
-   * corresponding `ExecutableCode` has an id. This field is not supported in Vertex AI.
+   * corresponding `ExecutableCode` has an id.
    */
   val id: String? = null,
 )
