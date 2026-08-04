@@ -123,6 +123,14 @@ tasks.withType<Test> {
     environment.remove("GOOGLE_API_KEY")
     environment.remove("GOOGLE_CLOUD_LOCATION")
     environment.remove("GOOGLE_GENAI_USE_ENTERPRISE")
+    environment.remove("GOOGLE_GENAI_RUN_VERTEX_ONLY_IN_API_MODE")
+    environment.remove("GOOGLE_GENAI_RUN_GEMINI_ONLY_IN_API_MODE")
+
+    // The curated shared suite (go/genai-sdk:integration-testing) exists to exercise
+    // the live backends from the nightly jobs, so it deliberately ships no
+    // recordings and is not replayable. Exclude it from every replay-mode Test
+    // task. It is still compiled, so a broken test is caught at build time.
+    exclude("com/google/genai/kotlin/shared/**")
   }
 }
 

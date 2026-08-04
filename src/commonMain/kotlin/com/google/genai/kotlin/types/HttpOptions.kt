@@ -35,4 +35,7 @@ data class HttpOptions(
 
   /** Timeout for the request in milliseconds. */
   val timeout: Int? = null,
+
+  /** HTTP retry options for the request. */
+  val retryOptions: HttpRetryOptions? = null,
 )
