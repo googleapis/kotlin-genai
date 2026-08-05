@@ -1,0 +1,110 @@
+{
+  "recordID": "ChatsTest.testSeededHistoryIsSentToTheModel.vertex",
+  "interactions": [
+    {
+      "request": {
+        "method": "POST",
+        "url": "/v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-3.6-flash:generateContent",
+        "request": "POST /v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-3.6-flash:generateContent HTTP/1.1",
+        "headers": {
+          "Accept": "*/*",
+          "Accept-Charset": "UTF-8",
+          "Accept-Encoding": "gzip",
+          "Connection": "Keep-Alive",
+          "Content-Length": "225",
+          "Content-Type": "application/json",
+          "Test-Name": "ChatsTest.testSeededHistoryIsSentToTheModel.vertex"
+        },
+        "bodySegments": [
+          {
+            "contents": [
+              {
+                "parts": [
+                  {
+                    "text": "My favourite colour is blue."
+                  }
+                ],
+                "role": "user"
+              },
+              {
+                "parts": [
+                  {
+                    "text": "Noted, blue it is."
+                  }
+                ],
+                "role": "model"
+              },
+              {
+                "parts": [
+                  {
+                    "text": "What is my favourite colour? Answer with one word."
+                  }
+                ],
+                "role": "user"
+              }
+            ]
+          }
+        ],
+        "previousRequest": "b4d6e60a9b97e7b98c63df9308728c5c88c0b40c398046772c63447b94608b4d",
+        "serverAddress": "aiplatform.googleapis.com",
+        "port": 443,
+        "protocol": "https"
+      },
+      "shaSum": "2daefbc6272c34c50f6c67030df3dfd5f2872c13927d3a9aa48e5b96d2a3af92",
+      "response": {
+        "statusCode": 200,
+        "headers": {
+          "Content-Encoding": "gzip",
+          "Content-Length": "832",
+          "Content-Type": "application/json; charset=UTF-8",
+          "Date": "Fri, 07 Aug 2026 21:47:29 GMT",
+          "Server": "scaffolding on HTTPServer2",
+          "Vary": "Origin, X-Origin, Referer",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "SAMEORIGIN",
+          "X-Xss-Protection": "0"
+        },
+        "bodySegments": [
+          {
+            "candidates": [
+              {
+                "content": {
+                  "parts": [
+                    {
+                      "text": "Blue",
+                      "thoughtSignature": "AY89a19Afr+33WWibrvFETCYcAt3B9izPg+a/75C8weHWhQCWrCs+j9ByAM7rcfE3eoFmy66lS4OPLOnBFbXU2hRA3bH88jvoPncCsKky6O1mI38vaPFDpBgw22LyCTqEsww8XVftyySU53h+qMomB3kq1jMNs8qNsGAd0hlcfCj8l6MGbofFUssKC5y6VwSaRRw6L3tSInBZIxEuEA2kCfkz+L4tXezHoL+OHaoRMDrOHof5ZDFTdbIeYhEnj0H0LPpA/1l4szQbCIgqaD+4ZhJ2RkkHIJjyZsa7A9go/gintvnI/FVqkaWph0xCyuB7E3nWmIh7Z0985+AZ1FaFA3BrDBMYCoV15NPNZQWx1rF8zlZ2KDR7eBw+gcTmfb9s3Ps0kJmbd9HRmQxDfCRJgARcojFQvxn/2hhpHYzwtsKxc/KSsI0VWSzKlSYL3ggxlDzEBo7RvJ/6fuYTXMIQnufCVDFMQ94ATCHsfkzQIQEm2Z/9QovAVm26d8I1TIuZRKilcVn1sSIBZ/SImSSheiiVcxVB2DwlKURcTeXuNju5wxthFDRPWQ="
+                    }
+                  ],
+                  "role": "model"
+                },
+                "finishReason": "STOP"
+              }
+            ],
+            "createTime": "2026-08-07T21:47:28.621844Z",
+            "modelVersion": "gemini-3.6-flash",
+            "responseId": "cFJ2apT6JYqW9LsPx52d4Q8",
+            "usageMetadata": {
+              "candidatesTokenCount": 1,
+              "candidatesTokensDetails": [
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 1
+                }
+              ],
+              "promptTokenCount": 24,
+              "promptTokensDetails": [
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 24
+                }
+              ],
+              "thoughtsTokenCount": 92,
+              "totalTokenCount": 117,
+              "trafficType": "ON_DEMAND"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,102 @@
+{
+  "recordID": "ChatsTest.testSessionConfigAppliesWhenNoPerCallConfig.vertex",
+  "interactions": [
+    {
+      "request": {
+        "method": "POST",
+        "url": "/v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-3.6-flash:generateContent",
+        "request": "POST /v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-3.6-flash:generateContent HTTP/1.1",
+        "headers": {
+          "Accept": "*/*",
+          "Accept-Charset": "UTF-8",
+          "Accept-Encoding": "gzip",
+          "Connection": "Keep-Alive",
+          "Content-Length": "207",
+          "Content-Type": "application/json",
+          "Test-Name": "ChatsTest.testSessionConfigAppliesWhenNoPerCallConfig.vertex"
+        },
+        "bodySegments": [
+          {
+            "contents": [
+              {
+                "parts": [
+                  {
+                    "text": "What is your favourite colour?"
+                  }
+                ],
+                "role": "user"
+              }
+            ],
+            "generationConfig": {},
+            "systemInstruction": {
+              "parts": [
+                {
+                  "text": "Whatever you are asked, answer with exactly one word: blue."
+                }
+              ]
+            }
+          }
+        ],
+        "previousRequest": "b4d6e60a9b97e7b98c63df9308728c5c88c0b40c398046772c63447b94608b4d",
+        "serverAddress": "aiplatform.googleapis.com",
+        "port": 443,
+        "protocol": "https"
+      },
+      "shaSum": "b08ea17c96d8b2f85aa7ed5e782a223114260cd7ea05f72b99a9915d1e289037",
+      "response": {
+        "statusCode": 200,
+        "headers": {
+          "Content-Encoding": "gzip",
+          "Content-Length": "1005",
+          "Content-Type": "application/json; charset=UTF-8",
+          "Date": "Fri, 07 Aug 2026 21:47:25 GMT",
+          "Server": "scaffolding on HTTPServer2",
+          "Vary": "Origin, X-Origin, Referer",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "SAMEORIGIN",
+          "X-Xss-Protection": "0"
+        },
+        "bodySegments": [
+          {
+            "candidates": [
+              {
+                "content": {
+                  "parts": [
+                    {
+                      "text": "blue",
+                      "thoughtSignature": "AY89a1/jK/tv0tquPLmEeWlSk/PtE/ddlMJ7h2mynmiNwpIP/u/CPsqKwHniVyvJABp9T+1DcXmoYINpHX++uQeGv4J21dx48+TPxe/AFrS4WAJPZb0513KCCzym+C6TM1Z00JfYgA89A/mlzaJvtb6wGZsjntKznKRfhhoQha5sMbHO4dm6lLBJrQLK/vZXKpLafROjIn2gc7zYs2wtUkxJBL6bHilNIyILDTn6HBBP3Uiuu0ZBin8F4n0DVZBf82z3/j3TQ1vsPmQH5cgDdpvYooMcxjWkWcaYLW7tnP6bDBa27zi6N+KHXH/ULgVY8TEZOWwBrNGyVEQuitElZiwit1kxMqDSShcXe4vNtpBBRu2MFd3SwgBun0YDVm4WiO8caxt26MJj6QrggfO8EzkUpYZ/EzgDxhWO4p90vA/5RVrwXMNy6ai6pNd47H9Sjq9AfacxOs37xYIxXHnpwxvBIXRuDC9ad3zj2mitSWJVsznqrT2Jm4cQWiXgqcoxvMOvVn31KEVHR30N2bssL6A5g+M4VIjzkALwDr93UmdPce00opeHdVd4gQEhS505H7rVJ7kXnorZGMwyZnz0+67Pyb6mKPnyLtJNeO8W3+/wzo6oefEyRiwISNgSguE+kQ4CG38UfyoUkR2Y88ZQUQudQPKVFj0aMhYkwsllhkVHHxCR4xcoaB3cXqOzGIk9fQE5UfZqFIfYbpu8lyE0L0cx/hTLFr+Fg0LMAp1YpQnw6oxWv5c5RLbiMxaltymnqny1bsTpxUA2Q3JThukbrzs="
+                    }
+                  ],
+                  "role": "model"
+                },
+                "finishReason": "STOP"
+              }
+            ],
+            "createTime": "2026-08-07T21:47:24.495870Z",
+            "modelVersion": "gemini-3.6-flash",
+            "responseId": "bFJ2av6hHtGj9LsPsZ2xyAE",
+            "usageMetadata": {
+              "candidatesTokenCount": 1,
+              "candidatesTokensDetails": [
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 1
+                }
+              ],
+              "promptTokenCount": 19,
+              "promptTokensDetails": [
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 19
+                }
+              ],
+              "thoughtsTokenCount": 146,
+              "totalTokenCount": 166,
+              "trafficType": "ON_DEMAND"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
