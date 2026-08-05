@@ -754,6 +754,7 @@ $dokka.location:com.google.genai.kotlin.types/FinishReason.Companion/RECITATION/
 $dokka.location:com.google.genai.kotlin.types/FinishReason.Companion/SAFETY/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-finish-reason/-companion/-s-a-f-e-t-y.html
 $dokka.location:com.google.genai.kotlin.types/FinishReason.Companion/SPII/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-finish-reason/-companion/-s-p-i-i.html
 $dokka.location:com.google.genai.kotlin.types/FinishReason.Companion/STOP/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-finish-reason/-companion/-s-t-o-p.html
+$dokka.location:com.google.genai.kotlin.types/FinishReason.Companion/TOO_MANY_TOOL_CALLS/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-finish-reason/-companion/-t-o-o_-m-a-n-y_-t-o-o-l_-c-a-l-l-s.html
 $dokka.location:com.google.genai.kotlin.types/FinishReason.Companion/UNEXPECTED_TOOL_CALL/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-finish-reason/-companion/-u-n-e-x-p-e-c-t-e-d_-t-o-o-l_-c-a-l-l.html
 $dokka.location:com.google.genai.kotlin.types/FinishReason///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-finish-reason/index.html
 $dokka.location:com.google.genai.kotlin.types/FinishReason/FinishReason/#kotlin.String/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-finish-reason/-finish-reason.html
