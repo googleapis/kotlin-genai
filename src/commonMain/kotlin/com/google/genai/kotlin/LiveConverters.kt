@@ -348,7 +348,7 @@ internal object LiveConverters {
       Common.setValueByPath(
         toObject,
         arrayOf("responseJsonSchema"),
-        Common.getValueByPath(fromObject, arrayOf("responseJsonSchema")),
+        Transformers.tJsonSchema(Common.getValueByPath(fromObject, arrayOf("responseJsonSchema"))),
       )
     }
 

@@ -29,6 +29,10 @@ import com.google.genai.kotlin.types.VoiceConfig
 /** Transformers for GenAI Kotlin SDK. */
 internal object Transformers {
 
+  fun tJsonSchema(origin: Any?): Any? {
+    return origin
+  }
+
   /**
    * In other languages, this transformer is used for supporting union types. We pass it through, or
    * wrap Strings/Contents into a List.
@@ -38,7 +42,8 @@ internal object Transformers {
     return when (origin) {
       is String -> listOf(Content(parts = listOf(Part(text = origin))))
       is Content -> listOf(origin)
-      is List<*> -> origin.map { if (it is String) Content(parts = listOf(Part(text = it))) else it }
+      is List<*> ->
+        origin.map { if (it is String) Content(parts = listOf(Part(text = it))) else it }
       else -> origin
     }
   }
@@ -192,7 +197,10 @@ internal object Transformers {
   fun tExtractModels(origin: Any?): Any? {
     if (origin == null) return emptyList<Any?>()
     val response = origin as? Map<*, *> ?: return emptyList<Any?>()
-    return response["models"] ?: response["tunedModels"] ?: response["publisherModels"] ?: emptyList<Any?>()
+    return response["models"]
+      ?: response["tunedModels"]
+      ?: response["publisherModels"]
+      ?: emptyList<Any?>()
   }
 
   fun tModelsUrl(apiClient: ApiClient, baseModels: Any?): String {
@@ -237,21 +245,25 @@ internal object Transformers {
   }
 
   fun tBatchJobSource(source: Any?): Any? = source
+
   fun tBatchJobDestination(destination: Any?): Any? = destination
+
   fun tRecvBatchJobDestination(destination: Any?): Any? = destination
 
   fun tFileName(origin: Any?): String? {
     if (origin == null) return null
-    var name = when (origin) {
-      is String -> origin
-      is File -> origin.name ?: throw IllegalArgumentException("File name is required.")
-      else -> origin.toString().replace("\"", "")
-    }
+    var name =
+      when (origin) {
+        is String -> origin
+        is File -> origin.name ?: throw IllegalArgumentException("File name is required.")
+        else -> origin.toString().replace("\"", "")
+      }
 
     if (name.startsWith("https://")) {
       val suffix = name.substringAfter("files/")
       val regex = Regex("[a-z0-9-]+")
-      name = regex.find(suffix)?.value ?: throw IllegalArgumentException("Invalid file URI: $origin")
+      name =
+        regex.find(suffix)?.value ?: throw IllegalArgumentException("Invalid file URI: $origin")
     } else if (name.startsWith("files/")) {
       name = name.substringAfter("files/")
     }
@@ -266,17 +278,16 @@ internal object Transformers {
   /** Transforms contents for embedding requests. */
   fun tContentsForEmbed(apiClient: ApiClient, origin: Any?): Any? {
     if (origin == null) return null
-    val list = when (origin) {
-      is List<*> -> origin
-      else -> listOf(origin)
-    }
+    val list =
+      when (origin) {
+        is List<*> -> origin
+        else -> listOf(origin)
+      }
     if (apiClient.enterprise) {
       val textParts = mutableListOf<String>()
       for (item in list) {
         if (item is Content) {
-          item.parts?.forEach { part ->
-            part.text?.let { textParts.add(it) }
-          }
+          item.parts?.forEach { part -> part.text?.let { textParts.add(it) } }
         } else if (item is Map<*, *>) {
           val parts = item["parts"] as? List<*>
           parts?.forEach { partObj ->
