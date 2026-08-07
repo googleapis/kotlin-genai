@@ -123,6 +123,8 @@ tasks.withType<Test> {
     environment.remove("GOOGLE_API_KEY")
     environment.remove("GOOGLE_CLOUD_LOCATION")
     environment.remove("GOOGLE_GENAI_USE_ENTERPRISE")
+    environment.remove("GOOGLE_GENAI_RUN_VERTEX_ONLY_IN_API_MODE")
+    environment.remove("GOOGLE_GENAI_RUN_GEMINI_ONLY_IN_API_MODE")
   }
 }
 
