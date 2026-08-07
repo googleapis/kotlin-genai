@@ -2458,11 +2458,16 @@ $dokka.location:com.google.genai.kotlin/Caches/delete/#kotlin.String#com.google.
 $dokka.location:com.google.genai.kotlin/Caches/get/#kotlin.String#com.google.genai.kotlin.types.GetCachedContentConfig?/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin/-caches/get.html
 $dokka.location:com.google.genai.kotlin/Caches/list/#com.google.genai.kotlin.types.ListCachedContentsConfig?/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin/-caches/list.html
 $dokka.location:com.google.genai.kotlin/Caches/update/#kotlin.String#com.google.genai.kotlin.types.UpdateCachedContentConfig?/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin/-caches/update.html
+$dokka.location:com.google.genai.kotlin/Chat///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin/-chat/index.html
+$dokka.location:com.google.genai.kotlin/Chat/getHistory/#kotlin.Boolean/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin/-chat/get-history.html
+$dokka.location:com.google.genai.kotlin/Chats///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin/-chats/index.html
+$dokka.location:com.google.genai.kotlin/Chats/create/#kotlin.String#com.google.genai.kotlin.types.GenerateContentConfig?#kotlin.collections.List[com.google.genai.kotlin.types.Content]/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin/-chats/create.html
 $dokka.location:com.google.genai.kotlin/Client///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin/-client/index.html
 $dokka.location:com.google.genai.kotlin/Client/Client/#kotlin.String?#kotlin.String?#kotlin.String?#com.google.genai.kotlin.GoogleCredentials?#kotlin.Boolean?#com.google.genai.kotlin.types.HttpOptions?/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin/-client/-client.html
 $dokka.location:com.google.genai.kotlin/Client/apiKey/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin/-client/api-key.html
 $dokka.location:com.google.genai.kotlin/Client/batches/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin/-client/batches.html
 $dokka.location:com.google.genai.kotlin/Client/caches/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin/-client/caches.html
+$dokka.location:com.google.genai.kotlin/Client/chats/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin/-client/chats.html
 $dokka.location:com.google.genai.kotlin/Client/close/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin/-client/close.html
 $dokka.location:com.google.genai.kotlin/Client/enterprise/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin/-client/enterprise.html
 $dokka.location:com.google.genai.kotlin/Client/files/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin/-client/files.html
