@@ -1,0 +1,102 @@
+{
+  "recordID": "ChatsTest.testSendMessageContentList.vertex",
+  "interactions": [
+    {
+      "request": {
+        "method": "POST",
+        "url": "/v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-3.6-flash:generateContent",
+        "request": "POST /v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-3.6-flash:generateContent HTTP/1.1",
+        "headers": {
+          "Accept": "*/*",
+          "Accept-Charset": "UTF-8",
+          "Accept-Encoding": "gzip",
+          "Connection": "Keep-Alive",
+          "Content-Length": "136",
+          "Content-Type": "application/json",
+          "Test-Name": "ChatsTest.testSendMessageContentList.vertex"
+        },
+        "bodySegments": [
+          {
+            "contents": [
+              {
+                "parts": [
+                  {
+                    "text": "The capital of France is:"
+                  }
+                ],
+                "role": "user"
+              },
+              {
+                "parts": [
+                  {
+                    "text": "Answer with one word."
+                  }
+                ],
+                "role": "user"
+              }
+            ]
+          }
+        ],
+        "previousRequest": "b4d6e60a9b97e7b98c63df9308728c5c88c0b40c398046772c63447b94608b4d",
+        "serverAddress": "aiplatform.googleapis.com",
+        "port": 443,
+        "protocol": "https"
+      },
+      "shaSum": "5b39e25fe824fa110d658f31c3c1cb381c813b8c69507fe218c341c03ebda5af",
+      "response": {
+        "statusCode": 200,
+        "headers": {
+          "Content-Encoding": "gzip",
+          "Content-Length": "720",
+          "Content-Type": "application/json; charset=UTF-8",
+          "Date": "Fri, 07 Aug 2026 21:47:32 GMT",
+          "Server": "scaffolding on HTTPServer2",
+          "Vary": "Origin, X-Origin, Referer",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "SAMEORIGIN",
+          "X-Xss-Protection": "0"
+        },
+        "bodySegments": [
+          {
+            "candidates": [
+              {
+                "content": {
+                  "parts": [
+                    {
+                      "text": "Paris",
+                      "thoughtSignature": "AY89a19Xze2T5bdfikp+KsYy7mBnsgAUsSz+7KnuaV1klGG+Hav1MPQrbc+iS3Kh/SMZ2muEpsLNUafsM6wWpLWfdvC3DqlZm/dEWeRvjd83RLZwaOIF/VyMJOfYqw/WUf02Tbf4LMJ5/VGUHssrsC2cjA7fDJX5U6WEGcGXs5vLKXl2pf0sJUzeMJa+CxSi4+LH/9ZUpWUYWtccT/2o1Lz6ioE103hEj+RS/stzL5duXLpND236Z423slrzqhpq8146mCJ0ldLlcKRIrHF4sTbSuOKm5mu4B0Gix/fz8VBEhJUp2AoPL9r+m3gaXGTtg4z/MvDu/2IwuTGAMcdnS5/Q7YPU3XYr8/r4YQWUWQCrfA/IEia5cfBEOtvnALI4WykToa6rR6/PTmHZBS1P2xPtRPILuxYBpH7fws1LVgdXfw=="
+                    }
+                  ],
+                  "role": "model"
+                },
+                "finishReason": "STOP"
+              }
+            ],
+            "createTime": "2026-08-07T21:47:31.754856Z",
+            "modelVersion": "gemini-3.6-flash",
+            "responseId": "c1J2aqiJLtmh9LsP8dbl8AU",
+            "usageMetadata": {
+              "candidatesTokenCount": 1,
+              "candidatesTokensDetails": [
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 1
+                }
+              ],
+              "promptTokenCount": 11,
+              "promptTokensDetails": [
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 11
+                }
+              ],
+              "thoughtsTokenCount": 70,
+              "totalTokenCount": 82,
+              "trafficType": "ON_DEMAND"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
