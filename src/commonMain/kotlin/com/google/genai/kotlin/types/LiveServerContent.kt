@@ -85,4 +85,7 @@ data class LiveServerContent(
 
   /** Low latency transcription updated while the user is speaking. */
   val interimInputTranscription: Transcription? = null,
+
+  /** The current activity status of the live session. Always sent alongside `turn_complete`. */
+  val interactionStatus: InteractionStatus? = null,
 )
