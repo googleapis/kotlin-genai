@@ -1,0 +1,121 @@
+{
+  "recordID": "ChatsTest.testSendMessageStream.mldev",
+  "interactions": [
+    {
+      "request": {
+        "method": "POST",
+        "url": "/v1beta/models/gemini-3.6-flash:streamGenerateContent?alt=sse",
+        "request": "POST /v1beta/models/gemini-3.6-flash:streamGenerateContent?alt=sse HTTP/1.1",
+        "headers": {
+          "Accept": "*/*",
+          "Accept-Charset": "UTF-8",
+          "Accept-Encoding": "gzip",
+          "Connection": "Keep-Alive",
+          "Content-Length": "82",
+          "Content-Type": "application/json",
+          "Test-Name": "ChatsTest.testSendMessageStream.mldev"
+        },
+        "bodySegments": [
+          {
+            "contents": [
+              {
+                "parts": [
+                  {
+                    "text": "What is the capital of France?"
+                  }
+                ],
+                "role": "user"
+              }
+            ]
+          }
+        ],
+        "previousRequest": "b4d6e60a9b97e7b98c63df9308728c5c88c0b40c398046772c63447b94608b4d",
+        "serverAddress": "generativelanguage.googleapis.com",
+        "port": 443,
+        "protocol": "https"
+      },
+      "shaSum": "d932897350c7b7dc6d75ec59437982582ac090819f923be8846b7266aa69f7ba",
+      "response": {
+        "statusCode": 200,
+        "headers": {
+          "Content-Disposition": "attachment",
+          "Content-Type": "text/event-stream",
+          "Date": "Fri, 07 Aug 2026 21:53:33 GMT",
+          "Server": "scaffolding on HTTPServer2",
+          "Server-Timing": "gfet4t7; dur=1131",
+          "Vary": "Origin, X-Origin, Referer",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "SAMEORIGIN",
+          "X-Xss-Protection": "0"
+        },
+        "bodySegments": [
+          {
+            "candidates": [
+              {
+                "content": {
+                  "parts": [
+                    {
+                      "text": "The capital of France is **Paris**."
+                    }
+                  ],
+                  "role": "model"
+                },
+                "index": 0
+              }
+            ],
+            "modelVersion": "gemini-3.6-flash",
+            "responseId": "3FN2ao38HLDEqtsP3Zfi8Qc",
+            "turnToken": "v1_ChczRk4yYW8zOEhMREVxdHNQM1pmaThRYxIXM0ZOMmFvMzhITERFcXRzUDNaZmk4UWM",
+            "usageMetadata": {
+              "candidatesTokenCount": 8,
+              "promptTokenCount": 8,
+              "promptTokensDetails": [
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 8
+                }
+              ],
+              "serviceTier": "standard",
+              "thoughtsTokenCount": 60,
+              "totalTokenCount": 76
+            }
+          },
+          {
+            "candidates": [
+              {
+                "content": {
+                  "parts": [
+                    {
+                      "text": "",
+                      "thoughtSignature": "EuICCt8CARFNMg+1GmfB8xjEd4Q7OeyPYt1FJ6XLFTAswmipFEPjrxP4BykfIE/66MWqrJ5SOo8kPXpHE93Pxdrc+gB7/6GZcK7/14DduYtdf1a1qVUc+P3NMVuc86ueaNZa0qWe+tnGHzUVMPTzEIgUJR3jQsWy45E2hqKz+GiaRdbXEkwaQaNW6jVXsh23GUlwY+WXfe6HhqBNlp7k35KGqnF4Y/A7kCfiC+k7xqhhWd/b/UtMlVcO5jRirsFcY/f5PkbHGG1DNIcvlsKg+wbJOCWeqL8pNiX72DmnLKzemBNXb/fXgMMBNZO+XL9IjlxFI5FpVEu04kg0bf8dwWJaF2QmNIq+mAtZNCQRK2XSbltIPrxd/aMbyPxGYA7iwr/DwhRhpqP4mfbj8sw0rf89TkibU/IvVe83uvJnzkbU2TSJONb61aOOjef3XKLSzU7Q70V5TnexWlPbUyFjuVqWiycV"
+                    }
+                  ],
+                  "role": "model"
+                },
+                "finishReason": "STOP",
+                "index": 0
+              }
+            ],
+            "modelVersion": "gemini-3.6-flash",
+            "responseId": "3FN2ao38HLDEqtsP3Zfi8Qc",
+            "turnToken": "v1_ChczRk4yYW8zOEhMREVxdHNQM1pmaThRYxIXM0ZOMmFvMzhITERFcXRzUDNaZmk4UWM",
+            "usageMetadata": {
+              "candidatesTokenCount": 8,
+              "promptTokenCount": 8,
+              "promptTokensDetails": [
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 8
+                }
+              ],
+              "rawPromptTokenCount": 39,
+              "serviceTier": "standard",
+              "thoughtsTokenCount": 60,
+              "totalTokenCount": 76
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
