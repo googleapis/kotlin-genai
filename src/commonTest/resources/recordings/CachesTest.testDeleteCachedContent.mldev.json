@@ -11,6 +11,7 @@
           "Accept-Charset": "UTF-8",
           "Accept-Encoding": "gzip",
           "Connection": "Keep-Alive",
+          "Content-Length": "0",
           "Content-Type": "application/json",
           "Test-Name": "CachesTest.testDeleteCachedContent.mldev"
         },

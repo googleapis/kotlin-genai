@@ -1,0 +1,200 @@
+{
+  "recordID": "ChatsTest.testMultiTurnChatSendsPriorTurns.vertex",
+  "interactions": [
+    {
+      "request": {
+        "method": "POST",
+        "url": "/v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-3.6-flash:generateContent",
+        "request": "POST /v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-3.6-flash:generateContent HTTP/1.1",
+        "headers": {
+          "Accept": "*/*",
+          "Accept-Charset": "UTF-8",
+          "Accept-Encoding": "gzip",
+          "Connection": "Keep-Alive",
+          "Content-Length": "93",
+          "Content-Type": "application/json",
+          "Test-Name": "ChatsTest.testMultiTurnChatSendsPriorTurns.vertex"
+        },
+        "bodySegments": [
+          {
+            "contents": [
+              {
+                "parts": [
+                  {
+                    "text": "My favourite colour is blue. Remember it."
+                  }
+                ],
+                "role": "user"
+              }
+            ]
+          }
+        ],
+        "previousRequest": "b4d6e60a9b97e7b98c63df9308728c5c88c0b40c398046772c63447b94608b4d",
+        "serverAddress": "aiplatform.googleapis.com",
+        "port": 443,
+        "protocol": "https"
+      },
+      "shaSum": "6a235b2d2ca2987f207d8ebe15de99e4340c36a08cb0112f7e28cfec2a08db72",
+      "response": {
+        "statusCode": 200,
+        "headers": {
+          "Content-Encoding": "gzip",
+          "Content-Length": "1337",
+          "Content-Type": "application/json; charset=UTF-8",
+          "Date": "Fri, 07 Aug 2026 21:53:39 GMT",
+          "Server": "scaffolding on HTTPServer2",
+          "Vary": "Origin, X-Origin, Referer",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "SAMEORIGIN",
+          "X-Xss-Protection": "0"
+        },
+        "bodySegments": [
+          {
+            "candidates": [
+              {
+                "content": {
+                  "parts": [
+                    {
+                      "text": "Got it! I've noted down that your favorite color is blue. 💙",
+                      "thoughtSignature": "AY89a1+Hw5xD9NKgfAiEffgvlpxto2uRzZG4hqaJ47UJN87ZiyfF+T/zvTXL6Ja3aRjzGenhr7tjNanmfNJnOaDXdbbb8jN/aR2nYXV9y1qNMPtNbE1HkeYJcM/i3xeo98DB6R1TFNnZ+eaig6VzPZZtfzdLaRGnv72zL/Puvu2pYVfNcw5Z6zQxQfaH0RLWKyMeW0pkO90t4Z5ES+R1Mn/qvxGResKW/bVmVI53PPXuFyxyyoWZzHC5g8d66ZXxx4IAir2K7ZnqA2Q1Dy7VJijOD7WQeX+ChdzScpHZe+rEQmS+neTKwF/RDMOXSsmcmXfDGFYtAYIrMSKdoT38KDgPf/nEPASetbP/kiwewe8HXcWlekhK3XgonyWfD3sulHIHqtgD4yr+98iFOSX/aC8+lu0oJsYNOqdD6Yqtak32qt2lOtlB8Jd73VNS5QLUE23UkdXPfM5OVSuj63hnAjWeSMNqwrl8Hqx4gqsUsyPz+iVN5zCWxLRePn9yTaQ+9pX3ZXIvbF2ewlStQwBPWe44d7IJhtcBKO2R8Ue5G1TbK/T+f6HJJT4qpQSZ+F3NsX+XFxQ1svtcMewAYnCe+g1/iHSuOHf/DD9XM39U2Wv4O3AhcUdCtUcVCxHPmWtVJXrKfjP84Pd+IhWy+t75wzaReve99dW/uKACL3wkVJMIMQGE0iFWcyYcZG2QjJuSODtAEBF+0jCDNRnxoDn3awCUd4i/fAf1wM62ZbTaKx8kfCw5PzlBTcB7d9u2XsqtXf1ibfJz3jO3JlLLgmVEz2D5KMS9wWZV3Fk3nRuqjPdjBpSn5z/HbidJBXyXw6LvSkNZ2TpWECJ0eo3k45sF5bz3qIsO/SkuAlzufaLKozbqvMo4/EEVoi8ndKpCcHm5vZMoV/GJiEfnWJ9CUUQO0A04RT0QkQSuh9sXvevmRMTknxYaQa7FvZaTjCF5cO/y8OQpI7FveasI/936m6p18JvxeHO6maUtC3L7TP1WmekQXHJdUc+dMrpx/j6Ash0RZ8UOERJW00ZrNhFS4mWEtHNBJngi2kZpMacfYMOkvU78RW3StEjYNUfI8kevCFe691GGhzO3CQEJNhyhyOIy30QrvAr35XTJMymZw2ApAxBBGtWOTQ=="
+                    }
+                  ],
+                  "role": "model"
+                },
+                "finishReason": "STOP"
+              }
+            ],
+            "createTime": "2026-08-07T21:53:38.025324Z",
+            "modelVersion": "gemini-3.6-flash",
+            "responseId": "4lN2auzFAZCF9LsPxd_PiQQ",
+            "usageMetadata": {
+              "candidatesTokenCount": 17,
+              "candidatesTokensDetails": [
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 17
+                }
+              ],
+              "promptTokenCount": 9,
+              "promptTokensDetails": [
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 9
+                }
+              ],
+              "thoughtsTokenCount": 199,
+              "totalTokenCount": 225,
+              "trafficType": "ON_DEMAND"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "url": "/v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-3.6-flash:generateContent",
+        "request": "POST /v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-3.6-flash:generateContent HTTP/1.1",
+        "headers": {
+          "Accept": "*/*",
+          "Accept-Charset": "UTF-8",
+          "Accept-Encoding": "gzip",
+          "Connection": "Keep-Alive",
+          "Content-Length": "1444",
+          "Content-Type": "application/json",
+          "Test-Name": "ChatsTest.testMultiTurnChatSendsPriorTurns.vertex"
+        },
+        "bodySegments": [
+          {
+            "contents": [
+              {
+                "parts": [
+                  {
+                    "text": "My favourite colour is blue. Remember it."
+                  }
+                ],
+                "role": "user"
+              },
+              {
+                "parts": [
+                  {
+                    "text": "Got it! I've noted down that your favorite color is blue. 💙",
+                    "thoughtSignature": "AY89a1+Hw5xD9NKgfAiEffgvlpxto2uRzZG4hqaJ47UJN87ZiyfF+T/zvTXL6Ja3aRjzGenhr7tjNanmfNJnOaDXdbbb8jN/aR2nYXV9y1qNMPtNbE1HkeYJcM/i3xeo98DB6R1TFNnZ+eaig6VzPZZtfzdLaRGnv72zL/Puvu2pYVfNcw5Z6zQxQfaH0RLWKyMeW0pkO90t4Z5ES+R1Mn/qvxGResKW/bVmVI53PPXuFyxyyoWZzHC5g8d66ZXxx4IAir2K7ZnqA2Q1Dy7VJijOD7WQeX+ChdzScpHZe+rEQmS+neTKwF/RDMOXSsmcmXfDGFYtAYIrMSKdoT38KDgPf/nEPASetbP/kiwewe8HXcWlekhK3XgonyWfD3sulHIHqtgD4yr+98iFOSX/aC8+lu0oJsYNOqdD6Yqtak32qt2lOtlB8Jd73VNS5QLUE23UkdXPfM5OVSuj63hnAjWeSMNqwrl8Hqx4gqsUsyPz+iVN5zCWxLRePn9yTaQ+9pX3ZXIvbF2ewlStQwBPWe44d7IJhtcBKO2R8Ue5G1TbK/T+f6HJJT4qpQSZ+F3NsX+XFxQ1svtcMewAYnCe+g1/iHSuOHf/DD9XM39U2Wv4O3AhcUdCtUcVCxHPmWtVJXrKfjP84Pd+IhWy+t75wzaReve99dW/uKACL3wkVJMIMQGE0iFWcyYcZG2QjJuSODtAEBF+0jCDNRnxoDn3awCUd4i/fAf1wM62ZbTaKx8kfCw5PzlBTcB7d9u2XsqtXf1ibfJz3jO3JlLLgmVEz2D5KMS9wWZV3Fk3nRuqjPdjBpSn5z/HbidJBXyXw6LvSkNZ2TpWECJ0eo3k45sF5bz3qIsO/SkuAlzufaLKozbqvMo4/EEVoi8ndKpCcHm5vZMoV/GJiEfnWJ9CUUQO0A04RT0QkQSuh9sXvevmRMTknxYaQa7FvZaTjCF5cO/y8OQpI7FveasI/936m6p18JvxeHO6maUtC3L7TP1WmekQXHJdUc+dMrpx/j6Ash0RZ8UOERJW00ZrNhFS4mWEtHNBJngi2kZpMacfYMOkvU78RW3StEjYNUfI8kevCFe691GGhzO3CQEJNhyhyOIy30QrvAr35XTJMymZw2ApAxBBGtWOTQ=="
+                  }
+                ],
+                "role": "model"
+              },
+              {
+                "parts": [
+                  {
+                    "text": "What is my favourite colour? Answer with one word."
+                  }
+                ],
+                "role": "user"
+              }
+            ]
+          }
+        ],
+        "previousRequest": "6a235b2d2ca2987f207d8ebe15de99e4340c36a08cb0112f7e28cfec2a08db72",
+        "serverAddress": "aiplatform.googleapis.com",
+        "port": 443,
+        "protocol": "https"
+      },
+      "shaSum": "d7221852e5b636add1d9b720ed237d9d4fde15166f4516dfd9954b9cbd6beb61",
+      "response": {
+        "statusCode": 200,
+        "headers": {
+          "Content-Encoding": "gzip",
+          "Content-Length": "951",
+          "Content-Type": "application/json; charset=UTF-8",
+          "Date": "Fri, 07 Aug 2026 21:53:40 GMT",
+          "Server": "scaffolding on HTTPServer2",
+          "Vary": "Origin, X-Origin, Referer",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "SAMEORIGIN",
+          "X-Xss-Protection": "0"
+        },
+        "bodySegments": [
+          {
+            "candidates": [
+              {
+                "content": {
+                  "parts": [
+                    {
+                      "text": "Blue",
+                      "thoughtSignature": "AY89a195n1a4k+JeO7B9wFWujaeukNdtv2GaxT1yZlyANpdR/zZt06c36ts1UFmqDFHDOm+9OrNbQvH0TeA2/ysmhefIIHO2PNCF8GvIsHWdtqCkRLrA7PM1COWkGBW5bQ8v3/etYoNyIBJHRwLZhumRnZ6AwW8VvNEppo1QjjjVbJB6CQ4karbOtDIKuxy7IWqcvmvGl/PYZMEo5rR7Dy+TIap/uRbuNweaPIZ6r7sWtT1uHuDEX6ncOXgLD7H957v2pmd0KRpS19FKD38E5uJ6cJQZk0KtLJZNjvF/AneyORguS2lEF6lkaDhpnw7/Pa2AZniuwNUSsxaA8v5RaTrUCTp6Ru70qxeRG2YoXBOXxD8mV5MyQ8YJft+Vvium/qYx/kh/wRaVH1iVflcFjy/5NKW6ilOw38cMvIJUwWmtrfu4h9uSh40+sw5C5XS/n6Yg0qXiysQ+1LxeOlbdVkBsQDSRgsg84aOCoo3nfusA02MeMHiE1G22UbujBi7XAf8lVWXYdPpJDl1GeASWLZiH6c0arWRM7MTSK9bhSkhTa3Gi1NjXaFXhmkRN82xpHjp5WSZ7j7rUe7Tvb/FN6CUQhTpJ3Oz6tt2lArKXr1J3iQluopFGdZO8tFlcUTIRRtJGrAC0kIIg1Q6GzdgGlTElWPJQFzJXft+zC0nNd4Z5c2UaQVgiyuKmlSCW3OxeISrmI3mqX5qVa5A="
+                    }
+                  ],
+                  "role": "model"
+                },
+                "finishReason": "STOP"
+              }
+            ],
+            "createTime": "2026-08-07T21:53:39.728381Z",
+            "modelVersion": "gemini-3.6-flash",
+            "responseId": "41N2ar26LK-C9LsPkqL0gAo",
+            "usageMetadata": {
+              "candidatesTokenCount": 1,
+              "candidatesTokensDetails": [
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 1
+                }
+              ],
+              "promptTokenCount": 236,
+              "promptTokensDetails": [
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 236
+                }
+              ],
+              "thoughtsTokenCount": 126,
+              "totalTokenCount": 363,
+              "trafficType": "ON_DEMAND"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
