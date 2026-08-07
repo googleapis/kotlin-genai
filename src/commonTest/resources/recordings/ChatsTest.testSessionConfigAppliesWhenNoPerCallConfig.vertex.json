@@ -1,0 +1,102 @@
+{
+  "recordID": "ChatsTest.testSessionConfigAppliesWhenNoPerCallConfig.vertex",
+  "interactions": [
+    {
+      "request": {
+        "method": "POST",
+        "url": "/v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-3.6-flash:generateContent",
+        "request": "POST /v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-3.6-flash:generateContent HTTP/1.1",
+        "headers": {
+          "Accept": "*/*",
+          "Accept-Charset": "UTF-8",
+          "Accept-Encoding": "gzip",
+          "Connection": "Keep-Alive",
+          "Content-Length": "207",
+          "Content-Type": "application/json",
+          "Test-Name": "ChatsTest.testSessionConfigAppliesWhenNoPerCallConfig.vertex"
+        },
+        "bodySegments": [
+          {
+            "contents": [
+              {
+                "parts": [
+                  {
+                    "text": "What is your favourite colour?"
+                  }
+                ],
+                "role": "user"
+              }
+            ],
+            "generationConfig": {},
+            "systemInstruction": {
+              "parts": [
+                {
+                  "text": "Whatever you are asked, answer with exactly one word: blue."
+                }
+              ]
+            }
+          }
+        ],
+        "previousRequest": "b4d6e60a9b97e7b98c63df9308728c5c88c0b40c398046772c63447b94608b4d",
+        "serverAddress": "aiplatform.googleapis.com",
+        "port": 443,
+        "protocol": "https"
+      },
+      "shaSum": "b08ea17c96d8b2f85aa7ed5e782a223114260cd7ea05f72b99a9915d1e289037",
+      "response": {
+        "statusCode": 200,
+        "headers": {
+          "Content-Encoding": "gzip",
+          "Content-Length": "997",
+          "Content-Type": "application/json; charset=UTF-8",
+          "Date": "Fri, 07 Aug 2026 21:52:47 GMT",
+          "Server": "scaffolding on HTTPServer2",
+          "Vary": "Origin, X-Origin, Referer",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "SAMEORIGIN",
+          "X-Xss-Protection": "0"
+        },
+        "bodySegments": [
+          {
+            "candidates": [
+              {
+                "content": {
+                  "parts": [
+                    {
+                      "text": "blue",
+                      "thoughtSignature": "AY89a19v5OxQ2LDMOROmfwiECpmd94TycMBsNk/tILd150Bg4/Kuc5DO/k2eHOIxgKhmqkJcuRqYuVL/TYAi+Q9XKQI8EMLwr2syPJplIKnh6bkOluudIR+ARPNVJh5Sp7AiiDenVhFMwanhDZkOt5RrnnInu0QhHRXYB3MGJ9nkynAV1jKpVPXP6Rkmv6Jq7k128NFMmTrtsiRA5RQgEfUeKt2ucz9QITw8MZkOELTzxhLQrvfnNQu6bDZaWEgEaRYQBXRar71wdrtFf9nwduA8mmdmZrl7CQunnXHev6laCcC/if47oXqZxEasHAdBGp5xrkvH6VkKIZKcqLUa41teM7h67YxYbl/LrTY33jF0qlP4hq4iMfDc+jjZ3cPEDFjwXqNITf6BseKMrMhPIt7vpDt6r/honwMqoPYFfT8nBf1TCYDrF9pLZhH943R0+nf26t26vpZQ/4Ab2o5j2dS3Eo6so1WcwqntyTFIRrgLioxXP73Y8jgFK1yYKt3uLQfyOafOaSa/kkju7lbqqjGFCmWetIeSBjP0HwiemI4EiC0zW7WP2VteQZg8SEe8fb/KJU8osV4JnnnbzQtc2wc3QrM/ZVzusNXmJRA0cNZyRTGfUKaUzGnLHJ9nnghWf7fbLc7Qo2YwNGuMJkDZpjt73XVUp8lCTdJYfMmQrH9cfgLDvBRhxUzorjkY1weFK9tePnXqL2xLTcT7Poaz9J7+qLz7InQO37ko813wg73gd/E+d0f4gY9zpdUMe1XXYsmslKYJymvOakERtGyr"
+                    }
+                  ],
+                  "role": "model"
+                },
+                "finishReason": "STOP"
+              }
+            ],
+            "createTime": "2026-08-07T21:52:45.736472Z",
+            "modelVersion": "gemini-3.6-flash",
+            "responseId": "rVN2atj5LL6g9LsP3v-LmAk",
+            "usageMetadata": {
+              "candidatesTokenCount": 1,
+              "candidatesTokensDetails": [
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 1
+                }
+              ],
+              "promptTokenCount": 19,
+              "promptTokensDetails": [
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 19
+                }
+              ],
+              "thoughtsTokenCount": 144,
+              "totalTokenCount": 164,
+              "trafficType": "ON_DEMAND"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

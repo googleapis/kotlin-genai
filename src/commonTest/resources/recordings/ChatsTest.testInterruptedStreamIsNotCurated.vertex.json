@@ -1,0 +1,112 @@
+{
+  "recordID": "ChatsTest.testInterruptedStreamIsNotCurated.vertex",
+  "interactions": [
+    {
+      "request": {
+        "method": "POST",
+        "url": "/v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-3.6-flash:streamGenerateContent?alt=sse",
+        "request": "POST /v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-3.6-flash:streamGenerateContent?alt=sse HTTP/1.1",
+        "headers": {
+          "Accept": "*/*",
+          "Accept-Charset": "UTF-8",
+          "Accept-Encoding": "gzip",
+          "Connection": "Keep-Alive",
+          "Content-Length": "82",
+          "Content-Type": "application/json",
+          "Test-Name": "ChatsTest.testInterruptedStreamIsNotCurated.vertex"
+        },
+        "bodySegments": [
+          {
+            "contents": [
+              {
+                "parts": [
+                  {
+                    "text": "What is the capital of France?"
+                  }
+                ],
+                "role": "user"
+              }
+            ]
+          }
+        ],
+        "previousRequest": "b4d6e60a9b97e7b98c63df9308728c5c88c0b40c398046772c63447b94608b4d",
+        "serverAddress": "aiplatform.googleapis.com",
+        "port": 443,
+        "protocol": "https"
+      },
+      "shaSum": "3e50cfc8a39df33204d2fbb37ea5d6a7d5baed7b21d0744b380ce2d6b7de85b4",
+      "response": {
+        "statusCode": 200,
+        "headers": {
+          "Content-Disposition": "attachment",
+          "Content-Type": "text/event-stream",
+          "Date": "Fri, 07 Aug 2026 21:52:38 GMT",
+          "Server": "scaffolding on HTTPServer2",
+          "Vary": "Origin, X-Origin, Referer",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "SAMEORIGIN",
+          "X-Xss-Protection": "0"
+        },
+        "bodySegments": [
+          {
+            "candidates": [
+              {
+                "content": {
+                  "parts": [
+                    {
+                      "text": "The capital of France is **Paris**."
+                    }
+                  ],
+                  "role": "model"
+                }
+              }
+            ],
+            "createTime": "2026-08-07T21:52:37.721710Z",
+            "modelVersion": "gemini-3.6-flash",
+            "responseId": "pVN2aq6GLL6g9LsP3v-LmAk",
+            "usageMetadata": {
+              "trafficType": "ON_DEMAND"
+            }
+          },
+          {
+            "candidates": [
+              {
+                "content": {
+                  "parts": [
+                    {
+                      "text": "",
+                      "thoughtSignature": "AY89a19U/D4n++EH1dMThe27z+8d9WC9DtDDWX1IQsMn1loutDXxfaFkWOyQWlvNTqxuWCTUPC5yPZAspZBTpTSatMGTZH9EzBZw49ZtZAOyHfbxiBzOZk5GUYUkewtGCExyLeqglE4tcZKEyYBxiJr8M1+FPC1WyoyE3LrMUkM6MAjCSsWT7hc/hA96X0UZ/cbR+TQY/Grdq7855lXiSVW+VL+0ApC5r0Uw1XFqv0mmlm8dJR6naHz3nKE7y76vxgieTBih10HpD1ArQMgsmNRDsQg11jrIgKT8czD8sVel+6dsxIYxhar4YvIi/y4RpRMiJ1gYNvDQwOWk2qO3Tsj9KK+P5IIYI5FCnFv8UanBtdASoPqtKAuCLtUtGoUKVS1LFn2r9RWz4OzZ0rfXsBsM1sD1VgzX33UVAy39j+JqSjw0HEYzcV2USPX++ziNro7OE3nJRhD62WnK2NCrMiWGdWyZTCHpG+Qqliu7+AdyHQ6ljdscY/K766mDbbHa0Tp9nr1AJmQwBomyAsuJyZqcv/4kdpY7YZK8YYl1o0Sj"
+                    }
+                  ],
+                  "role": "model"
+                }
+              }
+            ],
+            "createTime": "2026-08-07T21:52:37.721710Z",
+            "modelVersion": "gemini-3.6-flash",
+            "responseId": "pVN2aq6GLL6g9LsP3v-LmAk",
+            "usageMetadata": {
+              "candidatesTokenCount": 8,
+              "candidatesTokensDetails": [
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 8
+                }
+              ],
+              "promptTokenCount": 7,
+              "promptTokensDetails": [
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 7
+                }
+              ],
+              "thoughtsTokenCount": 68,
+              "totalTokenCount": 83,
+              "trafficType": "ON_DEMAND"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
