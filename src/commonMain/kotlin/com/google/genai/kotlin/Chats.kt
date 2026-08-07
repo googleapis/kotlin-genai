@@ -17,8 +17,69 @@
 package com.google.genai.kotlin
 
 import com.google.genai.kotlin.types.Content
+import com.google.genai.kotlin.types.GenerateContentConfig
 import com.google.genai.kotlin.types.GenerateContentResponse
 import com.google.genai.kotlin.types.Part
+
+/** A factory for multi-turn [Chat] sessions. */
+class Chats internal constructor(private val models: Models) {
+
+  /**
+   * Creates a chat session.
+   *
+   * @param model The model to talk to, for example "gemini-3.6-flash".
+   * @param config Applied to every turn in the session. A config passed to an individual send
+   *   replaces this one for that turn rather than merging with it.
+   * @param history Turns to seed the session with. The turns are copied, so later changes to the
+   *   list do not affect the session.
+   * @throws IllegalArgumentException if a turn in [history] has a role other than "user" or
+   *   "model".
+   */
+  fun create(
+    model: String,
+    config: GenerateContentConfig? = null,
+    history: List<Content> = emptyList(),
+  ): Chat = Chat(models, model, config, history)
+}
+
+/**
+ * A multi-turn chat session with a generative model.
+ *
+ * Obtain a session from [Chats.create]:
+ * ```
+ * val chat = client.chats.create(model = "gemini-3.6-flash")
+ * ```
+ *
+ * A session is not safe for concurrent turns. Start a turn only once the previous one has finished.
+ */
+class Chat
+internal constructor(
+  private val models: Models,
+  private val model: String,
+  private val config: GenerateContentConfig?,
+  history: List<Content>,
+) {
+
+  private val comprehensiveHistory: List<Content> = history.toList()
+
+  // Kept alongside comprehensiveHistory rather than derived on read, so a turn can be committed
+  // as a unit. Automatic function calling produces a tool call and its tool response in one turn;
+  // re-deriving from a flat list loses those boundaries and would drop a failed turn's tool
+  // response while leaving its tool call behind, which the API rejects on the next request.
+  private val curatedHistory: List<Content> = extractCuratedHistory(history)
+
+  /**
+   * Returns a snapshot of the turns in this session.
+   *
+   * The returned list is a copy, so it is unaffected by later turns.
+   *
+   * @param curated When true, returns only the turns that will be sent to the model on the next
+   *   request. When false, the default, also includes turns whose response came back empty or
+   *   blocked.
+   */
+  fun getHistory(curated: Boolean = false): List<Content> =
+    if (curated) curatedHistory.toList() else comprehensiveHistory.toList()
+}
 
 internal const val ROLE_USER = "user"
 

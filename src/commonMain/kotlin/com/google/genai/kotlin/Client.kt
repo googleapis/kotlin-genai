@@ -190,6 +190,9 @@ internal constructor(
   /** Service for interacting with Models API. */
   val models = Models(httpClient)
 
+  /** Factory for multi-turn chat sessions. */
+  val chats = Chats(models)
+
   /** Service for interacting with Caches API. */
   val caches = Caches(httpClient)
 

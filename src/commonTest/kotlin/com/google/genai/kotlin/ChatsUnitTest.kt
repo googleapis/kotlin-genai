@@ -23,6 +23,8 @@ import com.google.genai.kotlin.types.FunctionCall
 import com.google.genai.kotlin.types.FunctionResponse
 import com.google.genai.kotlin.types.GenerateContentResponse
 import com.google.genai.kotlin.types.Part
+import io.mockk.every
+import io.mockk.mockk
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFailsWith
@@ -36,6 +38,16 @@ private fun modelTurn(text: String) = Content(role = "model", parts = listOf(Par
 private fun invalidUserTurn() = Content(role = "user", parts = emptyList())
 
 private fun invalidModelTurn() = Content(role = "model", parts = emptyList())
+
+private const val TEST_MODEL = "gemini-3.6-flash"
+
+/** Shared across the session tests; none of them issue a request. */
+private val testModels = Models(ApiClient(apiKey = "test-api-key"))
+
+private fun testChats() = Chats(testModels)
+
+private fun testChat(history: List<Content> = emptyList()) =
+  testChats().create(model = TEST_MODEL, history = history)
 
 class ChatsUnitTest {
 
@@ -205,5 +217,71 @@ class ChatsUnitTest {
       )
 
     assertTrue(isValidResponse(response))
+  }
+
+  @Test
+  fun testNewSessionHasEmptyHistory() {
+    val chat = testChat()
+
+    assertEquals(emptyList(), chat.getHistory())
+    assertEquals(emptyList(), chat.getHistory(curated = true))
+  }
+
+  @Test
+  fun testSeededHistoryIsReturned() {
+    val seed = listOf(userTurn("Hi"), modelTurn("Hello!"))
+
+    assertEquals(seed, testChat(seed).getHistory())
+  }
+
+  @Test
+  fun testSeededHistoryIsCurated() {
+    val chat = testChat(listOf(userTurn("Hi"), invalidModelTurn(), userTurn("Still there?")))
+
+    assertEquals(3, chat.getHistory().size)
+    assertEquals(listOf(userTurn("Still there?")), chat.getHistory(curated = true))
+  }
+
+  @Test
+  fun testCreateRejectsSeededHistoryWithInvalidRole() {
+    val seed = listOf(Content(role = "assistant", parts = listOf(Part(text = "Hi"))))
+
+    val exception = assertFailsWith<IllegalArgumentException> { testChat(seed) }
+    assertEquals("Role must be user or model, but got assistant.", exception.message)
+  }
+
+  @Test
+  fun testSeededHistoryIsCopiedIn() {
+    val seed = mutableListOf(userTurn("Hi"))
+    val chat = testChat(seed)
+
+    seed.add(modelTurn("Hello!"))
+
+    assertEquals(listOf(userTurn("Hi")), chat.getHistory())
+  }
+
+  @Test
+  fun testGetHistoryIsCopiedOut() {
+    val seed = listOf(userTurn("Hi"), modelTurn("Hello!"))
+    val chat = testChat(seed)
+
+    // A read-only List can still be cast and mutated, so the snapshot has to be a copy of the
+    // session's list rather than the list itself. Two turns are used because toList() returns an
+    // immutable singleton for shorter lists, which would pass the assertion for the wrong reason.
+    @Suppress("UNCHECKED_CAST") (chat.getHistory() as MutableList<Content>).clear()
+
+    assertEquals(seed, chat.getHistory())
+  }
+
+  @Test
+  fun testClientExposesChats() {
+    val environment = mockk<Environment>()
+    every { environment.get(any()) } returns null
+
+    Client(apiKey = "test-api-key", environment = environment).use { client ->
+      val chat = client.chats.create(model = TEST_MODEL, history = listOf(userTurn("Hi")))
+
+      assertEquals(listOf(userTurn("Hi")), chat.getHistory())
+    }
   }
 }
