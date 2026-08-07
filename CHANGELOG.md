@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.4.0](https://github.com/googleapis/kotlin-genai/compare/v0.3.0...v0.4.0) (2026-08-07)
+
+
+### Features
+
+* Add interaction_status to LiveServerContent ([eb5e572](https://github.com/googleapis/kotlin-genai/commit/eb5e5724a687f5fd62fad6bd97165e786b712284))
+* Add TOO_MANY_TOOL_CALLS to FinishReason enum. ([628a067](https://github.com/googleapis/kotlin-genai/commit/628a067c0380fcd1732ca9455c34ae81ed7a5b23))
+
+
+### Bug Fixes
+
+* Add propertyOrdering auto-population for ResponseSchema and ResponseJsonSchema for Dotnet SDK ([de6e8c1](https://github.com/googleapis/kotlin-genai/commit/de6e8c155953a4a34b898cd61e1c6773d680f071))
+
 ## [0.3.0](https://github.com/googleapis/kotlin-genai/compare/v0.2.0...v0.3.0) (2026-08-03)
 
 
