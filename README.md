@@ -174,6 +174,76 @@ fun main() = runBlocking {
 }
 ```
 
+### Chat
+
+Use `chats.create` for a multi-turn conversation. The session keeps the history
+and sends it with each new message, so the model has the earlier turns for
+context.
+
+```kotlin
+import com.google.genai.kotlin.Client
+import kotlinx.coroutines.runBlocking
+
+fun main() = runBlocking {
+    Client().use { client ->
+        val chat = client.chats.create(model = "gemini-3.6-flash")
+
+        val first = chat.sendMessage("My favourite colour is blue. Remember it.")
+        println(first.text)
+
+        // Answering this needs the first turn, which the session sends for you.
+        val second = chat.sendMessage("What is my favourite colour?")
+        println(second.text)
+
+        // Two entries per exchange: the message and the response.
+        println("History entries: ${chat.getHistory().size}")
+    }
+}
+```
+
+Pass `history` to `create` to resume an earlier conversation, and `config` to
+apply a `GenerateContentConfig` to every turn. A config passed to an individual
+`sendMessage` replaces the session config for that turn rather than merging with
+it.
+
+### Stream Chat Responses
+
+`sendMessageStream` returns the response as a `Flow`. Nothing is sent until the
+flow is collected, and the turn is added to the history once the flow completes,
+so collect each turn fully before starting the next one.
+
+```kotlin
+import com.google.genai.kotlin.Client
+import kotlinx.coroutines.runBlocking
+
+fun main() = runBlocking {
+    Client().use { client ->
+        val chat = client.chats.create(model = "gemini-3.6-flash")
+
+        chat.sendMessageStream("Tell me a two sentence story about a robot.")
+            .collect { chunk -> chunk.text?.let { print(it) } }
+        println()
+    }
+}
+```
+
+Each flow carries one turn and is collected once. Collecting it again after the
+turn has completed throws `IllegalStateException` rather than quietly sending the
+message a second time, so collect into a list if you need to read the response
+more than once:
+
+```kotlin
+val chunks = chat.sendMessageStream("Tell me a story.").toList()
+val text = chunks.joinToString("") { it.text ?: "" }
+```
+
+Streaming keeps every chunk it received, so a ten chunk response adds ten model
+turns to the history rather than one.
+
+`getHistory()` returns every turn. `getHistory(curated = true)` returns only the
+turns that will be sent to the model on the next request, leaving out any whose
+response came back empty or blocked.
+
 ### Advanced Configuration
 
 You can pass a `GenerateContentConfig` to customize the request, such as setting

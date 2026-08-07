@@ -1,0 +1,110 @@
+{
+  "recordID": "ChatsTest.testSeededHistoryIsSentToTheModel.vertex",
+  "interactions": [
+    {
+      "request": {
+        "method": "POST",
+        "url": "/v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-3.6-flash:generateContent",
+        "request": "POST /v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-3.6-flash:generateContent HTTP/1.1",
+        "headers": {
+          "Accept": "*/*",
+          "Accept-Charset": "UTF-8",
+          "Accept-Encoding": "gzip",
+          "Connection": "Keep-Alive",
+          "Content-Length": "225",
+          "Content-Type": "application/json",
+          "Test-Name": "ChatsTest.testSeededHistoryIsSentToTheModel.vertex"
+        },
+        "bodySegments": [
+          {
+            "contents": [
+              {
+                "parts": [
+                  {
+                    "text": "My favourite colour is blue."
+                  }
+                ],
+                "role": "user"
+              },
+              {
+                "parts": [
+                  {
+                    "text": "Noted, blue it is."
+                  }
+                ],
+                "role": "model"
+              },
+              {
+                "parts": [
+                  {
+                    "text": "What is my favourite colour? Answer with one word."
+                  }
+                ],
+                "role": "user"
+              }
+            ]
+          }
+        ],
+        "previousRequest": "b4d6e60a9b97e7b98c63df9308728c5c88c0b40c398046772c63447b94608b4d",
+        "serverAddress": "aiplatform.googleapis.com",
+        "port": 443,
+        "protocol": "https"
+      },
+      "shaSum": "2daefbc6272c34c50f6c67030df3dfd5f2872c13927d3a9aa48e5b96d2a3af92",
+      "response": {
+        "statusCode": 200,
+        "headers": {
+          "Content-Encoding": "gzip",
+          "Content-Length": "945",
+          "Content-Type": "application/json; charset=UTF-8",
+          "Date": "Fri, 07 Aug 2026 21:52:50 GMT",
+          "Server": "scaffolding on HTTPServer2",
+          "Vary": "Origin, X-Origin, Referer",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "SAMEORIGIN",
+          "X-Xss-Protection": "0"
+        },
+        "bodySegments": [
+          {
+            "candidates": [
+              {
+                "content": {
+                  "parts": [
+                    {
+                      "text": "Blue",
+                      "thoughtSignature": "AY89a1+h2peGiWuKyoFFpJVIMV9JxHGA39d1e/FHgEEcoXeY3Iugwp8CGXvbrkTr/vuPSrws/xJ+0G4N13acAyLSAc2hrheTJRpvGnvyZZpdF6a+aUPfF99unHkSQDsv9WzaIee1ToefBGY5AAqc0TKJApZ8LnCxqVAlATbZ9A78Xb36MbovWk9j5QMpYGhICYLWBfLZolipnKddpnzGPhfpCgdua758Y1a5LKgmjakoC9jZ4qOIhFcckQOJqsyjb2MgOznzqYBQg+1z/JpPsDxtLN7CupJWaya6oVq72ceqCO8c3uFYj43MlxGa1ucByNMHWB20qcCQnn2MUkxHHLRIG1UpaUzSkU4KJ0ZMQhvjRA2M+wRiPiL1Cx3q5tr3HII3P16z5qGJ1127dahWz2e5bRVUs+s/k8bHTHEQrjGoED8pYQihwjs7xtJPHNyNqDFQ4dx1Y8JfEHLI3h44l8QD3mPwEj22SL25E6RG6AHC3wC1dNrawgMJeJsFHCVJ4BhjcOJ6oEa/L1o0CqZmtDMknkEderOI+8VTfDrOjzNh63pOYisbzSd5EPD/LoJzF9wQqY6/YXCEyk5KANfiNNbyUmiw0FAuzRYR/fyIZji/aoJ6y/YKSg2JZdsVDszoH3gmEMUtd9F7NWSsikCmhdGm4H+NSCh8kCJSupaTz31fhQQpvf+1Eo+UV+9MfG4hDHZT/j4="
+                    }
+                  ],
+                  "role": "model"
+                },
+                "finishReason": "STOP"
+              }
+            ],
+            "createTime": "2026-08-07T21:52:48.726341Z",
+            "modelVersion": "gemini-3.6-flash",
+            "responseId": "sFN2asWqLK-C9LsPkqL0gAo",
+            "usageMetadata": {
+              "candidatesTokenCount": 1,
+              "candidatesTokensDetails": [
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 1
+                }
+              ],
+              "promptTokenCount": 24,
+              "promptTokensDetails": [
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 24
+                }
+              ],
+              "thoughtsTokenCount": 113,
+              "totalTokenCount": 138,
+              "trafficType": "ON_DEMAND"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

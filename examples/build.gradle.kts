@@ -36,7 +36,7 @@ application {
 }
 
 // Optional: Task to run a specific example easily from command line
-// Usage: ./gradlew :examples:runExample -PmainClass=com.google.genai.kotlin.examples.ChatKt
+// Usage: ./gradlew :examples:runExample -PmainClass=com.google.genai.kotlin.examples.Chat
 tasks.register<JavaExec>("runExample") {
   classpath = sourceSets["main"].runtimeClasspath
   if (project.hasProperty("mainClass")) {

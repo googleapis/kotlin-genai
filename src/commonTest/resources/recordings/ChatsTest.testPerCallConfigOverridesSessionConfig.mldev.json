@@ -1,0 +1,100 @@
+{
+  "recordID": "ChatsTest.testPerCallConfigOverridesSessionConfig.mldev",
+  "interactions": [
+    {
+      "request": {
+        "method": "POST",
+        "url": "/v1beta/models/gemini-3.6-flash:generateContent",
+        "request": "POST /v1beta/models/gemini-3.6-flash:generateContent HTTP/1.1",
+        "headers": {
+          "Accept": "*/*",
+          "Accept-Charset": "UTF-8",
+          "Accept-Encoding": "gzip",
+          "Connection": "Keep-Alive",
+          "Content-Length": "206",
+          "Content-Type": "application/json",
+          "Test-Name": "ChatsTest.testPerCallConfigOverridesSessionConfig.mldev"
+        },
+        "bodySegments": [
+          {
+            "contents": [
+              {
+                "parts": [
+                  {
+                    "text": "What is your favourite colour?"
+                  }
+                ],
+                "role": "user"
+              }
+            ],
+            "generationConfig": {},
+            "systemInstruction": {
+              "parts": [
+                {
+                  "text": "Whatever you are asked, answer with exactly one word: red."
+                }
+              ]
+            }
+          }
+        ],
+        "previousRequest": "b4d6e60a9b97e7b98c63df9308728c5c88c0b40c398046772c63447b94608b4d",
+        "serverAddress": "generativelanguage.googleapis.com",
+        "port": 443,
+        "protocol": "https"
+      },
+      "shaSum": "6bb66aa780abc2e3af3a903ba34b07638785e8a07cf6b7f9ab3d54b92e7aa5fd",
+      "response": {
+        "statusCode": 200,
+        "headers": {
+          "Content-Encoding": "gzip",
+          "Content-Length": "888",
+          "Content-Type": "application/json; charset=UTF-8",
+          "Date": "Fri, 07 Aug 2026 21:53:19 GMT",
+          "Server": "scaffolding on HTTPServer2",
+          "Server-Timing": "gfet4t7; dur=1093",
+          "Vary": "Origin, X-Origin, Referer",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "SAMEORIGIN",
+          "X-Gemini-Service-Tier": "standard",
+          "X-Xss-Protection": "0"
+        },
+        "bodySegments": [
+          {
+            "candidates": [
+              {
+                "content": {
+                  "parts": [
+                    {
+                      "text": "red",
+                      "thoughtSignature": "ErsDCrgDARFNMg83B2n1ONpFEqnQ89DIIcX/sU1xHkqwMU2WrVSOJPNHUE+0CV+tpNOttaHHOmH/N6ToqdvSbBCdLu62+MBsd5joMxuni+K7gm9bf3WZcfy2XPi3DboduV+l7yq9r+bpNfEv/TyOrKHO4voB0ZydRKu3CR/NxnSyq63zBEtZTTeDfESUJc7AWvlXlBL9hD/ORM8PTFg2nbUn+RJ8YCDOJCA2egW5Nw/dnXW0gm039VTwbW6yqtYAuMTnAXVoEUQ+Bdrcz3RSxtLBXv7rPJEP4jZSlzl4SA1dwo88YbTRs4HtztWZ1cnDOJbaT9i+xhT8MtPaFIxaqm+iN4NkgP3Tvpc+PCl/7bt5BFCqjKspBCL4FY547nSa+MQLrM9XvCoEMf+iag37oAn+5Tf2jAN0uwRYQa9NypQT+m9MvLcD/zIhkkImKpthNemGXef7GZcJQh/Yxn5Fb9Bwz7coE8DmoZzSH1gU7wA5HQ67qVov9cBwi8v+PyevDHPLX+oeTou6HLZO83khR3gCxmrg6BJ584ov3jasKItchGdiqI/Rw6pD1F69VhtcszJ7irzDSszDqbKRhqc="
+                    }
+                  ],
+                  "role": "model"
+                },
+                "finishReason": "STOP",
+                "index": 0
+              }
+            ],
+            "modelVersion": "gemini-3.6-flash",
+            "responseId": "zlN2av6ANbiJqtsPr-uL4Qc",
+            "turnToken": "v1_Chd6bE4yYXY2QU5iaUpxdHNQci11TDRRYxIXemxOMmF2NkFOYmlKcXRzUHItdUw0UWM",
+            "usageMetadata": {
+              "candidatesTokenCount": 1,
+              "promptTokenCount": 20,
+              "promptTokensDetails": [
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 20
+                }
+              ],
+              "rawPromptTokenCount": 56,
+              "serviceTier": "standard",
+              "thoughtsTokenCount": 91,
+              "totalTokenCount": 112
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
