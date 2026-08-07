@@ -125,6 +125,10 @@ tasks.withType<Test> {
     environment.remove("GOOGLE_GENAI_USE_ENTERPRISE")
     environment.remove("GOOGLE_GENAI_RUN_VERTEX_ONLY_IN_API_MODE")
     environment.remove("GOOGLE_GENAI_RUN_GEMINI_ONLY_IN_API_MODE")
+
+    // The shared suite ships no recordings and is not replayable; it still compiles,
+    // so a broken test is caught at build time.
+    exclude("com/google/genai/kotlin/shared/**")
   }
 }
 
