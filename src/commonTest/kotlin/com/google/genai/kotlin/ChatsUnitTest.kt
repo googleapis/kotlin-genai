@@ -100,6 +100,17 @@ class ChatsUnitTest {
   }
 
   @Test
+  fun testExtractCuratedHistoryDropsEveryUserTurnOfAFailedTurn() {
+    // sendMessage accepts several contents for one turn, and withholds all of them from the
+    // curated history when the response is invalid. Re-deriving the curated history from the
+    // comprehensive one has to drop the same contents, or a resumed session would send a user
+    // turn that the session it came from never had.
+    val history = listOf(userTurn("Part one"), userTurn("Part two"), invalidModelTurn())
+
+    assertEquals(emptyList(), extractCuratedHistory(history))
+  }
+
+  @Test
   fun testExtractCuratedHistoryDropsEntireModelRunWhenOneTurnIsInvalid() {
     val history =
       listOf(

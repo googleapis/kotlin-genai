@@ -1,0 +1,102 @@
+{
+  "recordID": "ChatsTest.testPerCallConfigOverridesSessionConfig.vertex",
+  "interactions": [
+    {
+      "request": {
+        "method": "POST",
+        "url": "/v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-3.6-flash:generateContent",
+        "request": "POST /v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-3.6-flash:generateContent HTTP/1.1",
+        "headers": {
+          "Accept": "*/*",
+          "Accept-Charset": "UTF-8",
+          "Accept-Encoding": "gzip",
+          "Connection": "Keep-Alive",
+          "Content-Length": "206",
+          "Content-Type": "application/json",
+          "Test-Name": "ChatsTest.testPerCallConfigOverridesSessionConfig.vertex"
+        },
+        "bodySegments": [
+          {
+            "contents": [
+              {
+                "parts": [
+                  {
+                    "text": "What is your favourite colour?"
+                  }
+                ],
+                "role": "user"
+              }
+            ],
+            "generationConfig": {},
+            "systemInstruction": {
+              "parts": [
+                {
+                  "text": "Whatever you are asked, answer with exactly one word: red."
+                }
+              ]
+            }
+          }
+        ],
+        "previousRequest": "b4d6e60a9b97e7b98c63df9308728c5c88c0b40c398046772c63447b94608b4d",
+        "serverAddress": "aiplatform.googleapis.com",
+        "port": 443,
+        "protocol": "https"
+      },
+      "shaSum": "5efd13433ad0c3a2f4cac780733c9b5aed783ce0208bbb1e1778cb36aa97eea8",
+      "response": {
+        "statusCode": 200,
+        "headers": {
+          "Content-Encoding": "gzip",
+          "Content-Length": "739",
+          "Content-Type": "application/json; charset=UTF-8",
+          "Date": "Fri, 07 Aug 2026 21:47:38 GMT",
+          "Server": "scaffolding on HTTPServer2",
+          "Vary": "Origin, X-Origin, Referer",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "SAMEORIGIN",
+          "X-Xss-Protection": "0"
+        },
+        "bodySegments": [
+          {
+            "candidates": [
+              {
+                "content": {
+                  "parts": [
+                    {
+                      "text": "red",
+                      "thoughtSignature": "AY89a1/5+1VKyystS1AKpTci7Gza+nk0HpCUiYvjVWL2UmgyeQns/WUs+5vZE01y4kK89DaTLXDMI5y2Hn/WIcpsDlX2kThi6znkg+K19ANnR6BzgtdvdQ2fYiBqO2ZNR3ndte8AEM/zqP+i4sQsekT63BecyZ3GyABXVQfI4o29Pg9wtstgw2eA2ew5VnazrZqKLd2qPq213URJzyhj5QW4ITC/jTp9NwV8fuf27JfX0xK4z9NRWu4ImmW4yfoaNVIOmUpymmlXHnm1SnVbIbIG32E3KsPgC3Oyud7XLGjJVRaDDrTDxwdc4GQqH1NnKq6NcIdYdxlwzCqAWMUZ0y48NRXzwZI6hO/OJUeOv/RUn6zmDvjzwMoknO5g+LMD0DRGZ0XmE0JB0qlkssPAo0O8PHV8kBmxqaIuSHNSnxL4bDF0iyJ7cwB3rJyh0G4pzw075bjf"
+                    }
+                  ],
+                  "role": "model"
+                },
+                "finishReason": "STOP"
+              }
+            ],
+            "createTime": "2026-08-07T21:47:37.848516Z",
+            "modelVersion": "gemini-3.6-flash",
+            "responseId": "eVJ2aoTlM4qW9LsPx52d4Q8",
+            "usageMetadata": {
+              "candidatesTokenCount": 1,
+              "candidatesTokensDetails": [
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 1
+                }
+              ],
+              "promptTokenCount": 19,
+              "promptTokensDetails": [
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 19
+                }
+              ],
+              "thoughtsTokenCount": 69,
+              "totalTokenCount": 89,
+              "trafficType": "ON_DEMAND"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
