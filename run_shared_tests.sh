@@ -13,4 +13,4 @@ echo "Client mode: $TEST_MODE"
 echo "Tests subdirectory: $GOOGLE_GENAI_TESTS_SUBDIR"
 echo "Running Kotlin shared E2E tests via test-server..."
 
-./gradlew jvmTest -PtestMode="${TEST_MODE}" --rerun-tasks --tests "${GOOGLE_GENAI_TESTS_SUBDIR}.*"
+./gradlew jvmTest --no-daemon -PtestMode="${TEST_MODE}" --rerun-tasks --tests "${GOOGLE_GENAI_TESTS_SUBDIR}.*"
