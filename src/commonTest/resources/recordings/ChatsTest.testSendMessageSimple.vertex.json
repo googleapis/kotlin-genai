@@ -39,9 +39,9 @@
         "statusCode": 200,
         "headers": {
           "Content-Encoding": "gzip",
-          "Content-Length": "795",
+          "Content-Length": "815",
           "Content-Type": "application/json; charset=UTF-8",
-          "Date": "Fri, 07 Aug 2026 21:47:42 GMT",
+          "Date": "Fri, 07 Aug 2026 21:53:31 GMT",
           "Server": "scaffolding on HTTPServer2",
           "Vary": "Origin, X-Origin, Referer",
           "X-Content-Type-Options": "nosniff",
@@ -56,7 +56,7 @@
                   "parts": [
                     {
                       "text": "The capital of France is **Paris**.",
-                      "thoughtSignature": "AY89a19RvWo2sRrR3sBHqXzJGW7F7kmS3SkgxeZF0OhjHUxU9KXG9W9tj/wAGAaOZCQe1kXwdwsiyVxhuG0eGbqYK0tjhjJKjxqQJ/VFrtMdcsU0o4BDL5OUz00P44ie17j8EqeMtmok+0A6JIVXT8u+XLoW3ARrIwJr4OaDYtQELmVrJRB+QWnvpu3ytyValMob5bOxxuXEe6yUKka+Gf5WVH5AgAfllnEMdFsHZDA0sa6v69+YmMZdMYg8akBgcsRUf20CmAYtkibl1f42MSEBOyY4E8Qakfkx21LhG92Z/jpatNlHCBu2JQgtJT8bPiZG5OdpzdXYGyJ7aDTz6d7mntx/MSow0WHely60WqLtgd84jIz50t4KZC065AjcKuJANQxoXvKGPXvbrhcuK17dYf7pmCgggL0j5QOpkTpI5tFfVrXxLDlrfsjwQ2HVZBh9r9wQc/b1T3JqiIR0C0Xk1kx74sDvmMQCixIrE/ZOC1vD"
+                      "thoughtSignature": "AY89a1+GYydDhsm1Rwy6Szw7fM0gA+oxsmOhUdJIxt8x/0H6cdgOLA961398JxKHOOUJRDjFYNf4Y+DxJy9WKbhSxuGjjzjHVRxpjd43h6iBl5lnn030VICYH10iBn4jPA88eSAsM0UKKjH3/94FSr2BX+yw5FWrEnOjrvD4tEwgVz8oS4i20ZbH2GZdZsTdbl2H4NzZZR8mnaWkLzX4ZVpKsaNupvw9Qq78w7v9RuOpIzJdPWTFuUczmDjvhhJK4woa4TE/rQDEttK3X2eNcgHpBc6D2RBc5PvXrJ95okWbU3nkhyqPS7772H6Fei+JQT+p+6qiHkPtawOilqKKT+sHOkRYrf6G9+iUnCoBdGqxrmKSeD2z4e5S84bCDyCMXOQump74CoHjfjy/YQww1jWDr+NSRUUaTGkWtwpxkObJG1NoSqxen4birjn7Os80jTgJf4NKY1y9RGlw/wwpVdZ2jRuht2KtF6S3GNllHQL0bG6RtrwEAE3YDc059mqMzfI="
                     }
                   ],
                   "role": "model"
@@ -64,9 +64,9 @@
                 "finishReason": "STOP"
               }
             ],
-            "createTime": "2026-08-07T21:47:41.278637Z",
+            "createTime": "2026-08-07T21:53:30.898095Z",
             "modelVersion": "gemini-3.6-flash",
-            "responseId": "fVJ2au2AEdeW9LsPpZ-uoA0",
+            "responseId": "2lN2aq_oNr6g9LsP3v-LmAk",
             "usageMetadata": {
               "candidatesTokenCount": 8,
               "candidatesTokensDetails": [
@@ -82,8 +82,8 @@
                   "tokenCount": 7
                 }
               ],
-              "thoughtsTokenCount": 73,
-              "totalTokenCount": 88,
+              "thoughtsTokenCount": 75,
+              "totalTokenCount": 90,
               "trafficType": "ON_DEMAND"
             }
           }

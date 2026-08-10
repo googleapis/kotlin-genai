@@ -55,9 +55,9 @@
         "statusCode": 200,
         "headers": {
           "Content-Encoding": "gzip",
-          "Content-Length": "832",
+          "Content-Length": "945",
           "Content-Type": "application/json; charset=UTF-8",
-          "Date": "Fri, 07 Aug 2026 21:47:29 GMT",
+          "Date": "Fri, 07 Aug 2026 21:52:50 GMT",
           "Server": "scaffolding on HTTPServer2",
           "Vary": "Origin, X-Origin, Referer",
           "X-Content-Type-Options": "nosniff",
@@ -72,7 +72,7 @@
                   "parts": [
                     {
                       "text": "Blue",
-                      "thoughtSignature": "AY89a19Afr+33WWibrvFETCYcAt3B9izPg+a/75C8weHWhQCWrCs+j9ByAM7rcfE3eoFmy66lS4OPLOnBFbXU2hRA3bH88jvoPncCsKky6O1mI38vaPFDpBgw22LyCTqEsww8XVftyySU53h+qMomB3kq1jMNs8qNsGAd0hlcfCj8l6MGbofFUssKC5y6VwSaRRw6L3tSInBZIxEuEA2kCfkz+L4tXezHoL+OHaoRMDrOHof5ZDFTdbIeYhEnj0H0LPpA/1l4szQbCIgqaD+4ZhJ2RkkHIJjyZsa7A9go/gintvnI/FVqkaWph0xCyuB7E3nWmIh7Z0985+AZ1FaFA3BrDBMYCoV15NPNZQWx1rF8zlZ2KDR7eBw+gcTmfb9s3Ps0kJmbd9HRmQxDfCRJgARcojFQvxn/2hhpHYzwtsKxc/KSsI0VWSzKlSYL3ggxlDzEBo7RvJ/6fuYTXMIQnufCVDFMQ94ATCHsfkzQIQEm2Z/9QovAVm26d8I1TIuZRKilcVn1sSIBZ/SImSSheiiVcxVB2DwlKURcTeXuNju5wxthFDRPWQ="
+                      "thoughtSignature": "AY89a1+h2peGiWuKyoFFpJVIMV9JxHGA39d1e/FHgEEcoXeY3Iugwp8CGXvbrkTr/vuPSrws/xJ+0G4N13acAyLSAc2hrheTJRpvGnvyZZpdF6a+aUPfF99unHkSQDsv9WzaIee1ToefBGY5AAqc0TKJApZ8LnCxqVAlATbZ9A78Xb36MbovWk9j5QMpYGhICYLWBfLZolipnKddpnzGPhfpCgdua758Y1a5LKgmjakoC9jZ4qOIhFcckQOJqsyjb2MgOznzqYBQg+1z/JpPsDxtLN7CupJWaya6oVq72ceqCO8c3uFYj43MlxGa1ucByNMHWB20qcCQnn2MUkxHHLRIG1UpaUzSkU4KJ0ZMQhvjRA2M+wRiPiL1Cx3q5tr3HII3P16z5qGJ1127dahWz2e5bRVUs+s/k8bHTHEQrjGoED8pYQihwjs7xtJPHNyNqDFQ4dx1Y8JfEHLI3h44l8QD3mPwEj22SL25E6RG6AHC3wC1dNrawgMJeJsFHCVJ4BhjcOJ6oEa/L1o0CqZmtDMknkEderOI+8VTfDrOjzNh63pOYisbzSd5EPD/LoJzF9wQqY6/YXCEyk5KANfiNNbyUmiw0FAuzRYR/fyIZji/aoJ6y/YKSg2JZdsVDszoH3gmEMUtd9F7NWSsikCmhdGm4H+NSCh8kCJSupaTz31fhQQpvf+1Eo+UV+9MfG4hDHZT/j4="
                     }
                   ],
                   "role": "model"
@@ -80,9 +80,9 @@
                 "finishReason": "STOP"
               }
             ],
-            "createTime": "2026-08-07T21:47:28.621844Z",
+            "createTime": "2026-08-07T21:52:48.726341Z",
             "modelVersion": "gemini-3.6-flash",
-            "responseId": "cFJ2apT6JYqW9LsPx52d4Q8",
+            "responseId": "sFN2asWqLK-C9LsPkqL0gAo",
             "usageMetadata": {
               "candidatesTokenCount": 1,
               "candidatesTokensDetails": [
@@ -98,8 +98,8 @@
                   "tokenCount": 24
                 }
               ],
-              "thoughtsTokenCount": 92,
-              "totalTokenCount": 117,
+              "thoughtsTokenCount": 113,
+              "totalTokenCount": 138,
               "trafficType": "ON_DEMAND"
             }
           }

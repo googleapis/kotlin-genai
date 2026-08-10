@@ -39,9 +39,9 @@
         "statusCode": 200,
         "headers": {
           "Content-Encoding": "gzip",
-          "Content-Length": "1423",
+          "Content-Length": "1337",
           "Content-Type": "application/json; charset=UTF-8",
-          "Date": "Fri, 07 Aug 2026 21:47:50 GMT",
+          "Date": "Fri, 07 Aug 2026 21:53:39 GMT",
           "Server": "scaffolding on HTTPServer2",
           "Vary": "Origin, X-Origin, Referer",
           "X-Content-Type-Options": "nosniff",
@@ -55,8 +55,8 @@
                 "content": {
                   "parts": [
                     {
-                      "text": "Got it! I've noted that your favorite color is blue. I'll remember that for the future!",
-                      "thoughtSignature": "AY89a1/9V6KMnQKPvO3Ln8ODl4QYxOcxA5UxMTHDooZbGpNnYJMsLNOMIZlklsNd2cfVM59sqx/4zDRrgTqFTn0Ee8Er0ZItmwqwz2bD33qUvox2rAbsiO20nx68Lst+kUAu9G4cVh4d7xsuJ4ojsQcwWmEkqEDvOb+Gql+JJKLhzPXPbXibLikzeJpsLsk7elyOqWB1sFwzhpNY5s4ONGFoLhAO8CllOwJnoeBl+T4oQyy+xPyQ2cukbMKIMINflfsH1+GblyKILBZJE+fL0+OGeQmYWYW9dbabr9uQNjtZAdNe1W9Ou6ZWwRXG5DLqDHYqFlhUtMzRqRST9NpGViMOx/ALzhzF4aisPRpy6PMzK0wZP+/pB9eanxsoW4uuOYungf5jffpZNwt1yapcobTmAKC69mieBCQuqlSuwOJq0+yewwufXK7du4echD8mAxAWKbH+ZxDChtdRtnaz1cd5NJ13pdqdiYZ0zBCgHNYxFMtq6VF6Bbsmdg8Xr3mLRvN7ya2zH1rIJloNipNd6V/TeXD04KrSuGH0+0f8pIuSkwSDhZell4P+om5b5Eo1goC2DXA1Xb4ELdTPTeAfCOg8K+0YlyFfafoRkHwqf0rZUF7MWWnewkv/P6VHgualCdJjr6olKE6OGdkJstGGXbgEzPkG+PjzY8WQHMvLYpThtF05g95J3ywrLeM0k6eoiDvSuB4XN6BXSZWCju3rRoXBW0OKUR99UXnqNWc1RJzAgaOsB8lAxSrmSmT9XCzspDqVqAHnOgwwcjHxal365BY2EUSRJ3Tp8wACLyd1QygHjn3X+jGd8cOzp1T9gGKaTqptXVZ51Vb+jCRDs92VNcHX445Uce2EYteUFlm2fAKl4Ec10HYsluX2DscpHLxUIMylplPmbe5cfXT8Xuwv6BffcaYq721tA0Igb4nfqnpge7xWH/7OIyjSv1htRIuXJLSNIdlWpqJqUHZzCDjqjgipI1HhRFYIHtiWnXJ723FgOL93z3Ry1JATySCxCCHXGrw7G0U65AEYqXe0SoVaoDwE4nb59BG3WynjNgIRl4t73KPHRHxv8M2ttJaG8jD8m2zEcvQbDemfSm6rjExU3xEbBWhyJL2AwnsIEpHssm1PGMK3BbiIszKIgcfMjwLCH7oXgaOgEUFRVP/WKukLmPLvO89yufHLRhC1+UXFrNnfLtsy5lOMOg2waSm7PJdA0wOx2F4d353f4fvs+Wueq/ig4Ul73dj7ExTQ"
+                      "text": "Got it! I've noted down that your favorite color is blue. 💙",
+                      "thoughtSignature": "AY89a1+Hw5xD9NKgfAiEffgvlpxto2uRzZG4hqaJ47UJN87ZiyfF+T/zvTXL6Ja3aRjzGenhr7tjNanmfNJnOaDXdbbb8jN/aR2nYXV9y1qNMPtNbE1HkeYJcM/i3xeo98DB6R1TFNnZ+eaig6VzPZZtfzdLaRGnv72zL/Puvu2pYVfNcw5Z6zQxQfaH0RLWKyMeW0pkO90t4Z5ES+R1Mn/qvxGResKW/bVmVI53PPXuFyxyyoWZzHC5g8d66ZXxx4IAir2K7ZnqA2Q1Dy7VJijOD7WQeX+ChdzScpHZe+rEQmS+neTKwF/RDMOXSsmcmXfDGFYtAYIrMSKdoT38KDgPf/nEPASetbP/kiwewe8HXcWlekhK3XgonyWfD3sulHIHqtgD4yr+98iFOSX/aC8+lu0oJsYNOqdD6Yqtak32qt2lOtlB8Jd73VNS5QLUE23UkdXPfM5OVSuj63hnAjWeSMNqwrl8Hqx4gqsUsyPz+iVN5zCWxLRePn9yTaQ+9pX3ZXIvbF2ewlStQwBPWe44d7IJhtcBKO2R8Ue5G1TbK/T+f6HJJT4qpQSZ+F3NsX+XFxQ1svtcMewAYnCe+g1/iHSuOHf/DD9XM39U2Wv4O3AhcUdCtUcVCxHPmWtVJXrKfjP84Pd+IhWy+t75wzaReve99dW/uKACL3wkVJMIMQGE0iFWcyYcZG2QjJuSODtAEBF+0jCDNRnxoDn3awCUd4i/fAf1wM62ZbTaKx8kfCw5PzlBTcB7d9u2XsqtXf1ibfJz3jO3JlLLgmVEz2D5KMS9wWZV3Fk3nRuqjPdjBpSn5z/HbidJBXyXw6LvSkNZ2TpWECJ0eo3k45sF5bz3qIsO/SkuAlzufaLKozbqvMo4/EEVoi8ndKpCcHm5vZMoV/GJiEfnWJ9CUUQO0A04RT0QkQSuh9sXvevmRMTknxYaQa7FvZaTjCF5cO/y8OQpI7FveasI/936m6p18JvxeHO6maUtC3L7TP1WmekQXHJdUc+dMrpx/j6Ash0RZ8UOERJW00ZrNhFS4mWEtHNBJngi2kZpMacfYMOkvU78RW3StEjYNUfI8kevCFe691GGhzO3CQEJNhyhyOIy30QrvAr35XTJMymZw2ApAxBBGtWOTQ=="
                     }
                   ],
                   "role": "model"
@@ -64,15 +64,15 @@
                 "finishReason": "STOP"
               }
             ],
-            "createTime": "2026-08-07T21:47:48.221404Z",
+            "createTime": "2026-08-07T21:53:38.025324Z",
             "modelVersion": "gemini-3.6-flash",
-            "responseId": "hFJ2atzBDdXRtQK746OBDw",
+            "responseId": "4lN2auzFAZCF9LsPxd_PiQQ",
             "usageMetadata": {
-              "candidatesTokenCount": 23,
+              "candidatesTokenCount": 17,
               "candidatesTokensDetails": [
                 {
                   "modality": "TEXT",
-                  "tokenCount": 23
+                  "tokenCount": 17
                 }
               ],
               "promptTokenCount": 9,
@@ -82,8 +82,8 @@
                   "tokenCount": 9
                 }
               ],
-              "thoughtsTokenCount": 227,
-              "totalTokenCount": 259,
+              "thoughtsTokenCount": 199,
+              "totalTokenCount": 225,
               "trafficType": "ON_DEMAND"
             }
           }
@@ -100,7 +100,7 @@
           "Accept-Charset": "UTF-8",
           "Accept-Encoding": "gzip",
           "Connection": "Keep-Alive",
-          "Content-Length": "1581",
+          "Content-Length": "1444",
           "Content-Type": "application/json",
           "Test-Name": "ChatsTest.testMultiTurnChatSendsPriorTurns.vertex"
         },
@@ -118,8 +118,8 @@
               {
                 "parts": [
                   {
-                    "text": "Got it! I've noted that your favorite color is blue. I'll remember that for the future!",
-                    "thoughtSignature": "AY89a1/9V6KMnQKPvO3Ln8ODl4QYxOcxA5UxMTHDooZbGpNnYJMsLNOMIZlklsNd2cfVM59sqx/4zDRrgTqFTn0Ee8Er0ZItmwqwz2bD33qUvox2rAbsiO20nx68Lst+kUAu9G4cVh4d7xsuJ4ojsQcwWmEkqEDvOb+Gql+JJKLhzPXPbXibLikzeJpsLsk7elyOqWB1sFwzhpNY5s4ONGFoLhAO8CllOwJnoeBl+T4oQyy+xPyQ2cukbMKIMINflfsH1+GblyKILBZJE+fL0+OGeQmYWYW9dbabr9uQNjtZAdNe1W9Ou6ZWwRXG5DLqDHYqFlhUtMzRqRST9NpGViMOx/ALzhzF4aisPRpy6PMzK0wZP+/pB9eanxsoW4uuOYungf5jffpZNwt1yapcobTmAKC69mieBCQuqlSuwOJq0+yewwufXK7du4echD8mAxAWKbH+ZxDChtdRtnaz1cd5NJ13pdqdiYZ0zBCgHNYxFMtq6VF6Bbsmdg8Xr3mLRvN7ya2zH1rIJloNipNd6V/TeXD04KrSuGH0+0f8pIuSkwSDhZell4P+om5b5Eo1goC2DXA1Xb4ELdTPTeAfCOg8K+0YlyFfafoRkHwqf0rZUF7MWWnewkv/P6VHgualCdJjr6olKE6OGdkJstGGXbgEzPkG+PjzY8WQHMvLYpThtF05g95J3ywrLeM0k6eoiDvSuB4XN6BXSZWCju3rRoXBW0OKUR99UXnqNWc1RJzAgaOsB8lAxSrmSmT9XCzspDqVqAHnOgwwcjHxal365BY2EUSRJ3Tp8wACLyd1QygHjn3X+jGd8cOzp1T9gGKaTqptXVZ51Vb+jCRDs92VNcHX445Uce2EYteUFlm2fAKl4Ec10HYsluX2DscpHLxUIMylplPmbe5cfXT8Xuwv6BffcaYq721tA0Igb4nfqnpge7xWH/7OIyjSv1htRIuXJLSNIdlWpqJqUHZzCDjqjgipI1HhRFYIHtiWnXJ723FgOL93z3Ry1JATySCxCCHXGrw7G0U65AEYqXe0SoVaoDwE4nb59BG3WynjNgIRl4t73KPHRHxv8M2ttJaG8jD8m2zEcvQbDemfSm6rjExU3xEbBWhyJL2AwnsIEpHssm1PGMK3BbiIszKIgcfMjwLCH7oXgaOgEUFRVP/WKukLmPLvO89yufHLRhC1+UXFrNnfLtsy5lOMOg2waSm7PJdA0wOx2F4d353f4fvs+Wueq/ig4Ul73dj7ExTQ"
+                    "text": "Got it! I've noted down that your favorite color is blue. 💙",
+                    "thoughtSignature": "AY89a1+Hw5xD9NKgfAiEffgvlpxto2uRzZG4hqaJ47UJN87ZiyfF+T/zvTXL6Ja3aRjzGenhr7tjNanmfNJnOaDXdbbb8jN/aR2nYXV9y1qNMPtNbE1HkeYJcM/i3xeo98DB6R1TFNnZ+eaig6VzPZZtfzdLaRGnv72zL/Puvu2pYVfNcw5Z6zQxQfaH0RLWKyMeW0pkO90t4Z5ES+R1Mn/qvxGResKW/bVmVI53PPXuFyxyyoWZzHC5g8d66ZXxx4IAir2K7ZnqA2Q1Dy7VJijOD7WQeX+ChdzScpHZe+rEQmS+neTKwF/RDMOXSsmcmXfDGFYtAYIrMSKdoT38KDgPf/nEPASetbP/kiwewe8HXcWlekhK3XgonyWfD3sulHIHqtgD4yr+98iFOSX/aC8+lu0oJsYNOqdD6Yqtak32qt2lOtlB8Jd73VNS5QLUE23UkdXPfM5OVSuj63hnAjWeSMNqwrl8Hqx4gqsUsyPz+iVN5zCWxLRePn9yTaQ+9pX3ZXIvbF2ewlStQwBPWe44d7IJhtcBKO2R8Ue5G1TbK/T+f6HJJT4qpQSZ+F3NsX+XFxQ1svtcMewAYnCe+g1/iHSuOHf/DD9XM39U2Wv4O3AhcUdCtUcVCxHPmWtVJXrKfjP84Pd+IhWy+t75wzaReve99dW/uKACL3wkVJMIMQGE0iFWcyYcZG2QjJuSODtAEBF+0jCDNRnxoDn3awCUd4i/fAf1wM62ZbTaKx8kfCw5PzlBTcB7d9u2XsqtXf1ibfJz3jO3JlLLgmVEz2D5KMS9wWZV3Fk3nRuqjPdjBpSn5z/HbidJBXyXw6LvSkNZ2TpWECJ0eo3k45sF5bz3qIsO/SkuAlzufaLKozbqvMo4/EEVoi8ndKpCcHm5vZMoV/GJiEfnWJ9CUUQO0A04RT0QkQSuh9sXvevmRMTknxYaQa7FvZaTjCF5cO/y8OQpI7FveasI/936m6p18JvxeHO6maUtC3L7TP1WmekQXHJdUc+dMrpx/j6Ash0RZ8UOERJW00ZrNhFS4mWEtHNBJngi2kZpMacfYMOkvU78RW3StEjYNUfI8kevCFe691GGhzO3CQEJNhyhyOIy30QrvAr35XTJMymZw2ApAxBBGtWOTQ=="
                   }
                 ],
                 "role": "model"
@@ -140,14 +140,14 @@
         "port": 443,
         "protocol": "https"
       },
-      "shaSum": "d561afe795b1197d5525c66c2668accb2af29d6da98235e8ee4c68ca03664c8d",
+      "shaSum": "d7221852e5b636add1d9b720ed237d9d4fde15166f4516dfd9954b9cbd6beb61",
       "response": {
         "statusCode": 200,
         "headers": {
           "Content-Encoding": "gzip",
-          "Content-Length": "863",
+          "Content-Length": "951",
           "Content-Type": "application/json; charset=UTF-8",
-          "Date": "Fri, 07 Aug 2026 21:47:52 GMT",
+          "Date": "Fri, 07 Aug 2026 21:53:40 GMT",
           "Server": "scaffolding on HTTPServer2",
           "Vary": "Origin, X-Origin, Referer",
           "X-Content-Type-Options": "nosniff",
@@ -162,7 +162,7 @@
                   "parts": [
                     {
                       "text": "Blue",
-                      "thoughtSignature": "AY89a1/++xA1BrVMQZYQFOSTpn0tv6ITFBs4GtWNNxrSXu5i2DwGmKZa1lZqRO6oQ/mjXbF3YmFYxf/+Sotk+mzC5qCg1hmRwqm2/6S0JZE4mBb4M7jVwKyJPQZHyuXCJocQ+tc+0ymG+u+VN7wKD69F4zFCwRRPTlM855qZyn/Fk4FtLKYqyipDGycRv99URf/Vg5yTiCIVx7Fd7DRWXYRQz5meS4zOTBW/4UPAn+2XRPTj261R8x5C+2dccHyl5fCeA+eeKNz9U5sm537Zp79irT610rljX/GCGQ+u9UPA002p2jsajn95Z+v3A8xxoJEauhg50MIUJJ2/17ivd5yoaRNLRyDRlQLiNJ0THB8ALBWQuoCzxgUIBfb7ctJ60UcRcu0m36r6gM87wzXKtApYYtQhx7JHGOZ4YMqN5T704TSXQvHL9rH+5CxLiNkQLMO+s7tbSALhibz2xoQk4Ztm9MuJJ36OrFemeU/Y5R8sqCqqw+mWfxXN72jjOx72dDAjKQoHnehfHfU+wlCPDHk03jwCLCIu3LjVOXKShsM2F1EwUte4kH8Cb1KNI13+lxvzrr0/wOdSJocF4D7mDKEtkkg="
+                      "thoughtSignature": "AY89a195n1a4k+JeO7B9wFWujaeukNdtv2GaxT1yZlyANpdR/zZt06c36ts1UFmqDFHDOm+9OrNbQvH0TeA2/ysmhefIIHO2PNCF8GvIsHWdtqCkRLrA7PM1COWkGBW5bQ8v3/etYoNyIBJHRwLZhumRnZ6AwW8VvNEppo1QjjjVbJB6CQ4karbOtDIKuxy7IWqcvmvGl/PYZMEo5rR7Dy+TIap/uRbuNweaPIZ6r7sWtT1uHuDEX6ncOXgLD7H957v2pmd0KRpS19FKD38E5uJ6cJQZk0KtLJZNjvF/AneyORguS2lEF6lkaDhpnw7/Pa2AZniuwNUSsxaA8v5RaTrUCTp6Ru70qxeRG2YoXBOXxD8mV5MyQ8YJft+Vvium/qYx/kh/wRaVH1iVflcFjy/5NKW6ilOw38cMvIJUwWmtrfu4h9uSh40+sw5C5XS/n6Yg0qXiysQ+1LxeOlbdVkBsQDSRgsg84aOCoo3nfusA02MeMHiE1G22UbujBi7XAf8lVWXYdPpJDl1GeASWLZiH6c0arWRM7MTSK9bhSkhTa3Gi1NjXaFXhmkRN82xpHjp5WSZ7j7rUe7Tvb/FN6CUQhTpJ3Oz6tt2lArKXr1J3iQluopFGdZO8tFlcUTIRRtJGrAC0kIIg1Q6GzdgGlTElWPJQFzJXft+zC0nNd4Z5c2UaQVgiyuKmlSCW3OxeISrmI3mqX5qVa5A="
                     }
                   ],
                   "role": "model"
@@ -170,9 +170,9 @@
                 "finishReason": "STOP"
               }
             ],
-            "createTime": "2026-08-07T21:47:50.718710Z",
+            "createTime": "2026-08-07T21:53:39.728381Z",
             "modelVersion": "gemini-3.6-flash",
-            "responseId": "hlJ2avbuK9mh9LsP8dbl8AU",
+            "responseId": "41N2ar26LK-C9LsPkqL0gAo",
             "usageMetadata": {
               "candidatesTokenCount": 1,
               "candidatesTokensDetails": [
@@ -181,15 +181,15 @@
                   "tokenCount": 1
                 }
               ],
-              "promptTokenCount": 270,
+              "promptTokenCount": 236,
               "promptTokensDetails": [
                 {
                   "modality": "TEXT",
-                  "tokenCount": 270
+                  "tokenCount": 236
                 }
               ],
-              "thoughtsTokenCount": 97,
-              "totalTokenCount": 368,
+              "thoughtsTokenCount": 126,
+              "totalTokenCount": 363,
               "trafficType": "ON_DEMAND"
             }
           }

@@ -21,6 +21,8 @@ import com.google.genai.kotlin.types.GenerateContentConfig
 import com.google.genai.kotlin.types.GenerateContentResponse
 import com.google.genai.kotlin.types.Part
 import kotlin.concurrent.Volatile
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flow
 
 /** A factory for multi-turn [Chat] sessions. */
 class Chats internal constructor(private val models: Models) {
@@ -127,11 +129,7 @@ internal constructor(
     contents: List<Content>,
     config: GenerateContentConfig? = null,
   ): GenerateContentResponse {
-    // The role is resolved here, where the turn is unambiguously the user's, so that a history this
-    // session produced is one that Chats.create accepts back. Content.role defaults to null, and
-    // the service reads an unset role as "user". Seeded history keeps requiring an explicit role,
-    // because a seeded turn could equally be the model's.
-    val userInput = contents.map { if (it.role == null) it.copy(role = ROLE_USER) else it }
+    val userInput = withUserRole(contents)
     val response = models.generateContent(model, curatedHistory + userInput, config ?: this.config)
     recordHistory(
       userInput = userInput,
@@ -139,6 +137,117 @@ internal constructor(
       isValid = isValidResponse(response),
     )
     return response
+  }
+
+  /**
+   * Sends [text] as the next turn and returns the model's response in chunks.
+   *
+   * The turns so far are sent along with [text], so the model has the conversation for context. The
+   * message is sent when the returned flow is collected, not when this method is called, and the
+   * flow carries one turn and is collected once. The overload taking a list documents the rest.
+   *
+   * @param text The text of the message to send.
+   * @param config Replaces the session config for this turn rather than merging with it.
+   * @throws IllegalStateException if the returned flow is collected again after a completed turn.
+   */
+  fun sendMessageStream(
+    text: String,
+    config: GenerateContentConfig? = null,
+  ): Flow<GenerateContentResponse> =
+    sendMessageStream(listOf(Content(role = ROLE_USER, parts = listOf(Part(text = text)))), config)
+
+  /**
+   * Sends [content] as the next turn and returns the model's response in chunks.
+   *
+   * The turns so far are sent along with [content], so the model has the conversation for context.
+   * The message is sent when the returned flow is collected, not when this method is called, and
+   * the flow carries one turn and is collected once. The overload taking a list documents the rest.
+   *
+   * @param content The message to send.
+   * @param config Replaces the session config for this turn rather than merging with it.
+   * @throws IllegalStateException if the returned flow is collected again after a completed turn.
+   */
+  fun sendMessageStream(
+    content: Content,
+    config: GenerateContentConfig? = null,
+  ): Flow<GenerateContentResponse> = sendMessageStream(listOf(content), config)
+
+  /**
+   * Sends [contents] as the next turn and returns the model's response in chunks.
+   *
+   * The turns so far are sent along with [contents], so the model has the conversation for context.
+   * The turn joins the history once the flow completes, and every chunk is kept, so a ten chunk
+   * response adds ten model turns to the history rather than one. A stream that is cut off before
+   * the model finishes is kept but is not sent again in later requests.
+   *
+   * The message is sent when the returned flow is collected, not when this method is called, so
+   * collect one turn before starting the next. Starting a turn while an earlier flow is still
+   * uncollected sends the two out of order:
+   * ```
+   * val flow = chat.sendMessageStream("first") // nothing sent yet
+   * chat.sendMessage("second") // sent, and recorded, first
+   * flow.collect {} // "first" is sent now, and the model sees it after "second"
+   * ```
+   *
+   * Each flow carries one turn and is collected once. Collecting it again after the turn has
+   * completed throws, rather than quietly sending the message a second time; collect into a list if
+   * you need to read the response more than once. A collection that failed or was abandoned did not
+   * complete a turn, so it can be retried.
+   *
+   * @param contents The message to send. Several contents are recorded as one turn.
+   * @param config Replaces the session config for this turn rather than merging with it.
+   * @throws IllegalStateException if the returned flow is collected again after a completed turn.
+   */
+  fun sendMessageStream(
+    contents: List<Content>,
+    config: GenerateContentConfig? = null,
+  ): Flow<GenerateContentResponse> {
+    // Scoped to this call, not to the session, so that each returned flow tracks its own turn.
+    var sent = false
+
+    return flow {
+      // Re-collecting a turn that already completed would send the message a second time and leave
+      // a duplicate in the history. The flag is set only once the turn has been recorded, so a
+      // collection that failed or was abandoned can still be retried.
+      check(!sent) {
+        "This turn has already been sent. Collect the flow into a list if you need to read the " +
+          "response more than once, or call sendMessageStream again to send another message."
+      }
+
+      val userInput = withUserRole(contents)
+      val outputContents = mutableListOf<Content>()
+      var isValid = true
+      var finished = false
+
+      models
+        .generateContentStream(model, curatedHistory + userInput, config ?: this@Chat.config)
+        .collect { chunk ->
+          if (!isValidResponse(chunk)) {
+            isValid = false
+          }
+          val candidate = chunk.candidates?.firstOrNull()
+          candidate?.content?.let { outputContents.add(it) }
+          if (candidate?.finishReason != null) {
+            finished = true
+          }
+          emit(chunk)
+        }
+
+      recordHistory(
+        userInput = userInput,
+        modelOutput = outputContents,
+        isValid = isValid && finished,
+      )
+      sent = true
+    }
+  }
+
+  // Resolves the role of an outgoing message. Content.role defaults to null and the service reads
+  // an unset role as "user", but recording it as null would produce a history that Chats.create
+  // rejects when it is handed back. Seeded history keeps requiring an explicit role, because a
+  // seeded turn could equally be the model's.
+  private fun withUserRole(contents: List<Content>): List<Content> = contents.map {
+    if (it.role == null) it.copy(role = ROLE_USER) else it
   }
 
   // Appends one completed turn. The turn is committed as a unit: curatedHistory either gains every

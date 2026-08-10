@@ -22,8 +22,11 @@ import com.google.genai.kotlin.types.Part
 import kotlin.test.Test
 import kotlin.test.assertContains
 import kotlin.test.assertEquals
+import kotlin.test.assertFailsWith
 import kotlin.test.assertTrue
 import kotlin.time.Duration.Companion.seconds
+import kotlinx.coroutines.flow.take
+import kotlinx.coroutines.flow.toList
 import kotlinx.coroutines.test.TestScope
 import kotlinx.coroutines.test.runTest
 
@@ -180,25 +183,89 @@ class ChatsTest : BaseTestServer() {
   }
 
   @Test
-  fun testCuratedHistoryExcludesInvalidTurn() = runTest {
+  fun testSendMessageStream() = runTest {
+    listOf(false, true).forEach { enterprise ->
+      val suffix = if (enterprise) "vertex" else "mldev"
+      val client = createClient(enterprise, "ChatsTest.testSendMessageStream.$suffix")
+
+      val chat = client.chats.create(model = MODEL_NAME)
+      val chunks = chat.sendMessageStream("What is the capital of France?").toList()
+
+      assertTrue(chunks.isNotEmpty(), "Expected at least one chunk")
+      assertContains(chunks.joinToString("") { it.text ?: "" }, "Paris")
+
+      // Each chunk is recorded as its own turn, so the history is the user turn plus one turn per
+      // chunk that carried content.
+      val history = chat.getHistory()
+      assertEquals("user", history[0].role)
+      assertEquals(chunks.size + 1, history.size)
+      assertTrue(history.drop(1).all { it.role == "model" })
+    }
+  }
+
+  @Test
+  fun testStreamNotCollectedDoesNotRecordHistory() = runTest {
     listOf(false, true).forEach { enterprise ->
       val suffix = if (enterprise) "vertex" else "mldev"
       val client =
-        createClient(enterprise, "ChatsTest.testCuratedHistoryExcludesInvalidTurn.$suffix")
+        createClient(enterprise, "ChatsTest.testStreamNotCollectedDoesNotRecordHistory.$suffix")
 
       val chat = client.chats.create(model = MODEL_NAME)
-      chat.sendMessage("What is the capital of France?")
+      // Abandoning the flow partway must leave the session usable rather than wedged.
+      chat.sendMessageStream("What is the capital of France?").take(1).toList()
+
+      assertEquals(emptyList(), chat.getHistory())
+
+      val response = chat.sendMessage("What is the capital of Germany?")
+
+      assertContains(response.text ?: "", "Berlin")
       assertEquals(2, chat.getHistory().size)
-      assertEquals(2, chat.getHistory(curated = true).size)
+    }
+  }
 
-      // The recording for this second turn was edited to return a response with no usable content,
-      // which is what a safety block looks like to the SDK. The turn is remembered, but it is not
-      // worth sending back to the model.
-      chat.sendMessage("And what is the capital of Germany?")
+  @Test
+  fun testStreamAfterNonStreamingTurnKeepsHistoryOrdered() = runTest {
+    listOf(false, true).forEach { enterprise ->
+      val suffix = if (enterprise) "vertex" else "mldev"
+      val client =
+        createClient(
+          enterprise,
+          "ChatsTest.testStreamAfterNonStreamingTurnKeepsHistoryOrdered.$suffix",
+        )
 
-      assertEquals(4, chat.getHistory().size)
-      assertEquals(2, chat.getHistory(curated = true).size)
-      assertTrue(chat.getHistory()[3].parts.isNullOrEmpty())
+      val chat = client.chats.create(model = MODEL_NAME)
+      chat.sendMessage("My favourite colour is blue. Remember it.")
+      val chunks =
+        chat.sendMessageStream("What is my favourite colour? Answer with one word.").toList()
+
+      assertContains(chunks.joinToString("") { it.text ?: "" }.lowercase(), "blue")
+      val history = chat.getHistory()
+      assertEquals("user", history[0].role)
+      assertEquals("model", history[1].role)
+      assertEquals("user", history[2].role)
+      assertTrue(history.drop(3).all { it.role == "model" })
+    }
+  }
+
+  @Test
+  fun testCollectingACompletedStreamTwiceThrows() = runTest {
+    listOf(false, true).forEach { enterprise ->
+      val suffix = if (enterprise) "vertex" else "mldev"
+      // Reuses testSendMessageStream's recording: the request is identical, and the second
+      // collection throws before reaching the network.
+      val client = createClient(enterprise, "ChatsTest.testSendMessageStream.$suffix")
+
+      val chat = client.chats.create(model = MODEL_NAME)
+      val flow = chat.sendMessageStream("What is the capital of France?")
+      val chunks = flow.toList()
+      val historyAfterFirst = chat.getHistory()
+
+      // Re-collecting would otherwise send the message again and duplicate the turn.
+      assertFailsWith<IllegalStateException> { flow.toList() }
+
+      // The turn is untouched, and the chunks already collected stay readable.
+      assertEquals(historyAfterFirst, chat.getHistory())
+      assertContains(chunks.joinToString("") { it.text ?: "" }, "Paris")
     }
   }
 }

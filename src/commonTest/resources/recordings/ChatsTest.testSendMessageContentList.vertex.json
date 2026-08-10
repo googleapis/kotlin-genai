@@ -47,9 +47,9 @@
         "statusCode": 200,
         "headers": {
           "Content-Encoding": "gzip",
-          "Content-Length": "720",
+          "Content-Length": "699",
           "Content-Type": "application/json; charset=UTF-8",
-          "Date": "Fri, 07 Aug 2026 21:47:32 GMT",
+          "Date": "Fri, 07 Aug 2026 21:52:53 GMT",
           "Server": "scaffolding on HTTPServer2",
           "Vary": "Origin, X-Origin, Referer",
           "X-Content-Type-Options": "nosniff",
@@ -64,7 +64,7 @@
                   "parts": [
                     {
                       "text": "Paris",
-                      "thoughtSignature": "AY89a19Xze2T5bdfikp+KsYy7mBnsgAUsSz+7KnuaV1klGG+Hav1MPQrbc+iS3Kh/SMZ2muEpsLNUafsM6wWpLWfdvC3DqlZm/dEWeRvjd83RLZwaOIF/VyMJOfYqw/WUf02Tbf4LMJ5/VGUHssrsC2cjA7fDJX5U6WEGcGXs5vLKXl2pf0sJUzeMJa+CxSi4+LH/9ZUpWUYWtccT/2o1Lz6ioE103hEj+RS/stzL5duXLpND236Z423slrzqhpq8146mCJ0ldLlcKRIrHF4sTbSuOKm5mu4B0Gix/fz8VBEhJUp2AoPL9r+m3gaXGTtg4z/MvDu/2IwuTGAMcdnS5/Q7YPU3XYr8/r4YQWUWQCrfA/IEia5cfBEOtvnALI4WykToa6rR6/PTmHZBS1P2xPtRPILuxYBpH7fws1LVgdXfw=="
+                      "thoughtSignature": "AY89a1+c7rtAVQy4euyVKZirZQ17l6NyO6W+/LK50UmDIiq3JVia5NW4XAvCiXuCktDSZ6f5eLstH1VdwmONesJEBKHq2VApL7IdWe/zVgxeugGwIXw5hmE3pRRgC5lXXjd60RvFGeyzddyTySRHna5ERzMkFQfn81pHxbgaos6/iz17Gd8qnOhQYxY/Xx4FT6mEdl0M0VQTOvil7WpyRsvwOdjSCxmkNzYSGHWzr67gvfxVRMHH4KN3sW3g5vgk0ul/Ij9c5Pps/T4TB/mGgpjb2I9CB10QjYAOLzjCNngKhW9Fk90lOEiX5yay/kmloLnJHa1yOwotH7FizQSVUFUJ7GCy3z5L4t9r4zcMIW2U5+sV8PyAZku/7POzfRDeJECJYK29801NlKYwV6U="
                     }
                   ],
                   "role": "model"
@@ -72,9 +72,9 @@
                 "finishReason": "STOP"
               }
             ],
-            "createTime": "2026-08-07T21:47:31.754856Z",
+            "createTime": "2026-08-07T21:52:52.715516Z",
             "modelVersion": "gemini-3.6-flash",
-            "responseId": "c1J2aqiJLtmh9LsP8dbl8AU",
+            "responseId": "tFN2avzVK9mh9LsP8dbl8AU",
             "usageMetadata": {
               "candidatesTokenCount": 1,
               "candidatesTokensDetails": [
@@ -90,8 +90,8 @@
                   "tokenCount": 11
                 }
               ],
-              "thoughtsTokenCount": 70,
-              "totalTokenCount": 82,
+              "thoughtsTokenCount": 64,
+              "totalTokenCount": 76,
               "trafficType": "ON_DEMAND"
             }
           }

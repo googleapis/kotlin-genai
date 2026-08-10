@@ -47,9 +47,9 @@
         "statusCode": 200,
         "headers": {
           "Content-Encoding": "gzip",
-          "Content-Length": "739",
+          "Content-Length": "858",
           "Content-Type": "application/json; charset=UTF-8",
-          "Date": "Fri, 07 Aug 2026 21:47:38 GMT",
+          "Date": "Fri, 07 Aug 2026 21:53:21 GMT",
           "Server": "scaffolding on HTTPServer2",
           "Vary": "Origin, X-Origin, Referer",
           "X-Content-Type-Options": "nosniff",
@@ -64,7 +64,7 @@
                   "parts": [
                     {
                       "text": "red",
-                      "thoughtSignature": "AY89a1/5+1VKyystS1AKpTci7Gza+nk0HpCUiYvjVWL2UmgyeQns/WUs+5vZE01y4kK89DaTLXDMI5y2Hn/WIcpsDlX2kThi6znkg+K19ANnR6BzgtdvdQ2fYiBqO2ZNR3ndte8AEM/zqP+i4sQsekT63BecyZ3GyABXVQfI4o29Pg9wtstgw2eA2ew5VnazrZqKLd2qPq213URJzyhj5QW4ITC/jTp9NwV8fuf27JfX0xK4z9NRWu4ImmW4yfoaNVIOmUpymmlXHnm1SnVbIbIG32E3KsPgC3Oyud7XLGjJVRaDDrTDxwdc4GQqH1NnKq6NcIdYdxlwzCqAWMUZ0y48NRXzwZI6hO/OJUeOv/RUn6zmDvjzwMoknO5g+LMD0DRGZ0XmE0JB0qlkssPAo0O8PHV8kBmxqaIuSHNSnxL4bDF0iyJ7cwB3rJyh0G4pzw075bjf"
+                      "thoughtSignature": "AY89a1+b79PBFJo3BV/ls3iJvZCklWoD3zDNGgro2TedUYEE/V+a+myj5gbZgnCvCQGdEwYMUV+LizH9qM079bl4Tj7X10uBfWYnoWkFilEQ6Q6nWf62izKu6+7xsCIl8/ZKhmqeOnF3MweVRYPrKEXYV61KR8giBz/1JyuIifNPvNl89QIU8P08Zp3Gz7jTrbLwHtZw9OFBt1+9vWGp+xmrYh9YbitQ02n+nTvHu+xaK+CbLCFzmt4YDi1ZzcXtx5oXx8YI+XB2t1LV1COoql9gmHcX73Vg6/K95Dg8uP2jNBalfENnNPZit65zqBrVg3O7V6MmKMT3MlgUJ+97ZEqDnviSc2q8rw6cHvPp1HnYGsSEpmOeAvw6t5k2JpqPAjtSuFCDSGgo18FVa0nJGRtCgM+OpSlCbFhwKkjqsxMPgJhAi4bZuZlyDIJdmJUTLT6A9bLOoRpjgG9hSIgt1ur/yRqZb+gP0IncBMxLELxwXpAeo2mKZtSokUFmlZLbKO4r/7uj3pDQOXHW8AYA3IsysplTubv0QtEfE5g7Ki2nIoqiR4/V7XOVTQS9Rk4i5AFQxNanIsIsuC4hgtMpe2XVmvQ1"
                     }
                   ],
                   "role": "model"
@@ -72,9 +72,9 @@
                 "finishReason": "STOP"
               }
             ],
-            "createTime": "2026-08-07T21:47:37.848516Z",
+            "createTime": "2026-08-07T21:53:20.077724Z",
             "modelVersion": "gemini-3.6-flash",
-            "responseId": "eVJ2aoTlM4qW9LsPx52d4Q8",
+            "responseId": "0FN2apzfBNGj9LsPsZ2xyAE",
             "usageMetadata": {
               "candidatesTokenCount": 1,
               "candidatesTokensDetails": [
@@ -90,8 +90,8 @@
                   "tokenCount": 19
                 }
               ],
-              "thoughtsTokenCount": 69,
-              "totalTokenCount": 89,
+              "thoughtsTokenCount": 106,
+              "totalTokenCount": 126,
               "trafficType": "ON_DEMAND"
             }
           }

@@ -1,0 +1,133 @@
+{
+  "recordID": "ChatsTest.testSendMessageStream.vertex",
+  "interactions": [
+    {
+      "request": {
+        "method": "POST",
+        "url": "/v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-3.6-flash:streamGenerateContent?alt=sse",
+        "request": "POST /v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-3.6-flash:streamGenerateContent?alt=sse HTTP/1.1",
+        "headers": {
+          "Accept": "*/*",
+          "Accept-Charset": "UTF-8",
+          "Accept-Encoding": "gzip",
+          "Connection": "Keep-Alive",
+          "Content-Length": "82",
+          "Content-Type": "application/json",
+          "Test-Name": "ChatsTest.testSendMessageStream.vertex"
+        },
+        "bodySegments": [
+          {
+            "contents": [
+              {
+                "parts": [
+                  {
+                    "text": "What is the capital of France?"
+                  }
+                ],
+                "role": "user"
+              }
+            ]
+          }
+        ],
+        "previousRequest": "b4d6e60a9b97e7b98c63df9308728c5c88c0b40c398046772c63447b94608b4d",
+        "serverAddress": "aiplatform.googleapis.com",
+        "port": 443,
+        "protocol": "https"
+      },
+      "shaSum": "14432fe962660e9127c900735cf79298c3bd6c1d01a7162788fe1a4543c4ee60",
+      "response": {
+        "statusCode": 200,
+        "headers": {
+          "Content-Disposition": "attachment",
+          "Content-Type": "text/event-stream",
+          "Date": "Fri, 07 Aug 2026 21:53:34 GMT",
+          "Server": "scaffolding on HTTPServer2",
+          "Vary": "Origin, X-Origin, Referer",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "SAMEORIGIN",
+          "X-Xss-Protection": "0"
+        },
+        "bodySegments": [
+          {
+            "candidates": [
+              {
+                "content": {
+                  "parts": [
+                    {
+                      "text": "The capital of"
+                    }
+                  ],
+                  "role": "model"
+                }
+              }
+            ],
+            "createTime": "2026-08-07T21:53:33.615785Z",
+            "modelVersion": "gemini-3.6-flash",
+            "responseId": "3VN2aunKJZCF9LsPxd_PiQQ",
+            "usageMetadata": {
+              "trafficType": "ON_DEMAND"
+            }
+          },
+          {
+            "candidates": [
+              {
+                "content": {
+                  "parts": [
+                    {
+                      "text": " France is **Paris**."
+                    }
+                  ],
+                  "role": "model"
+                }
+              }
+            ],
+            "createTime": "2026-08-07T21:53:33.615785Z",
+            "modelVersion": "gemini-3.6-flash",
+            "responseId": "3VN2aunKJZCF9LsPxd_PiQQ",
+            "usageMetadata": {
+              "trafficType": "ON_DEMAND"
+            }
+          },
+          {
+            "candidates": [
+              {
+                "content": {
+                  "parts": [
+                    {
+                      "text": "",
+                      "thoughtSignature": "AY89a1+bhUSOETQIR0AXW960MkPDdHCQtT635h8od1UlN9scjnBKlYilfkOsnbyEI2FINRTV0JFM11jauEwK/QTnxlO4FsfheF6NlTsqSa6NVp0Kt7ti24KKn3MUIz+PIS8NbPjOXhYlLsGztyQTjDIZGWntJJw9PtL5QkB0YvUYLKIiHpgZEdzZVG/lhueQNa+bl6ZYeZr5XtRW5zIop4phO3LgdDEXvQBiOFyzIrL00hja0TJ+lN1SgYwZlkUCTpLQDhjVzVr/xexbYBH7KwfSmSurgeTAH9s9xpnp6SGHqMyHgRH91YSFGGhtbVGgkq2C792DyvwX3GU5CsgRI9N+aAMKrbwLIKBFOYfXMzx6Bz7MwbV1bUQ0vahoSu79rGlrANQqrQNOuDfXSDQysbGEqvQA+SCimx6xrk2I0oMUGBt+OqlH2wW80A4nv2ymkVqu/Q1rvGSXxkNwZCbU2Oh0KQFT1xfANG0LAgT00GcTdKexknDyZ7nDqldiUrvuMOV1QTkOmeA="
+                    }
+                  ],
+                  "role": "model"
+                },
+                "finishReason": "STOP"
+              }
+            ],
+            "createTime": "2026-08-07T21:53:33.615785Z",
+            "modelVersion": "gemini-3.6-flash",
+            "responseId": "3VN2aunKJZCF9LsPxd_PiQQ",
+            "usageMetadata": {
+              "candidatesTokenCount": 8,
+              "candidatesTokensDetails": [
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 8
+                }
+              ],
+              "promptTokenCount": 7,
+              "promptTokensDetails": [
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 7
+                }
+              ],
+              "thoughtsTokenCount": 69,
+              "totalTokenCount": 84,
+              "trafficType": "ON_DEMAND"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

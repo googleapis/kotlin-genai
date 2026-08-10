@@ -47,11 +47,11 @@
         "statusCode": 200,
         "headers": {
           "Content-Encoding": "gzip",
-          "Content-Length": "769",
+          "Content-Length": "760",
           "Content-Type": "application/json; charset=UTF-8",
-          "Date": "Fri, 07 Aug 2026 21:47:31 GMT",
+          "Date": "Fri, 07 Aug 2026 21:52:52 GMT",
           "Server": "scaffolding on HTTPServer2",
-          "Server-Timing": "gfet4t7; dur=1068",
+          "Server-Timing": "gfet4t7; dur=1964",
           "Vary": "Origin, X-Origin, Referer",
           "X-Content-Type-Options": "nosniff",
           "X-Frame-Options": "SAMEORIGIN",
@@ -66,7 +66,7 @@
                   "parts": [
                     {
                       "text": "Paris",
-                      "thoughtSignature": "Es0CCsoCARFNMg8UglHpjI0U8NQwWOoNGzZDCDuv1d0L2Oi/Msen2jIWEZqmrwT3Zt/aYiSZKkYuNwMEAJxXUAdQh6HLpuR7hnpDtJtRWhuWCqtYUa9uPQBMcuyaqoXnwkPLyJ+etCxA8WZOf6ihTj9Uq2yiiBHqe2bYx69K7OggeAwa9mE5P4UA+THmXvrJZD2rgr6Bd8OwLLFjuPEvbF3q26Mrs1nLMlTcFJ9TToARL3EJIzcbFW4C9pWaoNjOmmBZYbjAYwoQtDKGnGdI6CABCYNM2irDf6VN2KJoKvZm/ambCcUYVmAHzy+Qe/Q18E3b0YOBFjpQKIpTqr8h//rwjZYSPs8nM1x6P1Res7Q/0F9vrr6FvNWmP1/OqzHbtEbPUwZs/vvE1zuq65rmT6AgzpxbVHqjBpP/5WSxfkOhJraZ5brfexo8pQFVCFRL"
+                      "thoughtSignature": "EsQCCsECARFNMg9vSDkVmQAlQErwfKduDcAvKJ3Y5E9oWAI5bsnEAhAaK7F0tXmJ0MCw5M5LZj+D3C7xE8MCjI1U6J/eCNrDa0fdyt9Owq5VN7osWVlp+YSSiQc0OvAKGoIf3nl3pRmlUpYDSjFNaQKF0DHVtJvIKuBJDhnGD1aIPPNLMhNCyHCS8ynCuvwLlsTZxhXQyeQvx+60+QA9ZdlOt3AhUKP15rqiYNOdyY/vxXnZao98yLPqjGa9xEhxcJxS1giTGqqAsx1985No1A7n+xhYZbYx7i7Nue6B+f7XmBFNP7eR9ylbEKBpvuSLO9c7yaRHvtg4E+Gs918difzHTbnEG2kjZqbHpQIYtJwMVrJNaIBTJB7yXhxgk0A+tryEcpWO/Z1L4W39E6VCQNqBnM1bIrj8MmpqZMWrqRtdFAA+3X+D"
                     }
                   ],
                   "role": "model"
@@ -76,8 +76,8 @@
               }
             ],
             "modelVersion": "gemini-3.6-flash",
-            "responseId": "clJ2atXpH-ae6dkP_rqN2AY",
-            "turnToken": "v1_ChdjbEoyYXRYcEgtYWU2ZGtQX3JxTjJBWRIXY2xKMmF0WHBILWFlNmRrUF9ycU4yQVk",
+            "responseId": "slN2ap_rKtqKmtkP4K__sAI",
+            "turnToken": "v1_ChdzbE4yYXBfckt0cUttdGtQNEtfX3NBSRIXc2xOMmFwX3JLdHFLbXRrUDRLX19zQUk",
             "usageMetadata": {
               "candidatesTokenCount": 1,
               "promptTokenCount": 13,
@@ -89,8 +89,8 @@
               ],
               "rawPromptTokenCount": 43,
               "serviceTier": "standard",
-              "thoughtsTokenCount": 71,
-              "totalTokenCount": 85
+              "thoughtsTokenCount": 69,
+              "totalTokenCount": 83
             }
           }
         ]

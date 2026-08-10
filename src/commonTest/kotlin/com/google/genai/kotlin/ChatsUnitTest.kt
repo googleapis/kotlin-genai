@@ -23,6 +23,7 @@ import com.google.genai.kotlin.types.FunctionCall
 import com.google.genai.kotlin.types.FunctionResponse
 import com.google.genai.kotlin.types.GenerateContentResponse
 import com.google.genai.kotlin.types.Part
+import io.mockk.coEvery
 import io.mockk.every
 import io.mockk.mockk
 import kotlin.test.Test
@@ -30,6 +31,9 @@ import kotlin.test.assertEquals
 import kotlin.test.assertFailsWith
 import kotlin.test.assertFalse
 import kotlin.test.assertTrue
+import kotlinx.coroutines.flow.flowOf
+import kotlinx.coroutines.flow.toList
+import kotlinx.coroutines.test.runTest
 
 private fun userTurn(text: String) = Content(role = "user", parts = listOf(Part(text = text)))
 
@@ -294,5 +298,45 @@ class ChatsUnitTest {
 
       assertEquals(listOf(userTurn("Hi")), chat.getHistory())
     }
+  }
+
+  @Test
+  fun testStreamWithNoFinishReasonIsNotCurated() = runTest {
+    // A stream that ends without the model reporting a finish reason is what a cut-off response
+    // looks like to the SDK. Mocked rather than recorded, because a live model always reports one.
+    val models = mockk<Models>()
+    every { models.generateContentStream(any<String>(), any<List<Content>>(), any()) } returns
+      flowOf(GenerateContentResponse(candidates = listOf(Candidate(content = modelTurn("Paris")))))
+    val chat = Chat(models, TEST_MODEL, null, emptyList())
+
+    chat.sendMessageStream("What is the capital of France?").toList()
+
+    // The turn is remembered, but it is not worth sending back to the model.
+    assertEquals(2, chat.getHistory().size)
+    assertEquals(emptyList(), chat.getHistory(curated = true))
+  }
+
+  @Test
+  fun testBlockedResponseIsNotCurated() = runTest {
+    // A candidate with no content is what a safety block looks like to the SDK. Mocked rather than
+    // recorded, because a live model will not produce one on demand.
+    val models = mockk<Models>()
+    coEvery { models.generateContent(any<String>(), any<List<Content>>(), any()) } returnsMany
+      listOf(
+        GenerateContentResponse(candidates = listOf(Candidate(content = modelTurn("Paris")))),
+        GenerateContentResponse(candidates = listOf(Candidate())),
+      )
+    val chat = Chat(models, TEST_MODEL, null, emptyList())
+
+    chat.sendMessage("What is the capital of France?")
+    assertEquals(2, chat.getHistory().size)
+    assertEquals(2, chat.getHistory(curated = true).size)
+
+    chat.sendMessage("And what is the capital of Germany?")
+
+    // The blocked turn is remembered, but it is not worth sending back to the model.
+    assertEquals(4, chat.getHistory().size)
+    assertEquals(2, chat.getHistory(curated = true).size)
+    assertTrue(chat.getHistory()[3].parts.isNullOrEmpty())
   }
 }
