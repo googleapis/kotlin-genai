@@ -2468,6 +2468,9 @@ $dokka.location:com.google.genai.kotlin/Caches/list/#com.google.genai.kotlin.typ
 $dokka.location:com.google.genai.kotlin/Caches/update/#kotlin.String#com.google.genai.kotlin.types.UpdateCachedContentConfig?/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin/-caches/update.html
 $dokka.location:com.google.genai.kotlin/Chat///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin/-chat/index.html
 $dokka.location:com.google.genai.kotlin/Chat/getHistory/#kotlin.Boolean/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin/-chat/get-history.html
+$dokka.location:com.google.genai.kotlin/Chat/sendMessage/#com.google.genai.kotlin.types.Content#com.google.genai.kotlin.types.GenerateContentConfig?/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin/-chat/send-message.html
+$dokka.location:com.google.genai.kotlin/Chat/sendMessage/#kotlin.String#com.google.genai.kotlin.types.GenerateContentConfig?/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin/-chat/send-message.html
+$dokka.location:com.google.genai.kotlin/Chat/sendMessage/#kotlin.collections.List[com.google.genai.kotlin.types.Content]#com.google.genai.kotlin.types.GenerateContentConfig?/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin/-chat/send-message.html
 $dokka.location:com.google.genai.kotlin/Chats///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin/-chats/index.html
 $dokka.location:com.google.genai.kotlin/Chats/create/#kotlin.String#com.google.genai.kotlin.types.GenerateContentConfig?#kotlin.collections.List[com.google.genai.kotlin.types.Content]/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin/-chats/create.html
 $dokka.location:com.google.genai.kotlin/Client///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin/-client/index.html
