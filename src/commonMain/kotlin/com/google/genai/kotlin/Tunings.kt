@@ -1609,6 +1609,14 @@ class Tunings internal constructor(internal val apiClient: ApiClient) {
       )
     }
 
+    Common.getValueByPath(fromObject, arrayOf("mediaProcessing"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("mediaProcessing"),
+        Common.getValueByPath(fromObject, arrayOf("mediaProcessing")),
+      )
+    }
+
     return toObject
   }
 
