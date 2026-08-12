@@ -292,6 +292,46 @@ val response = client.models.generateContent(
 )
 ```
 
+### Retries
+
+By default the SDK makes a single attempt per request. Pass `HttpRetryOptions` to
+retry transient failures -- a retryable HTTP status or a transport error such as a
+timeout -- with exponential backoff and jitter.
+
+```kotlin
+import com.google.genai.kotlin.Client
+import com.google.genai.kotlin.types.HttpOptions
+import com.google.genai.kotlin.types.HttpRetryOptions
+
+val client = Client(
+    httpOptions = HttpOptions(
+        retryOptions = HttpRetryOptions(
+            attempts = 5,          // Including the initial call.
+            initialDelay = 1.0,    // Seconds.
+            maxDelay = 60.0,       // Seconds.
+            expBase = 2.0,
+            jitter = 1.0,
+            httpStatusCodes = listOf(408, 429, 500, 502, 503, 504)
+        )
+    )
+)
+```
+
+Every field is optional and falls back to the value shown above. Setting
+`httpStatusCodes` replaces the default list rather than adding to it.
+
+The same options can be set per request, which overrides the client-level value:
+
+```kotlin
+val response = client.models.generateContent(
+    model = "gemini-3.5-flash",
+    text = "What is your name?",
+    config = GenerateContentConfig(
+        httpOptions = HttpOptions(retryOptions = HttpRetryOptions(attempts = 3))
+    )
+)
+```
+
 ### Live API
 
 The Gemini Live API allows for real-time, bidirectional interaction with
