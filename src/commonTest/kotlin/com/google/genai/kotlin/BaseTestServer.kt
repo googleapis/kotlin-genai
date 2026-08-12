@@ -19,6 +19,7 @@ package com.google.genai.kotlin
 import com.google.auth.oauth2.AccessToken
 import com.google.auth.oauth2.GoogleCredentials
 import com.google.genai.kotlin.types.HttpOptions
+import com.google.genai.kotlin.types.HttpRetryOptions
 import com.google.testserver.TestServer
 import com.google.testserver.TestServerOptions
 import io.mockk.every
@@ -80,6 +81,12 @@ open class BaseTestServer {
     testServer.stop()
   }
 
+  /**
+   * Retry options for this test's client. Null means a single attempt; only the shared integration
+   * suite opts in, so no other test's behaviour changes.
+   */
+  protected open val testRetryOptions: HttpRetryOptions? = null
+
   /** Creates a [Client] configured to use the test server. */
   fun createClient(
     enterprise: Boolean,
@@ -100,7 +107,12 @@ open class BaseTestServer {
         1453
       }
     val httpOptions =
-      HttpOptions(baseUrl = "http://127.0.0.1:$port", headers = mapOf("Test-Name" to testName))
+      HttpOptions(
+        baseUrl = "http://127.0.0.1:$port",
+        headers = mapOf("Test-Name" to testName),
+        // Replay never returns a retryable status, so only pay for this on live runs.
+        retryOptions = if (testMode == "replay") null else testRetryOptions,
+      )
     if (enterprise) {
       val creds =
         if (testMode == "replay") {

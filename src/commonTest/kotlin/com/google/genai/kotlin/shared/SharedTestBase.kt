@@ -18,6 +18,7 @@ package com.google.genai.kotlin.shared
 
 import com.google.genai.kotlin.BaseTestServer
 import com.google.genai.kotlin.GenAiApiException
+import com.google.genai.kotlin.types.HttpRetryOptions
 
 /** Flash is cheaper and faster than the corpus GEMINI_MODEL for API-mode runs. */
 const val SHARED_MODEL = "gemini-3.6-flash"
@@ -27,6 +28,19 @@ const val SHARED_MODEL = "gemini-3.6-flash"
  * nightly API-mode jobs run against the live backends. See go/genai-sdk:integration-testing.
  */
 open class SharedTestBase : BaseTestServer() {
+
+  /**
+   * Retries transient failures so that a 5xx or 429 does not fail the nightly. Keep aligned with
+   * conftest.py in the Python SDK tests.
+   */
+  override val testRetryOptions =
+    HttpRetryOptions(
+      attempts = 3,
+      initialDelay = 1.0,
+      maxDelay = 10.0,
+      expBase = 2.0,
+      httpStatusCodes = listOf(408, 429, 500, 502, 503, 504),
+    )
 
   /**
    * True when the currently running job has selected the other backend. `kotlin.test` has no
