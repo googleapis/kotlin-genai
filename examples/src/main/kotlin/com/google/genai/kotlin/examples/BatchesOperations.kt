@@ -122,8 +122,8 @@ object BatchesOperations {
             val embedSrc = EmbeddingsBatchJobSource(
                 inlinedRequests = EmbedContentBatch(
                     contents = listOf(
-                        Content(parts = listOf(Part(text = "Hello world"))),
-                        Content(parts = listOf(Part(text = "Batch embedding example")))
+                        Content.fromText("Hello world"),
+                        Content.fromText("Batch embedding example")
                     )
                 )
             )

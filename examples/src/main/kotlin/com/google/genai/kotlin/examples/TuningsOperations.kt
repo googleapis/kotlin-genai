@@ -22,7 +22,6 @@ import com.google.genai.kotlin.types.AutoraterConfig
 import com.google.genai.kotlin.types.Content
 import com.google.genai.kotlin.types.CreateTuningJobConfig
 import com.google.genai.kotlin.types.ListTuningJobsConfig
-import com.google.genai.kotlin.types.Part
 import com.google.genai.kotlin.types.ReinforcementTuningAutoraterScorer
 import com.google.genai.kotlin.types.ReinforcementTuningExample
 import com.google.genai.kotlin.types.SingleReinforcementTuningRewardConfig
@@ -203,11 +202,10 @@ object TuningsOperations {
           val rewardResponse =
             client.tunings.validateReward(
               parent = "projects/$project/locations/$location",
-              sampleResponse = Content(parts = listOf(Part(text = "The answer is 42."))),
+              sampleResponse = Content.fromText("The answer is 42."),
               example =
                 ReinforcementTuningExample(
-                  contents =
-                    listOf(Content(parts = listOf(Part(text = "What is the answer to life?"))))
+                  contents = listOf(Content.fromText("What is the answer to life?"))
                 ),
               singleRewardConfig =
                 SingleReinforcementTuningRewardConfig(

@@ -19,7 +19,6 @@ package com.google.genai.kotlin.examples
 import com.google.genai.kotlin.Client
 import com.google.genai.kotlin.types.Content
 import com.google.genai.kotlin.types.GenerateContentConfig
-import com.google.genai.kotlin.types.Part
 import kotlinx.coroutines.runBlocking
 
 /**
@@ -59,8 +58,7 @@ object GenerateContentStream {
         try {
           val config =
             GenerateContentConfig(
-              systemInstruction =
-                Content(parts = listOf(Part(text = "You are a creative writer."))),
+              systemInstruction = Content.fromText("You are a creative writer."),
               temperature = 0.7,
             )
 

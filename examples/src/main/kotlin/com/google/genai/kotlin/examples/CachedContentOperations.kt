@@ -72,7 +72,7 @@ object CachedContentOperations {
 
         val config =
           CreateCachedContentConfig(
-            systemInstruction = Content(parts = listOf(Part(text = "You are an expert."))),
+            systemInstruction = Content.fromText("You are an expert."),
             ttl = 60.minutes,
             contents = listOf(Content(role = "user", parts = listOf(bytesData))),
           )

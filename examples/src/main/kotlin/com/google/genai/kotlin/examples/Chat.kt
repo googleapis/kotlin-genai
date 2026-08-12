@@ -19,7 +19,6 @@ package com.google.genai.kotlin.examples
 import com.google.genai.kotlin.Client
 import com.google.genai.kotlin.types.Content
 import com.google.genai.kotlin.types.GenerateContentConfig
-import com.google.genai.kotlin.types.Part
 import kotlinx.coroutines.runBlocking
 
 /**
@@ -58,7 +57,7 @@ object Chat {
       Client().use { client ->
         val config =
           GenerateContentConfig(
-            systemInstruction = Content(parts = listOf(Part(text = "You are a concise assistant.")))
+            systemInstruction = Content.fromText("You are a concise assistant.")
           )
 
         // The session applies this config to every turn and remembers the conversation, so earlier

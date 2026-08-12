@@ -34,4 +34,23 @@ data class Content(
    * service will default to 'user'.
    */
   val role: String? = null,
-)
+) {
+
+  companion object {
+    /**
+     * Creates a content holding one text part.
+     *
+     * Useful wherever the API takes a [Content] but the caller only has a string, such as a system
+     * instruction:
+     * ```
+     * GenerateContentConfig(systemInstruction = Content.fromText("You are a helpful assistant."))
+     * ```
+     *
+     * @param text The text of the part.
+     * @param role The producer of the content, either "user" or "model". The service reads an unset
+     *   role as "user".
+     */
+    fun fromText(text: String, role: String = "user"): Content =
+      Content(parts = listOf(Part(text = text)), role = role)
+  }
+}

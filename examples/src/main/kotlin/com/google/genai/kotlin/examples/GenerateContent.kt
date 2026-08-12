@@ -19,7 +19,6 @@ package com.google.genai.kotlin.examples
 import com.google.genai.kotlin.Client
 import com.google.genai.kotlin.types.Content
 import com.google.genai.kotlin.types.GenerateContentConfig
-import com.google.genai.kotlin.types.Part
 import kotlinx.coroutines.runBlocking
 
 /**
@@ -60,8 +59,7 @@ object GenerateContent {
           // 4. Call the API
           val config =
             GenerateContentConfig(
-              systemInstruction =
-                Content(parts = listOf(Part(text = "You are a helpful assistant."))),
+              systemInstruction = Content.fromText("You are a helpful assistant."),
               maxOutputTokens = 1024,
               temperature = 0.5,
             )

@@ -269,7 +269,7 @@ import com.google.genai.kotlin.types.GenerateContentConfig
 import com.google.genai.kotlin.types.Part
 
 val config = GenerateContentConfig(
-    systemInstruction = Content(parts = listOf(Part(text = "You are a helpful assistant."))),
+    systemInstruction = Content.fromText("You are a helpful assistant."),
     temperature = 0.5,
     maxOutputTokens = 1024
 )
@@ -600,7 +600,7 @@ fun main() = runBlocking {
         )
 
         val config = CreateCachedContentConfig(
-            systemInstruction = Content(parts = listOf(Part(text = "You are an expert."))),
+            systemInstruction = Content.fromText("You are an expert."),
             ttl = 60.minutes,
             contents = listOf(Content(role = "user", parts = listOf(bytesData)))
         )
@@ -735,8 +735,8 @@ fun main() = runBlocking {
         val src = EmbeddingsBatchJobSource(
             inlinedRequests = EmbedContentBatch(
                 contents = listOf(
-                    Content(parts = listOf(Part(text = "Hello world"))),
-                    Content(parts = listOf(Part(text = "Batch embedding example")))
+                    Content.fromText("Hello world"),
+                    Content.fromText("Batch embedding example")
                 )
             )
         )
