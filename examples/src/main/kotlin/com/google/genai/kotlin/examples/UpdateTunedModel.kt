@@ -70,21 +70,16 @@ object UpdateTunedModel {
           kotlin.system.exitProcess(1)
         }
 
-        try {
-          val config =
-            UpdateModelConfig(
-              displayName = "New Display Name",
-              description = "Updated description for my tuned model",
-              updateMask = "display_name,description",
-            )
+        val config =
+          UpdateModelConfig(
+            displayName = "New Display Name",
+            description = "Updated description for my tuned model",
+            updateMask = "display_name,description",
+          )
 
-          println("Updating tuned model: $modelId")
-          val updatedModel = client.models.update(model = modelId, config = config)
-          println("Successfully updated model: ${updatedModel.name}")
-        } catch (e: Exception) {
-          System.err.println("Request failed: ${e.message}")
-          e.printStackTrace()
-        }
+        println("Updating tuned model: $modelId")
+        val updatedModel = client.models.update(model = modelId, config = config)
+        println("Successfully updated model: ${updatedModel.name}")
       }
 
       kotlin.system.exitProcess(0)

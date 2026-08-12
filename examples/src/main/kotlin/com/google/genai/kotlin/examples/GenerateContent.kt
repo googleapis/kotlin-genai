@@ -55,27 +55,22 @@ object GenerateContent {
 
       // 3. Instantiate the client (use block automatically closes the client)
       Client().use { client ->
-        try {
-          // 4. Call the API
-          val config =
-            GenerateContentConfig(
-              systemInstruction = Content.fromText("You are a helpful assistant."),
-              maxOutputTokens = 1024,
-              temperature = 0.5,
-            )
-          val response =
-            client.models.generateContent(
-              model = modelId,
-              text = "What is your name?",
-              config = config,
-            )
+        // 4. Call the API
+        val config =
+          GenerateContentConfig(
+            systemInstruction = Content.fromText("You are a helpful assistant."),
+            maxOutputTokens = 1024,
+            temperature = 0.5,
+          )
+        val response =
+          client.models.generateContent(
+            model = modelId,
+            text = "What is your name?",
+            config = config,
+          )
 
-          // 5. Print the result
-          println("Unary response: ${response.text}")
-        } catch (e: Exception) {
-          System.err.println("Request failed: ${e.message}")
-          e.printStackTrace()
-        }
+        // 5. Print the result
+        println("Unary response: ${response.text}")
       }
 
       kotlin.system.exitProcess(0)

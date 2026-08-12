@@ -61,21 +61,16 @@ object ComputeTokens {
           kotlin.system.exitProcess(1)
         }
 
-        try {
-          val textToCompute = "Can you name five different types of cheese?"
-          println("Computing tokens for: \"$textToCompute\" using model: $modelId")
+        val textToCompute = "Can you name five different types of cheese?"
+        println("Computing tokens for: \"$textToCompute\" using model: $modelId")
 
-          val response = client.models.computeTokens(model = modelId, text = textToCompute)
+        val response = client.models.computeTokens(model = modelId, text = textToCompute)
 
-          println("Successfully computed tokens!")
-          response.tokensInfo?.forEach { info ->
-            println("Role: ${info.role}")
-            println("Token IDs: ${info.tokenIds}")
-            println("Tokens: ${info.tokens?.map { it.decodeToString() }}")
-          }
-        } catch (e: Exception) {
-          System.err.println("Request failed: ${e.message}")
-          e.printStackTrace()
+        println("Successfully computed tokens!")
+        response.tokensInfo?.forEach { info ->
+          println("Role: ${info.role}")
+          println("Token IDs: ${info.tokenIds}")
+          println("Tokens: ${info.tokens?.map { it.decodeToString() }}")
         }
       }
 

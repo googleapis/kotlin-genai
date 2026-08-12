@@ -54,17 +54,12 @@ object GetModel {
       val modelId = args.firstOrNull() ?: "gemini-3.5-flash"
 
       Client().use { client ->
-        try {
-          println("Getting info for model: $modelId")
-          val modelInfo = client.models.get(model = modelId)
+        println("Getting info for model: $modelId")
+        val modelInfo = client.models.get(model = modelId)
 
-          println("Model Name: ${modelInfo.name}")
-          println("Display Name: ${modelInfo.displayName}")
-          println("Input Token Limit: ${modelInfo.inputTokenLimit}")
-        } catch (e: Exception) {
-          System.err.println("Request failed: ${e.message}")
-          e.printStackTrace()
-        }
+        println("Model Name: ${modelInfo.name}")
+        println("Display Name: ${modelInfo.displayName}")
+        println("Input Token Limit: ${modelInfo.inputTokenLimit}")
       }
 
       kotlin.system.exitProcess(0)

@@ -55,35 +55,30 @@ object GenerateContentStream {
 
       // Instantiate the client (use block automatically closes the client)
       Client().use { client ->
-        try {
-          val config =
-            GenerateContentConfig(
-              systemInstruction = Content.fromText("You are a creative writer."),
-              temperature = 0.7,
-            )
+        val config =
+          GenerateContentConfig(
+            systemInstruction = Content.fromText("You are a creative writer."),
+            temperature = 0.7,
+          )
 
-          print("Streaming response: ")
+        print("Streaming response: ")
 
-          // Call the streaming API
-          val responseFlow =
-            client.models.generateContentStream(
-              model = modelId,
-              text = "Write a short story about a robot.",
-              config = config,
-            )
+        // Call the streaming API
+        val responseFlow =
+          client.models.generateContentStream(
+            model = modelId,
+            text = "Write a short story about a robot.",
+            config = config,
+          )
 
-          // Collect and stream the chunks of response
-          responseFlow.collect { response ->
-            val chunkText = response.text
-            if (chunkText != null) {
-              print(chunkText)
-            }
+        // Collect and stream the chunks of response
+        responseFlow.collect { response ->
+          val chunkText = response.text
+          if (chunkText != null) {
+            print(chunkText)
           }
-          println() // End with a newline
-        } catch (e: Exception) {
-          System.err.println("\nRequest failed: ${e.message}")
-          e.printStackTrace()
         }
+        println() // End with a newline
       }
 
       kotlin.system.exitProcess(0)

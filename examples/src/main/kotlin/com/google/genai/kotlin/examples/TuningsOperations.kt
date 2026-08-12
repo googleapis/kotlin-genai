@@ -62,164 +62,159 @@ object TuningsOperations {
   fun main(args: Array<String>) =
     runBlocking<Unit> {
       Client().use { client ->
-        try {
-          // 1. List existing Tuning Jobs
-          println("--- 1. Listing Tuning Jobs ---")
-          val jobsFlow = client.tunings.list(ListTuningJobsConfig(pageSize = 5))
-          val jobs = jobsFlow.take(5).toList()
+        // 1. List existing Tuning Jobs
+        println("--- 1. Listing Tuning Jobs ---")
+        val jobsFlow = client.tunings.list(ListTuningJobsConfig(pageSize = 5))
+        val jobs = jobsFlow.take(5).toList()
 
-          if (jobs.isEmpty()) {
-            println("No tuning jobs found.")
-          } else {
-            println("Found ${jobs.size} tuning jobs:")
-            for (job in jobs) {
-              println("- ${job.name} (State: ${job.state})")
-            }
-
-            // 2. Get details for the first job
-            val firstJobName = jobs.first().name
-            if (firstJobName != null) {
-              println("\n--- 2. Fetching details for $firstJobName ---")
-              val detailedJob = client.tunings.get(firstJobName)
-              println("Detailed Job: $detailedJob")
-            }
+        if (jobs.isEmpty()) {
+          println("No tuning jobs found.")
+        } else {
+          println("Found ${jobs.size} tuning jobs:")
+          for (job in jobs) {
+            println("- ${job.name} (State: ${job.state})")
           }
 
-          // 3. Supervised Fine-Tuning (SFT)
-          println("\n--- 3. Starting Supervised Fine-Tuning (SFT) Job ---")
-          val sftJob =
-            client.tunings.tune(
-              baseModel = "gemini-2.5-flash",
-              trainingDataset =
-                TuningDataset(
-                  gcsUri =
-                    "gs://cloud-samples-data/ai-platform/generative_ai/gemini-1_5/text/sft_train_data.jsonl"
-                ),
-              config =
-                CreateTuningJobConfig(
-                  tunedModelDisplayName = "My Supervised Tuned Model",
-                  epochCount = 1,
-                  learningRateMultiplier = 1.0,
-                  adapterSize = AdapterSize("ADAPTER_SIZE_ONE"),
-                ),
-            )
-          println("SFT Job created: ${sftJob.name} (State: ${sftJob.state})")
-
-          // 4. Preference Tuning (DPO)
-          println("\n--- 4. Starting Preference Tuning (DPO) Job ---")
-          val dpoJob =
-            client.tunings.tune(
-              baseModel = "gemini-2.5-flash",
-              trainingDataset =
-                TuningDataset(
-                  gcsUri =
-                    "gs://cloud-samples-data/ai-platform/generative_ai/gemini-1_5/text/sft_train_data.jsonl"
-                ),
-              config =
-                CreateTuningJobConfig(
-                  tunedModelDisplayName = "My Preference Tuned Model",
-                  method = TuningMethod("PREFERENCE_TUNING"),
-                  epochCount = 1,
-                ),
-            )
-          println("Preference Tuning Job created: ${dpoJob.name} (State: ${dpoJob.state})")
-
-          // 5. Distillation Tuning (Teacher-Student)
-          println("\n--- 5. Starting Distillation Tuning Job ---")
-          val distillationJob =
-            client.tunings.tune(
-              baseModel = "qwen/qwen3@qwen3-4b", // Student model
-              trainingDataset =
-                TuningDataset(gcsUri = "gs://YOUR_BUCKET_NAME/distillation_dataset.jsonl"),
-              config =
-                CreateTuningJobConfig(
-                  tunedModelDisplayName = "My Distilled Model",
-                  method = TuningMethod("DISTILLATION"),
-                  baseTeacherModel = "deepseek-ai/deepseek-r1-0528-maas",
-                  epochCount = 20,
-                  validationDataset =
-                    TuningValidationDataset(
-                      gcsUri = "gs://YOUR_BUCKET_NAME/distillation_val_dataset.jsonl"
-                    ),
-                  outputUri = "gs://YOUR_BUCKET_NAME/distillation_output",
-                ),
-            )
-          println(
-            "Distillation Job created: ${distillationJob.name} (State: ${distillationJob.state})"
-          )
-
-          // 6. Tuning on a Pre-Tuned Model Checkpoint
-          println("\n--- 6. Starting Tuning Job on a Pre-Tuned Model ---")
-          val preTunedJob =
-            client.tunings.tune(
-              baseModel =
-                "projects/YOUR_PROJECT_NUMBER/locations/us-central1/models/YOUR_PRETUNED_MODEL_ID",
-              trainingDataset =
-                TuningDataset(
-                  gcsUri =
-                    "gs://cloud-samples-data/ai-platform/generative_ai/gemini-2_0/text/sft_train_data.jsonl"
-                ),
-              config =
-                CreateTuningJobConfig(
-                  tunedModelDisplayName = "My Further Tuned Model",
-                  preTunedModelCheckpointId = "3",
-                ),
-            )
-          println("Pre-tuned Job created: ${preTunedJob.name} (State: ${preTunedJob.state})")
-
-          // 7. Reinforcement Tuning (RLHF)
-          println("\n--- 7. Starting Reinforcement Tuning Job ---")
-          val rlhfJob =
-            client.tunings.tune(
-              baseModel = "gemini-2.5-flash",
-              trainingDataset =
-                TuningDataset(
-                  gcsUri =
-                    "gs://cloud-samples-data/ai-platform/generative_ai/gemini-1_5/text/sft_train_data.jsonl"
-                ),
-              config =
-                CreateTuningJobConfig(
-                  tunedModelDisplayName = "My RLHF Model",
-                  method = TuningMethod("REINFORCEMENT_TUNING"),
-                  epochCount = 1,
-                  learningRateMultiplier = 1.0,
-                  adapterSize = AdapterSize("ADAPTER_SIZE_ONE"),
-                  rewardConfig =
-                    SingleReinforcementTuningRewardConfig(
-                      autoraterScorer =
-                        ReinforcementTuningAutoraterScorer(
-                          autoraterConfig = AutoraterConfig(autoraterModel = "YOUR_AUTORATER_MODEL")
-                        )
-                    ),
-                ),
-            )
-          println("RLHF Job created: ${rlhfJob.name} (State: ${rlhfJob.state})")
-
-          // 8. Validate Reward
-          println("\n--- 8. Validating Reward for Reinforcement Tuning ---")
-          val project = System.getenv("GOOGLE_CLOUD_PROJECT") ?: "YOUR_PROJECT_NUMBER"
-          val location = System.getenv("GOOGLE_CLOUD_LOCATION") ?: "us-central1"
-          val rewardResponse =
-            client.tunings.validateReward(
-              parent = "projects/$project/locations/$location",
-              sampleResponse = Content.fromText("The answer is 42."),
-              example =
-                ReinforcementTuningExample(
-                  contents = listOf(Content.fromText("What is the answer to life?"))
-                ),
-              singleRewardConfig =
-                SingleReinforcementTuningRewardConfig(
-                  autoraterScorer =
-                    ReinforcementTuningAutoraterScorer(
-                      autoraterConfig = AutoraterConfig(autoraterModel = "YOUR_AUTORATER_MODEL")
-                    )
-                ),
-            )
-          println("Reward Validation Score: ${rewardResponse.overallReward}")
-        } catch (e: Exception) {
-          System.err.println("Operation failed: ${e.message}")
-          e.printStackTrace()
+          // 2. Get details for the first job
+          val firstJobName = jobs.first().name
+          if (firstJobName != null) {
+            println("\n--- 2. Fetching details for $firstJobName ---")
+            val detailedJob = client.tunings.get(firstJobName)
+            println("Detailed Job: $detailedJob")
+          }
         }
+
+        // 3. Supervised Fine-Tuning (SFT)
+        println("\n--- 3. Starting Supervised Fine-Tuning (SFT) Job ---")
+        val sftJob =
+          client.tunings.tune(
+            baseModel = "gemini-2.5-flash",
+            trainingDataset =
+              TuningDataset(
+                gcsUri =
+                  "gs://cloud-samples-data/ai-platform/generative_ai/gemini-1_5/text/sft_train_data.jsonl"
+              ),
+            config =
+              CreateTuningJobConfig(
+                tunedModelDisplayName = "My Supervised Tuned Model",
+                epochCount = 1,
+                learningRateMultiplier = 1.0,
+                adapterSize = AdapterSize("ADAPTER_SIZE_ONE"),
+              ),
+          )
+        println("SFT Job created: ${sftJob.name} (State: ${sftJob.state})")
+
+        // 4. Preference Tuning (DPO)
+        println("\n--- 4. Starting Preference Tuning (DPO) Job ---")
+        val dpoJob =
+          client.tunings.tune(
+            baseModel = "gemini-2.5-flash",
+            trainingDataset =
+              TuningDataset(
+                gcsUri =
+                  "gs://cloud-samples-data/ai-platform/generative_ai/gemini-1_5/text/sft_train_data.jsonl"
+              ),
+            config =
+              CreateTuningJobConfig(
+                tunedModelDisplayName = "My Preference Tuned Model",
+                method = TuningMethod("PREFERENCE_TUNING"),
+                epochCount = 1,
+              ),
+          )
+        println("Preference Tuning Job created: ${dpoJob.name} (State: ${dpoJob.state})")
+
+        // 5. Distillation Tuning (Teacher-Student)
+        println("\n--- 5. Starting Distillation Tuning Job ---")
+        val distillationJob =
+          client.tunings.tune(
+            baseModel = "qwen/qwen3@qwen3-4b", // Student model
+            trainingDataset =
+              TuningDataset(gcsUri = "gs://YOUR_BUCKET_NAME/distillation_dataset.jsonl"),
+            config =
+              CreateTuningJobConfig(
+                tunedModelDisplayName = "My Distilled Model",
+                method = TuningMethod("DISTILLATION"),
+                baseTeacherModel = "deepseek-ai/deepseek-r1-0528-maas",
+                epochCount = 20,
+                validationDataset =
+                  TuningValidationDataset(
+                    gcsUri = "gs://YOUR_BUCKET_NAME/distillation_val_dataset.jsonl"
+                  ),
+                outputUri = "gs://YOUR_BUCKET_NAME/distillation_output",
+              ),
+          )
+        println(
+          "Distillation Job created: ${distillationJob.name} (State: ${distillationJob.state})"
+        )
+
+        // 6. Tuning on a Pre-Tuned Model Checkpoint
+        println("\n--- 6. Starting Tuning Job on a Pre-Tuned Model ---")
+        val preTunedJob =
+          client.tunings.tune(
+            baseModel =
+              "projects/YOUR_PROJECT_NUMBER/locations/us-central1/models/YOUR_PRETUNED_MODEL_ID",
+            trainingDataset =
+              TuningDataset(
+                gcsUri =
+                  "gs://cloud-samples-data/ai-platform/generative_ai/gemini-2_0/text/sft_train_data.jsonl"
+              ),
+            config =
+              CreateTuningJobConfig(
+                tunedModelDisplayName = "My Further Tuned Model",
+                preTunedModelCheckpointId = "3",
+              ),
+          )
+        println("Pre-tuned Job created: ${preTunedJob.name} (State: ${preTunedJob.state})")
+
+        // 7. Reinforcement Tuning (RLHF)
+        println("\n--- 7. Starting Reinforcement Tuning Job ---")
+        val rlhfJob =
+          client.tunings.tune(
+            baseModel = "gemini-2.5-flash",
+            trainingDataset =
+              TuningDataset(
+                gcsUri =
+                  "gs://cloud-samples-data/ai-platform/generative_ai/gemini-1_5/text/sft_train_data.jsonl"
+              ),
+            config =
+              CreateTuningJobConfig(
+                tunedModelDisplayName = "My RLHF Model",
+                method = TuningMethod("REINFORCEMENT_TUNING"),
+                epochCount = 1,
+                learningRateMultiplier = 1.0,
+                adapterSize = AdapterSize("ADAPTER_SIZE_ONE"),
+                rewardConfig =
+                  SingleReinforcementTuningRewardConfig(
+                    autoraterScorer =
+                      ReinforcementTuningAutoraterScorer(
+                        autoraterConfig = AutoraterConfig(autoraterModel = "YOUR_AUTORATER_MODEL")
+                      )
+                  ),
+              ),
+          )
+        println("RLHF Job created: ${rlhfJob.name} (State: ${rlhfJob.state})")
+
+        // 8. Validate Reward
+        println("\n--- 8. Validating Reward for Reinforcement Tuning ---")
+        val project = System.getenv("GOOGLE_CLOUD_PROJECT") ?: "YOUR_PROJECT_NUMBER"
+        val location = System.getenv("GOOGLE_CLOUD_LOCATION") ?: "us-central1"
+        val rewardResponse =
+          client.tunings.validateReward(
+            parent = "projects/$project/locations/$location",
+            sampleResponse = Content.fromText("The answer is 42."),
+            example =
+              ReinforcementTuningExample(
+                contents = listOf(Content.fromText("What is the answer to life?"))
+              ),
+            singleRewardConfig =
+              SingleReinforcementTuningRewardConfig(
+                autoraterScorer =
+                  ReinforcementTuningAutoraterScorer(
+                    autoraterConfig = AutoraterConfig(autoraterModel = "YOUR_AUTORATER_MODEL")
+                  )
+              ),
+          )
+        println("Reward Validation Score: ${rewardResponse.overallReward}")
       }
 
       kotlin.system.exitProcess(0)

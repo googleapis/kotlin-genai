@@ -57,14 +57,9 @@ object DeleteModel {
       }
 
       Client().use { client ->
-        try {
-          println("Deleting tuned model: $modelId")
-          client.models.delete(model = modelId)
-          println("Tuned model successfully deleted.")
-        } catch (e: Exception) {
-          System.err.println("Request failed: ${e.message}")
-          e.printStackTrace()
-        }
+        println("Deleting tuned model: $modelId")
+        client.models.delete(model = modelId)
+        println("Tuned model successfully deleted.")
       }
 
       kotlin.system.exitProcess(0)

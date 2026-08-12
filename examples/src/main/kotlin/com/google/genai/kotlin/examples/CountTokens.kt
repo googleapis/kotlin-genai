@@ -52,17 +52,12 @@ object CountTokens {
       val modelId = args.firstOrNull() ?: "gemini-3.5-flash"
 
       Client().use { client ->
-        try {
-          val textToCount = "Can you name five different types of pasta?"
-          println("Counting tokens for: \"$textToCount\" using model: $modelId")
+        val textToCount = "Can you name five different types of pasta?"
+        println("Counting tokens for: \"$textToCount\" using model: $modelId")
 
-          val response = client.models.countTokens(model = modelId, text = textToCount)
+        val response = client.models.countTokens(model = modelId, text = textToCount)
 
-          println("Total tokens: ${response.totalTokens}")
-        } catch (e: Exception) {
-          System.err.println("Request failed: ${e.message}")
-          e.printStackTrace()
-        }
+        println("Total tokens: ${response.totalTokens}")
       }
 
       kotlin.system.exitProcess(0)

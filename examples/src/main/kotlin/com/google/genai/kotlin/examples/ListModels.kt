@@ -52,29 +52,24 @@ object ListModels {
   fun main(args: Array<String>) =
     runBlocking<Unit> {
       Client().use { client ->
-        try {
-          println("--- Listing Base Models ---")
-          val config = ListModelsConfig(pageSize = 5)
-          client.models.list(config).take(5).collect { model ->
-            println("Found Base Model: ${model.name} (${model.displayName})")
-          }
+        println("--- Listing Base Models ---")
+        val config = ListModelsConfig(pageSize = 5)
+        client.models.list(config).take(5).collect { model ->
+          println("Found Base Model: ${model.name} (${model.displayName})")
+        }
 
-          if (client.enterprise) {
-            println("\n--- Listing Tuned Models ---")
-            // Set queryBase = false to specifically request tuned models
-            val tunedConfig = ListModelsConfig(queryBase = false, pageSize = 5)
+        if (client.enterprise) {
+          println("\n--- Listing Tuned Models ---")
+          // Set queryBase = false to specifically request tuned models
+          val tunedConfig = ListModelsConfig(queryBase = false, pageSize = 5)
 
-            client.models.list(tunedConfig).take(5).collect { model ->
-              println("Found Tuned Model: ${model.name}")
-            }
-          } else {
-            println(
-              "\nNote: Tuned models listing is skipped because the client is not using the Enterprise Agent Platform."
-            )
+          client.models.list(tunedConfig).take(5).collect { model ->
+            println("Found Tuned Model: ${model.name}")
           }
-        } catch (e: Exception) {
-          System.err.println("Request failed: ${e.message}")
-          e.printStackTrace()
+        } else {
+          println(
+            "\nNote: Tuned models listing is skipped because the client is not using the Enterprise Agent Platform."
+          )
         }
       }
 

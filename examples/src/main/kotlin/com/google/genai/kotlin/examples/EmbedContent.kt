@@ -59,83 +59,76 @@ object EmbedContent {
 
       println("Initializing client...")
       Client().use { client ->
-        try {
-          println("\n--- 1. Basic Text Embedding ---")
-          val textToEmbed = "What is the capital of France?"
-          println("Embedding text: \"$textToEmbed\" using model: $modelId")
+        println("\n--- 1. Basic Text Embedding ---")
+        val textToEmbed = "What is the capital of France?"
+        println("Embedding text: \"$textToEmbed\" using model: $modelId")
 
-          val response = client.models.embedContent(model = modelId, text = textToEmbed)
+        val response = client.models.embedContent(model = modelId, text = textToEmbed)
 
-          printEmbeddingResponse(response)
+        printEmbeddingResponse(response)
 
-          println("\n--- 2. Embedding with Custom Config (Task Type & Dimensionality) ---")
-          println(
-            "Requesting embedding with outputDimensionality = 16 and taskType = RETRIEVAL_DOCUMENT"
+        println("\n--- 2. Embedding with Custom Config (Task Type & Dimensionality) ---")
+        println(
+          "Requesting embedding with outputDimensionality = 16 and taskType = RETRIEVAL_DOCUMENT"
+        )
+
+        val config =
+          EmbedContentConfig(
+            outputDimensionality = 16,
+            taskType = "RETRIEVAL_DOCUMENT",
+            title = "Capital Inquiry",
           )
+        val responseWithConfig =
+          client.models.embedContent(model = modelId, text = textToEmbed, config = config)
 
-          val config =
-            EmbedContentConfig(
-              outputDimensionality = 16,
-              taskType = "RETRIEVAL_DOCUMENT",
-              title = "Capital Inquiry",
-            )
-          val responseWithConfig =
-            client.models.embedContent(model = modelId, text = textToEmbed, config = config)
+        printEmbeddingResponse(responseWithConfig)
 
-          printEmbeddingResponse(responseWithConfig)
+        println("\n--- 3. Multimodal Embedding ---")
+        val multimodalResponse =
+          if (client.enterprise) {
+            println("Running Gemini Enterprise Agent Platform mode: Using GCS image URI...")
+            val gcsUri = "gs://cloud-samples-data/generative-ai/image/a-man-and-a-dog.png"
 
-          println("\n--- 3. Multimodal Embedding ---")
-          val multimodalResponse =
-            if (client.enterprise) {
-              println("Running Gemini Enterprise Agent Platform mode: Using GCS image URI...")
-              val gcsUri = "gs://cloud-samples-data/generative-ai/image/a-man-and-a-dog.png"
-
-              client.models.embedContent(
-                model = modelId,
-                contents =
-                  listOf(
-                    Content(
-                      parts =
-                        listOf(
-                          Part(text = "Similar things to the following image:"),
-                          Part(fileData = FileData(fileUri = gcsUri, mimeType = "image/png")),
-                        )
-                    )
-                  ),
-                config = EmbedContentConfig(outputDimensionality = 10),
-              )
-            } else {
-              println(
-                "Running Gemini Developer API mode: Using inline image bytes from resources..."
-              )
-              val imageStream =
-                EmbedContent::class.java.classLoader.getResourceAsStream("google.png")
-                  ?: throw IllegalStateException(
-                    "Required resource 'google.png' not found in classpath."
+            client.models.embedContent(
+              model = modelId,
+              contents =
+                listOf(
+                  Content(
+                    parts =
+                      listOf(
+                        Part(text = "Similar things to the following image:"),
+                        Part(fileData = FileData(fileUri = gcsUri, mimeType = "image/png")),
+                      )
                   )
-              val imageBytes = imageStream.use { it.readBytes() }
+                ),
+              config = EmbedContentConfig(outputDimensionality = 10),
+            )
+          } else {
+            println("Running Gemini Developer API mode: Using inline image bytes from resources...")
+            val imageStream =
+              EmbedContent::class.java.classLoader.getResourceAsStream("google.png")
+                ?: throw IllegalStateException(
+                  "Required resource 'google.png' not found in classpath."
+                )
+            val imageBytes = imageStream.use { it.readBytes() }
 
-              client.models.embedContent(
-                model = modelId,
-                contents =
-                  listOf(
-                    Content(
-                      parts =
-                        listOf(
-                          Part(text = "Similar things to the following image:"),
-                          Part(inlineData = Blob(mimeType = "image/png", data = imageBytes)),
-                        )
-                    )
-                  ),
-                config = EmbedContentConfig(outputDimensionality = 10),
-              )
-            }
+            client.models.embedContent(
+              model = modelId,
+              contents =
+                listOf(
+                  Content(
+                    parts =
+                      listOf(
+                        Part(text = "Similar things to the following image:"),
+                        Part(inlineData = Blob(mimeType = "image/png", data = imageBytes)),
+                      )
+                  )
+                ),
+              config = EmbedContentConfig(outputDimensionality = 10),
+            )
+          }
 
-          printEmbeddingResponse(multimodalResponse)
-        } catch (e: Exception) {
-          System.err.println("Request failed: ${e.message}")
-          e.printStackTrace()
-        }
+        printEmbeddingResponse(multimodalResponse)
       }
       kotlin.system.exitProcess(0)
     }

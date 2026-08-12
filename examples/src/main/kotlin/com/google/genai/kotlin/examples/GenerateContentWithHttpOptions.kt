@@ -62,22 +62,17 @@ object GenerateContentWithHttpOptions {
 
       // 2. Instantiate the client with HttpOptions
       Client(httpOptions = httpOptions).use { client ->
-        try {
-          println("Using Client with Custom HttpOptions (apiVersion=v1, timeout=10s)")
+        println("Using Client with Custom HttpOptions (apiVersion=v1, timeout=10s)")
 
-          // 3. Call the API
-          val response =
-            client.models.generateContent(
-              model = modelId,
-              text = "Tell me a short joke about programming.",
-            )
+        // 3. Call the API
+        val response =
+          client.models.generateContent(
+            model = modelId,
+            text = "Tell me a short joke about programming.",
+          )
 
-          // 4. Print the result
-          println("Unary response:\n${response.text}")
-        } catch (e: Exception) {
-          System.err.println("Request failed: ${e.message}")
-          e.printStackTrace()
-        }
+        // 4. Print the result
+        println("Unary response:\n${response.text}")
       }
 
       kotlin.system.exitProcess(0)
