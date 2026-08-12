@@ -327,6 +327,8 @@ $dokka.location:com.google.genai.kotlin.types/ComputerUse/disabledSafetyPolicies
 $dokka.location:com.google.genai.kotlin.types/ComputerUse/enablePromptInjectionDetection/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-computer-use/enable-prompt-injection-detection.html
 $dokka.location:com.google.genai.kotlin.types/ComputerUse/environment/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-computer-use/environment.html
 $dokka.location:com.google.genai.kotlin.types/ComputerUse/excludedPredefinedFunctions/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-computer-use/excluded-predefined-functions.html
+$dokka.location:com.google.genai.kotlin.types/Content.Companion///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-content/-companion/index.html
+$dokka.location:com.google.genai.kotlin.types/Content.Companion/fromText/#kotlin.String#kotlin.String/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-content/-companion/from-text.html
 $dokka.location:com.google.genai.kotlin.types/Content///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-content/index.html
 $dokka.location:com.google.genai.kotlin.types/Content/Content/#kotlin.collections.List[com.google.genai.kotlin.types.Part]?#kotlin.String?/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-content/-content.html
 $dokka.location:com.google.genai.kotlin.types/Content/parts/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-content/parts.html
