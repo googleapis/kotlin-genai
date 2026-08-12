@@ -1,5 +1,29 @@
 # Changelog
 
+## [0.4.0](https://github.com/googleapis/kotlin-genai/compare/v0.3.0...v0.4.0) (2026-08-12)
+
+
+### Features
+
+* add Content.fromText for building a single text content ([a336377](https://github.com/googleapis/kotlin-genai/commit/a336377fc1f4e0e5d3924bd50983ff4804d103bc))
+* add finishReason, executableCode and codeExecutionResult to GenerateContentResponse ([bcd85ca](https://github.com/googleapis/kotlin-genai/commit/bcd85cacb83de6eadcab0ffaed657783c972f6f4))
+* add HTTP retry support via HttpOptions.retryOptions ([133c7ea](https://github.com/googleapis/kotlin-genai/commit/133c7ea504a18eb9134e184dbda00c2231cbb3bc))
+* Add interaction_status to LiveServerContent ([eb5e572](https://github.com/googleapis/kotlin-genai/commit/eb5e5724a687f5fd62fad6bd97165e786b712284))
+* Add TOO_MANY_TOOL_CALLS to FinishReason enum. ([628a067](https://github.com/googleapis/kotlin-genai/commit/628a067c0380fcd1732ca9455c34ae81ed7a5b23))
+* support multi-turn chat with Chat.sendMessage ([2a07922](https://github.com/googleapis/kotlin-genai/commit/2a07922a95f01e8af1953b8cc9dceeaa96e6a865))
+* support streaming chat with Chat.sendMessageStream ([e72af6d](https://github.com/googleapis/kotlin-genai/commit/e72af6d5b8ec1eee1943730a8158be3ff1b50011))
+
+
+### Bug Fixes
+
+* Add propertyOrdering auto-population for ResponseSchema and ResponseJsonSchema for Dotnet SDK ([de6e8c1](https://github.com/googleapis/kotlin-genai/commit/de6e8c155953a4a34b898cd61e1c6773d680f071))
+
+
+### Documentation
+
+* add chat examples and document the chat session in README ([c9125dd](https://github.com/googleapis/kotlin-genai/commit/c9125ddbbc4969275cc952190f8748da72b6af81))
+* document the HTTP retry options ([2f8e69d](https://github.com/googleapis/kotlin-genai/commit/2f8e69de1286e4b7ee65586461cde3275e7eef97))
+
 ## [0.3.0](https://github.com/googleapis/kotlin-genai/compare/v0.2.0...v0.3.0) (2026-08-03)
 
 
