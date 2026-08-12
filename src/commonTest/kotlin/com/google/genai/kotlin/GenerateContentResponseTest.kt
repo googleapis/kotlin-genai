@@ -17,7 +17,10 @@
 package com.google.genai.kotlin
 
 import com.google.genai.kotlin.types.Candidate
+import com.google.genai.kotlin.types.CodeExecutionResult
 import com.google.genai.kotlin.types.Content
+import com.google.genai.kotlin.types.ExecutableCode
+import com.google.genai.kotlin.types.FinishReason
 import com.google.genai.kotlin.types.FunctionCall
 import com.google.genai.kotlin.types.GenerateContentResponse
 import com.google.genai.kotlin.types.Part
@@ -113,5 +116,106 @@ class GenerateContentResponseTest {
         candidates = listOf(Candidate(content = Content(parts = listOf(Part(text = "some text")))))
       )
     assertNull(response.functionCalls)
+  }
+
+  @Test
+  fun testFinishReasonReturnsReasonFromFirstCandidate() {
+    val response =
+      GenerateContentResponse(
+        candidates =
+          listOf(
+            Candidate(finishReason = FinishReason.STOP),
+            Candidate(finishReason = FinishReason.SAFETY),
+          )
+      )
+
+    assertEquals(FinishReason.STOP, response.finishReason)
+  }
+
+  @Test
+  fun testFinishReasonReturnsNullWhileStreamIsStillRunning() {
+    val response =
+      GenerateContentResponse(
+        candidates = listOf(Candidate(content = Content(parts = listOf(Part(text = "Par")))))
+      )
+
+    assertNull(response.finishReason)
+  }
+
+  @Test
+  fun testFinishReasonReturnsNullIfCandidatesAreEmptyOrNull() {
+    assertNull(GenerateContentResponse(candidates = emptyList()).finishReason)
+    assertNull(GenerateContentResponse().finishReason)
+  }
+
+  @Test
+  fun testExecutableCodeReturnsCodeFromFirstCandidate() {
+    val response =
+      GenerateContentResponse(
+        candidates =
+          listOf(
+            Candidate(
+              content =
+                Content(
+                  parts =
+                    listOf(
+                      Part(text = "Here you go:"),
+                      Part(executableCode = ExecutableCode(code = "print(1)")),
+                      Part(executableCode = ExecutableCode(code = "print(2)")),
+                    )
+                )
+            ),
+            Candidate(
+              content =
+                Content(parts = listOf(Part(executableCode = ExecutableCode(code = "other()"))))
+            ),
+          )
+      )
+
+    assertEquals("print(1)", response.executableCode)
+  }
+
+  @Test
+  fun testExecutableCodeReturnsNullWhenAbsent() {
+    val response =
+      GenerateContentResponse(
+        candidates = listOf(Candidate(content = Content(parts = listOf(Part(text = "hi")))))
+      )
+
+    assertNull(response.executableCode)
+    assertNull(GenerateContentResponse().executableCode)
+  }
+
+  @Test
+  fun testCodeExecutionResultReturnsOutputFromFirstCandidate() {
+    val response =
+      GenerateContentResponse(
+        candidates =
+          listOf(
+            Candidate(
+              content =
+                Content(
+                  parts =
+                    listOf(
+                      Part(codeExecutionResult = CodeExecutionResult(output = "1")),
+                      Part(codeExecutionResult = CodeExecutionResult(output = "2")),
+                    )
+                )
+            )
+          )
+      )
+
+    assertEquals("1", response.codeExecutionResult)
+  }
+
+  @Test
+  fun testCodeExecutionResultReturnsNullWhenAbsent() {
+    val response =
+      GenerateContentResponse(
+        candidates = listOf(Candidate(content = Content(parts = listOf(Part(text = "hi")))))
+      )
+
+    assertNull(response.codeExecutionResult)
+    assertNull(GenerateContentResponse().codeExecutionResult)
   }
 }

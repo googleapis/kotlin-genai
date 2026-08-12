@@ -145,6 +145,19 @@ fun main() = runBlocking {
 }
 ```
 
+`response.text` concatenates the text parts of the first candidate. A few other
+accessors read the same first candidate, each returning `null` when the response
+does not carry that kind of content:
+
+| Accessor | Returns |
+| --- | --- |
+| `response.text` | the concatenated text parts |
+| `response.parts` | the parts of the first candidate |
+| `response.functionCalls` | the function calls the model requested |
+| `response.finishReason` | why the model stopped, once it has |
+| `response.executableCode` | code the model asked to have run |
+| `response.codeExecutionResult` | the output of running that code |
+
 ### Stream Generated Content
 
 Use `generateContentStream` to get a streaming response (using Kotlin `Flow`)

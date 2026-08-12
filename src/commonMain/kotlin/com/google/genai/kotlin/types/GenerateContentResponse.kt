@@ -100,4 +100,37 @@ data class GenerateContentResponse(
       val calls = parts.mapNotNull { it.functionCall }
       return if (calls.isEmpty()) null else calls
     }
+
+  /**
+   * Returns why the model stopped generating.
+   *
+   * If there are multiple candidates, this returns the reason from only the first one. It is null
+   * while a streamed response is still in progress, and set on the chunk that ends it.
+   */
+  val finishReason: FinishReason?
+    get() = candidates?.firstOrNull()?.finishReason
+
+  /**
+   * Returns the code the model asked to have run, when the code execution tool is enabled.
+   *
+   * If there are multiple candidates, this returns the code from only the first one, and if that
+   * candidate holds several executable code parts, only the first of those.
+   */
+  val executableCode: String?
+    get() {
+      val parts = candidates?.firstOrNull()?.content?.parts ?: return null
+      return parts.firstNotNullOfOrNull { it.executableCode }?.code
+    }
+
+  /**
+   * Returns the output of running the code the model asked to have run.
+   *
+   * If there are multiple candidates, this returns the output from only the first one, and if that
+   * candidate holds several results, only the first of those.
+   */
+  val codeExecutionResult: String?
+    get() {
+      val parts = candidates?.firstOrNull()?.content?.parts ?: return null
+      return parts.firstNotNullOfOrNull { it.codeExecutionResult }?.output
+    }
 }

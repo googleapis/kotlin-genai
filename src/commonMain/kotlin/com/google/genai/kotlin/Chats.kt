@@ -225,9 +225,8 @@ internal constructor(
           if (!isValidResponse(chunk)) {
             isValid = false
           }
-          val candidate = chunk.candidates?.firstOrNull()
-          candidate?.content?.let { outputContents.add(it) }
-          if (candidate?.finishReason != null) {
+          chunk.candidates?.firstOrNull()?.content?.let { outputContents.add(it) }
+          if (chunk.finishReason != null) {
             finished = true
           }
           emit(chunk)
