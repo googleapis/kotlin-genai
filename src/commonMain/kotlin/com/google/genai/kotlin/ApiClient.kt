@@ -17,6 +17,7 @@
 package com.google.genai.kotlin
 
 import com.google.genai.kotlin.types.HttpOptions
+import com.google.genai.kotlin.types.HttpRetryOptions
 import io.ktor.client.HttpClient
 import io.ktor.client.engine.HttpClientEngine
 import io.ktor.client.plugins.HttpTimeout
@@ -31,6 +32,7 @@ import io.ktor.client.request.prepareRequest
 import io.ktor.client.request.request
 import io.ktor.client.request.setBody
 import io.ktor.client.request.url
+import io.ktor.client.statement.HttpResponse
 import io.ktor.client.statement.bodyAsChannel
 import io.ktor.client.statement.bodyAsText
 import io.ktor.http.ContentType
@@ -40,7 +42,12 @@ import io.ktor.http.URLBuilder
 import io.ktor.http.Url
 import io.ktor.http.content.ByteArrayContent
 import io.ktor.http.contentType
+import io.ktor.utils.io.errors.IOException
 import io.ktor.utils.io.readUTF8Line
+import kotlin.math.pow
+import kotlin.random.Random
+import kotlinx.coroutines.CancellationException
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.serialization.json.Json
@@ -113,7 +120,10 @@ internal class ApiClient(
     body: JsonObject? = null,
     httpOptions: HttpOptions? = null,
   ): ApiResponse {
-    val response = client.request { buildRequest(method, path, body, httpOptions) }
+    val response =
+      sendWithRetry(clientHttpOptions.merge(httpOptions).retryOptions) {
+        client.request { buildRequest(method, path, body, httpOptions) }
+      }
     return ApiResponse(response)
   }
 
@@ -132,7 +142,10 @@ internal class ApiClient(
     body: ByteArray,
     httpOptions: HttpOptions? = null,
   ): ApiResponse {
-    val response = client.request { buildRequest(method, path, body, httpOptions) }
+    val response =
+      sendWithRetry(clientHttpOptions.merge(httpOptions).retryOptions) {
+        client.request { buildRequest(method, path, body, httpOptions) }
+      }
     return ApiResponse(response)
   }
 
@@ -149,8 +162,10 @@ internal class ApiClient(
     path: String,
     httpOptions: HttpOptions? = null,
   ): ApiResponse {
-    val statement = client.prepareRequest { buildRequest(method, path, null, httpOptions) }
-    val response = statement.execute()
+    val response =
+      sendWithRetry(clientHttpOptions.merge(httpOptions).retryOptions) {
+        client.prepareRequest { buildRequest(method, path, null, httpOptions) }.execute()
+      }
     return ApiResponse(response)
   }
 
@@ -172,30 +187,60 @@ internal class ApiClient(
     body: JsonObject? = null,
     httpOptions: HttpOptions? = null,
   ): Flow<String> = flow {
-    client
-      .prepareRequest { buildRequest(method, path, body, httpOptions) }
-      .execute { httpResponse ->
-        val status = httpResponse.status.value
-        if (status >= 300) {
-          val errorBody = httpResponse.bodyAsText()
-          GenAiApiException.throwFromResponse(status, errorBody)
-        }
-        val channel = httpResponse.bodyAsChannel()
-        val buffer = StringBuilder()
-        while (!channel.isClosedForRead) {
-          val line = channel.readUTF8Line() ?: break
-          when {
-            line.isEmpty() && buffer.isNotEmpty() -> {
-              emit(buffer.toString().trim())
-              buffer.clear()
+    val retryOptions = clientHttpOptions.merge(httpOptions).retryOptions
+    val attempts = resolveRetryAttempts(retryOptions)
+    val retryableCodes = resolveRetryableCodes(retryOptions)
+
+    var attempt = 1
+    while (true) {
+      // Only the initial send is retried; a stream cannot be resent once it has emitted.
+      var retryAfterBackoff = false
+      var emitted = false
+      try {
+        client
+          .prepareRequest { buildRequest(method, path, body, httpOptions) }
+          .execute { httpResponse ->
+            val status = httpResponse.status.value
+            if (status >= 300) {
+              if (attempt < attempts && status in retryableCodes) {
+                retryAfterBackoff = true
+                return@execute
+              }
+              val errorBody = httpResponse.bodyAsText()
+              GenAiApiException.throwFromResponse(status, errorBody)
             }
-            line.startsWith("data:") -> {
-              buffer.append(line.removePrefix("data:").trim())
-              buffer.append("\n")
+            val channel = httpResponse.bodyAsChannel()
+            val buffer = StringBuilder()
+            while (!channel.isClosedForRead) {
+              val line = channel.readUTF8Line() ?: break
+              when {
+                line.isEmpty() && buffer.isNotEmpty() -> {
+                  emitted = true
+                  emit(buffer.toString().trim())
+                  buffer.clear()
+                }
+                line.startsWith("data:") -> {
+                  buffer.append(line.removePrefix("data:").trim())
+                  buffer.append("\n")
+                }
+              }
             }
           }
+      } catch (e: CancellationException) {
+        throw e
+      } catch (e: IOException) {
+        // Resending after the first emission would replay values the collector already saw.
+        if (emitted || attempt >= attempts) {
+          throw e
         }
+        retryAfterBackoff = true
       }
+      if (!retryAfterBackoff) {
+        return@flow
+      }
+      delay(retryBackoffMillis(attempt, retryOptions!!))
+      attempt++
+    }
   }
 
   /** Builds the request message for both unary and streaming requests. */
@@ -356,6 +401,79 @@ internal class ApiClient(
   }
 }
 
+// Default HTTP retry configuration. Keep aligned with _api_client.py in the Python SDK.
+private const val DEFAULT_RETRY_ATTEMPTS = 5 // Including the initial call.
+private const val DEFAULT_RETRY_INITIAL_DELAY = 1.0 // Seconds.
+private const val DEFAULT_RETRY_MAX_DELAY = 60.0 // Seconds.
+private const val DEFAULT_RETRY_EXP_BASE = 2.0
+private const val DEFAULT_RETRY_JITTER = 1.0
+
+private val DEFAULT_RETRY_HTTP_STATUS_CODES = listOf(408, 429, 500, 502, 503, 504)
+
+/**
+ * Sends a request via [send], retrying according to [retryOptions]. A null [retryOptions] means a
+ * single attempt. A retryable status is retried, as is an [IOException], since this client does not
+ * set Ktor's `expectSuccess`.
+ *
+ * Only [IOException] is retried, matching the Java SDK. A malformed header or URL surfaces from
+ * [send] as a different type and cannot succeed on a second attempt, so it is not retried.
+ */
+private suspend fun sendWithRetry(
+  retryOptions: HttpRetryOptions?,
+  send: suspend () -> HttpResponse,
+): HttpResponse {
+  val attempts = resolveRetryAttempts(retryOptions)
+  val retryableCodes = resolveRetryableCodes(retryOptions)
+
+  var attempt = 1
+  while (true) {
+    val response =
+      try {
+        send()
+      } catch (e: CancellationException) {
+        throw e
+      } catch (e: IOException) {
+        if (attempt >= attempts) {
+          throw e
+        }
+        delay(retryBackoffMillis(attempt, retryOptions!!))
+        attempt++
+        continue
+      }
+    if (attempt >= attempts || response.status.value !in retryableCodes) {
+      return response
+    }
+    delay(retryBackoffMillis(attempt, retryOptions!!))
+    attempt++
+  }
+}
+
+/** The total number of attempts to make, including the initial one. */
+private fun resolveRetryAttempts(retryOptions: HttpRetryOptions?): Int =
+  if (retryOptions == null) {
+    1
+  } else {
+    maxOf(1, retryOptions.attempts ?: DEFAULT_RETRY_ATTEMPTS)
+  }
+
+/** The status codes worth retrying. An explicit list replaces the default set. */
+private fun resolveRetryableCodes(retryOptions: HttpRetryOptions?): List<Int> =
+  retryOptions?.httpStatusCodes?.takeIf { it.isNotEmpty() } ?: DEFAULT_RETRY_HTTP_STATUS_CODES
+
+/**
+ * Returns how long to wait, in milliseconds, before the attempt following [attempt], using
+ * `min(initialDelay * expBase^(attempt-1) + U(0, jitter), maxDelay)`.
+ */
+internal fun retryBackoffMillis(attempt: Int, retryOptions: HttpRetryOptions): Long {
+  val initialDelay = retryOptions.initialDelay ?: DEFAULT_RETRY_INITIAL_DELAY
+  val maxDelay = retryOptions.maxDelay ?: DEFAULT_RETRY_MAX_DELAY
+  val expBase = retryOptions.expBase ?: DEFAULT_RETRY_EXP_BASE
+  val jitter = retryOptions.jitter ?: DEFAULT_RETRY_JITTER
+
+  val seconds = (initialDelay * expBase.pow(attempt - 1)) + (Random.nextDouble() * jitter)
+  return (minOf(seconds, maxDelay).coerceAtLeast(0.0) * 1000.0).toLong()
+}
+
 /** Merges two [HttpOptions] instances, with [other] overriding [this]. */
 private fun HttpOptions.merge(other: HttpOptions?): HttpOptions {
   if (other == null) return this
@@ -364,6 +482,7 @@ private fun HttpOptions.merge(other: HttpOptions?): HttpOptions {
     apiVersion = other.apiVersion ?: this.apiVersion,
     headers = mergeHeaders(this.headers, other.headers),
     timeout = other.timeout ?: this.timeout,
+    retryOptions = other.retryOptions ?: this.retryOptions,
   )
 }
 

@@ -37,6 +37,7 @@ import com.google.genai.kotlin.types.GetFileConfig
 import com.google.genai.kotlin.types.GetFileParameters
 import com.google.genai.kotlin.types.HttpOptions
 import com.google.genai.kotlin.types.HttpResponse
+import com.google.genai.kotlin.types.HttpRetryOptions
 import com.google.genai.kotlin.types.ListFilesConfig
 import com.google.genai.kotlin.types.ListFilesParameters
 import com.google.genai.kotlin.types.ListFilesResponse
@@ -659,7 +660,11 @@ class Files internal constructor(internal val apiClient: ApiClient) {
     headers["X-Goog-Upload-Offset"] = offset.toString()
     headers["Content-Type"] = "application/octet-stream"
 
-    val chunkHttpOptions = (httpOptions ?: HttpOptions()).copy(headers = headers)
+    val chunkHttpOptions =
+      (httpOptions ?: HttpOptions()).copy(
+        headers = headers,
+        retryOptions = HttpRetryOptions(attempts = 1),
+      )
 
     for (retryCount in 0 until maxRetries) {
       try {
