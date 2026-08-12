@@ -17,28 +17,23 @@
 package com.google.genai.kotlin.examples
 
 import com.google.genai.kotlin.Client
-import com.google.genai.kotlin.types.FileState
-import com.google.genai.kotlin.types.ListFilesConfig
-import com.google.genai.kotlin.types.UploadFileConfig
 import com.google.genai.kotlin.downloadToFile
-import io.ktor.utils.io.core.readBytes
-import io.ktor.utils.io.readRemaining
-import kotlinx.coroutines.delay
+import com.google.genai.kotlin.types.ListFilesConfig
+import java.nio.file.Files as NioFiles
+import java.nio.file.Paths
 import kotlinx.coroutines.flow.take
 import kotlinx.coroutines.flow.toList
 import kotlinx.coroutines.runBlocking
-import java.nio.file.Files as NioFiles
-import java.nio.file.Paths
 
 /**
  * An example of using the Google Gen AI Kotlin SDK to manage files.
- * 
+ *
  * NOTE: The Files API is only supported on the Gemini Developer API.
  *
  * Usage:
  *
- * 1. Set an API key environment variable. You can find a
- * list of available API keys here: https://aistudio.google.com/app/apikey
+ * 1. Set an API key environment variable. You can find a list of available API keys here:
+ *    https://aistudio.google.com/app/apikey
  *
  * export GOOGLE_API_KEY=YOUR_API_KEY
  *
@@ -65,7 +60,9 @@ object DownloadFileOperations {
         }
 
         if (fileToDownload != null) {
-          println("Downloading generated file: ${fileToDownload.name} (${fileToDownload.downloadUri})")
+          println(
+            "Downloading generated file: ${fileToDownload.name} (${fileToDownload.downloadUri})"
+          )
 
           // Use the JVM/Android specific extension function to stream directly to disk
           val outputPath = Paths.get("downloaded_generated_file")

@@ -16,16 +16,15 @@
 
 package com.google.genai.kotlin
 
+import com.google.genai.kotlin.types.FileState
 import com.google.genai.kotlin.types.ListFilesConfig
 import com.google.genai.kotlin.types.UploadFileConfig
-import com.google.genai.kotlin.types.FileState
-import io.ktor.utils.io.readUTF8Line
-import kotlinx.coroutines.delay
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertNotNull
 import kotlin.test.assertTrue
 import kotlin.time.Duration.Companion.seconds
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.take
 import kotlinx.coroutines.flow.toList
 import kotlinx.coroutines.test.TestScope
@@ -70,13 +69,11 @@ class FilesE2ETest : BaseTestServer() {
     val client = createClient(enterprise = false, testName = testName)
 
     val content = """{"text": "hello world from e2e test"}""".encodeToByteArray()
-    val file = client.files.upload(
-      byteArray = content,
-      config = UploadFileConfig(
-        mimeType = "application/json",
-        displayName = "e2e-test-file.json"
+    val file =
+      client.files.upload(
+        byteArray = content,
+        config = UploadFileConfig(mimeType = "application/json", displayName = "e2e-test-file.json"),
       )
-    )
     assertNotNull(file)
     assertNotNull(file.name)
     assertEquals("application/json", file.mimeType)
@@ -84,7 +81,11 @@ class FilesE2ETest : BaseTestServer() {
     // Poll until ACTIVE
     var retrievedFile = client.files.get(file.name!!)
     var attempts = 0
-    while (retrievedFile.state != FileState.ACTIVE && retrievedFile.state != FileState.FAILED && attempts < 10) {
+    while (
+      retrievedFile.state != FileState.ACTIVE &&
+        retrievedFile.state != FileState.FAILED &&
+        attempts < 10
+    ) {
       delay(2000)
       retrievedFile = client.files.get(file.name!!)
       attempts++

@@ -27,13 +27,13 @@ import kotlinx.coroutines.runBlocking
 
 /**
  * An example of using the Google Gen AI Kotlin SDK to manage files.
- * 
+ *
  * NOTE: The Files API is only supported on the Gemini Developer API.
  *
  * Usage:
  *
- * 1. Set an API key environment variable. You can find a
- * list of available API keys here: https://aistudio.google.com/app/apikey
+ * 1. Set an API key environment variable. You can find a list of available API keys here:
+ *    https://aistudio.google.com/app/apikey
  *
  * export GOOGLE_API_KEY=YOUR_API_KEY
  *
@@ -52,19 +52,21 @@ object FilesOperations {
         val content = java.io.File("src/main/resources/google.png").readBytes()
 
         println("Uploading file...")
-        val file = client.files.upload(
-          byteArray = content,
-          config = UploadFileConfig(
-            mimeType = "image/png",
-            displayName = "google.png"
+        val file =
+          client.files.upload(
+            byteArray = content,
+            config = UploadFileConfig(mimeType = "image/png", displayName = "google.png"),
           )
-        )
         println("Uploaded file: ${file.name}")
 
         // Poll until ACTIVE
         var retrievedFile = client.files.get(name = file.name!!)
         var attempts = 0
-        while (retrievedFile.state != FileState.ACTIVE && retrievedFile.state != FileState.FAILED && attempts < 10) {
+        while (
+          retrievedFile.state != FileState.ACTIVE &&
+            retrievedFile.state != FileState.FAILED &&
+            attempts < 10
+        ) {
           println("File state is ${retrievedFile.state}, polling...")
           delay(2000)
           retrievedFile = client.files.get(name = file.name!!)

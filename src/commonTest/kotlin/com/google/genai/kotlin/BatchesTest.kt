@@ -16,19 +16,17 @@
 
 package com.google.genai.kotlin
 
+import com.google.genai.kotlin.types.BatchJobDestination
 import com.google.genai.kotlin.types.BatchJobSource
 import com.google.genai.kotlin.types.Content
-import com.google.genai.kotlin.types.InlinedRequest
-import com.google.genai.kotlin.types.Part
-import com.google.genai.kotlin.types.JobState
-import com.google.genai.kotlin.types.EmbeddingsBatchJobSource
-import com.google.genai.kotlin.types.EmbedContentBatch
 import com.google.genai.kotlin.types.CreateBatchJobConfig
-import com.google.genai.kotlin.types.BatchJobDestination
-import com.google.genai.kotlin.types.VertexMultimodalDatasetDestination
+import com.google.genai.kotlin.types.EmbedContentBatch
 import com.google.genai.kotlin.types.EmbedContentConfig
+import com.google.genai.kotlin.types.EmbeddingsBatchJobSource
+import com.google.genai.kotlin.types.InlinedRequest
+import com.google.genai.kotlin.types.JobState
+import com.google.genai.kotlin.types.Part
 import kotlin.test.Test
-import kotlin.test.assertEquals
 import kotlin.test.assertNotNull
 import kotlin.test.assertTrue
 import kotlin.time.Duration.Companion.seconds
@@ -49,15 +47,15 @@ class BatchesTest : BaseTestServer() {
     val testName = "BatchesTest.testCreateGetDeleteBatchJobMlDev"
     val client = createClient(false, testName)
 
-    val inlinedRequests = listOf(
-      InlinedRequest(
-        contents = listOf(Content(role = "user", parts = listOf(Part(text = "Why is the sky blue?"))))
+    val inlinedRequests =
+      listOf(
+        InlinedRequest(
+          contents =
+            listOf(Content(role = "user", parts = listOf(Part(text = "Why is the sky blue?"))))
+        )
       )
-    )
 
-    val src = BatchJobSource(
-      inlinedRequests = inlinedRequests
-    )
+    val src = BatchJobSource(inlinedRequests = inlinedRequests)
 
     var batchJob = client.batches.create(model = MODEL_NAME, src = src)
 
@@ -103,15 +101,18 @@ class BatchesTest : BaseTestServer() {
     val testName = "BatchesTest.testCreateGetBatchJobEmbeddingsMlDev"
     val client = createClient(false, testName)
 
-    val embedSrc = EmbeddingsBatchJobSource(
-      inlinedRequests = EmbedContentBatch(
-        contents = listOf(
-          Content(parts = listOf(Part(text = "1"))),
-          Content(parts = listOf(Part(text = "2"))),
-          Content(parts = listOf(Part(text = "3")))
-        )
+    val embedSrc =
+      EmbeddingsBatchJobSource(
+        inlinedRequests =
+          EmbedContentBatch(
+            contents =
+              listOf(
+                Content(parts = listOf(Part(text = "1"))),
+                Content(parts = listOf(Part(text = "2"))),
+                Content(parts = listOf(Part(text = "3"))),
+              )
+          )
       )
-    )
 
     var batchJob = client.batches.createEmbeddings(model = "gemini-embedding-001", src = embedSrc)
     assertNotNull(batchJob.name)
@@ -127,19 +128,19 @@ class BatchesTest : BaseTestServer() {
     val testName = "BatchesTest.testCreateGetBatchJobEmbeddingsWithConfigMlDev"
     val client = createClient(false, testName)
 
-    val embedSrc = EmbeddingsBatchJobSource(
-      inlinedRequests = EmbedContentBatch(
-        config = EmbedContentConfig(
-          taskType = "RETRIEVAL_DOCUMENT",
-          title = "test_title"
-        ),
-        contents = listOf(
-          Content(parts = listOf(Part(text = "1"))),
-          Content(parts = listOf(Part(text = "2"))),
-          Content(parts = listOf(Part(text = "3")))
-        )
+    val embedSrc =
+      EmbeddingsBatchJobSource(
+        inlinedRequests =
+          EmbedContentBatch(
+            config = EmbedContentConfig(taskType = "RETRIEVAL_DOCUMENT", title = "test_title"),
+            contents =
+              listOf(
+                Content(parts = listOf(Part(text = "1"))),
+                Content(parts = listOf(Part(text = "2"))),
+                Content(parts = listOf(Part(text = "3"))),
+              ),
+          )
       )
-    )
 
     var batchJob = client.batches.createEmbeddings(model = "gemini-embedding-001", src = embedSrc)
     assertNotNull(batchJob.name)
@@ -155,17 +156,17 @@ class BatchesTest : BaseTestServer() {
     val testName = "BatchesTest.testCreateGetBatchJobGCSVertex"
     val client = createClient(true, testName)
 
-    val src = BatchJobSource(
-      gcsUri = listOf("gs://unified-genai-tests/batches/input/generate_content_requests.jsonl"),
-      format = "jsonl"
-    )
-    val config = CreateBatchJobConfig(
-      displayName = "test_batch_gcs",
-      dest = BatchJobDestination(
-        gcsUri = "gs://unified-genai-tests/batches/output",
-        format = "jsonl"
+    val src =
+      BatchJobSource(
+        gcsUri = listOf("gs://unified-genai-tests/batches/input/generate_content_requests.jsonl"),
+        format = "jsonl",
       )
-    )
+    val config =
+      CreateBatchJobConfig(
+        displayName = "test_batch_gcs",
+        dest =
+          BatchJobDestination(gcsUri = "gs://unified-genai-tests/batches/output", format = "jsonl"),
+      )
 
     var batchJob = client.batches.create(model = "gemini-2.5-flash", src = src, config = config)
     assertNotNull(batchJob.name)
@@ -180,15 +181,15 @@ class BatchesTest : BaseTestServer() {
     val testName = "BatchesTest.testCancelBatchJobMlDev"
     val client = createClient(false, testName)
 
-    val inlinedRequests = listOf(
-      InlinedRequest(
-        contents = listOf(Content(role = "user", parts = listOf(Part(text = "Why is the sky blue?"))))
+    val inlinedRequests =
+      listOf(
+        InlinedRequest(
+          contents =
+            listOf(Content(role = "user", parts = listOf(Part(text = "Why is the sky blue?"))))
+        )
       )
-    )
 
-    val src = BatchJobSource(
-      inlinedRequests = inlinedRequests
-    )
+    val src = BatchJobSource(inlinedRequests = inlinedRequests)
 
     val batchJob = client.batches.create(model = MODEL_NAME, src = src)
 
@@ -202,17 +203,17 @@ class BatchesTest : BaseTestServer() {
     val testName = "BatchesTest.testCancelBatchJobVertex"
     val client = createClient(true, testName)
 
-    val src = BatchJobSource(
-      gcsUri = listOf("gs://unified-genai-tests/batches/input/generate_content_requests.jsonl"),
-      format = "jsonl"
-    )
-    val config = CreateBatchJobConfig(
-      displayName = "test_batch_cancel_gcs",
-      dest = BatchJobDestination(
-        gcsUri = "gs://unified-genai-tests/batches/output",
-        format = "jsonl"
+    val src =
+      BatchJobSource(
+        gcsUri = listOf("gs://unified-genai-tests/batches/input/generate_content_requests.jsonl"),
+        format = "jsonl",
       )
-    )
+    val config =
+      CreateBatchJobConfig(
+        displayName = "test_batch_cancel_gcs",
+        dest =
+          BatchJobDestination(gcsUri = "gs://unified-genai-tests/batches/output", format = "jsonl"),
+      )
 
     val batchJob = client.batches.create(model = "gemini-2.5-flash", src = src, config = config)
 

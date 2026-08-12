@@ -16,26 +16,20 @@
 
 package com.google.genai.kotlin
 
-import com.google.genai.kotlin.types.File
 import com.google.genai.kotlin.types.UploadFileConfig
-import com.google.genai.kotlin.types.DownloadFileConfig
-import com.google.genai.kotlin.types.ListFilesConfig
-import com.google.genai.kotlin.types.DeleteFileConfig
 import io.ktor.client.engine.mock.MockEngine
 import io.ktor.client.engine.mock.respond
 import io.ktor.client.request.HttpRequestData
 import io.ktor.http.HttpHeaders
 import io.ktor.http.HttpStatusCode
-import io.ktor.http.headersOf
 import io.ktor.http.content.OutgoingContent
+import io.ktor.http.headersOf
 import io.ktor.utils.io.ByteReadChannel
 import io.ktor.utils.io.readUTF8Line
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertNotNull
-import kotlin.test.assertTrue
 import kotlinx.coroutines.test.runTest
-import kotlinx.serialization.json.Json
 
 class FilesTest {
 
@@ -57,10 +51,12 @@ class FilesTest {
           respond(
             content = "{}",
             status = HttpStatusCode.OK,
-            headers = headersOf(
-              "X-Goog-Upload-URL" to listOf("https://mock-upload.googleapis.com/upload/session-123"),
-              HttpHeaders.ContentType to listOf("application/json")
-            )
+            headers =
+              headersOf(
+                "X-Goog-Upload-URL" to
+                  listOf("https://mock-upload.googleapis.com/upload/session-123"),
+                HttpHeaders.ContentType to listOf("application/json"),
+              ),
           )
         }
         // Step 2: Upload chunk data API call
@@ -68,13 +64,15 @@ class FilesTest {
           assertEquals("POST", request.method.value)
           assertEquals("upload, finalize", request.headers["X-Goog-Upload-Command"])
           assertEquals("0", request.headers["X-Goog-Upload-Offset"])
-          val contentType = request.headers[HttpHeaders.ContentType] ?: request.body.contentType?.toString()
+          val contentType =
+            request.headers[HttpHeaders.ContentType] ?: request.body.contentType?.toString()
           assertEquals("application/octet-stream", contentType)
 
           val requestBody = (request.body as OutgoingContent.ByteArrayContent).bytes()
           assertEquals("hello world", requestBody.decodeToString())
 
-          val mockResponseBody = """{
+          val mockResponseBody =
+            """{
             "file": {
               "name": "files/file-123",
               "mimeType": "text/plain",
@@ -85,10 +83,11 @@ class FilesTest {
           respond(
             content = mockResponseBody,
             status = HttpStatusCode.OK,
-            headers = headersOf(
-              "X-Goog-Upload-Status" to listOf("final"),
-              HttpHeaders.ContentType to listOf("application/json")
-            )
+            headers =
+              headersOf(
+                "X-Goog-Upload-Status" to listOf("final"),
+                HttpHeaders.ContentType to listOf("application/json"),
+              ),
           )
         }
         else -> respond("Not Found", status = HttpStatusCode.NotFound)
@@ -98,10 +97,7 @@ class FilesTest {
     ApiClient(apiKey = "test-key", engine = engine).use { apiClient ->
       val files = Files(apiClient)
       val bytes = "hello world".encodeToByteArray()
-      val config = UploadFileConfig(
-        mimeType = "text/plain",
-        displayName = "test-file"
-      )
+      val config = UploadFileConfig(mimeType = "text/plain", displayName = "test-file")
       val file = files.upload(bytes, config)
 
       assertNotNull(file)
@@ -118,12 +114,13 @@ class FilesTest {
     val engine = MockEngine { request ->
       requests.add(request)
       when {
-        request.url.encodedPath.endsWith("/files/file-123:download") && request.url.encodedQuery.contains("alt=media") -> {
+        request.url.encodedPath.endsWith("/files/file-123:download") &&
+          request.url.encodedQuery.contains("alt=media") -> {
           assertEquals("GET", request.method.value)
           respond(
             content = ByteReadChannel("file content here".encodeToByteArray()),
             status = HttpStatusCode.OK,
-            headers = headersOf(HttpHeaders.ContentType to listOf("application/octet-stream"))
+            headers = headersOf(HttpHeaders.ContentType to listOf("application/octet-stream")),
           )
         }
         else -> respond("Not Found", status = HttpStatusCode.NotFound)
@@ -148,7 +145,8 @@ class FilesTest {
       when {
         request.url.encodedPath.endsWith("/files/file-123") -> {
           assertEquals("GET", request.method.value)
-          val mockResponseBody = """{
+          val mockResponseBody =
+            """{
             "name": "files/file-123",
             "mimeType": "text/plain",
             "displayName": "test-file",
@@ -157,7 +155,7 @@ class FilesTest {
           respond(
             content = mockResponseBody,
             status = HttpStatusCode.OK,
-            headers = headersOf(HttpHeaders.ContentType to listOf("application/json"))
+            headers = headersOf(HttpHeaders.ContentType to listOf("application/json")),
           )
         }
         else -> respond("Not Found", status = HttpStatusCode.NotFound)
@@ -185,7 +183,7 @@ class FilesTest {
           respond(
             content = "{}",
             status = HttpStatusCode.OK,
-            headers = headersOf(HttpHeaders.ContentType to listOf("application/json"))
+            headers = headersOf(HttpHeaders.ContentType to listOf("application/json")),
           )
         }
         else -> respond("Not Found", status = HttpStatusCode.NotFound)
@@ -212,20 +210,25 @@ class FilesTest {
           assertEquals("resumable", request.headers["X-Goog-Upload-Protocol"])
           assertEquals("start", request.headers["X-Goog-Upload-Command"])
           assertEquals("18874368", request.headers["X-Goog-Upload-Header-Content-Length"])
-          assertEquals("application/octet-stream", request.headers["X-Goog-Upload-Header-Content-Type"])
+          assertEquals(
+            "application/octet-stream",
+            request.headers["X-Goog-Upload-Header-Content-Type"],
+          )
 
           respond(
             content = "{}",
             status = HttpStatusCode.OK,
-            headers = headersOf(
-              "X-Goog-Upload-URL" to listOf("https://mock-upload.googleapis.com/upload/session-456"),
-              HttpHeaders.ContentType to listOf("application/json")
-            )
+            headers =
+              headersOf(
+                "X-Goog-Upload-URL" to
+                  listOf("https://mock-upload.googleapis.com/upload/session-456"),
+                HttpHeaders.ContentType to listOf("application/json"),
+              ),
           )
         }
         // Step 2: Upload chunk 1 (0 to 8MB)
         request.url.toString() == "https://mock-upload.googleapis.com/upload/session-456" &&
-            request.headers["X-Goog-Upload-Offset"] == "0" -> {
+          request.headers["X-Goog-Upload-Offset"] == "0" -> {
           assertEquals("POST", request.method.value)
           assertEquals("upload", request.headers["X-Goog-Upload-Command"])
           val requestBody = (request.body as OutgoingContent.ByteArrayContent).bytes()
@@ -234,15 +237,16 @@ class FilesTest {
           respond(
             content = "{}",
             status = HttpStatusCode.OK,
-            headers = headersOf(
-              "X-Goog-Upload-Status" to listOf("active"),
-              HttpHeaders.ContentType to listOf("application/json")
-            )
+            headers =
+              headersOf(
+                "X-Goog-Upload-Status" to listOf("active"),
+                HttpHeaders.ContentType to listOf("application/json"),
+              ),
           )
         }
         // Step 3: Upload chunk 2 (8MB to 16MB)
         request.url.toString() == "https://mock-upload.googleapis.com/upload/session-456" &&
-            request.headers["X-Goog-Upload-Offset"] == "8388608" -> {
+          request.headers["X-Goog-Upload-Offset"] == "8388608" -> {
           assertEquals("POST", request.method.value)
           assertEquals("upload", request.headers["X-Goog-Upload-Command"])
           val requestBody = (request.body as OutgoingContent.ByteArrayContent).bytes()
@@ -251,21 +255,23 @@ class FilesTest {
           respond(
             content = "{}",
             status = HttpStatusCode.OK,
-            headers = headersOf(
-              "X-Goog-Upload-Status" to listOf("active"),
-              HttpHeaders.ContentType to listOf("application/json")
-            )
+            headers =
+              headersOf(
+                "X-Goog-Upload-Status" to listOf("active"),
+                HttpHeaders.ContentType to listOf("application/json"),
+              ),
           )
         }
         // Step 4: Upload chunk 3 (16MB to 18MB, finalize)
         request.url.toString() == "https://mock-upload.googleapis.com/upload/session-456" &&
-            request.headers["X-Goog-Upload-Offset"] == "16777216" -> {
+          request.headers["X-Goog-Upload-Offset"] == "16777216" -> {
           assertEquals("POST", request.method.value)
           assertEquals("upload, finalize", request.headers["X-Goog-Upload-Command"])
           val requestBody = (request.body as OutgoingContent.ByteArrayContent).bytes()
           assertEquals(2097152, requestBody.size)
 
-          val mockResponseBody = """{
+          val mockResponseBody =
+            """{
             "file": {
               "name": "files/file-456",
               "mimeType": "application/octet-stream",
@@ -276,10 +282,11 @@ class FilesTest {
           respond(
             content = mockResponseBody,
             status = HttpStatusCode.OK,
-            headers = headersOf(
-              "X-Goog-Upload-Status" to listOf("final"),
-              HttpHeaders.ContentType to listOf("application/json")
-            )
+            headers =
+              headersOf(
+                "X-Goog-Upload-Status" to listOf("final"),
+                HttpHeaders.ContentType to listOf("application/json"),
+              ),
           )
         }
         else -> respond("Not Found", status = HttpStatusCode.NotFound)
@@ -289,10 +296,8 @@ class FilesTest {
     ApiClient(apiKey = "test-key", engine = engine).use { apiClient ->
       val files = Files(apiClient)
       val bytes = ByteArray(18 * 1024 * 1024) { 2 }
-      val config = UploadFileConfig(
-        mimeType = "application/octet-stream",
-        displayName = "large-file"
-      )
+      val config =
+        UploadFileConfig(mimeType = "application/octet-stream", displayName = "large-file")
       val file = files.upload(bytes, config)
 
       assertNotNull(file)
@@ -321,10 +326,12 @@ class FilesTest {
           respond(
             content = "{}",
             status = HttpStatusCode.OK,
-            headers = headersOf(
-              "X-Goog-Upload-URL" to listOf("https://mock-upload.googleapis.com/upload/session-empty"),
-              HttpHeaders.ContentType to listOf("application/json")
-            )
+            headers =
+              headersOf(
+                "X-Goog-Upload-URL" to
+                  listOf("https://mock-upload.googleapis.com/upload/session-empty"),
+                HttpHeaders.ContentType to listOf("application/json"),
+              ),
           )
         }
         // Step 2: Upload chunk (offset 0, command upload, finalize)
@@ -335,7 +342,8 @@ class FilesTest {
           val requestBody = (request.body as OutgoingContent.ByteArrayContent).bytes()
           assertEquals(0, requestBody.size)
 
-          val mockResponseBody = """{
+          val mockResponseBody =
+            """{
             "file": {
               "name": "files/file-empty",
               "mimeType": "text/plain",
@@ -346,10 +354,11 @@ class FilesTest {
           respond(
             content = mockResponseBody,
             status = HttpStatusCode.OK,
-            headers = headersOf(
-              "X-Goog-Upload-Status" to listOf("final"),
-              HttpHeaders.ContentType to listOf("application/json")
-            )
+            headers =
+              headersOf(
+                "X-Goog-Upload-Status" to listOf("final"),
+                HttpHeaders.ContentType to listOf("application/json"),
+              ),
           )
         }
         else -> respond("Not Found", status = HttpStatusCode.NotFound)
@@ -359,10 +368,7 @@ class FilesTest {
     ApiClient(apiKey = "test-key", engine = engine).use { apiClient ->
       val files = Files(apiClient)
       val bytes = ByteArray(0)
-      val config = UploadFileConfig(
-        mimeType = "text/plain",
-        displayName = "empty-file"
-      )
+      val config = UploadFileConfig(mimeType = "text/plain", displayName = "empty-file")
       val file = files.upload(bytes, config)
 
       assertNotNull(file)

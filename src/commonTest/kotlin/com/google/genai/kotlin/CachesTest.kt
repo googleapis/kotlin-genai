@@ -17,21 +17,19 @@
 package com.google.genai.kotlin
 
 import com.google.genai.kotlin.types.Blob
+import com.google.genai.kotlin.types.CachedContent
 import com.google.genai.kotlin.types.Content
 import com.google.genai.kotlin.types.CreateCachedContentConfig
 import com.google.genai.kotlin.types.FileData
-import com.google.genai.kotlin.Page
-import com.google.genai.kotlin.types.CachedContent
 import com.google.genai.kotlin.types.ListCachedContentsConfig
 import com.google.genai.kotlin.types.Part
 import com.google.genai.kotlin.types.UpdateCachedContentConfig
-import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.flow.toList
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertNotNull
 import kotlin.test.assertTrue
 import kotlin.time.Duration.Companion.seconds
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.test.TestScope
 import kotlinx.coroutines.test.runTest
 
@@ -236,9 +234,7 @@ class CachesTest : BaseTestServer() {
       val client = createClient(enterprise, testName)
 
       val allCaches = mutableListOf<CachedContent>()
-      client.caches.list(ListCachedContentsConfig(pageSize = 1)).collect {
-        allCaches.add(it)
-      }
+      client.caches.list(ListCachedContentsConfig(pageSize = 1)).collect { allCaches.add(it) }
 
       val pages = mutableListOf<Page<CachedContent>>()
       client.caches.list(ListCachedContentsConfig(pageSize = 1)).byPage().collect { page ->

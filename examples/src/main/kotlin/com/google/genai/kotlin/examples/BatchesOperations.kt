@@ -116,24 +116,28 @@ object BatchesOperations {
         println("Deleting batch job...")
         client.batches.delete(name = jobId)
         println("Deleted batch job: $jobId")
-        
+
         if (!isEnterprise) {
-            println("Creating batch embeddings job...")
-            val embedSrc = EmbeddingsBatchJobSource(
-                inlinedRequests = EmbedContentBatch(
-                    contents = listOf(
-                        Content.fromText("Hello world"),
-                        Content.fromText("Batch embedding example")
+          println("Creating batch embeddings job...")
+          val embedSrc =
+            EmbeddingsBatchJobSource(
+              inlinedRequests =
+                EmbedContentBatch(
+                  contents =
+                    listOf(
+                      Content.fromText("Hello world"),
+                      Content.fromText("Batch embedding example"),
                     )
                 )
             )
-            val embedBatchJob = client.batches.createEmbeddings(model = "gemini-embedding-2", src = embedSrc)
-            println("Created batch embeddings job: ${embedBatchJob.name}")
-            val embedJobId = embedBatchJob.name
-            if (embedJobId != null) {
-                client.batches.delete(name = embedJobId)
-                println("Deleted batch embeddings job: $embedJobId")
-            }
+          val embedBatchJob =
+            client.batches.createEmbeddings(model = "gemini-embedding-2", src = embedSrc)
+          println("Created batch embeddings job: ${embedBatchJob.name}")
+          val embedJobId = embedBatchJob.name
+          if (embedJobId != null) {
+            client.batches.delete(name = embedJobId)
+            println("Deleted batch embeddings job: $embedJobId")
+          }
         }
       }
       kotlin.system.exitProcess(0)

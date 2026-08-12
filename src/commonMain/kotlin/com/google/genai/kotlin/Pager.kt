@@ -39,8 +39,8 @@ class Pager<T>(
   /**
    * Collects and emits all items across all available pages.
    *
-   * This method fetches subsequent pages until all results are exhausted.
-   * It emits each item individually to the provided [collector].
+   * This method fetches subsequent pages until all results are exhausted. It emits each item
+   * individually to the provided [collector].
    *
    * If you need access to page-level metadata (such as the HTTP response or next page token), use
    * [byPage] instead.

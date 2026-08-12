@@ -14,10 +14,21 @@ and the
 > [!WARNING]
 > **Mobile Security: API Keys & Cloud Credentials**
 >
-> While this SDK supports Android targets via Kotlin Multiplatform, **we strongly discourage embedding API keys or Google Cloud IAM credentials (such as Service Account JSON keys or OAuth tokens)** directly into public mobile client applications due to the risk of credential theft and cloud project compromise via reverse engineering.
+> While this SDK supports Android targets via Kotlin Multiplatform, **we
+> strongly discourage embedding API keys or Google Cloud IAM credentials (such
+> as Service Account JSON keys or OAuth tokens)** directly into public mobile
+> client applications due to the risk of credential theft and cloud project
+> compromise via reverse engineering.
 >
-> * **For public mobile apps** connecting directly to generative models from client devices, we strongly recommend using **[Firebase AI Logic](https://firebase.google.com/docs/ai-logic)** with **Firebase App Check** enabled. Firebase provides secure client-side authentication and device integrity protection without exposing your Google Cloud project credentials.
-> * **Use this SDK on Android** only when connecting through your own secure backend service, or for internal/prototype applications where credentials are securely managed.
+> * **For public mobile apps** connecting directly to generative models from
+> client devices, we strongly recommend using **[Firebase AI
+> Logic](https://firebase.google.com/docs/ai-logic)** with **Firebase App
+> Check** enabled. Firebase provides secure client-side authentication and
+> device integrity protection without exposing your Google Cloud project
+> credentials.
+> * **Use this SDK on Android** only when connecting through your own secure
+> backend service, or for internal/prototype applications where credentials are
+> securely managed.
 
 ## Requirements
 
@@ -486,7 +497,8 @@ val response = client.models.embedContent(
 
 You can generate embeddings for multimodal content (text and images).
 
-**Using Inline Image Bytes (Works on both Gemini Developer API and Gemini Enterprise Agent Platform):**
+**Using Inline Image Bytes (Works on both Gemini Developer API and Gemini
+Enterprise Agent Platform):**
 
 ```kotlin
 import com.google.genai.kotlin.types.Blob
@@ -530,7 +542,8 @@ val response = client.models.embedContent(
 
 ### Files
 
-The SDK provides methods for managing files, which is useful for uploading media files or datasets to the Gemini Developer API.
+The SDK provides methods for managing files, which is useful for uploading media
+files or datasets to the Gemini Developer API.
 
 > [!NOTE] The files API is only supported in the Gemini Developer API.
 
@@ -637,7 +650,8 @@ fun main() = runBlocking {
 
 ### Tunings
 
-The SDK provides methods for creating and managing fine-tuned models. Tunings are only supported in the Gemini Enterprise Agent Platform API.
+The SDK provides methods for creating and managing fine-tuned models. Tunings
+are only supported in the Gemini Enterprise Agent Platform API.
 
 ```kotlin
 import com.google.genai.kotlin.Client
@@ -719,7 +733,8 @@ fun main() = runBlocking {
 
 #### Batch Embeddings
 
-You can also create batch jobs specifically for embeddings. This feature is only supported by the Gemini Developer API.
+You can also create batch jobs specifically for embeddings. This feature is only
+supported by the Gemini Developer API.
 
 ```kotlin
 import com.google.genai.kotlin.Client

@@ -304,7 +304,10 @@ class TransformerTest {
   fun testTFileName_string() {
     assertEquals("abc", Transformers.tFileName("abc"))
     assertEquals("abc", Transformers.tFileName("files/abc"))
-    assertEquals("abc", Transformers.tFileName("https://generativelanguage.googleapis.com/v1beta/files/abc"))
+    assertEquals(
+      "abc",
+      Transformers.tFileName("https://generativelanguage.googleapis.com/v1beta/files/abc"),
+    )
   }
 
   @Test

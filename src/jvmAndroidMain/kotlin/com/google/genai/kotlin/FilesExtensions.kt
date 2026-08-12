@@ -21,10 +21,10 @@ import com.google.genai.kotlin.types.File
 import com.google.genai.kotlin.types.UploadFileConfig
 import io.ktor.utils.io.jvm.javaio.toByteReadChannel
 import io.ktor.utils.io.readAvailable
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.withContext
 import java.nio.file.Files as NioFiles
 import java.nio.file.Path
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 
 /**
  * Uploads a file to the API.
