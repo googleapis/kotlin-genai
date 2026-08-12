@@ -62,7 +62,11 @@ open class BaseTestServer {
     val options =
       TestServerOptions(
         configPath = "src/commonTest/resources/test-server.yml",
-        recordingDir = "src/commonTest/resources/recordings",
+        // GOOGLE_GENAI_RECORDING_DIR lets a record-mode run write elsewhere, so it does not
+        // regenerate the checked-in recordings.
+        recordingDir =
+          System.getenv("GOOGLE_GENAI_RECORDING_DIR")?.takeIf { it.isNotEmpty() }
+            ?: "src/commonTest/resources/recordings",
         mode = testMode,
         testServerSecrets = "$project,$apiKey",
         outDir = File(System.getProperty("java.io.tmpdir"), "google_genai_test_server"),
