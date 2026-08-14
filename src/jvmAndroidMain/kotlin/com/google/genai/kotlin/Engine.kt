@@ -16,7 +16,58 @@
 
 package com.google.genai.kotlin
 
+import com.google.genai.kotlin.types.ProxyOptions
 import io.ktor.client.engine.HttpClientEngine
 import io.ktor.client.engine.okhttp.OkHttp
+import java.net.InetSocketAddress
+import java.net.Proxy
 
-internal actual fun getDefaultEngine(): HttpClientEngine = OkHttp.create()
+internal actual fun getDefaultEngine(proxyOptions: ProxyOptions?): HttpClientEngine {
+  return OkHttp.create {
+    proxyOptions?.let { opts ->
+      if (opts.type?.value?.equals("DIRECT", ignoreCase = true) == true) {
+        config {
+          proxy(Proxy.NO_PROXY)
+        }
+        return@let
+      }
+
+      val proxyType =
+        when {
+          opts.type == null || opts.type.value.equals("HTTP", ignoreCase = true) -> Proxy.Type.HTTP
+          opts.type.value.equals("SOCKS", ignoreCase = true) -> Proxy.Type.SOCKS
+          else -> throw IllegalArgumentException("Unsupported proxy type: ${opts.type.value}")
+        }
+
+      val host =
+        opts.host
+          ?: throw IllegalArgumentException("Proxy host is required in the ProxyOptions.")
+      val port =
+        opts.port
+          ?: throw IllegalArgumentException("Proxy port is required in the ProxyOptions.")
+
+      val userPresent = opts.username != null
+      val passPresent = opts.password != null
+      if (userPresent != passPresent) {
+        throw IllegalArgumentException(
+          "Proxy username and password must both be provided or not at all."
+        )
+      }
+
+      config {
+        proxy(Proxy(proxyType, InetSocketAddress(host, port)))
+
+        // Add basic proxy authentication if provided
+        if (userPresent && passPresent) {
+          proxyAuthenticator { _, response ->
+            if (response.request.header("Proxy-Authorization") != null) {
+              return@proxyAuthenticator null
+            }
+            val credential = okhttp3.Credentials.basic(opts.username!!, opts.password!!)
+            response.request.newBuilder().header("Proxy-Authorization", credential).build()
+          }
+        }
+      }
+    }
+  }
+}

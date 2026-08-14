@@ -18,11 +18,15 @@ package com.google.genai.kotlin
 
 import com.google.auth.oauth2.AccessToken
 import com.google.auth.oauth2.GoogleCredentials
+import com.google.genai.kotlin.types.ClientOptions
+import com.google.genai.kotlin.types.ProxyOptions
+import com.google.genai.kotlin.types.ProxyType
 import io.mockk.every
 import io.mockk.mockk
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFailsWith
+import kotlin.test.assertNotNull
 
 class ClientTest {
 
@@ -283,5 +287,42 @@ class ClientTest {
     assertEquals(API_KEY, client.apiKey)
     assertEquals(null, client.project)
     assertEquals(false, client.enterprise)
+  }
+
+  @Test
+  fun testClientInitialization_withClientOptionsProxy() {
+    clearEnv()
+    val proxyOptions =
+      ProxyOptions(
+        host = "proxy.example.com",
+        port = 8080,
+        type = ProxyType.HTTP,
+        username = "test-user",
+        password = "test-password",
+      )
+    val clientOptions = ClientOptions(proxyOptions = proxyOptions)
+
+    val client =
+      Client(apiKey = API_KEY, clientOptions = clientOptions, environment = mockEnvironment)
+
+    assertNotNull(client)
+    assertEquals(API_KEY, client.apiKey)
+    assertEquals(false, client.enterprise)
+    assertEquals("proxy.example.com", client.clientOptions?.proxyOptions?.host)
+    assertEquals(8080, client.clientOptions?.proxyOptions?.port)
+    assertEquals(ProxyType.HTTP, client.clientOptions?.proxyOptions?.type)
+    assertEquals("test-user", client.clientOptions?.proxyOptions?.username)
+    assertEquals("test-password", client.clientOptions?.proxyOptions?.password)
+  }
+
+  @Test
+  fun testClientInitialization_withInvalidProxyOptions_throws() {
+    clearEnv()
+    val invalidProxyOptions = ProxyOptions(port = 8080, type = ProxyType.HTTP)
+    val clientOptions = ClientOptions(proxyOptions = invalidProxyOptions)
+
+    assertFailsWith<IllegalArgumentException> {
+      Client(apiKey = API_KEY, clientOptions = clientOptions, environment = mockEnvironment)
+    }
   }
 }

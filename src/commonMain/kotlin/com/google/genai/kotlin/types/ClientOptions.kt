@@ -14,9 +14,16 @@
  * limitations under the License.
  */
 
-package com.google.genai.kotlin
+// Auto-generated code. Do not edit.
 
-import com.google.genai.kotlin.types.ProxyOptions
-import io.ktor.client.engine.HttpClientEngine
+package com.google.genai.kotlin.types
 
-internal expect fun getDefaultEngine(proxyOptions: ProxyOptions? = null): HttpClientEngine
+import kotlinx.serialization.Serializable
+
+/** Client options to be used in the client instantiation. */
+@Serializable
+data class ClientOptions(
+
+  /** Proxy configuration to be used in the client. */
+  val proxyOptions: ProxyOptions? = null
+)

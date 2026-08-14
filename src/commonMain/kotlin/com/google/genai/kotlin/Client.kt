@@ -16,6 +16,7 @@
 
 package com.google.genai.kotlin
 
+import com.google.genai.kotlin.types.ClientOptions
 import com.google.genai.kotlin.types.HttpOptions
 
 /**
@@ -43,6 +44,7 @@ internal constructor(
   credentials: GoogleCredentials? = null,
   enterprise: Boolean? = null,
   httpOptions: HttpOptions? = null,
+  internal val clientOptions: ClientOptions? = null,
   private val environment: Environment = getDefaultEnvironment(),
   engine: io.ktor.client.engine.HttpClientEngine? = null,
 ) : AutoCloseable {
@@ -66,6 +68,7 @@ internal constructor(
     credentials: GoogleCredentials? = null,
     enterprise: Boolean? = null,
     httpOptions: HttpOptions? = null,
+    clientOptions: ClientOptions? = null,
   ) : this(
     apiKey = apiKey,
     project = project,
@@ -73,6 +76,7 @@ internal constructor(
     credentials = credentials,
     enterprise = enterprise,
     httpOptions = httpOptions,
+    clientOptions = clientOptions,
     environment = getDefaultEnvironment(),
   )
 
@@ -176,7 +180,7 @@ internal constructor(
         credentials = resolvedCredentials,
         enterprise = useEnterprise,
         httpOptions = httpOptions,
-        engine = engine ?: getDefaultEngine(),
+        engine = engine ?: getDefaultEngine(proxyOptions = clientOptions?.proxyOptions),
       )
 
     this.apiKey = resolvedApiKey
