@@ -56,8 +56,8 @@ import kotlinx.serialization.json.JsonObject
 internal const val SDK_VERSION = "0.4.0" // {x-version-update:google-genai-kotlin:released}
 
 /**
- * Returns the `x-goog-api-client` header value, in the form `google-genai-sdk/0.4.0
- * gl-kotlin/1.9.22 genai-kotlin/17.0.1`.
+ * Returns the usage-tracking labels sent in both `x-goog-api-client` and `user-agent`, in the form
+ * `google-genai-sdk/0.4.0 gl-kotlin/1.9.22 genai-kotlin/17.0.1`.
  *
  * Usage analytics keys off these labels, so the text and their order are load-bearing; see
  * `GEMINI.md`.
@@ -93,7 +93,9 @@ internal class ApiClient(
         "https://generativelanguage.googleapis.com"
       }
     val defaultApiVersion = if (enterprise) "v1beta1" else "v1beta"
-    val defaultHeaders = mapOf("x-goog-api-client" to apiClientHeader())
+    val trackingLabels = apiClientHeader()
+    val defaultHeaders =
+      mapOf("x-goog-api-client" to trackingLabels, "user-agent" to trackingLabels)
 
     val base =
       HttpOptions(

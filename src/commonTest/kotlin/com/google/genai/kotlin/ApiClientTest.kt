@@ -313,6 +313,7 @@ class ApiClientTest {
     assertEquals("client-val", capturedRequest!!.headers["X-Client-Header"])
     assertEquals("request-val", capturedRequest!!.headers["X-Request-Header"])
     assertEquals(apiClientHeader(), capturedRequest!!.headers["x-goog-api-client"])
+    assertEquals(apiClientHeader(), capturedRequest!!.headers["User-Agent"])
   }
 
   @Test
@@ -330,6 +331,26 @@ class ApiClientTest {
     assertEquals(
       "${apiClientHeader()} client-val request-val",
       capturedRequest!!.headers["x-goog-api-client"],
+    )
+  }
+
+  @Test
+  fun testRequest_withUserAgentOption_appendsInsteadOfReplacing() = runTest {
+    var capturedRequest: HttpRequestData? = null
+    val engine = createMockEngine { capturedRequest = it }
+    val clientOptions = HttpOptions(headers = mapOf("user-agent" to "client-val"))
+    val requestOptions = HttpOptions(headers = mapOf("user-agent" to "request-val"))
+
+    ApiClient(apiKey = "test-api-key", httpOptions = clientOptions, engine = engine).use { client ->
+      client.request("GET", "test/path", httpOptions = requestOptions)
+    }
+
+    assertNotNull(capturedRequest)
+    // A caller-supplied User-Agent must not erase the SDK labels, or the traffic stops being
+    // attributable to this SDK in usage analytics.
+    assertEquals(
+      "${apiClientHeader()} client-val request-val",
+      capturedRequest!!.headers["User-Agent"],
     )
   }
 
@@ -360,6 +381,7 @@ class ApiClientTest {
     assertNotNull(capturedRequest)
     val apiClient = capturedRequest!!.headers["x-goog-api-client"]
     assertNotNull(apiClient)
+    assertEquals(apiClient, capturedRequest!!.headers["User-Agent"])
     assertTrue(apiClient.startsWith("google-genai-sdk/$SDK_VERSION "))
     assertTrue(apiClient.contains(" gl-kotlin/"))
     assertTrue(
