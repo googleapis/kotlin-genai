@@ -31,6 +31,7 @@ import io.ktor.utils.io.ByteReadChannel
 import kotlin.test.assertEquals
 import kotlin.test.assertFailsWith
 import kotlin.test.assertNotNull
+import kotlin.test.assertTrue
 import kotlinx.coroutines.flow.toList
 import kotlinx.coroutines.test.runTest
 import kotlinx.serialization.Serializable
@@ -311,7 +312,7 @@ class ApiClientTest {
     assertNotNull(capturedRequest)
     assertEquals("client-val", capturedRequest!!.headers["X-Client-Header"])
     assertEquals("request-val", capturedRequest!!.headers["X-Request-Header"])
-    assertEquals("genai-kotlin/0.1.0", capturedRequest!!.headers["x-goog-api-client"])
+    assertEquals(apiClientHeader(), capturedRequest!!.headers["x-goog-api-client"])
   }
 
   @Test
@@ -326,11 +327,8 @@ class ApiClientTest {
     }
 
     assertNotNull(capturedRequest)
-    // Defaults are "genai-kotlin/0.1.0".
-    // clientOptions will append to defaults: "genai-kotlin/0.1.0 client-val"
-    // requestOptions will append to clientOptions: "genai-kotlin/0.1.0 client-val request-val"
     assertEquals(
-      "genai-kotlin/0.1.0 client-val request-val",
+      "${apiClientHeader()} client-val request-val",
       capturedRequest!!.headers["x-goog-api-client"],
     )
   }
@@ -360,7 +358,15 @@ class ApiClientTest {
     }
 
     assertNotNull(capturedRequest)
-    assertEquals("genai-kotlin/0.1.0", capturedRequest!!.headers["x-goog-api-client"])
+    val apiClient = capturedRequest!!.headers["x-goog-api-client"]
+    assertNotNull(apiClient)
+    assertTrue(apiClient.startsWith("google-genai-sdk/$SDK_VERSION "))
+    assertTrue(apiClient.contains(" gl-kotlin/"))
+    assertTrue(
+      apiClient.indexOf(" gl-kotlin/") < apiClient.indexOf(" ${platformLabel()}"),
+      "gl-kotlin must precede the platform label: usage analytics attributes the language to the " +
+        "first recognised token, so putting gl-java first reports Kotlin traffic as Java",
+    )
   }
 
   @Test

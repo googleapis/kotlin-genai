@@ -8,7 +8,11 @@
   "packages": {
     ".": {
       "release-type": "java-yoshi",
-      "extra-files": ["README.md", "build.gradle.kts"],
+      "extra-files": [
+        "README.md",
+        "build.gradle.kts",
+        "src/commonMain/kotlin/com/google/genai/kotlin/ApiClient.kt"
+      ],
       "changelog-path": "CHANGELOG.md"
     }
   }
