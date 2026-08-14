@@ -38,8 +38,8 @@ data class GoogleMaps(
   val enableWidget: Boolean? = null,
 
   /**
-   * Optional. Specifies the types of Google Maps grounding to enable. This field is not supported
-   * in Gemini API.
+   * Optional. Specifies the types of Google Maps grounding to enable. Defaults to `places` when
+   * unset. This field is not supported in Gemini API.
    */
   val groundingTypes: GoogleMapsGroundingTypes? = null,
 )

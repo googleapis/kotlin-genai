@@ -124,38 +124,6 @@ class Tunings internal constructor(internal val apiClient: ApiClient) {
     return toObject
   }
 
-  internal fun codeExecutionResultToVertex(
-    fromObject: Map<String, Any?>?,
-    parentObject: MutableMap<String, Any?>?,
-    rootObject: Map<String, Any?>?,
-  ): MutableMap<String, Any?> {
-
-    val toObject = mutableMapOf<String, Any?>()
-    Common.getValueByPath(fromObject, arrayOf("outcome"))?.let { node ->
-      Common.setValueByPath(
-        toObject,
-        arrayOf("outcome"),
-        Common.getValueByPath(fromObject, arrayOf("outcome")),
-      )
-    }
-
-    Common.getValueByPath(fromObject, arrayOf("output"))?.let { node ->
-      Common.setValueByPath(
-        toObject,
-        arrayOf("output"),
-        Common.getValueByPath(fromObject, arrayOf("output")),
-      )
-    }
-
-    if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("id")))) {
-      throw IllegalArgumentException(
-        "id parameter is not supported in Gemini Enterprise Agent Platform."
-      )
-    }
-
-    return toObject
-  }
-
   internal fun contentToVertex(
     fromObject: Map<String, Any?>?,
     parentObject: MutableMap<String, Any?>?,
@@ -1118,38 +1086,6 @@ class Tunings internal constructor(internal val apiClient: ApiClient) {
     return toObject
   }
 
-  internal fun executableCodeToVertex(
-    fromObject: Map<String, Any?>?,
-    parentObject: MutableMap<String, Any?>?,
-    rootObject: Map<String, Any?>?,
-  ): MutableMap<String, Any?> {
-
-    val toObject = mutableMapOf<String, Any?>()
-    Common.getValueByPath(fromObject, arrayOf("code"))?.let { node ->
-      Common.setValueByPath(
-        toObject,
-        arrayOf("code"),
-        Common.getValueByPath(fromObject, arrayOf("code")),
-      )
-    }
-
-    Common.getValueByPath(fromObject, arrayOf("language"))?.let { node ->
-      Common.setValueByPath(
-        toObject,
-        arrayOf("language"),
-        Common.getValueByPath(fromObject, arrayOf("language")),
-      )
-    }
-
-    if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("id")))) {
-      throw IllegalArgumentException(
-        "id parameter is not supported in Gemini Enterprise Agent Platform."
-      )
-    }
-
-    return toObject
-  }
-
   internal fun generationConfigFromVertex(
     fromObject: Map<String, Any?>?,
     parentObject: MutableMap<String, Any?>?,
@@ -1499,11 +1435,7 @@ class Tunings internal constructor(internal val apiClient: ApiClient) {
       Common.setValueByPath(
         toObject,
         arrayOf("codeExecutionResult"),
-        codeExecutionResultToVertex(
-          Common.getValueByPath(fromObject, arrayOf("codeExecutionResult")) as Map<String, Any?>,
-          toObject,
-          rootObject,
-        ),
+        Common.getValueByPath(fromObject, arrayOf("codeExecutionResult")),
       )
     }
 
@@ -1511,11 +1443,7 @@ class Tunings internal constructor(internal val apiClient: ApiClient) {
       Common.setValueByPath(
         toObject,
         arrayOf("executableCode"),
-        executableCodeToVertex(
-          Common.getValueByPath(fromObject, arrayOf("executableCode")) as Map<String, Any?>,
-          toObject,
-          rootObject,
-        ),
+        Common.getValueByPath(fromObject, arrayOf("executableCode")),
       )
     }
 

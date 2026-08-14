@@ -36,7 +36,7 @@ data class ExecutableCode(
 
   /**
    * Optional. Unique identifier of the `ExecutableCode` part. The server returns the
-   * `CodeExecutionResult` with the matching `id`. This field is not supported in Vertex AI.
+   * `CodeExecutionResult` with the matching `id`.
    */
   val id: String? = null,
 )
