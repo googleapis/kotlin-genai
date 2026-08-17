@@ -332,6 +332,35 @@ val response = client.models.generateContent(
 )
 ```
 
+### Proxy Options
+
+If your environment requires connecting through a proxy, you can configure it
+by passing `ProxyOptions` inside `ClientOptions` when creating the client. The
+SDK supports `HTTP`, `SOCKS`, and `DIRECT` (no proxy) connection types, along
+with basic proxy authentication.
+
+```kotlin
+import com.google.genai.kotlin.Client
+import com.google.genai.kotlin.types.ClientOptions
+import com.google.genai.kotlin.types.ProxyOptions
+import com.google.genai.kotlin.types.ProxyType
+
+val proxyOptions = ProxyOptions(
+    host = "proxy.example.com",
+    port = 8080,
+    type = ProxyType.HTTP, // Optional: defaults to HTTP
+    username = "proxy-user", // Optional: credentials if authentication is required
+    password = "proxy-password"
+)
+
+val client = Client(
+    clientOptions = ClientOptions(proxyOptions = proxyOptions)
+)
+```
+
+Setting `type` to `ProxyType.DIRECT` enforces a direct connection, bypassing any
+system-level proxy settings.
+
 ### Live API
 
 The Gemini Live API allows for real-time, bidirectional interaction with
