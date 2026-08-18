@@ -36,7 +36,10 @@ value class InteractionStatus(val value: String) {
      */
     val IN_PROGRESS = InteractionStatus("IN_PROGRESS")
 
-    /** The server has completed all processing and background reasoning. */
+    /** Deprecated: Use IDLE instead. */
     val REQUIRES_ACTION = InteractionStatus("REQUIRES_ACTION")
+
+    /** The server has completed all processing and background reasoning. */
+    val IDLE = InteractionStatus("IDLE")
   }
 }
