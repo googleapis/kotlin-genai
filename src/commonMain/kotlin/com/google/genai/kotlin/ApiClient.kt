@@ -311,6 +311,9 @@ internal class ApiClient(
 
     // Auth
     if (apiKey != null) {
+      if (apiKey.startsWith("auth_tokens/")) {
+        throw IllegalArgumentException("Ephemeral tokens are only supported by the Live API.")
+      }
       header("x-goog-api-key", apiKey)
     } else if (credentials != null) {
       credentials.applyToRequest(this)
@@ -327,13 +330,21 @@ internal class ApiClient(
     val baseUrl = mergedOptions.baseUrl ?: throw IllegalStateException("baseUrl is required")
     val cleanBaseUrl = baseUrl.removeSuffix("/")
 
+    val isEphemeralToken = apiKey != null && apiKey.startsWith("auth_tokens/")
+    if (isEphemeralToken && enterprise) {
+      throw IllegalArgumentException(
+        "Ephemeral tokens are only supported in the Gemini Developer API, not Gemini Enterprise (Vertex AI)."
+      )
+    }
+    val method = if (isEphemeralToken) "BidiGenerateContentConstrained" else "BidiGenerateContent"
+
     val wsUrl =
       if (enterprise) {
         val version = mergedOptions.apiVersion ?: "v1beta1"
         "${cleanBaseUrl.replaceFirst("http://", "ws://").replaceFirst("https://", "wss://")}/ws/google.cloud.aiplatform.$version.LlmBidiService/BidiGenerateContent"
       } else {
-        val version = mergedOptions.apiVersion ?: "v1beta"
-        "${cleanBaseUrl.replaceFirst("http://", "ws://").replaceFirst("https://", "wss://")}/ws/google.ai.generativelanguage.$version.GenerativeService.BidiGenerateContent"
+        val version = mergedOptions.apiVersion ?: if (isEphemeralToken) "v1alpha" else "v1beta"
+        "${cleanBaseUrl.replaceFirst("http://", "ws://").replaceFirst("https://", "wss://")}/ws/google.ai.generativelanguage.$version.GenerativeService.$method"
       }
 
     return webSocketClient.webSocketSession(wsUrl) {
@@ -343,7 +354,11 @@ internal class ApiClient(
         }
       }
       if (apiKey != null) {
-        header("x-goog-api-key", apiKey)
+        if (isEphemeralToken) {
+          header("Authorization", "Token $apiKey")
+        } else {
+          header("x-goog-api-key", apiKey)
+        }
       } else if (credentials != null) {
         credentials.applyToRequest(this)
       }

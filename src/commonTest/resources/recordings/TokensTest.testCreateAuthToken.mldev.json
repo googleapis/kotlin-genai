@@ -1,0 +1,48 @@
+{
+  "recordID": "TokensTest.testCreateAuthToken.mldev",
+  "interactions": [
+    {
+      "request": {
+        "method": "POST",
+        "url": "/v1alpha/auth_tokens",
+        "request": "POST /v1alpha/auth_tokens HTTP/1.1",
+        "headers": {
+          "Accept": "*/*",
+          "Accept-Charset": "UTF-8",
+          "Accept-Encoding": "gzip",
+          "Connection": "Keep-Alive",
+          "Content-Length": "2",
+          "Content-Type": "application/json",
+          "Test-Name": "TokensTest.testCreateAuthToken.mldev"
+        },
+        "bodySegments": [
+          {}
+        ],
+        "previousRequest": "b4d6e60a9b97e7b98c63df9308728c5c88c0b40c398046772c63447b94608b4d",
+        "serverAddress": "generativelanguage.googleapis.com",
+        "port": 443,
+        "protocol": "https"
+      },
+      "shaSum": "dd67008b53331ceb77e565d1329941abc425bae61836b8c8c8b4cdc80310e6bb",
+      "response": {
+        "statusCode": 200,
+        "headers": {
+          "Content-Encoding": "gzip",
+          "Content-Type": "application/json; charset=UTF-8",
+          "Date": "Tue, 17 Jun 2025 17:43:53 GMT",
+          "Server": "scaffolding on HTTPServer2",
+          "Server-Timing": "gfet4t7; dur=264",
+          "Vary": "Origin, X-Origin, Referer",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "SAMEORIGIN",
+          "X-Xss-Protection": "0"
+        },
+        "bodySegments": [
+          {
+            "name": "auth_tokens/ea0d2f08330ce3f4177979c9a23312abf250a5e298e3ca4c6977d98a60d8fa44"
+          }
+        ]
+      }
+    }
+  ]
+}
