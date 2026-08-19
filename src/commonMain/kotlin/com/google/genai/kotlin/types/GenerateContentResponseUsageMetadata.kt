@@ -20,11 +20,7 @@ package com.google.genai.kotlin.types
 
 import kotlinx.serialization.Serializable
 
-/**
- * Usage metadata about the content generation request and response. This message provides a
- * detailed breakdown of token usage and other relevant metrics. This data type is not supported in
- * Gemini API.
- */
+/** Usage metadata about the content generation request and response. */
 @Serializable
 data class GenerateContentResponseUsageMetadata(
 
@@ -81,4 +77,10 @@ data class GenerateContentResponseUsageMetadata(
 
   /** Output only. The traffic type for this request. */
   val trafficType: TrafficType? = null,
+
+  /**
+   * Output only. Service tier of the request. This field is not supported in Gemini Enterprise
+   * Agent Platform.
+   */
+  val serviceTier: ServiceTier? = null,
 )
