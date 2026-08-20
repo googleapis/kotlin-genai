@@ -104,4 +104,7 @@ data class Part(
 
   /** Output only. The transcription of the audio part. */
   val audioTranscription: Transcription? = null,
+
+  /** How the model processes this part's media for understanding. */
+  val mediaProcessing: MediaProcessing? = null,
 )

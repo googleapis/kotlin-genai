@@ -1036,6 +1036,14 @@ class Caches internal constructor(internal val apiClient: ApiClient) {
       )
     }
 
+    Common.getValueByPath(fromObject, arrayOf("mediaProcessing"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("mediaProcessing"),
+        Common.getValueByPath(fromObject, arrayOf("mediaProcessing")),
+      )
+    }
+
     return toObject
   }
 
@@ -1156,6 +1164,14 @@ class Caches internal constructor(internal val apiClient: ApiClient) {
         toObject,
         arrayOf("audioTranscription"),
         Common.getValueByPath(fromObject, arrayOf("audioTranscription")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("mediaProcessing"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("mediaProcessing"),
+        Common.getValueByPath(fromObject, arrayOf("mediaProcessing")),
       )
     }
 
