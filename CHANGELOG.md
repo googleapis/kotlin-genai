@@ -1,5 +1,21 @@
 # Changelog
 
+## [0.5.0](https://github.com/googleapis/kotlin-genai/compare/v0.4.0...v0.5.0) (2026-08-20)
+
+
+### Features
+
+* Add `mode` enum (`VERBATIM`, `SMART`) to `AudioTranscriptionConfig` and `TranscriptionConfig`. ([b39ad39](https://github.com/googleapis/kotlin-genai/commit/b39ad39527b047f5f03e0c8195f1ccc4beb7ae2b))
+* add Client.clientOptions.proxyOptions support ([434a825](https://github.com/googleapis/kotlin-genai/commit/434a825a88559c65202a242617b25d6a524b77cd))
+* Add enable_data_retention to ToolParallelAiSearch, Add step_count to ReinforcementTuningHyperParameters, Add BidiGenerateContentSetup ([78b7e3b](https://github.com/googleapis/kotlin-genai/commit/78b7e3b77d63b507dd8d297e443d7a88b7838153))
+* Add IDLE state to live connection status enum and mark REQUIRES_ACTION as deprecated. ([c1f6eab](https://github.com/googleapis/kotlin-genai/commit/c1f6eab43a2de83be854edc52c2a237c4d6f1a92))
+* Support customHttpClient in Client configuration ([a1f0a7f](https://github.com/googleapis/kotlin-genai/commit/a1f0a7f67ffedb797f4c12402b87ce5fcf3b2bb8))
+
+
+### Documentation
+
+* Add ProxyOptions example to readme ([eaae45c](https://github.com/googleapis/kotlin-genai/commit/eaae45c7cb6feff0ce2d9ccd93fea310bbfdba59))
+
 ## [0.4.0](https://github.com/googleapis/kotlin-genai/compare/v0.3.0...v0.4.0) (2026-08-12)
 
 

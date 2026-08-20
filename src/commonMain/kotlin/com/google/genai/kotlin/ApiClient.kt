@@ -53,7 +53,7 @@ import kotlinx.coroutines.flow.flow
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonObject
 
-internal const val SDK_VERSION = "0.4.0" // {x-version-update:google-genai-kotlin:released}
+internal const val SDK_VERSION = "0.5.0" // {x-version-update:google-genai-kotlin:released}
 
 /**
  * Returns the usage-tracking labels sent in both `x-goog-api-client` and `user-agent`, in the form
