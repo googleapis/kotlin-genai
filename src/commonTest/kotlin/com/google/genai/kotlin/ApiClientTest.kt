@@ -481,4 +481,30 @@ class ApiClientTest {
     assertNotNull(capturedRequest)
     assertEquals(HttpMethod.Get, capturedRequest!!.method)
   }
+
+  @Test
+  fun testRequest_withAuthToken_throwsException() = runTest {
+    ApiClient(apiKey = "auth_tokens/test-token-123").use { client ->
+      val exception =
+        assertFailsWith<IllegalArgumentException> { client.request("GET", "test/path") }
+      assertTrue(exception.message!!.contains("only supported by the Live API"))
+    }
+  }
+
+  @Test
+  fun testOpenWebSocketSession_withAuthToken_enterprise_throwsException() = runTest {
+    ApiClient(
+        apiKey = "auth_tokens/test-token-123",
+        project = "test-project",
+        location = "us-central1",
+        enterprise = true,
+      )
+      .use { client ->
+        val exception =
+          assertFailsWith<IllegalArgumentException> {
+            client.openWebSocketSession(HttpOptions(apiVersion = "v1alpha"))
+          }
+        assertTrue(exception.message!!.contains("not Gemini Enterprise"))
+      }
+  }
 }

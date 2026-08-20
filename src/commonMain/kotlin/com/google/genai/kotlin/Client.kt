@@ -217,6 +217,9 @@ internal constructor(
   /** Service for interacting with Live API. */
   val live = Live(httpClient)
 
+  /** Service for interacting with Auth Tokens API. */
+  @ExperimentalGenAiApi val authTokens = Tokens(httpClient)
+
   /** Closes the Client instance and its underlying HTTP client. */
   override fun close() {
     httpClient.close()
