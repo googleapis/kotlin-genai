@@ -361,6 +361,33 @@ val client = Client(
 Setting `type` to `ProxyType.DIRECT` enforces a direct connection, bypassing any
 system-level proxy settings.
 
+### Custom HTTP Client
+
+If you need advanced control over HTTP transport—such as configuring custom timeouts, interceptors, SSL settings, connection pools, or supplying your own Ktor `HttpClientEngine`—you can pass a `customHttpClient` inside `ClientOptions`.
+
+When `customHttpClient` is provided, it takes precedence over any `proxyOptions` configured in `ClientOptions`.
+
+```kotlin
+import com.google.genai.kotlin.Client
+import com.google.genai.kotlin.types.ClientOptions
+import io.ktor.client.engine.okhttp.OkHttp
+import java.util.concurrent.TimeUnit
+
+// Create a customized Ktor HttpClientEngine
+val customEngine = OkHttp.create {
+    config {
+        connectTimeout(30, TimeUnit.SECONDS)
+        readTimeout(30, TimeUnit.SECONDS)
+        writeTimeout(30, TimeUnit.SECONDS)
+        // Add custom interceptors, connection pools, authenticator, etc.
+    }
+}
+
+val client = Client(
+    clientOptions = ClientOptions(customHttpClient = customEngine)
+)
+```
+
 ### Live API
 
 The Gemini Live API allows for real-time, bidirectional interaction with

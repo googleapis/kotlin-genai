@@ -21,6 +21,8 @@ import com.google.auth.oauth2.GoogleCredentials
 import com.google.genai.kotlin.types.ClientOptions
 import com.google.genai.kotlin.types.ProxyOptions
 import com.google.genai.kotlin.types.ProxyType
+import io.ktor.client.engine.mock.MockEngine
+import io.ktor.client.engine.mock.respond
 import io.mockk.every
 import io.mockk.mockk
 import kotlin.test.Test
@@ -324,5 +326,37 @@ class ClientTest {
     assertFailsWith<IllegalArgumentException> {
       Client(apiKey = API_KEY, clientOptions = clientOptions, environment = mockEnvironment)
     }
+  }
+
+  @Test
+  fun testClientInitialization_withCustomHttpClient() {
+    clearEnv()
+    val customEngine = MockEngine { respond("") }
+    val clientOptions = ClientOptions(customHttpClient = customEngine)
+
+    val client =
+      Client(apiKey = API_KEY, clientOptions = clientOptions, environment = mockEnvironment)
+
+    assertNotNull(client)
+    assertEquals(API_KEY, client.apiKey)
+    assertEquals(customEngine, client.httpClient.engine)
+    assertEquals(customEngine, client.clientOptions?.customHttpClient)
+  }
+
+  @Test
+  fun testClientInitialization_customHttpClientOverridesProxyOptions() {
+    clearEnv()
+    val customEngine = MockEngine { respond("") }
+    // Invalid proxy options that would throw IllegalArgumentException if getDefaultEngine were
+    // called
+    val invalidProxyOptions = ProxyOptions(port = 8080, type = ProxyType.HTTP)
+    val clientOptions =
+      ClientOptions(proxyOptions = invalidProxyOptions, customHttpClient = customEngine)
+
+    val client =
+      Client(apiKey = API_KEY, clientOptions = clientOptions, environment = mockEnvironment)
+
+    assertNotNull(client)
+    assertEquals(customEngine, client.httpClient.engine)
   }
 }

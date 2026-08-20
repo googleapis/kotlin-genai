@@ -18,6 +18,7 @@
 
 package com.google.genai.kotlin.types
 
+import io.ktor.client.engine.HttpClientEngine
 import kotlinx.serialization.Serializable
 
 /** Client options to be used in the client instantiation. */
@@ -25,5 +26,8 @@ import kotlinx.serialization.Serializable
 data class ClientOptions(
 
   /** Proxy configuration to be used in the client. */
-  val proxyOptions: ProxyOptions? = null
+  val proxyOptions: ProxyOptions? = null,
+
+  /** A customized HTTP client instance to use for the SDK. */
+  @kotlinx.serialization.Transient val customHttpClient: HttpClientEngine? = null,
 )

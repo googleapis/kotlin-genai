@@ -172,6 +172,11 @@ internal constructor(
         credentials ?: getDefaultCredentials()
       }
 
+    val resolvedEngine =
+      engine
+        ?: clientOptions?.customHttpClient
+        ?: getDefaultEngine(proxyOptions = clientOptions?.proxyOptions)
+
     httpClient =
       ApiClient(
         apiKey = resolvedApiKey,
@@ -180,7 +185,7 @@ internal constructor(
         credentials = resolvedCredentials,
         enterprise = useEnterprise,
         httpOptions = httpOptions,
-        engine = engine ?: getDefaultEngine(proxyOptions = clientOptions?.proxyOptions),
+        engine = resolvedEngine,
       )
 
     this.apiKey = resolvedApiKey
