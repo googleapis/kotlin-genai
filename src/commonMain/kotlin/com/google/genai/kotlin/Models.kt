@@ -1870,14 +1870,6 @@ class Models internal constructor(internal val apiClient: ApiClient) {
       )
     }
 
-    Common.getValueByPath(fromObject, arrayOf("serviceTier"))?.let { node ->
-      Common.setValueByPath(
-        parentObject,
-        arrayOf("serviceTier"),
-        Common.getValueByPath(fromObject, arrayOf("serviceTier")),
-      )
-    }
-
     Common.getValueByPath(fromObject, arrayOf("routingConfig"))?.let { node ->
       Common.setValueByPath(
         toObject,
