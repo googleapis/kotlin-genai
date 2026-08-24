@@ -44,5 +44,8 @@ value class ToolType(val value: String) {
 
     /** File search tool, maps to Tool.file_search. */
     val FILE_SEARCH = ToolType("FILE_SEARCH")
+
+    /** Media processing tool. */
+    val MEDIA_PROCESSING = ToolType("MEDIA_PROCESSING")
   }
 }

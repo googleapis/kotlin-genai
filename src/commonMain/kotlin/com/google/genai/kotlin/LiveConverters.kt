@@ -2090,6 +2090,14 @@ internal object LiveConverters {
       )
     }
 
+    Common.getValueByPath(fromObject, arrayOf("mediaProcessing"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("mediaProcessing"),
+        Common.getValueByPath(fromObject, arrayOf("mediaProcessing")),
+      )
+    }
+
     return toObject
   }
 
@@ -2210,6 +2218,14 @@ internal object LiveConverters {
         toObject,
         arrayOf("audioTranscription"),
         Common.getValueByPath(fromObject, arrayOf("audioTranscription")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("mediaProcessing"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("mediaProcessing"),
+        Common.getValueByPath(fromObject, arrayOf("mediaProcessing")),
       )
     }
 
