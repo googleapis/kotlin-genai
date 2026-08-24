@@ -97,7 +97,7 @@ class ApiClientTest {
 
     assertNotNull(capturedRequest)
     assertEquals("generativelanguage.googleapis.com", capturedRequest!!.url.host)
-    assertEquals("/v1beta/models/test-model", capturedRequest!!.url.encodedPath)
+    assertEquals("/v1/models/test-model", capturedRequest!!.url.encodedPath)
     assertEquals("https", capturedRequest!!.url.protocol.name)
   }
 

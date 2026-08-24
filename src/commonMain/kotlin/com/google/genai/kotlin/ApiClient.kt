@@ -92,7 +92,7 @@ internal class ApiClient(
       } else {
         "https://generativelanguage.googleapis.com"
       }
-    val defaultApiVersion = if (enterprise) "v1beta1" else "v1beta"
+    val defaultApiVersion = if (enterprise) "v1beta1" else "v1"
     val trackingLabels = apiClientHeader()
     val defaultHeaders =
       mapOf("x-goog-api-client" to trackingLabels, "user-agent" to trackingLabels)
@@ -332,7 +332,7 @@ internal class ApiClient(
         val version = mergedOptions.apiVersion ?: "v1beta1"
         "${cleanBaseUrl.replaceFirst("http://", "ws://").replaceFirst("https://", "wss://")}/ws/google.cloud.aiplatform.$version.LlmBidiService/BidiGenerateContent"
       } else {
-        val version = mergedOptions.apiVersion ?: "v1beta"
+        val version = mergedOptions.apiVersion ?: "v1"
         "${cleanBaseUrl.replaceFirst("http://", "ws://").replaceFirst("https://", "wss://")}/ws/google.ai.generativelanguage.$version.GenerativeService.BidiGenerateContent"
       }
 

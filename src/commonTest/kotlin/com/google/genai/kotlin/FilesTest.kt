@@ -40,7 +40,7 @@ class FilesTest {
       requests.add(request)
       when {
         // Step 1: Create File API call (Resumable upload initiation)
-        request.url.encodedPath.endsWith("/upload/v1beta/files") -> {
+        request.url.encodedPath.endsWith("/upload/v1/files") -> {
           assertEquals("POST", request.method.value)
           assertEquals("resumable", request.headers["X-Goog-Upload-Protocol"])
           assertEquals("start", request.headers["X-Goog-Upload-Command"])
@@ -205,7 +205,7 @@ class FilesTest {
       requests.add(request)
       when {
         // Step 1: Initiation
-        request.url.encodedPath.endsWith("/upload/v1beta/files") -> {
+        request.url.encodedPath.endsWith("/upload/v1/files") -> {
           assertEquals("POST", request.method.value)
           assertEquals("resumable", request.headers["X-Goog-Upload-Protocol"])
           assertEquals("start", request.headers["X-Goog-Upload-Command"])
@@ -316,7 +316,7 @@ class FilesTest {
       requests.add(request)
       when {
         // Step 1: Initiation
-        request.url.encodedPath.endsWith("/upload/v1beta/files") -> {
+        request.url.encodedPath.endsWith("/upload/v1/files") -> {
           assertEquals("POST", request.method.value)
           assertEquals("resumable", request.headers["X-Goog-Upload-Protocol"])
           assertEquals("start", request.headers["X-Goog-Upload-Command"])
