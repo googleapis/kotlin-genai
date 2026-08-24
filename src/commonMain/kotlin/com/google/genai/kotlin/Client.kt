@@ -47,6 +47,7 @@ internal constructor(
   internal val clientOptions: ClientOptions? = null,
   private val environment: Environment = getDefaultEnvironment(),
   engine: io.ktor.client.engine.HttpClientEngine? = null,
+  apiVersion: String? = null,
 ) : AutoCloseable {
 
   /**
@@ -60,6 +61,8 @@ internal constructor(
    * @param enterprise Explicitly set whether to use Gemini Enterprise Agent Platform API. Default
    *   to false or from environment variable GOOGLE_GENAI_USE_ENTERPRISE.
    * @param httpOptions Custom HTTP options for the client.
+   * @param clientOptions Options for configuring the client.
+   * @param apiVersion The API version to use (e.g. "v1" or "v1beta").
    */
   constructor(
     apiKey: String? = null,
@@ -69,6 +72,7 @@ internal constructor(
     enterprise: Boolean? = null,
     httpOptions: HttpOptions? = null,
     clientOptions: ClientOptions? = null,
+    apiVersion: String? = null,
   ) : this(
     apiKey = apiKey,
     project = project,
@@ -78,6 +82,7 @@ internal constructor(
     httpOptions = httpOptions,
     clientOptions = clientOptions,
     environment = getDefaultEnvironment(),
+    apiVersion = apiVersion,
   )
 
   /**
@@ -97,6 +102,19 @@ internal constructor(
   internal val httpClient: ApiClient
 
   init {
+    if (apiVersion != null && httpOptions?.apiVersion != null) {
+      throw IllegalArgumentException(
+        "apiVersion is set in both client options and httpOptions. Please specify apiVersion in only one place."
+      )
+    }
+
+    val resolvedHttpOptions =
+      if (apiVersion != null) {
+        (httpOptions ?: HttpOptions()).copy(apiVersion = apiVersion)
+      } else {
+        httpOptions
+      }
+
     val envEnterprise = env("GOOGLE_GENAI_USE_ENTERPRISE")
     val useEnterprise = enterprise ?: envEnterprise?.equals("true", ignoreCase = true) ?: false
 
@@ -181,7 +199,7 @@ internal constructor(
         location = resolvedLocation,
         credentials = resolvedCredentials,
         enterprise = useEnterprise,
-        httpOptions = httpOptions,
+        httpOptions = resolvedHttpOptions,
         engine = suppliedEngine,
         proxyOptions = clientOptions?.proxyOptions,
       )

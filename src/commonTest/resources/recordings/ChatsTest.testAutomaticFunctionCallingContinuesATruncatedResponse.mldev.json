@@ -4,8 +4,8 @@
     {
       "request": {
         "method": "POST",
-        "url": "/v1beta/models/REDACTED:generateContent",
-        "request": "POST /v1beta/models/REDACTED:generateContent HTTP/1.1",
+        "url": "/v1/models/REDACTED:generateContent",
+        "request": "POST /v1/models/REDACTED:generateContent HTTP/1.1",
         "headers": {
           "Accept": "*/*",
           "Accept-Charset": "UTF-8",
@@ -63,7 +63,7 @@
         "port": 443,
         "protocol": "https"
       },
-      "shaSum": "e0887abfec0cd315438cda04199043dc443967ef2958498d32c8df826b0013ce",
+      "shaSum": "85f1822720a043b1fd3ef0b00b2fc76b6709c43947fd54508fcc078f268e01b2",
       "response": {
         "statusCode": 200,
         "headers": {
@@ -132,8 +132,8 @@
     {
       "request": {
         "method": "POST",
-        "url": "/v1beta/models/REDACTED:generateContent",
-        "request": "POST /v1beta/models/REDACTED:generateContent HTTP/1.1",
+        "url": "/v1/models/REDACTED:generateContent",
+        "request": "POST /v1/models/REDACTED:generateContent HTTP/1.1",
         "headers": {
           "Accept": "*/*",
           "Accept-Charset": "UTF-8",
@@ -216,12 +216,12 @@
             ]
           }
         ],
-        "previousRequest": "e0887abfec0cd315438cda04199043dc443967ef2958498d32c8df826b0013ce",
+        "previousRequest": "85f1822720a043b1fd3ef0b00b2fc76b6709c43947fd54508fcc078f268e01b2",
         "serverAddress": "generativelanguage.googleapis.com",
         "port": 443,
         "protocol": "https"
       },
-      "shaSum": "fc1b3e04fd95ce2a5cbe5c553d5cec9f3b34f4fe83dca2ca65800349654fbc65",
+      "shaSum": "7ddf31c7846b5c01c1416cdae489679159c98bd7c1b9bf0959d20c8f1f3c197c",
       "response": {
         "statusCode": 200,
         "headers": {
@@ -299,8 +299,8 @@
     {
       "request": {
         "method": "POST",
-        "url": "/v1beta/models/REDACTED:generateContent",
-        "request": "POST /v1beta/models/REDACTED:generateContent HTTP/1.1",
+        "url": "/v1/models/REDACTED:generateContent",
+        "request": "POST /v1/models/REDACTED:generateContent HTTP/1.1",
         "headers": {
           "Accept": "*/*",
           "Accept-Charset": "UTF-8",
@@ -384,12 +384,12 @@
             ]
           }
         ],
-        "previousRequest": "fc1b3e04fd95ce2a5cbe5c553d5cec9f3b34f4fe83dca2ca65800349654fbc65",
+        "previousRequest": "7ddf31c7846b5c01c1416cdae489679159c98bd7c1b9bf0959d20c8f1f3c197c",
         "serverAddress": "generativelanguage.googleapis.com",
         "port": 443,
         "protocol": "https"
       },
-      "shaSum": "4e1916f586bdab083ae8d0b0d84fb37a44b8dcb37d23a0be20a09a05afa1164c",
+      "shaSum": "59886079ceb8c424baaf5a0e26d204e77d52e30fa275439305c0ffc820421474",
       "response": {
         "statusCode": 200,
         "headers": {

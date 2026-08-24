@@ -4,8 +4,8 @@
     {
       "request": {
         "method": "GET",
-        "url": "/v1beta/batches",
-        "request": "GET /v1beta/batches HTTP/1.1",
+        "url": "/v1/batches",
+        "request": "GET /v1/batches HTTP/1.1",
         "headers": {
           "Accept": "*/*",
           "Accept-Charset": "UTF-8",
@@ -22,7 +22,7 @@
         "port": 443,
         "protocol": "https"
       },
-      "shaSum": "c6b04a450afa5d26e4fd6cd39a5e214407dbb5dd160be822c304362848d9d072",
+      "shaSum": "08f12cb578d6e6af9eec27c20737b8a2761ad63f2d3cacbc293b1cd1a569d401",
       "response": {
         "statusCode": 200,
         "headers": {
