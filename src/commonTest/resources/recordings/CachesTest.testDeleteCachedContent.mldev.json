@@ -4,8 +4,8 @@
     {
       "request": {
         "method": "DELETE",
-        "url": "/v1beta/cachedContents/qfc05moswux9x0jtb8mct5ph1c2pvi978d7qsm3a",
-        "request": "DELETE /v1beta/cachedContents/qfc05moswux9x0jtb8mct5ph1c2pvi978d7qsm3a HTTP/1.1",
+        "url": "/v1/cachedContents/qfc05moswux9x0jtb8mct5ph1c2pvi978d7qsm3a",
+        "request": "DELETE /v1/cachedContents/qfc05moswux9x0jtb8mct5ph1c2pvi978d7qsm3a HTTP/1.1",
         "headers": {
           "Accept": "*/*",
           "Accept-Charset": "UTF-8",
@@ -23,7 +23,7 @@
         "port": 443,
         "protocol": "https"
       },
-      "shaSum": "a7e16f746d607d4a7205405de349bdabd99a0ee22a9277eb374d62805af1e58e",
+      "shaSum": "a237ca04bb09ddc1511239f6a025cbbb8101a2f530b9b9490faea1029751d1b3",
       "response": {
         "statusCode": 200,
         "headers": {

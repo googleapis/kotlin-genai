@@ -4,8 +4,8 @@
     {
       "request": {
         "method": "POST",
-        "url": "/v1beta/models/REDACTED:generateContent",
-        "request": "POST /v1beta/models/REDACTED:generateContent HTTP/1.1",
+        "url": "/v1/models/REDACTED:generateContent",
+        "request": "POST /v1/models/REDACTED:generateContent HTTP/1.1",
         "headers": {
           "Accept": "*/*",
           "Accept-Charset": "UTF-8",
@@ -35,7 +35,7 @@
         "port": 443,
         "protocol": "https"
       },
-      "shaSum": "239ebe9622f64cbe098032b549e7bf4de52aed584b24039ccc567677198ff0b9",
+      "shaSum": "1f13a488d1292b72992295eae19ecdc9904a3df162bb0dab46754714b95003d9",
       "response": {
         "statusCode": 200,
         "headers": {
@@ -97,8 +97,8 @@
     {
       "request": {
         "method": "POST",
-        "url": "/v1beta/models/REDACTED:generateContent",
-        "request": "POST /v1beta/models/REDACTED:generateContent HTTP/1.1",
+        "url": "/v1/models/REDACTED:generateContent",
+        "request": "POST /v1/models/REDACTED:generateContent HTTP/1.1",
         "headers": {
           "Accept": "*/*",
           "Accept-Charset": "UTF-8",
@@ -124,12 +124,12 @@
             "generationConfig": {}
           }
         ],
-        "previousRequest": "239ebe9622f64cbe098032b549e7bf4de52aed584b24039ccc567677198ff0b9",
+        "previousRequest": "1f13a488d1292b72992295eae19ecdc9904a3df162bb0dab46754714b95003d9",
         "serverAddress": "generativelanguage.googleapis.com",
         "port": 443,
         "protocol": "https"
       },
-      "shaSum": "e114495ebe6d5f93f09c2ca17c9a276b8607e3b824f3ff9279052f302d245280",
+      "shaSum": "e185feef69585ad0ebde4d483ab1511133a9d32cbed5a769e9ad1b0aee82c7c1",
       "response": {
         "statusCode": 200,
         "headers": {

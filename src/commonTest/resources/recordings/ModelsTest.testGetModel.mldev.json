@@ -4,8 +4,8 @@
     {
       "request": {
         "method": "GET",
-        "url": "/v1beta/models/gemini-flash-latest",
-        "request": "GET /v1beta/models/gemini-flash-latest HTTP/1.1",
+        "url": "/v1/models/gemini-flash-latest",
+        "request": "GET /v1/models/gemini-flash-latest HTTP/1.1",
         "headers": {
           "Accept": "*/*",
           "Accept-Charset": "UTF-8",
@@ -22,7 +22,7 @@
         "port": 443,
         "protocol": "https"
       },
-      "shaSum": "a72ae00609d946ef4c087a2c2ac4cd4dd7458b68ded54b604b7821d47d581a83",
+      "shaSum": "9cb041ef5751a6286caa18487ca9647cb2e4054654852e0771129a39af7bdaa5",
       "response": {
         "statusCode": 200,
         "headers": {

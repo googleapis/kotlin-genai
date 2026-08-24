@@ -110,6 +110,7 @@ open class BaseTestServer {
     val httpOptions =
       HttpOptions(
         baseUrl = "http://127.0.0.1:$port",
+        apiVersion = if (enterprise) null else "v1",
         headers = mapOf("Test-Name" to testName),
         // Replay never returns a retryable status, so only pay for this on live runs.
         retryOptions = if (testMode == "replay") null else testRetryOptions,

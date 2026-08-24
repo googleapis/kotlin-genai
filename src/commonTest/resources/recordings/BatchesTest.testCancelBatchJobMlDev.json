@@ -4,8 +4,8 @@
     {
       "request": {
         "method": "POST",
-        "url": "/v1beta/models/gemini-3.5-flash:batchGenerateContent",
-        "request": "POST /v1beta/models/gemini-3.5-flash:batchGenerateContent HTTP/1.1",
+        "url": "/v1/models/gemini-3.5-flash:batchGenerateContent",
+        "request": "POST /v1/models/gemini-3.5-flash:batchGenerateContent HTTP/1.1",
         "headers": {
           "Accept": "*/*",
           "Accept-Charset": "UTF-8",
@@ -46,7 +46,7 @@
         "port": 443,
         "protocol": "https"
       },
-      "shaSum": "89332908f59fea62da789b953c792015d6dc292c727c4e0a116d6cdbce3138bb",
+      "shaSum": "a4ca658b99831370199b7b8afb53a79a616aad8836e1aee686dbd8b99162613d",
       "response": {
         "statusCode": 200,
         "headers": {
@@ -83,8 +83,8 @@
     {
       "request": {
         "method": "POST",
-        "url": "/v1beta/batches/f2evg2uss3g5442ulgzg3fximrrnf0xolyjm:cancel",
-        "request": "POST /v1beta/batches/f2evg2uss3g5442ulgzg3fximrrnf0xolyjm:cancel HTTP/1.1",
+        "url": "/v1/batches/f2evg2uss3g5442ulgzg3fximrrnf0xolyjm:cancel",
+        "request": "POST /v1/batches/f2evg2uss3g5442ulgzg3fximrrnf0xolyjm:cancel HTTP/1.1",
         "headers": {
           "Accept": "*/*",
           "Accept-Charset": "UTF-8",
@@ -97,12 +97,12 @@
         "bodySegments": [
           null
         ],
-        "previousRequest": "89332908f59fea62da789b953c792015d6dc292c727c4e0a116d6cdbce3138bb",
+        "previousRequest": "a4ca658b99831370199b7b8afb53a79a616aad8836e1aee686dbd8b99162613d",
         "serverAddress": "generativelanguage.googleapis.com",
         "port": 443,
         "protocol": "https"
       },
-      "shaSum": "7646628fa71e7b7875c2d5001cac701da7f4bccd2134b2e1f969002553d312bc",
+      "shaSum": "ef912fdb5105d83862ac31439e7b5600fd40ca2e2cc076c74c6d2458f4703e1b",
       "response": {
         "statusCode": 200,
         "headers": {

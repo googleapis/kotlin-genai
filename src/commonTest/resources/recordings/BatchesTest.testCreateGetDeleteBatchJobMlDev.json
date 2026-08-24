@@ -4,8 +4,8 @@
     {
       "request": {
         "method": "POST",
-        "url": "/v1beta/models/gemini-3.5-flash:batchGenerateContent",
-        "request": "POST /v1beta/models/gemini-3.5-flash:batchGenerateContent HTTP/1.1",
+        "url": "/v1/models/gemini-3.5-flash:batchGenerateContent",
+        "request": "POST /v1/models/gemini-3.5-flash:batchGenerateContent HTTP/1.1",
         "headers": {
           "Accept": "*/*",
           "Accept-Charset": "UTF-8",
@@ -46,7 +46,7 @@
         "port": 443,
         "protocol": "https"
       },
-      "shaSum": "811cef023b250b98063869264e09e2197e5513d4af5da0be5f13d62550b2860e",
+      "shaSum": "bca650aca7fa6418f58345649ef33d82f21a442a6b832c91eaaf712cdfbb954a",
       "response": {
         "statusCode": 200,
         "headers": {
@@ -83,8 +83,8 @@
     {
       "request": {
         "method": "GET",
-        "url": "/v1beta/batches/6z2pa58vub3lho9580z7rv58mudcda0lebol",
-        "request": "GET /v1beta/batches/6z2pa58vub3lho9580z7rv58mudcda0lebol HTTP/1.1",
+        "url": "/v1/batches/6z2pa58vub3lho9580z7rv58mudcda0lebol",
+        "request": "GET /v1/batches/6z2pa58vub3lho9580z7rv58mudcda0lebol HTTP/1.1",
         "headers": {
           "Accept": "*/*",
           "Accept-Charset": "UTF-8",
@@ -96,12 +96,12 @@
         "bodySegments": [
           null
         ],
-        "previousRequest": "811cef023b250b98063869264e09e2197e5513d4af5da0be5f13d62550b2860e",
+        "previousRequest": "bca650aca7fa6418f58345649ef33d82f21a442a6b832c91eaaf712cdfbb954a",
         "serverAddress": "generativelanguage.googleapis.com",
         "port": 443,
         "protocol": "https"
       },
-      "shaSum": "0b1e0e9a97b583bc3aa278c4bada6246587692c91ec183b5a2f5052a7f20a9ba",
+      "shaSum": "6670039a122da8c975cbad34afdae41d703c860176de62adb696ed0b354d68de",
       "response": {
         "statusCode": 200,
         "headers": {
@@ -138,8 +138,8 @@
     {
       "request": {
         "method": "DELETE",
-        "url": "/v1beta/batches/6z2pa58vub3lho9580z7rv58mudcda0lebol",
-        "request": "DELETE /v1beta/batches/6z2pa58vub3lho9580z7rv58mudcda0lebol HTTP/1.1",
+        "url": "/v1/batches/6z2pa58vub3lho9580z7rv58mudcda0lebol",
+        "request": "DELETE /v1/batches/6z2pa58vub3lho9580z7rv58mudcda0lebol HTTP/1.1",
         "headers": {
           "Accept": "*/*",
           "Accept-Charset": "UTF-8",
@@ -152,12 +152,12 @@
         "bodySegments": [
           null
         ],
-        "previousRequest": "0b1e0e9a97b583bc3aa278c4bada6246587692c91ec183b5a2f5052a7f20a9ba",
+        "previousRequest": "6670039a122da8c975cbad34afdae41d703c860176de62adb696ed0b354d68de",
         "serverAddress": "generativelanguage.googleapis.com",
         "port": 443,
         "protocol": "https"
       },
-      "shaSum": "9aea922848bc6099178101b5d9d0f7e2ba773ab4c2ede5ee618ac0f6a677814a",
+      "shaSum": "6f5d6314fb429a87054c69b853c6a95f3b92f5ce91f3610d1aa1cecbb829d337",
       "response": {
         "statusCode": 200,
         "headers": {

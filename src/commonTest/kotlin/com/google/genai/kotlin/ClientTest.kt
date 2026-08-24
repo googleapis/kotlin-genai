@@ -19,6 +19,7 @@ package com.google.genai.kotlin
 import com.google.auth.oauth2.AccessToken
 import com.google.auth.oauth2.GoogleCredentials
 import com.google.genai.kotlin.types.ClientOptions
+import com.google.genai.kotlin.types.HttpOptions
 import com.google.genai.kotlin.types.ProxyOptions
 import com.google.genai.kotlin.types.ProxyType
 import io.ktor.client.engine.mock.MockEngine
@@ -404,5 +405,82 @@ class ClientTest {
     assertNull(client.project)
     assertNull(client.location)
     assertFalse(client.enterprise)
+  }
+
+  @Test
+  fun testClientInitialization_withApiVersion() {
+    clearEnv()
+    val client = Client(apiKey = API_KEY, apiVersion = "v1beta", environment = mockEnvironment)
+    assertNotNull(client)
+    assertEquals(API_KEY, client.apiKey)
+    assertEquals("v1beta", client.httpClient.httpOptions?.apiVersion)
+  }
+
+  @Test
+  fun testGeminiClientInitialization_withApiVersionEnvVar() {
+    clearEnv()
+    setEnv("GOOGLE_GENAI_API_VERSION", "v1alpha")
+    val client = Client(apiKey = API_KEY, environment = mockEnvironment)
+    assertNotNull(client)
+    assertEquals(false, client.enterprise)
+    assertEquals("v1alpha", client.httpClient.httpOptions?.apiVersion)
+  }
+
+  @Test
+  fun testVertexClientInitialization_withApiVersionEnvVar() {
+    clearEnv()
+    setEnv("GOOGLE_GENAI_API_VERSION", "v1")
+    val client =
+      Client(
+        project = PROJECT,
+        location = LOCATION,
+        credentials = MOCK_CREDENTIALS,
+        enterprise = true,
+        environment = mockEnvironment,
+      )
+    assertNotNull(client)
+    assertEquals(true, client.enterprise)
+    assertEquals("v1", client.httpClient.httpOptions?.apiVersion)
+  }
+
+  @Test
+  fun testClientInitialization_explicitApiVersionOverridesEnvVar() {
+    clearEnv()
+    setEnv("GOOGLE_GENAI_API_VERSION", "v1alpha")
+    val client = Client(apiKey = API_KEY, apiVersion = "v1", environment = mockEnvironment)
+    assertNotNull(client)
+    assertEquals("v1", client.httpClient.httpOptions?.apiVersion)
+  }
+
+  @Test
+  fun testClientInitialization_httpOptionsApiVersionOverridesEnvVar() {
+    clearEnv()
+    setEnv("GOOGLE_GENAI_API_VERSION", "v1alpha")
+    val client =
+      Client(
+        apiKey = API_KEY,
+        httpOptions = HttpOptions(apiVersion = "v1"),
+        environment = mockEnvironment,
+      )
+    assertNotNull(client)
+    assertEquals("v1", client.httpClient.httpOptions?.apiVersion)
+  }
+
+  @Test
+  fun testClientInitialization_withApiVersionConflict_throws() {
+    clearEnv()
+    val exception =
+      assertFailsWith<IllegalArgumentException> {
+        Client(
+          apiKey = API_KEY,
+          apiVersion = "v1beta",
+          httpOptions = HttpOptions(apiVersion = "v1"),
+          environment = mockEnvironment,
+        )
+      }
+    assertEquals(
+      "apiVersion is set in both client options and httpOptions. Please specify apiVersion in only one place.",
+      exception.message,
+    )
   }
 }
