@@ -59,4 +59,13 @@ data class AudioTranscriptionConfig(
 
   /** Configures word-level timestamp generation. */
   val wordTimestamp: Boolean? = null,
+
+  /**
+   * Optional. Configures transcription mode. Supported values: `VERBATIM`, `SMART`. If unspecified,
+   * defaults to `VERBATIM` transcription. In `SMART` mode, the model performs disfluency removal
+   * (eliminating filler words, repetitions, and false starts), light grammatical cleanup, automatic
+   * formatting (paragraphs, bullet points, numbered lists), and minor user edits (inline
+   * self-corrections). Timestamps and diarization are incompatible with mode `SMART`.
+   */
+  val mode: AudioTranscriptionConfigMode? = null,
 )
