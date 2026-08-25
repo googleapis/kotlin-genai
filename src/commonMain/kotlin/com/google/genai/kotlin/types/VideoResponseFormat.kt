@@ -42,4 +42,7 @@ data class VideoResponseFormat(
    * delivery is URI.
    */
   val gcsUri: String? = null,
+
+  /** Optional. The video output resolution. Supported values: "360p", "720p", "1080p", "4k". */
+  val resolution: String? = null,
 )
