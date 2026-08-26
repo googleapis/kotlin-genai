@@ -138,4 +138,7 @@ data class LiveConnectConfig(
 
   /** Config for translation. */
   val translationConfig: TranslationConfig? = null,
+
+  /** Saves live audio data to session and artifact service. */
+  val saveLiveBlob: Boolean? = null,
 )
