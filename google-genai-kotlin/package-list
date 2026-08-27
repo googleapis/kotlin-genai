@@ -136,6 +136,12 @@ $dokka.location:com.google.genai.kotlin.types/AuthConfigOidcConfig///PointingToD
 $dokka.location:com.google.genai.kotlin.types/AuthConfigOidcConfig/AuthConfigOidcConfig/#kotlin.String?#kotlin.String?/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-auth-config-oidc-config/-auth-config-oidc-config.html
 $dokka.location:com.google.genai.kotlin.types/AuthConfigOidcConfig/idToken/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-auth-config-oidc-config/id-token.html
 $dokka.location:com.google.genai.kotlin.types/AuthConfigOidcConfig/serviceAccount/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-auth-config-oidc-config/service-account.html
+$dokka.location:com.google.genai.kotlin.types/AuthToken///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-auth-token/index.html
+$dokka.location:com.google.genai.kotlin.types/AuthToken/AuthToken/#kotlin.String?#kotlin.String?#kotlin.String?#kotlin.Int?/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-auth-token/-auth-token.html
+$dokka.location:com.google.genai.kotlin.types/AuthToken/expireTime/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-auth-token/expire-time.html
+$dokka.location:com.google.genai.kotlin.types/AuthToken/name/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-auth-token/name.html
+$dokka.location:com.google.genai.kotlin.types/AuthToken/newSessionExpireTime/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-auth-token/new-session-expire-time.html
+$dokka.location:com.google.genai.kotlin.types/AuthToken/uses/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-auth-token/uses.html
 $dokka.location:com.google.genai.kotlin.types/AuthType.Companion///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-auth-type/-companion/index.html
 $dokka.location:com.google.genai.kotlin.types/AuthType.Companion/API_KEY_AUTH/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-auth-type/-companion/-a-p-i_-k-e-y_-a-u-t-h.html
 $dokka.location:com.google.genai.kotlin.types/AuthType.Companion/AUTH_TYPE_UNSPECIFIED/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-auth-type/-companion/-a-u-t-h_-t-y-p-e_-u-n-s-p-e-c-i-f-i-e-d.html
@@ -374,6 +380,17 @@ $dokka.location:com.google.genai.kotlin.types/CountTokensResponse/CountTokensRes
 $dokka.location:com.google.genai.kotlin.types/CountTokensResponse/cachedContentTokenCount/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-count-tokens-response/cached-content-token-count.html
 $dokka.location:com.google.genai.kotlin.types/CountTokensResponse/sdkHttpResponse/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-count-tokens-response/sdk-http-response.html
 $dokka.location:com.google.genai.kotlin.types/CountTokensResponse/totalTokens/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-count-tokens-response/total-tokens.html
+$dokka.location:com.google.genai.kotlin.types/CreateAuthTokenConfig///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-create-auth-token-config/index.html
+$dokka.location:com.google.genai.kotlin.types/CreateAuthTokenConfig/CreateAuthTokenConfig/#com.google.genai.kotlin.types.HttpOptions?#com.google.genai.kotlin.types.Instant?#com.google.genai.kotlin.types.Instant?#kotlin.Int?#com.google.genai.kotlin.types.LiveConnectConstraints?#kotlin.collections.List[kotlin.String]?/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-create-auth-token-config/-create-auth-token-config.html
+$dokka.location:com.google.genai.kotlin.types/CreateAuthTokenConfig/expireTime/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-create-auth-token-config/expire-time.html
+$dokka.location:com.google.genai.kotlin.types/CreateAuthTokenConfig/httpOptions/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-create-auth-token-config/http-options.html
+$dokka.location:com.google.genai.kotlin.types/CreateAuthTokenConfig/liveConnectConstraints/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-create-auth-token-config/live-connect-constraints.html
+$dokka.location:com.google.genai.kotlin.types/CreateAuthTokenConfig/lockAdditionalFields/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-create-auth-token-config/lock-additional-fields.html
+$dokka.location:com.google.genai.kotlin.types/CreateAuthTokenConfig/newSessionExpireTime/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-create-auth-token-config/new-session-expire-time.html
+$dokka.location:com.google.genai.kotlin.types/CreateAuthTokenConfig/uses/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-create-auth-token-config/uses.html
+$dokka.location:com.google.genai.kotlin.types/CreateAuthTokenParameters///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-create-auth-token-parameters/index.html
+$dokka.location:com.google.genai.kotlin.types/CreateAuthTokenParameters/CreateAuthTokenParameters/#com.google.genai.kotlin.types.CreateAuthTokenConfig?/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-create-auth-token-parameters/-create-auth-token-parameters.html
+$dokka.location:com.google.genai.kotlin.types/CreateAuthTokenParameters/config/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-create-auth-token-parameters/config.html
 $dokka.location:com.google.genai.kotlin.types/CreateBatchJobConfig///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-create-batch-job-config/index.html
 $dokka.location:com.google.genai.kotlin.types/CreateBatchJobConfig/CreateBatchJobConfig/#com.google.genai.kotlin.types.HttpOptions?#kotlin.String?#com.google.genai.kotlin.types.BatchJobDestination?#com.google.genai.kotlin.types.WebhookConfig?/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-create-batch-job-config/-create-batch-job-config.html
 $dokka.location:com.google.genai.kotlin.types/CreateBatchJobConfig/dest/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-create-batch-job-config/dest.html
@@ -1435,6 +1452,10 @@ $dokka.location:com.google.genai.kotlin.types/LiveConnectConfig/tools/#/Pointing
 $dokka.location:com.google.genai.kotlin.types/LiveConnectConfig/topK/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-live-connect-config/top-k.html
 $dokka.location:com.google.genai.kotlin.types/LiveConnectConfig/topP/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-live-connect-config/top-p.html
 $dokka.location:com.google.genai.kotlin.types/LiveConnectConfig/translationConfig/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-live-connect-config/translation-config.html
+$dokka.location:com.google.genai.kotlin.types/LiveConnectConstraints///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-live-connect-constraints/index.html
+$dokka.location:com.google.genai.kotlin.types/LiveConnectConstraints/LiveConnectConstraints/#kotlin.String?#com.google.genai.kotlin.types.LiveConnectConfig?/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-live-connect-constraints/-live-connect-constraints.html
+$dokka.location:com.google.genai.kotlin.types/LiveConnectConstraints/config/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-live-connect-constraints/config.html
+$dokka.location:com.google.genai.kotlin.types/LiveConnectConstraints/model/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-live-connect-constraints/model.html
 $dokka.location:com.google.genai.kotlin.types/LiveServerContent///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-live-server-content/index.html
 $dokka.location:com.google.genai.kotlin.types/LiveServerContent/LiveServerContent/#com.google.genai.kotlin.types.Content?#kotlin.Boolean?#kotlin.Boolean?#com.google.genai.kotlin.types.GroundingMetadata?#kotlin.Boolean?#com.google.genai.kotlin.types.Transcription?#com.google.genai.kotlin.types.Transcription?#com.google.genai.kotlin.types.UrlContextMetadata?#com.google.genai.kotlin.types.TurnCompleteReason?#kotlin.Boolean?#com.google.genai.kotlin.types.Transcription?#com.google.genai.kotlin.types.InteractionStatus?/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-live-server-content/-live-server-content.html
 $dokka.location:com.google.genai.kotlin.types/LiveServerContent/generationComplete/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-live-server-content/generation-complete.html
@@ -2532,6 +2553,7 @@ $dokka.location:com.google.genai.kotlin/Chats/create/#kotlin.String#com.google.g
 $dokka.location:com.google.genai.kotlin/Client///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin/-client/index.html
 $dokka.location:com.google.genai.kotlin/Client/Client/#kotlin.String?#kotlin.String?#kotlin.String?#com.google.genai.kotlin.GoogleCredentials?#kotlin.Boolean?#com.google.genai.kotlin.types.HttpOptions?#com.google.genai.kotlin.types.ClientOptions?/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin/-client/-client.html
 $dokka.location:com.google.genai.kotlin/Client/apiKey/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin/-client/api-key.html
+$dokka.location:com.google.genai.kotlin/Client/authTokens/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin/-client/auth-tokens.html
 $dokka.location:com.google.genai.kotlin/Client/batches/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin/-client/batches.html
 $dokka.location:com.google.genai.kotlin/Client/caches/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin/-client/caches.html
 $dokka.location:com.google.genai.kotlin/Client/chats/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin/-client/chats.html
@@ -2545,6 +2567,7 @@ $dokka.location:com.google.genai.kotlin/Client/project/#/PointingToDeclaration/
 $dokka.location:com.google.genai.kotlin/Client/tunings/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin/-client/tunings.html
 $dokka.location:com.google.genai.kotlin/ClientException///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin/-client-exception/index.html
 $dokka.location:com.google.genai.kotlin/ClientException/ClientException/#kotlin.Int#kotlin.String#kotlin.String/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin/-client-exception/-client-exception.html
+$dokka.location:com.google.genai.kotlin/ExperimentalGenAiApi///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin/-experimental-gen-ai-api/index.html
 $dokka.location:com.google.genai.kotlin/Files///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin/-files/index.html
 $dokka.location:com.google.genai.kotlin/Files/delete/#kotlin.String#com.google.genai.kotlin.types.DeleteFileConfig?/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin/-files/delete.html
 $dokka.location:com.google.genai.kotlin/Files/download/#com.google.genai.kotlin.types.File#com.google.genai.kotlin.types.DownloadFileConfig?/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin/-files/download.html
@@ -2603,6 +2626,9 @@ $dokka.location:com.google.genai.kotlin/Pager/name/#/PointingToDeclaration/goog
 $dokka.location:com.google.genai.kotlin/Pager/pageSize/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin/-pager/page-size.html
 $dokka.location:com.google.genai.kotlin/ServerException///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin/-server-exception/index.html
 $dokka.location:com.google.genai.kotlin/ServerException/ServerException/#kotlin.Int#kotlin.String#kotlin.String/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin/-server-exception/-server-exception.html
+$dokka.location:com.google.genai.kotlin/Tokens.Companion///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin/-tokens/-companion/index.html
+$dokka.location:com.google.genai.kotlin/Tokens///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin/-tokens/index.html
+$dokka.location:com.google.genai.kotlin/Tokens/create/#com.google.genai.kotlin.types.CreateAuthTokenConfig?/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin/-tokens/create.html
 $dokka.location:com.google.genai.kotlin/Tunings///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin/-tunings/index.html
 $dokka.location:com.google.genai.kotlin/Tunings/cancel/#kotlin.String#com.google.genai.kotlin.types.CancelTuningJobConfig?/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin/-tunings/cancel.html
 $dokka.location:com.google.genai.kotlin/Tunings/get/#kotlin.String#com.google.genai.kotlin.types.GetTuningJobConfig?/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin/-tunings/get.html
