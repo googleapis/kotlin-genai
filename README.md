@@ -1013,3 +1013,71 @@ fun main() = runBlocking {
     }
 }
 ```
+
+### Ephemeral Tokens
+
+The SDK supports creating and using ephemeral authentication tokens. This allows you to generate a short-lived token on a secure backend and pass it to a client application. The client can then connect directly to the Live API without exposing your primary API keys or Google Cloud credentials.
+
+> [!NOTE]
+> Ephemeral tokens are currently only supported by the Live API in the Gemini Developer API (not Gemini Enterprise Agent Platform) and require setting the API version to `v1alpha`. The tokens API is also marked as `@ExperimentalGenAiApi`.
+
+To create a token, use `client.authTokens.create` with a `CreateAuthTokenConfig` that defines the constraints for the Live session. Then, initialize a new `Client` on the client application using the generated token as the `apiKey`.
+
+```kotlin
+import com.google.genai.kotlin.Client
+import com.google.genai.kotlin.ExperimentalGenAiApi
+import com.google.genai.kotlin.types.CreateAuthTokenConfig
+import com.google.genai.kotlin.types.HttpOptions
+import com.google.genai.kotlin.types.LiveConnectConfig
+import com.google.genai.kotlin.types.LiveConnectConstraints
+import com.google.genai.kotlin.types.Modality
+import kotlinx.coroutines.flow.catch
+import kotlinx.coroutines.runBlocking
+
+@OptIn(ExperimentalGenAiApi::class)
+fun main() = runBlocking {
+    val model = "gemini-3.1-flash-live-preview"
+
+    // Create an ephemeral auth token using standard credentials (e.g. backend server).
+    val token = Client().use { client ->
+        val tokenConfig = CreateAuthTokenConfig(
+            uses = 1, // Number of times the token can be used to connect
+            liveConnectConstraints = LiveConnectConstraints(
+                model = model,
+                config = LiveConnectConfig(
+                    responseModalities = listOf(Modality.AUDIO),
+                    temperature = 0.7
+                )
+            ),
+            httpOptions = HttpOptions(apiVersion = "v1alpha")
+        )
+        client.authTokens.create(tokenConfig)
+    }
+
+    val tokenName = token.name ?: error("Token creation failed, name is null.")
+    println("Created ephemeral token: $tokenName")
+
+    // Initialize a new client with the ephemeral token (e.g. client app).
+    Client(
+        apiKey = tokenName,
+        httpOptions = HttpOptions(apiVersion = "v1alpha")
+    ).use { client ->
+        client.live.connect(model).use { session ->
+            println("Connected! Sending a message...")
+            session.sendRealtimeInput(text = "Hello from an ephemeral token session!")
+
+            session.receive()
+                .catch { e -> println("Session closed or error: ${e.message}") }
+                .collect { serverMessage ->
+                    // Handle the server message stream...
+                    serverMessage.serverContent?.modelTurn?.parts?.forEach { part ->
+                        part.text?.let { println("[Model Text: $it]") }
+                    }
+                    if (serverMessage.serverContent?.turnComplete == true) {
+                        session.closeSession()
+                    }
+                }
+        }
+    }
+}
+
