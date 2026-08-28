@@ -16,6 +16,8 @@
 
 plugins {
   kotlin("jvm")
+  // Needed by the @Serializable parameter classes in the function calling examples.
+  alias(libs.plugins.kotlin.serialization)
   application
 }
 

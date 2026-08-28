@@ -269,6 +269,112 @@ turns to the history rather than one.
 turns that will be sent to the model on the next request, leaving out any whose
 response came back empty or blocked.
 
+### Automatic Function Calling
+
+Give the model functions you want to use, and the SDK runs them for you when the
+model asks for one and sends the result back, so you no longer have to execute
+functions yourself. Passing `automaticFunctionCalling` is what turns this on.
+
+```kotlin
+import com.google.genai.kotlin.AutomaticFunctionCalling
+import com.google.genai.kotlin.Client
+import com.google.genai.kotlin.callableFunction
+import kotlinx.coroutines.runBlocking
+
+fun main() = runBlocking {
+    // A mocked function to keep the example short. Use the real one you want here.
+    val getWeather = callableFunction("get_weather", paramName = "city") { city: String ->
+        "18 degrees and sunny in $city"
+    }
+
+    Client().use { client ->
+        val chat = client.chats.create(
+            model = "gemini-3.6-flash",
+            automaticFunctionCalling = AutomaticFunctionCalling(getWeather),
+        )
+
+        // One call, several requests: the model asks for get_weather, the SDK runs it and sends
+        // the result back, and this returns once the model has an answer.
+        println(chat.sendMessage("What is the weather in Zurich?").text)
+    }
+}
+```
+
+There are overloads taking `paramNames` for functions of two or three
+parameters, and one for a function that takes no parameters at all.
+
+The whole interaction is recorded as a single turn, so the history holds your
+message, the model's function call, the result the SDK sent back on your behalf,
+and the model's answer.
+
+#### Describing parameters with a class
+
+For a complex function, take a `@Serializable` class instead. Its fields are the
+parameters, so they need no names, and `@Describe` documents them for the model.
+
+```kotlin
+import com.google.genai.kotlin.Describe
+import com.google.genai.kotlin.callableFunction
+import kotlinx.serialization.Serializable
+
+@Serializable
+data class PlanTripArgs(
+    @Describe("City the trip starts from.") val origin: String,
+    @Describe("City the trip ends in.") val destination: String,
+    @Describe("Number of nights to stay.") val nights: Int = 2,
+)
+
+val planTrip = callableFunction("plan_trip") { trip: PlanTripArgs ->
+    "Take the train from ${trip.origin} to ${trip.destination}"
+}
+```
+
+#### Advanced AFC Configuration
+
+```kotlin
+AutomaticFunctionCalling(
+    functions = listOf(getWeather, planTrip),
+    maximumRemoteCalls = 10,
+    runFunctionsInParallel = false,
+)
+```
+
+`maximumRemoteCalls` caps how many requests one turn may send before giving up.
+Your first message counts, so it takes at least two requests for AFC: your
+initial message, and the FunctionResponse message we send for you after
+running your function. When the limit is reached, functions are no longer called
+and you get the model's FunctionCall back.
+
+`runFunctionsInParallel` lets several functions asked for in one response run at
+the same time. It is off by default; turn it on only if your functions are safe
+to overlap, which the SDK cannot check for you.
+
+A function that throws is reported to the model as a failed function rather than
+to you, so the model can recover or explain. Cancellation is the exception and
+is rethrown.
+
+#### Streaming
+
+`sendMessageStream` works the same way, with one flow spanning the whole
+exchange however many requests it takes. Everything the model sends is emitted,
+function calls included; the results this side sends back are not, since they
+are you answering the model rather than the model speaking.
+
+```kotlin
+chat.sendMessageStream("What is the weather in Zurich?").collect { chunk ->
+    chunk.functionCalls?.forEach { println("model asked for ${it.name}") }
+    chunk.text?.let { print(it) }
+}
+```
+
+#### Handling calls yourself
+
+Leave `automaticFunctionCalling` out and nothing is run for you: declare the
+functions as `FunctionDeclaration`s in `config.tools` and the model's calls come
+back in `response.functionCalls` for you to answer. The two cannot be combined —
+passing hand-written function declarations alongside `automaticFunctionCalling`
+throws `IllegalArgumentException`.
+
 ### Advanced Configuration
 
 You can pass a `GenerateContentConfig` to customize the request, such as setting
