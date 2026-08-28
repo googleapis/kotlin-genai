@@ -18,15 +18,19 @@
 
 package com.google.genai.kotlin
 
+import com.google.genai.kotlin.types.FunctionDeclaration
+import kotlinx.serialization.KSerializer
 import kotlinx.serialization.SerialInfo
 import kotlinx.serialization.descriptors.PrimitiveKind
 import kotlinx.serialization.descriptors.SerialDescriptor
 import kotlinx.serialization.descriptors.SerialKind
 import kotlinx.serialization.descriptors.StructureKind
+import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonArray
 import kotlinx.serialization.json.JsonElement
 import kotlinx.serialization.json.JsonObject
 import kotlinx.serialization.json.JsonPrimitive
+import kotlinx.serialization.serializer
 
 /**
  * Describes a function parameter to the model, so it knows what to pass.
@@ -50,6 +54,302 @@ import kotlinx.serialization.json.JsonPrimitive
 annotation class Describe(val value: String)
 
 /**
+ * A function you give to the model, and the handler that runs when the model asks for it.
+ *
+ * Build one with [callableFunction], then pass it to [AutomaticFunctionCalling].
+ */
+class CallableFunction
+internal constructor(
+  /** What the model is told about this function: its name, description and argument schema. */
+  val declaration: FunctionDeclaration,
+  internal val handler: suspend (JsonObject) -> JsonElement,
+)
+
+/**
+ * Makes a [CallableFunction] from a function that takes no parameters.
+ *
+ * ```
+ * fun currentTime(): String = ...
+ *
+ * val getTime = callableFunction("current_time", handler = ::currentTime)
+ * ```
+ *
+ * @param name what the model refers to this function by.
+ * @param description what the function does, so the model knows when to ask for it.
+ * @param handler the function to run when the model asks for it.
+ */
+inline fun <reified R> callableFunction(
+  name: String,
+  description: String? = null,
+  noinline handler: suspend () -> R,
+): CallableFunction =
+  buildFromNamedParameters(name, description, emptyList(), emptyList(), serializer<R>()) {
+    handler()
+  }
+
+/**
+ * Makes a [CallableFunction] from a function that takes one parameter.
+ *
+ * ```
+ * fun getWeather(city: String): String = ...
+ *
+ * val weather = callableFunction("get_weather", paramName = "city", handler = ::getWeather)
+ * ```
+ *
+ * @param name what the model refers to this function by.
+ * @param description what the function does, so the model knows when to ask for it.
+ * @param paramName the name the model sends the argument under. Required, because a function's own
+ *   parameter names cannot be read back at runtime.
+ * @param handler the function to run when the model asks for it.
+ */
+inline fun <reified A, reified R> callableFunction(
+  name: String,
+  description: String? = null,
+  paramName: String,
+  noinline handler: suspend (A) -> R,
+): CallableFunction =
+  buildFromNamedParameters(
+    name,
+    description,
+    listOf(paramName),
+    listOf(serializer<A>()),
+    serializer<R>(),
+  ) { arguments ->
+    handler(arguments[0] as A)
+  }
+
+/**
+ * Makes a [CallableFunction] from a function that takes two parameters.
+ *
+ * ```
+ * fun getForecast(city: String, days: Int): String = ...
+ *
+ * val forecast =
+ *   callableFunction("get_forecast", paramNames = listOf("city", "days"), handler = ::getForecast)
+ * ```
+ *
+ * @param name what the model refers to this function by.
+ * @param description what the function does, so the model knows when to ask for it.
+ * @param paramNames the names the model sends the arguments under, in the order the function
+ *   declares them.
+ * @param handler the function to run when the model asks for it.
+ */
+inline fun <reified A, reified B, reified R> callableFunction(
+  name: String,
+  description: String? = null,
+  paramNames: List<String>,
+  noinline handler: suspend (A, B) -> R,
+): CallableFunction =
+  buildFromNamedParameters(
+    name,
+    description,
+    paramNames,
+    listOf(serializer<A>(), serializer<B>()),
+    serializer<R>(),
+  ) { arguments ->
+    handler(arguments[0] as A, arguments[1] as B)
+  }
+
+/**
+ * Makes a [CallableFunction] from a function that takes three parameters.
+ *
+ * For a function with more parameters than this, take a single `@Serializable` class holding them
+ * instead.
+ *
+ * ```
+ * fun route(from: String, to: String, metric: Boolean): String = ...
+ *
+ * val plan =
+ *   callableFunction(
+ *     "plan_route",
+ *     paramNames = listOf("from", "to", "metric"),
+ *     handler = ::route,
+ *   )
+ * ```
+ *
+ * @param name what the model refers to this function by.
+ * @param description what the function does, so the model knows when to ask for it.
+ * @param paramNames the names the model sends the arguments under, in the order the function
+ *   declares them.
+ * @param handler the function to run when the model asks for it.
+ */
+inline fun <reified A, reified B, reified C, reified R> callableFunction(
+  name: String,
+  description: String? = null,
+  paramNames: List<String>,
+  noinline handler: suspend (A, B, C) -> R,
+): CallableFunction =
+  buildFromNamedParameters(
+    name,
+    description,
+    paramNames,
+    listOf(serializer<A>(), serializer<B>(), serializer<C>()),
+    serializer<R>(),
+  ) { arguments ->
+    handler(arguments[0] as A, arguments[1] as B, arguments[2] as C)
+  }
+
+/**
+ * Makes a [CallableFunction] from a function that takes one `@Serializable` class of parameters.
+ *
+ * The class's fields are the parameters, so no names are needed. Use [Describe] to document them.
+ *
+ * ```
+ * @Serializable
+ * data class PlanTripArgs(
+ *   @Describe("Departure city.") val origin: String,
+ *   @Describe("Number of nights to stay.") val nights: Int = 2,
+ * )
+ *
+ * val planTrip = callableFunction("plan_trip") { args: PlanTripArgs ->
+ *   "Trip from ${args.origin} for ${args.nights} nights"
+ * }
+ * ```
+ *
+ * @param name what the model refers to this function by.
+ * @param description what the function does, so the model knows when to ask for it.
+ * @param handler the function to run when the model asks for it.
+ */
+inline fun <reified A, reified R> callableFunction(
+  name: String,
+  description: String? = null,
+  noinline handler: suspend (A) -> R,
+): CallableFunction =
+  buildFromParameterClass(name, description, serializer<A>(), serializer<R>(), handler)
+
+/** Builds a [CallableFunction] whose parameters are named one by one. */
+@PublishedApi
+internal fun buildFromNamedParameters(
+  name: String,
+  description: String?,
+  paramNames: List<String>,
+  arguments: List<KSerializer<*>>,
+  result: KSerializer<*>,
+  handler: suspend (List<Any?>) -> Any?,
+): CallableFunction {
+  require(paramNames.size == arguments.size) {
+    "Function \"$name\" takes ${arguments.size} arguments, but ${paramNames.size} names were " +
+      "given: $paramNames."
+  }
+  // A repeated name would collapse two parameters into one property, so the model would send one
+  // value and the handler would receive it twice.
+  require(paramNames.toSet().size == paramNames.size) {
+    "Function \"$name\" was given the same parameter name twice: $paramNames."
+  }
+
+  val schema =
+    buildParametersSchema(
+      paramNames.mapIndexed { i, paramName ->
+        paramName to jsonSchemaOf(arguments[i].descriptor, inlineRoot = false)
+      }
+    )
+
+  return CallableFunction(
+    FunctionDeclaration(
+      name = name,
+      description = description,
+      parametersJsonSchema = schema,
+      responseJsonSchema = buildResponseSchema(result),
+    )
+  ) { json ->
+    val decoded = paramNames.mapIndexed { i, paramName ->
+      decodeArgument(json, paramName, name, arguments[i])
+    }
+    encodeResult(result, handler(decoded))
+  }
+}
+
+/** Builds a [CallableFunction] whose parameters come from the fields of one class. */
+@PublishedApi
+internal fun <A, R> buildFromParameterClass(
+  name: String,
+  description: String?,
+  argument: KSerializer<A>,
+  result: KSerializer<R>,
+  handler: suspend (A) -> R,
+): CallableFunction {
+  // The class stands in for the whole parameter list, so its schema is already the right shape.
+  // Anything that is not an object would produce arguments the model cannot name.
+  val schema = jsonSchemaOf(argument.descriptor)
+  require(schema["type"] == JsonPrimitive("object")) {
+    "Function \"$name\" takes a single argument that is not a @Serializable class, so its " +
+      "parameter has no name the model can use. Pass `paramName` to name it, or take a " +
+      "@Serializable class holding the arguments."
+  }
+
+  return CallableFunction(
+    FunctionDeclaration(
+      name = name,
+      description = description,
+      parametersJsonSchema = schema,
+      responseJsonSchema = buildResponseSchema(result),
+    )
+  ) { arguments ->
+    handlerJson.encodeToJsonElement(
+      result,
+      handler(handlerJson.decodeFromJsonElement(argument, arguments)),
+    )
+  }
+}
+
+/** Converts between the JSON on the wire and the types a handler declares. */
+internal val handlerJson: Json = Json {
+  ignoreUnknownKeys = true
+  encodeDefaults = true
+}
+
+/** Combines the schema of each named parameter into the object the model fills in. */
+// A parameter's own $defs are lifted to the root, because a $ref resolves from the document root
+// and would dangle once the schema becomes a property.
+internal fun buildParametersSchema(named: List<Pair<String, JsonObject>>): JsonObject {
+  val defs = LinkedHashMap<String, JsonElement>()
+  val properties = LinkedHashMap<String, JsonElement>()
+  for ((name, schema) in named) {
+    val own = schema["\$defs"]
+    if (own is JsonObject) {
+      defs.putAll(own)
+    }
+    properties[name] = JsonObject(schema.filterKeys { it != "\$defs" })
+  }
+
+  val out = LinkedHashMap<String, JsonElement>()
+  out["type"] = JsonPrimitive("object")
+  out["properties"] = JsonObject(properties)
+  if (named.isNotEmpty()) {
+    out["required"] = JsonArray(named.map { JsonPrimitive(it.first) })
+  }
+  if (defs.isNotEmpty()) {
+    out["\$defs"] = JsonObject(defs)
+  }
+  return JsonObject(out)
+}
+
+/** Describes what a function returns, or null when it returns nothing. */
+internal fun buildResponseSchema(result: KSerializer<*>): JsonObject? =
+  if (result.descriptor.serialName == "kotlin.Unit") null else jsonSchemaOf(result.descriptor)
+
+/** Encodes a handler's return value for sending back to the model. */
+// The serializer and the value come from the same reified call site, so they always agree.
+@Suppress("UNCHECKED_CAST")
+internal fun encodeResult(result: KSerializer<*>, value: Any?): JsonElement =
+  handlerJson.encodeToJsonElement(result as KSerializer<Any?>, value)
+
+/** Reads one argument the model sent, as the type its handler declares. */
+internal fun decodeArgument(
+  arguments: JsonObject,
+  paramName: String,
+  name: String,
+  serializer: KSerializer<*>,
+): Any? {
+  val element =
+    arguments[paramName]
+      ?: throw IllegalArgumentException(
+        "The model called \"$name\" without the argument \"$paramName\". It sent: ${arguments.keys}."
+      )
+  return handlerJson.decodeFromJsonElement(serializer, element)
+}
+
+/**
  * Builds the JSON Schema that describes [descriptor] to the model, for
  * `FunctionDeclaration.parametersJsonSchema`.
  *
@@ -60,9 +360,9 @@ annotation class Describe(val value: String)
  * Throws [IllegalArgumentException] for a type that cannot be described: a map with keys that are
  * not strings or enums, or a kind with no JSON Schema equivalent.
  */
-internal fun jsonSchemaOf(descriptor: SerialDescriptor): JsonObject {
+internal fun jsonSchemaOf(descriptor: SerialDescriptor, inlineRoot: Boolean = true): JsonObject {
   val defs = Defs()
-  val root = schemaOf(descriptor, description = null, defs = defs, inlineObject = true)
+  val root = schemaOf(descriptor, description = null, defs = defs, inlineObject = inlineRoot)
   if (defs.schemas.isEmpty()) {
     return root
   }
