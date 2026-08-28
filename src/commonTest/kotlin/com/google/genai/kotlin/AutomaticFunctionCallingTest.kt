@@ -16,9 +16,14 @@
 
 package com.google.genai.kotlin
 
+import com.google.genai.kotlin.types.FunctionDeclaration
+import com.google.genai.kotlin.types.GenerateContentConfig
+import com.google.genai.kotlin.types.GoogleSearch
+import com.google.genai.kotlin.types.Tool
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFailsWith
+import kotlin.test.assertFalse
 import kotlin.test.assertNull
 import kotlin.test.assertTrue
 import kotlinx.coroutines.test.runTest
@@ -92,6 +97,12 @@ private object Lib {
 }
 
 private fun args(build: JsonObjectBuilder.() -> Unit): JsonObject = buildJsonObject(build)
+
+private fun weatherFunction(): CallableFunction =
+  callableFunction("get_weather", paramName = "city", handler = Lib::weather)
+
+private fun timeFunction(): CallableFunction =
+  callableFunction("current_time", handler = Lib::currentTime)
 
 private fun parametersOf(tool: CallableFunction): JsonElement =
   tool.declaration.parametersJsonSchema!!
@@ -463,5 +474,60 @@ class AutomaticFunctionCallingTest {
     val error = assertFailsWith<IllegalArgumentException> { tool.handler(args {}) }
     assertTrue(error.message!!.contains("get_weather"), error.message!!)
     assertTrue(error.message!!.contains("city"), error.message!!)
+  }
+
+  @Test
+  fun testConfigKeepsFunctionsAndDefaults() {
+    val afc = AutomaticFunctionCalling(weatherFunction(), timeFunction())
+    assertEquals(2, afc.functions.size)
+    assertEquals(10, afc.maximumRemoteCalls)
+    assertFalse(afc.runFunctionsInParallel)
+    assertEquals(setOf("get_weather", "current_time"), afc.byName.keys)
+  }
+
+  @Test
+  fun testDuplicateFunctionNamesThrow() {
+    val error =
+      assertFailsWith<IllegalArgumentException> {
+        AutomaticFunctionCalling(weatherFunction(), weatherFunction())
+      }
+    assertTrue(error.message!!.contains("share a name"), error.message!!)
+  }
+
+  @Test
+  fun testNonPositiveMaximumRemoteCallsThrows() {
+    val error =
+      assertFailsWith<IllegalArgumentException> {
+        AutomaticFunctionCalling(listOf(weatherFunction()), maximumRemoteCalls = 0)
+      }
+    assertTrue(error.message!!.contains("must be positive"), error.message!!)
+  }
+
+  @Test
+  fun testRawFunctionDeclarationsRejectedAlongsideAfc() {
+    val config =
+      GenerateContentConfig(
+        tools = listOf(Tool(functionDeclarations = listOf(FunctionDeclaration(name = "by_hand"))))
+      )
+    val error =
+      assertFailsWith<IllegalArgumentException> {
+        requireNoRawFunctionDeclarations(config, AutomaticFunctionCalling(weatherFunction()))
+      }
+    assertTrue(error.message!!.contains("by_hand"), error.message!!)
+  }
+
+  @Test
+  fun testRawFunctionDeclarationsAllowedWithoutAfc() {
+    val config =
+      GenerateContentConfig(
+        tools = listOf(Tool(functionDeclarations = listOf(FunctionDeclaration(name = "by_hand"))))
+      )
+    requireNoRawFunctionDeclarations(config, afc = null)
+  }
+
+  @Test
+  fun testBackendExecutedToolsComposeWithAfc() {
+    val config = GenerateContentConfig(tools = listOf(Tool(googleSearch = GoogleSearch())))
+    requireNoRawFunctionDeclarations(config, AutomaticFunctionCalling(weatherFunction()))
   }
 }

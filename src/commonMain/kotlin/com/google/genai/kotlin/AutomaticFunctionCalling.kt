@@ -19,6 +19,7 @@
 package com.google.genai.kotlin
 
 import com.google.genai.kotlin.types.FunctionDeclaration
+import com.google.genai.kotlin.types.GenerateContentConfig
 import kotlinx.serialization.KSerializer
 import kotlinx.serialization.SerialInfo
 import kotlinx.serialization.descriptors.PrimitiveKind
@@ -216,6 +217,50 @@ inline fun <reified A, reified R> callableFunction(
   noinline handler: suspend (A) -> R,
 ): CallableFunction =
   buildFromParameterClass(name, description, serializer<A>(), serializer<R>(), handler)
+
+/**
+ * The functions the model may ask for during a chat, and the limits on running them.
+ *
+ * Passing this is what turns automatic function calling on; there is no separate flag. Leave it out
+ * and the model's function calls are returned to you to handle yourself.
+ *
+ * ```
+ * val chat = client.chats.create(
+ *   model = "gemini-3.6-flash",
+ *   automaticFunctionCalling = AutomaticFunctionCalling(getWeather, getForecast),
+ * )
+ * ```
+ *
+ * @param functions a list of [CallableFunction]s the model may ask for. Names must be unique.
+ * @param maximumRemoteCalls how many times a single turn may go back to the model before giving up.
+ * @param runFunctionsInParallel whether several functions asked for in one response may run at the
+ *   same time. Off by default; turn it on only if your handlers are safe to overlap, which the SDK
+ *   cannot check for you.
+ */
+class AutomaticFunctionCalling(
+  val functions: List<CallableFunction>,
+  val maximumRemoteCalls: Int = 10,
+  val runFunctionsInParallel: Boolean = false,
+) {
+  constructor(vararg functions: CallableFunction) : this(functions.toList())
+
+  /** The functions to dispatch on, keyed by the name the model uses. */
+  internal val byName: Map<String, CallableFunction> = functions.associateBy {
+    it.declaration.name.orEmpty()
+  }
+
+  init {
+    require(maximumRemoteCalls > 0) {
+      "maximumRemoteCalls must be positive, but was $maximumRemoteCalls. Leave " +
+        "automaticFunctionCalling unset to handle the model's function calls yourself."
+    }
+    // Two functions under one name would leave the model unable to say which it meant, and only
+    // one of them reachable.
+    require(byName.size == functions.size) {
+      "Two functions share a name: ${functions.mapNotNull { it.declaration.name }.sorted()}."
+    }
+  }
+}
 
 /** Builds a [CallableFunction] whose parameters are named one by one. */
 @PublishedApi
@@ -522,3 +567,25 @@ private fun objectSchemaOf(descriptor: SerialDescriptor, defs: Defs): Map<String
 /** Returns the text of the first [Describe] in this list, if there is one. */
 private fun List<Annotation>.firstDescription(): String? =
   filterIsInstance<Describe>().firstOrNull()?.value
+
+/**
+ * Throws if [config] declares functions by hand while [afc] is also running them.
+ *
+ * The two cannot be combined: a declaration with no handler behind it would reach the model, which
+ * would then ask for something nothing can run. Every other kind of tool is executed by the backend
+ * and composes with automatic function calling as usual.
+ */
+internal fun requireNoRawFunctionDeclarations(
+  config: GenerateContentConfig?,
+  afc: AutomaticFunctionCalling?,
+) {
+  if (afc == null) {
+    return
+  }
+  val declared = config?.tools.orEmpty().flatMap { it.functionDeclarations.orEmpty() }
+  require(declared.isEmpty()) {
+    "Cannot combine automatic function calling with function declarations written by hand: " +
+      "${declared.mapNotNull { it.name }}. Either wrap them with callableFunction(), or drop " +
+      "automaticFunctionCalling and handle every call yourself."
+  }
+}
