@@ -2567,6 +2567,8 @@ $dokka.location:com.google.genai.kotlin/Client/project/#/PointingToDeclaration/
 $dokka.location:com.google.genai.kotlin/Client/tunings/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin/-client/tunings.html
 $dokka.location:com.google.genai.kotlin/ClientException///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin/-client-exception/index.html
 $dokka.location:com.google.genai.kotlin/ClientException/ClientException/#kotlin.Int#kotlin.String#kotlin.String/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin/-client-exception/-client-exception.html
+$dokka.location:com.google.genai.kotlin/Describe///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin/-describe/index.html
+$dokka.location:com.google.genai.kotlin/Describe/value/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin/-describe/value.html
 $dokka.location:com.google.genai.kotlin/ExperimentalGenAiApi///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin/-experimental-gen-ai-api/index.html
 $dokka.location:com.google.genai.kotlin/Files///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin/-files/index.html
 $dokka.location:com.google.genai.kotlin/Files/delete/#kotlin.String#com.google.genai.kotlin.types.DeleteFileConfig?/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin/-files/delete.html
