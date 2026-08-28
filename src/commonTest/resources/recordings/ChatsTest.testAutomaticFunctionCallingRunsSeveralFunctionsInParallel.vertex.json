@@ -1,0 +1,313 @@
+{
+  "recordID": "ChatsTest.testAutomaticFunctionCallingRunsSeveralFunctionsInParallel.vertex",
+  "interactions": [
+    {
+      "request": {
+        "method": "POST",
+        "url": "/v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-3.6-flash:generateContent",
+        "request": "POST /v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-3.6-flash:generateContent HTTP/1.1",
+        "headers": {
+          "Accept": "*/*",
+          "Accept-Charset": "UTF-8",
+          "Accept-Encoding": "gzip",
+          "Connection": "Keep-Alive",
+          "Content-Length": "554",
+          "Content-Type": "application/json",
+          "Test-Name": "ChatsTest.testAutomaticFunctionCallingRunsSeveralFunctionsInParallel.vertex"
+        },
+        "bodySegments": [
+          {
+            "contents": [
+              {
+                "parts": [
+                  {
+                    "text": "What time is it, and how many people live in Zurich? Use your tools."
+                  }
+                ],
+                "role": "user"
+              }
+            ],
+            "generationConfig": {},
+            "tools": [
+              {
+                "functionDeclarations": [
+                  {
+                    "description": "The current server time.",
+                    "name": "current_time",
+                    "parametersJsonSchema": {
+                      "properties": {},
+                      "type": "object"
+                    },
+                    "responseJsonSchema": {
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "description": "How many people live in a city.",
+                    "name": "get_population",
+                    "parametersJsonSchema": {
+                      "properties": {
+                        "city": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "city"
+                      ],
+                      "type": "object"
+                    },
+                    "responseJsonSchema": {
+                      "type": "string"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "previousRequest": "b4d6e60a9b97e7b98c63df9308728c5c88c0b40c398046772c63447b94608b4d",
+        "serverAddress": "aiplatform.googleapis.com",
+        "port": 443,
+        "protocol": "https"
+      },
+      "shaSum": "8873a7252ffea1e925d60057202abbe9f740fcca578f5a6cb04e2fc3b5bcdf82",
+      "response": {
+        "statusCode": 200,
+        "headers": {
+          "Content-Encoding": "gzip",
+          "Content-Length": "974",
+          "Content-Type": "application/json; charset=UTF-8",
+          "Date": "Thu, 27 Aug 2026 18:27:03 GMT",
+          "Server": "scaffolding on HTTPServer2",
+          "Vary": "Origin, X-Origin, Referer",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "SAMEORIGIN",
+          "X-Xss-Protection": "0"
+        },
+        "bodySegments": [
+          {
+            "candidates": [
+              {
+                "content": {
+                  "parts": [
+                    {
+                      "functionCall": {
+                        "args": {},
+                        "id": "call_940",
+                        "name": "current_time"
+                      },
+                      "thoughtSignature": "AY89a1+rMaNPH6hY6PkniPv8AKRjHpifEjkP21EgwRGoTbuk3aePaqXbQNHMtIZoufTL2XWLQIqGywukHfGi508F6HU5fM9BnX/DgTzggei+EnvmP09T/xZmjs7tuKKe/WidQIpbVScBnWhmtjQphAHvo+7WU2LHcy+sLFfx3nssJbIQPrcYE79qNSPqs1ZXzAaZ7Kc5k4f0Jay8KWtmIvIpXI+7rIj6YgYjzsChjUTN0sEwR2F2qDP8wr4VOv9aX+fmyW2KO0WK7skaEVdQ/OucU+fxU13JMQdcj7jnKKC0m1MGGc5GbiRG5b5Rw4wZf43BpGlyXS00Vvut57RwNyqq8Sx/7sMe4hLoHtFvLfcIB4BC9cbxFf8Bd1I6V4m2Ph9N4krbZSssyPqo5BNOZ4v1o4BUoLw6/Rw86mHaUO+VpvzYJwibYrbeFLACmDATSnGA68LCHM9ad834ltbO/D2TrIb12DbeUba7Aw1s2JIaHxTSR7GvZVgwtLLpBoB9nfKLosH+BiLE6ERPcaPJUxXY/c0VT9VkfjZPpafPyjgbJbPXl5IzChlvasln2rMME87E/dtfzDvQv0oLa+Oskaf75SMf3u+HcIukt3HJFoL3Bd5yRHnSmL4d/lZkhmvWzAGeh3in"
+                    },
+                    {
+                      "functionCall": {
+                        "args": {
+                          "city": "Zurich"
+                        },
+                        "id": "call_941",
+                        "name": "get_population"
+                      }
+                    }
+                  ],
+                  "role": "model"
+                },
+                "finishReason": "STOP"
+              }
+            ],
+            "createTime": "2026-08-27T18:27:01.556956Z",
+            "modelVersion": "gemini-3.6-flash",
+            "responseId": "dYGQapz_IZ6apucPocm0MA",
+            "usageMetadata": {
+              "candidatesTokenCount": 27,
+              "candidatesTokensDetails": [
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 27
+                }
+              ],
+              "promptTokenCount": 64,
+              "promptTokensDetails": [
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 64
+                }
+              ],
+              "thoughtsTokenCount": 113,
+              "totalTokenCount": 204,
+              "trafficType": "ON_DEMAND"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "url": "/v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-3.6-flash:generateContent",
+        "request": "POST /v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-3.6-flash:generateContent HTTP/1.1",
+        "headers": {
+          "Accept": "*/*",
+          "Accept-Charset": "UTF-8",
+          "Accept-Encoding": "gzip",
+          "Connection": "Keep-Alive",
+          "Content-Length": "1642",
+          "Content-Type": "application/json",
+          "Test-Name": "ChatsTest.testAutomaticFunctionCallingRunsSeveralFunctionsInParallel.vertex"
+        },
+        "bodySegments": [
+          {
+            "contents": [
+              {
+                "parts": [
+                  {
+                    "text": "What time is it, and how many people live in Zurich? Use your tools."
+                  }
+                ],
+                "role": "user"
+              },
+              {
+                "parts": [
+                  {
+                    "functionCall": {
+                      "args": {},
+                      "id": "call_940",
+                      "name": "current_time"
+                    },
+                    "thoughtSignature": "AY89a1+rMaNPH6hY6PkniPv8AKRjHpifEjkP21EgwRGoTbuk3aePaqXbQNHMtIZoufTL2XWLQIqGywukHfGi508F6HU5fM9BnX/DgTzggei+EnvmP09T/xZmjs7tuKKe/WidQIpbVScBnWhmtjQphAHvo+7WU2LHcy+sLFfx3nssJbIQPrcYE79qNSPqs1ZXzAaZ7Kc5k4f0Jay8KWtmIvIpXI+7rIj6YgYjzsChjUTN0sEwR2F2qDP8wr4VOv9aX+fmyW2KO0WK7skaEVdQ/OucU+fxU13JMQdcj7jnKKC0m1MGGc5GbiRG5b5Rw4wZf43BpGlyXS00Vvut57RwNyqq8Sx/7sMe4hLoHtFvLfcIB4BC9cbxFf8Bd1I6V4m2Ph9N4krbZSssyPqo5BNOZ4v1o4BUoLw6/Rw86mHaUO+VpvzYJwibYrbeFLACmDATSnGA68LCHM9ad834ltbO/D2TrIb12DbeUba7Aw1s2JIaHxTSR7GvZVgwtLLpBoB9nfKLosH+BiLE6ERPcaPJUxXY/c0VT9VkfjZPpafPyjgbJbPXl5IzChlvasln2rMME87E/dtfzDvQv0oLa+Oskaf75SMf3u+HcIukt3HJFoL3Bd5yRHnSmL4d/lZkhmvWzAGeh3in"
+                  },
+                  {
+                    "functionCall": {
+                      "args": {
+                        "city": "Zurich"
+                      },
+                      "id": "call_941",
+                      "name": "get_population"
+                    }
+                  }
+                ],
+                "role": "model"
+              },
+              {
+                "parts": [
+                  {
+                    "functionResponse": {
+                      "id": "call_940",
+                      "name": "current_time",
+                      "response": {
+                        "result": "07:30 UTC"
+                      }
+                    }
+                  },
+                  {
+                    "functionResponse": {
+                      "id": "call_941",
+                      "name": "get_population",
+                      "response": {
+                        "result": "Zurich has about 400,000 people"
+                      }
+                    }
+                  }
+                ],
+                "role": "user"
+              }
+            ],
+            "generationConfig": {},
+            "tools": [
+              {
+                "functionDeclarations": [
+                  {
+                    "description": "The current server time.",
+                    "name": "current_time",
+                    "parametersJsonSchema": {
+                      "properties": {},
+                      "type": "object"
+                    },
+                    "responseJsonSchema": {
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "description": "How many people live in a city.",
+                    "name": "get_population",
+                    "parametersJsonSchema": {
+                      "properties": {
+                        "city": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "city"
+                      ],
+                      "type": "object"
+                    },
+                    "responseJsonSchema": {
+                      "type": "string"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "previousRequest": "8873a7252ffea1e925d60057202abbe9f740fcca578f5a6cb04e2fc3b5bcdf82",
+        "serverAddress": "aiplatform.googleapis.com",
+        "port": 443,
+        "protocol": "https"
+      },
+      "shaSum": "4f9db25e194b6a4ffd1ea6ef31a2975d1655dce5e90513b28b43f65c78d9a2a7",
+      "response": {
+        "statusCode": 200,
+        "headers": {
+          "Content-Encoding": "gzip",
+          "Content-Length": "719",
+          "Content-Type": "application/json; charset=UTF-8",
+          "Date": "Thu, 27 Aug 2026 18:27:04 GMT",
+          "Server": "scaffolding on HTTPServer2",
+          "Vary": "Origin, X-Origin, Referer",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "SAMEORIGIN",
+          "X-Xss-Protection": "0"
+        },
+        "bodySegments": [
+          {
+            "candidates": [
+              {
+                "content": {
+                  "parts": [
+                    {
+                      "text": "The current time is **07:30 UTC**, and the population of Zurich is approximately **400,000 people**.",
+                      "thoughtSignature": "AY89a19AAdfJDT4Mgde2YU9hWKvhJwJAc7/nNCBa3cGsS63nX7tq50w2m1P/CrtpnfuMyq4lIgIseZB7TuCt535mHvJedVJadkJuks2Sf+xaj3llcQF5Bru9taU+wDX+NjwWZu/uZOv4w/8qIlGpMZO1CePjTxq7RnKwVwhZ21TF9oXmBWVWpKpFi8rllqRHHrc1cUb0q9aMyddGupTcSp7HhfgllxtRXQRa5leyqe8qDcZKrWdZOXn7G4CLXXmY639fQ9m50i1d7edIczuLP1pazx3EEztS/ScEepjt0lhvCfEGFwoJU6k3RJjmeg4iDVCU4vgUtPsIADxDcd4="
+                    }
+                  ],
+                  "role": "model"
+                },
+                "finishReason": "STOP"
+              }
+            ],
+            "createTime": "2026-08-27T18:27:03.433035Z",
+            "modelVersion": "gemini-3.6-flash",
+            "responseId": "d4GQaou3GvL26tkPk-HTuQU",
+            "usageMetadata": {
+              "candidatesTokenCount": 29,
+              "candidatesTokensDetails": [
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 29
+                }
+              ],
+              "promptTokenCount": 229,
+              "promptTokensDetails": [
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 229
+                }
+              ],
+              "thoughtsTokenCount": 57,
+              "totalTokenCount": 315,
+              "trafficType": "ON_DEMAND"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,188 @@
+{
+  "recordID": "ChatsTest.testAutomaticFunctionCallingStreamStopsAtMaximumRemoteCalls.mldev",
+  "interactions": [
+    {
+      "request": {
+        "method": "POST",
+        "url": "/v1beta/models/gemini-3.6-flash:streamGenerateContent?alt=sse",
+        "request": "POST /v1beta/models/gemini-3.6-flash:streamGenerateContent?alt=sse HTTP/1.1",
+        "headers": {
+          "Accept": "*/*",
+          "Accept-Charset": "UTF-8",
+          "Accept-Encoding": "gzip",
+          "Connection": "Keep-Alive",
+          "Content-Length": "774",
+          "Content-Type": "application/json",
+          "Test-Name": "ChatsTest.testAutomaticFunctionCallingStreamStopsAtMaximumRemoteCalls.mldev"
+        },
+        "bodySegments": [
+          {
+            "contents": [
+              {
+                "parts": [
+                  {
+                    "text": "What is the weather in Zurich, Switzerland?"
+                  }
+                ],
+                "role": "user"
+              }
+            ],
+            "generationConfig": {},
+            "tools": [
+              {
+                "functionDeclarations": [
+                  {
+                    "description": "Looks up the weather for a place.",
+                    "name": "get_weather",
+                    "parametersJsonSchema": {
+                      "$defs": {
+                        "Location": {
+                          "properties": {
+                            "city": {
+                              "type": "string"
+                            },
+                            "country": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "city",
+                            "country"
+                          ],
+                          "type": "object"
+                        }
+                      },
+                      "properties": {
+                        "dayOffset": {
+                          "anyOf": [
+                            {
+                              "type": "integer"
+                            },
+                            {
+                              "type": "null"
+                            }
+                          ],
+                          "description": "Days ahead of today, or null for today."
+                        },
+                        "location": {
+                          "$ref": "#/$defs/Location",
+                          "description": "The place to look up."
+                        },
+                        "unit": {
+                          "description": "Unit to report the temperature in, celsius or fahrenheit.",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "location"
+                      ],
+                      "type": "object"
+                    },
+                    "responseJsonSchema": {
+                      "type": "string"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "previousRequest": "b4d6e60a9b97e7b98c63df9308728c5c88c0b40c398046772c63447b94608b4d",
+        "serverAddress": "generativelanguage.googleapis.com",
+        "port": 443,
+        "protocol": "https"
+      },
+      "shaSum": "2c9ba0fa7d0f2409842d638cc769c1baddd126929e137424630452577c3f99be",
+      "response": {
+        "statusCode": 200,
+        "headers": {
+          "Content-Disposition": "attachment",
+          "Content-Type": "text/event-stream",
+          "Date": "Thu, 27 Aug 2026 20:55:37 GMT",
+          "Server": "scaffolding on HTTPServer2",
+          "Server-Timing": "gfet4t7; dur=1964",
+          "Vary": "Origin, X-Origin, Referer",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "SAMEORIGIN",
+          "X-Xss-Protection": "0"
+        },
+        "bodySegments": [
+          {
+            "candidates": [
+              {
+                "content": {
+                  "parts": [
+                    {
+                      "functionCall": {
+                        "args": {
+                          "location": {
+                            "city": "Zurich",
+                            "country": "Switzerland"
+                          }
+                        },
+                        "id": "call_408661",
+                        "name": "get_weather"
+                      },
+                      "thoughtSignature": "EpYGCpMGARFNMg+dWxWpSetPRGOleEWqDAqf5x3XMxBfIWC7nwQevh8Xk9eU8rOlqyyxbzQzZiFldr5V7FxQSvebyL4W330TZkM+CdX1ZoeBg1JayTHM01AKzqO/bl+rEZTERHfDKfWOBdzNYC02Lz0DbSZ6FnJa9irBfnfPanssbqiefymFeuam77vVD7tJ6MtiDG/6D/SGBDNl/BiiL5JLxMY47Bn4zAH5lEMnVPNfUF6UEmevpGBY8TDkeBgJdGKiQ2H1ZNiTH/8qpeAQWBaAjpVPKAG3kEYH3wwcw8efo22RIYFY5BH3RuX+5/SysjWVxDXc5DvCf3WJEDqyzq769KYZW9PjyduoKxPXAStMdLCQnKoC1aOYSSkQPTSWda67lQguVsaIWvooYeBdw1QKGG+S3fiyTnGdT7boE2g9B9Qtcru+fk730+J8p5yJXdUOsyCkS+ojCuMn8n9C9sCBugPGZUinKEDCvzqCmbaokjW0a29XX/QrTVbJF1bzodSkvHAjPg945JliJDUVEAiWh4i4C4cB8KNN4zDSS2ySjdV9PyJBvVIpuw9Gyce6PR9xDg8bZvHR+3zMf5lEfQrA72TzVtyadhqPkTImkWRSRWQvtrbYtycyVGnLL5YJVidnIvulns56ZHEt9V6toDGgCVxzqzjJSsbWetzHuye0pf8d3ZFuNG/hORyo8nwPkzrZgeFhMV4asyKoMFa4c1SQ3KiuvzQeSPMJC0LtEDc26DWLOQBMRHNneaBh2opFCSm/5xR7nItycX4PlsYanXogWSR/DERSwt0tWKj80rgjsvQzTgdF+VnPEuR46TkBH5ahDdF6GFln9nOO4Mjb+fjQ5yJxVIug6Yigka6dD7xeOV1cqaE0x2rPWJN2Qf97YsIdFG7nZpsRE5wtNmpWLT1XbyxuoxhTmMJUmt76zGkzBPV9bxFYb8I99ax4RFK1gz1ajHYPoIVezNIQcN+0nX3FnOXX8CCLJvIMFK4Mm88ILrpyZIg7wR9bthBRICrOTN5eqzuhWvoq9xTcJGTOiJnqttil9XkTWA=="
+                    }
+                  ],
+                  "role": "model"
+                },
+                "index": 0
+              }
+            ],
+            "modelVersion": "gemini-3.6-flash",
+            "responseId": "R6SQaoGEEpOuqtsP7dCJyQk",
+            "turnToken": "v1_ChdSNlNRYW9HRUVwT3VxdHNQN2RDSnlRaxIXUjZTUWFvR0VFcE91cXRzUDdkQ0p5UWs",
+            "usageMetadata": {
+              "candidatesTokenCount": 25,
+              "promptTokenCount": 150,
+              "promptTokensDetails": [
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 150
+                }
+              ],
+              "serviceTier": "standard",
+              "thoughtsTokenCount": 145,
+              "totalTokenCount": 320
+            }
+          },
+          {
+            "candidates": [
+              {
+                "content": {
+                  "parts": [
+                    {
+                      "text": ""
+                    }
+                  ],
+                  "role": "model"
+                },
+                "finishReason": "STOP",
+                "index": 0
+              }
+            ],
+            "modelVersion": "gemini-3.6-flash",
+            "responseId": "R6SQaoGEEpOuqtsP7dCJyQk",
+            "turnToken": "v1_ChdSNlNRYW9HRUVwT3VxdHNQN2RDSnlRaxIXUjZTUWFvR0VFcE91cXRzUDdkQ0p5UWs",
+            "usageMetadata": {
+              "candidatesTokenCount": 25,
+              "promptTokenCount": 150,
+              "promptTokensDetails": [
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 150
+                }
+              ],
+              "rawPromptTokenCount": 190,
+              "serviceTier": "standard",
+              "thoughtsTokenCount": 145,
+              "totalTokenCount": 320
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

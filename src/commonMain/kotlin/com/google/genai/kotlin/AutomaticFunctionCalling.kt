@@ -18,8 +18,16 @@
 
 package com.google.genai.kotlin
 
+import com.google.genai.kotlin.types.FunctionCall
 import com.google.genai.kotlin.types.FunctionDeclaration
+import com.google.genai.kotlin.types.FunctionResponse
 import com.google.genai.kotlin.types.GenerateContentConfig
+import com.google.genai.kotlin.types.Part
+import com.google.genai.kotlin.types.Tool
+import kotlinx.coroutines.CancellationException
+import kotlinx.coroutines.async
+import kotlinx.coroutines.awaitAll
+import kotlinx.coroutines.coroutineScope
 import kotlinx.serialization.KSerializer
 import kotlinx.serialization.SerialInfo
 import kotlinx.serialization.descriptors.PrimitiveKind
@@ -232,7 +240,10 @@ inline fun <reified A, reified R> callableFunction(
  * ```
  *
  * @param functions a list of [CallableFunction]s the model may ask for. Names must be unique.
- * @param maximumRemoteCalls how many times a single turn may go back to the model before giving up.
+ * @param maximumRemoteCalls how many requests one turn may send before giving up. Your first
+ *   message counts, so it takes at least two requests for AFC: your initial message, and the
+ *   FunctionResponse message we send for you after executing your handler. When the limit is
+ *   reached, handlers are no longer called and you get the model's FunctionCall back.
  * @param runFunctionsInParallel whether several functions asked for in one response may run at the
  *   same time. Off by default; turn it on only if your handlers are safe to overlap, which the SDK
  *   cannot check for you.
@@ -588,4 +599,55 @@ internal fun requireNoRawFunctionDeclarations(
       "${declared.mapNotNull { it.name }}. Either wrap them with callableFunction(), or drop " +
       "automaticFunctionCalling and handle every call yourself."
   }
+}
+
+/** Returns [config] with [afc]'s functions declared, so the model knows it can ask for them. */
+internal fun configWithFunctions(
+  afc: AutomaticFunctionCalling,
+  config: GenerateContentConfig?,
+): GenerateContentConfig {
+  val base = config ?: GenerateContentConfig()
+  val declared = Tool(functionDeclarations = afc.functions.map { it.declaration })
+  return base.copy(tools = base.tools.orEmpty() + declared)
+}
+
+/** Runs every function the model asked for, returning the responses in the order it asked. */
+// Both captures are immutable: AutomaticFunctionCalling exposes only vals over a frozen list and
+// map, and FunctionCall is a serialization data class. What is genuinely not checkable is the
+// handlers, which is the contract runFunctionsInParallel makes the caller accept.
+@Suppress("UnsafeCoroutineCrossing")
+internal suspend fun runFunctionCalls(
+  afc: AutomaticFunctionCalling,
+  calls: List<FunctionCall>,
+): List<Part> =
+  if (afc.runFunctionsInParallel) {
+    // awaitAll keeps the results in call order however the handlers interleave, and cancelling the
+    // turn cancels all of them.
+    coroutineScope { calls.map { async { runFunctionCall(afc, it) } }.awaitAll() }
+  } else {
+    calls.map { runFunctionCall(afc, it) }
+  }
+
+/** Runs one call, turning a failure into an error the model can read rather than an exception. */
+private suspend fun runFunctionCall(afc: AutomaticFunctionCalling, call: FunctionCall): Part {
+  val name = call.name.orEmpty()
+  val response =
+    try {
+      val function = afc.byName[name]
+      if (function == null) {
+        mapOf("error" to JsonPrimitive("Unknown function: $name"))
+      } else {
+        mapOf("result" to function.handler(JsonObject(call.args.orEmpty())))
+      }
+    } catch (cancelled: CancellationException) {
+      // Not redundant with the rethrow: CancellationException is an Exception, so without this
+      // clause the broader one below would swallow it, report a cancelled turn to the model as a
+      // failed function, and carry on looping inside a scope that is already dead.
+      throw cancelled
+    } catch (failure: Exception) {
+      mapOf("error" to JsonPrimitive(failure.message ?: failure.toString()))
+    }
+  // Carrying the id back is what pairs this response with its call when several were asked for at
+  // once, where the name alone is ambiguous.
+  return Part(functionResponse = FunctionResponse(id = call.id, name = name, response = response))
 }

@@ -23,12 +23,16 @@ import kotlin.test.Test
 import kotlin.test.assertContains
 import kotlin.test.assertEquals
 import kotlin.test.assertFailsWith
+import kotlin.test.assertFalse
+import kotlin.test.assertNotNull
+import kotlin.test.assertNull
 import kotlin.test.assertTrue
 import kotlin.time.Duration.Companion.seconds
 import kotlinx.coroutines.flow.take
 import kotlinx.coroutines.flow.toList
 import kotlinx.coroutines.test.TestScope
 import kotlinx.coroutines.test.runTest
+import kotlinx.serialization.Serializable
 
 private const val MODEL_NAME = "gemini-3.6-flash"
 
@@ -268,9 +272,331 @@ class ChatsTest : BaseTestServer() {
       assertContains(chunks.joinToString("") { it.text ?: "" }, "Paris")
     }
   }
+
+  @Test
+  fun testAutomaticFunctionCalling() = runTest {
+    listOf(false, true).forEach { enterprise ->
+      val suffix = if (enterprise) "vertex" else "mldev"
+      val client = createClient(enterprise, "ChatsTest.testAutomaticFunctionCalling.$suffix")
+
+      val chat =
+        client.chats.create(
+          model = MODEL_NAME,
+          automaticFunctionCalling = AutomaticFunctionCalling(weatherFunction()),
+        )
+      val response = chat.sendMessage("What is the weather in Zurich, Switzerland?")
+
+      // The model answered rather than handing back a call, so the loop ran to completion.
+      assertTrue(response.functionCalls.isNullOrEmpty())
+      assertContains(response.text ?: "", "17")
+
+      // One turn, four contents, in the order the exchange happened.
+      val history = chat.getHistory()
+      assertEquals(listOf("user", "model", "user", "model"), history.map { it.role })
+      val call = history[1].parts!!.first().functionCall!!
+      assertEquals("get_weather", call.name)
+      // The model filled in the nested object, which is the part of the schema reached by $ref.
+      assertContains(call.args!!.keys, "location")
+      val sent = history[2].parts!!.first().functionResponse!!
+      assertEquals("get_weather", sent.name)
+      assertContains(sent.response!!.keys, "result")
+      // The model issues an id, and it has to come back on the response that answers that call.
+      assertNotNull(call.id)
+      assertEquals(call.id, sent.id)
+      // A completed turn is worth sending again, so curated and comprehensive agree.
+      assertEquals(history, chat.getHistory(curated = true))
+    }
+  }
+
+  @Test
+  fun testAutomaticFunctionCallingStream() = runTest {
+    listOf(false, true).forEach { enterprise ->
+      val suffix = if (enterprise) "vertex" else "mldev"
+      val client = createClient(enterprise, "ChatsTest.testAutomaticFunctionCallingStream.$suffix")
+
+      val chat =
+        client.chats.create(
+          model = MODEL_NAME,
+          automaticFunctionCalling = AutomaticFunctionCalling(weatherFunction()),
+        )
+      val chunks = chat.sendMessageStream("What is the weather in Zurich, Switzerland?").toList()
+
+      // Everything the model sends is emitted, the function call included.
+      assertTrue(chunks.any { !it.functionCalls.isNullOrEmpty() }, "no functionCall was emitted")
+      // What this side sends back is not the model speaking, so it never reaches the collector.
+      assertTrue(
+        chunks.none { chunk ->
+          chunk.candidates.orEmpty().any { candidate ->
+            candidate.content?.parts.orEmpty().any { it.functionResponse != null }
+          }
+        },
+        "a functionResponse leaked into the stream",
+      )
+      assertContains(chunks.mapNotNull { it.text }.joinToString(""), "17")
+
+      val history = chat.getHistory()
+      assertTrue(history.any { c -> c.parts.orEmpty().any { it.functionCall != null } })
+      assertTrue(history.any { c -> c.parts.orEmpty().any { it.functionResponse != null } })
+      assertEquals(history, chat.getHistory(curated = true))
+    }
+  }
+
+  @Test
+  fun testAutomaticFunctionCallingStopsAtMaximumRemoteCalls() = runTest {
+    listOf(false, true).forEach { enterprise ->
+      val suffix = if (enterprise) "vertex" else "mldev"
+      val client =
+        createClient(
+          enterprise,
+          "ChatsTest.testAutomaticFunctionCallingStopsAtMaximumRemoteCalls.$suffix",
+        )
+
+      val chat =
+        client.chats.create(
+          model = MODEL_NAME,
+          automaticFunctionCalling =
+            AutomaticFunctionCalling(listOf(weatherFunction()), maximumRemoteCalls = 1),
+        )
+      val response = chat.sendMessage("What is the weather in Zurich, Switzerland?")
+
+      // The single request the budget allows is spent being asked for the weather, leaving nothing
+      // to deliver a result with. The function is not run, and the turn ends on the model's call
+      // so the caller can answer it themselves.
+      assertNull(response.text)
+      assertFalse(response.functionCalls.isNullOrEmpty())
+      assertEquals(listOf("user", "model"), chat.getHistory().map { it.role })
+    }
+  }
+
+  @Test
+  fun testFailingFunctionIsReportedToTheModel() = runTest {
+    listOf(false, true).forEach { enterprise ->
+      val suffix = if (enterprise) "vertex" else "mldev"
+      val client =
+        createClient(enterprise, "ChatsTest.testFailingFunctionIsReportedToTheModel.$suffix")
+
+      val chat =
+        client.chats.create(
+          model = MODEL_NAME,
+          automaticFunctionCalling = AutomaticFunctionCalling(failingWeatherFunction()),
+        )
+      val response = chat.sendMessage("What is the weather in Zurich, Switzerland?")
+
+      // The failure reached the model, which answered; it never reached the caller.
+      assertNotNull(response.text)
+      val sent = chat.getHistory()[2].parts!!.first().functionResponse!!
+      assertContains(sent.response!!["error"].toString(), "the weather service is unavailable")
+    }
+  }
+
+  @Test
+  fun testAutomaticFunctionCallingWithNoParameterAndNamedParameterFunctions() = runTest {
+    listOf(false, true).forEach { enterprise ->
+      val suffix = if (enterprise) "vertex" else "mldev"
+      val client =
+        createClient(
+          enterprise,
+          "ChatsTest.testAutomaticFunctionCallingWithNoParameterAndNamedParameterFunctions.$suffix",
+        )
+
+      val chat =
+        client.chats.create(
+          model = MODEL_NAME,
+          automaticFunctionCalling = AutomaticFunctionCalling(timeFunction(), populationFunction()),
+        )
+      val response =
+        chat.sendMessage("What time is it, and how many people live in Zurich? Use your tools.")
+
+      assertNotNull(response.text)
+      // Both shapes were accepted and dispatched: an empty properties object, and a named
+      // parameter whose schema sits directly under that name.
+      val answered =
+        chat
+          .getHistory()
+          .flatMap { it.parts.orEmpty() }
+          .mapNotNull { it.functionResponse?.name }
+          .toSet()
+      assertEquals(setOf("current_time", "get_population"), answered)
+    }
+  }
+
+  @Test
+  fun testAutomaticFunctionCallingStreamStopsAtMaximumRemoteCalls() = runTest {
+    listOf(false, true).forEach { enterprise ->
+      val suffix = if (enterprise) "vertex" else "mldev"
+      val client =
+        createClient(
+          enterprise,
+          "ChatsTest.testAutomaticFunctionCallingStreamStopsAtMaximumRemoteCalls.$suffix",
+        )
+
+      val chat =
+        client.chats.create(
+          model = MODEL_NAME,
+          automaticFunctionCalling =
+            AutomaticFunctionCalling(listOf(weatherFunction()), maximumRemoteCalls = 1),
+        )
+      val chunks = chat.sendMessageStream("What is the weather in Zurich, Switzerland?").toList()
+
+      // The budget cuts the turn off the same way over a stream: the call is emitted and the turn
+      // ends on it, with nothing run and nothing sent back.
+      assertTrue(chunks.any { !it.functionCalls.isNullOrEmpty() })
+      assertEquals("model", chat.getHistory().last().role)
+      assertTrue(
+        chat.getHistory().flatMap { it.parts.orEmpty() }.none { it.functionResponse != null },
+        "a function response reached the history",
+      )
+    }
+  }
+
+  @Test
+  fun testFailingFunctionInStreamIsReportedToTheModel() = runTest {
+    listOf(false, true).forEach { enterprise ->
+      val suffix = if (enterprise) "vertex" else "mldev"
+      val client =
+        createClient(
+          enterprise,
+          "ChatsTest.testFailingFunctionInStreamIsReportedToTheModel.$suffix",
+        )
+
+      val chat =
+        client.chats.create(
+          model = MODEL_NAME,
+          automaticFunctionCalling = AutomaticFunctionCalling(failingWeatherFunction()),
+        )
+      val chunks = chat.sendMessageStream("What is the weather in Zurich, Switzerland?").toList()
+
+      // The failure went to the model, which carried on and answered over the stream.
+      assertTrue(chunks.mapNotNull { it.text }.joinToString("").isNotEmpty())
+      val sent =
+        chat.getHistory().flatMap { it.parts.orEmpty() }.first { it.functionResponse != null }
+      assertContains(sent.functionResponse!!.response!!["error"].toString(), "unavailable")
+    }
+  }
+
+  @Test
+  fun testAutomaticFunctionCallingWithAListOfNestedClasses() = runTest {
+    listOf(false, true).forEach { enterprise ->
+      val suffix = if (enterprise) "vertex" else "mldev"
+      val client =
+        createClient(
+          enterprise,
+          "ChatsTest.testAutomaticFunctionCallingWithAListOfNestedClasses.$suffix",
+        )
+
+      val chat =
+        client.chats.create(
+          model = MODEL_NAME,
+          automaticFunctionCalling = AutomaticFunctionCalling(registerFamily()),
+        )
+      val response =
+        chat.sendMessage(
+          "Register a family: the adult is Ada, born 1815-12-10, and the children are " +
+            "Byron, born 1836-05-12, and Anne, born 1837-09-22."
+        )
+
+      assertNotNull(response.text)
+      val call = chat.getHistory()[1].parts!!.first().functionCall!!
+      assertEquals("register_booking", call.name)
+      // The class is the argument list, so its fields are the arguments: one referenced object
+      // and one array of referenced objects, both filled in by the model.
+      assertContains(call.args!!.keys, "adult")
+      assertContains(call.args!!.keys, "children")
+      assertContains(
+        chat.getHistory()[2].parts!!.first().functionResponse!!.response!!["result"].toString(),
+        "2 children",
+      )
+    }
+  }
+
+  @Test
+  fun testAutomaticFunctionCallingRunsSeveralFunctionsInParallel() = runTest {
+    listOf(false, true).forEach { enterprise ->
+      val suffix = if (enterprise) "vertex" else "mldev"
+      val client =
+        createClient(
+          enterprise,
+          "ChatsTest.testAutomaticFunctionCallingRunsSeveralFunctionsInParallel.$suffix",
+        )
+
+      val chat =
+        client.chats.create(
+          model = MODEL_NAME,
+          automaticFunctionCalling =
+            AutomaticFunctionCalling(
+              listOf(timeFunction(), populationFunction()),
+              runFunctionsInParallel = true,
+            ),
+        )
+      val response =
+        chat.sendMessage("What time is it, and how many people live in Zurich? Use your tools.")
+
+      assertNotNull(response.text)
+      // The model asked for both in one response, and both were answered. Their order matching the
+      // calls is asserted under controlled timing in ChatsUnitTest; here both handlers are instant,
+      // so this checks the end-to-end path rather than the ordering.
+      val calls = chat.getHistory()[1].parts!!.mapNotNull { it.functionCall?.name }
+      assertEquals(2, calls.size)
+      val answers = chat.getHistory()[2].parts!!.mapNotNull { it.functionResponse?.name }
+      assertEquals(calls, answers)
+    }
+  }
 }
 
 private fun alwaysAnswer(colour: String) =
   Content(
     parts = listOf(Part(text = "Whatever you are asked, answer with exactly one word: $colour."))
   )
+
+@Serializable private data class Location(val city: String, val country: String)
+
+// Shaped to exercise the parts of the schema that are ours rather than the model's: a nested class
+// becomes $defs plus $ref, a nullable field becomes anyOf, and a defaulted field drops out of
+// required. These recordings are what prove the backend accepts those encodings.
+@Serializable
+private data class WeatherRequest(
+  @Describe("The place to look up.") val location: Location,
+  @Describe("Unit to report the temperature in, celsius or fahrenheit.")
+  val unit: String = "celsius",
+  @Describe("Days ahead of today, or null for today.") val dayOffset: Int? = null,
+)
+
+private fun serverTime(): String = "07:30 UTC"
+
+private fun population(city: String): String = "$city has about 400,000 people"
+
+// A function with no parameters at all, whose schema is an empty properties object, and one whose
+// parameter is named rather than carried by a class. Neither shape reaches the wire through the
+// argument-class tests.
+private fun timeFunction(): CallableFunction =
+  callableFunction("current_time", "The current server time.", handler = ::serverTime)
+
+private fun populationFunction(): CallableFunction =
+  callableFunction(
+    "get_population",
+    "How many people live in a city.",
+    paramName = "city",
+    handler = ::population,
+  )
+
+private fun failingWeatherFunction(): CallableFunction =
+  callableFunction<WeatherRequest, String>("get_weather", "Looks up the weather.") {
+    throw IllegalStateException("the weather service is unavailable")
+  }
+
+@Serializable private data class Guest(val name: String, @Describe("YYYY-MM-DD.") val born: String)
+
+// A test for a parameter class held directly and again inside a list, so Person is
+// referenced from two places and defined once. This recording is what shows the service accepts a
+// $ref sitting under an array's items.
+@Serializable private data class Booking(val adult: Guest, val children: List<Guest>)
+
+private fun registerFamily(): CallableFunction =
+  callableFunction("register_booking", "Records a booking for a family.") { booking: Booking ->
+    "Registered ${booking.adult.name} with ${booking.children.size} children"
+  }
+
+private fun weatherFunction(): CallableFunction =
+  callableFunction("get_weather", "Looks up the weather for a place.") { request: WeatherRequest ->
+    "17 degrees ${request.unit} and raining in ${request.location.city}"
+  }

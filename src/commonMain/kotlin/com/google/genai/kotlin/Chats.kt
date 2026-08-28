@@ -17,6 +17,7 @@
 package com.google.genai.kotlin
 
 import com.google.genai.kotlin.types.Content
+import com.google.genai.kotlin.types.FunctionCall
 import com.google.genai.kotlin.types.GenerateContentConfig
 import com.google.genai.kotlin.types.GenerateContentResponse
 import com.google.genai.kotlin.types.Part
@@ -30,19 +31,32 @@ class Chats internal constructor(private val models: Models) {
   /**
    * Creates a chat session.
    *
+   * When automatic function calling is on, one call to this may make several requests: each
+   * function the model asks for is run locally and a FunctionResponse is built and sent back to the
+   * model, until the model answers or `maximumRemoteCalls` is reached. The whole exchange is
+   * recorded as one turn, and the response returned is the last one the model sent. If the limit is
+   * reached the model has not answered yet, a FunctionCall response is returned.
+   *
    * @param model The model to talk to, for example "gemini-3.6-flash".
    * @param config Applied to every turn in the session. A config passed to an individual send
    *   replaces this one for that turn rather than merging with it.
    * @param history Turns to seed the session with. The turns are copied, so later changes to the
    *   list do not affect the session.
+   * @param automaticFunctionCalling Configuration for automatic function calling. Passing this is
+   *   what turns automatic function calling on for the session.
    * @throws IllegalArgumentException if a turn in [history] has a role other than "user" or
-   *   "model".
+   *   "model", or if [config] declares functions by hand while [automaticFunctionCalling] is also
+   *   passed in.
    */
   fun create(
     model: String,
     config: GenerateContentConfig? = null,
     history: List<Content> = emptyList(),
-  ): Chat = Chat(models, model, config, history)
+    automaticFunctionCalling: AutomaticFunctionCalling? = null,
+  ): Chat {
+    requireNoRawFunctionDeclarations(config, automaticFunctionCalling)
+    return Chat(models, model, config, history, automaticFunctionCalling)
+  }
 }
 
 /**
@@ -62,6 +76,7 @@ internal constructor(
   private val model: String,
   private val config: GenerateContentConfig?,
   history: List<Content>,
+  private val automaticFunctionCalling: AutomaticFunctionCalling? = null,
 ) {
 
   // Both lists are replaced wholesale rather than mutated in place: getHistory does not suspend,
@@ -95,12 +110,19 @@ internal constructor(
    *
    * @param text The text of the message to send.
    * @param config Replaces the session config for this turn rather than merging with it.
+   * @param automaticFunctionCalling Replaces the session setting for this turn. Null uses the
+   *   session's.
    */
   suspend fun sendMessage(
     text: String,
     config: GenerateContentConfig? = null,
+    automaticFunctionCalling: AutomaticFunctionCalling? = null,
   ): GenerateContentResponse =
-    sendMessage(listOf(Content(role = ROLE_USER, parts = listOf(Part(text = text)))), config)
+    sendMessage(
+      listOf(Content(role = ROLE_USER, parts = listOf(Part(text = text)))),
+      config,
+      automaticFunctionCalling,
+    )
 
   /**
    * Sends [content] as the next turn and returns the model's response.
@@ -110,11 +132,14 @@ internal constructor(
    *
    * @param content The message to send.
    * @param config Replaces the session config for this turn rather than merging with it.
+   * @param automaticFunctionCalling Replaces the session setting for this turn. Null uses the
+   *   session's.
    */
   suspend fun sendMessage(
     content: Content,
     config: GenerateContentConfig? = null,
-  ): GenerateContentResponse = sendMessage(listOf(content), config)
+    automaticFunctionCalling: AutomaticFunctionCalling? = null,
+  ): GenerateContentResponse = sendMessage(listOf(content), config, automaticFunctionCalling)
 
   /**
    * Sends [contents] as the next turn and returns the model's response.
@@ -122,20 +147,52 @@ internal constructor(
    * The turns so far are sent along with [contents], so the model has the conversation for context.
    * The message and the response are added to the history once the response arrives.
    *
+   * When automatic function calling is on, one call to this may make several requests: each
+   * function the model asks for is run locally and a FunctionResponse is built and sent back to the
+   * model, until the model answers or `maximumRemoteCalls` is reached. The whole exchange is
+   * recorded as one turn, and the response returned is the last one the model sent. If the limit is
+   * reached the model has not answered yet, a FunctionCall response is returned.
+   *
    * @param contents The message to send. Several contents are recorded as one turn.
    * @param config Replaces the session config for this turn rather than merging with it.
+   * @param automaticFunctionCalling Replaces the session setting for this turn rather than merging
+   *   with it.
    */
   suspend fun sendMessage(
     contents: List<Content>,
     config: GenerateContentConfig? = null,
+    automaticFunctionCalling: AutomaticFunctionCalling? = null,
   ): GenerateContentResponse {
+    val turnConfig = config ?: this.config
+    val afc = automaticFunctionCalling ?: this.automaticFunctionCalling
+    requireNoRawFunctionDeclarations(turnConfig, afc)
+
     val userInput = withUserRole(contents)
-    val response = models.generateContent(model, curatedHistory + userInput, config ?: this.config)
-    recordHistory(
-      userInput = userInput,
-      modelOutput = listOfNotNull(response.candidates?.firstOrNull()?.content),
-      isValid = isValidResponse(response),
-    )
+    if (afc == null) {
+      val response = models.generateContent(model, curatedHistory + userInput, turnConfig)
+      recordTurn(userInput + modelOutputOf(response), isValidResponse(response))
+      return response
+    }
+
+    val requestConfig = configWithFunctions(afc, turnConfig)
+    val turn = userInput.toMutableList()
+    var remainingCalls = afc.maximumRemoteCalls
+    var response: GenerateContentResponse
+    while (true) {
+      response = models.generateContent(model, curatedHistory + turn, requestConfig)
+      remainingCalls--
+      val calls = response.functionCalls.orEmpty()
+      if (!isValidResponse(response) || calls.isEmpty()) {
+        break
+      }
+      if (remainingCalls == 0) {
+        break
+      }
+      turn += response.candidates!!.first().content!!
+      turn += Content(role = ROLE_USER, parts = runFunctionCalls(afc, calls))
+    }
+
+    recordTurn(turn + modelOutputOf(response), isValid = isValidResponse(response))
     return response
   }
 
@@ -148,13 +205,20 @@ internal constructor(
    *
    * @param text The text of the message to send.
    * @param config Replaces the session config for this turn rather than merging with it.
+   * @param automaticFunctionCalling Replaces the session setting for this turn rather than merging
+   *   with it.
    * @throws IllegalStateException if the returned flow is collected again after a completed turn.
    */
   fun sendMessageStream(
     text: String,
     config: GenerateContentConfig? = null,
+    automaticFunctionCalling: AutomaticFunctionCalling? = null,
   ): Flow<GenerateContentResponse> =
-    sendMessageStream(listOf(Content(role = ROLE_USER, parts = listOf(Part(text = text)))), config)
+    sendMessageStream(
+      listOf(Content(role = ROLE_USER, parts = listOf(Part(text = text)))),
+      config,
+      automaticFunctionCalling,
+    )
 
   /**
    * Sends [content] as the next turn and returns the model's response in chunks.
@@ -165,12 +229,16 @@ internal constructor(
    *
    * @param content The message to send.
    * @param config Replaces the session config for this turn rather than merging with it.
+   * @param automaticFunctionCalling Replaces the session setting for this turn rather than merging
+   *   with it.
    * @throws IllegalStateException if the returned flow is collected again after a completed turn.
    */
   fun sendMessageStream(
     content: Content,
     config: GenerateContentConfig? = null,
-  ): Flow<GenerateContentResponse> = sendMessageStream(listOf(content), config)
+    automaticFunctionCalling: AutomaticFunctionCalling? = null,
+  ): Flow<GenerateContentResponse> =
+    sendMessageStream(listOf(content), config, automaticFunctionCalling)
 
   /**
    * Sends [contents] as the next turn and returns the model's response in chunks.
@@ -194,13 +262,20 @@ internal constructor(
    * you need to read the response more than once. A collection that failed or was abandoned did not
    * complete a turn, so it can be retried.
    *
+   * With automatic function calling on, every chunk the model sends is emitted, including the ones
+   * carrying function calls. The responses to those calls are recorded in the history but never
+   * emitted, since they come from this side rather than the model.
+   *
    * @param contents The message to send. Several contents are recorded as one turn.
    * @param config Replaces the session config for this turn rather than merging with it.
+   * @param automaticFunctionCalling Replaces the session setting for this turn. Null uses the
+   *   session's.
    * @throws IllegalStateException if the returned flow is collected again after a completed turn.
    */
   fun sendMessageStream(
     contents: List<Content>,
     config: GenerateContentConfig? = null,
+    automaticFunctionCalling: AutomaticFunctionCalling? = null,
   ): Flow<GenerateContentResponse> {
     // Scoped to this call, not to the session, so that each returned flow tracks its own turn.
     var sent = false
@@ -214,29 +289,46 @@ internal constructor(
           "response more than once, or call sendMessageStream again to send another message."
       }
 
-      val userInput = withUserRole(contents)
-      val outputContents = mutableListOf<Content>()
-      var isValid = true
-      var finished = false
+      val turnConfig = config ?: this@Chat.config
+      val afc = automaticFunctionCalling ?: this@Chat.automaticFunctionCalling
+      requireNoRawFunctionDeclarations(turnConfig, afc)
 
-      models
-        .generateContentStream(model, curatedHistory + userInput, config ?: this@Chat.config)
-        .collect { chunk ->
+      val requestConfig = if (afc == null) turnConfig else configWithFunctions(afc, turnConfig)
+      val turn = withUserRole(contents).toMutableList()
+      var remainingCalls = afc?.maximumRemoteCalls ?: 1
+      var isValid = true
+      var finished: Boolean
+
+      while (true) {
+        val modelOutput = mutableListOf<Content>()
+        val calls = mutableListOf<FunctionCall>()
+        finished = false
+
+        models.generateContentStream(model, curatedHistory + turn, requestConfig).collect { chunk ->
           if (!isValidResponse(chunk)) {
             isValid = false
           }
-          chunk.candidates?.firstOrNull()?.content?.let { outputContents.add(it) }
+          chunk.candidates?.firstOrNull()?.content?.let { modelOutput.add(it) }
+          chunk.functionCalls?.let { calls.addAll(it) }
           if (chunk.finishReason != null) {
             finished = true
           }
+          // Everything from the model side reaches the collector, function calls included.
           emit(chunk)
         }
 
-      recordHistory(
-        userInput = userInput,
-        modelOutput = outputContents,
-        isValid = isValid && finished,
-      )
+        remainingCalls--
+        if (afc == null || calls.isEmpty() || !isValid || remainingCalls == 0) {
+          turn += modelOutput.ifEmpty { listOf(Content(role = ROLE_MODEL, parts = emptyList())) }
+          break
+        }
+        turn += modelOutput
+        // Not emitted: a function response is this side answering the model, not the model
+        // speaking.
+        turn += Content(role = ROLE_USER, parts = runFunctionCalls(afc, calls))
+      }
+
+      recordTurn(turn, isValid = isValid && finished)
       sent = true
     }
   }
@@ -249,24 +341,23 @@ internal constructor(
     if (it.role == null) it.copy(role = ROLE_USER) else it
   }
 
-  // Appends one completed turn. The turn is committed as a unit: curatedHistory either gains every
-  // content of the turn or none of it, so a multi-content turn is never split apart. An invalid
-  // turn is still recorded in comprehensiveHistory.
-  private fun recordHistory(
-    userInput: List<Content>,
-    modelOutput: List<Content>,
-    isValid: Boolean,
-  ) {
-    // Stands in for a model that returned nothing, so the history keeps alternating.
-    val outputContents = modelOutput.ifEmpty {
-      listOf(Content(role = ROLE_MODEL, parts = emptyList()))
-    }
-
-    comprehensiveHistory = comprehensiveHistory + userInput + outputContents
+  // Appends one completed turn, in the order its contents were exchanged. The turn is committed as
+  // a unit: curatedHistory either gains every content of it or none, so a turn is never split
+  // apart. That matters most for automatic function calling, where one turn interleaves the
+  // model's calls with their responses. An invalid turn is still recorded in
+  // comprehensiveHistory.
+  private fun recordTurn(contents: List<Content>, isValid: Boolean) {
+    comprehensiveHistory = comprehensiveHistory + contents
     if (isValid) {
-      curatedHistory = curatedHistory + userInput + outputContents
+      curatedHistory = curatedHistory + contents
     }
   }
+
+  // Stands in for a model that returned nothing, so the history keeps alternating.
+  private fun modelOutputOf(response: GenerateContentResponse): List<Content> =
+    listOfNotNull(response.candidates?.firstOrNull()?.content).ifEmpty {
+      listOf(Content(role = ROLE_MODEL, parts = emptyList()))
+    }
 }
 
 internal const val ROLE_USER = "user"
@@ -294,8 +385,9 @@ internal fun isValidResponse(response: GenerateContentResponse): Boolean {
 
 // Derives the curated turns from every turn in the session, in their original order. User turns are
 // always kept. A run of consecutive model turns is kept only when every turn in it is valid; if any
-// is invalid the whole run is dropped, along with the user turn that prompted it, so the curated
-// history keeps alternating. Throws IllegalArgumentException on a role other than user or model.
+// is invalid the whole run is dropped, along with everything else belonging to that turn, so the
+// curated history keeps alternating. Throws IllegalArgumentException on a role other than user or
+// model.
 internal fun extractCuratedHistory(comprehensiveHistory: List<Content>): List<Content> {
   val curatedHistory = mutableListOf<Content>()
   var i = 0
@@ -334,15 +426,20 @@ internal fun extractCuratedHistory(comprehensiveHistory: List<Content>): List<Co
     if (isValid) {
       curatedHistory.addAll(modelOutput)
     } else {
-      // Drops the whole user turn that prompted the failed run, which sendMessage may have been
-      // given as several contents. Popping only the last would leave the rest behind, so a session
-      // resumed from this history would not match the one it came from. A failed automatic
-      // function calling turn is still not fully unwound, because its tool call is a model turn
-      // and ends the loop; see b/532221274.
-      while (curatedHistory.isNotEmpty() && curatedHistory.last().role == ROLE_USER) {
+      // Drops everything else the failed turn produced. sendMessage may have been given several
+      // contents, and an automatic function calling turn also holds the model's calls and their
+      // responses, so popping only the last would leave part of the turn behind and a session
+      // resumed from this history would not match the one it came from.
+      while (curatedHistory.isNotEmpty() && belongsToUnfinishedTurn(curatedHistory.last())) {
         curatedHistory.removeAt(curatedHistory.lastIndex)
       }
     }
   }
   return curatedHistory
 }
+
+// Whether a content is part of the turn currently being unwound rather than a finished one. A
+// model turn asking for a function belongs to the turn in progress; stopping at it would leave a
+// functionCall with no functionResponse behind it, which the backend rejects on the next request.
+private fun belongsToUnfinishedTurn(content: Content): Boolean =
+  content.role == ROLE_USER || content.parts.orEmpty().any { it.functionCall != null }

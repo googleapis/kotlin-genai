@@ -1,0 +1,426 @@
+{
+  "recordID": "ChatsTest.testFailingFunctionInStreamIsReportedToTheModel.vertex",
+  "interactions": [
+    {
+      "request": {
+        "method": "POST",
+        "url": "/v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-3.6-flash:streamGenerateContent?alt=sse",
+        "request": "POST /v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-3.6-flash:streamGenerateContent?alt=sse HTTP/1.1",
+        "headers": {
+          "Accept": "*/*",
+          "Accept-Charset": "UTF-8",
+          "Accept-Encoding": "gzip",
+          "Connection": "Keep-Alive",
+          "Content-Length": "762",
+          "Content-Type": "application/json",
+          "Test-Name": "ChatsTest.testFailingFunctionInStreamIsReportedToTheModel.vertex"
+        },
+        "bodySegments": [
+          {
+            "contents": [
+              {
+                "parts": [
+                  {
+                    "text": "What is the weather in Zurich, Switzerland?"
+                  }
+                ],
+                "role": "user"
+              }
+            ],
+            "generationConfig": {},
+            "tools": [
+              {
+                "functionDeclarations": [
+                  {
+                    "description": "Looks up the weather.",
+                    "name": "get_weather",
+                    "parametersJsonSchema": {
+                      "$defs": {
+                        "Location": {
+                          "properties": {
+                            "city": {
+                              "type": "string"
+                            },
+                            "country": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "city",
+                            "country"
+                          ],
+                          "type": "object"
+                        }
+                      },
+                      "properties": {
+                        "dayOffset": {
+                          "anyOf": [
+                            {
+                              "type": "integer"
+                            },
+                            {
+                              "type": "null"
+                            }
+                          ],
+                          "description": "Days ahead of today, or null for today."
+                        },
+                        "location": {
+                          "$ref": "#/$defs/Location",
+                          "description": "The place to look up."
+                        },
+                        "unit": {
+                          "description": "Unit to report the temperature in, celsius or fahrenheit.",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "location"
+                      ],
+                      "type": "object"
+                    },
+                    "responseJsonSchema": {
+                      "type": "string"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "previousRequest": "b4d6e60a9b97e7b98c63df9308728c5c88c0b40c398046772c63447b94608b4d",
+        "serverAddress": "aiplatform.googleapis.com",
+        "port": 443,
+        "protocol": "https"
+      },
+      "shaSum": "3ce328b3ece5cd5f79dcc28e4e356cdbc900f33780f3103584925be28cdacbe9",
+      "response": {
+        "statusCode": 200,
+        "headers": {
+          "Content-Disposition": "attachment",
+          "Content-Type": "text/event-stream",
+          "Date": "Thu, 27 Aug 2026 08:50:06 GMT",
+          "Server": "scaffolding on HTTPServer2",
+          "Vary": "Origin, X-Origin, Referer",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "SAMEORIGIN",
+          "X-Xss-Protection": "0"
+        },
+        "bodySegments": [
+          {
+            "candidates": [
+              {
+                "content": {
+                  "parts": [
+                    {
+                      "functionCall": {
+                        "args": {
+                          "location": {
+                            "city": "Zurich",
+                            "country": "Switzerland"
+                          }
+                        },
+                        "id": "call_483729",
+                        "name": "get_weather"
+                      },
+                      "thoughtSignature": "AY89a18c5ix/a8f1J3LZ2c0UigZwaA7ASNGsEs5tyvjIwEyPcT63rGy8WSg10sZeyXVXF23gJg3tyHZcLRRuuxoTbpFYG0gfYaI7sflSnQ6Nn/7K8IVHf3VPH+A8zZGVZyORzn7+Okg189W9eXtXhrAYtq1vvpBAq7fDg1bYQQ45lTF4HlUQwS4Nh1DdXoifpSVTMJURHS9QI5phLwuiLOOOy8qh89kK1DUB7oupuZuAWgZGXHOIL8AAOywuZoiiQpsd2ftA1XHGsQjmQIp5FUsuu3dyV/T02ZzTH0Mj6oL5KVy5IhptRFG/3e3XoYgCE/hoxsuFr3RR6Dho/4cvr3juk+o8ie2bMVH483oegNWim2eLZdnzRf3ExPyVr/sZI0J1XylTrwBkqnKJs50xlqzKCggj7jKwOP9NYWMMO3fFPqzzs10LehoJPpoJw9+4KX7xUo0nSif1m5UsZrih+vqmiDN7jN+WShTO4NtBT2Eby0UR53uYfkAUGoFpwbt1ZkRy/2uhUtCukrQ+YWnLRR9J0UvOIiA4obOvCBLcvhekQuod7kLPnnKtKvn3bySbQjKg85e3E92jfPKjhRdZAjSEm1PlAEQC7ofjR44eeqgvmWOxw1tZSu+bE3PbP7jSmp8bUX6igPxXtLi978pN1bwH0vP7FmE0d8vM0yDJS3yj3R06QqNGsZQGRekXyKsoxaljpHGwDIoxPr+Tk8VCF4dsBKWyBgeVMabaoDalXY46239qjbBncL3Dn0z1JPyPtDYDaOZ54LA="
+                    }
+                  ],
+                  "role": "model"
+                }
+              }
+            ],
+            "createTime": "2026-08-27T08:50:04.684357Z",
+            "modelVersion": "gemini-3.6-flash",
+            "responseId": "PPqPasXiKeKgpucP8N6AmQQ",
+            "usageMetadata": {
+              "trafficType": "ON_DEMAND"
+            }
+          },
+          {
+            "candidates": [
+              {
+                "content": {
+                  "parts": [
+                    {
+                      "text": ""
+                    }
+                  ],
+                  "role": "model"
+                },
+                "finishReason": "STOP"
+              }
+            ],
+            "createTime": "2026-08-27T08:50:04.684357Z",
+            "modelVersion": "gemini-3.6-flash",
+            "responseId": "PPqPasXiKeKgpucP8N6AmQQ",
+            "usageMetadata": {
+              "candidatesTokenCount": 25,
+              "candidatesTokensDetails": [
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 25
+                }
+              ],
+              "promptTokenCount": 79,
+              "promptTokensDetails": [
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 79
+                }
+              ],
+              "thoughtsTokenCount": 119,
+              "totalTokenCount": 223,
+              "trafficType": "ON_DEMAND"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "url": "/v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-3.6-flash:streamGenerateContent?alt=sse",
+        "request": "POST /v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-3.6-flash:streamGenerateContent?alt=sse HTTP/1.1",
+        "headers": {
+          "Accept": "*/*",
+          "Accept-Charset": "UTF-8",
+          "Accept-Encoding": "gzip",
+          "Connection": "Keep-Alive",
+          "Content-Length": "1898",
+          "Content-Type": "application/json",
+          "Test-Name": "ChatsTest.testFailingFunctionInStreamIsReportedToTheModel.vertex"
+        },
+        "bodySegments": [
+          {
+            "contents": [
+              {
+                "parts": [
+                  {
+                    "text": "What is the weather in Zurich, Switzerland?"
+                  }
+                ],
+                "role": "user"
+              },
+              {
+                "parts": [
+                  {
+                    "functionCall": {
+                      "args": {
+                        "location": {
+                          "city": "Zurich",
+                          "country": "Switzerland"
+                        }
+                      },
+                      "id": "call_483729",
+                      "name": "get_weather"
+                    },
+                    "thoughtSignature": "AY89a18c5ix/a8f1J3LZ2c0UigZwaA7ASNGsEs5tyvjIwEyPcT63rGy8WSg10sZeyXVXF23gJg3tyHZcLRRuuxoTbpFYG0gfYaI7sflSnQ6Nn/7K8IVHf3VPH+A8zZGVZyORzn7+Okg189W9eXtXhrAYtq1vvpBAq7fDg1bYQQ45lTF4HlUQwS4Nh1DdXoifpSVTMJURHS9QI5phLwuiLOOOy8qh89kK1DUB7oupuZuAWgZGXHOIL8AAOywuZoiiQpsd2ftA1XHGsQjmQIp5FUsuu3dyV/T02ZzTH0Mj6oL5KVy5IhptRFG/3e3XoYgCE/hoxsuFr3RR6Dho/4cvr3juk+o8ie2bMVH483oegNWim2eLZdnzRf3ExPyVr/sZI0J1XylTrwBkqnKJs50xlqzKCggj7jKwOP9NYWMMO3fFPqzzs10LehoJPpoJw9+4KX7xUo0nSif1m5UsZrih+vqmiDN7jN+WShTO4NtBT2Eby0UR53uYfkAUGoFpwbt1ZkRy/2uhUtCukrQ+YWnLRR9J0UvOIiA4obOvCBLcvhekQuod7kLPnnKtKvn3bySbQjKg85e3E92jfPKjhRdZAjSEm1PlAEQC7ofjR44eeqgvmWOxw1tZSu+bE3PbP7jSmp8bUX6igPxXtLi978pN1bwH0vP7FmE0d8vM0yDJS3yj3R06QqNGsZQGRekXyKsoxaljpHGwDIoxPr+Tk8VCF4dsBKWyBgeVMabaoDalXY46239qjbBncL3Dn0z1JPyPtDYDaOZ54LA="
+                  }
+                ],
+                "role": "model"
+              },
+              {
+                "parts": [
+                  {
+                    "text": ""
+                  }
+                ],
+                "role": "model"
+              },
+              {
+                "parts": [
+                  {
+                    "functionResponse": {
+                      "id": "call_483729",
+                      "name": "get_weather",
+                      "response": {
+                        "error": "the weather service is unavailable"
+                      }
+                    }
+                  }
+                ],
+                "role": "user"
+              }
+            ],
+            "generationConfig": {},
+            "tools": [
+              {
+                "functionDeclarations": [
+                  {
+                    "description": "Looks up the weather.",
+                    "name": "get_weather",
+                    "parametersJsonSchema": {
+                      "$defs": {
+                        "Location": {
+                          "properties": {
+                            "city": {
+                              "type": "string"
+                            },
+                            "country": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "city",
+                            "country"
+                          ],
+                          "type": "object"
+                        }
+                      },
+                      "properties": {
+                        "dayOffset": {
+                          "anyOf": [
+                            {
+                              "type": "integer"
+                            },
+                            {
+                              "type": "null"
+                            }
+                          ],
+                          "description": "Days ahead of today, or null for today."
+                        },
+                        "location": {
+                          "$ref": "#/$defs/Location",
+                          "description": "The place to look up."
+                        },
+                        "unit": {
+                          "description": "Unit to report the temperature in, celsius or fahrenheit.",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "location"
+                      ],
+                      "type": "object"
+                    },
+                    "responseJsonSchema": {
+                      "type": "string"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "previousRequest": "3ce328b3ece5cd5f79dcc28e4e356cdbc900f33780f3103584925be28cdacbe9",
+        "serverAddress": "aiplatform.googleapis.com",
+        "port": 443,
+        "protocol": "https"
+      },
+      "shaSum": "f9a1cdfbfd91ca6196be40c72e7425e426c3f7de2c7d530a36064d842814b952",
+      "response": {
+        "statusCode": 200,
+        "headers": {
+          "Content-Disposition": "attachment",
+          "Content-Type": "text/event-stream",
+          "Date": "Thu, 27 Aug 2026 08:50:07 GMT",
+          "Server": "scaffolding on HTTPServer2",
+          "Vary": "Origin, X-Origin, Referer",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "SAMEORIGIN",
+          "X-Xss-Protection": "0"
+        },
+        "bodySegments": [
+          {
+            "candidates": [
+              {
+                "content": {
+                  "parts": [
+                    {
+                      "text": "I"
+                    }
+                  ],
+                  "role": "model"
+                }
+              }
+            ],
+            "createTime": "2026-08-27T08:50:06.471302Z",
+            "modelVersion": "gemini-3.6-flash",
+            "responseId": "PvqPaobiHKCapucP7uHEgAQ",
+            "usageMetadata": {
+              "trafficType": "ON_DEMAND"
+            }
+          },
+          {
+            "candidates": [
+              {
+                "content": {
+                  "parts": [
+                    {
+                      "text": "'m sorry, but the weather service is currently unavailable. As a result, I cannot fetch the current weather for Zurich, Switzerland at"
+                    }
+                  ],
+                  "role": "model"
+                }
+              }
+            ],
+            "createTime": "2026-08-27T08:50:06.471302Z",
+            "modelVersion": "gemini-3.6-flash",
+            "responseId": "PvqPaobiHKCapucP7uHEgAQ",
+            "usageMetadata": {
+              "trafficType": "ON_DEMAND"
+            }
+          },
+          {
+            "candidates": [
+              {
+                "content": {
+                  "parts": [
+                    {
+                      "text": " the moment. Please try again later."
+                    }
+                  ],
+                  "role": "model"
+                }
+              }
+            ],
+            "createTime": "2026-08-27T08:50:06.471302Z",
+            "modelVersion": "gemini-3.6-flash",
+            "responseId": "PvqPaobiHKCapucP7uHEgAQ",
+            "usageMetadata": {
+              "trafficType": "ON_DEMAND"
+            }
+          },
+          {
+            "candidates": [
+              {
+                "content": {
+                  "parts": [
+                    {
+                      "text": "",
+                      "thoughtSignature": "AY89a18rAfvfF+MYZzswxeTIgCQMRjdKzMA7EhkLog9xG18ADf0SETI5cfdMKUPaaqmtwGHR/OYdcuzlhDwI/r1ab021WtBavv9ppF59FnUN8Y14CsUSDBc42SeTzANeD9s5hTNW+C/qhPECFBojPC2PVT1YbLmC0kNz6R8+rK70kORpDGCspPMl7N64SgvDWqIdFFbD/rnRbcGctNSb377koDVgpgchPB9AwEqcElDhb9WAB/fKqSJ+14OGah1lNgfUq+R8TmIBcw6wTf5HFgLRgVAEyCOrqEQDCgqL4/hZULUNiHvWc8YgXGYNaqnyW5yuw4ODY0VkrUIIEkPBXCAku2k4fGVO+4fKI2H1T/LdI3+RpPe5YRV64SFb19eHpAYLTrfT6rUtoyO0X+M+myJxQJaIMVZAlyT32wrPzRCLL20mkppPUG+rrO4vfa6GuHTPsm+Fba8="
+                    }
+                  ],
+                  "role": "model"
+                },
+                "finishReason": "STOP"
+              }
+            ],
+            "createTime": "2026-08-27T08:50:06.471302Z",
+            "modelVersion": "gemini-3.6-flash",
+            "responseId": "PvqPaobiHKCapucP7uHEgAQ",
+            "usageMetadata": {
+              "candidatesTokenCount": 36,
+              "candidatesTokensDetails": [
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 36
+                }
+              ],
+              "promptTokenCount": 224,
+              "promptTokensDetails": [
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 224
+                }
+              ],
+              "thoughtsTokenCount": 42,
+              "totalTokenCount": 302,
+              "trafficType": "ON_DEMAND"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

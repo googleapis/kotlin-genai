@@ -1,0 +1,340 @@
+{
+  "recordID": "ChatsTest.testAutomaticFunctionCalling.vertex",
+  "interactions": [
+    {
+      "request": {
+        "method": "POST",
+        "url": "/v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-3.6-flash:generateContent",
+        "request": "POST /v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-3.6-flash:generateContent HTTP/1.1",
+        "headers": {
+          "Accept": "*/*",
+          "Accept-Charset": "UTF-8",
+          "Accept-Encoding": "gzip",
+          "Connection": "Keep-Alive",
+          "Content-Length": "774",
+          "Content-Type": "application/json",
+          "Test-Name": "ChatsTest.testAutomaticFunctionCalling.vertex"
+        },
+        "bodySegments": [
+          {
+            "contents": [
+              {
+                "parts": [
+                  {
+                    "text": "What is the weather in Zurich, Switzerland?"
+                  }
+                ],
+                "role": "user"
+              }
+            ],
+            "generationConfig": {},
+            "tools": [
+              {
+                "functionDeclarations": [
+                  {
+                    "description": "Looks up the weather for a place.",
+                    "name": "get_weather",
+                    "parametersJsonSchema": {
+                      "$defs": {
+                        "Location": {
+                          "properties": {
+                            "city": {
+                              "type": "string"
+                            },
+                            "country": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "city",
+                            "country"
+                          ],
+                          "type": "object"
+                        }
+                      },
+                      "properties": {
+                        "dayOffset": {
+                          "anyOf": [
+                            {
+                              "type": "integer"
+                            },
+                            {
+                              "type": "null"
+                            }
+                          ],
+                          "description": "Days ahead of today, or null for today."
+                        },
+                        "location": {
+                          "$ref": "#/$defs/Location",
+                          "description": "The place to look up."
+                        },
+                        "unit": {
+                          "description": "Unit to report the temperature in, celsius or fahrenheit.",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "location"
+                      ],
+                      "type": "object"
+                    },
+                    "responseJsonSchema": {
+                      "type": "string"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "previousRequest": "b4d6e60a9b97e7b98c63df9308728c5c88c0b40c398046772c63447b94608b4d",
+        "serverAddress": "aiplatform.googleapis.com",
+        "port": 443,
+        "protocol": "https"
+      },
+      "shaSum": "06018712cddcfcef9bd31de7761545800501a574381f03de7b52f16535abe0e8",
+      "response": {
+        "statusCode": 200,
+        "headers": {
+          "Content-Encoding": "gzip",
+          "Content-Length": "1034",
+          "Content-Type": "application/json; charset=UTF-8",
+          "Date": "Thu, 27 Aug 2026 09:02:46 GMT",
+          "Server": "scaffolding on HTTPServer2",
+          "Vary": "Origin, X-Origin, Referer",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "SAMEORIGIN",
+          "X-Xss-Protection": "0"
+        },
+        "bodySegments": [
+          {
+            "candidates": [
+              {
+                "content": {
+                  "parts": [
+                    {
+                      "functionCall": {
+                        "args": {
+                          "location": {
+                            "city": "Zurich",
+                            "country": "Switzerland"
+                          }
+                        },
+                        "id": "call_514765",
+                        "name": "get_weather"
+                      },
+                      "thoughtSignature": "AY89a1+HiIZ+9Ebqe27unPMadfiffIzI8Qj1ad/e7RTkXQzOP8zNn248U4fhBaQw6VdVgZTom85PktUdhAFAr3Hb/VNtAA2wFNFfs916Pp2WqsW1xD53bN+qEMtpQG2WSC/bdMCXjIEc4Im4shu6R0Gr+71Nrlm4n6F42kFp09pU5DFhrUCog292S3q5ES8pm3GEEj0nlmvhbyEDYLfx3QEOFS9gAmpZmXqnfpkCYR6v2awxhL88fK6qxqcJhw8jRLnv9F41Qwb+oNcLmPyFBjyDH+2gQE8+TMN5oVQCqEeSxeG8ZHz7ndtRcCvQe8VM6j6WorLHMhPHQZrGo0Smt5alS8aMzD8um8p2fGW9HmFXwsnGlLJY+kqVnCkJCw2/+Wa31fw7RG8NvN0lpxVKsA5roaMuFUtfalaec3KjU4+iuUO2dmDk94+sG1Fp0iDlqczU3BumE2fwBS0G9hsJ60TwlTIBcbToOeyvAU/CA/FYGZ/rMjxBi+dZw+mI93rI5BgcW/JAVTjqCuOc150OdDFa8hHQdIKTrAOStO96Nh+v1Wiv4CplhYqd9L1Wn8I45yp4clOHrBy4WRN5WK7duw/4JEcH/vaY2oAdUMlx4kv3G9W78g/axkTqyQyca3cg/vXMJ1jZLeMcpYoszXhv0zj6p52uNFx/uYRtAMUZrgScCE0uPIvctz0gq+T5OnP4EvkrKIn1WFndqdk="
+                    }
+                  ],
+                  "role": "model"
+                },
+                "finishReason": "STOP"
+              }
+            ],
+            "createTime": "2026-08-27T09:02:44.840152Z",
+            "modelVersion": "gemini-3.6-flash",
+            "responseId": "NP2PatijM56apucPocm0MA",
+            "usageMetadata": {
+              "candidatesTokenCount": 25,
+              "candidatesTokensDetails": [
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 25
+                }
+              ],
+              "promptTokenCount": 82,
+              "promptTokensDetails": [
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 82
+                }
+              ],
+              "thoughtsTokenCount": 130,
+              "totalTokenCount": 237,
+              "trafficType": "ON_DEMAND"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "url": "/v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-3.6-flash:generateContent",
+        "request": "POST /v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-3.6-flash:generateContent HTTP/1.1",
+        "headers": {
+          "Accept": "*/*",
+          "Accept-Charset": "UTF-8",
+          "Accept-Encoding": "gzip",
+          "Connection": "Keep-Alive",
+          "Content-Length": "1818",
+          "Content-Type": "application/json",
+          "Test-Name": "ChatsTest.testAutomaticFunctionCalling.vertex"
+        },
+        "bodySegments": [
+          {
+            "contents": [
+              {
+                "parts": [
+                  {
+                    "text": "What is the weather in Zurich, Switzerland?"
+                  }
+                ],
+                "role": "user"
+              },
+              {
+                "parts": [
+                  {
+                    "functionCall": {
+                      "args": {
+                        "location": {
+                          "city": "Zurich",
+                          "country": "Switzerland"
+                        }
+                      },
+                      "id": "call_514765",
+                      "name": "get_weather"
+                    },
+                    "thoughtSignature": "AY89a1+HiIZ+9Ebqe27unPMadfiffIzI8Qj1ad/e7RTkXQzOP8zNn248U4fhBaQw6VdVgZTom85PktUdhAFAr3Hb/VNtAA2wFNFfs916Pp2WqsW1xD53bN+qEMtpQG2WSC/bdMCXjIEc4Im4shu6R0Gr+71Nrlm4n6F42kFp09pU5DFhrUCog292S3q5ES8pm3GEEj0nlmvhbyEDYLfx3QEOFS9gAmpZmXqnfpkCYR6v2awxhL88fK6qxqcJhw8jRLnv9F41Qwb+oNcLmPyFBjyDH+2gQE8+TMN5oVQCqEeSxeG8ZHz7ndtRcCvQe8VM6j6WorLHMhPHQZrGo0Smt5alS8aMzD8um8p2fGW9HmFXwsnGlLJY+kqVnCkJCw2/+Wa31fw7RG8NvN0lpxVKsA5roaMuFUtfalaec3KjU4+iuUO2dmDk94+sG1Fp0iDlqczU3BumE2fwBS0G9hsJ60TwlTIBcbToOeyvAU/CA/FYGZ/rMjxBi+dZw+mI93rI5BgcW/JAVTjqCuOc150OdDFa8hHQdIKTrAOStO96Nh+v1Wiv4CplhYqd9L1Wn8I45yp4clOHrBy4WRN5WK7duw/4JEcH/vaY2oAdUMlx4kv3G9W78g/axkTqyQyca3cg/vXMJ1jZLeMcpYoszXhv0zj6p52uNFx/uYRtAMUZrgScCE0uPIvctz0gq+T5OnP4EvkrKIn1WFndqdk="
+                  }
+                ],
+                "role": "model"
+              },
+              {
+                "parts": [
+                  {
+                    "functionResponse": {
+                      "id": "call_514765",
+                      "name": "get_weather",
+                      "response": {
+                        "result": "17 degrees celsius and raining in Zurich"
+                      }
+                    }
+                  }
+                ],
+                "role": "user"
+              }
+            ],
+            "generationConfig": {},
+            "tools": [
+              {
+                "functionDeclarations": [
+                  {
+                    "description": "Looks up the weather for a place.",
+                    "name": "get_weather",
+                    "parametersJsonSchema": {
+                      "$defs": {
+                        "Location": {
+                          "properties": {
+                            "city": {
+                              "type": "string"
+                            },
+                            "country": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "city",
+                            "country"
+                          ],
+                          "type": "object"
+                        }
+                      },
+                      "properties": {
+                        "dayOffset": {
+                          "anyOf": [
+                            {
+                              "type": "integer"
+                            },
+                            {
+                              "type": "null"
+                            }
+                          ],
+                          "description": "Days ahead of today, or null for today."
+                        },
+                        "location": {
+                          "$ref": "#/$defs/Location",
+                          "description": "The place to look up."
+                        },
+                        "unit": {
+                          "description": "Unit to report the temperature in, celsius or fahrenheit.",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "location"
+                      ],
+                      "type": "object"
+                    },
+                    "responseJsonSchema": {
+                      "type": "string"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "previousRequest": "06018712cddcfcef9bd31de7761545800501a574381f03de7b52f16535abe0e8",
+        "serverAddress": "aiplatform.googleapis.com",
+        "port": 443,
+        "protocol": "https"
+      },
+      "shaSum": "574ee279b56d1655322c1b44411908c1e19b49b65484d0800b3442a88d7f8bc5",
+      "response": {
+        "statusCode": 200,
+        "headers": {
+          "Content-Encoding": "gzip",
+          "Content-Length": "634",
+          "Content-Type": "application/json; charset=UTF-8",
+          "Date": "Thu, 27 Aug 2026 09:02:47 GMT",
+          "Server": "scaffolding on HTTPServer2",
+          "Vary": "Origin, X-Origin, Referer",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "SAMEORIGIN",
+          "X-Xss-Protection": "0"
+        },
+        "bodySegments": [
+          {
+            "candidates": [
+              {
+                "content": {
+                  "parts": [
+                    {
+                      "text": "The current weather in Zurich, Switzerland is 17°C with rain.",
+                      "thoughtSignature": "AY89a19eb7IpSUnJNOsBv/ktd2nnBSag+UfbOd4V0QdsndZVmokDUrXexV+AaCxMMGyDEatFipo7WD8FMJ9pJNhab/pkWaqXPcX16teHickdmBTChJhiVQ3cVH2mby5Z6lAFnHvLiuz03qnQ9mh4Yhec/n+qPNKTHVEOFl+gtTWzW+GaQxTAGg5oKcYwdyLzK+x9XGifw/ri7dBGWiLTVKbnmAcIQeoNwoGKCJrmQyphH7jSCWpjiBx5XW/z9Hpo+tWB"
+                    }
+                  ],
+                  "role": "model"
+                },
+                "finishReason": "STOP"
+              }
+            ],
+            "createTime": "2026-08-27T09:02:46.502390Z",
+            "modelVersion": "gemini-3.6-flash",
+            "responseId": "Nv2PavbUHuKgpucP8N6AmQQ",
+            "usageMetadata": {
+              "candidatesTokenCount": 16,
+              "candidatesTokensDetails": [
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 16
+                }
+              ],
+              "promptTokenCount": 241,
+              "promptTokensDetails": [
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 241
+                }
+              ],
+              "thoughtsTokenCount": 26,
+              "totalTokenCount": 283,
+              "trafficType": "ON_DEMAND"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

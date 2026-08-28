@@ -71,11 +71,24 @@ private data class Documented(
 
 @Serializable private data class Trip(val from: Point, val to: Point)
 
+@Serializable private data class Person(val name: String, val dateOfBirth: String)
+
+@Serializable private data class Family(val adult: Person, val children: List<Person>)
+
 @Serializable private data class SelfReferential(val next: SelfReferential?)
 
 @Serializable private data class HoldsSelfReferential(val start: SelfReferential)
 
 @Serializable private data class Place(val city: String, val country: String)
+
+// Deliberately not @Serializable: stands in for a third-party type a caller cannot annotate.
+private class TripRequest(val origin: String, val nights: Int)
+
+private class TripPlan(val summary: String)
+
+private object Trips {
+  fun plan(request: TripRequest) = TripPlan("${request.nights} nights from ${request.origin}")
+}
 
 @Serializable
 private data class TripArgs(
@@ -529,5 +542,74 @@ class AutomaticFunctionCallingTest {
   fun testBackendExecutedToolsComposeWithAfc() {
     val config = GenerateContentConfig(tools = listOf(Tool(googleSearch = GoogleSearch())))
     requireNoRawFunctionDeclarations(config, AutomaticFunctionCalling(weatherFunction()))
+  }
+
+  @Test
+  fun testNonSerializableTypesAreAdaptedInsideTheHandler() = runTest {
+    // The design doc's CUJ 5: neither TripRequest nor TripPlan is @Serializable, so the caller
+    // declares a small argument class and converts on both sides inside the handler. This needs no
+    // API of its own; it is the argument-class builder with an adapter in the body.
+    val tool =
+      callableFunction("plan_trip", "Plans a trip.") { args: TripArgs ->
+        Trips.plan(TripRequest(args.origin, args.nights)).summary
+      }
+
+    // The model only ever sees the argument class, so the schema is unaffected by the domain types.
+    assertSchema(
+      """
+      {
+        "type": "object",
+        "properties": {
+          "origin": {"type": "string", "description": "Departure city."},
+          "nights": {"type": "integer"},
+          "stop": {"anyOf": [{"${'$'}ref": "#/${'$'}defs/Place"}, {"type": "null"}]}
+        },
+        "required": ["origin"],
+        "${'$'}defs": {
+          "Place": {
+            "type": "object",
+            "properties": {"city": {"type": "string"}, "country": {"type": "string"}},
+            "required": ["city", "country"]
+          }
+        }
+      }
+      """,
+      parametersOf(tool),
+    )
+    assertSchema(
+      """"3 nights from Rome"""",
+      tool.handler(
+        args {
+          put("origin", "Rome")
+          put("nights", 3)
+        }
+      ),
+    )
+  }
+
+  @Test
+  fun testAClassInsideAListIsReferencedAndDefinedOnce() {
+    // A class reached through a list has to be hoisted the same way a direct field is, and a class
+    // reached both ways still gets one definition.
+    assertSchema(
+      """
+      {
+        "type": "object",
+        "properties": {
+          "adult": {"${'$'}ref": "#/${'$'}defs/Person"},
+          "children": {"type": "array", "items": {"${'$'}ref": "#/${'$'}defs/Person"}}
+        },
+        "required": ["adult", "children"],
+        "${'$'}defs": {
+          "Person": {
+            "type": "object",
+            "properties": {"name": {"type": "string"}, "dateOfBirth": {"type": "string"}},
+            "required": ["name", "dateOfBirth"]
+          }
+        }
+      }
+      """,
+      schemaOf<Family>(),
+    )
   }
 }

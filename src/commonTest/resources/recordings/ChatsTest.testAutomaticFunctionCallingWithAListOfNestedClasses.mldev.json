@@ -1,0 +1,341 @@
+{
+  "recordID": "ChatsTest.testAutomaticFunctionCallingWithAListOfNestedClasses.mldev",
+  "interactions": [
+    {
+      "request": {
+        "method": "POST",
+        "url": "/v1beta/models/gemini-3.6-flash:generateContent",
+        "request": "POST /v1beta/models/gemini-3.6-flash:generateContent HTTP/1.1",
+        "headers": {
+          "Accept": "*/*",
+          "Accept-Charset": "UTF-8",
+          "Accept-Encoding": "gzip",
+          "Connection": "Keep-Alive",
+          "Content-Length": "689",
+          "Content-Type": "application/json",
+          "Test-Name": "ChatsTest.testAutomaticFunctionCallingWithAListOfNestedClasses.mldev"
+        },
+        "bodySegments": [
+          {
+            "contents": [
+              {
+                "parts": [
+                  {
+                    "text": "Register a family: the adult is Ada, born 1815-12-10, and the children are Byron, born 1836-05-12, and Anne, born 1837-09-22."
+                  }
+                ],
+                "role": "user"
+              }
+            ],
+            "generationConfig": {},
+            "tools": [
+              {
+                "functionDeclarations": [
+                  {
+                    "description": "Records a booking for a family.",
+                    "name": "register_booking",
+                    "parametersJsonSchema": {
+                      "$defs": {
+                        "Guest": {
+                          "properties": {
+                            "born": {
+                              "description": "YYYY-MM-DD.",
+                              "type": "string"
+                            },
+                            "name": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "name",
+                            "born"
+                          ],
+                          "type": "object"
+                        }
+                      },
+                      "properties": {
+                        "adult": {
+                          "$ref": "#/$defs/Guest"
+                        },
+                        "children": {
+                          "items": {
+                            "$ref": "#/$defs/Guest"
+                          },
+                          "type": "array"
+                        }
+                      },
+                      "required": [
+                        "adult",
+                        "children"
+                      ],
+                      "type": "object"
+                    },
+                    "responseJsonSchema": {
+                      "type": "string"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "previousRequest": "b4d6e60a9b97e7b98c63df9308728c5c88c0b40c398046772c63447b94608b4d",
+        "serverAddress": "generativelanguage.googleapis.com",
+        "port": 443,
+        "protocol": "https"
+      },
+      "shaSum": "40bc473b4e0ecd7d7ebe65db40975a1b89e692655b3b90b2cf4c904fbc6f0064",
+      "response": {
+        "statusCode": 200,
+        "headers": {
+          "Content-Encoding": "gzip",
+          "Content-Length": "1469",
+          "Content-Type": "application/json; charset=UTF-8",
+          "Date": "Thu, 27 Aug 2026 18:12:47 GMT",
+          "Server": "scaffolding on HTTPServer2",
+          "Server-Timing": "gfet4t7; dur=7401",
+          "Vary": "Origin, X-Origin, Referer",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "SAMEORIGIN",
+          "X-Gemini-Service-Tier": "standard",
+          "X-Xss-Protection": "0"
+        },
+        "bodySegments": [
+          {
+            "candidates": [
+              {
+                "content": {
+                  "parts": [
+                    {
+                      "functionCall": {
+                        "args": {
+                          "adult": {
+                            "born": "1815-12-10",
+                            "name": "Ada"
+                          },
+                          "children": [
+                            {
+                              "born": "1836-05-12",
+                              "name": "Byron"
+                            },
+                            {
+                              "born": "1837-09-22",
+                              "name": "Anne"
+                            }
+                          ]
+                        },
+                        "id": "call_234470",
+                        "name": "register_booking"
+                      },
+                      "thoughtSignature": "EsUGCsIGARFNMg8TW0HuPunHbEnZSAgPHutuqi7dQ7dYIIGRdzLvQxJ9o1GhfhSthp44JfCj5F3LvCvz13SGBIcBo+3LwwKkH+TngI+OrOwI+S267kk53n1wIfXEn66ul7iWwKXNTC4DI2K70Cpb2u3iA38jl4op0H/5awbfCqSFbxrF/5/3uI+M3plTFr7P4X1RVEFYluWmBxHhgFOoK/wW4wfrFxhLD2HiCSIDjR1TQ1k4VRrySAghZ2Es5uh0wvtZFR5A+INg7NnH94h8GyMoL6rgoC1EOZT3EBU1mv3gRq328J0AETQUac62bwKi3nrWvCI75kvPJg8R91xc630Teuqwg1Vd6M01yN6qkJfqg9UaVQjVgQE5zwYgpPr1pnSDpYwQFKAGxl3HpTn1u/8zmTx1xbXv+Vl/dOT7o1+h+dsNHXlT1WKLPzQairb4c1QoXfJLlnFV2nfs/QSjBPJ47ainFnN6LTvcImkVY3MVOw/UQBMm/xRztZorCBW3HzVHjoXYEb3fZmxFMNQUYncnkKs48GyxinLB88jQHKevDFLFgdGyWZMJkwRXNyPV6/5pKxTRMWauSJ3v1oTUwF50FevoUXt3UPM9zxMTwLM3E9d15rBdbJ3F3dpAISDQaVacLCNXSuuPHKOJAtYE4VoWnFOdH0v5kYIqmjpW8JA+wOYlMuaY6/iAs7ZgUHHy3VXt4NbjW/q2WPPkffucLyYXaKtJwiZiD2CyflOzBIM1AEDFn3s6r4XhOjzRo6VsZehHihSHMIDOhduMewZCPhLwE/ApI/1ProH7CTR0nZw360sNHbip18huU7yVaDTJW4ylw5l3BQ2Q4RgObg01XC1FhPeGM1nf/jhcbx27VYg/R2DAUPxAn4LTav248PNDu7df0ohQKKSjPcmrR5OqCJhpQLBaYNxxKen6mjNsMgrjRfkynWmEjIZW0dEL8HrteU8wXQIxxjIwDMaYBnleCuoENYt+rekJDHEw/BoXLK+0gYjqcwPaWMluc7uZ8WyGsPOFZVL9iRtFuqDgdIqF2+W0ar3jqkH5FHxn/3nK5sTuRPTb0dCfR37eIweDXKps/qewjdT1WnGS1SiqSzlI6bV8u4EmC1y1"
+                    }
+                  ],
+                  "role": "model"
+                },
+                "finishMessage": "Model generated function call(s).",
+                "finishReason": "STOP",
+                "index": 0
+              }
+            ],
+            "modelVersion": "gemini-3.6-flash",
+            "responseId": "GH6QaobKFoyCmtkPr7nUiAk",
+            "turnToken": "v1_ChdHSDZRYW9iS0ZveUNtdGtQcjduVWlBaxIXR0g2UWFvYktGb3lDbXRrUHI3blVpQWs",
+            "usageMetadata": {
+              "candidatesTokenCount": 79,
+              "promptTokenCount": 208,
+              "promptTokensDetails": [
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 208
+                }
+              ],
+              "rawPromptTokenCount": 248,
+              "serviceTier": "standard",
+              "thoughtsTokenCount": 269,
+              "totalTokenCount": 556
+            }
+          }
+        ]
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "url": "/v1beta/models/gemini-3.6-flash:generateContent",
+        "request": "POST /v1beta/models/gemini-3.6-flash:generateContent HTTP/1.1",
+        "headers": {
+          "Accept": "*/*",
+          "Accept-Charset": "UTF-8",
+          "Accept-Encoding": "gzip",
+          "Connection": "Keep-Alive",
+          "Content-Length": "2209",
+          "Content-Type": "application/json",
+          "Test-Name": "ChatsTest.testAutomaticFunctionCallingWithAListOfNestedClasses.mldev"
+        },
+        "bodySegments": [
+          {
+            "contents": [
+              {
+                "parts": [
+                  {
+                    "text": "Register a family: the adult is Ada, born 1815-12-10, and the children are Byron, born 1836-05-12, and Anne, born 1837-09-22."
+                  }
+                ],
+                "role": "user"
+              },
+              {
+                "parts": [
+                  {
+                    "functionCall": {
+                      "args": {
+                        "adult": {
+                          "born": "1815-12-10",
+                          "name": "Ada"
+                        },
+                        "children": [
+                          {
+                            "born": "1836-05-12",
+                            "name": "Byron"
+                          },
+                          {
+                            "born": "1837-09-22",
+                            "name": "Anne"
+                          }
+                        ]
+                      },
+                      "id": "call_234470",
+                      "name": "register_booking"
+                    },
+                    "thoughtSignature": "EsUGCsIGARFNMg8TW0HuPunHbEnZSAgPHutuqi7dQ7dYIIGRdzLvQxJ9o1GhfhSthp44JfCj5F3LvCvz13SGBIcBo+3LwwKkH+TngI+OrOwI+S267kk53n1wIfXEn66ul7iWwKXNTC4DI2K70Cpb2u3iA38jl4op0H/5awbfCqSFbxrF/5/3uI+M3plTFr7P4X1RVEFYluWmBxHhgFOoK/wW4wfrFxhLD2HiCSIDjR1TQ1k4VRrySAghZ2Es5uh0wvtZFR5A+INg7NnH94h8GyMoL6rgoC1EOZT3EBU1mv3gRq328J0AETQUac62bwKi3nrWvCI75kvPJg8R91xc630Teuqwg1Vd6M01yN6qkJfqg9UaVQjVgQE5zwYgpPr1pnSDpYwQFKAGxl3HpTn1u/8zmTx1xbXv+Vl/dOT7o1+h+dsNHXlT1WKLPzQairb4c1QoXfJLlnFV2nfs/QSjBPJ47ainFnN6LTvcImkVY3MVOw/UQBMm/xRztZorCBW3HzVHjoXYEb3fZmxFMNQUYncnkKs48GyxinLB88jQHKevDFLFgdGyWZMJkwRXNyPV6/5pKxTRMWauSJ3v1oTUwF50FevoUXt3UPM9zxMTwLM3E9d15rBdbJ3F3dpAISDQaVacLCNXSuuPHKOJAtYE4VoWnFOdH0v5kYIqmjpW8JA+wOYlMuaY6/iAs7ZgUHHy3VXt4NbjW/q2WPPkffucLyYXaKtJwiZiD2CyflOzBIM1AEDFn3s6r4XhOjzRo6VsZehHihSHMIDOhduMewZCPhLwE/ApI/1ProH7CTR0nZw360sNHbip18huU7yVaDTJW4ylw5l3BQ2Q4RgObg01XC1FhPeGM1nf/jhcbx27VYg/R2DAUPxAn4LTav248PNDu7df0ohQKKSjPcmrR5OqCJhpQLBaYNxxKen6mjNsMgrjRfkynWmEjIZW0dEL8HrteU8wXQIxxjIwDMaYBnleCuoENYt+rekJDHEw/BoXLK+0gYjqcwPaWMluc7uZ8WyGsPOFZVL9iRtFuqDgdIqF2+W0ar3jqkH5FHxn/3nK5sTuRPTb0dCfR37eIweDXKps/qewjdT1WnGS1SiqSzlI6bV8u4EmC1y1"
+                  }
+                ],
+                "role": "model"
+              },
+              {
+                "parts": [
+                  {
+                    "functionResponse": {
+                      "id": "call_234470",
+                      "name": "register_booking",
+                      "response": {
+                        "result": "Registered Ada with 2 children"
+                      }
+                    }
+                  }
+                ],
+                "role": "user"
+              }
+            ],
+            "generationConfig": {},
+            "tools": [
+              {
+                "functionDeclarations": [
+                  {
+                    "description": "Records a booking for a family.",
+                    "name": "register_booking",
+                    "parametersJsonSchema": {
+                      "$defs": {
+                        "Guest": {
+                          "properties": {
+                            "born": {
+                              "description": "YYYY-MM-DD.",
+                              "type": "string"
+                            },
+                            "name": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "name",
+                            "born"
+                          ],
+                          "type": "object"
+                        }
+                      },
+                      "properties": {
+                        "adult": {
+                          "$ref": "#/$defs/Guest"
+                        },
+                        "children": {
+                          "items": {
+                            "$ref": "#/$defs/Guest"
+                          },
+                          "type": "array"
+                        }
+                      },
+                      "required": [
+                        "adult",
+                        "children"
+                      ],
+                      "type": "object"
+                    },
+                    "responseJsonSchema": {
+                      "type": "string"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "previousRequest": "40bc473b4e0ecd7d7ebe65db40975a1b89e692655b3b90b2cf4c904fbc6f0064",
+        "serverAddress": "generativelanguage.googleapis.com",
+        "port": 443,
+        "protocol": "https"
+      },
+      "shaSum": "6df68014a15cff81d8bb6eed47f57371fd96226daa8ea7ddeb7c0876d1c89d2d",
+      "response": {
+        "statusCode": 200,
+        "headers": {
+          "Content-Encoding": "gzip",
+          "Content-Length": "680",
+          "Content-Type": "application/json; charset=UTF-8",
+          "Date": "Thu, 27 Aug 2026 18:12:48 GMT",
+          "Server": "scaffolding on HTTPServer2",
+          "Server-Timing": "gfet4t7; dur=1092",
+          "Vary": "Origin, X-Origin, Referer",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "SAMEORIGIN",
+          "X-Gemini-Service-Tier": "standard",
+          "X-Xss-Protection": "0"
+        },
+        "bodySegments": [
+          {
+            "candidates": [
+              {
+                "content": {
+                  "parts": [
+                    {
+                      "text": "The family booking for Ada and her children, Byron and Anne, has been successfully registered.",
+                      "thoughtSignature": "ErUBCrIBARFNMg/Ly2Ey3M6vE9WqD4S1+3jeZ4TlhvyCAN6Icv6HdDbySA9s3IlN7mgxc/kYvq+W1F1jOHKQRiat3Jwp6OzEGRSkfCpNH5PjOMBECZY1gT80FLDoXi+UgoaNsCZBe2opZprm+Z1Z8ll0Nz4KOWcu3MRbDIlaL1JmEcmO5zw0BccGVHPxo2QTMFANn2hJioLYBOz3y0cmYoffrnwD9iuGb8/JAXi9e/zbn99nghyVRQ=="
+                    }
+                  ],
+                  "role": "model"
+                },
+                "finishReason": "STOP",
+                "index": 0
+              }
+            ],
+            "modelVersion": "gemini-3.6-flash",
+            "responseId": "H36Qao_6K_eKqtsP77254AM",
+            "turnToken": "v1_ChdIMzZRYW9fNktfZUtxdHNQNzcyNTRBTRIXSDM2UWFvXzZLX2VLcXRzUDc3MjU0QU0",
+            "usageMetadata": {
+              "candidatesTokenCount": 18,
+              "promptTokenCount": 575,
+              "promptTokensDetails": [
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 575
+                }
+              ],
+              "rawPromptTokenCount": 625,
+              "serviceTier": "standard",
+              "thoughtsTokenCount": 15,
+              "totalTokenCount": 608
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
