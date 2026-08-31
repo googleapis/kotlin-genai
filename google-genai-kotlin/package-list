@@ -915,8 +915,10 @@ $dokka.location:com.google.genai.kotlin.types/GenerateContentResponse/createTime
 $dokka.location:com.google.genai.kotlin.types/GenerateContentResponse/executableCode/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-generate-content-response/executable-code.html
 $dokka.location:com.google.genai.kotlin.types/GenerateContentResponse/finishReason/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-generate-content-response/finish-reason.html
 $dokka.location:com.google.genai.kotlin.types/GenerateContentResponse/functionCalls/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-generate-content-response/function-calls.html
+$dokka.location:com.google.genai.kotlin.types/GenerateContentResponse/groundingMetadata/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-generate-content-response/grounding-metadata.html
 $dokka.location:com.google.genai.kotlin.types/GenerateContentResponse/modelStatus/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-generate-content-response/model-status.html
 $dokka.location:com.google.genai.kotlin.types/GenerateContentResponse/modelVersion/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-generate-content-response/model-version.html
+$dokka.location:com.google.genai.kotlin.types/GenerateContentResponse/parts/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-generate-content-response/parts.html
 $dokka.location:com.google.genai.kotlin.types/GenerateContentResponse/promptFeedback/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-generate-content-response/prompt-feedback.html
 $dokka.location:com.google.genai.kotlin.types/GenerateContentResponse/responseId/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-generate-content-response/response-id.html
 $dokka.location:com.google.genai.kotlin.types/GenerateContentResponse/sdkHttpResponse/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-generate-content-response/sdk-http-response.html
