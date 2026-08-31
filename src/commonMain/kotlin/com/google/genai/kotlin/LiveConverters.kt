@@ -1473,9 +1473,11 @@ internal object LiveConverters {
       )
     }
 
-    if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("translationConfig")))) {
-      throw IllegalArgumentException(
-        "translationConfig parameter is not supported in Gemini Enterprise Agent Platform."
+    Common.getValueByPath(fromObject, arrayOf("translationConfig"))?.let { node ->
+      Common.setValueByPath(
+        parentObject,
+        arrayOf("setup", "generationConfig", "translationConfig"),
+        Common.getValueByPath(fromObject, arrayOf("translationConfig")),
       )
     }
 
