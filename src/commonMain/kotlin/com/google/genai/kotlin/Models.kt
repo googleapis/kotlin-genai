@@ -4518,7 +4518,11 @@ class Models internal constructor(internal val apiClient: ApiClient) {
     content: Content,
     config: GenerateContentConfig? = null,
   ): GenerateContentResponse {
-    return privateGenerateContent(model = model, contents = listOf(content), config = config)
+    return privateGenerateContent(
+      model = model,
+      contents = listOf(Transformers.tUserContent(content)),
+      config = config,
+    )
   }
 
   /**
@@ -4570,7 +4574,11 @@ class Models internal constructor(internal val apiClient: ApiClient) {
     content: Content,
     config: GenerateContentConfig? = null,
   ): Flow<GenerateContentResponse> {
-    return privateGenerateContentStream(model = model, contents = listOf(content), config = config)
+    return privateGenerateContentStream(
+      model = model,
+      contents = listOf(Transformers.tUserContent(content)),
+      config = config,
+    )
   }
 
   /**

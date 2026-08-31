@@ -167,7 +167,7 @@ internal constructor(
     val afc = automaticFunctionCalling ?: this.automaticFunctionCalling
     requireNoRawFunctionDeclarations(turnConfig, afc)
 
-    val userInput = withUserRole(contents)
+    val userInput = contents.map(Transformers::tUserContent)
     if (afc == null) {
       val response = models.generateContent(model, curatedHistory + userInput, turnConfig)
       recordTurn(userInput + modelOutputOf(response), isValidResponse(response))
@@ -294,7 +294,7 @@ internal constructor(
       requireNoRawFunctionDeclarations(turnConfig, afc)
 
       val requestConfig = if (afc == null) turnConfig else configWithFunctions(afc, turnConfig)
-      val turn = withUserRole(contents).toMutableList()
+      val turn = contents.map(Transformers::tUserContent).toMutableList()
       var remainingCalls = afc?.maximumRemoteCalls ?: 1
       var isValid = true
       var finished: Boolean
@@ -333,14 +333,6 @@ internal constructor(
     }
   }
 
-  // Resolves the role of an outgoing message. Content.role defaults to null and the service reads
-  // an unset role as "user", but recording it as null would produce a history that Chats.create
-  // rejects when it is handed back. Seeded history keeps requiring an explicit role, because a
-  // seeded turn could equally be the model's.
-  private fun withUserRole(contents: List<Content>): List<Content> = contents.map {
-    if (it.role == null) it.copy(role = ROLE_USER) else it
-  }
-
   // Appends one completed turn, in the order its contents were exchanged. The turn is committed as
   // a unit: curatedHistory either gains every content of it or none, so a turn is never split
   // apart. That matters most for automatic function calling, where one turn interleaves the
@@ -359,10 +351,6 @@ internal constructor(
       listOf(Content(role = ROLE_MODEL, parts = emptyList()))
     }
 }
-
-internal const val ROLE_USER = "user"
-
-internal const val ROLE_MODEL = "model"
 
 private val EMPTY_PART = Part()
 

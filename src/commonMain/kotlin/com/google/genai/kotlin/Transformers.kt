@@ -26,6 +26,10 @@ import com.google.genai.kotlin.types.SpeechConfig
 import com.google.genai.kotlin.types.Tool
 import com.google.genai.kotlin.types.VoiceConfig
 
+internal const val ROLE_USER = "user"
+
+internal const val ROLE_MODEL = "model"
+
 /** Transformers for GenAI Kotlin SDK. */
 internal object Transformers {
 
@@ -59,6 +63,16 @@ internal object Transformers {
       else -> origin
     }
   }
+
+  /**
+   * Resolves the role of a [Content] the caller is sending as its own message.
+   *
+   * The Gemini Enterprise Agent Platform API rejects a content with no role, so the entry points
+   * taking a single content set it here rather than letting the request fail. A list of contents is
+   * left alone: it is a conversation, and its model turns have to keep their own role.
+   */
+  fun tUserContent(content: Content): Content =
+    if (content.role == null) content.copy(role = ROLE_USER) else content
 
   /** Transforms an object to a Schema data class for the API. */
   fun tSchema(origin: Any?): Map<String, Any?>? {
