@@ -23,6 +23,7 @@ import com.google.genai.kotlin.types.ExecutableCode
 import com.google.genai.kotlin.types.FinishReason
 import com.google.genai.kotlin.types.FunctionCall
 import com.google.genai.kotlin.types.GenerateContentResponse
+import com.google.genai.kotlin.types.GroundingMetadata
 import com.google.genai.kotlin.types.Part
 import kotlin.test.Test
 import kotlin.test.assertEquals
@@ -217,5 +218,50 @@ class GenerateContentResponseTest {
 
     assertNull(response.codeExecutionResult)
     assertNull(GenerateContentResponse().codeExecutionResult)
+  }
+
+  @Test
+  fun testPartsReturnsPartsOfFirstCandidate() {
+    val parts = listOf(Part(text = "Thinking...", thought = true), Part(text = "Hello"))
+    val response =
+      GenerateContentResponse(
+        candidates =
+          listOf(
+            Candidate(content = Content(parts = parts)),
+            Candidate(content = Content(parts = listOf(Part(text = "Second candidate")))),
+          )
+      )
+
+    assertEquals(parts, response.parts)
+  }
+
+  @Test
+  fun testPartsReturnsNullWhenAbsent() {
+    assertNull(GenerateContentResponse(candidates = listOf(Candidate())).parts)
+    assertNull(GenerateContentResponse(candidates = emptyList()).parts)
+    assertNull(GenerateContentResponse().parts)
+  }
+
+  @Test
+  fun testGroundingMetadataReturnsMetadataOfFirstCandidate() {
+    val metadata = GroundingMetadata(webSearchQueries = listOf("kotlin coroutines"))
+    val response =
+      GenerateContentResponse(
+        candidates =
+          listOf(
+            Candidate(groundingMetadata = metadata),
+            Candidate(
+              groundingMetadata = GroundingMetadata(webSearchQueries = listOf("second candidate"))
+            ),
+          )
+      )
+
+    assertEquals(metadata, response.groundingMetadata)
+  }
+
+  @Test
+  fun testGroundingMetadataReturnsNullWhenAbsent() {
+    assertNull(GenerateContentResponse(candidates = listOf(Candidate())).groundingMetadata)
+    assertNull(GenerateContentResponse().groundingMetadata)
   }
 }

@@ -65,11 +65,7 @@ data class GenerateContentResponse(
    */
   val text: String?
     get() {
-      val candidates = candidates ?: return null
-      if (candidates.isEmpty()) return null
-
-      val firstCandidate = candidates[0]
-      val parts = firstCandidate.content?.parts ?: return null
+      val parts = parts ?: return null
 
       var concatenatedText = ""
       var anyTextPart = false
@@ -88,16 +84,21 @@ data class GenerateContentResponse(
     }
 
   /**
+   * Returns all the parts in the response.
+   *
+   * If there are multiple candidates, this returns the parts from only the first one.
+   */
+  val parts: List<Part>?
+    get() = candidates?.firstOrNull()?.content?.parts
+
+  /**
    * Returns the list of function calls in the response.
    *
    * If there are multiple candidates, this returns the function calls from only the first one.
    */
   val functionCalls: List<FunctionCall>?
     get() {
-      val candidates = candidates ?: return null
-      if (candidates.isEmpty()) return null
-      val parts = candidates[0].content?.parts ?: return null
-      val calls = parts.mapNotNull { it.functionCall }
+      val calls = parts?.mapNotNull { it.functionCall } ?: return null
       return if (calls.isEmpty()) null else calls
     }
 
@@ -111,16 +112,22 @@ data class GenerateContentResponse(
     get() = candidates?.firstOrNull()?.finishReason
 
   /**
+   * Returns the grounding metadata of the response, set when a grounding tool such as Google Search
+   * was used, and null otherwise.
+   *
+   * If there are multiple candidates, this returns the metadata from only the first one.
+   */
+  val groundingMetadata: GroundingMetadata?
+    get() = candidates?.firstOrNull()?.groundingMetadata
+
+  /**
    * Returns the code the model asked to have run, when the code execution tool is enabled.
    *
    * If there are multiple candidates, this returns the code from only the first one, and if that
    * candidate holds several executable code parts, only the first of those.
    */
   val executableCode: String?
-    get() {
-      val parts = candidates?.firstOrNull()?.content?.parts ?: return null
-      return parts.firstNotNullOfOrNull { it.executableCode }?.code
-    }
+    get() = parts?.firstNotNullOfOrNull { it.executableCode }?.code
 
   /**
    * Returns the output of running the code the model asked to have run.
@@ -129,8 +136,5 @@ data class GenerateContentResponse(
    * candidate holds several results, only the first of those.
    */
   val codeExecutionResult: String?
-    get() {
-      val parts = candidates?.firstOrNull()?.content?.parts ?: return null
-      return parts.firstNotNullOfOrNull { it.codeExecutionResult }?.output
-    }
+    get() = parts?.firstNotNullOfOrNull { it.codeExecutionResult }?.output
 }

@@ -163,9 +163,10 @@ does not carry that kind of content:
 | Accessor | Returns |
 | --- | --- |
 | `response.text` | the concatenated text parts |
-| `response.parts` | the parts of the first candidate |
+| `response.parts` | all the parts in the response |
 | `response.functionCalls` | the function calls the model requested |
 | `response.finishReason` | why the model stopped, once it has |
+| `response.groundingMetadata` | the sources and queries behind a grounded answer |
 | `response.executableCode` | code the model asked to have run |
 | `response.codeExecutionResult` | the output of running that code |
 
