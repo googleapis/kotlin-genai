@@ -791,6 +791,46 @@ fun main() = runBlocking {
 }
 ```
 
+#### Register Files
+
+You can register a file using a URI (e.g. Google Cloud Storage). This targets the Gemini Developer API and needs Google Cloud credentials (OAuth) *in addition to* your API key: the client still authenticates with the API key, while the service uses the OAuth token to read the object out of your bucket. Pass the credentials to `registerFiles` only — the `Client` constructor treats credentials and API keys as mutually exclusive.
+
+The credentials must carry the `devstorage.read_only` scope, or the call fails with `403 ACCESS_TOKEN_SCOPE_INSUFFICIENT`. Note that `createScoped` only applies to service account credentials; end-user credentials from `gcloud auth application-default login` have fixed scopes, so request them at login time:
+
+```
+gcloud auth application-default login \
+    --scopes="https://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/devstorage.read_only"
+```
+
+```kotlin
+import com.google.genai.kotlin.Client
+import com.google.auth.oauth2.GoogleCredentials
+import kotlinx.coroutines.runBlocking
+
+fun main() = runBlocking {
+    // Application Default Credentials provide the OAuth token used to read from GCS.
+    val credentials = GoogleCredentials.getApplicationDefault()
+        .createScoped(
+            listOf(
+                "https://www.googleapis.com/auth/cloud-platform",
+                "https://www.googleapis.com/auth/devstorage.read_only"
+            )
+        )
+
+    // The client authenticates with GEMINI_API_KEY / GOOGLE_API_KEY from the environment.
+    Client().use { client ->
+        val gcsUri = "gs://cloud-samples-data/generative-ai/image/a-man-and-a-dog.png"
+        val response = client.files.registerFiles(
+            credentials = credentials,
+            uris = listOf(gcsUri)
+        )
+
+        val registeredFile = response.files?.firstOrNull()
+        println("Registered file: ${registeredFile?.name}")
+    }
+}
+```
+
 ### Context Caching
 
 You can cache content to reduce latency and cost for repetitive requests.
