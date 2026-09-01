@@ -63,7 +63,7 @@ object ChatWithAutomaticFunctionCalling {
   @JvmStatic
   fun main(args: Array<String>) =
     runBlocking<Unit> {
-      val modelId = args.firstOrNull() ?: "gemini-3.6-flash"
+      val modelId = args.firstOrNull() ?: GEMINI_MODEL_NAME
 
       // A mocked function to keep the example short. Use the real one you want here.
       val getWeather =

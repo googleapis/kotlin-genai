@@ -50,7 +50,7 @@ object ProxyConfiguration {
   @JvmStatic
   fun main(args: Array<String>) =
     runBlocking<Unit> {
-      val modelId = args.firstOrNull() ?: "gemini-3.5-flash"
+      val modelId = args.firstOrNull() ?: GEMINI_MODEL_NAME
 
       val proxyOptions =
         ProxyOptions(

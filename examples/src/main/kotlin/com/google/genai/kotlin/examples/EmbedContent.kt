@@ -55,7 +55,7 @@ object EmbedContent {
     runBlocking<Unit> {
       // Use the standard embedding model (gemini-embedding-2 supports multimodal and advanced
       // features)
-      val modelId = args.firstOrNull() ?: "gemini-embedding-2"
+      val modelId = args.firstOrNull() ?: EMBEDDING_MODEL_NAME
 
       println("Initializing client...")
       Client().use { client ->

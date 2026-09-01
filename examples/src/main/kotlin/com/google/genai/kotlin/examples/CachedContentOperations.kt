@@ -56,7 +56,7 @@ object CachedContentOperations {
   @JvmStatic
   fun main(args: Array<String>) =
     runBlocking<Unit> {
-      val modelId = if (args.isNotEmpty()) args[0] else "gemini-3.5-flash"
+      val modelId = if (args.isNotEmpty()) args[0] else GEMINI_MODEL_NAME
 
       // Instantiate the client. The client by default uses the Gemini Developer API.
       Client().use { client ->

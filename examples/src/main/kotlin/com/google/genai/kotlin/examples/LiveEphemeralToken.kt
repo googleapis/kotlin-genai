@@ -44,8 +44,6 @@ object LiveEphemeralToken {
   @JvmStatic
   fun main(args: Array<String>) =
     runBlocking<Unit> {
-      val model = "gemini-3.1-flash-live-preview"
-
       // 1. Create an ephemeral auth token using standard credentials (e.g. backend server).
       val token =
         Client().use { client ->
@@ -55,7 +53,7 @@ object LiveEphemeralToken {
               uses = 1,
               liveConnectConstraints =
                 LiveConnectConstraints(
-                  model = model,
+                  model = LIVE_MODEL_NAME,
                   config =
                     LiveConnectConfig(
                       responseModalities = listOf(Modality.AUDIO),
@@ -74,7 +72,7 @@ object LiveEphemeralToken {
       Client(apiKey = tokenName, httpOptions = HttpOptions(apiVersion = "v1alpha")).use { client ->
         println("\nConnecting to Live API using ephemeral token...")
 
-        client.live.connect(model).use { session ->
+        client.live.connect(LIVE_MODEL_NAME).use { session ->
           println("Connected! Sending a message...")
           session.sendRealtimeInput(text = "Hello from an ephemeral token session!")
 

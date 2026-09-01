@@ -59,7 +59,7 @@ object BatchesOperations {
   @JvmStatic
   fun main(args: Array<String>) =
     runBlocking<Unit> {
-      val modelId = if (args.isNotEmpty()) args[0] else "gemini-3.5-flash"
+      val modelId = if (args.isNotEmpty()) args[0] else GEMINI_MODEL_NAME
       val isEnterprise = System.getenv("GOOGLE_GENAI_USE_ENTERPRISE")?.toBoolean() ?: false
 
       // Instantiate the client. The client by default uses the Gemini Developer API.
@@ -131,7 +131,7 @@ object BatchesOperations {
                 )
             )
           val embedBatchJob =
-            client.batches.createEmbeddings(model = "gemini-embedding-2", src = embedSrc)
+            client.batches.createEmbeddings(model = EMBEDDING_MODEL_NAME, src = embedSrc)
           println("Created batch embeddings job: ${embedBatchJob.name}")
           val embedJobId = embedBatchJob.name
           if (embedJobId != null) {

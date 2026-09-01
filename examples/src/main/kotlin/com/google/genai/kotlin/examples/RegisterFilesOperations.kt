@@ -99,7 +99,7 @@ object RegisterFilesOperations {
 
           val genResponse =
             client.models.generateContent(
-              model = "gemini-flash-latest",
+              model = GEMINI_MODEL_NAME,
               contents =
                 listOf(
                   Content(

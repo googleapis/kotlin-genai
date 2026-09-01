@@ -88,7 +88,7 @@ object TuningsOperations {
         println("\n--- 3. Starting Supervised Fine-Tuning (SFT) Job ---")
         val sftJob =
           client.tunings.tune(
-            baseModel = "gemini-2.5-flash",
+            baseModel = TUNING_BASE_MODEL_NAME,
             trainingDataset =
               TuningDataset(
                 gcsUri =
@@ -108,7 +108,7 @@ object TuningsOperations {
         println("\n--- 4. Starting Preference Tuning (DPO) Job ---")
         val dpoJob =
           client.tunings.tune(
-            baseModel = "gemini-2.5-flash",
+            baseModel = TUNING_BASE_MODEL_NAME,
             trainingDataset =
               TuningDataset(
                 gcsUri =
@@ -170,7 +170,7 @@ object TuningsOperations {
         println("\n--- 7. Starting Reinforcement Tuning Job ---")
         val rlhfJob =
           client.tunings.tune(
-            baseModel = "gemini-2.5-flash",
+            baseModel = TUNING_BASE_MODEL_NAME,
             trainingDataset =
               TuningDataset(
                 gcsUri =

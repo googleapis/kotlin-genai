@@ -51,7 +51,7 @@ object GetModel {
     runBlocking<Unit> {
       // Gemini Enterprise Agent Platform also supports getting info on a tuned model.
       // You can pass the tuned model ID as an argument.
-      val modelId = args.firstOrNull() ?: "gemini-3.5-flash"
+      val modelId = args.firstOrNull() ?: GEMINI_MODEL_NAME
 
       Client().use { client ->
         println("Getting info for model: $modelId")

@@ -51,7 +51,7 @@ object GenerateContent {
   @JvmStatic
   fun main(args: Array<String>) =
     runBlocking<Unit> {
-      val modelId = args.firstOrNull() ?: "gemini-3.5-flash"
+      val modelId = args.firstOrNull() ?: GEMINI_MODEL_NAME
 
       // 3. Instantiate the client (use block automatically closes the client)
       Client().use { client ->

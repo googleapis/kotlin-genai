@@ -40,11 +40,12 @@ import kotlinx.serialization.json.JsonPrimitive
  * 1a. If you are using Gemini Enterprise Agent Platform, setup ADC to get credentials:
  * https://cloud.google.com/docs/authentication/provide-credentials-adc#google-idp
  *
- * Then set Project, Location, and GOOGLE_GENAI_USE_ENTERPRISE flag as environment variables:
+ * Then set Project, Location, and GOOGLE_GENAI_USE_ENTERPRISE flag as environment variables. The
+ * Live model is not served in the `global` location, so choose a region:
  *
  * export GOOGLE_CLOUD_PROJECT=YOUR_PROJECT
  *
- * export GOOGLE_CLOUD_LOCATION=YOUR_LOCATION
+ * export GOOGLE_CLOUD_LOCATION=us-central1
  *
  * export GOOGLE_GENAI_USE_ENTERPRISE=true
  *
@@ -63,12 +64,8 @@ object LiveFunctionCalling {
   fun main(args: Array<String>) =
     runBlocking<Unit> {
       Client().use { client ->
-        val model =
-          if (client.enterprise) "gemini-live-2.5-flash-native-audio"
-          else "gemini-3.1-flash-live-preview"
-
         println(
-          "Connecting to Live Session from ${if (client.enterprise) "GEAP" else "Gemini"} API with model: $model..."
+          "Connecting to Live Session from ${if (client.enterprise) "GEAP" else "Gemini"} API with model: $LIVE_MODEL_NAME..."
         )
 
         val getWeatherDeclaration =
@@ -89,7 +86,7 @@ object LiveFunctionCalling {
             outputAudioTranscription = AudioTranscriptionConfig(),
           )
 
-        client.live.connect(model, config).use { session ->
+        client.live.connect(LIVE_MODEL_NAME, config).use { session ->
           println("\nConnected! Asking for the weather...")
 
           session.sendRealtimeInput(text = "What is the weather in Seattle?")
