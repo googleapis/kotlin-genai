@@ -1,0 +1,155 @@
+{
+  "recordID": "FilesE2ETest.testRegisterFiles.mldev",
+  "interactions": [
+    {
+      "request": {
+        "method": "POST",
+        "url": "/v1beta/files:register",
+        "request": "POST /v1beta/files:register HTTP/1.1",
+        "headers": {
+          "Accept": "*/*",
+          "Accept-Charset": "UTF-8",
+          "Accept-Encoding": "gzip",
+          "Connection": "Keep-Alive",
+          "Content-Length": "76",
+          "Content-Type": "application/json",
+          "Test-Name": "FilesE2ETest.testRegisterFiles.mldev"
+        },
+        "bodySegments": [
+          {
+            "uris": [
+              "gs://cloud-samples-data/generative-ai/image/a-man-and-a-dog.png"
+            ]
+          }
+        ],
+        "previousRequest": "b4d6e60a9b97e7b98c63df9308728c5c88c0b40c398046772c63447b94608b4d",
+        "serverAddress": "generativelanguage.googleapis.com",
+        "port": 443,
+        "protocol": "https"
+      },
+      "shaSum": "70486540a3e8b9e67161a2dcf479fd4e4bb34a3d3ea79caf12002152b331cd9f",
+      "response": {
+        "statusCode": 200,
+        "headers": {
+          "Content-Encoding": "gzip",
+          "Content-Length": "194",
+          "Content-Type": "application/json; charset=UTF-8",
+          "Date": "Sat, 29 Aug 2026 00:48:25 GMT",
+          "Server": "scaffolding on HTTPServer2",
+          "Server-Timing": "gfet4t7; dur=487",
+          "Vary": "Origin, X-Origin, Referer",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "SAMEORIGIN",
+          "X-Xss-Protection": "0"
+        },
+        "bodySegments": [
+          {
+            "files": [
+              {
+                "displayName": "85y28ywww05x",
+                "mimeType": "image/png",
+                "name": "files/85y28ywww05x",
+                "sizeBytes": "4376280",
+                "source": "REGISTERED",
+                "uri": "https://generativelanguage.googleapis.com/v1beta/files/85y28ywww05x"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "request": {
+        "method": "GET",
+        "url": "/v1beta/files/85y28ywww05x",
+        "request": "GET /v1beta/files/85y28ywww05x HTTP/1.1",
+        "headers": {
+          "Accept": "*/*",
+          "Accept-Charset": "UTF-8",
+          "Accept-Encoding": "gzip",
+          "Connection": "Keep-Alive",
+          "Content-Type": "application/json",
+          "Test-Name": "FilesE2ETest.testRegisterFiles.mldev"
+        },
+        "bodySegments": [
+          null
+        ],
+        "previousRequest": "70486540a3e8b9e67161a2dcf479fd4e4bb34a3d3ea79caf12002152b331cd9f",
+        "serverAddress": "generativelanguage.googleapis.com",
+        "port": 443,
+        "protocol": "https"
+      },
+      "shaSum": "f004c4046a0752967a41b03981c8002b71eb97a2205aad8190b63fd17f77f4b5",
+      "response": {
+        "statusCode": 200,
+        "headers": {
+          "Content-Encoding": "gzip",
+          "Content-Length": "238",
+          "Content-Type": "application/json; charset=UTF-8",
+          "Date": "Sat, 29 Aug 2026 00:48:25 GMT",
+          "Server": "scaffolding on HTTPServer2",
+          "Server-Timing": "gfet4t7; dur=86",
+          "Vary": "Origin, X-Origin, Referer",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "SAMEORIGIN",
+          "X-Xss-Protection": "0"
+        },
+        "bodySegments": [
+          {
+            "createTime": "2026-08-29T00:48:25.787814Z",
+            "expirationTime": "2026-09-28T00:48:25.756415949Z",
+            "mimeType": "image/png",
+            "name": "files/85y28ywww05x",
+            "sizeBytes": "4376280",
+            "source": "REGISTERED",
+            "state": "ACTIVE",
+            "updateTime": "2026-08-29T00:48:25.787814Z",
+            "uri": "https://generativelanguage.googleapis.com/v1beta/files/85y28ywww05x"
+          }
+        ]
+      }
+    },
+    {
+      "request": {
+        "method": "DELETE",
+        "url": "/v1beta/files/85y28ywww05x",
+        "request": "DELETE /v1beta/files/85y28ywww05x HTTP/1.1",
+        "headers": {
+          "Accept": "*/*",
+          "Accept-Charset": "UTF-8",
+          "Accept-Encoding": "gzip",
+          "Connection": "Keep-Alive",
+          "Content-Length": "0",
+          "Content-Type": "application/json",
+          "Test-Name": "FilesE2ETest.testRegisterFiles.mldev"
+        },
+        "bodySegments": [
+          null
+        ],
+        "previousRequest": "f004c4046a0752967a41b03981c8002b71eb97a2205aad8190b63fd17f77f4b5",
+        "serverAddress": "generativelanguage.googleapis.com",
+        "port": 443,
+        "protocol": "https"
+      },
+      "shaSum": "1e17def08f35c74d3ed705109eea20ad53f82cb2aef5f1320b5e509e1496af19",
+      "response": {
+        "statusCode": 200,
+        "headers": {
+          "Content-Encoding": "gzip",
+          "Content-Length": "23",
+          "Content-Type": "application/json; charset=UTF-8",
+          "Date": "Sat, 29 Aug 2026 00:48:26 GMT",
+          "Server": "scaffolding on HTTPServer2",
+          "Server-Timing": "gfet4t7; dur=338",
+          "Vary": "Origin, X-Origin, Referer",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "SAMEORIGIN",
+          "X-Xss-Protection": "0"
+        },
+        "bodySegments": [
+          {}
+        ]
+      }
+    }
+  ]
+}

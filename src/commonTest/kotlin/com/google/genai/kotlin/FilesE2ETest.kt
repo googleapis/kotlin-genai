@@ -64,6 +64,37 @@ class FilesE2ETest : BaseTestServer() {
   }
 
   @Test
+  fun testRegisterFiles() = runTest {
+    val testName = "FilesE2ETest.testRegisterFiles.mldev"
+    val creds =
+      if (testMode == "replay") {
+        GoogleCredentials.create(com.google.auth.oauth2.AccessToken("test-token", null))
+      } else {
+        getDefaultCredentials()
+      }
+    // Credentials go to registerFiles alone; the client authenticates with an API key.
+    val client = createClient(enterprise = false, testName = testName)
+
+    val gcsUri = "gs://cloud-samples-data/generative-ai/image/a-man-and-a-dog.png"
+    val response = client.files.registerFiles(credentials = creds!!, uris = listOf(gcsUri))
+    assertNotNull(response)
+    val files = response.files
+    assertNotNull(files)
+    assertTrue(files.isNotEmpty())
+
+    val registeredFile = files[0]
+    assertNotNull(registeredFile.name)
+    assertTrue(registeredFile.uri?.startsWith("https://generativelanguage.googleapis.com") == true)
+
+    // The registered file is usable from the ordinary API key client.
+    val retrieved = client.files.get(name = registeredFile.name!!)
+    assertEquals(FileState.ACTIVE, retrieved.state)
+
+    // Clean up
+    client.files.delete(name = registeredFile.name!!)
+  }
+
+  @Test
   fun testUploadLifecycle() = runTest {
     val testName = "FilesE2ETest.testUploadLifecycle.mldev"
     val client = createClient(enterprise = false, testName = testName)
