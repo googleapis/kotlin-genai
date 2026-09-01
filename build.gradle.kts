@@ -39,23 +39,30 @@ repositories {
 }
 
 kotlin {
-  compilerOptions { freeCompilerArgs.add("-Xexpect-actual-classes") }
+  compilerOptions {
+    freeCompilerArgs.add("-Xexpect-actual-classes")
+    // Emit metadata/bytecode for an older Kotlin than we compile with, so published
+    // artifacts stay consumable by projects on Kotlin 1.9 and downstream libraries
+    // are not forced to upgrade.
+    languageVersion.set(org.jetbrains.kotlin.gradle.dsl.KotlinVersion.KOTLIN_2_0)
+    apiVersion.set(org.jetbrains.kotlin.gradle.dsl.KotlinVersion.KOTLIN_2_0)
+  }
+
+  // The kotlin-stdlib the plugin publishes transitively. Pinned so a 2.3 stdlib
+  // does not leak into our POM and defeat the language/API level above.
+  coreLibrariesVersion = "2.0.21"
 
   androidTarget {
     publishLibraryVariants("release")
-    compilations.all { kotlinOptions { jvmTarget = "17" } }
+    compilerOptions { jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_17) }
   }
-  jvm { compilations.all { kotlinOptions { jvmTarget = "17" } } }
+  jvm { compilerOptions { jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_17) } }
 
   sourceSets {
     val commonMain by getting {
       dependencies {
         api(libs.kotlinx.serialization.json)
-        api(libs.kotlinx.datetime)
         api(libs.ktor.client.core)
-        implementation(libs.ktor.client.core)
-        implementation(libs.ktor.client.content.negotiation)
-        implementation(libs.ktor.serialization.kotlinx.json)
         implementation(libs.kotlinx.coroutines.core)
         implementation(libs.ktor.client.websockets)
       }
