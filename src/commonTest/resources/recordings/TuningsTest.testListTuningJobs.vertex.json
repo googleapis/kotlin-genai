@@ -43,8 +43,8 @@
               {
                 "baseModel": "gemini-3.5-flash",
                 "createTime": "2026-07-13T19:15:56.925603Z",
-                "experiment": "projects/801452371447/locations/us-central1/metadataStores/default/contexts/tuning-experiment-20260713121620934770",
-                "name": "projects/801452371447/locations/us-central1/tuningJobs/3156423563783700480",
+                "experiment": "projects/REDACTED/locations/us-central1/metadataStores/default/contexts/tuning-experiment-20260713121620934770",
+                "name": "projects/REDACTED/locations/us-central1/tuningJobs/3156423563783700480",
                 "reinforcementTuningSpec": {
                   "compositeRewardConfig": {
                     "weightedRewardConfigs": [
@@ -52,7 +52,7 @@
                         "rewardConfig": {
                           "parseResponseConfig": {
                             "parseType": "REGEX_EXTRACT",
-                            "regexExtractExpression": "\u003cthink\u003e.*\u003c/think\u003e\\s*\u003canswer\u003e(.*?)\u003c/answer\u003e"
+                            "regexExtractExpression": "<think>.*</think>\\s*<answer>(.*?)</answer>"
                           },
                           "rewardName": "binary_format",
                           "stringMatchRewardScorer": {
@@ -70,7 +70,7 @@
                         "rewardConfig": {
                           "parseResponseConfig": {
                             "parseType": "REGEX_EXTRACT",
-                            "regexExtractExpression": "\u003canswer\u003e(.*?)\u003c/answer\u003e"
+                            "regexExtractExpression": "<answer>(.*?)</answer>"
                           },
                           "rewardName": "binary_ans",
                           "stringMatchRewardScorer": {
@@ -103,7 +103,7 @@
                 "startTime": "2026-07-13T19:15:57.157852Z",
                 "state": "JOB_STATE_RUNNING",
                 "tunedModel": {
-                  "model": "projects/801452371447/locations/us/models/8308578362545143808@1"
+                  "model": "projects/REDACTED/locations/us/models/8308578362545143808@1"
                 },
                 "tunedModelDisplayName": "cam_motion_all_data_v2_pmpt_rl_of_text_fps_1_r1_no_sc_g35f",
                 "tuningDataStats": {
@@ -222,8 +222,8 @@
               {
                 "baseModel": "gemini-3.5-flash",
                 "createTime": "2026-07-13T19:24:05.632585Z",
-                "experiment": "projects/801452371447/locations/us-central1/metadataStores/default/contexts/tuning-experiment-20260713122429316229",
-                "name": "projects/801452371447/locations/us-central1/tuningJobs/1255341571079929856",
+                "experiment": "projects/REDACTED/locations/us-central1/metadataStores/default/contexts/tuning-experiment-20260713122429316229",
+                "name": "projects/REDACTED/locations/us-central1/tuningJobs/1255341571079929856",
                 "reinforcementTuningSpec": {
                   "compositeRewardConfig": {
                     "weightedRewardConfigs": [
@@ -231,7 +231,7 @@
                         "rewardConfig": {
                           "parseResponseConfig": {
                             "parseType": "REGEX_EXTRACT",
-                            "regexExtractExpression": "\u003cthink\u003e.*\u003c/think\u003e\\s*\u003canswer\u003e(.*?)\u003c/answer\u003e"
+                            "regexExtractExpression": "<think>.*</think>\\s*<answer>(.*?)</answer>"
                           },
                           "rewardName": "binary_format",
                           "stringMatchRewardScorer": {
@@ -249,7 +249,7 @@
                         "rewardConfig": {
                           "parseResponseConfig": {
                             "parseType": "REGEX_EXTRACT",
-                            "regexExtractExpression": "\u003canswer\u003e(.*?)\u003c/answer\u003e"
+                            "regexExtractExpression": "<answer>(.*?)</answer>"
                           },
                           "rewardName": "binary_ans",
                           "stringMatchRewardScorer": {
@@ -282,7 +282,7 @@
                 "startTime": "2026-07-13T19:24:05.683479Z",
                 "state": "JOB_STATE_RUNNING",
                 "tunedModel": {
-                  "model": "projects/801452371447/locations/us/models/1309984541611393024@1"
+                  "model": "projects/REDACTED/locations/us/models/1309984541611393024@1"
                 },
                 "tunedModelDisplayName": "cam_motion_cambench_slow_vid_v2_moderate_pmpt_rl_all_aug_pm_of_text_fps_2_no_sc_g35f",
                 "tuningDataStats": {
@@ -396,8 +396,8 @@
               {
                 "baseModel": "gemini-3.5-flash",
                 "createTime": "2026-07-13T19:22:00.794196Z",
-                "experiment": "projects/801452371447/locations/us-central1/metadataStores/default/contexts/tuning-experiment-20260713122223250542",
-                "name": "projects/801452371447/locations/us-central1/tuningJobs/2559133663203688448",
+                "experiment": "projects/REDACTED/locations/us-central1/metadataStores/default/contexts/tuning-experiment-20260713122223250542",
+                "name": "projects/REDACTED/locations/us-central1/tuningJobs/2559133663203688448",
                 "reinforcementTuningSpec": {
                   "compositeRewardConfig": {
                     "weightedRewardConfigs": [
@@ -405,7 +405,7 @@
                         "rewardConfig": {
                           "parseResponseConfig": {
                             "parseType": "REGEX_EXTRACT",
-                            "regexExtractExpression": "\u003cthink\u003e.*\u003c/think\u003e\\s*\u003canswer\u003e(.*?)\u003c/answer\u003e"
+                            "regexExtractExpression": "<think>.*</think>\\s*<answer>(.*?)</answer>"
                           },
                           "rewardName": "binary_format",
                           "stringMatchRewardScorer": {
@@ -423,7 +423,7 @@
                         "rewardConfig": {
                           "parseResponseConfig": {
                             "parseType": "REGEX_EXTRACT",
-                            "regexExtractExpression": "\u003canswer\u003e(.*?)\u003c/answer\u003e"
+                            "regexExtractExpression": "<answer>(.*?)</answer>"
                           },
                           "rewardName": "binary_ans",
                           "stringMatchRewardScorer": {
@@ -456,7 +456,7 @@
                 "startTime": "2026-07-13T19:22:00.841417Z",
                 "state": "JOB_STATE_RUNNING",
                 "tunedModel": {
-                  "model": "projects/801452371447/locations/us/models/4948893040526753792@1"
+                  "model": "projects/REDACTED/locations/us/models/4948893040526753792@1"
                 },
                 "tunedModelDisplayName": "cam_motion_cambench_slow_vid_v2_pmpt_rl_all_aug_pm_of_text_fps_2_no_sc_g35f",
                 "tuningDataStats": {
@@ -570,8 +570,8 @@
               {
                 "baseModel": "gemini-3.5-flash",
                 "createTime": "2026-07-13T19:21:16.471920Z",
-                "experiment": "projects/801452371447/locations/us-central1/metadataStores/default/contexts/tuning-experiment-20260713122145007108",
-                "name": "projects/801452371447/locations/us-central1/tuningJobs/3782423911988199424",
+                "experiment": "projects/REDACTED/locations/us-central1/metadataStores/default/contexts/tuning-experiment-20260713122145007108",
+                "name": "projects/REDACTED/locations/us-central1/tuningJobs/3782423911988199424",
                 "reinforcementTuningSpec": {
                   "compositeRewardConfig": {
                     "weightedRewardConfigs": [
@@ -579,7 +579,7 @@
                         "rewardConfig": {
                           "parseResponseConfig": {
                             "parseType": "REGEX_EXTRACT",
-                            "regexExtractExpression": "\u003cthink\u003e.*\u003c/think\u003e\\s*\u003canswer\u003e(.*?)\u003c/answer\u003e"
+                            "regexExtractExpression": "<think>.*</think>\\s*<answer>(.*?)</answer>"
                           },
                           "rewardName": "binary_format",
                           "stringMatchRewardScorer": {
@@ -597,7 +597,7 @@
                         "rewardConfig": {
                           "parseResponseConfig": {
                             "parseType": "REGEX_EXTRACT",
-                            "regexExtractExpression": "\u003canswer\u003e(.*?)\u003c/answer\u003e"
+                            "regexExtractExpression": "<answer>(.*?)</answer>"
                           },
                           "rewardName": "binary_ans",
                           "stringMatchRewardScorer": {
@@ -630,7 +630,7 @@
                 "startTime": "2026-07-13T19:21:16.947921Z",
                 "state": "JOB_STATE_RUNNING",
                 "tunedModel": {
-                  "model": "projects/801452371447/locations/us/models/8200491971488251904@1"
+                  "model": "projects/REDACTED/locations/us/models/8200491971488251904@1"
                 },
                 "tunedModelDisplayName": "cam_motion_all_data_slow_vid_v2_pmpt_rl_all_aug_pm_of_text_fps_2_no_sc_g35f",
                 "tuningDataStats": {
@@ -744,8 +744,8 @@
               {
                 "baseModel": "gemini-3.5-flash",
                 "createTime": "2026-07-13T19:15:37.741601Z",
-                "experiment": "projects/801452371447/locations/us-central1/metadataStores/default/contexts/tuning-experiment-20260713121559166374",
-                "name": "projects/801452371447/locations/us-central1/tuningJobs/1107285733330124800",
+                "experiment": "projects/REDACTED/locations/us-central1/metadataStores/default/contexts/tuning-experiment-20260713121559166374",
+                "name": "projects/REDACTED/locations/us-central1/tuningJobs/1107285733330124800",
                 "reinforcementTuningSpec": {
                   "compositeRewardConfig": {
                     "weightedRewardConfigs": [
@@ -753,7 +753,7 @@
                         "rewardConfig": {
                           "parseResponseConfig": {
                             "parseType": "REGEX_EXTRACT",
-                            "regexExtractExpression": "\u003cthink\u003e.*\u003c/think\u003e\\s*\u003canswer\u003e(.*?)\u003c/answer\u003e"
+                            "regexExtractExpression": "<think>.*</think>\\s*<answer>(.*?)</answer>"
                           },
                           "rewardName": "binary_format",
                           "stringMatchRewardScorer": {
@@ -771,7 +771,7 @@
                         "rewardConfig": {
                           "parseResponseConfig": {
                             "parseType": "REGEX_EXTRACT",
-                            "regexExtractExpression": "\u003canswer\u003e(.*?)\u003c/answer\u003e"
+                            "regexExtractExpression": "<answer>(.*?)</answer>"
                           },
                           "rewardName": "binary_ans",
                           "stringMatchRewardScorer": {
@@ -804,7 +804,7 @@
                 "startTime": "2026-07-13T19:15:37.807741Z",
                 "state": "JOB_STATE_RUNNING",
                 "tunedModel": {
-                  "model": "projects/801452371447/locations/us/models/337207022099365888@1"
+                  "model": "projects/REDACTED/locations/us/models/337207022099365888@1"
                 },
                 "tunedModelDisplayName": "cam_motion_cambench_v2_pmpt_rl_of_text_fps_1_r1_no_sc_g35f",
                 "tuningDataStats": {
@@ -928,8 +928,8 @@
                   "code": 1,
                   "message": "CANCELED"
                 },
-                "experiment": "projects/801452371447/locations/us-central1/metadataStores/default/contexts/tuning-experiment-20260713122015666603",
-                "name": "projects/801452371447/locations/us-central1/tuningJobs/9089353122890907648",
+                "experiment": "projects/REDACTED/locations/us-central1/metadataStores/default/contexts/tuning-experiment-20260713122015666603",
+                "name": "projects/REDACTED/locations/us-central1/tuningJobs/9089353122890907648",
                 "reinforcementTuningSpec": {
                   "compositeRewardConfig": {
                     "weightedRewardConfigs": [
@@ -937,7 +937,7 @@
                         "rewardConfig": {
                           "parseResponseConfig": {
                             "parseType": "REGEX_EXTRACT",
-                            "regexExtractExpression": "\u003cthink\u003e.*\u003c/think\u003e\\s*\u003canswer\u003e(.*?)\u003c/answer\u003e"
+                            "regexExtractExpression": "<think>.*</think>\\s*<answer>(.*?)</answer>"
                           },
                           "rewardName": "binary_format",
                           "stringMatchRewardScorer": {
@@ -955,7 +955,7 @@
                         "rewardConfig": {
                           "parseResponseConfig": {
                             "parseType": "REGEX_EXTRACT",
-                            "regexExtractExpression": "\u003canswer\u003e(.*?)\u003c/answer\u003e"
+                            "regexExtractExpression": "<answer>(.*?)</answer>"
                           },
                           "rewardName": "binary_ans",
                           "stringMatchRewardScorer": {
@@ -988,7 +988,7 @@
                 "startTime": "2026-07-13T19:19:53.461189Z",
                 "state": "JOB_STATE_CANCELLED",
                 "tunedModel": {
-                  "model": "projects/801452371447/locations/us/models/6606217703399096320@1"
+                  "model": "projects/REDACTED/locations/us/models/6606217703399096320@1"
                 },
                 "tunedModelDisplayName": "cam_motion_cambench_slow_vid_moderate_pmpt_rl_all_aug_pm_of_text_fps_2_no_sc_g35f",
                 "updateTime": "2026-07-13T19:21:32.355388Z"
@@ -996,12 +996,12 @@
               {
                 "createTime": "2026-07-12T19:31:14.631952Z",
                 "endTime": "2026-07-12T20:03:05.190595Z",
-                "experiment": "projects/801452371447/locations/us-central1/metadataStores/default/contexts/tuning-experiment-20260712123218923310",
-                "name": "projects/801452371447/locations/us-central1/tuningJobs/5606302596236050432",
+                "experiment": "projects/REDACTED/locations/us-central1/metadataStores/default/contexts/tuning-experiment-20260712123218923310",
+                "name": "projects/REDACTED/locations/us-central1/tuningJobs/5606302596236050432",
                 "preTunedModel": {
                   "baseModel": "gemini-2.5-flash",
                   "checkpointId": "3",
-                  "tunedModelName": "projects/801452371447/locations/us-central1/models/9030969596621881344@1"
+                  "tunedModelName": "projects/REDACTED/locations/us-central1/models/9030969596621881344@1"
                 },
                 "startTime": "2026-07-12T19:31:14.678549Z",
                 "state": "JOB_STATE_SUCCEEDED",
@@ -1017,49 +1017,49 @@
                   "checkpoints": [
                     {
                       "checkpointId": "1",
-                      "endpoint": "projects/801452371447/locations/us-central1/endpoints/2689062943668043776",
+                      "endpoint": "projects/REDACTED/locations/us-central1/endpoints/2689062943668043776",
                       "epoch": "2",
                       "step": "34"
                     },
                     {
                       "checkpointId": "2",
-                      "endpoint": "projects/801452371447/locations/us-central1/endpoints/2941264522800791552",
+                      "endpoint": "projects/REDACTED/locations/us-central1/endpoints/2941264522800791552",
                       "epoch": "3",
                       "step": "68"
                     },
                     {
                       "checkpointId": "3",
-                      "endpoint": "projects/801452371447/locations/us-central1/endpoints/8930207602273419264",
+                      "endpoint": "projects/REDACTED/locations/us-central1/endpoints/8930207602273419264",
                       "epoch": "4",
                       "step": "102"
                     },
                     {
                       "checkpointId": "4",
-                      "endpoint": "projects/801452371447/locations/us-central1/endpoints/4837279965923770368",
+                      "endpoint": "projects/REDACTED/locations/us-central1/endpoints/4837279965923770368",
                       "epoch": "5",
                       "step": "136"
                     },
                     {
                       "checkpointId": "5",
-                      "endpoint": "projects/801452371447/locations/us-central1/endpoints/7250364941264224256",
+                      "endpoint": "projects/REDACTED/locations/us-central1/endpoints/7250364941264224256",
                       "epoch": "6",
                       "step": "170"
                     },
                     {
                       "checkpointId": "6",
-                      "endpoint": "projects/801452371447/locations/us-central1/endpoints/6391021837366591488",
+                      "endpoint": "projects/REDACTED/locations/us-central1/endpoints/6391021837366591488",
                       "epoch": "7",
                       "step": "204"
                     },
                     {
                       "checkpointId": "7",
-                      "endpoint": "projects/801452371447/locations/us-central1/endpoints/3773586028934201344",
+                      "endpoint": "projects/REDACTED/locations/us-central1/endpoints/3773586028934201344",
                       "epoch": "7",
                       "step": "233"
                     }
                   ],
-                  "endpoint": "projects/801452371447/locations/us-central1/endpoints/3773586028934201344",
-                  "model": "projects/801452371447/locations/us-central1/models/1081867214929264640@1"
+                  "endpoint": "projects/REDACTED/locations/us-central1/endpoints/3773586028934201344",
+                  "model": "projects/REDACTED/locations/us-central1/models/1081867214929264640@1"
                 },
                 "tunedModelDisplayName": "My Further Tuned Model",
                 "tuningDataStats": {
@@ -1220,8 +1220,8 @@
                 "baseModel": "gemini-2.5-flash",
                 "createTime": "2026-07-12T19:30:36.508356Z",
                 "endTime": "2026-07-12T19:56:58.994485Z",
-                "experiment": "projects/801452371447/locations/us-central1/metadataStores/default/contexts/tuning-experiment-20260712123132842516",
-                "name": "projects/801452371447/locations/us-central1/tuningJobs/2886128421304270848",
+                "experiment": "projects/REDACTED/locations/us-central1/metadataStores/default/contexts/tuning-experiment-20260712123132842516",
+                "name": "projects/REDACTED/locations/us-central1/tuningJobs/2886128421304270848",
                 "startTime": "2026-07-12T19:30:36.557035Z",
                 "state": "JOB_STATE_SUCCEEDED",
                 "supervisedTuningSpec": {
@@ -1236,13 +1236,13 @@
                   "checkpoints": [
                     {
                       "checkpointId": "1",
-                      "endpoint": "projects/801452371447/locations/us-central1/endpoints/1779335818939203584",
+                      "endpoint": "projects/REDACTED/locations/us-central1/endpoints/1779335818939203584",
                       "epoch": "1",
                       "step": "33"
                     }
                   ],
-                  "endpoint": "projects/801452371447/locations/us-central1/endpoints/1779335818939203584",
-                  "model": "projects/801452371447/locations/us-central1/models/4683058066965397504@1"
+                  "endpoint": "projects/REDACTED/locations/us-central1/endpoints/1779335818939203584",
+                  "model": "projects/REDACTED/locations/us-central1/models/4683058066965397504@1"
                 },
                 "tunedModelDisplayName": "My Supervised Tuned Model",
                 "tuningDataStats": {
@@ -1406,20 +1406,20 @@
                   "baseTeacherModel": "deepseek-ai/deepseek-r1-0528-maas",
                   "hyperParameters": {
                     "epochCount": "20",
-                    "learningRate": 0.00001,
+                    "learningRate": 1e-05,
                     "learningRateMultiplier": 1
                   },
                   "promptDatasetUri": "gs://nathreya-oss-tuning-sdk-test/distillation-openai-opposites.jsonl",
                   "validationDatasetUri": "gs://nathreya-oss-tuning-sdk-test/distillation-val-openai-opposites.jsonl"
                 },
                 "endTime": "2026-07-12T19:52:25.433610Z",
-                "experiment": "projects/801452371447/locations/us-central1/metadataStores/default/contexts/tuning-experiment-20260712123118353913",
-                "name": "projects/801452371447/locations/us-central1/tuningJobs/5247703475906674688",
+                "experiment": "projects/REDACTED/locations/us-central1/metadataStores/default/contexts/tuning-experiment-20260712123118353913",
+                "name": "projects/REDACTED/locations/us-central1/tuningJobs/5247703475906674688",
                 "outputUri": "gs://nathreya-oss-tuning-sdk-test/ayushagra-distillation-test-folder/",
                 "startTime": "2026-07-12T19:31:14.783542Z",
                 "state": "JOB_STATE_SUCCEEDED",
                 "tunedModel": {
-                  "model": "projects/801452371447/locations/us-central1/models/4336280895657869312@1"
+                  "model": "projects/REDACTED/locations/us-central1/models/4336280895657869312@1"
                 },
                 "tunedModelDisplayName": "My Distilled Model",
                 "tuningDataStats": {
@@ -1449,7 +1449,7 @@
                         {
                           "parts": [
                             {
-                              "text": "\u003cthink\u003e\nWe are to output the opposite of the given word.\n The word given is \"below\".\n The opposite of \"below\" is typically \"above\".\n Therefore, the answer is \"above\".\n\u003c/think\u003e\nabove"
+                              "text": "<think>\nWe are to output the opposite of the given word.\n The word given is \"below\".\n The opposite of \"below\" is typically \"above\".\n Therefore, the answer is \"above\".\n</think>\nabove"
                             }
                           ],
                           "role": "assistant"
@@ -1473,7 +1473,7 @@
                         {
                           "parts": [
                             {
-                              "text": "\u003cthink\u003e\nWe are to output the opposite of the given word \"shallow\".\n The opposite of \"shallow\" in the context of depth is \"deep\". \n However, note that \"shallow\" can have other meanings (like superficial), but the most common antonym in the primary sense (depth) is \"deep\".\n Therefore, we output \"deep\".\n\u003c/think\u003e\ndeep"
+                              "text": "<think>\nWe are to output the opposite of the given word \"shallow\".\n The opposite of \"shallow\" in the context of depth is \"deep\". \n However, note that \"shallow\" can have other meanings (like superficial), but the most common antonym in the primary sense (depth) is \"deep\".\n Therefore, we output \"deep\".\n</think>\ndeep"
                             }
                           ],
                           "role": "assistant"
@@ -1497,7 +1497,7 @@
                         {
                           "parts": [
                             {
-                              "text": "\u003cthink\u003e\nWe are supposed to output the opposite of the given word. The given word is \"freeze\".\n The opposite of \"freeze\" in terms of temperature or state would be \"thaw\" or \"melt\". However, the instruction says \"single word response\".\n Another common opposite of \"freeze\" (meaning to solidify by cold) is to \"melt\" (to become liquid by heat) or \"boil\" (liquid to gas). But note that \"freeze\" can also mean to stop moving, so the opposite might be \"move\" or \"unfreeze\".\n\n However, the most direct opposite in the context of temperature is \"melt\". Let's consider:\n\n - Freeze: to turn from liquid to solid due to cold.\n - Melt: to turn from solid to liquid due to heat.\n\n Therefore, the opposite word is \"melt\".\n\n But note: sometimes \"thaw\" is used for the process of ice becoming water, but \"thaw\" is more specific to the process after freezing, and \"melt\" is more general.\n\n Since the instruction is for a single word, and \"melt\" is a direct antonym, we choose \"melt\".\n\n However, let's double-check: \n   - Freeze: verb, meaning to become hardened into ice or into a solid body.\n   - Antonyms for freeze (from thesaurus): melt, thaw, unfreeze, warm.\n\n Since the problem says \"opposite\", and \"melt\" is the most common and direct antonym, we'll go with \"melt\".\n\n But note: the instruction says \"single word response\", so we must output only one word.\n\n Therefore, the answer is: melt\n\u003c/think\u003e\nmelt"
+                              "text": "<think>\nWe are supposed to output the opposite of the given word. The given word is \"freeze\".\n The opposite of \"freeze\" in terms of temperature or state would be \"thaw\" or \"melt\". However, the instruction says \"single word response\".\n Another common opposite of \"freeze\" (meaning to solidify by cold) is to \"melt\" (to become liquid by heat) or \"boil\" (liquid to gas). But note that \"freeze\" can also mean to stop moving, so the opposite might be \"move\" or \"unfreeze\".\n\n However, the most direct opposite in the context of temperature is \"melt\". Let's consider:\n\n - Freeze: to turn from liquid to solid due to cold.\n - Melt: to turn from solid to liquid due to heat.\n\n Therefore, the opposite word is \"melt\".\n\n But note: sometimes \"thaw\" is used for the process of ice becoming water, but \"thaw\" is more specific to the process after freezing, and \"melt\" is more general.\n\n Since the instruction is for a single word, and \"melt\" is a direct antonym, we choose \"melt\".\n\n However, let's double-check: \n   - Freeze: verb, meaning to become hardened into ice or into a solid body.\n   - Antonyms for freeze (from thesaurus): melt, thaw, unfreeze, warm.\n\n Since the problem says \"opposite\", and \"melt\" is the most common and direct antonym, we'll go with \"melt\".\n\n But note: the instruction says \"single word response\", so we must output only one word.\n\n Therefore, the answer is: melt\n</think>\nmelt"
                             }
                           ],
                           "role": "assistant"
@@ -1625,8 +1625,8 @@
                 "baseModel": "gemini-2.5-flash",
                 "createTime": "2026-07-12T19:31:09.779070Z",
                 "endTime": "2026-07-12T19:46:26.515282Z",
-                "experiment": "projects/801452371447/locations/us-central1/metadataStores/default/contexts/tuning-experiment-20260712123213831650",
-                "name": "projects/801452371447/locations/us-central1/tuningJobs/1334075399721713664",
+                "experiment": "projects/REDACTED/locations/us-central1/metadataStores/default/contexts/tuning-experiment-20260712123213831650",
+                "name": "projects/REDACTED/locations/us-central1/tuningJobs/1334075399721713664",
                 "startTime": "2026-07-12T19:31:09.829877Z",
                 "state": "JOB_STATE_SUCCEEDED",
                 "supervisedTuningSpec": {
@@ -1641,13 +1641,13 @@
                   "checkpoints": [
                     {
                       "checkpointId": "1",
-                      "endpoint": "projects/801452371447/locations/us-central1/endpoints/4886819561824845824",
+                      "endpoint": "projects/REDACTED/locations/us-central1/endpoints/4886819561824845824",
                       "epoch": "1",
                       "step": "33"
                     }
                   ],
-                  "endpoint": "projects/801452371447/locations/us-central1/endpoints/4886819561824845824",
-                  "model": "projects/801452371447/locations/us-central1/models/918048778483662848@1"
+                  "endpoint": "projects/REDACTED/locations/us-central1/endpoints/4886819561824845824",
+                  "model": "projects/REDACTED/locations/us-central1/models/918048778483662848@1"
                 },
                 "tunedModelDisplayName": "My Supervised Tuned Model",
                 "tuningDataStats": {
@@ -1812,8 +1812,8 @@
     {
       "request": {
         "method": "GET",
-        "url": "/v1beta1/projects/801452371447/locations/us-central1/tuningJobs/3156423563783700480",
-        "request": "GET /v1beta1/projects/801452371447/locations/us-central1/tuningJobs/3156423563783700480 HTTP/1.1",
+        "url": "/v1beta1/projects/REDACTED/locations/us-central1/tuningJobs/3156423563783700480",
+        "request": "GET /v1beta1/projects/REDACTED/locations/us-central1/tuningJobs/3156423563783700480 HTTP/1.1",
         "headers": {
           "Accept": "*/*",
           "Accept-Charset": "UTF-8",
@@ -1830,7 +1830,7 @@
         "port": 443,
         "protocol": "https"
       },
-      "shaSum": "54a8a9e6c17577117e4e8fea375357fd43a65d5f3f5fecc562b79dd2ca156034",
+      "shaSum": "d4cb3a4f955d1d9945c73209b32baa9a61f86cd2f91aa33b1a4099a1f2394dfa",
       "response": {
         "statusCode": 200,
         "headers": {
@@ -1848,8 +1848,8 @@
           {
             "baseModel": "gemini-3.5-flash",
             "createTime": "2026-07-13T19:15:56.925603Z",
-            "experiment": "projects/801452371447/locations/us-central1/metadataStores/default/contexts/tuning-experiment-20260713121620934770",
-            "name": "projects/801452371447/locations/us-central1/tuningJobs/3156423563783700480",
+            "experiment": "projects/REDACTED/locations/us-central1/metadataStores/default/contexts/tuning-experiment-20260713121620934770",
+            "name": "projects/REDACTED/locations/us-central1/tuningJobs/3156423563783700480",
             "reinforcementTuningSpec": {
               "compositeRewardConfig": {
                 "weightedRewardConfigs": [
@@ -1857,7 +1857,7 @@
                     "rewardConfig": {
                       "parseResponseConfig": {
                         "parseType": "REGEX_EXTRACT",
-                        "regexExtractExpression": "\u003cthink\u003e.*\u003c/think\u003e\\s*\u003canswer\u003e(.*?)\u003c/answer\u003e"
+                        "regexExtractExpression": "<think>.*</think>\\s*<answer>(.*?)</answer>"
                       },
                       "rewardName": "binary_format",
                       "stringMatchRewardScorer": {
@@ -1875,7 +1875,7 @@
                     "rewardConfig": {
                       "parseResponseConfig": {
                         "parseType": "REGEX_EXTRACT",
-                        "regexExtractExpression": "\u003canswer\u003e(.*?)\u003c/answer\u003e"
+                        "regexExtractExpression": "<answer>(.*?)</answer>"
                       },
                       "rewardName": "binary_ans",
                       "stringMatchRewardScorer": {
@@ -1908,7 +1908,7 @@
             "startTime": "2026-07-13T19:15:57.157852Z",
             "state": "JOB_STATE_RUNNING",
             "tunedModel": {
-              "model": "projects/801452371447/locations/us/models/8308578362545143808@1"
+              "model": "projects/REDACTED/locations/us/models/8308578362545143808@1"
             },
             "tunedModelDisplayName": "cam_motion_all_data_v2_pmpt_rl_of_text_fps_1_r1_no_sc_g35f",
             "tuningDataStats": {

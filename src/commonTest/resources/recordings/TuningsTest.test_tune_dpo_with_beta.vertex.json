@@ -51,7 +51,7 @@
           {
             "baseModel": "gemini-2.5-flash",
             "createTime": "2026-07-08T21:06:36.274097Z",
-            "name": "projects/801452371447/locations/us-central1/tuningJobs/7706437975009132544",
+            "name": "projects/REDACTED/locations/us-central1/tuningJobs/7706437975009132544",
             "preferenceOptimizationSpec": {
               "hyperParameters": {
                 "beta": 0.5,

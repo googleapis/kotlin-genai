@@ -69,7 +69,8 @@ open class BaseTestServer {
           System.getenv("GOOGLE_GENAI_RECORDING_DIR")?.takeIf { it.isNotEmpty() }
             ?: "src/commonTest/resources/recordings",
         mode = testMode,
-        testServerSecrets = "$project,$apiKey",
+        testServerSecrets =
+          redactionSecrets(project, apiKey, System.getenv("GOOGLE_GENAI_TEST_SECRETS")),
         outDir = File(System.getProperty("java.io.tmpdir"), "google_genai_test_server"),
       )
     testServer = TestServer(options)
@@ -132,3 +133,19 @@ open class BaseTestServer {
     }
   }
 }
+
+/**
+ * Builds the comma-separated literals the `test-server` rewrites to `REDACTED` as it records.
+ *
+ * The redactor only matches literals it was handed, and the Gemini Enterprise Agent Platform API
+ * normalises resource names to the project *number*. A session recording with the project *ID* in
+ * `GOOGLE_CLOUD_PROJECT` therefore publishes the number in plain text, which is how a batch of
+ * recordings once shipped with it. `GOOGLE_GENAI_TEST_SECRETS` carries the values the project
+ * environment variable cannot: that project's other form, and any second project a test reaches.
+ */
+internal fun redactionSecrets(project: String, apiKey: String, extraSecrets: String?): String =
+  (listOf(project, apiKey) + extraSecrets.orEmpty().split(','))
+    .map { it.trim() }
+    .filter { it.isNotEmpty() }
+    .distinct()
+    .joinToString(",")

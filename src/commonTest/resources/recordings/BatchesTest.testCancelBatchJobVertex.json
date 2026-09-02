@@ -70,7 +70,7 @@
             "model": "publishers/google/models/gemini-2.5-flash",
             "modelMonitoringStatus": {},
             "modelVersionId": "1",
-            "name": "projects/801452371447/locations/global/batchPredictionJobs/4149516476174303232",
+            "name": "projects/REDACTED/locations/global/batchPredictionJobs/4149516476174303232",
             "outputConfig": {
               "gcsDestination": {
                 "outputUriPrefix": "gs://unified-genai-tests/batches/output"

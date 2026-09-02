@@ -66,7 +66,7 @@
           {
             "baseModel": "gemini-2.5-flash",
             "createTime": "2026-07-08T21:06:33.385978Z",
-            "name": "projects/801452371447/locations/us-central1/tuningJobs/5970863268611227648",
+            "name": "projects/REDACTED/locations/us-central1/tuningJobs/5970863268611227648",
             "reinforcementTuningSpec": {
               "compositeRewardConfig": {
                 "weightedRewardConfigs": [

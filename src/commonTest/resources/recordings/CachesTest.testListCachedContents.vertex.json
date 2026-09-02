@@ -151,7 +151,7 @@
                 "createTime": "2026-03-19T08:04:10.264295Z",
                 "displayName": "combined_cache_all_three",
                 "expireTime": "9999-12-31T00:00:00Z",
-                "model": "projects/cloud-llm-preview1/locations/global/publishers/google/models/gemini-3.1-pro-preview",
+                "model": "projects/REDACTED/locations/global/publishers/google/models/gemini-3.1-pro-preview",
                 "name": "projects/REDACTED/locations/global/cachedContents/3982164690393366528",
                 "updateTime": "2026-03-19T08:04:10.264295Z",
                 "usageMetadata": {
@@ -314,7 +314,7 @@
                 "createTime": "2026-03-19T08:04:10.264295Z",
                 "displayName": "combined_cache_all_three",
                 "expireTime": "9999-12-31T00:00:00Z",
-                "model": "projects/cloud-llm-preview1/locations/global/publishers/google/models/gemini-3.1-pro-preview",
+                "model": "projects/REDACTED/locations/global/publishers/google/models/gemini-3.1-pro-preview",
                 "name": "projects/REDACTED/locations/global/cachedContents/3982164690393366528",
                 "updateTime": "2026-03-19T08:04:10.264295Z",
                 "usageMetadata": {

@@ -46,7 +46,7 @@
           {
             "baseModel": "gemini-2.5-flash",
             "createTime": "2026-07-08T21:07:01.123349Z",
-            "name": "projects/801452371447/locations/us-central1/tuningJobs/9192625852041396224",
+            "name": "projects/REDACTED/locations/us-central1/tuningJobs/9192625852041396224",
             "state": "JOB_STATE_PENDING",
             "supervisedTuningSpec": {
               "trainingDatasetUri": "gs://cloud-samples-data/ai-platform/generative_ai/gemini-1_5/text/sft_train_data.jsonl"
