@@ -16,11 +16,25 @@
 
 package com.google.genai.kotlin.examples
 
+import com.google.genai.kotlin.Client
+
 /** The latest Gemini flash model, used by most examples. */
 const val GEMINI_MODEL_NAME = "gemini-flash-latest"
 
-/** The Live API model used by the Live examples. */
+/** The Live API model used by the Live examples on the Gemini Developer API. */
 const val LIVE_MODEL_NAME = "gemini-3.1-flash-live-preview"
+
+/** The Live API model used by the Live examples on the Gemini Enterprise Agent Platform API. */
+const val ENTERPRISE_LIVE_MODEL_NAME = "gemini-live-2.5-flash-native-audio"
+
+/**
+ * The Live model to use with [client].
+ *
+ * The two backends do not serve the same Live model, so an example that runs against both has to
+ * pick one per backend rather than naming a single constant.
+ */
+fun liveModelName(client: Client): String =
+  if (client.enterprise) ENTERPRISE_LIVE_MODEL_NAME else LIVE_MODEL_NAME
 
 /** The embedding model used by the embedding examples. */
 const val EMBEDDING_MODEL_NAME = "gemini-embedding-2"

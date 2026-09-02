@@ -56,8 +56,9 @@ object LiveAudioToAudioSession {
   fun main(args: Array<String>) =
     runBlocking<Unit> {
       Client().use { client ->
+        val model = liveModelName(client)
         println(
-          "Connecting to Live Session from ${if (client.enterprise) "GEAP" else "Gemini"} API with model: $LIVE_MODEL_NAME..."
+          "Connecting to Live Session from ${if (client.enterprise) "GEAP" else "Gemini"} API with model: $model..."
         )
 
         // Optional. Enable input/output transcription.
@@ -67,7 +68,7 @@ object LiveAudioToAudioSession {
             outputAudioTranscription = AudioTranscriptionConfig(),
           )
 
-        client.live.connect(LIVE_MODEL_NAME, config).use { session ->
+        client.live.connect(model, config).use { session ->
           println("\nConnected! Sending audio message...")
 
           // Send an actual PCM audio buffer (16kHz, 16-bit, mono) from resources
@@ -82,7 +83,9 @@ object LiveAudioToAudioSession {
           session.sendRealtimeInput(
             audio = Blob(data = audioBytes, mimeType = "audio/pcm;rate=16000")
           )
-          session.sendRealtimeInput(audioStreamEnd = true)
+          if (!client.enterprise) {
+            session.sendRealtimeInput(audioStreamEnd = true)
+          }
 
           // Directly read the stream on the main thread until the turn completes
           session

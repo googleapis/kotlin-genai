@@ -55,8 +55,9 @@ object LiveTextToAudioSession {
   fun main(args: Array<String>) =
     runBlocking<Unit> {
       Client().use { client ->
+        val model = liveModelName(client)
         println(
-          "Connecting to Live Session from ${if (client.enterprise) "GEAP" else "Gemini"} API with model: $LIVE_MODEL_NAME..."
+          "Connecting to Live Session from ${if (client.enterprise) "GEAP" else "Gemini"} API with model: $model..."
         )
 
         // Optional. Enable input/output transcription.
@@ -66,7 +67,7 @@ object LiveTextToAudioSession {
             outputAudioTranscription = AudioTranscriptionConfig(),
           )
 
-        client.live.connect(LIVE_MODEL_NAME, config).use { session ->
+        client.live.connect(model, config).use { session ->
           println("\nConnected! Sending a message...")
 
           // sendClientContent is only used for initial context.

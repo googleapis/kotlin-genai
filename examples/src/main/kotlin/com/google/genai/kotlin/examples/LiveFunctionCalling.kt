@@ -64,8 +64,9 @@ object LiveFunctionCalling {
   fun main(args: Array<String>) =
     runBlocking<Unit> {
       Client().use { client ->
+        val model = liveModelName(client)
         println(
-          "Connecting to Live Session from ${if (client.enterprise) "GEAP" else "Gemini"} API with model: $LIVE_MODEL_NAME..."
+          "Connecting to Live Session from ${if (client.enterprise) "GEAP" else "Gemini"} API with model: $model..."
         )
 
         val getWeatherDeclaration =
@@ -86,7 +87,7 @@ object LiveFunctionCalling {
             outputAudioTranscription = AudioTranscriptionConfig(),
           )
 
-        client.live.connect(LIVE_MODEL_NAME, config).use { session ->
+        client.live.connect(model, config).use { session ->
           println("\nConnected! Asking for the weather...")
 
           session.sendRealtimeInput(text = "What is the weather in Seattle?")

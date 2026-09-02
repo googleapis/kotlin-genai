@@ -34,6 +34,7 @@ and the
 
 The SDK requires the following minimum platform versions:
 
+* **Kotlin**: 1.9
 * **Java**: JDK 17
 * **Android**: API level 21 (Android 5.0)
 
@@ -534,9 +535,11 @@ fun main() = runBlocking {
     )
     val model = "gemini-3.1-flash-live-preview"
 
-    client.live.connect(model, config).use { session ->
-        println("Connected to Live session!")
-        // Send and receive content here...
+    Client().use { client ->
+        client.live.connect(model, config).use { session ->
+            println("Connected to Live session!")
+            // Send and receive content here...
+        }
     }
 }
 ```
@@ -621,36 +624,42 @@ import com.google.genai.kotlin.types.LiveConnectConfig
 import com.google.genai.kotlin.types.Schema
 import com.google.genai.kotlin.types.Tool
 import com.google.genai.kotlin.types.Type
+import kotlinx.coroutines.runBlocking
 import kotlinx.serialization.json.JsonPrimitive
 
-val getWeatherDeclaration = FunctionDeclaration(
-    name = "GetWeather",
-    description = "return the real time weather of the location",
-    parameters = Schema(
-        type = Type.OBJECT,
-        properties = mapOf("location" to Schema(type = Type.STRING)),
-        required = listOf("location")
+fun main() = runBlocking {
+    val getWeatherDeclaration = FunctionDeclaration(
+        name = "GetWeather",
+        description = "return the real time weather of the location",
+        parameters = Schema(
+            type = Type.OBJECT,
+            properties = mapOf("location" to Schema(type = Type.STRING)),
+            required = listOf("location")
+        )
     )
-)
 
-val config = LiveConnectConfig(
-    tools = listOf(Tool(functionDeclarations = listOf(getWeatherDeclaration)))
-)
+    val config = LiveConnectConfig(
+        tools = listOf(Tool(functionDeclarations = listOf(getWeatherDeclaration)))
+    )
+    val model = "gemini-3.1-flash-live-preview"
 
-client.live.connect(model, config).use { session ->
-    session.sendRealtimeInput(text = "What is the weather in Seattle?")
+    Client().use { client ->
+        client.live.connect(model, config).use { session ->
+            session.sendRealtimeInput(text = "What is the weather in Seattle?")
 
-    session.receive().collect { serverMessage ->
-        serverMessage.toolCall?.let { toolCall ->
-            val functionResponses = toolCall.functionCalls?.map { call ->
-                FunctionResponse(
-                    id = call.id,
-                    name = call.name,
-                    response = mapOf("temperature" to JsonPrimitive("72F"))
-                )
-            }
-            if (functionResponses != null) {
-                session.sendToolResponse(functionResponses)
+            session.receive().collect { serverMessage ->
+                serverMessage.toolCall?.let { toolCall ->
+                    val functionResponses = toolCall.functionCalls?.map { call ->
+                        FunctionResponse(
+                            id = call.id,
+                            name = call.name,
+                            response = mapOf("temperature" to JsonPrimitive("72F"))
+                        )
+                    }
+                    if (functionResponses != null) {
+                        session.sendToolResponse(functionResponses)
+                    }
+                }
             }
         }
     }
@@ -780,7 +789,7 @@ fun main() = runBlocking {
 
         // List files
         val pager = client.files.list(config = ListFilesConfig(pageSize = 10))
-        pager.forEach { f ->
+        pager.collect { f ->
             println("Found file: ${f.name}")
         }
 
@@ -845,7 +854,9 @@ import com.google.genai.kotlin.Client
 import com.google.genai.kotlin.types.Blob
 import com.google.genai.kotlin.types.Content
 import com.google.genai.kotlin.types.CreateCachedContentConfig
+import com.google.genai.kotlin.types.GenerateContentConfig
 import com.google.genai.kotlin.types.Part
+import com.google.genai.kotlin.types.UpdateCachedContentConfig
 import kotlin.time.Duration.Companion.minutes
 import kotlinx.coroutines.runBlocking
 
