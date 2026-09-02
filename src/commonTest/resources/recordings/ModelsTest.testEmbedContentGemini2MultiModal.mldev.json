@@ -48,11 +48,11 @@
         "statusCode": 200,
         "headers": {
           "Content-Encoding": "gzip",
-          "Content-Length": "321",
+          "Content-Length": "319",
           "Content-Type": "application/json; charset=UTF-8",
-          "Date": "Sun, 12 Jul 2026 19:01:22 GMT",
+          "Date": "Wed, 02 Sep 2026 07:02:10 GMT",
           "Server": "scaffolding on HTTPServer2",
-          "Server-Timing": "gfet4t7; dur=801",
+          "Server-Timing": "gfet4t7; dur=727",
           "Vary": "Origin, X-Origin, Referer",
           "X-Content-Type-Options": "nosniff",
           "X-Frame-Options": "SAMEORIGIN",
@@ -63,26 +63,26 @@
             "embeddings": [
               {
                 "values": [
-                  -0.051350586,
-                  0.14889334,
-                  0.035463057,
-                  -0.04832964,
-                  0.2823751,
-                  0.04625938,
-                  -0.25821722,
-                  -0.18112227,
-                  0.32911798,
-                  -0.63527787,
-                  -0.101568095,
-                  -0.038691718,
-                  0.21551262,
-                  0.039771263,
-                  0.26083577,
-                  0.14465219,
-                  0.27048275,
-                  -0.17834537,
-                  0.058504082,
-                  -0.14545068
+                  -0.016840305,
+                  0.15602088,
+                  0.045841888,
+                  -0.062566206,
+                  0.27347824,
+                  0.027469967,
+                  -0.29620326,
+                  -0.15571415,
+                  0.32713926,
+                  -0.6172648,
+                  -0.085680775,
+                  -0.0228184,
+                  0.21197161,
+                  0.027894208,
+                  0.26046324,
+                  0.14509606,
+                  0.29218423,
+                  -0.20641918,
+                  0.08883614,
+                  -0.12431979
                 ]
               }
             ],
@@ -91,12 +91,12 @@
               "promptTokenCount": 263,
               "promptTokenDetails": [
                 {
-                  "modality": "TEXT",
-                  "tokenCount": 5
-                },
-                {
                   "modality": "IMAGE",
                   "tokenCount": 258
+                },
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 5
                 }
               ]
             }

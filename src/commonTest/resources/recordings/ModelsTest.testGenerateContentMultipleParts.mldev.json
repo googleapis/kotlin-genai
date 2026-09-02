@@ -4,8 +4,8 @@
     {
       "request": {
         "method": "POST",
-        "url": "/v1beta/models/gemini-3-flash-preview:generateContent",
-        "request": "POST /v1beta/models/gemini-3-flash-preview:generateContent HTTP/1.1",
+        "url": "/v1beta/models/gemini-flash-latest:generateContent",
+        "request": "POST /v1beta/models/gemini-flash-latest:generateContent HTTP/1.1",
         "headers": {
           "Accept": "*/*",
           "Accept-Charset": "UTF-8",
@@ -37,16 +37,16 @@
         "port": 443,
         "protocol": "https"
       },
-      "shaSum": "8b14df36484d17116250fb40672b0aaea8bc27bc2b8c4e98f56151818cc24f9b",
+      "shaSum": "25bbed790f98d043c0199347ca835711f907b1858d7e7907bf174ad81e7d34a2",
       "response": {
         "statusCode": 200,
         "headers": {
           "Content-Encoding": "gzip",
-          "Content-Length": "617",
+          "Content-Length": "837",
           "Content-Type": "application/json; charset=UTF-8",
-          "Date": "Mon, 11 May 2026 17:36:35 GMT",
+          "Date": "Wed, 02 Sep 2026 00:59:12 GMT",
           "Server": "scaffolding on HTTPServer2",
-          "Server-Timing": "gfet4t7; dur=706",
+          "Server-Timing": "gfet4t7; dur=1021",
           "Vary": "Origin, X-Origin, Referer",
           "X-Content-Type-Options": "nosniff",
           "X-Frame-Options": "SAMEORIGIN",
@@ -60,8 +60,8 @@
                 "content": {
                   "parts": [
                     {
-                      "text": "The capital of France is **Paris**.",
-                      "thoughtSignature": "Eq4BCqsBAQw51scWTHwsDGnfYfxwYvxav0Kcq7mMVw8gOZPWNzlMVw/nh7rY8YQxPfrHqQ7iWR1cuf29nTPrsAsHtwU82ojHFqHN6WybaEQmiAkJjq0owhKGCrZldMpA9f+2ED6ymoKwyU3JvDvJ5XZEpEdgAJQwoPr9S4lW0zpAWf5ykVvIstEBHd4qiFDgZH/WW/Jk0gX42egHfsYeqjSdciHWPLHWi5JYtrhI1QZe"
+                      "text": "Hello! The capital of France is **Paris**.",
+                      "thoughtSignature": "Eu4CCusCARFNMg/pv8i0452giMVDVaIRmdOIQTFB6jQ79yR3uJx2XxtKbfQY4bVYHMvvpTRKrG8Szwzr61N+QEA225DZhAtiAQYnNJyXcQQyQgUazL2kWvTkkCwRy+iyhnu0qMFXZDrXL/l6zVhqTQWlfP98Ophw6tD1XSwxQmIrmFW7mAD4oMXVstAr9rYqZlaJu7uRiyWt/xElX6mOCB/AYhiolPwp4QD/ojgB3/Fq17hxymhSp6JMIgMeIzMhWL6xFC63tUTxL+ELy4Mr0DhgzNUe6ih3nXLScEIzPvfdKupiQGsV4zYFV/3mYYOPoaOVPGBp2qQ4KYpzBaRR6dxC68jeriM6o1SigW9qfBXaZAyM9UVDkoz4NyzC30BBh9SczUZOEBymicUGRy+NxWd3rEf7w3KrUXrL+N2De+Oox46u5IBvhxr/mS/hmx8mvIKbMibGjiB1k8PLTKRwnn0fwOSL15KFACsIUOxuROeG"
                     }
                   ],
                   "role": "model"
@@ -70,11 +70,11 @@
                 "index": 0
               }
             ],
-            "modelVersion": "gemini-3-flash-preview",
-            "responseId": "oxMCapGhC5e8jrEPsqO2gQE",
-            "turnToken": "v1_ChdveE1DYXBHaEM1ZThqckVQc3FPMmdRRRIXb3hNQ2FwR2hDNWU4anJFUHNxTzJnUUU",
+            "modelVersion": "gemini-3.7-flash",
+            "responseId": "4HSXat7jBoWhqtsP4uDbuQE",
+            "turnToken": "v1_Chc0SFNYYXQ3akJvV2hxdHNQNHVEYnVRRRIXNEhTWGF0N2pCb1docXRzUDR1RGJ1UUU",
             "usageMetadata": {
-              "candidatesTokenCount": 8,
+              "candidatesTokenCount": 10,
               "promptTokenCount": 11,
               "promptTokensDetails": [
                 {
@@ -82,9 +82,10 @@
                   "tokenCount": 11
                 }
               ],
+              "rawPromptTokenCount": 41,
               "serviceTier": "standard",
-              "thoughtsTokenCount": 30,
-              "totalTokenCount": 49
+              "thoughtsTokenCount": 65,
+              "totalTokenCount": 86
             }
           }
         ]

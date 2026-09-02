@@ -39,9 +39,9 @@
         "statusCode": 404,
         "headers": {
           "Content-Encoding": "gzip",
-          "Content-Length": "508",
+          "Content-Length": "539",
           "Content-Type": "application/json; charset=UTF-8",
-          "Date": "Thu, 30 Apr 2026 19:17:43 GMT",
+          "Date": "Wed, 02 Sep 2026 07:02:07 GMT",
           "Server": "scaffolding on HTTPServer2",
           "Vary": "Origin, X-Origin, Referer",
           "X-Content-Type-Options": "nosniff",
@@ -55,10 +55,10 @@
               "details": [
                 {
                   "@type": "type.googleapis.com/google.rpc.DebugInfo",
-                  "detail": "[ORIGINAL ERROR] generic::not_found: Publisher Model `projects/REDACTED/locations/global/publishers/google/models/wrong-model-name` was not found or your project does not have access to it. Please ensure you are using a valid model version. For more information, see: https://cloud.google.com/vertex-ai/generative-ai/docs/learn/model-versions [google.rpc.error_details_ext] { message: \"Publisher Model `projects/REDACTED/locations/global/publishers/google/models/wrong-model-name` was not found or your project does not have access to it. Please ensure you are using a valid model version. For more information, see: https://cloud.google.com/vertex-ai/generative-ai/docs/learn/model-versions\" } 525003295 { 1 { 1 { 1 { 2: \"Cardolan\" 3: \"GenerateContent\" } 2 { 1: 5 2: \"generic\" 3: \"Publisher Model `projects/REDACTED/locations/global/publishers/google/models/wrong-model-name` was not found or your project does not have access to it. Please ensure you are using a valid model version. For more information, see: https://cloud.google.com/vertex-ai/generative-ai/docs/learn/model-versions\" 5 { 1 { 2: 82012934 3 { 2: \"Publisher Model `projects/REDACTED/locations/global/publishers/google/models/wrong-model-name` was not found or your project does not have access to it. Please ensure you are using a valid model version. For more information, see: https://cloud.google.com/vertex-ai/generative-ai/docs/learn/model-versions\" } } } } 8: 1 10 { 1: 0 } } 2: \"VertexServingRpcRoot\" } }"
+                  "detail": "[ORIGINAL ERROR] generic::not_found: Publisher model `projects/REDACTED/locations/global/publishers/google/models/wrong-model-name` was not found or your project does not have access to it. Ensure you are using a valid model name and that the model is available in the specified region. For more information, see: https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations. [google.rpc.error_details_ext] { message: \"Publisher model `projects/REDACTED/locations/global/publishers/google/models/wrong-model-name` was not found or your project does not have access to it. Ensure you are using a valid model name and that the model is available in the specified region. For more information, see: https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations.\" } 525003295 { 1 { 1 { 1 { 2: \"Cardolan\" 3: \"GenerateContent\" } 2 { 1: 5 2: \"generic\" 3: \"Publisher model `projects/REDACTED/locations/global/publishers/google/models/wrong-model-name` was not found or your project does not have access to it. Ensure you are using a valid model name and that the model is available in the specified region. For more information, see: https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations.\" 5 { 1 { 2: 82012934 3 { 2: \"Publisher model `projects/REDACTED/locations/global/publishers/google/models/wrong-model-name` was not found or your project does not have access to it. Ensure you are using a valid model name and that the model is available in the specified region. For more information, see: https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations.\" } } } } 8: 1 10 { 1: 0 } } 2: \"VertexServingRpcRoot\" } }"
                 }
               ],
-              "message": "Publisher Model `projects/REDACTED/locations/global/publishers/google/models/wrong-model-name` was not found or your project does not have access to it. Please ensure you are using a valid model version. For more information, see: https://cloud.google.com/vertex-ai/generative-ai/docs/learn/model-versions",
+              "message": "Publisher model `projects/REDACTED/locations/global/publishers/google/models/wrong-model-name` was not found or your project does not have access to it. Ensure you are using a valid model name and that the model is available in the specified region. For more information, see: https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations.",
               "status": "NOT_FOUND"
             }
           }

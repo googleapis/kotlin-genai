@@ -4,8 +4,8 @@
     {
       "request": {
         "method": "POST",
-        "url": "/v1beta/models/gemini-3-flash-preview:generateContent",
-        "request": "POST /v1beta/models/gemini-3-flash-preview:generateContent HTTP/1.1",
+        "url": "/v1beta/models/gemini-flash-latest:generateContent",
+        "request": "POST /v1beta/models/gemini-flash-latest:generateContent HTTP/1.1",
         "headers": {
           "Accept": "*/*",
           "Accept-Charset": "UTF-8",
@@ -41,7 +41,11 @@
                     "type": "STRING"
                   }
                 },
-                "required": ["title", "population", "capital"],
+                "required": [
+                  "title",
+                  "population",
+                  "capital"
+                ],
                 "type": "OBJECT"
               }
             }
@@ -52,16 +56,16 @@
         "port": 443,
         "protocol": "https"
       },
-      "shaSum": "c5212335d02716217d57f752f4807db125ded15222f4539f25cf3febb0ad7a3b",
+      "shaSum": "df730bc1337cc8c3d9005d49550a3fdc09c4b7784c32f2514a0c8248ffcbf520",
       "response": {
         "statusCode": 200,
         "headers": {
           "Content-Encoding": "gzip",
-          "Content-Length": "1318",
+          "Content-Length": "1399",
           "Content-Type": "application/json; charset=UTF-8",
-          "Date": "Thu, 30 Apr 2026 19:47:05 GMT",
+          "Date": "Wed, 02 Sep 2026 00:47:49 GMT",
           "Server": "scaffolding on HTTPServer2",
-          "Server-Timing": "gfet4t7; dur=2111",
+          "Server-Timing": "gfet4t7; dur=3910",
           "Vary": "Origin, X-Origin, Referer",
           "X-Content-Type-Options": "nosniff",
           "X-Frame-Options": "SAMEORIGIN",
@@ -75,8 +79,8 @@
                 "content": {
                   "parts": [
                     {
-                      "text": "{\"title\": \"Australia\", \"population\": 26000000, \"capital\": \"Canberra\"}",
-                      "thoughtSignature": "EsMGCsAGAQw51sfIH8q5owV0jnE8Kg+y4rIb7YyK2+XnPqUgnzOK2yb9aJ0ilWbdFoTBjyi0okP1udFCAcCQw82VM7yaQcuMZAr7J4MQc1NTk/1FHPjn2F3Fa3M9TIE8KYNsbasChrVnfoEBfr6Tr6y3Bha2tbK+sXQNia6OCs9MlhtT6TNJreQGMwDHpx7jvheKUo6LvzKCA1jq/LEbfQIXnwwfLvEZy12RKtfoKNBf1tfv6QZktWcJjJaEYTonCkhgZd02lmPTnr4xzodE8WRAEkDyHvUD1yj3VmeTi1VDJ1pFXz0oYR00P+UgEkAKVvRzmxMAUW6yghJX+b/r9SQYyT4askVxUrCaG8SYkG2JBq2swa3v2t1W3SwBImRrCGpJEkvKqs/249GLhPZ8z5+JhwhWv4SaMvbQNWiiWhsWtYZzAKaJDvQ6PNtlqc78ESf2gG6To0Gfb+D+cZ6pTrLgmWOnLU2137KDabrC2iz0BKN0y4yI+yx4AyBjLHUueQhoYHDSuD86NCScB1Y8+Uvx509vdojk34KggN4821HXBJOKlQ0mp9/YCJbXu3kLaPmLQrTJoNU4Aj5Eia62ScPIfajX9iO0OfHVoYv1WbcTmPoNN6mqrc3JIrixSva3d1qAo6pqdBC877bJxxu4V3Np2OH45HMWlqBen3t6OOpJw5NaY8j7w8cvkChg+mTKx2xoIW1aPyt2inL9gE3jNK+B93xPD0xszakmteWfMPfxguggava4YT0lb0YHjjvvW1dd2YAtGo3qHQVkgEQYTjfOu3QtSrWwI9N/o49CIXCT0U+JAtoiDgx48HW1F5LtObnnwXs/Lg6V94P/Y30Ax+k6Puy6q/IYcBc5goMg2G+ZDbmZ4GBMq2kLFBEPcq02voGyz2zRu/6ZsH/8hpRTLUMb1adgJcrviLddSfFw+0jNOAE441jc5RESLcZLY+39222FQ59sx8V9ZSZzdwRfE87oX4h12Xi1q1NXX90UXFtDFh2yv9r7ni76a/Wis+XDNJ6NqEbWi2YV4/Yj5zmAeU1g3/9lgcgn+wcR0Si9sVVRH01zSUx3CxECNK6DuJFH+jHVKfXArxKlHk7TKZdQEQcXK0fVkw=="
+                      "text": "{\"title\":\"Australia\",\"population\":26638544,\"capital\":\"Canberra\"}",
+                      "thoughtSignature": "EvMGCvAGARFNMg/TZnJ4v1OBib0v80eMH2nSul3SCpoIEMA5dDNbQeQKnBAB6AemZBnnsP3xD4rMneFPRVKRU0bSk/1+4Mi3WkfBrcARwLpd1zkYzRlJdMfM66H0wEZIdh2gID7aclyj6gUxhdQz52z+j6xw5dSWrBAaYGjANQTcLl9pzmlIk5yY5yrK7KK0/17BV9Qik/EmDyKJyQ0vSuaJ8dAoFtawJ211R9CrmMDW3AQABa2tte6MKGHzbrTO8fsh0cuMmXqlrrvj8vc1cVeXZBdR8adIftR+J6IhON0eROe2/wQb0ivG7SP86KbstpBckDVBiG/d9c7bbQmW0oN1G1azfPCpXW4VEEJ9Mhvqykb6R6drb9AYGLuEpEfjJSuKM1cdOdiGLBnIDW26hp069oIY4DU8zFomdGuPgVOcFEBvw6Z27SgdJU8fxdo1eRHrt+bfs52DGtJNsuEVi7yJercA7Y+sk6LLaHBcSzRjwUkvSjn8iVI9LieGE9kh0b8IOKN2L3pJjSd58ahwHgcLegIcrlc2ulYO+nbDRVPiYaYb+k7PQ1mbWD/uB+/xfNHQqH1wkGsCrrH9gjk1kLNnfWDi6UkRFJrfmJwWxdFD/pLHjU7l1S6N23QS7EmPLYfi7jctZzXhCGbbEM3ceqwy9gpWMk4RDrHXvukQCv3bgRO9uYIkaH/LEhtwmzKT9ym3/z5lQBPmzTwnbAqnie1ePEuMTI8zF9lk+WRRFwbIyQJaxlTGwOa5bHwXcVIfutwWF9B6+Ap6AwUvuyjNMffXh9jKWu0eNTreCkVIMPZTvljoL+xZcirJioN2wwckI9/VFJsbbW0ezMhyFaOBY2Nk2s8TZ7g/lAFO96Shjbz0LT84nf/sR/Mfq3EgKdMq3/fHnRQ1h6jLyyCkEYqamhYr3/CRt9YNc/G/WqPdW4xTAdsO5Y58EfiOQgoU3oyAiVSF2MmaYwM3tHZZkPytaOYb+YjmG3eX8sSc7J5yUrDz2HskHXI36hGHk399jXh2fOXRr1rk8Y8IYibSPEkSc3/7iWYRYqP5qjKCEclFcjbmuJJPRp51vkyQXAYbnsNdvCWUWLgmDUSWOzOSj0KXa83uzlBjORRDb76nh4hqxkVAoL3hh7h8oD8gjVmPnbsYQ26JugaGCzmMqyApKIImOtF5b0q/HQ=="
                     }
                   ],
                   "role": "model"
@@ -85,11 +89,11 @@
                 "index": 0
               }
             ],
-            "modelVersion": "gemini-3-flash-preview",
-            "responseId": "ubHzaZL9GanxjrEPiqaUsA0",
-            "turnToken": "v1_Chd1Ykh6YVpMOUdhbnhqckVQaXFhVXNBMBIXdWJIemFaTDlHYW54anJFUGlxYVVzQTA",
+            "modelVersion": "gemini-3.7-flash",
+            "responseId": "MXKXasnIHKmzmtkPncKLsAE",
+            "turnToken": "v1_ChdNWEtYYXNuSUhLbXptdGtQbmNLTHNBRRIXTVhLWGFzbklIS216bXRrUG5jS0xzQUU",
             "usageMetadata": {
-              "candidatesTokenCount": 26,
+              "candidatesTokenCount": 21,
               "promptTokenCount": 6,
               "promptTokensDetails": [
                 {
@@ -97,8 +101,10 @@
                   "tokenCount": 6
                 }
               ],
-              "thoughtsTokenCount": 236,
-              "totalTokenCount": 268
+              "rawPromptTokenCount": 227,
+              "serviceTier": "standard",
+              "thoughtsTokenCount": 259,
+              "totalTokenCount": 286
             }
           }
         ]

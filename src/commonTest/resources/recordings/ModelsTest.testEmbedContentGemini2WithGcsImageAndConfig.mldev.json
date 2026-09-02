@@ -50,11 +50,11 @@
         "statusCode": 200,
         "headers": {
           "Content-Encoding": "gzip",
-          "Content-Length": "257",
+          "Content-Length": "256",
           "Content-Type": "application/json; charset=UTF-8",
-          "Date": "Sun, 12 Jul 2026 19:01:25 GMT",
+          "Date": "Wed, 02 Sep 2026 07:02:30 GMT",
           "Server": "scaffolding on HTTPServer2",
-          "Server-Timing": "gfet4t7; dur=2142",
+          "Server-Timing": "gfet4t7; dur=1882",
           "Vary": "Origin, X-Origin, Referer",
           "X-Content-Type-Options": "nosniff",
           "X-Frame-Options": "SAMEORIGIN",
@@ -65,16 +65,16 @@
             "embeddings": [
               {
                 "values": [
-                  -0.10782176,
-                  -0.120693274,
-                  -0.06756713,
-                  -0.17718169,
-                  0.497745,
-                  -0.15165576,
-                  0.036988787,
-                  -0.0733053,
-                  0.047952432,
-                  -0.81120783
+                  -0.00866369,
+                  -0.13175134,
+                  -0.10928805,
+                  -0.21248339,
+                  0.46001467,
+                  -0.07672819,
+                  0.09483828,
+                  -0.029100532,
+                  0.1580384,
+                  -0.8204605
                 ]
               }
             ],
@@ -83,12 +83,12 @@
               "promptTokenCount": 265,
               "promptTokenDetails": [
                 {
-                  "modality": "TEXT",
-                  "tokenCount": 7
-                },
-                {
                   "modality": "IMAGE",
                   "tokenCount": 258
+                },
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 7
                 }
               ]
             }

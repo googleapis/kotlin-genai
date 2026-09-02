@@ -39,11 +39,11 @@
         "statusCode": 404,
         "headers": {
           "Content-Encoding": "gzip",
-          "Content-Length": "398",
+          "Content-Length": "406",
           "Content-Type": "application/json; charset=UTF-8",
-          "Date": "Thu, 30 Apr 2026 19:17:41 GMT",
+          "Date": "Wed, 02 Sep 2026 07:02:07 GMT",
           "Server": "scaffolding on HTTPServer2",
-          "Server-Timing": "gfet4t7; dur=251",
+          "Server-Timing": "gfet4t7; dur=97",
           "Vary": "Origin, X-Origin, Referer",
           "X-Content-Type-Options": "nosniff",
           "X-Frame-Options": "SAMEORIGIN",
@@ -56,10 +56,10 @@
               "details": [
                 {
                   "@type": "type.googleapis.com/google.rpc.DebugInfo",
-                  "detail": "[ORIGINAL ERROR] generic::not_found: models/wrong-model-name is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods. [google.rpc.error_details_ext] { message: \"models/wrong-model-name is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.\" details { type_url: \"type.googleapis.com/language_labs.genai.debug.GeminiApiDebugInfo\" value: \":2\\n\\027models/wrong-model-name\\022\\006v1beta\\032\\017generateContent\" } }"
+                  "detail": "[ORIGINAL ERROR] generic::not_found: models/wrong-model-name is not found for API version v1beta, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods. [google.rpc.error_details_ext] { message: \"models/wrong-model-name is not found for API version v1beta, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.\" details { type_url: \"type.googleapis.com/language_labs.genai.debug.GeminiApiDebugInfo\" value: \":2\\n\\027models/wrong-model-name\\022\\006v1beta\\032\\017generateContent\" } }"
                 }
               ],
-              "message": "models/wrong-model-name is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.",
+              "message": "models/wrong-model-name is not found for API version v1beta, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.",
               "status": "NOT_FOUND"
             }
           }

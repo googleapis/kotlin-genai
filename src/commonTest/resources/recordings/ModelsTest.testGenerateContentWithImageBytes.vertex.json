@@ -4,8 +4,8 @@
     {
       "request": {
         "method": "POST",
-        "url": "/v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-3-flash-preview:generateContent",
-        "request": "POST /v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-3-flash-preview:generateContent HTTP/1.1",
+        "url": "/v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-flash-latest:generateContent",
+        "request": "POST /v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-flash-latest:generateContent HTTP/1.1",
         "headers": {
           "Accept": "*/*",
           "Accept-Charset": "UTF-8",
@@ -40,49 +40,49 @@
         "port": 443,
         "protocol": "https"
       },
-      "shaSum": "4a1e58d1383dde3dd6776bc4fd530d2fc373672d971d2e75526c38eb95468655",
+      "shaSum": "bc96021ea61d73baed67614684d99f487765bf3e78cd823b51fd522e0a67b414",
       "response": {
         "statusCode": 200,
         "headers": {
           "Content-Encoding": "gzip",
-          "Content-Length": "3282",
+          "Content-Length": "835",
           "Content-Type": "application/json; charset=UTF-8",
-          "Date": "Tue, 12 May 2026 17:56:40 GMT",
+          "Date": "Wed, 02 Sep 2026 00:54:20 GMT",
           "Server": "scaffolding on HTTPServer2",
           "Vary": "Origin, X-Origin, Referer",
           "X-Content-Type-Options": "nosniff",
           "X-Frame-Options": "SAMEORIGIN",
-          "X-Vertex-Ai-Llm-Request-Type": "dedicated",
           "X-Xss-Protection": "0"
         },
         "bodySegments": [
           {
             "candidates": [
               {
+                "avgLogprobs": -1.5475133779097576,
                 "content": {
                   "parts": [
                     {
-                      "text": "The image shows the official Google logo set against a solid black background. \n\nThe word \"Google\" is written in a clean, sans-serif typeface with a specific color assigned to each letter:\n\n*   **G:** Blue (capitalized)\n*   **o:** Red\n*   **o:** Yellow\n*   **g:** Blue\n*   **l:** Green\n*   **e:** Red (tilted slightly upward)",
-                      "thoughtSignature": "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"
+                      "text": "The image is the official, current logotype for the technology company Google.\n\n**Detailed Description:**\n\nThe image displays the word **\"Google\"** spelled out in a clean, modern, geometric sans-serif typeface (known officially as Product Sans or Google Sans). The text is set against a plain white background.\n\nThe most distinctive feature of the logo is its use of four primary and secondary colors applied sequentially across the six letters:\n\n1.  **G** is colored **Blue**.\n2.  The first **o** is colored **Red**.\n3.  The second **o** is colored **Yellow**.\n4.  The second **g** is colored **Blue**.\n5.  The **l** is colored **Green**.\n6.  The final **e** is colored **Red**.\n\nThe overall visual impression is vibrant, clear, and modern, utilizing a repeating pattern of blue, red, yellow, and green."
                     }
                   ],
                   "role": "model"
                 },
-                "finishReason": "STOP"
+                "finishReason": "STOP",
+                "score": -303.3126220703125
               }
             ],
-            "createTime": "2026-05-12T17:56:34.498604Z",
-            "modelVersion": "gemini-3-flash-preview",
-            "responseId": "0mkDaqy3HtufpucPg7WU8QU",
+            "createTime": "2026-09-02T00:54:16.428776Z",
+            "modelVersion": "gemini-flash-latest",
+            "responseId": "uHOXauiVGviapucPvbyc8Ao",
             "usageMetadata": {
-              "candidatesTokenCount": 92,
+              "candidatesTokenCount": 196,
               "candidatesTokensDetails": [
                 {
                   "modality": "TEXT",
-                  "tokenCount": 92
+                  "tokenCount": 196
                 }
               ],
-              "promptTokenCount": 1086,
+              "promptTokenCount": 1035,
               "promptTokensDetails": [
                 {
                   "modality": "TEXT",
@@ -90,12 +90,12 @@
                 },
                 {
                   "modality": "IMAGE",
-                  "tokenCount": 1083
+                  "tokenCount": 1032
                 }
               ],
-              "thoughtsTokenCount": 671,
-              "totalTokenCount": 1849,
-              "trafficType": "PROVISIONED_THROUGHPUT"
+              "thoughtsTokenCount": 656,
+              "totalTokenCount": 1887,
+              "trafficType": "ON_DEMAND"
             }
           }
         ]

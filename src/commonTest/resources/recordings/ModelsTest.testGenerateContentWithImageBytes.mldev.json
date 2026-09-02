@@ -4,8 +4,8 @@
     {
       "request": {
         "method": "POST",
-        "url": "/v1beta/models/gemini-3-flash-preview:generateContent",
-        "request": "POST /v1beta/models/gemini-3-flash-preview:generateContent HTTP/1.1",
+        "url": "/v1beta/models/gemini-flash-latest:generateContent",
+        "request": "POST /v1beta/models/gemini-flash-latest:generateContent HTTP/1.1",
         "headers": {
           "Accept": "*/*",
           "Accept-Charset": "UTF-8",
@@ -40,16 +40,16 @@
         "port": 443,
         "protocol": "https"
       },
-      "shaSum": "75972dc80e92bf0e8512edd1ebfe3a754ee0e133fbe48ae98803347c5427807c",
+      "shaSum": "34b22978c4f72907a82f9ca1303495f4c5646cacc6fbd1d0c4e7ab1ae1ec8420",
       "response": {
         "statusCode": 200,
         "headers": {
           "Content-Encoding": "gzip",
-          "Content-Length": "3006",
+          "Content-Length": "1879",
           "Content-Type": "application/json; charset=UTF-8",
-          "Date": "Tue, 12 May 2026 17:56:33 GMT",
+          "Date": "Wed, 02 Sep 2026 00:54:16 GMT",
           "Server": "scaffolding on HTTPServer2",
-          "Server-Timing": "gfet4t7; dur=4217",
+          "Server-Timing": "gfet4t7; dur=4281",
           "Vary": "Origin, X-Origin, Referer",
           "X-Content-Type-Options": "nosniff",
           "X-Frame-Options": "SAMEORIGIN",
@@ -63,8 +63,8 @@
                 "content": {
                   "parts": [
                     {
-                      "text": "This image shows the official logo for Google. The word \"Google\" is written in a clean, sans-serif font. Each letter has a specific color:\n\n*   The first letter, **G**, is blue.\n*   The first **o** is red.\n*   The second **o** is yellow.\n*   The second **g** is blue.\n*   The letter **l** is green.\n*   The letter **e** is red.\n\nThe entire logo is set against a plain white background.",
-                      "thoughtSignature": "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"
+                      "text": "This is the official logo of **Google**, introduced in September 2015. \n\n### Key Visual Details:\n* **Text:** Spells out the word **\"Google\"** using a clean, modern geometric sans-serif typeface (*Product Sans*).\n* **Color Sequence:**\n  * **G** – Blue\n  * **o** – Red\n  * **o** – Yellow\n  * **g** – Blue\n  * **l** – Green\n  * **e** – Red (featuring a slightly tilted, playful crossbar)\n* **Background:** Plain white.",
+                      "thoughtSignature": "EtYICtMIARFNMg8GYElmJV/zXPH0G/49VxxTUDIftOpgVg+EdQPbsnQJ11rAhv6Q48Zj85Y0m0h8Hd4bZJdvKYbuxSWMY8Nqvc+wJIK16RrFUp2enfzzsRiKQJ6Wp1HA6mfSCS9lJ1wDKhryElP3MQrVrFRCLpcVE8+MQ9wRzg+340L25ZBXK1CS8CsnWFbAcA0mM+FV2B4n7gClxgm1AkJTEleH9ZH2oW8qz78adsgyqCXfoHqNOaFOqXyGPb9voJYRrWxZ3F8ns3FqgzrIpVvt+IdPSkoG0vOFRjM/QLR78/WkuoUhKs3J0os1DDezmoxi+6YNGViJ0tgXC5NGVlR1oVER9kCjf0rXS6d5fkWzKs8JoSGguxp8aFolYW6xU6HonOVElkZcXcvu7nHP66PJz6uvIKbDQryRcP3r1W098r1FPsn2EJd6Evxq6tKOw5uWxeoMB+AaT5S/dhQ5Nk+MTXRBkfFpanot1gNaHad5u+1DWKyuLR9n5McjqMpUYiyrUouF5FNzoA23M9PO+WuAYld3BvRDXd3ZS07/Huqzng/nxyZgQ8iNE+xPZ8wvnxJND8k1NgEyghmxkuzy2z9n1uakSfeehve5VhhNVxb/f7i4JqbN8em/Grl4eE7+Uc+iQyevbck7VnTFWWBQt6oZ3so5uPl1tECh4MGqFTc8jKzsw+5RGgeUB3jjz2QIUqYSiodOygAG2iGZr6dwD5sW3bK1hcX8eO1JymIHyWTwkr4FKygwVsh2ykzOhcvn6T56vyPlGbVxqykQylT03nRYSXqFFp1cdsaqeac2X+iJbjdofzFrD/odXMuHOSAVYvhvMRU/EvQQWa0eIZu1vuPuUqJKXoxstWgSYnUB3tOO3dl4yFF2ZzbMnhFswjtdb390bVMFTjo1V1PIFY2AWjYC8jQ0wqPTP0cDUGYmeOR1OzVDDQ30k25yR2b/kOKV9micMxh1p77eI9JEr1Wx49AtYGDKFZJKIpQCpiJgxaGarxda+gcLcIUOTkqx+rfeWwSUfsUJRHulu8gHvF++NoUwQhoWdMGyBxCqZnJVe9g8IHoaOOp6APBs3aOZ9kpb/YDe8KEgsWsFsxQfUd7nHMn9VFHIZPMzsXYa5/5/iXKAdno17bQPS4GxP/DCMOWX/aMa3ve5JC6XLi7c43KXBNtu8ADGYvbujpOIh073KQsKzVTfaCVxNw/QVCg9XLSlbe1LXugocKKJ9MDjdRcQuCIEEwq4qkZkj5umH/URXeelQpQEt9LrUsxIRRuHrI8fPaD6JCCvbLKeWvLPa1I/lmonr6Y5xaBvr05S56ShubHod60vdoVOwEXtAAyIAkCvHm6niFsnkDENI4v86QmASr4kO3gA+LsTh/cVeQxXdXk/yjSTQEFXHO0VJiYxewkXeoRCxCpCZaaf8wenGT9VIxea1e1rbAK1CxpwFV8alJj80X6Bj1fX9QRQIuDIumiFiOpiY2ZZMtq7"
                     }
                   ],
                   "role": "model"
@@ -73,25 +73,26 @@
                 "index": 0
               }
             ],
-            "modelVersion": "gemini-3-flash-preview",
-            "responseId": "zWkDavaoE9Hi_uMPlai9gAY",
-            "turnToken": "v1_Chd6V2tEYXZhb0U5SGlfdU1QbGFpOWdBWRIXeldrRGF2YW9FOUhpX3VNUGxhaTlnQVk",
+            "modelVersion": "gemini-3.7-flash",
+            "responseId": "s3OXau65OYm1qtsPhvOriA8",
+            "turnToken": "v1_ChdzM09YYXU2NU9ZbTFxdHNQaHZPcmlBOBIXczNPWGF1NjVPWW0xcXRzUGh2T3JpQTg",
             "usageMetadata": {
-              "candidatesTokenCount": 112,
+              "candidatesTokenCount": 127,
               "promptTokenCount": 1087,
               "promptTokensDetails": [
                 {
-                  "modality": "TEXT",
-                  "tokenCount": 4
-                },
-                {
                   "modality": "IMAGE",
                   "tokenCount": 1083
+                },
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 4
                 }
               ],
+              "rawPromptTokenCount": 1120,
               "serviceTier": "standard",
-              "thoughtsTokenCount": 595,
-              "totalTokenCount": 1794
+              "thoughtsTokenCount": 296,
+              "totalTokenCount": 1510
             }
           }
         ]

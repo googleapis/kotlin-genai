@@ -52,10 +52,6 @@ import kotlinx.coroutines.flow.take
 import kotlinx.coroutines.test.TestScope
 import kotlinx.coroutines.test.runTest
 
-private const val MODEL_NAME = "gemini-3-flash-preview"
-private const val AUDIO_MODEL_NAME = "gemini-3.1-flash-tts-preview"
-private const val IMAGE_MODEL_NAME = "gemini-3.1-flash-image-preview"
-
 private fun runTest(testBody: suspend TestScope.() -> Unit) =
   runTest(timeout = 60.seconds, testBody = testBody)
 
@@ -73,7 +69,10 @@ class ModelsTest : BaseTestServer() {
       val client = createClient(enterprise, testName)
 
       val response =
-        client.models.generateContent(model = MODEL_NAME, text = "What is the capital of France?")
+        client.models.generateContent(
+          model = FLASH_MODEL_NAME,
+          text = "What is the capital of France?",
+        )
 
       assertContains(response.text ?: "", "Paris")
     }
@@ -89,7 +88,7 @@ class ModelsTest : BaseTestServer() {
 
       val flow =
         client.models.generateContentStream(
-          model = MODEL_NAME,
+          model = FLASH_MODEL_NAME,
           text = "Tell me a story about Paris in 200 words.",
         )
 
@@ -110,7 +109,7 @@ class ModelsTest : BaseTestServer() {
 
       val response =
         client.models.generateContent(
-          model = MODEL_NAME,
+          model = FLASH_MODEL_NAME,
           content =
             Content(
               role = "user",
@@ -133,7 +132,7 @@ class ModelsTest : BaseTestServer() {
 
       val response =
         client.models.generateContent(
-          model = MODEL_NAME,
+          model = FLASH_MODEL_NAME,
           text = "What's the weather like in Melbourne?",
           config = GenerateContentConfig(tools = listOf(Tool(googleSearch = GoogleSearch()))),
         )
@@ -153,7 +152,7 @@ class ModelsTest : BaseTestServer() {
 
       val flow =
         client.models.generateContentStream(
-          model = MODEL_NAME,
+          model = FLASH_MODEL_NAME,
           text = "What's the weather like in Melbourne?",
           config = GenerateContentConfig(tools = listOf(Tool(googleSearch = GoogleSearch()))),
         )
@@ -209,7 +208,7 @@ class ModelsTest : BaseTestServer() {
 
       val response =
         client.models.generateContent(
-          model = MODEL_NAME,
+          model = FLASH_MODEL_NAME,
           text = "Give me information about Australia",
           config =
             GenerateContentConfig(
@@ -235,7 +234,7 @@ class ModelsTest : BaseTestServer() {
 
       val response =
         client.models.generateContent(
-          model = "gemini-3.5-flash",
+          model = FLASH_MODEL_NAME,
           text = "What is your favorite ice cream flavor among chocolate, vanilla, and strawberry?",
           config =
             GenerateContentConfig(
@@ -279,7 +278,7 @@ class ModelsTest : BaseTestServer() {
 
       val response =
         client.models.generateContent(
-          model = MODEL_NAME,
+          model = FLASH_MODEL_NAME,
           text = "Can you recommend a restaurant for me in New York?",
           config =
             GenerateContentConfig(
@@ -303,7 +302,7 @@ class ModelsTest : BaseTestServer() {
 
       val response =
         client.models.generateContent(
-          model = AUDIO_MODEL_NAME,
+          model = TTS_MODEL_NAME,
           text = "Produce a speech response saying \"Cheese\"",
           config =
             GenerateContentConfig(
@@ -390,7 +389,7 @@ class ModelsTest : BaseTestServer() {
 
       val response =
         client.models.generateContent(
-          model = MODEL_NAME,
+          model = FLASH_MODEL_NAME,
           text = "What hate speech is prohibited by responsible AI?",
           config = GenerateContentConfig(safetySettings = safetySettings),
         )
@@ -410,7 +409,7 @@ class ModelsTest : BaseTestServer() {
 
       val response =
         client.models.generateContent(
-          model = MODEL_NAME,
+          model = FLASH_MODEL_NAME,
           text = "Say hello",
           config =
             GenerateContentConfig(
@@ -439,7 +438,7 @@ class ModelsTest : BaseTestServer() {
 
       val response =
         client.models.generateContent(
-          model = MODEL_NAME,
+          model = FLASH_MODEL_NAME,
           text = "List the numbers from 1 to 5",
           config =
             GenerateContentConfig(
@@ -479,7 +478,7 @@ class ModelsTest : BaseTestServer() {
 
       val response =
         client.models.generateContent(
-          model = MODEL_NAME,
+          model = FLASH_MODEL_NAME,
           text = "What's the weather like in Melbourne?",
           config =
             GenerateContentConfig(
@@ -513,7 +512,7 @@ class ModelsTest : BaseTestServer() {
         )
       val flow =
         client.models.generateContentStream(
-          model = MODEL_NAME,
+          model = FLASH_MODEL_NAME,
           text = "What's the weather like in Melbourne?",
           config =
             GenerateContentConfig(
@@ -544,7 +543,7 @@ class ModelsTest : BaseTestServer() {
 
       val response =
         client.models.generateContent(
-          model = MODEL_NAME,
+          model = FLASH_MODEL_NAME,
           text = "What is the capital of France?",
           config =
             GenerateContentConfig(
@@ -577,7 +576,7 @@ class ModelsTest : BaseTestServer() {
             ),
         )
 
-      val response = client.models.generateContent(model = MODEL_NAME, content = content)
+      val response = client.models.generateContent(model = FLASH_MODEL_NAME, content = content)
       assertContains(response.text ?: "", "Google")
     }
   }
@@ -605,12 +604,12 @@ class ModelsTest : BaseTestServer() {
         )
 
       if (enterprise) {
-        val response = client.models.generateContent(model = MODEL_NAME, content = content)
+        val response = client.models.generateContent(model = FLASH_MODEL_NAME, content = content)
         assertContains(response.text ?: "", "scones")
       } else {
         val exception =
           assertFailsWith<ClientException> {
-            client.models.generateContent(model = MODEL_NAME, content = content)
+            client.models.generateContent(model = FLASH_MODEL_NAME, content = content)
           }
         assertEquals(400, exception.code)
       }
@@ -640,7 +639,7 @@ class ModelsTest : BaseTestServer() {
             ),
         )
 
-      val response = client.models.generateContent(model = MODEL_NAME, content = content)
+      val response = client.models.generateContent(model = FLASH_MODEL_NAME, content = content)
 
       assertContains(response.text ?: "", "Gemini")
     }
@@ -660,6 +659,8 @@ class ModelsTest : BaseTestServer() {
 
       val response =
         client.models.generateContent(
+          // Pinned, not FLASH_MODEL_NAME: a cached content is bound to the model that created it,
+          // so this has to name the model the cachedContents above were cached against.
           model = "gemini-3.5-flash",
           text = "Summarize the PDF",
           config = GenerateContentConfig(cachedContent = cachedContent),
@@ -684,7 +685,7 @@ class ModelsTest : BaseTestServer() {
 
       val response1 =
         client.models.embedContent(
-          model = "gemini-embedding-001",
+          model = LEGACY_EMBEDDING_MODEL_NAME,
           text = "What is the capital of France?",
           config = EmbedContentConfig(outputDimensionality = 10),
         )
@@ -695,7 +696,7 @@ class ModelsTest : BaseTestServer() {
 
       val response2 =
         client.models.embedContent(
-          model = "gemini-embedding-001",
+          model = LEGACY_EMBEDDING_MODEL_NAME,
           contents =
             listOf(
               Content(parts = listOf(Part(text = "Hello"))),
@@ -720,7 +721,7 @@ class ModelsTest : BaseTestServer() {
 
       val response1 =
         client.models.embedContent(
-          model = "gemini-embedding-2",
+          model = EMBEDDING_MODEL_NAME,
           text = "What is the capital of France?",
           config = EmbedContentConfig(outputDimensionality = 10),
         )
@@ -740,7 +741,7 @@ class ModelsTest : BaseTestServer() {
         val exception =
           assertFailsWith<IllegalArgumentException> {
             client.models.embedContent(
-              model = "gemini-embedding-2",
+              model = EMBEDDING_MODEL_NAME,
               contents =
                 listOf(
                   Content(parts = listOf(Part(text = "Hello"))),
@@ -753,7 +754,7 @@ class ModelsTest : BaseTestServer() {
       } else {
         val response2 =
           client.models.embedContent(
-            model = "gemini-embedding-2",
+            model = EMBEDDING_MODEL_NAME,
             contents =
               listOf(
                 Content(parts = listOf(Part(text = "Hello"))),
@@ -785,7 +786,7 @@ class ModelsTest : BaseTestServer() {
       if (enterprise) {
         val response =
           client.models.embedContent(
-            model = "publishers/intfloat/models/multilingual-e5-large-instruct-maas",
+            model = MAAS_EMBEDDING_MODEL_NAME,
             text = "What is the capital of France?",
             config = EmbedContentConfig(outputDimensionality = 10),
           )
@@ -796,7 +797,7 @@ class ModelsTest : BaseTestServer() {
         val exception =
           assertFailsWith<ClientException> {
             client.models.embedContent(
-              model = "publishers/intfloat/models/multilingual-e5-large-instruct-maas",
+              model = MAAS_EMBEDDING_MODEL_NAME,
               text = "What is the capital of France?",
               config = EmbedContentConfig(outputDimensionality = 10),
             )
@@ -816,7 +817,7 @@ class ModelsTest : BaseTestServer() {
 
       val response =
         client.models.embedContent(
-          model = "gemini-embedding-2",
+          model = EMBEDDING_MODEL_NAME,
           contents =
             listOf(
               Content(
@@ -858,7 +859,7 @@ class ModelsTest : BaseTestServer() {
 
       val response =
         client.models.embedContent(
-          model = "gemini-embedding-2",
+          model = EMBEDDING_MODEL_NAME,
           contents =
             listOf(
               Content(
@@ -901,7 +902,7 @@ class ModelsTest : BaseTestServer() {
       if (enterprise) {
         val response =
           client.models.embedContent(
-            model = "gemini-embedding-2",
+            model = EMBEDDING_MODEL_NAME,
             text = "What is the capital of France?",
             config = EmbedContentConfig(outputDimensionality = 10, autoTruncate = true),
           )
@@ -912,7 +913,7 @@ class ModelsTest : BaseTestServer() {
         val exception =
           assertFailsWith<IllegalArgumentException> {
             client.models.embedContent(
-              model = "gemini-embedding-2",
+              model = EMBEDDING_MODEL_NAME,
               text = "What is the capital of France?",
               config = EmbedContentConfig(outputDimensionality = 10, autoTruncate = true),
             )
@@ -934,7 +935,7 @@ class ModelsTest : BaseTestServer() {
 
       val response =
         client.models.countTokens(
-          model = MODEL_NAME,
+          model = FLASH_MODEL_NAME,
           contents =
             listOf(Content(role = "user", parts = listOf(Part(text = "How many tokens is this?")))),
         )
@@ -950,7 +951,8 @@ class ModelsTest : BaseTestServer() {
       val testName = "ModelsTest.testCountTokensString.$suffix"
       val client = createClient(enterprise, testName)
 
-      val response = client.models.countTokens(model = MODEL_NAME, text = "What is your name?")
+      val response =
+        client.models.countTokens(model = FLASH_MODEL_NAME, text = "What is your name?")
 
       assertNotNull(response.totalTokens)
     }
@@ -965,7 +967,7 @@ class ModelsTest : BaseTestServer() {
 
       val response =
         client.models.countTokens(
-          model = MODEL_NAME,
+          model = FLASH_MODEL_NAME,
           content = Content(role = "user", parts = listOf(Part(text = "What is your name?"))),
         )
 
@@ -985,12 +987,12 @@ class ModelsTest : BaseTestServer() {
 
       if (enterprise) {
         // Agent Platform supports computeTokens
-        val response = client.models.computeTokens(model = MODEL_NAME, contents = contentList)
+        val response = client.models.computeTokens(model = FLASH_MODEL_NAME, contents = contentList)
 
         assertNotNull(response.tokensInfo)
       } else {
         try {
-          client.models.computeTokens(model = MODEL_NAME, contents = contentList)
+          client.models.computeTokens(model = FLASH_MODEL_NAME, contents = contentList)
           assertTrue(false, "Expected UnsupportedOperationException")
         } catch (e: UnsupportedOperationException) {
           // This is expected, Gemini Developer API does not support computeTokens.
@@ -1007,11 +1009,12 @@ class ModelsTest : BaseTestServer() {
       val client = createClient(enterprise, testName)
 
       if (enterprise) {
-        val response = client.models.computeTokens(model = MODEL_NAME, text = "What is your name?")
+        val response =
+          client.models.computeTokens(model = FLASH_MODEL_NAME, text = "What is your name?")
         assertNotNull(response.tokensInfo)
       } else {
         try {
-          client.models.computeTokens(model = MODEL_NAME, text = "What is your name?")
+          client.models.computeTokens(model = FLASH_MODEL_NAME, text = "What is your name?")
           assertTrue(false, "Expected UnsupportedOperationException")
         } catch (e: UnsupportedOperationException) {
           // Expected
@@ -1030,14 +1033,14 @@ class ModelsTest : BaseTestServer() {
       if (enterprise) {
         val response =
           client.models.computeTokens(
-            model = MODEL_NAME,
+            model = FLASH_MODEL_NAME,
             content = Content(role = "user", parts = listOf(Part(text = "What is your name?"))),
           )
         assertNotNull(response.tokensInfo)
       } else {
         try {
           client.models.computeTokens(
-            model = MODEL_NAME,
+            model = FLASH_MODEL_NAME,
             content = Content(role = "user", parts = listOf(Part(text = "What is your name?"))),
           )
           assertTrue(false, "Expected UnsupportedOperationException")
@@ -1055,10 +1058,10 @@ class ModelsTest : BaseTestServer() {
       val testName = "ModelsTest.testGetModel.$suffix"
       val client = createClient(enterprise, testName)
 
-      val response = client.models.get(model = MODEL_NAME)
+      val response = client.models.get(model = FLASH_MODEL_NAME)
 
       assertNotNull(response.name)
-      assertTrue(response.name!!.contains(MODEL_NAME))
+      assertTrue(response.name!!.contains(FLASH_MODEL_NAME))
     }
   }
 

@@ -4,8 +4,8 @@
     {
       "request": {
         "method": "POST",
-        "url": "/v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-3-flash-preview:generateContent",
-        "request": "POST /v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-3-flash-preview:generateContent HTTP/1.1",
+        "url": "/v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-flash-latest:generateContent",
+        "request": "POST /v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-flash-latest:generateContent HTTP/1.1",
         "headers": {
           "Accept": "*/*",
           "Accept-Charset": "UTF-8",
@@ -42,44 +42,41 @@
         "port": 443,
         "protocol": "https"
       },
-      "shaSum": "2f3da0f2a29bd27d756ed23442236bf2e4d4bedef674666fb14104c66a843c7f",
+      "shaSum": "181ac8ab1e98a641fb3ce4d123c733257b6794fcd413c21e125941043511d4e3",
       "response": {
         "statusCode": 200,
         "headers": {
           "Content-Encoding": "gzip",
-          "Content-Length": "659",
+          "Content-Length": "390",
           "Content-Type": "application/json; charset=UTF-8",
-          "Date": "Mon, 04 May 2026 19:59:11 GMT",
+          "Date": "Wed, 02 Sep 2026 00:49:36 GMT",
           "Server": "scaffolding on HTTPServer2",
           "Vary": "Origin, X-Origin, Referer",
           "X-Content-Type-Options": "nosniff",
           "X-Frame-Options": "SAMEORIGIN",
-          "X-Vertex-Ai-Llm-Request-Type": "dedicated",
           "X-Xss-Protection": "0"
         },
         "bodySegments": [
           {
             "candidates": [
               {
+                "avgLogprobs": -0.07833433151245117,
                 "content": {
                   "parts": [
                     {
-                      "text": "1, 2, ",
-                      "thoughtSignature": "AY89a18P8JSorVbXrE+nZqxzFQKOXrwK2pC1twU3HUXyTitwZJA4tlw/Dwtgi63bXRKpzJJrvlyKpiYHIuVjygmmVmA7Y2HwOUm6mV5WDil3XGKKubnY85gQctbxLHWY5jmfq43w1xFvjjNOGmlPBneRK+yeq12bht9s+CKjFqXWXiiudGZixFA4zmaEVxgUxPtT+ohTKXXbKNm1OSevfKVolcd3gd8igo+9MIZSVq1DtYwx9VYOOqJ+0qqWcdbfgE1yZcJgdUolWJocA0v99pL/tQFslj21iVLvU5btBPCqBg=="
+                      "text": "1, 2, "
                     }
                   ],
                   "role": "model"
                 },
-                "finishReason": "STOP"
+                "finishReason": "STOP",
+                "score": -0.47000598907470703
               }
             ],
-            "createTime": "2026-05-04T19:59:08.490907Z",
-            "modelVersion": "gemini-3-flash-preview",
-            "responseId": "jPr4aZv7HcuepucPqJWCwAo",
+            "createTime": "2026-09-02T00:49:36.127029Z",
+            "modelVersion": "gemini-flash-latest",
+            "responseId": "oHKXarXgB8ubpucP456hoQg",
             "usageMetadata": {
-              "billablePromptUsage": {
-                "textCount": 22
-              },
               "candidatesTokenCount": 6,
               "candidatesTokensDetails": [
                 {
@@ -94,9 +91,8 @@
                   "tokenCount": 9
                 }
               ],
-              "thoughtsTokenCount": 68,
-              "totalTokenCount": 83,
-              "trafficType": "PROVISIONED_THROUGHPUT"
+              "totalTokenCount": 15,
+              "trafficType": "ON_DEMAND"
             }
           }
         ]

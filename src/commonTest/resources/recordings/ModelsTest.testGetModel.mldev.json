@@ -4,8 +4,8 @@
     {
       "request": {
         "method": "GET",
-        "url": "/v1beta/models/gemini-3-flash-preview",
-        "request": "GET /v1beta/models/gemini-3-flash-preview HTTP/1.1",
+        "url": "/v1beta/models/gemini-flash-latest",
+        "request": "GET /v1beta/models/gemini-flash-latest HTTP/1.1",
         "headers": {
           "Accept": "*/*",
           "Accept-Charset": "UTF-8",
@@ -22,16 +22,16 @@
         "port": 443,
         "protocol": "https"
       },
-      "shaSum": "41b9a2bb829ecdc87300a18160f1b095c491f19c1f4ab12f8290453231680006",
+      "shaSum": "a72ae00609d946ef4c087a2c2ac4cd4dd7458b68ded54b604b7821d47d581a83",
       "response": {
         "statusCode": 200,
         "headers": {
           "Content-Encoding": "gzip",
-          "Content-Length": "265",
+          "Content-Length": "262",
           "Content-Type": "application/json; charset=UTF-8",
-          "Date": "Tue, 21 Jul 2026 16:47:33 GMT",
+          "Date": "Wed, 02 Sep 2026 00:46:56 GMT",
           "Server": "scaffolding on HTTPServer2",
-          "Server-Timing": "gfet4t7; dur=255",
+          "Server-Timing": "gfet4t7; dur=303",
           "Vary": "Origin, X-Origin, Referer",
           "X-Content-Type-Options": "nosniff",
           "X-Frame-Options": "SAMEORIGIN",
@@ -39,11 +39,11 @@
         },
         "bodySegments": [
           {
-            "description": "Gemini 3 Flash Preview",
-            "displayName": "Gemini 3 Flash Preview",
+            "description": "Latest release of Gemini Flash",
+            "displayName": "Gemini Flash Latest",
             "inputTokenLimit": 1048576,
             "maxTemperature": 2,
-            "name": "models/gemini-3-flash-preview",
+            "name": "models/gemini-flash-latest",
             "outputTokenLimit": 65536,
             "supportedGenerationMethods": [
               "generateContent",
@@ -55,7 +55,7 @@
             "thinking": true,
             "topK": 64,
             "topP": 0.95,
-            "version": "3-flash-preview-12-2025"
+            "version": "Gemini Flash Latest"
           }
         ]
       }

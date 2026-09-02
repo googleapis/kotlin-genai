@@ -4,8 +4,8 @@
     {
       "request": {
         "method": "POST",
-        "url": "/v1beta/models/gemini-3-flash-preview:generateContent",
-        "request": "POST /v1beta/models/gemini-3-flash-preview:generateContent HTTP/1.1",
+        "url": "/v1beta/models/gemini-flash-latest:generateContent",
+        "request": "POST /v1beta/models/gemini-flash-latest:generateContent HTTP/1.1",
         "headers": {
           "Accept": "*/*",
           "Accept-Charset": "UTF-8",
@@ -40,16 +40,16 @@
         "port": 443,
         "protocol": "https"
       },
-      "shaSum": "7e640ed1656cdc34d84ad76046fb8d4e86baea9c787af22c71556d2cf9ce912a",
+      "shaSum": "1d461294aa1b464dc4b782d655a63f3d0bfcaf2c0788b4c94ec30ca27bef3342",
       "response": {
         "statusCode": 400,
         "headers": {
           "Content-Encoding": "gzip",
-          "Content-Length": "423",
+          "Content-Length": "394",
           "Content-Type": "application/json; charset=UTF-8",
-          "Date": "Tue, 12 May 2026 17:44:40 GMT",
+          "Date": "Wed, 02 Sep 2026 00:49:18 GMT",
           "Server": "scaffolding on HTTPServer2",
-          "Server-Timing": "gfet4t7; dur=317",
+          "Server-Timing": "gfet4t7; dur=408",
           "Vary": "Origin, X-Origin, Referer",
           "X-Content-Type-Options": "nosniff",
           "X-Frame-Options": "SAMEORIGIN",
@@ -63,10 +63,10 @@
               "details": [
                 {
                   "@type": "type.googleapis.com/google.rpc.DebugInfo",
-                  "detail": "[ORIGINAL ERROR] generic::invalid_argument: Referencing Google Cloud Storage files directly is not supported. Register them using FileService.RegisterFile first.  [google.rpc.error_details_ext] { message: \"Request contains an invalid argument.\" details { type_url: \"type.googleapis.com/language_labs.genai.debug.GeminiApiDebugInfo\" value: \"\\222\\001\\265\\001\\nvReferencing Google Cloud Storage files directly is not supported. Register them using FileService.RegisterFile first. \\022;labs/language/genai/storage/file_data_fetcher_impl.cc:845:0\" } }"
+                  "detail": "[ORIGINAL ERROR] generic::invalid_argument: Referencing Google Cloud Storage files directly is not supported. Register them using FileService.RegisterFile first.  [google.rpc.error_details_ext] { message: \"Referencing Google Cloud Storage files directly is not supported. Register them using FileService.RegisterFile first. \" details { type_url: \"type.googleapis.com/language_labs.genai.debug.GeminiApiDebugInfo\" value: \"\\222\\001\\245\\001\\nvReferencing Google Cloud Storage files directly is not supported. Register them using FileService.RegisterFile first. \\022+apiserving/util/error_status_utils.cc:111:0\" } }"
                 }
               ],
-              "message": "Request contains an invalid argument.",
+              "message": "Referencing Google Cloud Storage files directly is not supported. Register them using FileService.RegisterFile first. ",
               "status": "INVALID_ARGUMENT"
             }
           }
