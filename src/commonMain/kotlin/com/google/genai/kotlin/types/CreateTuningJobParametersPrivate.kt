@@ -22,7 +22,7 @@ import kotlinx.serialization.Serializable
 
 /** Fine-tuning job creation parameters - optional fields. */
 @Serializable
-data class CreateTuningJobParametersPrivate(
+internal data class CreateTuningJobParametersPrivate(
 
   /** The base model that is being tuned, e.g., "gemini-2.5-flash". */
   val baseModel: String? = null,

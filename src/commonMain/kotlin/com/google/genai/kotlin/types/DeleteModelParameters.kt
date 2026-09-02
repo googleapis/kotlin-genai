@@ -22,7 +22,7 @@ import kotlinx.serialization.Serializable
 
 /** Parameters for deleting a tuned model. */
 @Serializable
-data class DeleteModelParameters(
+internal data class DeleteModelParameters(
 
   /**  */
   val model: String? = null,

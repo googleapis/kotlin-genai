@@ -22,7 +22,7 @@ import kotlinx.serialization.Serializable
 
 /** Parameters for the get method. */
 @Serializable
-data class GetTuningJobParameters(
+internal data class GetTuningJobParameters(
 
   /**  */
   val name: String? = null,

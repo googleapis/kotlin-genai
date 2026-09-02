@@ -22,7 +22,7 @@ import kotlinx.serialization.Serializable
 
 /** Parameters for caches.list method. */
 @Serializable
-data class ListCachedContentsParameters(
+internal data class ListCachedContentsParameters(
 
   /** Configuration that contains optional parameters. */
   val config: ListCachedContentsConfig? = null

@@ -22,7 +22,7 @@ import kotlinx.serialization.Serializable
 
 /** Parameters for the _embed_content method. */
 @Serializable
-data class EmbedContentParametersPrivate(
+internal data class EmbedContentParametersPrivate(
 
   /**
    * ID of the model to use. For a list of models, see `Google models

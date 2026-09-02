@@ -22,7 +22,7 @@ import kotlinx.serialization.Serializable
 
 /** Parameters for caches.delete method. */
 @Serializable
-data class DeleteCachedContentParameters(
+internal data class DeleteCachedContentParameters(
 
   /** The server-generated resource name of the cached content. */
   val name: String? = null,

@@ -22,7 +22,7 @@ import kotlinx.serialization.Serializable
 
 /** Parameters for the list tuning jobs method. */
 @Serializable
-data class ListTuningJobsParameters(
+internal data class ListTuningJobsParameters(
 
   /**  */
   val config: ListTuningJobsConfig? = null

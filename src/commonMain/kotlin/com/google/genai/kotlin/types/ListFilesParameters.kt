@@ -22,7 +22,7 @@ import kotlinx.serialization.Serializable
 
 /** Generates the parameters for the list method. */
 @Serializable
-data class ListFilesParameters(
+internal data class ListFilesParameters(
 
   /** Used to override the default configuration. */
   val config: ListFilesConfig? = null

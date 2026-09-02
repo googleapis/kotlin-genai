@@ -22,7 +22,7 @@ import kotlinx.serialization.Serializable
 
 /** Configuration for updating a tuned model. */
 @Serializable
-data class UpdateModelParameters(
+internal data class UpdateModelParameters(
 
   /**  */
   val model: String? = null,

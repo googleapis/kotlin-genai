@@ -22,7 +22,7 @@ import kotlinx.serialization.Serializable
 
 /** Config for batches.delete parameters. */
 @Serializable
-data class DeleteBatchJobParameters(
+internal data class DeleteBatchJobParameters(
 
   /**
    * A fully-qualified BatchJob resource name or ID. Example:

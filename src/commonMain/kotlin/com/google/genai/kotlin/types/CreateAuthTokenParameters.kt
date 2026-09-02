@@ -22,7 +22,7 @@ import kotlinx.serialization.Serializable
 
 /** Config for auth_tokens.create parameters. */
 @Serializable
-data class CreateAuthTokenParameters(
+internal data class CreateAuthTokenParameters(
 
   /** Optional parameters for the request. */
   val config: CreateAuthTokenConfig? = null

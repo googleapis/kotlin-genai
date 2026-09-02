@@ -22,7 +22,7 @@ import kotlinx.serialization.Serializable
 
 /** Config for batches.cancel parameters. */
 @Serializable
-data class CancelBatchJobParameters(
+internal data class CancelBatchJobParameters(
 
   /**
    * A fully-qualified BatchJob resource name or ID. Example:

@@ -22,7 +22,7 @@ import kotlinx.serialization.Serializable
 
 /** Parameters for the private _Register method. */
 @Serializable
-data class InternalRegisterFilesParameters(
+internal data class InternalRegisterFilesParameters(
 
   /** The Google Cloud Storage URIs to register. Example: `gs://bucket/object`. */
   val uris: List<String>? = null,

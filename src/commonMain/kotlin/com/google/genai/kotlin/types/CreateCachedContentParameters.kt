@@ -22,7 +22,7 @@ import kotlinx.serialization.Serializable
 
 /** Parameters for caches.create method. */
 @Serializable
-data class CreateCachedContentParameters(
+internal data class CreateCachedContentParameters(
 
   /** ID of the model to use. Example: gemini-2.0-flash */
   val model: String? = null,

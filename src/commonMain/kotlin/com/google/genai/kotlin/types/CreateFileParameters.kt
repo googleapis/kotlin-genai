@@ -22,7 +22,7 @@ import kotlinx.serialization.Serializable
 
 /** Generates the parameters for the private _create method. */
 @Serializable
-data class CreateFileParameters(
+internal data class CreateFileParameters(
 
   /**
    * The file to be uploaded. mime_type: (Required) The MIME type of the file. Must be provided.

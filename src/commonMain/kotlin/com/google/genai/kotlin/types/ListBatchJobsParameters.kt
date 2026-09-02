@@ -22,7 +22,7 @@ import kotlinx.serialization.Serializable
 
 /** Config for batches.list parameters. */
 @Serializable
-data class ListBatchJobsParameters(
+internal data class ListBatchJobsParameters(
 
   /**  */
   val config: ListBatchJobsConfig? = null

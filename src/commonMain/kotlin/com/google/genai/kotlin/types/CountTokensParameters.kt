@@ -22,7 +22,7 @@ import kotlinx.serialization.Serializable
 
 /** Parameters for counting tokens. */
 @Serializable
-data class CountTokensParameters(
+internal data class CountTokensParameters(
 
   /**
    * ID of the model to use. For a list of models, see `Google models

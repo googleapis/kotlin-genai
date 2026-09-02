@@ -22,7 +22,7 @@ import kotlinx.serialization.Serializable
 
 /**  */
 @Serializable
-data class ListModelsParameters(
+internal data class ListModelsParameters(
 
   /**  */
   val config: ListModelsConfig? = null

@@ -22,7 +22,7 @@ import kotlinx.serialization.Serializable
 
 /**  */
 @Serializable
-data class GetModelParameters(
+internal data class GetModelParameters(
 
   /**  */
   val model: String? = null,

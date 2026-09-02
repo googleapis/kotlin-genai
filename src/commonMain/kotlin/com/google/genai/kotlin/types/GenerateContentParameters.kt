@@ -22,7 +22,7 @@ import kotlinx.serialization.Serializable
 
 /** Config for models.generate_content parameters. */
 @Serializable
-data class GenerateContentParameters(
+internal data class GenerateContentParameters(
 
   /**
    * ID of the model to use. For a list of models, see `Google models

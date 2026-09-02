@@ -22,7 +22,7 @@ import kotlinx.serialization.Serializable
 
 /** Parameters for the cancel method. */
 @Serializable
-data class CancelTuningJobParameters(
+internal data class CancelTuningJobParameters(
 
   /** The resource name of the tuning job. */
   val name: String? = null,

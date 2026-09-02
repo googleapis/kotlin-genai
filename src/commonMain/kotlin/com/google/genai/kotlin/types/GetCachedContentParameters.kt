@@ -22,7 +22,7 @@ import kotlinx.serialization.Serializable
 
 /** Parameters for caches.get method. */
 @Serializable
-data class GetCachedContentParameters(
+internal data class GetCachedContentParameters(
 
   /** The server-generated resource name of the cached content. */
   val name: String? = null,

@@ -22,7 +22,7 @@ import kotlinx.serialization.Serializable
 
 /** Generates the parameters for the get method. */
 @Serializable
-data class GetFileParameters(
+internal data class GetFileParameters(
 
   /** The name identifier for the file to retrieve. */
   val name: String? = null,

@@ -22,7 +22,7 @@ import kotlinx.serialization.Serializable
 
 /** Config for batches.create parameters. */
 @Serializable
-data class CreateEmbeddingsBatchJobParameters(
+internal data class CreateEmbeddingsBatchJobParameters(
 
   /** The name of the model to produces the predictions via the BatchJob. */
   val model: String? = null,

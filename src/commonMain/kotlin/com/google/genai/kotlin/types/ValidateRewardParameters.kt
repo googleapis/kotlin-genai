@@ -27,7 +27,7 @@ import kotlinx.serialization.Serializable
  * before creating a reinforcement tuning job.
  */
 @Serializable
-data class ValidateRewardParameters(
+internal data class ValidateRewardParameters(
 
   /**
    * Required. The resource name of the Location to validate the reward in, e.g.

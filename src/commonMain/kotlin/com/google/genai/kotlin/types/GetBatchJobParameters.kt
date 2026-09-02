@@ -22,7 +22,7 @@ import kotlinx.serialization.Serializable
 
 /** Config for batches.get parameters. */
 @Serializable
-data class GetBatchJobParameters(
+internal data class GetBatchJobParameters(
 
   /**
    * A fully-qualified BatchJob resource name or ID. Example:

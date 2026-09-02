@@ -22,7 +22,7 @@ import kotlinx.serialization.Serializable
 
 /** Generates the parameters for the get method. */
 @Serializable
-data class DeleteFileParameters(
+internal data class DeleteFileParameters(
 
   /** The name identifier for the file to be deleted. */
   val name: String? = null,

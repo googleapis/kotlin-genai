@@ -22,7 +22,12 @@ import kotlinx.coroutines.flow.FlowCollector
 import kotlinx.coroutines.flow.flow
 
 /** Represents a single immutable page of results. */
-class Page<T>(val items: List<T>, val nextPageToken: String?, val sdkHttpResponse: HttpResponse?)
+class Page<T>
+internal constructor(
+  val items: List<T>,
+  val nextPageToken: String?,
+  val sdkHttpResponse: HttpResponse?,
+)
 
 /**
  * A generic pagination class that implements [Flow] of [T] items.
@@ -30,7 +35,8 @@ class Page<T>(val items: List<T>, val nextPageToken: String?, val sdkHttpRespons
  * Exposes page-level properties via `byPage()` flow, or collects all items seamlessly via
  * `collect()`. This flow is cold, stateless, and thread-safe.
  */
-class Pager<T>(
+class Pager<T>
+internal constructor(
   val name: String,
   val pageSize: Int? = null,
   private val request: suspend (String?) -> Triple<List<T>?, String?, HttpResponse?>,

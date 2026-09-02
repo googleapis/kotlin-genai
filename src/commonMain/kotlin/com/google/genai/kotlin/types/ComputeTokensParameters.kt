@@ -22,7 +22,7 @@ import kotlinx.serialization.Serializable
 
 /** Parameters for computing tokens. */
 @Serializable
-data class ComputeTokensParameters(
+internal data class ComputeTokensParameters(
 
   /**
    * ID of the model to use. For a list of models, see `Google models
