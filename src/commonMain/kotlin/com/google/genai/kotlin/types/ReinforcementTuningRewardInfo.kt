@@ -33,4 +33,10 @@ data class ReinforcementTuningRewardInfo(
    * to ReinforcementTuningCloudRunRewardScorer for more details.
    */
   val userRequestedAuxInfo: String? = null,
+
+  /**
+   * Output only. In case of an error for this reward, this field will be populated with a detailed
+   * error status.
+   */
+  val errorStatus: GoogleRpcStatus? = null,
 )
