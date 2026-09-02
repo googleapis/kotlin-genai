@@ -1,5 +1,36 @@
 # Changelog
 
+## [1.0.0](https://github.com/googleapis/kotlin-genai/compare/v0.5.0...v1.0.0) (2026-09-02)
+
+
+### Features
+
+* Add AudioTranscriptionConfigMode ([400a340](https://github.com/googleapis/kotlin-genai/commit/400a340bdd477956f9ea57aa7ae0cfb4135d0733))
+* Add ephemeral token support ([f9f43e6](https://github.com/googleapis/kotlin-genai/commit/f9f43e6dd81ca71df3db4c14e50e72b65183a049))
+* add parts and groundingMetadata accessors to GenerateContentResponse ([749a04f](https://github.com/googleapis/kotlin-genai/commit/749a04fbd2847de558e3af391dd4198d327c411f))
+* Add translation_config SDK support for GEAP. ([47d53d7](https://github.com/googleapis/kotlin-genai/commit/47d53d7d4c9d7359f698bebb66036da9d84f06aa))
+* Support Automatic Function Calling in the Chat session ([98b92c3](https://github.com/googleapis/kotlin-genai/commit/98b92c37aa95d40dd5b013a0f56da3f89433854f))
+* support Files.registerFiles() in Kotlin SDK ([d797183](https://github.com/googleapis/kotlin-genai/commit/d797183c9941969af0f5a18db44f95f9328d39cb))
+
+
+### Bug Fixes
+
+* send role "user" when a Content has no role ([20074e3](https://github.com/googleapis/kotlin-genai/commit/20074e3ab7277291005e7145a70e6f0e6d0d7c37))
+* stop the extras parser truncating URLs in generated KDoc ([4754a4f](https://github.com/googleapis/kotlin-genai/commit/4754a4f7376c836021f0cb04933abcabbe21acda))
+
+
+### Documentation
+
+* add automatic function calling examples and README section ([26f9420](https://github.com/googleapis/kotlin-genai/commit/26f942056ed89e306c865b33be041610205aa431))
+* Add ephemeral token example to readme ([51b6919](https://github.com/googleapis/kotlin-genai/commit/51b6919c534649cf1137a232ba77324ee5c5668a))
+* Add README update for files.registerFiles ([feff55b](https://github.com/googleapis/kotlin-genai/commit/feff55ba85b85522e9a371afd445f82e40f37bc0))
+* use the gemini-flash-latest alias in examples and README ([7165e98](https://github.com/googleapis/kotlin-genai/commit/7165e98efe340a2a9fef8a860b17a4f6f1fa3e09))
+
+
+### Miscellaneous Chores
+
+* release 1.0.0 ([6c739aa](https://github.com/googleapis/kotlin-genai/commit/6c739aa11a1d07d25bd581bc67bc9561d5db0305))
+
 ## [0.5.0](https://github.com/googleapis/kotlin-genai/compare/v0.4.0...v0.5.0) (2026-08-20)
 
 
