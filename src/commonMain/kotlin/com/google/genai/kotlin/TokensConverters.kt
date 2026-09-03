@@ -72,35 +72,6 @@ internal object TokensConverters {
     return toObject
   }
 
-  internal fun blobToMldev(
-    fromObject: Map<String, Any?>?,
-    parentObject: MutableMap<String, Any?>?,
-  ): MutableMap<String, Any?> {
-
-    val toObject = mutableMapOf<String, Any?>()
-    Common.getValueByPath(fromObject, arrayOf("data"))?.let { node ->
-      Common.setValueByPath(
-        toObject,
-        arrayOf("data"),
-        Common.getValueByPath(fromObject, arrayOf("data")),
-      )
-    }
-
-    if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("displayName")))) {
-      throw IllegalArgumentException("displayName parameter is not supported in Gemini API.")
-    }
-
-    Common.getValueByPath(fromObject, arrayOf("mimeType"))?.let { node ->
-      Common.setValueByPath(
-        toObject,
-        arrayOf("mimeType"),
-        Common.getValueByPath(fromObject, arrayOf("mimeType")),
-      )
-    }
-
-    return toObject
-  }
-
   internal fun contentToMldev(
     fromObject: Map<String, Any?>?,
     parentObject: MutableMap<String, Any?>?,
@@ -216,35 +187,6 @@ internal object TokensConverters {
     if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("config")))) {
       throw IllegalArgumentException(
         "config parameter is not supported in Gemini Enterprise Agent Platform."
-      )
-    }
-
-    return toObject
-  }
-
-  internal fun fileDataToMldev(
-    fromObject: Map<String, Any?>?,
-    parentObject: MutableMap<String, Any?>?,
-  ): MutableMap<String, Any?> {
-
-    val toObject = mutableMapOf<String, Any?>()
-    if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("displayName")))) {
-      throw IllegalArgumentException("displayName parameter is not supported in Gemini API.")
-    }
-
-    Common.getValueByPath(fromObject, arrayOf("fileUri"))?.let { node ->
-      Common.setValueByPath(
-        toObject,
-        arrayOf("fileUri"),
-        Common.getValueByPath(fromObject, arrayOf("fileUri")),
-      )
-    }
-
-    Common.getValueByPath(fromObject, arrayOf("mimeType"))?.let { node ->
-      Common.setValueByPath(
-        toObject,
-        arrayOf("mimeType"),
-        Common.getValueByPath(fromObject, arrayOf("mimeType")),
       )
     }
 
@@ -617,10 +559,7 @@ internal object TokensConverters {
       Common.setValueByPath(
         toObject,
         arrayOf("fileData"),
-        fileDataToMldev(
-          Common.getValueByPath(fromObject, arrayOf("fileData")) as Map<String, Any?>,
-          toObject,
-        ),
+        Common.getValueByPath(fromObject, arrayOf("fileData")),
       )
     }
 
@@ -647,10 +586,7 @@ internal object TokensConverters {
       Common.setValueByPath(
         toObject,
         arrayOf("inlineData"),
-        blobToMldev(
-          Common.getValueByPath(fromObject, arrayOf("inlineData")) as Map<String, Any?>,
-          toObject,
-        ),
+        Common.getValueByPath(fromObject, arrayOf("inlineData")),
       )
     }
 

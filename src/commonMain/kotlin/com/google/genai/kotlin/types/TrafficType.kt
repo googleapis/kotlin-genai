@@ -39,6 +39,9 @@ value class TrafficType(val value: String) {
     /** Type for Flex traffic. */
     val ON_DEMAND_FLEX = TrafficType("ON_DEMAND_FLEX")
 
+    /** Type for Off-Peak Pay-As-You-Go traffic. */
+    val ON_DEMAND_OFFPEAK = TrafficType("ON_DEMAND_OFFPEAK")
+
     /** Type for Provisioned Throughput traffic. */
     val PROVISIONED_THROUGHPUT = TrafficType("PROVISIONED_THROUGHPUT")
   }

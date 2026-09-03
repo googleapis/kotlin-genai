@@ -584,35 +584,6 @@ class Batches internal constructor(internal val apiClient: ApiClient) {
     return toObject
   }
 
-  internal fun blobToMldev(
-    fromObject: Map<String, Any?>?,
-    parentObject: MutableMap<String, Any?>?,
-  ): MutableMap<String, Any?> {
-
-    val toObject = mutableMapOf<String, Any?>()
-    Common.getValueByPath(fromObject, arrayOf("data"))?.let { node ->
-      Common.setValueByPath(
-        toObject,
-        arrayOf("data"),
-        Common.getValueByPath(fromObject, arrayOf("data")),
-      )
-    }
-
-    if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("displayName")))) {
-      throw IllegalArgumentException("displayName parameter is not supported in Gemini API.")
-    }
-
-    Common.getValueByPath(fromObject, arrayOf("mimeType"))?.let { node ->
-      Common.setValueByPath(
-        toObject,
-        arrayOf("mimeType"),
-        Common.getValueByPath(fromObject, arrayOf("mimeType")),
-      )
-    }
-
-    return toObject
-  }
-
   internal fun cancelBatchJobParametersToMldev(
     apiClient: ApiClient,
     fromObject: Map<String, Any?>?,
@@ -1212,35 +1183,6 @@ class Batches internal constructor(internal val apiClient: ApiClient) {
           Common.getValueByPath(fromObject, arrayOf("inlinedRequests")) as Map<String, Any?>,
           toObject,
         ),
-      )
-    }
-
-    return toObject
-  }
-
-  internal fun fileDataToMldev(
-    fromObject: Map<String, Any?>?,
-    parentObject: MutableMap<String, Any?>?,
-  ): MutableMap<String, Any?> {
-
-    val toObject = mutableMapOf<String, Any?>()
-    if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("displayName")))) {
-      throw IllegalArgumentException("displayName parameter is not supported in Gemini API.")
-    }
-
-    Common.getValueByPath(fromObject, arrayOf("fileUri"))?.let { node ->
-      Common.setValueByPath(
-        toObject,
-        arrayOf("fileUri"),
-        Common.getValueByPath(fromObject, arrayOf("fileUri")),
-      )
-    }
-
-    Common.getValueByPath(fromObject, arrayOf("mimeType"))?.let { node ->
-      Common.setValueByPath(
-        toObject,
-        arrayOf("mimeType"),
-        Common.getValueByPath(fromObject, arrayOf("mimeType")),
       )
     }
 
@@ -2098,10 +2040,7 @@ class Batches internal constructor(internal val apiClient: ApiClient) {
       Common.setValueByPath(
         toObject,
         arrayOf("fileData"),
-        fileDataToMldev(
-          Common.getValueByPath(fromObject, arrayOf("fileData")) as Map<String, Any?>,
-          toObject,
-        ),
+        Common.getValueByPath(fromObject, arrayOf("fileData")),
       )
     }
 
@@ -2128,10 +2067,7 @@ class Batches internal constructor(internal val apiClient: ApiClient) {
       Common.setValueByPath(
         toObject,
         arrayOf("inlineData"),
-        blobToMldev(
-          Common.getValueByPath(fromObject, arrayOf("inlineData")) as Map<String, Any?>,
-          toObject,
-        ),
+        Common.getValueByPath(fromObject, arrayOf("inlineData")),
       )
     }
 
