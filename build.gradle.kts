@@ -137,6 +137,9 @@ tasks.withType<Test> {
     // The shared suite ships no recordings and is not replayable; it still compiles,
     // so a broken test is caught at build time.
     exclude("com/google/genai/kotlin/shared/**")
+
+    // Same for the live api-mode tests, which also ship no recordings.
+    exclude("com/google/genai/kotlin/liveapi/**")
   }
 }
 
