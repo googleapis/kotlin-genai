@@ -38,6 +38,31 @@ The SDK requires the following minimum platform versions:
 * **Java**: JDK 17
 * **Android**: API level 21 (Android 5.0)
 
+## Compatibility
+
+Within a `1.x` release line:
+
+**Source compatibility is guaranteed.** Code that compiles against one 1.x release will
+compile against any later 1.x release without changes.
+
+**Binary compatibility is not guaranteed for data types.** New fields are added to request
+and response types as the Gemini API evolves. Adding a field changes a type's generated
+constructor and `copy()` method, so code that was *compiled* against an older release may
+fail at runtime with `NoSuchMethodError` when run against a newer release without being
+recompiled.
+
+### What this means for you
+
+**If you are building an application, this does not affect you.** Your code is recompiled
+against whichever SDK version your build resolves, so your code and the SDK always stay
+consistent.
+
+**If you publish a library that depends on this SDK,** your users can encounter
+problems if they depend on your library and a newer release of the SDK directly.
+Your library ships as a pre-built artifact and is not recompiled when they
+build, so if their build resolves a newer SDK release than the one your library
+was compiled against, a call into a changed type can fail at runtime.
+
 ## Installation
 
 [//]: # ({x-version-update-start:google-genai-kotlin:released})
