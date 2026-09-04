@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/googleapis/kotlin-genai/compare/v1.0.0...v1.1.0) (2026-09-04)
+
+
+### Documentation
+
+* document the 1.x source and binary compatibility guarantees in README ([fb23c40](https://github.com/googleapis/kotlin-genai/commit/fb23c40b577561e32f3b0de0457a8d64fd9f7365))
+
 ## [1.0.0](https://github.com/googleapis/kotlin-genai/compare/v0.5.0...v1.0.0) (2026-09-02)
 
 
