@@ -72,35 +72,6 @@ internal object LiveConverters {
     return toObject
   }
 
-  internal fun blobToMldev(
-    fromObject: Map<String, Any?>?,
-    parentObject: MutableMap<String, Any?>?,
-  ): MutableMap<String, Any?> {
-
-    val toObject = mutableMapOf<String, Any?>()
-    Common.getValueByPath(fromObject, arrayOf("data"))?.let { node ->
-      Common.setValueByPath(
-        toObject,
-        arrayOf("data"),
-        Common.getValueByPath(fromObject, arrayOf("data")),
-      )
-    }
-
-    if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("displayName")))) {
-      throw IllegalArgumentException("displayName parameter is not supported in Gemini API.")
-    }
-
-    Common.getValueByPath(fromObject, arrayOf("mimeType"))?.let { node ->
-      Common.setValueByPath(
-        toObject,
-        arrayOf("mimeType"),
-        Common.getValueByPath(fromObject, arrayOf("mimeType")),
-      )
-    }
-
-    return toObject
-  }
-
   internal fun computerUseToVertex(
     fromObject: Map<String, Any?>?,
     parentObject: MutableMap<String, Any?>?,
@@ -192,35 +163,6 @@ internal object LiveConverters {
         toObject,
         arrayOf("role"),
         Common.getValueByPath(fromObject, arrayOf("role")),
-      )
-    }
-
-    return toObject
-  }
-
-  internal fun fileDataToMldev(
-    fromObject: Map<String, Any?>?,
-    parentObject: MutableMap<String, Any?>?,
-  ): MutableMap<String, Any?> {
-
-    val toObject = mutableMapOf<String, Any?>()
-    if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("displayName")))) {
-      throw IllegalArgumentException("displayName parameter is not supported in Gemini API.")
-    }
-
-    Common.getValueByPath(fromObject, arrayOf("fileUri"))?.let { node ->
-      Common.setValueByPath(
-        toObject,
-        arrayOf("fileUri"),
-        Common.getValueByPath(fromObject, arrayOf("fileUri")),
-      )
-    }
-
-    Common.getValueByPath(fromObject, arrayOf("mimeType"))?.let { node ->
-      Common.setValueByPath(
-        toObject,
-        arrayOf("mimeType"),
-        Common.getValueByPath(fromObject, arrayOf("mimeType")),
       )
     }
 
@@ -639,10 +581,7 @@ internal object LiveConverters {
       Common.setValueByPath(
         toObject,
         arrayOf("realtimeInput"),
-        liveClientRealtimeInputToMldev(
-          Common.getValueByPath(fromObject, arrayOf("realtimeInput")) as Map<String, Any?>,
-          toObject,
-        ),
+        Common.getValueByPath(fromObject, arrayOf("realtimeInput")),
       )
     }
 
@@ -701,69 +640,6 @@ internal object LiveConverters {
         toObject,
         arrayOf("toolResponse"),
         Common.getValueByPath(fromObject, arrayOf("toolResponse")),
-      )
-    }
-
-    return toObject
-  }
-
-  internal fun liveClientRealtimeInputToMldev(
-    fromObject: Map<String, Any?>?,
-    parentObject: MutableMap<String, Any?>?,
-  ): MutableMap<String, Any?> {
-
-    val toObject = mutableMapOf<String, Any?>()
-    Common.getValueByPath(fromObject, arrayOf("activityStart"))?.let { node ->
-      Common.setValueByPath(
-        toObject,
-        arrayOf("activityStart"),
-        Common.getValueByPath(fromObject, arrayOf("activityStart")),
-      )
-    }
-
-    Common.getValueByPath(fromObject, arrayOf("activityEnd"))?.let { node ->
-      Common.setValueByPath(
-        toObject,
-        arrayOf("activityEnd"),
-        Common.getValueByPath(fromObject, arrayOf("activityEnd")),
-      )
-    }
-
-    Common.getValueByPath(fromObject, arrayOf("audio"))?.let { node ->
-      Common.setValueByPath(
-        toObject,
-        arrayOf("audio"),
-        blobToMldev(
-          Common.getValueByPath(fromObject, arrayOf("audio")) as Map<String, Any?>,
-          toObject,
-        ),
-      )
-    }
-
-    Common.getValueByPath(fromObject, arrayOf("audioStreamEnd"))?.let { node ->
-      Common.setValueByPath(
-        toObject,
-        arrayOf("audioStreamEnd"),
-        Common.getValueByPath(fromObject, arrayOf("audioStreamEnd")),
-      )
-    }
-
-    Common.getValueByPath(fromObject, arrayOf("video"))?.let { node ->
-      Common.setValueByPath(
-        toObject,
-        arrayOf("video"),
-        blobToMldev(
-          Common.getValueByPath(fromObject, arrayOf("video")) as Map<String, Any?>,
-          toObject,
-        ),
-      )
-    }
-
-    Common.getValueByPath(fromObject, arrayOf("text"))?.let { node ->
-      Common.setValueByPath(
-        toObject,
-        arrayOf("text"),
-        Common.getValueByPath(fromObject, arrayOf("text")),
       )
     }
 
@@ -1609,26 +1485,18 @@ internal object LiveConverters {
 
     val toObject = mutableMapOf<String, Any?>()
     Common.getValueByPath(fromObject, arrayOf("media"))?.let { node ->
-      val keyArray = Transformers.tBlobs(node) as? List<*> ?: emptyList<Any?>()
-      val result = mutableListOf<Any?>()
-
-      for (item in keyArray) {
-        if (item is Map<*, *>) {
-          result.add(blobToMldev(item as Map<String, Any?>, toObject))
-        }
-      }
-      Common.setValueByPath(toObject, arrayOf("mediaChunks"), result)
+      Common.setValueByPath(
+        toObject,
+        arrayOf("mediaChunks"),
+        Transformers.tBlobs(Common.getValueByPath(fromObject, arrayOf("media"))),
+      )
     }
 
     Common.getValueByPath(fromObject, arrayOf("audio"))?.let { node ->
       Common.setValueByPath(
         toObject,
         arrayOf("audio"),
-        blobToMldev(
-          Transformers.tAudioBlob(Common.getValueByPath(fromObject, arrayOf("audio")))
-            as Map<String, Any?>,
-          toObject,
-        ),
+        Transformers.tAudioBlob(Common.getValueByPath(fromObject, arrayOf("audio"))),
       )
     }
 
@@ -1644,11 +1512,7 @@ internal object LiveConverters {
       Common.setValueByPath(
         toObject,
         arrayOf("video"),
-        blobToMldev(
-          Transformers.tImageBlob(Common.getValueByPath(fromObject, arrayOf("video")))
-            as Map<String, Any?>,
-          toObject,
-        ),
+        Transformers.tImageBlob(Common.getValueByPath(fromObject, arrayOf("video"))),
       )
     }
 
@@ -1991,10 +1855,7 @@ internal object LiveConverters {
       Common.setValueByPath(
         toObject,
         arrayOf("fileData"),
-        fileDataToMldev(
-          Common.getValueByPath(fromObject, arrayOf("fileData")) as Map<String, Any?>,
-          toObject,
-        ),
+        Common.getValueByPath(fromObject, arrayOf("fileData")),
       )
     }
 
@@ -2021,10 +1882,7 @@ internal object LiveConverters {
       Common.setValueByPath(
         toObject,
         arrayOf("inlineData"),
-        blobToMldev(
-          Common.getValueByPath(fromObject, arrayOf("inlineData")) as Map<String, Any?>,
-          toObject,
-        ),
+        Common.getValueByPath(fromObject, arrayOf("inlineData")),
       )
     }
 

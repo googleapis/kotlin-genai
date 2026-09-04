@@ -35,4 +35,7 @@ data class ReinforcementTuningExample(
 
   /** Corresponds to system_instruction in user-facing GenerateContentRequest. */
   val systemInstruction: Content? = null,
+
+  /** Optional. Corresponds to tools in user-facing GenerateContentRequest. */
+  val tools: List<Tool>? = null,
 )
