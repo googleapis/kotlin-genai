@@ -22,7 +22,7 @@ import kotlinx.serialization.Serializable
 
 /**
  * A MCPServer is a server that can be called by the model to perform actions. It is a server that
- * implements the MCP protocol. Next ID: 6. This data type is not supported in Vertex AI.
+ * implements the MCP protocol. Next ID: 7. This data type is not supported in Vertex AI.
  */
 @Serializable
 data class McpServer(
