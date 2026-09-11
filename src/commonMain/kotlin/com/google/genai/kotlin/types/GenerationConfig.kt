@@ -189,7 +189,7 @@ data class GenerationConfig(
    */
   val responseFormat: List<ResponseFormat>? = null,
 
-  /** Optional. Config for translation. This field is not supported in Vertex AI. */
+  /** Optional. Config for translation. */
   val translationConfig: TranslationConfig? = null,
 
   /** Optional. Configuration for audio transcription (speech recognition). */
