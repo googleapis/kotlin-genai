@@ -25,8 +25,8 @@ import kotlinx.serialization.Serializable
 data class AudioTranscriptionConfig(
 
   /**
-   * BCP-47 language codes providing hints about the languages present in the audio. If omitted or
-   * empty, defaults to automatic language detection.
+   * Optional. BCP-47 language codes providing hints about the languages present in the audio. If
+   * omitted or empty, defaults to automatic language detection.
    */
   val languageCodes: List<String>? = null,
 
