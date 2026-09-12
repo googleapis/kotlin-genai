@@ -2207,6 +2207,14 @@ class Batches internal constructor(internal val apiClient: ApiClient) {
       )
     }
 
+    Common.getValueByPath(fromObject, arrayOf("speechMetadata"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("speechMetadata"),
+        Common.getValueByPath(fromObject, arrayOf("speechMetadata")),
+      )
+    }
+
     return toObject
   }
 

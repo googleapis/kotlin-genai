@@ -18,25 +18,22 @@
 
 package com.google.genai.kotlin.types
 
+import kotlin.jvm.JvmInline
 import kotlinx.serialization.Serializable
 
-/** The configuration for the voice to use. */
+/** Optional speech mode. */
 @Serializable
-data class VoiceConfig(
+@JvmInline
+value class Mode(val value: String) {
+  companion object {
 
-  /**
-   * The configuration for a replicated voice, which is a clone of a user's voice that can be used
-   * for speech synthesis. If this is unset, a default voice is used.
-   */
-  val replicatedVoiceConfig: ReplicatedVoiceConfig? = null,
+    /** Unspecified speech mode. */
+    val MODE_UNSPECIFIED = Mode("MODE_UNSPECIFIED")
 
-  /** The configuration for a prebuilt voice. */
-  val prebuiltVoiceConfig: PrebuiltVoiceConfig? = null,
+    /** Speaks text verbatim without hallucinating filler words or interjections. */
+    val VERBATIM = Mode("VERBATIM")
 
-  /**
-   * Optional. The speaker identifier for synthesis. Supported formats: * Speaker name for prebuilt
-   * voices (for example, `Orus` or `Kore`). * Voice ID for stored voices (for example,
-   * `voice_xxx`). * Voice replication key (for example, `voicekey_xxx`).
-   */
-  val voice: String? = null,
-)
+    /** Conversational mode for multi-speaker dialog. */
+    val CONVERSATIONAL = Mode("CONVERSATIONAL")
+  }
+}

@@ -28,5 +28,8 @@ data class MultiSpeakerVoiceConfig(
    * Required. A list of configurations for the voices of the speakers. Exactly two speaker voice
    * configurations must be provided.
    */
-  val speakerVoiceConfigs: List<SpeakerVoiceConfig>? = null
+  val speakerVoiceConfigs: List<SpeakerVoiceConfig>? = null,
+
+  /** Optional. Optional speech mode. */
+  val mode: Mode? = null,
 )
