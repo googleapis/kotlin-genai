@@ -1954,6 +1954,14 @@ internal object LiveConverters {
       Common.setValueByPath(toObject, arrayOf("speakerVoiceConfigs"), result)
     }
 
+    Common.getValueByPath(fromObject, arrayOf("mode"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("mode"),
+        Common.getValueByPath(fromObject, arrayOf("mode")),
+      )
+    }
+
     return toObject
   }
 
@@ -2100,6 +2108,14 @@ internal object LiveConverters {
       )
     }
 
+    Common.getValueByPath(fromObject, arrayOf("speechMetadata"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("speechMetadata"),
+        Common.getValueByPath(fromObject, arrayOf("speechMetadata")),
+      )
+    }
+
     return toObject
   }
 
@@ -2228,6 +2244,14 @@ internal object LiveConverters {
         toObject,
         arrayOf("mediaProcessing"),
         Common.getValueByPath(fromObject, arrayOf("mediaProcessing")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("speechMetadata"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("speechMetadata"),
+        Common.getValueByPath(fromObject, arrayOf("speechMetadata")),
       )
     }
 
@@ -2781,6 +2805,14 @@ internal object LiveConverters {
         toObject,
         arrayOf("prebuiltVoiceConfig"),
         Common.getValueByPath(fromObject, arrayOf("prebuiltVoiceConfig")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("voice"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("voice"),
+        Common.getValueByPath(fromObject, arrayOf("voice")),
       )
     }
 

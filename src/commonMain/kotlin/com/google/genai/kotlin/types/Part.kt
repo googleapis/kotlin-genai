@@ -107,4 +107,10 @@ data class Part(
 
   /** How the model processes this part's media for understanding. */
   val mediaProcessing: MediaProcessing? = null,
+
+  /**
+   * Optional. Turn-level metadata for speech generation (e.g. Daikon speaker/style). May be set
+   * alongside `text` to attach speaker and style information to a text part.
+   */
+  val speechMetadata: SpeechMetadata? = null,
 )
