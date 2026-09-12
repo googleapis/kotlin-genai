@@ -124,6 +124,46 @@ class Tunings internal constructor(internal val apiClient: ApiClient) {
     return toObject
   }
 
+  internal fun computerUseToVertex(
+    fromObject: Map<String, Any?>?,
+    parentObject: MutableMap<String, Any?>?,
+    rootObject: Map<String, Any?>?,
+  ): MutableMap<String, Any?> {
+
+    val toObject = mutableMapOf<String, Any?>()
+    Common.getValueByPath(fromObject, arrayOf("environment"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("environment"),
+        Common.getValueByPath(fromObject, arrayOf("environment")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("excludedPredefinedFunctions"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("excludedPredefinedFunctions"),
+        Common.getValueByPath(fromObject, arrayOf("excludedPredefinedFunctions")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("enablePromptInjectionDetection"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("enablePromptInjectionDetection"),
+        Common.getValueByPath(fromObject, arrayOf("enablePromptInjectionDetection")),
+      )
+    }
+
+    if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("disabledSafetyPolicies")))) {
+      throw IllegalArgumentException(
+        "disabledSafetyPolicies parameter is not supported in Gemini Enterprise Agent Platform."
+      )
+    }
+
+    return toObject
+  }
+
   internal fun contentToVertex(
     fromObject: Map<String, Any?>?,
     parentObject: MutableMap<String, Any?>?,
@@ -1416,6 +1456,28 @@ class Tunings internal constructor(internal val apiClient: ApiClient) {
     return toObject
   }
 
+  internal fun mcpServerToVertex(
+    fromObject: Map<String, Any?>?,
+    parentObject: MutableMap<String, Any?>?,
+    rootObject: Map<String, Any?>?,
+  ): MutableMap<String, Any?> {
+
+    val toObject = mutableMapOf<String, Any?>()
+    if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("name")))) {
+      throw IllegalArgumentException(
+        "name parameter is not supported in Gemini Enterprise Agent Platform."
+      )
+    }
+
+    if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("streamableHttpTransport")))) {
+      throw IllegalArgumentException(
+        "streamableHttpTransport parameter is not supported in Gemini Enterprise Agent Platform."
+      )
+    }
+
+    return toObject
+  }
+
   internal fun partToVertex(
     fromObject: Map<String, Any?>?,
     parentObject: MutableMap<String, Any?>?,
@@ -1584,6 +1646,138 @@ class Tunings internal constructor(internal val apiClient: ApiClient) {
           toObject,
           rootObject,
         ),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("tools"))?.let { node ->
+      val keyArray = node as? List<*> ?: emptyList<Any?>()
+      val result = mutableListOf<Any?>()
+
+      for (item in keyArray) {
+        if (item is Map<*, *>) {
+          result.add(toolToVertex(item as Map<String, Any?>, toObject, rootObject))
+        }
+      }
+      Common.setValueByPath(toObject, arrayOf("tools"), result)
+    }
+
+    return toObject
+  }
+
+  internal fun toolToVertex(
+    fromObject: Map<String, Any?>?,
+    parentObject: MutableMap<String, Any?>?,
+    rootObject: Map<String, Any?>?,
+  ): MutableMap<String, Any?> {
+
+    val toObject = mutableMapOf<String, Any?>()
+    Common.getValueByPath(fromObject, arrayOf("retrieval"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("retrieval"),
+        Common.getValueByPath(fromObject, arrayOf("retrieval")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("computerUse"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("computerUse"),
+        computerUseToVertex(
+          Common.getValueByPath(fromObject, arrayOf("computerUse")) as Map<String, Any?>,
+          toObject,
+          rootObject,
+        ),
+      )
+    }
+
+    if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("fileSearch")))) {
+      throw IllegalArgumentException(
+        "fileSearch parameter is not supported in Gemini Enterprise Agent Platform."
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("googleSearch"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("googleSearch"),
+        Common.getValueByPath(fromObject, arrayOf("googleSearch")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("googleMaps"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("googleMaps"),
+        Common.getValueByPath(fromObject, arrayOf("googleMaps")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("codeExecution"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("codeExecution"),
+        Common.getValueByPath(fromObject, arrayOf("codeExecution")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("enterpriseWebSearch"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("enterpriseWebSearch"),
+        Common.getValueByPath(fromObject, arrayOf("enterpriseWebSearch")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("functionDeclarations"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("functionDeclarations"),
+        Common.getValueByPath(fromObject, arrayOf("functionDeclarations")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("googleSearchRetrieval"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("googleSearchRetrieval"),
+        Common.getValueByPath(fromObject, arrayOf("googleSearchRetrieval")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("parallelAiSearch"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("parallelAiSearch"),
+        Common.getValueByPath(fromObject, arrayOf("parallelAiSearch")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("urlContext"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("urlContext"),
+        Common.getValueByPath(fromObject, arrayOf("urlContext")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("mcpServers"))?.let { node ->
+      val keyArray = node as? List<*> ?: emptyList<Any?>()
+      val result = mutableListOf<Any?>()
+
+      for (item in keyArray) {
+        if (item is Map<*, *>) {
+          result.add(mcpServerToVertex(item as Map<String, Any?>, toObject, rootObject))
+        }
+      }
+      Common.setValueByPath(toObject, arrayOf("mcpServers"), result)
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("exaAiSearch"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("exaAiSearch"),
+        Common.getValueByPath(fromObject, arrayOf("exaAiSearch")),
       )
     }
 
