@@ -9,6 +9,7 @@ $dokka.location:com.google.genai.kotlin.types/ActivityHandling.Companion/NO_INTE
 $dokka.location:com.google.genai.kotlin.types/ActivityHandling.Companion/START_OF_ACTIVITY_INTERRUPTS/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-activity-handling/-companion/-s-t-a-r-t_-o-f_-a-c-t-i-v-i-t-y_-i-n-t-e-r-r-u-p-t-s.html
 $dokka.location:com.google.genai.kotlin.types/ActivityHandling///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-activity-handling/index.html
 $dokka.location:com.google.genai.kotlin.types/ActivityHandling/ActivityHandling/#kotlin.String/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-activity-handling/-activity-handling.html
+$dokka.location:com.google.genai.kotlin.types/ActivityHandling/toString/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-activity-handling/to-string.html
 $dokka.location:com.google.genai.kotlin.types/ActivityHandling/value/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-activity-handling/value.html
 $dokka.location:com.google.genai.kotlin.types/ActivityStart///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-activity-start/index.html
 $dokka.location:com.google.genai.kotlin.types/ActivityStart/ActivityStart/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-activity-start/-activity-start.html
@@ -22,6 +23,7 @@ $dokka.location:com.google.genai.kotlin.types/AdapterSize.Companion/ADAPTER_SIZE
 $dokka.location:com.google.genai.kotlin.types/AdapterSize.Companion/ADAPTER_SIZE_UNSPECIFIED/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-adapter-size/-companion/-a-d-a-p-t-e-r_-s-i-z-e_-u-n-s-p-e-c-i-f-i-e-d.html
 $dokka.location:com.google.genai.kotlin.types/AdapterSize///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-adapter-size/index.html
 $dokka.location:com.google.genai.kotlin.types/AdapterSize/AdapterSize/#kotlin.String/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-adapter-size/-adapter-size.html
+$dokka.location:com.google.genai.kotlin.types/AdapterSize/toString/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-adapter-size/to-string.html
 $dokka.location:com.google.genai.kotlin.types/AdapterSize/value/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-adapter-size/value.html
 $dokka.location:com.google.genai.kotlin.types/AggregationMetric.Companion///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-aggregation-metric/-companion/index.html
 $dokka.location:com.google.genai.kotlin.types/AggregationMetric.Companion/AGGREGATION_METRIC_UNSPECIFIED/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-aggregation-metric/-companion/-a-g-g-r-e-g-a-t-i-o-n_-m-e-t-r-i-c_-u-n-s-p-e-c-i-f-i-e-d.html
@@ -37,6 +39,7 @@ $dokka.location:com.google.genai.kotlin.types/AggregationMetric.Companion/STANDA
 $dokka.location:com.google.genai.kotlin.types/AggregationMetric.Companion/VARIANCE/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-aggregation-metric/-companion/-v-a-r-i-a-n-c-e.html
 $dokka.location:com.google.genai.kotlin.types/AggregationMetric///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-aggregation-metric/index.html
 $dokka.location:com.google.genai.kotlin.types/AggregationMetric/AggregationMetric/#kotlin.String/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-aggregation-metric/-aggregation-metric.html
+$dokka.location:com.google.genai.kotlin.types/AggregationMetric/toString/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-aggregation-metric/to-string.html
 $dokka.location:com.google.genai.kotlin.types/AggregationMetric/value/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-aggregation-metric/value.html
 $dokka.location:com.google.genai.kotlin.types/AggregationOutput///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-aggregation-output/index.html
 $dokka.location:com.google.genai.kotlin.types/AggregationOutput/AggregationOutput/#kotlin.collections.List[com.google.genai.kotlin.types.AggregationResult]?#com.google.genai.kotlin.types.EvaluationDataset?/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-aggregation-output/-aggregation-output.html
@@ -70,6 +73,7 @@ $dokka.location:com.google.genai.kotlin.types/ApiSpec.Companion/ELASTIC_SEARCH/#
 $dokka.location:com.google.genai.kotlin.types/ApiSpec.Companion/SIMPLE_SEARCH/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-api-spec/-companion/-s-i-m-p-l-e_-s-e-a-r-c-h.html
 $dokka.location:com.google.genai.kotlin.types/ApiSpec///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-api-spec/index.html
 $dokka.location:com.google.genai.kotlin.types/ApiSpec/ApiSpec/#kotlin.String/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-api-spec/-api-spec.html
+$dokka.location:com.google.genai.kotlin.types/ApiSpec/toString/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-api-spec/to-string.html
 $dokka.location:com.google.genai.kotlin.types/ApiSpec/value/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-api-spec/value.html
 $dokka.location:com.google.genai.kotlin.types/AspectRatio.Companion///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-aspect-ratio/-companion/index.html
 $dokka.location:com.google.genai.kotlin.types/AspectRatio.Companion/ASPECT_RATIO_EIGHT_BY_ONE/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-aspect-ratio/-companion/-a-s-p-e-c-t_-r-a-t-i-o_-e-i-g-h-t_-b-y_-o-n-e.html
@@ -89,6 +93,7 @@ $dokka.location:com.google.genai.kotlin.types/AspectRatio.Companion/ASPECT_RATIO
 $dokka.location:com.google.genai.kotlin.types/AspectRatio.Companion/ASPECT_RATIO_UNSPECIFIED/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-aspect-ratio/-companion/-a-s-p-e-c-t_-r-a-t-i-o_-u-n-s-p-e-c-i-f-i-e-d.html
 $dokka.location:com.google.genai.kotlin.types/AspectRatio///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-aspect-ratio/index.html
 $dokka.location:com.google.genai.kotlin.types/AspectRatio/AspectRatio/#kotlin.String/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-aspect-ratio/-aspect-ratio.html
+$dokka.location:com.google.genai.kotlin.types/AspectRatio/toString/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-aspect-ratio/to-string.html
 $dokka.location:com.google.genai.kotlin.types/AspectRatio/value/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-aspect-ratio/value.html
 $dokka.location:com.google.genai.kotlin.types/AudioResponseFormat///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-audio-response-format/index.html
 $dokka.location:com.google.genai.kotlin.types/AudioResponseFormat/AudioResponseFormat/#kotlin.Int?#com.google.genai.kotlin.types.Delivery?#kotlin.String?#kotlin.Int?/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-audio-response-format/-audio-response-format.html
@@ -112,6 +117,7 @@ $dokka.location:com.google.genai.kotlin.types/AudioTranscriptionConfigMode.Compa
 $dokka.location:com.google.genai.kotlin.types/AudioTranscriptionConfigMode.Companion/VERBATIM/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-audio-transcription-config-mode/-companion/-v-e-r-b-a-t-i-m.html
 $dokka.location:com.google.genai.kotlin.types/AudioTranscriptionConfigMode///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-audio-transcription-config-mode/index.html
 $dokka.location:com.google.genai.kotlin.types/AudioTranscriptionConfigMode/AudioTranscriptionConfigMode/#kotlin.String/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-audio-transcription-config-mode/-audio-transcription-config-mode.html
+$dokka.location:com.google.genai.kotlin.types/AudioTranscriptionConfigMode/toString/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-audio-transcription-config-mode/to-string.html
 $dokka.location:com.google.genai.kotlin.types/AudioTranscriptionConfigMode/value/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-audio-transcription-config-mode/value.html
 $dokka.location:com.google.genai.kotlin.types/AuthConfig///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-auth-config/index.html
 $dokka.location:com.google.genai.kotlin.types/AuthConfig/AuthConfig/#kotlin.String?#com.google.genai.kotlin.types.ApiKeyConfig?#com.google.genai.kotlin.types.AuthType?#com.google.genai.kotlin.types.AuthConfigGoogleServiceAccountConfig?#com.google.genai.kotlin.types.AuthConfigHttpBasicAuthConfig?#com.google.genai.kotlin.types.AuthConfigOauthConfig?#com.google.genai.kotlin.types.AuthConfigOidcConfig?/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-auth-config/-auth-config.html
@@ -152,6 +158,7 @@ $dokka.location:com.google.genai.kotlin.types/AuthType.Companion/OAUTH/#/Pointin
 $dokka.location:com.google.genai.kotlin.types/AuthType.Companion/OIDC_AUTH/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-auth-type/-companion/-o-i-d-c_-a-u-t-h.html
 $dokka.location:com.google.genai.kotlin.types/AuthType///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-auth-type/index.html
 $dokka.location:com.google.genai.kotlin.types/AuthType/AuthType/#kotlin.String/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-auth-type/-auth-type.html
+$dokka.location:com.google.genai.kotlin.types/AuthType/toString/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-auth-type/to-string.html
 $dokka.location:com.google.genai.kotlin.types/AuthType/value/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-auth-type/value.html
 $dokka.location:com.google.genai.kotlin.types/AutomaticActivityDetection///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-automatic-activity-detection/index.html
 $dokka.location:com.google.genai.kotlin.types/AutomaticActivityDetection/AutomaticActivityDetection/#kotlin.Boolean?#com.google.genai.kotlin.types.StartSensitivity?#com.google.genai.kotlin.types.EndSensitivity?#kotlin.Int?#kotlin.Int?/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-automatic-activity-detection/-automatic-activity-detection.html
@@ -215,6 +222,7 @@ $dokka.location:com.google.genai.kotlin.types/Behavior.Companion/NON_BLOCKING/#/
 $dokka.location:com.google.genai.kotlin.types/Behavior.Companion/UNSPECIFIED/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-behavior/-companion/-u-n-s-p-e-c-i-f-i-e-d.html
 $dokka.location:com.google.genai.kotlin.types/Behavior///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-behavior/index.html
 $dokka.location:com.google.genai.kotlin.types/Behavior/Behavior/#kotlin.String/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-behavior/-behavior.html
+$dokka.location:com.google.genai.kotlin.types/Behavior/toString/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-behavior/to-string.html
 $dokka.location:com.google.genai.kotlin.types/Behavior/value/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-behavior/value.html
 $dokka.location:com.google.genai.kotlin.types/BigQuerySource///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-big-query-source/index.html
 $dokka.location:com.google.genai.kotlin.types/BigQuerySource/BigQuerySource/#kotlin.String?/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-big-query-source/-big-query-source.html
@@ -238,6 +246,7 @@ $dokka.location:com.google.genai.kotlin.types/BlockedReason.Companion/PROHIBITED
 $dokka.location:com.google.genai.kotlin.types/BlockedReason.Companion/SAFETY/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-blocked-reason/-companion/-s-a-f-e-t-y.html
 $dokka.location:com.google.genai.kotlin.types/BlockedReason///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-blocked-reason/index.html
 $dokka.location:com.google.genai.kotlin.types/BlockedReason/BlockedReason/#kotlin.String/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-blocked-reason/-blocked-reason.html
+$dokka.location:com.google.genai.kotlin.types/BlockedReason/toString/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-blocked-reason/to-string.html
 $dokka.location:com.google.genai.kotlin.types/BlockedReason/value/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-blocked-reason/value.html
 $dokka.location:com.google.genai.kotlin.types/ByteArrayAsBase64Serializer///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-byte-array-as-base64-serializer/index.html
 $dokka.location:com.google.genai.kotlin.types/ByteArrayAsBase64Serializer/descriptor/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-byte-array-as-base64-serializer/descriptor.html
@@ -502,6 +511,7 @@ $dokka.location:com.google.genai.kotlin.types/Delivery.Companion/INLINE/#/Pointi
 $dokka.location:com.google.genai.kotlin.types/Delivery.Companion/URI/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-delivery/-companion/-u-r-i.html
 $dokka.location:com.google.genai.kotlin.types/Delivery///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-delivery/index.html
 $dokka.location:com.google.genai.kotlin.types/Delivery/Delivery/#kotlin.String/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-delivery/-delivery.html
+$dokka.location:com.google.genai.kotlin.types/Delivery/toString/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-delivery/to-string.html
 $dokka.location:com.google.genai.kotlin.types/Delivery/value/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-delivery/value.html
 $dokka.location:com.google.genai.kotlin.types/DistillationDataStats///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-distillation-data-stats/index.html
 $dokka.location:com.google.genai.kotlin.types/DistillationDataStats/DistillationDataStats/#com.google.genai.kotlin.types.DatasetStats?/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-distillation-data-stats/-distillation-data-stats.html
@@ -548,6 +558,7 @@ $dokka.location:com.google.genai.kotlin.types/DynamicRetrievalConfigMode.Compani
 $dokka.location:com.google.genai.kotlin.types/DynamicRetrievalConfigMode.Companion/MODE_UNSPECIFIED/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-dynamic-retrieval-config-mode/-companion/-m-o-d-e_-u-n-s-p-e-c-i-f-i-e-d.html
 $dokka.location:com.google.genai.kotlin.types/DynamicRetrievalConfigMode///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-dynamic-retrieval-config-mode/index.html
 $dokka.location:com.google.genai.kotlin.types/DynamicRetrievalConfigMode/DynamicRetrievalConfigMode/#kotlin.String/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-dynamic-retrieval-config-mode/-dynamic-retrieval-config-mode.html
+$dokka.location:com.google.genai.kotlin.types/DynamicRetrievalConfigMode/toString/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-dynamic-retrieval-config-mode/to-string.html
 $dokka.location:com.google.genai.kotlin.types/DynamicRetrievalConfigMode/value/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-dynamic-retrieval-config-mode/value.html
 $dokka.location:com.google.genai.kotlin.types/EmbedContentBatch///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-embed-content-batch/index.html
 $dokka.location:com.google.genai.kotlin.types/EmbedContentBatch/EmbedContentBatch/#kotlin.collections.List[com.google.genai.kotlin.types.Content]?#com.google.genai.kotlin.types.EmbedContentConfig?/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-embed-content-batch/-embed-content-batch.html
@@ -576,6 +587,7 @@ $dokka.location:com.google.genai.kotlin.types/EmbeddingApiType.Companion/EMBED_C
 $dokka.location:com.google.genai.kotlin.types/EmbeddingApiType.Companion/PREDICT/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-embedding-api-type/-companion/-p-r-e-d-i-c-t.html
 $dokka.location:com.google.genai.kotlin.types/EmbeddingApiType///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-embedding-api-type/index.html
 $dokka.location:com.google.genai.kotlin.types/EmbeddingApiType/EmbeddingApiType/#kotlin.String/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-embedding-api-type/-embedding-api-type.html
+$dokka.location:com.google.genai.kotlin.types/EmbeddingApiType/toString/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-embedding-api-type/to-string.html
 $dokka.location:com.google.genai.kotlin.types/EmbeddingApiType/value/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-embedding-api-type/value.html
 $dokka.location:com.google.genai.kotlin.types/EmbeddingsBatchJobSource///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-embeddings-batch-job-source/index.html
 $dokka.location:com.google.genai.kotlin.types/EmbeddingsBatchJobSource/EmbeddingsBatchJobSource/#kotlin.String?#com.google.genai.kotlin.types.EmbedContentBatch?/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-embeddings-batch-job-source/-embeddings-batch-job-source.html
@@ -590,6 +602,7 @@ $dokka.location:com.google.genai.kotlin.types/EndSensitivity.Companion/END_SENSI
 $dokka.location:com.google.genai.kotlin.types/EndSensitivity.Companion/END_SENSITIVITY_UNSPECIFIED/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-end-sensitivity/-companion/-e-n-d_-s-e-n-s-i-t-i-v-i-t-y_-u-n-s-p-e-c-i-f-i-e-d.html
 $dokka.location:com.google.genai.kotlin.types/EndSensitivity///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-end-sensitivity/index.html
 $dokka.location:com.google.genai.kotlin.types/EndSensitivity/EndSensitivity/#kotlin.String/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-end-sensitivity/-end-sensitivity.html
+$dokka.location:com.google.genai.kotlin.types/EndSensitivity/toString/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-end-sensitivity/to-string.html
 $dokka.location:com.google.genai.kotlin.types/EndSensitivity/value/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-end-sensitivity/value.html
 $dokka.location:com.google.genai.kotlin.types/Endpoint///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-endpoint/index.html
 $dokka.location:com.google.genai.kotlin.types/Endpoint/Endpoint/#kotlin.String?#kotlin.String?/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-endpoint/-endpoint.html
@@ -606,6 +619,7 @@ $dokka.location:com.google.genai.kotlin.types/Environment.Companion/ENVIRONMENT_
 $dokka.location:com.google.genai.kotlin.types/Environment.Companion/ENVIRONMENT_UNSPECIFIED/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-environment/-companion/-e-n-v-i-r-o-n-m-e-n-t_-u-n-s-p-e-c-i-f-i-e-d.html
 $dokka.location:com.google.genai.kotlin.types/Environment///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-environment/index.html
 $dokka.location:com.google.genai.kotlin.types/Environment/Environment/#kotlin.String/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-environment/-environment.html
+$dokka.location:com.google.genai.kotlin.types/Environment/toString/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-environment/to-string.html
 $dokka.location:com.google.genai.kotlin.types/Environment/value/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-environment/value.html
 $dokka.location:com.google.genai.kotlin.types/EvaluateDatasetResponse///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-evaluate-dataset-response/index.html
 $dokka.location:com.google.genai.kotlin.types/EvaluateDatasetResponse/EvaluateDatasetResponse/#com.google.genai.kotlin.types.AggregationOutput?#com.google.genai.kotlin.types.OutputInfo?/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-evaluate-dataset-response/-evaluate-dataset-response.html
@@ -652,6 +666,7 @@ $dokka.location:com.google.genai.kotlin.types/FeatureSelectionPreference.Compani
 $dokka.location:com.google.genai.kotlin.types/FeatureSelectionPreference.Companion/PRIORITIZE_QUALITY/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-feature-selection-preference/-companion/-p-r-i-o-r-i-t-i-z-e_-q-u-a-l-i-t-y.html
 $dokka.location:com.google.genai.kotlin.types/FeatureSelectionPreference///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-feature-selection-preference/index.html
 $dokka.location:com.google.genai.kotlin.types/FeatureSelectionPreference/FeatureSelectionPreference/#kotlin.String/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-feature-selection-preference/-feature-selection-preference.html
+$dokka.location:com.google.genai.kotlin.types/FeatureSelectionPreference/toString/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-feature-selection-preference/to-string.html
 $dokka.location:com.google.genai.kotlin.types/FeatureSelectionPreference/value/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-feature-selection-preference/value.html
 $dokka.location:com.google.genai.kotlin.types/File///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-file/index.html
 $dokka.location:com.google.genai.kotlin.types/File/File/#kotlin.String?#kotlin.String?#kotlin.String?#kotlin.Long?#com.google.genai.kotlin.types.Instant?#com.google.genai.kotlin.types.Instant?#com.google.genai.kotlin.types.Instant?#kotlin.String?#kotlin.String?#kotlin.String?#com.google.genai.kotlin.types.FileState?#com.google.genai.kotlin.types.FileSource?#kotlin.collections.Map[kotlin.String,kotlinx.serialization.json.JsonElement]?#com.google.genai.kotlin.types.FileStatus?/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-file/-file.html
@@ -686,6 +701,7 @@ $dokka.location:com.google.genai.kotlin.types/FileSource.Companion/SOURCE_UNSPEC
 $dokka.location:com.google.genai.kotlin.types/FileSource.Companion/UPLOADED/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-file-source/-companion/-u-p-l-o-a-d-e-d.html
 $dokka.location:com.google.genai.kotlin.types/FileSource///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-file-source/index.html
 $dokka.location:com.google.genai.kotlin.types/FileSource/FileSource/#kotlin.String/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-file-source/-file-source.html
+$dokka.location:com.google.genai.kotlin.types/FileSource/toString/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-file-source/to-string.html
 $dokka.location:com.google.genai.kotlin.types/FileSource/value/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-file-source/value.html
 $dokka.location:com.google.genai.kotlin.types/FileState.Companion///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-file-state/-companion/index.html
 $dokka.location:com.google.genai.kotlin.types/FileState.Companion/ACTIVE/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-file-state/-companion/-a-c-t-i-v-e.html
@@ -694,6 +710,7 @@ $dokka.location:com.google.genai.kotlin.types/FileState.Companion/PROCESSING/#/P
 $dokka.location:com.google.genai.kotlin.types/FileState.Companion/STATE_UNSPECIFIED/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-file-state/-companion/-s-t-a-t-e_-u-n-s-p-e-c-i-f-i-e-d.html
 $dokka.location:com.google.genai.kotlin.types/FileState///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-file-state/index.html
 $dokka.location:com.google.genai.kotlin.types/FileState/FileState/#kotlin.String/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-file-state/-file-state.html
+$dokka.location:com.google.genai.kotlin.types/FileState/toString/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-file-state/to-string.html
 $dokka.location:com.google.genai.kotlin.types/FileState/value/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-file-state/value.html
 $dokka.location:com.google.genai.kotlin.types/FileStatus///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-file-status/index.html
 $dokka.location:com.google.genai.kotlin.types/FileStatus/FileStatus/#kotlin.collections.List[kotlin.collections.Map[kotlin.String,kotlinx.serialization.json.JsonElement]]?#kotlin.String?#kotlin.Int?/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-file-status/-file-status.html
@@ -721,6 +738,7 @@ $dokka.location:com.google.genai.kotlin.types/FinishReason.Companion/TOO_MANY_TO
 $dokka.location:com.google.genai.kotlin.types/FinishReason.Companion/UNEXPECTED_TOOL_CALL/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-finish-reason/-companion/-u-n-e-x-p-e-c-t-e-d_-t-o-o-l_-c-a-l-l.html
 $dokka.location:com.google.genai.kotlin.types/FinishReason///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-finish-reason/index.html
 $dokka.location:com.google.genai.kotlin.types/FinishReason/FinishReason/#kotlin.String/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-finish-reason/-finish-reason.html
+$dokka.location:com.google.genai.kotlin.types/FinishReason/toString/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-finish-reason/to-string.html
 $dokka.location:com.google.genai.kotlin.types/FinishReason/value/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-finish-reason/value.html
 $dokka.location:com.google.genai.kotlin.types/FullFineTuningSpec///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-full-fine-tuning-spec/index.html
 $dokka.location:com.google.genai.kotlin.types/FullFineTuningSpec/FullFineTuningSpec/#com.google.genai.kotlin.types.SupervisedHyperParameters?#kotlin.String?#kotlin.String?/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-full-fine-tuning-spec/-full-fine-tuning-spec.html
@@ -747,6 +765,7 @@ $dokka.location:com.google.genai.kotlin.types/FunctionCallingConfigMode.Companio
 $dokka.location:com.google.genai.kotlin.types/FunctionCallingConfigMode.Companion/VALIDATED/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-function-calling-config-mode/-companion/-v-a-l-i-d-a-t-e-d.html
 $dokka.location:com.google.genai.kotlin.types/FunctionCallingConfigMode///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-function-calling-config-mode/index.html
 $dokka.location:com.google.genai.kotlin.types/FunctionCallingConfigMode/FunctionCallingConfigMode/#kotlin.String/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-function-calling-config-mode/-function-calling-config-mode.html
+$dokka.location:com.google.genai.kotlin.types/FunctionCallingConfigMode/toString/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-function-calling-config-mode/to-string.html
 $dokka.location:com.google.genai.kotlin.types/FunctionCallingConfigMode/value/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-function-calling-config-mode/value.html
 $dokka.location:com.google.genai.kotlin.types/FunctionDeclaration///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-function-declaration/index.html
 $dokka.location:com.google.genai.kotlin.types/FunctionDeclaration/FunctionDeclaration/#kotlin.String?#kotlin.String?#com.google.genai.kotlin.types.Schema?#kotlinx.serialization.json.JsonElement?#com.google.genai.kotlin.types.Schema?#kotlinx.serialization.json.JsonElement?#com.google.genai.kotlin.types.Behavior?/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-function-declaration/-function-declaration.html
@@ -786,6 +805,7 @@ $dokka.location:com.google.genai.kotlin.types/FunctionResponseScheduling.Compani
 $dokka.location:com.google.genai.kotlin.types/FunctionResponseScheduling.Companion/WHEN_IDLE/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-function-response-scheduling/-companion/-w-h-e-n_-i-d-l-e.html
 $dokka.location:com.google.genai.kotlin.types/FunctionResponseScheduling///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-function-response-scheduling/index.html
 $dokka.location:com.google.genai.kotlin.types/FunctionResponseScheduling/FunctionResponseScheduling/#kotlin.String/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-function-response-scheduling/-function-response-scheduling.html
+$dokka.location:com.google.genai.kotlin.types/FunctionResponseScheduling/toString/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-function-response-scheduling/to-string.html
 $dokka.location:com.google.genai.kotlin.types/FunctionResponseScheduling/value/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-function-response-scheduling/value.html
 $dokka.location:com.google.genai.kotlin.types/GcsSource///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-gcs-source/index.html
 $dokka.location:com.google.genai.kotlin.types/GcsSource/GcsSource/#kotlin.collections.List[kotlin.String]?/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-gcs-source/-gcs-source.html
@@ -1050,6 +1070,7 @@ $dokka.location:com.google.genai.kotlin.types/HarmBlockMethod.Companion/PROBABIL
 $dokka.location:com.google.genai.kotlin.types/HarmBlockMethod.Companion/SEVERITY/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-harm-block-method/-companion/-s-e-v-e-r-i-t-y.html
 $dokka.location:com.google.genai.kotlin.types/HarmBlockMethod///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-harm-block-method/index.html
 $dokka.location:com.google.genai.kotlin.types/HarmBlockMethod/HarmBlockMethod/#kotlin.String/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-harm-block-method/-harm-block-method.html
+$dokka.location:com.google.genai.kotlin.types/HarmBlockMethod/toString/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-harm-block-method/to-string.html
 $dokka.location:com.google.genai.kotlin.types/HarmBlockMethod/value/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-harm-block-method/value.html
 $dokka.location:com.google.genai.kotlin.types/HarmBlockThreshold.Companion///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-harm-block-threshold/-companion/index.html
 $dokka.location:com.google.genai.kotlin.types/HarmBlockThreshold.Companion/BLOCK_LOW_AND_ABOVE/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-harm-block-threshold/-companion/-b-l-o-c-k_-l-o-w_-a-n-d_-a-b-o-v-e.html
@@ -1060,6 +1081,7 @@ $dokka.location:com.google.genai.kotlin.types/HarmBlockThreshold.Companion/HARM_
 $dokka.location:com.google.genai.kotlin.types/HarmBlockThreshold.Companion/OFF/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-harm-block-threshold/-companion/-o-f-f.html
 $dokka.location:com.google.genai.kotlin.types/HarmBlockThreshold///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-harm-block-threshold/index.html
 $dokka.location:com.google.genai.kotlin.types/HarmBlockThreshold/HarmBlockThreshold/#kotlin.String/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-harm-block-threshold/-harm-block-threshold.html
+$dokka.location:com.google.genai.kotlin.types/HarmBlockThreshold/toString/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-harm-block-threshold/to-string.html
 $dokka.location:com.google.genai.kotlin.types/HarmBlockThreshold/value/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-harm-block-threshold/value.html
 $dokka.location:com.google.genai.kotlin.types/HarmCategory.Companion///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-harm-category/-companion/index.html
 $dokka.location:com.google.genai.kotlin.types/HarmCategory.Companion/HARM_CATEGORY_CIVIC_INTEGRITY/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-harm-category/-companion/-h-a-r-m_-c-a-t-e-g-o-r-y_-c-i-v-i-c_-i-n-t-e-g-r-i-t-y.html
@@ -1075,6 +1097,7 @@ $dokka.location:com.google.genai.kotlin.types/HarmCategory.Companion/HARM_CATEGO
 $dokka.location:com.google.genai.kotlin.types/HarmCategory.Companion/HARM_CATEGORY_UNSPECIFIED/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-harm-category/-companion/-h-a-r-m_-c-a-t-e-g-o-r-y_-u-n-s-p-e-c-i-f-i-e-d.html
 $dokka.location:com.google.genai.kotlin.types/HarmCategory///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-harm-category/index.html
 $dokka.location:com.google.genai.kotlin.types/HarmCategory/HarmCategory/#kotlin.String/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-harm-category/-harm-category.html
+$dokka.location:com.google.genai.kotlin.types/HarmCategory/toString/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-harm-category/to-string.html
 $dokka.location:com.google.genai.kotlin.types/HarmCategory/value/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-harm-category/value.html
 $dokka.location:com.google.genai.kotlin.types/HarmProbability.Companion///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-harm-probability/-companion/index.html
 $dokka.location:com.google.genai.kotlin.types/HarmProbability.Companion/HARM_PROBABILITY_UNSPECIFIED/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-harm-probability/-companion/-h-a-r-m_-p-r-o-b-a-b-i-l-i-t-y_-u-n-s-p-e-c-i-f-i-e-d.html
@@ -1084,6 +1107,7 @@ $dokka.location:com.google.genai.kotlin.types/HarmProbability.Companion/MEDIUM/#
 $dokka.location:com.google.genai.kotlin.types/HarmProbability.Companion/NEGLIGIBLE/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-harm-probability/-companion/-n-e-g-l-i-g-i-b-l-e.html
 $dokka.location:com.google.genai.kotlin.types/HarmProbability///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-harm-probability/index.html
 $dokka.location:com.google.genai.kotlin.types/HarmProbability/HarmProbability/#kotlin.String/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-harm-probability/-harm-probability.html
+$dokka.location:com.google.genai.kotlin.types/HarmProbability/toString/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-harm-probability/to-string.html
 $dokka.location:com.google.genai.kotlin.types/HarmProbability/value/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-harm-probability/value.html
 $dokka.location:com.google.genai.kotlin.types/HarmSeverity.Companion///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-harm-severity/-companion/index.html
 $dokka.location:com.google.genai.kotlin.types/HarmSeverity.Companion/HARM_SEVERITY_HIGH/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-harm-severity/-companion/-h-a-r-m_-s-e-v-e-r-i-t-y_-h-i-g-h.html
@@ -1093,6 +1117,7 @@ $dokka.location:com.google.genai.kotlin.types/HarmSeverity.Companion/HARM_SEVERI
 $dokka.location:com.google.genai.kotlin.types/HarmSeverity.Companion/HARM_SEVERITY_UNSPECIFIED/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-harm-severity/-companion/-h-a-r-m_-s-e-v-e-r-i-t-y_-u-n-s-p-e-c-i-f-i-e-d.html
 $dokka.location:com.google.genai.kotlin.types/HarmSeverity///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-harm-severity/index.html
 $dokka.location:com.google.genai.kotlin.types/HarmSeverity/HarmSeverity/#kotlin.String/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-harm-severity/-harm-severity.html
+$dokka.location:com.google.genai.kotlin.types/HarmSeverity/toString/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-harm-severity/to-string.html
 $dokka.location:com.google.genai.kotlin.types/HarmSeverity/value/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-harm-severity/value.html
 $dokka.location:com.google.genai.kotlin.types/HistoryConfig///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-history-config/index.html
 $dokka.location:com.google.genai.kotlin.types/HistoryConfig/HistoryConfig/#kotlin.Boolean?/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-history-config/-history-config.html
@@ -1106,6 +1131,7 @@ $dokka.location:com.google.genai.kotlin.types/HttpElementLocation.Companion/HTTP
 $dokka.location:com.google.genai.kotlin.types/HttpElementLocation.Companion/HTTP_IN_UNSPECIFIED/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-http-element-location/-companion/-h-t-t-p_-i-n_-u-n-s-p-e-c-i-f-i-e-d.html
 $dokka.location:com.google.genai.kotlin.types/HttpElementLocation///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-http-element-location/index.html
 $dokka.location:com.google.genai.kotlin.types/HttpElementLocation/HttpElementLocation/#kotlin.String/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-http-element-location/-http-element-location.html
+$dokka.location:com.google.genai.kotlin.types/HttpElementLocation/toString/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-http-element-location/to-string.html
 $dokka.location:com.google.genai.kotlin.types/HttpElementLocation/value/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-http-element-location/value.html
 $dokka.location:com.google.genai.kotlin.types/HttpOptions///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-http-options/index.html
 $dokka.location:com.google.genai.kotlin.types/HttpOptions/HttpOptions/#kotlin.String?#kotlin.String?#kotlin.collections.Map[kotlin.String,kotlin.String]?#kotlin.Int?#com.google.genai.kotlin.types.HttpRetryOptions?/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-http-options/-http-options.html
@@ -1155,6 +1181,7 @@ $dokka.location:com.google.genai.kotlin.types/ImageSize.Companion/IMAGE_SIZE_TWO
 $dokka.location:com.google.genai.kotlin.types/ImageSize.Companion/IMAGE_SIZE_UNSPECIFIED/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-image-size/-companion/-i-m-a-g-e_-s-i-z-e_-u-n-s-p-e-c-i-f-i-e-d.html
 $dokka.location:com.google.genai.kotlin.types/ImageSize///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-image-size/index.html
 $dokka.location:com.google.genai.kotlin.types/ImageSize/ImageSize/#kotlin.String/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-image-size/-image-size.html
+$dokka.location:com.google.genai.kotlin.types/ImageSize/toString/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-image-size/to-string.html
 $dokka.location:com.google.genai.kotlin.types/ImageSize/value/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-image-size/value.html
 $dokka.location:com.google.genai.kotlin.types/InlinedEmbedContentResponse///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-inlined-embed-content-response/index.html
 $dokka.location:com.google.genai.kotlin.types/InlinedEmbedContentResponse/InlinedEmbedContentResponse/#com.google.genai.kotlin.types.SingleEmbedContentResponse?#com.google.genai.kotlin.types.JobError?#kotlin.collections.Map[kotlin.String,kotlinx.serialization.json.JsonElement]?/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-inlined-embed-content-response/-inlined-embed-content-response.html
@@ -1189,6 +1216,7 @@ $dokka.location:com.google.genai.kotlin.types/InteractionStatus.Companion/IN_PRO
 $dokka.location:com.google.genai.kotlin.types/InteractionStatus.Companion/REQUIRES_ACTION/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-interaction-status/-companion/-r-e-q-u-i-r-e-s_-a-c-t-i-o-n.html
 $dokka.location:com.google.genai.kotlin.types/InteractionStatus///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-interaction-status/index.html
 $dokka.location:com.google.genai.kotlin.types/InteractionStatus/InteractionStatus/#kotlin.String/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-interaction-status/-interaction-status.html
+$dokka.location:com.google.genai.kotlin.types/InteractionStatus/toString/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-interaction-status/to-string.html
 $dokka.location:com.google.genai.kotlin.types/InteractionStatus/value/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-interaction-status/value.html
 $dokka.location:com.google.genai.kotlin.types/Interval///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-interval/index.html
 $dokka.location:com.google.genai.kotlin.types/Interval/Interval/#com.google.genai.kotlin.types.Instant?#com.google.genai.kotlin.types.Instant?/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-interval/-interval.html
@@ -1214,12 +1242,14 @@ $dokka.location:com.google.genai.kotlin.types/JobState.Companion/JOB_STATE_UNSPE
 $dokka.location:com.google.genai.kotlin.types/JobState.Companion/JOB_STATE_UPDATING/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-job-state/-companion/-j-o-b_-s-t-a-t-e_-u-p-d-a-t-i-n-g.html
 $dokka.location:com.google.genai.kotlin.types/JobState///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-job-state/index.html
 $dokka.location:com.google.genai.kotlin.types/JobState/JobState/#kotlin.String/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-job-state/-job-state.html
+$dokka.location:com.google.genai.kotlin.types/JobState/toString/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-job-state/to-string.html
 $dokka.location:com.google.genai.kotlin.types/JobState/value/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-job-state/value.html
 $dokka.location:com.google.genai.kotlin.types/Language.Companion///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-language/-companion/index.html
 $dokka.location:com.google.genai.kotlin.types/Language.Companion/LANGUAGE_UNSPECIFIED/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-language/-companion/-l-a-n-g-u-a-g-e_-u-n-s-p-e-c-i-f-i-e-d.html
 $dokka.location:com.google.genai.kotlin.types/Language.Companion/PYTHON/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-language/-companion/-p-y-t-h-o-n.html
 $dokka.location:com.google.genai.kotlin.types/Language///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-language/index.html
 $dokka.location:com.google.genai.kotlin.types/Language/Language/#kotlin.String/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-language/-language.html
+$dokka.location:com.google.genai.kotlin.types/Language/toString/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-language/to-string.html
 $dokka.location:com.google.genai.kotlin.types/Language/value/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-language/value.html
 $dokka.location:com.google.genai.kotlin.types/LanguageAuto///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-language-auto/index.html
 $dokka.location:com.google.genai.kotlin.types/LanguageAuto/LanguageAuto/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-language-auto/-language-auto.html
@@ -1415,6 +1445,7 @@ $dokka.location:com.google.genai.kotlin.types/MatchOperation.Companion/PARTIAL_M
 $dokka.location:com.google.genai.kotlin.types/MatchOperation.Companion/REGEX_CONTAINS/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-match-operation/-companion/-r-e-g-e-x_-c-o-n-t-a-i-n-s.html
 $dokka.location:com.google.genai.kotlin.types/MatchOperation///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-match-operation/index.html
 $dokka.location:com.google.genai.kotlin.types/MatchOperation/MatchOperation/#kotlin.String/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-match-operation/-match-operation.html
+$dokka.location:com.google.genai.kotlin.types/MatchOperation/toString/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-match-operation/to-string.html
 $dokka.location:com.google.genai.kotlin.types/MatchOperation/value/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-match-operation/value.html
 $dokka.location:com.google.genai.kotlin.types/McpServer///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-mcp-server/index.html
 $dokka.location:com.google.genai.kotlin.types/McpServer/McpServer/#kotlin.String?#com.google.genai.kotlin.types.StreamableHttpTransport?/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-mcp-server/-mcp-server.html
@@ -1429,6 +1460,7 @@ $dokka.location:com.google.genai.kotlin.types/MediaModality.Companion/TEXT/#/Poi
 $dokka.location:com.google.genai.kotlin.types/MediaModality.Companion/VIDEO/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-media-modality/-companion/-v-i-d-e-o.html
 $dokka.location:com.google.genai.kotlin.types/MediaModality///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-media-modality/index.html
 $dokka.location:com.google.genai.kotlin.types/MediaModality/MediaModality/#kotlin.String/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-media-modality/-media-modality.html
+$dokka.location:com.google.genai.kotlin.types/MediaModality/toString/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-media-modality/to-string.html
 $dokka.location:com.google.genai.kotlin.types/MediaModality/value/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-media-modality/value.html
 $dokka.location:com.google.genai.kotlin.types/MediaProcessing.Companion///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-media-processing/-companion/index.html
 $dokka.location:com.google.genai.kotlin.types/MediaProcessing.Companion/AGENTIC/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-media-processing/-companion/-a-g-e-n-t-i-c.html
@@ -1436,6 +1468,7 @@ $dokka.location:com.google.genai.kotlin.types/MediaProcessing.Companion/MEDIA_PR
 $dokka.location:com.google.genai.kotlin.types/MediaProcessing.Companion/STATIC/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-media-processing/-companion/-s-t-a-t-i-c.html
 $dokka.location:com.google.genai.kotlin.types/MediaProcessing///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-media-processing/index.html
 $dokka.location:com.google.genai.kotlin.types/MediaProcessing/MediaProcessing/#kotlin.String/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-media-processing/-media-processing.html
+$dokka.location:com.google.genai.kotlin.types/MediaProcessing/toString/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-media-processing/to-string.html
 $dokka.location:com.google.genai.kotlin.types/MediaProcessing/value/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-media-processing/value.html
 $dokka.location:com.google.genai.kotlin.types/MediaResolution.Companion///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-media-resolution/-companion/index.html
 $dokka.location:com.google.genai.kotlin.types/MediaResolution.Companion/MEDIA_RESOLUTION_HIGH/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-media-resolution/-companion/-m-e-d-i-a_-r-e-s-o-l-u-t-i-o-n_-h-i-g-h.html
@@ -1444,6 +1477,7 @@ $dokka.location:com.google.genai.kotlin.types/MediaResolution.Companion/MEDIA_RE
 $dokka.location:com.google.genai.kotlin.types/MediaResolution.Companion/MEDIA_RESOLUTION_UNSPECIFIED/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-media-resolution/-companion/-m-e-d-i-a_-r-e-s-o-l-u-t-i-o-n_-u-n-s-p-e-c-i-f-i-e-d.html
 $dokka.location:com.google.genai.kotlin.types/MediaResolution///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-media-resolution/index.html
 $dokka.location:com.google.genai.kotlin.types/MediaResolution/MediaResolution/#kotlin.String/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-media-resolution/-media-resolution.html
+$dokka.location:com.google.genai.kotlin.types/MediaResolution/toString/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-media-resolution/to-string.html
 $dokka.location:com.google.genai.kotlin.types/MediaResolution/value/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-media-resolution/value.html
 $dokka.location:com.google.genai.kotlin.types/Modality.Companion///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-modality/-companion/index.html
 $dokka.location:com.google.genai.kotlin.types/Modality.Companion/AUDIO/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-modality/-companion/-a-u-d-i-o.html
@@ -1453,6 +1487,7 @@ $dokka.location:com.google.genai.kotlin.types/Modality.Companion/TEXT/#/Pointing
 $dokka.location:com.google.genai.kotlin.types/Modality.Companion/VIDEO/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-modality/-companion/-v-i-d-e-o.html
 $dokka.location:com.google.genai.kotlin.types/Modality///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-modality/index.html
 $dokka.location:com.google.genai.kotlin.types/Modality/Modality/#kotlin.String/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-modality/-modality.html
+$dokka.location:com.google.genai.kotlin.types/Modality/toString/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-modality/to-string.html
 $dokka.location:com.google.genai.kotlin.types/Modality/value/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-modality/value.html
 $dokka.location:com.google.genai.kotlin.types/ModalityTokenCount///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-modality-token-count/index.html
 $dokka.location:com.google.genai.kotlin.types/ModalityTokenCount/ModalityTokenCount/#com.google.genai.kotlin.types.MediaModality?#kotlin.Int?/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-modality-token-count/-modality-token-count.html
@@ -1488,6 +1523,7 @@ $dokka.location:com.google.genai.kotlin.types/ModelRoutingPreference.Companion/P
 $dokka.location:com.google.genai.kotlin.types/ModelRoutingPreference.Companion/UNKNOWN/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-model-routing-preference/-companion/-u-n-k-n-o-w-n.html
 $dokka.location:com.google.genai.kotlin.types/ModelRoutingPreference///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-model-routing-preference/index.html
 $dokka.location:com.google.genai.kotlin.types/ModelRoutingPreference/ModelRoutingPreference/#kotlin.String/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-model-routing-preference/-model-routing-preference.html
+$dokka.location:com.google.genai.kotlin.types/ModelRoutingPreference/toString/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-model-routing-preference/to-string.html
 $dokka.location:com.google.genai.kotlin.types/ModelRoutingPreference/value/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-model-routing-preference/value.html
 $dokka.location:com.google.genai.kotlin.types/ModelSelectionConfig///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-model-selection-config/index.html
 $dokka.location:com.google.genai.kotlin.types/ModelSelectionConfig/ModelSelectionConfig/#com.google.genai.kotlin.types.FeatureSelectionPreference?/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-model-selection-config/-model-selection-config.html
@@ -1503,6 +1539,7 @@ $dokka.location:com.google.genai.kotlin.types/ModelStage.Companion/STABLE/#/Poin
 $dokka.location:com.google.genai.kotlin.types/ModelStage.Companion/UNSTABLE_EXPERIMENTAL/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-model-stage/-companion/-u-n-s-t-a-b-l-e_-e-x-p-e-r-i-m-e-n-t-a-l.html
 $dokka.location:com.google.genai.kotlin.types/ModelStage///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-model-stage/index.html
 $dokka.location:com.google.genai.kotlin.types/ModelStage/ModelStage/#kotlin.String/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-model-stage/-model-stage.html
+$dokka.location:com.google.genai.kotlin.types/ModelStage/toString/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-model-stage/to-string.html
 $dokka.location:com.google.genai.kotlin.types/ModelStage/value/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-model-stage/value.html
 $dokka.location:com.google.genai.kotlin.types/ModelStatus///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-model-status/index.html
 $dokka.location:com.google.genai.kotlin.types/ModelStatus/ModelStatus/#kotlin.String?#com.google.genai.kotlin.types.ModelStage?#com.google.genai.kotlin.types.Instant?/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-model-status/-model-status.html
@@ -1516,6 +1553,7 @@ $dokka.location:com.google.genai.kotlin.types/NullValue.Companion///PointingToDe
 $dokka.location:com.google.genai.kotlin.types/NullValue.Companion/NULL_VALUE/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-null-value/-companion/-n-u-l-l_-v-a-l-u-e.html
 $dokka.location:com.google.genai.kotlin.types/NullValue///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-null-value/index.html
 $dokka.location:com.google.genai.kotlin.types/NullValue/NullValue/#kotlin.String/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-null-value/-null-value.html
+$dokka.location:com.google.genai.kotlin.types/NullValue/toString/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-null-value/to-string.html
 $dokka.location:com.google.genai.kotlin.types/NullValue/value/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-null-value/value.html
 $dokka.location:com.google.genai.kotlin.types/Outcome.Companion///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-outcome/-companion/index.html
 $dokka.location:com.google.genai.kotlin.types/Outcome.Companion/OUTCOME_DEADLINE_EXCEEDED/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-outcome/-companion/-o-u-t-c-o-m-e_-d-e-a-d-l-i-n-e_-e-x-c-e-e-d-e-d.html
@@ -1524,6 +1562,7 @@ $dokka.location:com.google.genai.kotlin.types/Outcome.Companion/OUTCOME_OK/#/Poi
 $dokka.location:com.google.genai.kotlin.types/Outcome.Companion/OUTCOME_UNSPECIFIED/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-outcome/-companion/-o-u-t-c-o-m-e_-u-n-s-p-e-c-i-f-i-e-d.html
 $dokka.location:com.google.genai.kotlin.types/Outcome///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-outcome/index.html
 $dokka.location:com.google.genai.kotlin.types/Outcome/Outcome/#kotlin.String/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-outcome/-outcome.html
+$dokka.location:com.google.genai.kotlin.types/Outcome/toString/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-outcome/to-string.html
 $dokka.location:com.google.genai.kotlin.types/Outcome/value/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-outcome/value.html
 $dokka.location:com.google.genai.kotlin.types/OutputInfo///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-output-info/index.html
 $dokka.location:com.google.genai.kotlin.types/OutputInfo/OutputInfo/#kotlin.String?/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-output-info/-output-info.html
@@ -1535,6 +1574,7 @@ $dokka.location:com.google.genai.kotlin.types/PairwiseChoice.Companion/PAIRWISE_
 $dokka.location:com.google.genai.kotlin.types/PairwiseChoice.Companion/TIE/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-pairwise-choice/-companion/-t-i-e.html
 $dokka.location:com.google.genai.kotlin.types/PairwiseChoice///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-pairwise-choice/index.html
 $dokka.location:com.google.genai.kotlin.types/PairwiseChoice/PairwiseChoice/#kotlin.String/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-pairwise-choice/-pairwise-choice.html
+$dokka.location:com.google.genai.kotlin.types/PairwiseChoice/toString/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-pairwise-choice/to-string.html
 $dokka.location:com.google.genai.kotlin.types/PairwiseChoice/value/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-pairwise-choice/value.html
 $dokka.location:com.google.genai.kotlin.types/PairwiseMetricResult///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-pairwise-metric-result/index.html
 $dokka.location:com.google.genai.kotlin.types/PairwiseMetricResult/PairwiseMetricResult/#com.google.genai.kotlin.types.CustomOutput?#kotlin.String?#com.google.genai.kotlin.types.PairwiseChoice?/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-pairwise-metric-result/-pairwise-metric-result.html
@@ -1571,6 +1611,7 @@ $dokka.location:com.google.genai.kotlin.types/PartMediaResolutionLevel.Companion
 $dokka.location:com.google.genai.kotlin.types/PartMediaResolutionLevel.Companion/MEDIA_RESOLUTION_UNSPECIFIED/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-part-media-resolution-level/-companion/-m-e-d-i-a_-r-e-s-o-l-u-t-i-o-n_-u-n-s-p-e-c-i-f-i-e-d.html
 $dokka.location:com.google.genai.kotlin.types/PartMediaResolutionLevel///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-part-media-resolution-level/index.html
 $dokka.location:com.google.genai.kotlin.types/PartMediaResolutionLevel/PartMediaResolutionLevel/#kotlin.String/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-part-media-resolution-level/-part-media-resolution-level.html
+$dokka.location:com.google.genai.kotlin.types/PartMediaResolutionLevel/toString/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-part-media-resolution-level/to-string.html
 $dokka.location:com.google.genai.kotlin.types/PartMediaResolutionLevel/value/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-part-media-resolution-level/value.html
 $dokka.location:com.google.genai.kotlin.types/PartialArg///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-partial-arg/index.html
 $dokka.location:com.google.genai.kotlin.types/PartialArg/PartialArg/#kotlin.Boolean?#kotlin.String?#com.google.genai.kotlin.types.NullValue?#kotlin.Double?#kotlin.String?#kotlin.Boolean?/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-partial-arg/-partial-arg.html
@@ -1595,6 +1636,7 @@ $dokka.location:com.google.genai.kotlin.types/PhishBlockThreshold.Companion/BLOC
 $dokka.location:com.google.genai.kotlin.types/PhishBlockThreshold.Companion/PHISH_BLOCK_THRESHOLD_UNSPECIFIED/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-phish-block-threshold/-companion/-p-h-i-s-h_-b-l-o-c-k_-t-h-r-e-s-h-o-l-d_-u-n-s-p-e-c-i-f-i-e-d.html
 $dokka.location:com.google.genai.kotlin.types/PhishBlockThreshold///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-phish-block-threshold/index.html
 $dokka.location:com.google.genai.kotlin.types/PhishBlockThreshold/PhishBlockThreshold/#kotlin.String/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-phish-block-threshold/-phish-block-threshold.html
+$dokka.location:com.google.genai.kotlin.types/PhishBlockThreshold/toString/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-phish-block-threshold/to-string.html
 $dokka.location:com.google.genai.kotlin.types/PhishBlockThreshold/value/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-phish-block-threshold/value.html
 $dokka.location:com.google.genai.kotlin.types/PointwiseMetricResult///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-pointwise-metric-result/index.html
 $dokka.location:com.google.genai.kotlin.types/PointwiseMetricResult/PointwiseMetricResult/#com.google.genai.kotlin.types.CustomOutput?#kotlin.String?#kotlin.Double?/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-pointwise-metric-result/-pointwise-metric-result.html
@@ -1642,6 +1684,7 @@ $dokka.location:com.google.genai.kotlin.types/ProminentPeople.Companion/BLOCK_PR
 $dokka.location:com.google.genai.kotlin.types/ProminentPeople.Companion/PROMINENT_PEOPLE_UNSPECIFIED/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-prominent-people/-companion/-p-r-o-m-i-n-e-n-t_-p-e-o-p-l-e_-u-n-s-p-e-c-i-f-i-e-d.html
 $dokka.location:com.google.genai.kotlin.types/ProminentPeople///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-prominent-people/index.html
 $dokka.location:com.google.genai.kotlin.types/ProminentPeople/ProminentPeople/#kotlin.String/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-prominent-people/-prominent-people.html
+$dokka.location:com.google.genai.kotlin.types/ProminentPeople/toString/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-prominent-people/to-string.html
 $dokka.location:com.google.genai.kotlin.types/ProminentPeople/value/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-prominent-people/value.html
 $dokka.location:com.google.genai.kotlin.types/ProxyOptions///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-proxy-options/index.html
 $dokka.location:com.google.genai.kotlin.types/ProxyOptions/ProxyOptions/#com.google.genai.kotlin.types.ProxyType?#kotlin.String?#kotlin.Int?#kotlin.String?#kotlin.String?/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-proxy-options/-proxy-options.html
@@ -1656,6 +1699,7 @@ $dokka.location:com.google.genai.kotlin.types/ProxyType.Companion/HTTP/#/Pointin
 $dokka.location:com.google.genai.kotlin.types/ProxyType.Companion/SOCKS/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-proxy-type/-companion/-s-o-c-k-s.html
 $dokka.location:com.google.genai.kotlin.types/ProxyType///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-proxy-type/index.html
 $dokka.location:com.google.genai.kotlin.types/ProxyType/ProxyType/#kotlin.String/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-proxy-type/-proxy-type.html
+$dokka.location:com.google.genai.kotlin.types/ProxyType/toString/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-proxy-type/to-string.html
 $dokka.location:com.google.genai.kotlin.types/ProxyType/value/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-proxy-type/value.html
 $dokka.location:com.google.genai.kotlin.types/RagChunk///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-rag-chunk/index.html
 $dokka.location:com.google.genai.kotlin.types/RagChunk/RagChunk/#com.google.genai.kotlin.types.RagChunkPageSpan?#kotlin.String?#kotlin.String?#kotlin.String?/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-rag-chunk/-rag-chunk.html
@@ -1780,6 +1824,7 @@ $dokka.location:com.google.genai.kotlin.types/ReinforcementTuningThinkingLevel.C
 $dokka.location:com.google.genai.kotlin.types/ReinforcementTuningThinkingLevel.Companion/REINFORCEMENT_TUNING_THINKING_LEVEL_UNSPECIFIED/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-reinforcement-tuning-thinking-level/-companion/-r-e-i-n-f-o-r-c-e-m-e-n-t_-t-u-n-i-n-g_-t-h-i-n-k-i-n-g_-l-e-v-e-l_-u-n-s-p-e-c-i-f-i-e-d.html
 $dokka.location:com.google.genai.kotlin.types/ReinforcementTuningThinkingLevel///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-reinforcement-tuning-thinking-level/index.html
 $dokka.location:com.google.genai.kotlin.types/ReinforcementTuningThinkingLevel/ReinforcementTuningThinkingLevel/#kotlin.String/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-reinforcement-tuning-thinking-level/-reinforcement-tuning-thinking-level.html
+$dokka.location:com.google.genai.kotlin.types/ReinforcementTuningThinkingLevel/toString/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-reinforcement-tuning-thinking-level/to-string.html
 $dokka.location:com.google.genai.kotlin.types/ReinforcementTuningThinkingLevel/value/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-reinforcement-tuning-thinking-level/value.html
 $dokka.location:com.google.genai.kotlin.types/ReinforcementTuningUserDatasetExamples///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-reinforcement-tuning-user-dataset-examples/index.html
 $dokka.location:com.google.genai.kotlin.types/ReinforcementTuningUserDatasetExamples/ReinforcementTuningUserDatasetExamples/#kotlin.collections.List[com.google.genai.kotlin.types.ReinforcementTuningExample]?/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-reinforcement-tuning-user-dataset-examples/-reinforcement-tuning-user-dataset-examples.html
@@ -1802,6 +1847,7 @@ $dokka.location:com.google.genai.kotlin.types/ResponseParseType.Companion/REGEX_
 $dokka.location:com.google.genai.kotlin.types/ResponseParseType.Companion/RESPONSE_PARSE_TYPE_UNSPECIFIED/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-response-parse-type/-companion/-r-e-s-p-o-n-s-e_-p-a-r-s-e_-t-y-p-e_-u-n-s-p-e-c-i-f-i-e-d.html
 $dokka.location:com.google.genai.kotlin.types/ResponseParseType///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-response-parse-type/index.html
 $dokka.location:com.google.genai.kotlin.types/ResponseParseType/ResponseParseType/#kotlin.String/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-response-parse-type/-response-parse-type.html
+$dokka.location:com.google.genai.kotlin.types/ResponseParseType/toString/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-response-parse-type/to-string.html
 $dokka.location:com.google.genai.kotlin.types/ResponseParseType/value/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-response-parse-type/value.html
 $dokka.location:com.google.genai.kotlin.types/Retrieval///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-retrieval/index.html
 $dokka.location:com.google.genai.kotlin.types/Retrieval/Retrieval/#kotlin.Boolean?#com.google.genai.kotlin.types.ExternalApi?#com.google.genai.kotlin.types.VertexAISearch?#com.google.genai.kotlin.types.VertexRagStore?/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-retrieval/-retrieval.html
@@ -1830,6 +1876,7 @@ $dokka.location:com.google.genai.kotlin.types/SafetyPolicy.Companion/SENSITIVE_D
 $dokka.location:com.google.genai.kotlin.types/SafetyPolicy.Companion/USER_CONSENT_MANAGEMENT/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-safety-policy/-companion/-u-s-e-r_-c-o-n-s-e-n-t_-m-a-n-a-g-e-m-e-n-t.html
 $dokka.location:com.google.genai.kotlin.types/SafetyPolicy///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-safety-policy/index.html
 $dokka.location:com.google.genai.kotlin.types/SafetyPolicy/SafetyPolicy/#kotlin.String/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-safety-policy/-safety-policy.html
+$dokka.location:com.google.genai.kotlin.types/SafetyPolicy/toString/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-safety-policy/to-string.html
 $dokka.location:com.google.genai.kotlin.types/SafetyPolicy/value/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-safety-policy/value.html
 $dokka.location:com.google.genai.kotlin.types/SafetyRating///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-safety-rating/index.html
 $dokka.location:com.google.genai.kotlin.types/SafetyRating/SafetyRating/#kotlin.Boolean?#com.google.genai.kotlin.types.HarmCategory?#com.google.genai.kotlin.types.HarmBlockThreshold?#com.google.genai.kotlin.types.HarmProbability?#kotlin.Double?#com.google.genai.kotlin.types.HarmSeverity?#kotlin.Double?/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-safety-rating/-safety-rating.html
@@ -1890,6 +1937,7 @@ $dokka.location:com.google.genai.kotlin.types/ServiceTier.Companion/STANDARD/#/P
 $dokka.location:com.google.genai.kotlin.types/ServiceTier.Companion/UNSPECIFIED/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-service-tier/-companion/-u-n-s-p-e-c-i-f-i-e-d.html
 $dokka.location:com.google.genai.kotlin.types/ServiceTier///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-service-tier/index.html
 $dokka.location:com.google.genai.kotlin.types/ServiceTier/ServiceTier/#kotlin.String/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-service-tier/-service-tier.html
+$dokka.location:com.google.genai.kotlin.types/ServiceTier/toString/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-service-tier/to-string.html
 $dokka.location:com.google.genai.kotlin.types/ServiceTier/value/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-service-tier/value.html
 $dokka.location:com.google.genai.kotlin.types/SessionResumptionConfig///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-session-resumption-config/index.html
 $dokka.location:com.google.genai.kotlin.types/SessionResumptionConfig/SessionResumptionConfig/#kotlin.String?#kotlin.Boolean?/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-session-resumption-config/-session-resumption-config.html
@@ -1925,6 +1973,7 @@ $dokka.location:com.google.genai.kotlin.types/StartSensitivity.Companion/START_S
 $dokka.location:com.google.genai.kotlin.types/StartSensitivity.Companion/START_SENSITIVITY_UNSPECIFIED/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-start-sensitivity/-companion/-s-t-a-r-t_-s-e-n-s-i-t-i-v-i-t-y_-u-n-s-p-e-c-i-f-i-e-d.html
 $dokka.location:com.google.genai.kotlin.types/StartSensitivity///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-start-sensitivity/index.html
 $dokka.location:com.google.genai.kotlin.types/StartSensitivity/StartSensitivity/#kotlin.String/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-start-sensitivity/-start-sensitivity.html
+$dokka.location:com.google.genai.kotlin.types/StartSensitivity/toString/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-start-sensitivity/to-string.html
 $dokka.location:com.google.genai.kotlin.types/StartSensitivity/value/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-start-sensitivity/value.html
 $dokka.location:com.google.genai.kotlin.types/StreamableHttpTransport///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-streamable-http-transport/index.html
 $dokka.location:com.google.genai.kotlin.types/StreamableHttpTransport/StreamableHttpTransport/#kotlin.collections.Map[kotlin.String,kotlin.String]?#kotlin.time.Duration?#kotlin.Boolean?#kotlin.time.Duration?#kotlin.String?/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-streamable-http-transport/-streamable-http-transport.html
@@ -1994,6 +2043,7 @@ $dokka.location:com.google.genai.kotlin.types/ThinkingLevel.Companion/MINIMAL/#/
 $dokka.location:com.google.genai.kotlin.types/ThinkingLevel.Companion/THINKING_LEVEL_UNSPECIFIED/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-thinking-level/-companion/-t-h-i-n-k-i-n-g_-l-e-v-e-l_-u-n-s-p-e-c-i-f-i-e-d.html
 $dokka.location:com.google.genai.kotlin.types/ThinkingLevel///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-thinking-level/index.html
 $dokka.location:com.google.genai.kotlin.types/ThinkingLevel/ThinkingLevel/#kotlin.String/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-thinking-level/-thinking-level.html
+$dokka.location:com.google.genai.kotlin.types/ThinkingLevel/toString/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-thinking-level/to-string.html
 $dokka.location:com.google.genai.kotlin.types/ThinkingLevel/value/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-thinking-level/value.html
 $dokka.location:com.google.genai.kotlin.types/TokensInfo///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-tokens-info/index.html
 $dokka.location:com.google.genai.kotlin.types/TokensInfo/TokensInfo/#kotlin.String?#kotlin.collections.List[kotlin.Long]?#kotlin.collections.List[kotlin.ByteArray]?/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-tokens-info/-tokens-info.html
@@ -2052,6 +2102,7 @@ $dokka.location:com.google.genai.kotlin.types/ToolType.Companion/TOOL_TYPE_UNSPE
 $dokka.location:com.google.genai.kotlin.types/ToolType.Companion/URL_CONTEXT/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-tool-type/-companion/-u-r-l_-c-o-n-t-e-x-t.html
 $dokka.location:com.google.genai.kotlin.types/ToolType///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-tool-type/index.html
 $dokka.location:com.google.genai.kotlin.types/ToolType/ToolType/#kotlin.String/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-tool-type/-tool-type.html
+$dokka.location:com.google.genai.kotlin.types/ToolType/toString/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-tool-type/to-string.html
 $dokka.location:com.google.genai.kotlin.types/ToolType/value/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-tool-type/value.html
 $dokka.location:com.google.genai.kotlin.types/TrafficType.Companion///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-traffic-type/-companion/index.html
 $dokka.location:com.google.genai.kotlin.types/TrafficType.Companion/ON_DEMAND/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-traffic-type/-companion/-o-n_-d-e-m-a-n-d.html
@@ -2061,6 +2112,7 @@ $dokka.location:com.google.genai.kotlin.types/TrafficType.Companion/PROVISIONED_
 $dokka.location:com.google.genai.kotlin.types/TrafficType.Companion/TRAFFIC_TYPE_UNSPECIFIED/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-traffic-type/-companion/-t-r-a-f-f-i-c_-t-y-p-e_-u-n-s-p-e-c-i-f-i-e-d.html
 $dokka.location:com.google.genai.kotlin.types/TrafficType///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-traffic-type/index.html
 $dokka.location:com.google.genai.kotlin.types/TrafficType/TrafficType/#kotlin.String/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-traffic-type/-traffic-type.html
+$dokka.location:com.google.genai.kotlin.types/TrafficType/toString/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-traffic-type/to-string.html
 $dokka.location:com.google.genai.kotlin.types/TrafficType/value/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-traffic-type/value.html
 $dokka.location:com.google.genai.kotlin.types/Transcription///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-transcription/index.html
 $dokka.location:com.google.genai.kotlin.types/Transcription/Transcription/#kotlin.String?#kotlin.Boolean?#kotlin.String?#kotlin.String?#kotlin.collections.List[com.google.genai.kotlin.types.WordInfo]?/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-transcription/-transcription.html
@@ -2152,6 +2204,7 @@ $dokka.location:com.google.genai.kotlin.types/TuningJobState.Companion/TUNING_JO
 $dokka.location:com.google.genai.kotlin.types/TuningJobState.Companion/TUNING_JOB_STATE_WAITING_FOR_QUOTA/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-tuning-job-state/-companion/-t-u-n-i-n-g_-j-o-b_-s-t-a-t-e_-w-a-i-t-i-n-g_-f-o-r_-q-u-o-t-a.html
 $dokka.location:com.google.genai.kotlin.types/TuningJobState///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-tuning-job-state/index.html
 $dokka.location:com.google.genai.kotlin.types/TuningJobState/TuningJobState/#kotlin.String/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-tuning-job-state/-tuning-job-state.html
+$dokka.location:com.google.genai.kotlin.types/TuningJobState/toString/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-tuning-job-state/to-string.html
 $dokka.location:com.google.genai.kotlin.types/TuningJobState/value/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-tuning-job-state/value.html
 $dokka.location:com.google.genai.kotlin.types/TuningMethod.Companion///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-tuning-method/-companion/index.html
 $dokka.location:com.google.genai.kotlin.types/TuningMethod.Companion/DISTILLATION/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-tuning-method/-companion/-d-i-s-t-i-l-l-a-t-i-o-n.html
@@ -2160,6 +2213,7 @@ $dokka.location:com.google.genai.kotlin.types/TuningMethod.Companion/REINFORCEME
 $dokka.location:com.google.genai.kotlin.types/TuningMethod.Companion/SUPERVISED_FINE_TUNING/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-tuning-method/-companion/-s-u-p-e-r-v-i-s-e-d_-f-i-n-e_-t-u-n-i-n-g.html
 $dokka.location:com.google.genai.kotlin.types/TuningMethod///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-tuning-method/index.html
 $dokka.location:com.google.genai.kotlin.types/TuningMethod/TuningMethod/#kotlin.String/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-tuning-method/-tuning-method.html
+$dokka.location:com.google.genai.kotlin.types/TuningMethod/toString/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-tuning-method/to-string.html
 $dokka.location:com.google.genai.kotlin.types/TuningMethod/value/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-tuning-method/value.html
 $dokka.location:com.google.genai.kotlin.types/TuningMode.Companion///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-tuning-mode/-companion/index.html
 $dokka.location:com.google.genai.kotlin.types/TuningMode.Companion/TUNING_MODE_FULL/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-tuning-mode/-companion/-t-u-n-i-n-g_-m-o-d-e_-f-u-l-l.html
@@ -2167,6 +2221,7 @@ $dokka.location:com.google.genai.kotlin.types/TuningMode.Companion/TUNING_MODE_P
 $dokka.location:com.google.genai.kotlin.types/TuningMode.Companion/TUNING_MODE_UNSPECIFIED/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-tuning-mode/-companion/-t-u-n-i-n-g_-m-o-d-e_-u-n-s-p-e-c-i-f-i-e-d.html
 $dokka.location:com.google.genai.kotlin.types/TuningMode///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-tuning-mode/index.html
 $dokka.location:com.google.genai.kotlin.types/TuningMode/TuningMode/#kotlin.String/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-tuning-mode/-tuning-mode.html
+$dokka.location:com.google.genai.kotlin.types/TuningMode/toString/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-tuning-mode/to-string.html
 $dokka.location:com.google.genai.kotlin.types/TuningMode/value/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-tuning-mode/value.html
 $dokka.location:com.google.genai.kotlin.types/TuningOperation///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-tuning-operation/index.html
 $dokka.location:com.google.genai.kotlin.types/TuningOperation/TuningOperation/#com.google.genai.kotlin.types.HttpResponse?#kotlin.String?#kotlin.collections.Map[kotlin.String,kotlinx.serialization.json.JsonElement]?#kotlin.Boolean?#kotlin.collections.Map[kotlin.String,kotlinx.serialization.json.JsonElement]?/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-tuning-operation/-tuning-operation.html
@@ -2181,6 +2236,7 @@ $dokka.location:com.google.genai.kotlin.types/TuningSpeed.Companion/REGULAR/#/Po
 $dokka.location:com.google.genai.kotlin.types/TuningSpeed.Companion/TUNING_SPEED_UNSPECIFIED/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-tuning-speed/-companion/-t-u-n-i-n-g_-s-p-e-e-d_-u-n-s-p-e-c-i-f-i-e-d.html
 $dokka.location:com.google.genai.kotlin.types/TuningSpeed///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-tuning-speed/index.html
 $dokka.location:com.google.genai.kotlin.types/TuningSpeed/TuningSpeed/#kotlin.String/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-tuning-speed/-tuning-speed.html
+$dokka.location:com.google.genai.kotlin.types/TuningSpeed/toString/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-tuning-speed/to-string.html
 $dokka.location:com.google.genai.kotlin.types/TuningSpeed/value/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-tuning-speed/value.html
 $dokka.location:com.google.genai.kotlin.types/TuningTask.Companion///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-tuning-task/-companion/index.html
 $dokka.location:com.google.genai.kotlin.types/TuningTask.Companion/TUNING_TASK_I2V/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-tuning-task/-companion/-t-u-n-i-n-g_-t-a-s-k_-i2-v.html
@@ -2189,6 +2245,7 @@ $dokka.location:com.google.genai.kotlin.types/TuningTask.Companion/TUNING_TASK_T
 $dokka.location:com.google.genai.kotlin.types/TuningTask.Companion/TUNING_TASK_UNSPECIFIED/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-tuning-task/-companion/-t-u-n-i-n-g_-t-a-s-k_-u-n-s-p-e-c-i-f-i-e-d.html
 $dokka.location:com.google.genai.kotlin.types/TuningTask///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-tuning-task/index.html
 $dokka.location:com.google.genai.kotlin.types/TuningTask/TuningTask/#kotlin.String/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-tuning-task/-tuning-task.html
+$dokka.location:com.google.genai.kotlin.types/TuningTask/toString/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-tuning-task/to-string.html
 $dokka.location:com.google.genai.kotlin.types/TuningTask/value/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-tuning-task/value.html
 $dokka.location:com.google.genai.kotlin.types/TuningValidationDataset///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-tuning-validation-dataset/index.html
 $dokka.location:com.google.genai.kotlin.types/TuningValidationDataset/TuningValidationDataset/#kotlin.String?#kotlin.String?/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-tuning-validation-dataset/-tuning-validation-dataset.html
@@ -2225,6 +2282,7 @@ $dokka.location:com.google.genai.kotlin.types/TurnCompleteReason.Companion/TURN_
 $dokka.location:com.google.genai.kotlin.types/TurnCompleteReason.Companion/UNSAFE_PROMPT_FOR_IMAGE_GENERATION/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-turn-complete-reason/-companion/-u-n-s-a-f-e_-p-r-o-m-p-t_-f-o-r_-i-m-a-g-e_-g-e-n-e-r-a-t-i-o-n.html
 $dokka.location:com.google.genai.kotlin.types/TurnCompleteReason///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-turn-complete-reason/index.html
 $dokka.location:com.google.genai.kotlin.types/TurnCompleteReason/TurnCompleteReason/#kotlin.String/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-turn-complete-reason/-turn-complete-reason.html
+$dokka.location:com.google.genai.kotlin.types/TurnCompleteReason/toString/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-turn-complete-reason/to-string.html
 $dokka.location:com.google.genai.kotlin.types/TurnCompleteReason/value/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-turn-complete-reason/value.html
 $dokka.location:com.google.genai.kotlin.types/TurnCoverage.Companion///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-turn-coverage/-companion/index.html
 $dokka.location:com.google.genai.kotlin.types/TurnCoverage.Companion/TURN_COVERAGE_UNSPECIFIED/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-turn-coverage/-companion/-t-u-r-n_-c-o-v-e-r-a-g-e_-u-n-s-p-e-c-i-f-i-e-d.html
@@ -2233,6 +2291,7 @@ $dokka.location:com.google.genai.kotlin.types/TurnCoverage.Companion/TURN_INCLUD
 $dokka.location:com.google.genai.kotlin.types/TurnCoverage.Companion/TURN_INCLUDES_ONLY_ACTIVITY/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-turn-coverage/-companion/-t-u-r-n_-i-n-c-l-u-d-e-s_-o-n-l-y_-a-c-t-i-v-i-t-y.html
 $dokka.location:com.google.genai.kotlin.types/TurnCoverage///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-turn-coverage/index.html
 $dokka.location:com.google.genai.kotlin.types/TurnCoverage/TurnCoverage/#kotlin.String/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-turn-coverage/-turn-coverage.html
+$dokka.location:com.google.genai.kotlin.types/TurnCoverage/toString/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-turn-coverage/to-string.html
 $dokka.location:com.google.genai.kotlin.types/TurnCoverage/value/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-turn-coverage/value.html
 $dokka.location:com.google.genai.kotlin.types/Type.Companion///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-type/-companion/index.html
 $dokka.location:com.google.genai.kotlin.types/Type.Companion/ARRAY/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-type/-companion/-a-r-r-a-y.html
@@ -2245,6 +2304,7 @@ $dokka.location:com.google.genai.kotlin.types/Type.Companion/STRING/#/PointingTo
 $dokka.location:com.google.genai.kotlin.types/Type.Companion/TYPE_UNSPECIFIED/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-type/-companion/-t-y-p-e_-u-n-s-p-e-c-i-f-i-e-d.html
 $dokka.location:com.google.genai.kotlin.types/Type///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-type/index.html
 $dokka.location:com.google.genai.kotlin.types/Type/Type/#kotlin.String/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-type/-type.html
+$dokka.location:com.google.genai.kotlin.types/Type/toString/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-type/to-string.html
 $dokka.location:com.google.genai.kotlin.types/Type/value/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-type/value.html
 $dokka.location:com.google.genai.kotlin.types/UpdateCachedContentConfig///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-update-cached-content-config/index.html
 $dokka.location:com.google.genai.kotlin.types/UpdateCachedContentConfig/UpdateCachedContentConfig/#com.google.genai.kotlin.types.HttpOptions?#kotlin.time.Duration?#com.google.genai.kotlin.types.Instant?/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-update-cached-content-config/-update-cached-content-config.html
@@ -2281,6 +2341,7 @@ $dokka.location:com.google.genai.kotlin.types/UrlRetrievalStatus.Companion/URL_R
 $dokka.location:com.google.genai.kotlin.types/UrlRetrievalStatus.Companion/URL_RETRIEVAL_STATUS_UNSPECIFIED/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-url-retrieval-status/-companion/-u-r-l_-r-e-t-r-i-e-v-a-l_-s-t-a-t-u-s_-u-n-s-p-e-c-i-f-i-e-d.html
 $dokka.location:com.google.genai.kotlin.types/UrlRetrievalStatus///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-url-retrieval-status/index.html
 $dokka.location:com.google.genai.kotlin.types/UrlRetrievalStatus/UrlRetrievalStatus/#kotlin.String/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-url-retrieval-status/-url-retrieval-status.html
+$dokka.location:com.google.genai.kotlin.types/UrlRetrievalStatus/toString/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-url-retrieval-status/to-string.html
 $dokka.location:com.google.genai.kotlin.types/UrlRetrievalStatus/value/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-url-retrieval-status/value.html
 $dokka.location:com.google.genai.kotlin.types/UsageMetadata///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-usage-metadata/index.html
 $dokka.location:com.google.genai.kotlin.types/UsageMetadata/UsageMetadata/#kotlin.Int?#kotlin.Int?#kotlin.Int?#kotlin.Int?#kotlin.Int?#kotlin.Int?#kotlin.collections.List[com.google.genai.kotlin.types.ModalityTokenCount]?#kotlin.collections.List[com.google.genai.kotlin.types.ModalityTokenCount]?#kotlin.collections.List[com.google.genai.kotlin.types.ModalityTokenCount]?#kotlin.collections.List[com.google.genai.kotlin.types.ModalityTokenCount]?#com.google.genai.kotlin.types.TrafficType?#com.google.genai.kotlin.types.ServiceTier?/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-usage-metadata/-usage-metadata.html
@@ -2302,6 +2363,7 @@ $dokka.location:com.google.genai.kotlin.types/VadSignalType.Companion/VAD_SIGNAL
 $dokka.location:com.google.genai.kotlin.types/VadSignalType.Companion/VAD_SIGNAL_TYPE_UNSPECIFIED/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-vad-signal-type/-companion/-v-a-d_-s-i-g-n-a-l_-t-y-p-e_-u-n-s-p-e-c-i-f-i-e-d.html
 $dokka.location:com.google.genai.kotlin.types/VadSignalType///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-vad-signal-type/index.html
 $dokka.location:com.google.genai.kotlin.types/VadSignalType/VadSignalType/#kotlin.String/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-vad-signal-type/-vad-signal-type.html
+$dokka.location:com.google.genai.kotlin.types/VadSignalType/toString/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-vad-signal-type/to-string.html
 $dokka.location:com.google.genai.kotlin.types/VadSignalType/value/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-vad-signal-type/value.html
 $dokka.location:com.google.genai.kotlin.types/ValidateRewardConfig///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-validate-reward-config/index.html
 $dokka.location:com.google.genai.kotlin.types/ValidateRewardConfig/ValidateRewardConfig/#com.google.genai.kotlin.types.HttpOptions?/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-validate-reward-config/-validate-reward-config.html
@@ -2369,6 +2431,7 @@ $dokka.location:com.google.genai.kotlin.types/VideoOrientation.Companion/PORTRAI
 $dokka.location:com.google.genai.kotlin.types/VideoOrientation.Companion/VIDEO_ORIENTATION_UNSPECIFIED/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-video-orientation/-companion/-v-i-d-e-o_-o-r-i-e-n-t-a-t-i-o-n_-u-n-s-p-e-c-i-f-i-e-d.html
 $dokka.location:com.google.genai.kotlin.types/VideoOrientation///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-video-orientation/index.html
 $dokka.location:com.google.genai.kotlin.types/VideoOrientation/VideoOrientation/#kotlin.String/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-video-orientation/-video-orientation.html
+$dokka.location:com.google.genai.kotlin.types/VideoOrientation/toString/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-video-orientation/to-string.html
 $dokka.location:com.google.genai.kotlin.types/VideoOrientation/value/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-video-orientation/value.html
 $dokka.location:com.google.genai.kotlin.types/VideoResponseFormat///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-video-response-format/index.html
 $dokka.location:com.google.genai.kotlin.types/VideoResponseFormat/VideoResponseFormat/#com.google.genai.kotlin.types.AspectRatio?#com.google.genai.kotlin.types.Delivery?#kotlin.time.Duration?#kotlin.String?/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-video-response-format/-video-response-format.html
@@ -2389,6 +2452,7 @@ $dokka.location:com.google.genai.kotlin.types/VoiceActivityType.Companion/ACTIVI
 $dokka.location:com.google.genai.kotlin.types/VoiceActivityType.Companion/TYPE_UNSPECIFIED/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-voice-activity-type/-companion/-t-y-p-e_-u-n-s-p-e-c-i-f-i-e-d.html
 $dokka.location:com.google.genai.kotlin.types/VoiceActivityType///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-voice-activity-type/index.html
 $dokka.location:com.google.genai.kotlin.types/VoiceActivityType/VoiceActivityType/#kotlin.String/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-voice-activity-type/-voice-activity-type.html
+$dokka.location:com.google.genai.kotlin.types/VoiceActivityType/toString/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-voice-activity-type/to-string.html
 $dokka.location:com.google.genai.kotlin.types/VoiceActivityType/value/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-voice-activity-type/value.html
 $dokka.location:com.google.genai.kotlin.types/VoiceConfig///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-voice-config/index.html
 $dokka.location:com.google.genai.kotlin.types/VoiceConfig/VoiceConfig/#com.google.genai.kotlin.types.ReplicatedVoiceConfig?#com.google.genai.kotlin.types.PrebuiltVoiceConfig?/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-voice-config/-voice-config.html
