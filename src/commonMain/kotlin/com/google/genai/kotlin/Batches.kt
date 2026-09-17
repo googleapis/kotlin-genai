@@ -1528,6 +1528,12 @@ class Batches internal constructor(internal val apiClient: ApiClient) {
       )
     }
 
+    if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("implicitCacheConfig")))) {
+      throw IllegalArgumentException(
+        "implicitCacheConfig parameter is not supported in Gemini API."
+      )
+    }
+
     return toObject
   }
 
