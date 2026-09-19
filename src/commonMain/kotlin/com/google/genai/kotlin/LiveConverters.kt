@@ -832,6 +832,14 @@ internal object LiveConverters {
       )
     }
 
+    Common.getValueByPath(fromObject, arrayOf("labels"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("labels"),
+        Common.getValueByPath(fromObject, arrayOf("labels")),
+      )
+    }
+
     return toObject
   }
 
@@ -961,6 +969,12 @@ internal object LiveConverters {
         toObject,
         arrayOf("realtimeInputConfig"),
         Common.getValueByPath(fromObject, arrayOf("realtimeInputConfig")),
+      )
+    }
+
+    if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("labels")))) {
+      throw IllegalArgumentException(
+        "labels parameter is not supported in Gemini Enterprise Agent Platform."
       )
     }
 
