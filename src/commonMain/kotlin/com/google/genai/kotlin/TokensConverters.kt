@@ -662,6 +662,14 @@ internal object TokensConverters {
       )
     }
 
+    Common.getValueByPath(fromObject, arrayOf("speechMetadata"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("speechMetadata"),
+        Common.getValueByPath(fromObject, arrayOf("speechMetadata")),
+      )
+    }
+
     return toObject
   }
 

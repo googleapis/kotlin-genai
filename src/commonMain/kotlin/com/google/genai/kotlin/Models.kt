@@ -3102,6 +3102,14 @@ class Models internal constructor(internal val apiClient: ApiClient) {
       )
     }
 
+    Common.getValueByPath(fromObject, arrayOf("speechMetadata"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("speechMetadata"),
+        Common.getValueByPath(fromObject, arrayOf("speechMetadata")),
+      )
+    }
+
     return toObject
   }
 
@@ -3231,6 +3239,14 @@ class Models internal constructor(internal val apiClient: ApiClient) {
         toObject,
         arrayOf("mediaProcessing"),
         Common.getValueByPath(fromObject, arrayOf("mediaProcessing")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("speechMetadata"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("speechMetadata"),
+        Common.getValueByPath(fromObject, arrayOf("speechMetadata")),
       )
     }
 
@@ -3878,6 +3894,14 @@ class Models internal constructor(internal val apiClient: ApiClient) {
         toObject,
         arrayOf("prebuiltVoiceConfig"),
         Common.getValueByPath(fromObject, arrayOf("prebuiltVoiceConfig")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("voice"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("voice"),
+        Common.getValueByPath(fromObject, arrayOf("voice")),
       )
     }
 

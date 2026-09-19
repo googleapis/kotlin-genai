@@ -20,19 +20,16 @@ package com.google.genai.kotlin.types
 
 import kotlinx.serialization.Serializable
 
-/** The configuration for the voice to use. */
+/** Extra metadata associated with the part for speech synthesis. */
 @Serializable
-data class VoiceConfig(
+data class SpeechMetadata(
 
   /**
-   * The configuration for a replicated voice, which is a clone of a user's voice that can be used
-   * for speech synthesis. If this is unset, a default voice is used.
+   * The speaker for this part, which must match a `speaker` name in
+   * `MultiSpeakerVoiceConfig.speaker_voice_configs`.
    */
-  val replicatedVoiceConfig: ReplicatedVoiceConfig? = null,
+  val speaker: String? = null,
 
-  /** The configuration for a prebuilt voice. */
-  val prebuiltVoiceConfig: PrebuiltVoiceConfig? = null,
-
-  /** The speaker identifier for synthesis. */
-  val voice: String? = null,
+  /** The style instruction for how the voice should be synthesized (e.g. "excited, fast-paced"). */
+  val style: String? = null,
 )

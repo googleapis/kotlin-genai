@@ -107,4 +107,10 @@ data class Part(
 
   /** How the model processes this part's media for understanding. */
   val mediaProcessing: MediaProcessing? = null,
+
+  /**
+   * Extra metadata associated with the part for speech synthesis, such as speaker and style. Only
+   * valid when `Part.data` is set to `text`.
+   */
+  val speechMetadata: SpeechMetadata? = null,
 )
