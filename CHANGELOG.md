@@ -1,5 +1,23 @@
 # Changelog
 
+## [1.2.0](https://github.com/googleapis/kotlin-genai/compare/v1.1.0...v1.2.0) (2026-09-22)
+
+
+### Features
+
+* expose SpeechMetadata, VoiceConfig.voice, and SpeechAnnotation in public GenAI SDKs ([7825166](https://github.com/googleapis/kotlin-genai/commit/782516663a2f2f90c6be3036aefc44d24cfbaebc))
+* support labels for Gemini API GenerateContent ([037ebe4](https://github.com/googleapis/kotlin-genai/commit/037ebe4c7de151ba59b341a052e76302922c2a0c))
+* update discovery doc ([6e96f1c](https://github.com/googleapis/kotlin-genai/commit/6e96f1c1b053e6168d73c227a69947ed38ceb132))
+
+
+### Bug Fixes
+
+* close the HTTP engine on Client.close() so the JVM can exit promptly ([b7867e2](https://github.com/googleapis/kotlin-genai/commit/b7867e2f2d0899034dc396f17b20753a9ccb24c8))
+* do not treat a collector's exception as a Live connection failure ([d104b8a](https://github.com/googleapis/kotlin-genai/commit/d104b8a31daead39072287c1a65b03cc0c719dd0))
+* give enum classes a toString() that returns the value ([effb6ca](https://github.com/googleapis/kotlin-genai/commit/effb6ca63281c57735ae84a19b0ffc11b94d8ea1))
+* surface an error delivered inside a streaming response ([43ba9db](https://github.com/googleapis/kotlin-genai/commit/43ba9db183af8ab3f178e584e0e1bf6f06f938fc))
+* treat an empty environment variable as unset ([461f684](https://github.com/googleapis/kotlin-genai/commit/461f6848cc738199e534c5f9d2b8f2ac05c205f0))
+
 ## [1.1.0](https://github.com/googleapis/kotlin-genai/compare/v1.0.0...v1.1.0) (2026-09-04)
 
 
