@@ -2338,6 +2338,14 @@ class Tunings internal constructor(internal val apiClient: ApiClient) {
       )
     }
 
+    Common.getValueByPath(fromObject, arrayOf("gcsMetricsUri"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("gcsMetricsUri"),
+        Common.getValueByPath(fromObject, arrayOf("gcsMetricsUri")),
+      )
+    }
+
     return toObject
   }
 
