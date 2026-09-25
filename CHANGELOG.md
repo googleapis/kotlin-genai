@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.3.0](https://github.com/googleapis/kotlin-genai/compare/v1.2.0...v1.3.0) (2026-09-25)
+
+
+### Features
+
+* include labels for LiveClientSetup ([787c913](https://github.com/googleapis/kotlin-genai/commit/787c913fd8f03975ebd5869f4f0f0df872f4b7e3))
+
+
+### Bug Fixes
+
+* close the Live WebSocket session when connection setup fails ([2202af3](https://github.com/googleapis/kotlin-genai/commit/2202af329e0205d3ec801589f8e9f575def2d2ea))
+
 ## [1.2.0](https://github.com/googleapis/kotlin-genai/compare/v1.1.0...v1.2.0) (2026-09-22)
 
 
