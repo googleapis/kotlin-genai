@@ -29,7 +29,7 @@ import com.google.genai.kotlin.types.Part
 import com.google.genai.kotlin.types.Schema
 import com.google.genai.kotlin.types.Tool
 import com.google.genai.kotlin.types.Type
-import java.io.EOFException
+import java.io.IOException
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFailsWith
@@ -50,9 +50,11 @@ private suspend fun Flow<LiveServerMessage>.collectSafely(
 ) {
   try {
     collect(action)
-  } catch (e: EOFException) {
-    // test-server abruptly closes the connection after replaying all frames, which throws
-    // EOFException
+  } catch (e: IOException) {
+    // test-server drops the connection once it has replayed every frame. Whether that surfaces as
+    // EOFException or SocketException("Connection reset") depends on whether the peer sent a FIN or
+    // an RST, so catch their common supertype rather than either one. GenAiApiException does not
+    // extend IOException, so a real abnormal close still propagates.
   }
 }
 

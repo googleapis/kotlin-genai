@@ -199,6 +199,7 @@ class Tokens internal constructor(internal val apiClient: ApiClient) {
     }
 
     /** Set of field names in [GenerationConfig] in both camelCase and snake_case format. */
+    @Suppress("OPT_IN_USAGE")
     internal val generationConfigFields: Set<String> = buildSet {
       val descriptor = serializer<GenerationConfig>().descriptor
       for (i in 0 until descriptor.elementsCount) {
