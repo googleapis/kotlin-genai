@@ -201,4 +201,10 @@ data class GenerateContentConfig(
 
   /** Optional. Configuration for audio transcription (speech recognition). */
   val audioTranscriptionConfig: AudioTranscriptionConfig? = null,
+
+  /**
+   * Configures how the implicit context cache for this request is retained. If unset, the service
+   * default retention is used.
+   */
+  val implicitCacheConfig: ContextCacheConfig? = null,
 )

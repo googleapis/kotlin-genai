@@ -1553,6 +1553,12 @@ class Models internal constructor(internal val apiClient: ApiClient) {
       )
     }
 
+    if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("implicitCacheConfig")))) {
+      throw IllegalArgumentException(
+        "implicitCacheConfig parameter is not supported in Gemini API."
+      )
+    }
+
     return toObject
   }
 
@@ -1843,6 +1849,14 @@ class Models internal constructor(internal val apiClient: ApiClient) {
         toObject,
         arrayOf("audioTranscriptionConfig"),
         Common.getValueByPath(fromObject, arrayOf("audioTranscriptionConfig")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("implicitCacheConfig"))?.let { node ->
+      Common.setValueByPath(
+        parentObject,
+        arrayOf("implicitCacheConfig"),
+        Common.getValueByPath(fromObject, arrayOf("implicitCacheConfig")),
       )
     }
 
