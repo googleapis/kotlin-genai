@@ -29,16 +29,16 @@ value class Modality(val value: String) {
 
   companion object {
 
-    /** The modality is unspecified. */
+    /** Unspecified modality. Will be processed as text. */
     val MODALITY_UNSPECIFIED = Modality("MODALITY_UNSPECIFIED")
 
-    /** Indicates the model should return text */
+    /** Text modality. */
     val TEXT = Modality("TEXT")
 
-    /** Indicates the model should return images. */
+    /** Image modality. */
     val IMAGE = Modality("IMAGE")
 
-    /** Indicates the model should return audio. */
+    /** Audio modality. */
     val AUDIO = Modality("AUDIO")
 
     /** Indicates the model should return video. */

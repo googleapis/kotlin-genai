@@ -21,7 +21,12 @@ package com.google.genai.kotlin.types
 import kotlin.jvm.JvmInline
 import kotlinx.serialization.Serializable
 
-/** Represents how much to think for the tuning job. */
+/**
+ * Indicates the maximum thinking depth during tuning. Starting from Gemini 3.5 models, the old
+ * thinking_budget will no longer be supported and will result in a user error if set. Instead,
+ * users should use the thinking_level parameter to control the maximum thinking depth. This enum is
+ * not supported in Gemini API.
+ */
 @Serializable
 @JvmInline
 value class ReinforcementTuningThinkingLevel(val value: String) {
@@ -35,6 +40,12 @@ value class ReinforcementTuningThinkingLevel(val value: String) {
 
     /** Little to no thinking. */
     val MINIMAL = ReinforcementTuningThinkingLevel("MINIMAL")
+
+    /** Low thinking level. */
+    val LOW = ReinforcementTuningThinkingLevel("LOW")
+
+    /** Medium thinking level. */
+    val MEDIUM = ReinforcementTuningThinkingLevel("MEDIUM")
 
     /** High thinking level. */
     val HIGH = ReinforcementTuningThinkingLevel("HIGH")
