@@ -92,12 +92,5 @@ value class FinishReason(val value: String) {
 
     /** Image generation stopped for a reason not otherwise specified. */
     val IMAGE_OTHER = FinishReason("IMAGE_OTHER")
-
-    /**
-     * Token generation stopped because the response reached the per-request token limit, but
-     * generation is not yet complete. The response can be continued by passing the returned
-     * `continuation_token` in a subsequent request.
-     */
-    val CONTINUATION = FinishReason("CONTINUATION")
   }
 }

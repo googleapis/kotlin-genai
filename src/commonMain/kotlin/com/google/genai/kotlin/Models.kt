@@ -199,14 +199,6 @@ class Models internal constructor(internal val apiClient: ApiClient) {
       )
     }
 
-    Common.getValueByPath(fromObject, arrayOf("continuationToken"))?.let { node ->
-      Common.setValueByPath(
-        toObject,
-        arrayOf("continuationToken"),
-        Common.getValueByPath(fromObject, arrayOf("continuationToken")),
-      )
-    }
-
     return toObject
   }
 
@@ -1561,14 +1553,6 @@ class Models internal constructor(internal val apiClient: ApiClient) {
       )
     }
 
-    Common.getValueByPath(fromObject, arrayOf("continuationToken"))?.let { node ->
-      Common.setValueByPath(
-        parentObject,
-        arrayOf("continuationToken"),
-        Common.getValueByPath(fromObject, arrayOf("continuationToken")),
-      )
-    }
-
     return toObject
   }
 
@@ -1859,14 +1843,6 @@ class Models internal constructor(internal val apiClient: ApiClient) {
         toObject,
         arrayOf("audioTranscriptionConfig"),
         Common.getValueByPath(fromObject, arrayOf("audioTranscriptionConfig")),
-      )
-    }
-
-    Common.getValueByPath(fromObject, arrayOf("continuationToken"))?.let { node ->
-      Common.setValueByPath(
-        parentObject,
-        arrayOf("continuationToken"),
-        Common.getValueByPath(fromObject, arrayOf("continuationToken")),
       )
     }
 

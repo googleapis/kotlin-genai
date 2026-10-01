@@ -79,10 +79,4 @@ data class Candidate(
    * from a user-provided URL.
    */
   val urlContextMetadata: UrlContextMetadata? = null,
-
-  /**
-   * An opaque continuation token returned when `finish_reason` is `CONTINUATION`. Pass it in a
-   * subsequent request to continue generation.
-   */
-  @Serializable(with = ByteArrayAsBase64Serializer::class) val continuationToken: ByteArray? = null,
 )
