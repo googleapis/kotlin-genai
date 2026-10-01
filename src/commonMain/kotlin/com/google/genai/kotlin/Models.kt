@@ -1569,6 +1569,18 @@ class Models internal constructor(internal val apiClient: ApiClient) {
       )
     }
 
+    Common.getValueByPath(fromObject, arrayOf("responseFormat"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("responseFormat"),
+        responseFormatToMldev(
+          Common.getValueByPath(fromObject, arrayOf("responseFormat")) as Map<String, Any?>,
+          toObject,
+          rootObject,
+        ),
+      )
+    }
+
     return toObject
   }
 
@@ -1867,6 +1879,12 @@ class Models internal constructor(internal val apiClient: ApiClient) {
         parentObject,
         arrayOf("continuationToken"),
         Common.getValueByPath(fromObject, arrayOf("continuationToken")),
+      )
+    }
+
+    if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("responseFormat")))) {
+      throw IllegalArgumentException(
+        "responseFormat parameter is not supported in Gemini Enterprise Agent Platform."
       )
     }
 
@@ -3314,6 +3332,44 @@ class Models internal constructor(internal val apiClient: ApiClient) {
       throw IllegalArgumentException(
         "voiceConsentSignature parameter is not supported in Gemini Enterprise Agent Platform."
       )
+    }
+
+    return toObject
+  }
+
+  internal fun responseFormatToMldev(
+    fromObject: Map<String, Any?>?,
+    parentObject: MutableMap<String, Any?>?,
+    rootObject: Map<String, Any?>?,
+  ): MutableMap<String, Any?> {
+
+    val toObject = mutableMapOf<String, Any?>()
+    Common.getValueByPath(fromObject, arrayOf("audio"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("audio"),
+        Common.getValueByPath(fromObject, arrayOf("audio")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("image"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("image"),
+        Common.getValueByPath(fromObject, arrayOf("image")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("text"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("text"),
+        Common.getValueByPath(fromObject, arrayOf("text")),
+      )
+    }
+
+    if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("video")))) {
+      throw IllegalArgumentException("video parameter is not supported in Gemini API.")
     }
 
     return toObject
