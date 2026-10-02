@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.5.0](https://github.com/googleapis/kotlin-genai/compare/v1.4.0...v1.5.0) (2026-10-02)
+
+
+### Bug Fixes
+
+* do not treat a custom host merely ending in googleapis.com as a Google host ([5e86bf3](https://github.com/googleapis/kotlin-genai/commit/5e86bf3d467c1e571cb1bde5f99762b2fbf83b46))
+
 ## [1.4.0](https://github.com/googleapis/kotlin-genai/compare/v1.3.0...v1.4.0) (2026-10-01)
 
 
