@@ -207,4 +207,10 @@ data class GenerateContentConfig(
    * with `finish_reason` set to `CONTINUATION`.
    */
   @Serializable(with = ByteArrayAsBase64Serializer::class) val continuationToken: ByteArray? = null,
+
+  /**
+   * Optional. Configuration for the response output format. Allows specifying output configuration
+   * per modality (text, audio, image) in a flat structure.
+   */
+  val responseFormat: ResponseFormat? = null,
 )

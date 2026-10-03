@@ -20,10 +20,7 @@ package com.google.genai.kotlin.types
 
 import kotlinx.serialization.Serializable
 
-/**
- * Configuration for the model to configure output formatting and delivery. This data type is not
- * supported in Gemini API.
- */
+/** Configuration for the model to configure output formatting and delivery. */
 @Serializable
 data class ResponseFormat(
 
@@ -36,6 +33,6 @@ data class ResponseFormat(
   /** Text output format. */
   val text: TextResponseFormat? = null,
 
-  /** Video output format. */
+  /** Video output format. This field is not supported in Gemini API. */
   val video: VideoResponseFormat? = null,
 )
