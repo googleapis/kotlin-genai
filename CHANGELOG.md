@@ -1,5 +1,25 @@
 # Changelog
 
+## [1.5.0](https://github.com/googleapis/kotlin-genai/compare/v1.4.0...v1.5.0) (2026-10-07)
+
+
+### Features
+
+* update discovery doc ([a304d6a](https://github.com/googleapis/kotlin-genai/commit/a304d6ae0ad484f3f9488de94dd7bc1354e2ed31))
+
+
+### Bug Fixes
+
+* cancel the upload channel when files.upload fails in Enterprise mode ([4b91b0d](https://github.com/googleapis/kotlin-genai/commit/4b91b0d0d5ff25e9950267081c9837662d81541d))
+* do not treat a custom host merely ending in googleapis.com as a Google host ([5e86bf3](https://github.com/googleapis/kotlin-genai/commit/5e86bf3d467c1e571cb1bde5f99762b2fbf83b46))
+* handle non-object JSON error responses in GenAiApiException.throwFromResponse ([ba654f1](https://github.com/googleapis/kotlin-genai/commit/ba654f1c9d41326ac62d050ab667db9d0920736c))
+* replace caller-supplied auth headers instead of appending duplicate values ([ed6afd1](https://github.com/googleapis/kotlin-genai/commit/ed6afd1f0341a76c733e362b26b688f49b44dd54))
+
+
+### Documentation
+
+* update generated SDK docstring examples to use gemini-flash-latest ([a196765](https://github.com/googleapis/kotlin-genai/commit/a1967650f894ced69de13690fba976e6f93d2d99))
+
 ## [1.4.0](https://github.com/googleapis/kotlin-genai/compare/v1.3.0...v1.4.0) (2026-10-01)
 
 
