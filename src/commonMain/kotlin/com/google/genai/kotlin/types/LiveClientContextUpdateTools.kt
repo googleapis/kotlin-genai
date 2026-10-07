@@ -20,25 +20,19 @@ package com.google.genai.kotlin.types
 
 import kotlinx.serialization.Serializable
 
-/** Messages sent by the client in the API call. */
+/**
+ * A wrapper around the list of tools.
+ *
+ * This wrapper exists because a bare `repeated Tool` field cannot tell apart "not sending a tools
+ * update" from "clearing all tools": an unset repeated field and an empty repeated field look
+ * identical on the wire. Wrapping the list in a message adds a presence bit, so the two cases
+ * become: - `tools` field unset: no update; keep the previously provided tools. - `tools` field set
+ * (even with an empty list): replace the current tools with the provided list, which may be empty
+ * to clear all tools.
+ */
 @Serializable
-data class LiveClientMessage(
+data class LiveClientContextUpdateTools(
 
-  /**
-   * Message to be sent by the system when connecting to the API. SDK users should not send this
-   * message.
-   */
-  val setup: LiveClientSetup? = null,
-
-  /** Incremental update of the current conversation delivered from the client. */
-  val clientContent: LiveClientContent? = null,
-
-  /** User input that is sent in real time. */
-  val realtimeInput: LiveClientRealtimeInput? = null,
-
-  /** Response to a `ToolCallMessage` received from the server. */
-  val toolResponse: LiveClientToolResponse? = null,
-
-  /** Updates to the context of the current session. */
-  val contextUpdate: LiveClientContextUpdate? = null,
+  /** The list of tools the model may use to generate the next response. */
+  val tools: List<Tool>? = null
 )

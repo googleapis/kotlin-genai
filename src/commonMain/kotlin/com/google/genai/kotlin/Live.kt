@@ -22,6 +22,7 @@ import com.google.genai.kotlin.types.Blob
 import com.google.genai.kotlin.types.Content
 import com.google.genai.kotlin.types.FunctionResponse
 import com.google.genai.kotlin.types.LiveClientContent
+import com.google.genai.kotlin.types.LiveClientContextUpdate
 import com.google.genai.kotlin.types.LiveClientMessage
 import com.google.genai.kotlin.types.LiveClientRealtimeInput
 import com.google.genai.kotlin.types.LiveClientToolResponse
@@ -238,6 +239,16 @@ internal constructor(
    */
   suspend fun sendToolResponse(functionResponse: FunctionResponse) {
     sendToolResponse(listOf(functionResponse))
+  }
+
+  /**
+   * Sends a context update to the model.
+   *
+   * @param contextUpdate A [LiveClientContextUpdate] to send.
+   */
+  suspend fun sendContextUpdate(contextUpdate: LiveClientContextUpdate) {
+    val message = LiveClientMessage(contextUpdate = contextUpdate)
+    send(message)
   }
 
   /**
