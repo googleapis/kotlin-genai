@@ -4430,6 +4430,11 @@ class Models internal constructor(internal val apiClient: ApiClient) {
   /**
    * Generates content given a GenAI model and a list of content.
    *
+   * When [GenerateContentConfig.automaticContinuation] is true, a response that ends with finish
+   * reason `CONTINUATION` is continued: the same request is sent again with the response's
+   * continuation token until the model finishes. The responses are returned merged into one, with
+   * their parts concatenated and their usage metadata summed.
+   *
    * @param model the name of the GenAI model to use for generation
    * @param contents a list of [Content] to send to the generative model
    * @param config a [GenerateContentConfig] instance that specifies the optional configurations
@@ -4440,11 +4445,18 @@ class Models internal constructor(internal val apiClient: ApiClient) {
     contents: List<Content>,
     config: GenerateContentConfig? = null,
   ): GenerateContentResponse {
-    return privateGenerateContent(model = model, contents = contents, config = config)
+    if (config == null || config.automaticContinuation != true) {
+      return privateGenerateContent(model = model, contents = contents, config = config)
+    }
+    return generateWithAutomaticContinuation(config) { requestConfig ->
+      privateGenerateContent(model = model, contents = contents, config = requestConfig)
+    }
   }
 
   /**
    * Generates content given a GenAI model and a content object.
+   *
+   * Automatic continuation works as described on the overload taking a list of content.
    *
    * @param model the name of the GenAI model to use for generation
    * @param content a [Content] to send to the generative model
@@ -4456,7 +4468,7 @@ class Models internal constructor(internal val apiClient: ApiClient) {
     content: Content,
     config: GenerateContentConfig? = null,
   ): GenerateContentResponse {
-    return privateGenerateContent(
+    return generateContent(
       model = model,
       contents = listOf(Transformers.tUserContent(content)),
       config = config,
@@ -4466,6 +4478,8 @@ class Models internal constructor(internal val apiClient: ApiClient) {
   /**
    * Generates content given a GenAI model and a text string.
    *
+   * Automatic continuation works as described on the overload taking a list of content.
+   *
    * @param model the name of the GenAI model to use for generation
    * @param text the text string to send to the generative model
    * @param config a [GenerateContentConfig] instance that specifies the optional configurations
@@ -4476,7 +4490,7 @@ class Models internal constructor(internal val apiClient: ApiClient) {
     text: String,
     config: GenerateContentConfig? = null,
   ): GenerateContentResponse {
-    return privateGenerateContent(
+    return generateContent(
       model = model,
       contents = listOf(Content(parts = listOf(Part(text = text)), role = "user")),
       config = config,
@@ -4485,6 +4499,11 @@ class Models internal constructor(internal val apiClient: ApiClient) {
 
   /**
    * Generates content with streaming support given a GenAI model and a list of content.
+   *
+   * When [GenerateContentConfig.automaticContinuation] is true, a response that ends with finish
+   * reason `CONTINUATION` is continued: the same request is sent again with the response's
+   * continuation token until the model finishes, and the chunks of every request are emitted in
+   * order. The usage metadata in a chunk covers only the request it came from.
    *
    * @param model the name of the GenAI model to use for generation
    * @param contents a list of [Content] to send to the generative model
@@ -4496,11 +4515,18 @@ class Models internal constructor(internal val apiClient: ApiClient) {
     contents: List<Content>,
     config: GenerateContentConfig? = null,
   ): Flow<GenerateContentResponse> {
-    return privateGenerateContentStream(model = model, contents = contents, config = config)
+    if (config == null || config.automaticContinuation != true) {
+      return privateGenerateContentStream(model = model, contents = contents, config = config)
+    }
+    return streamWithAutomaticContinuation(config) { requestConfig ->
+      privateGenerateContentStream(model = model, contents = contents, config = requestConfig)
+    }
   }
 
   /**
    * Generates content with streaming support given a GenAI model and a content object.
+   *
+   * Automatic continuation works as described on the overload taking a list of content.
    *
    * @param model the name of the GenAI model to use for generation
    * @param content a [Content] to send to the generative model
@@ -4512,7 +4538,7 @@ class Models internal constructor(internal val apiClient: ApiClient) {
     content: Content,
     config: GenerateContentConfig? = null,
   ): Flow<GenerateContentResponse> {
-    return privateGenerateContentStream(
+    return generateContentStream(
       model = model,
       contents = listOf(Transformers.tUserContent(content)),
       config = config,
@@ -4521,6 +4547,8 @@ class Models internal constructor(internal val apiClient: ApiClient) {
 
   /**
    * Generates content with streaming support given a GenAI model and a text string.
+   *
+   * Automatic continuation works as described on the overload taking a list of content.
    *
    * @param model the name of the GenAI model to use for generation
    * @param text the text string to send to the generative model
@@ -4532,7 +4560,7 @@ class Models internal constructor(internal val apiClient: ApiClient) {
     text: String,
     config: GenerateContentConfig? = null,
   ): Flow<GenerateContentResponse> {
-    return privateGenerateContentStream(
+    return generateContentStream(
       model = model,
       contents = listOf(Content(parts = listOf(Part(text = text)), role = "user")),
       config = config,
