@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.6.0](https://github.com/googleapis/kotlin-genai/compare/v1.5.0...v1.6.0) (2026-10-09)
+
+
+### Features
+
+* add automatic continuation to chat sessions ([1fcb193](https://github.com/googleapis/kotlin-genai/commit/1fcb193418ecd1164161803415e3d54b07ed28e9))
+* add automatic continuation to generateContent ([002b843](https://github.com/googleapis/kotlin-genai/commit/002b843f1eba8baf20ccc32b59fe6df7eb711866))
+* Add startOffset/endOffset to Transcription and interimTranscriptTimestampEnabled to RealtimeInputConfig ([2ef1ae1](https://github.com/googleapis/kotlin-genai/commit/2ef1ae106ef6b2896a4802a10554fcb4a4d59869))
+* upgrade Ktor to 3.0.3 and kotlinx-coroutines to 1.9.0 ([8da25c1](https://github.com/googleapis/kotlin-genai/commit/8da25c12a0850e6b1905f86d397d94f74425ed34))
+
 ## [1.5.0](https://github.com/googleapis/kotlin-genai/compare/v1.4.0...v1.5.0) (2026-10-07)
 
 

@@ -58,7 +58,7 @@ import kotlinx.serialization.json.intOrNull
 import kotlinx.serialization.json.jsonObject
 import kotlinx.serialization.json.jsonPrimitive
 
-internal const val SDK_VERSION = "1.5.0" // {x-version-update:google-genai-kotlin:released}
+internal const val SDK_VERSION = "1.6.0" // {x-version-update:google-genai-kotlin:released}
 
 /**
  * Returns the usage-tracking labels sent in both `x-goog-api-client` and `user-agent`, in the form
