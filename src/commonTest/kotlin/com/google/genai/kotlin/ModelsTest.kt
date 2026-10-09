@@ -20,6 +20,7 @@ import com.google.genai.kotlin.types.Blob
 import com.google.genai.kotlin.types.Content
 import com.google.genai.kotlin.types.EmbedContentConfig
 import com.google.genai.kotlin.types.FileData
+import com.google.genai.kotlin.types.FinishReason
 import com.google.genai.kotlin.types.FunctionDeclaration
 import com.google.genai.kotlin.types.GenerateContentConfig
 import com.google.genai.kotlin.types.GoogleSearch
@@ -45,7 +46,9 @@ import kotlin.test.assertEquals
 import kotlin.test.assertFailsWith
 import kotlin.test.assertFalse
 import kotlin.test.assertNotNull
+import kotlin.test.assertNull
 import kotlin.test.assertTrue
+import kotlin.time.Duration.Companion.minutes
 import kotlin.time.Duration.Companion.seconds
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.take
@@ -98,6 +101,34 @@ class ModelsTest : BaseTestServer() {
       assertContains(fullResponse, "Paris")
     }
   }
+
+  // Gemini API only: the Enterprise Agent Platform model returns this whole answer in one response,
+  // so a recording there would not continue.
+  @Test
+  fun testGenerateContentAutomaticContinuation() =
+    runTest(timeout = 40.minutes) {
+      val client =
+        createClient(
+          enterprise = false,
+          testName = "ModelsTest.testGenerateContentAutomaticContinuation.mldev",
+        )
+
+      val response =
+        client.models.generateContent(
+          model = "REDACTED",
+          text =
+            "Write an exhaustive, multi-chapter textbook on compiler design that is around " +
+              "40,000 tokens long.",
+          config = GenerateContentConfig(automaticContinuation = true),
+        )
+
+      assertEquals(FinishReason.STOP, response.finishReason)
+      assertNull(response.candidates?.first()?.continuationToken)
+      // The model returns at most 32,768 tokens per request, so more means it was continued.
+      val usage = response.usageMetadata
+      val outputTokens = (usage?.candidatesTokenCount ?: 0) + (usage?.thoughtsTokenCount ?: 0)
+      assertTrue(outputTokens > 32_768, "Only $outputTokens output tokens")
+    }
 
   @Test
   fun testGenerateContentMultipleParts() = runTest {

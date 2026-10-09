@@ -207,4 +207,11 @@ data class GenerateContentConfig(
    * with `finish_reason` set to `CONTINUATION`.
    */
   @Serializable(with = ByteArrayAsBase64Serializer::class) val continuationToken: ByteArray? = null,
+
+  /**
+   * If true, when a response ends with finish reason `CONTINUATION`, the SDK sends the same request
+   * again with the response's continuation token until the model finishes. Timeouts, retries and
+   * billing apply to each request.
+   */
+  val automaticContinuation: Boolean? = null,
 )
