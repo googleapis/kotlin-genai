@@ -512,6 +512,112 @@ internal object LiveConverters {
     return toObject
   }
 
+  internal fun liveClientContextUpdateToMldev(
+    fromObject: Map<String, Any?>?,
+    parentObject: MutableMap<String, Any?>?,
+  ): MutableMap<String, Any?> {
+
+    val toObject = mutableMapOf<String, Any?>()
+    Common.getValueByPath(fromObject, arrayOf("systemInstruction"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("systemInstruction"),
+        contentToMldev(
+          Transformers.tContent(Common.getValueByPath(fromObject, arrayOf("systemInstruction")))
+            as Map<String, Any?>,
+          toObject,
+        ),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("tools"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("tools"),
+        liveClientContextUpdateToolsToMldev(
+          Common.getValueByPath(fromObject, arrayOf("tools")) as Map<String, Any?>,
+          toObject,
+        ),
+      )
+    }
+
+    return toObject
+  }
+
+  internal fun liveClientContextUpdateToVertex(
+    fromObject: Map<String, Any?>?,
+    parentObject: MutableMap<String, Any?>?,
+  ): MutableMap<String, Any?> {
+
+    val toObject = mutableMapOf<String, Any?>()
+    Common.getValueByPath(fromObject, arrayOf("systemInstruction"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("systemInstruction"),
+        contentToVertex(
+          Transformers.tContent(Common.getValueByPath(fromObject, arrayOf("systemInstruction")))
+            as Map<String, Any?>,
+          toObject,
+        ),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("tools"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("tools"),
+        liveClientContextUpdateToolsToVertex(
+          Common.getValueByPath(fromObject, arrayOf("tools")) as Map<String, Any?>,
+          toObject,
+        ),
+      )
+    }
+
+    return toObject
+  }
+
+  internal fun liveClientContextUpdateToolsToMldev(
+    fromObject: Map<String, Any?>?,
+    parentObject: MutableMap<String, Any?>?,
+  ): MutableMap<String, Any?> {
+
+    val toObject = mutableMapOf<String, Any?>()
+    Common.getValueByPath(fromObject, arrayOf("tools"))?.let { node ->
+      val keyArray = Transformers.tTools(node) as? List<*> ?: emptyList<Any?>()
+      val result = mutableListOf<Any?>()
+
+      for (item in keyArray) {
+        if (item is Map<*, *>) {
+          result.add(toolToMldev(Transformers.tTool(item) as Map<String, Any?>, toObject))
+        }
+      }
+      Common.setValueByPath(toObject, arrayOf("tools"), result)
+    }
+
+    return toObject
+  }
+
+  internal fun liveClientContextUpdateToolsToVertex(
+    fromObject: Map<String, Any?>?,
+    parentObject: MutableMap<String, Any?>?,
+  ): MutableMap<String, Any?> {
+
+    val toObject = mutableMapOf<String, Any?>()
+    Common.getValueByPath(fromObject, arrayOf("tools"))?.let { node ->
+      val keyArray = Transformers.tTools(node) as? List<*> ?: emptyList<Any?>()
+      val result = mutableListOf<Any?>()
+
+      for (item in keyArray) {
+        if (item is Map<*, *>) {
+          result.add(toolToVertex(Transformers.tTool(item) as Map<String, Any?>, toObject))
+        }
+      }
+      Common.setValueByPath(toObject, arrayOf("tools"), result)
+    }
+
+    return toObject
+  }
+
   internal fun liveClientMessageToMldev(
     fromObject: Map<String, Any?>?,
     parentObject: MutableMap<String, Any?>?,
@@ -553,6 +659,17 @@ internal object LiveConverters {
         toObject,
         arrayOf("toolResponse"),
         Common.getValueByPath(fromObject, arrayOf("toolResponse")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("contextUpdate"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("contextUpdate"),
+        liveClientContextUpdateToMldev(
+          Common.getValueByPath(fromObject, arrayOf("contextUpdate")) as Map<String, Any?>,
+          toObject,
+        ),
       )
     }
 
@@ -603,6 +720,17 @@ internal object LiveConverters {
         toObject,
         arrayOf("toolResponse"),
         Common.getValueByPath(fromObject, arrayOf("toolResponse")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("contextUpdate"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("contextUpdate"),
+        liveClientContextUpdateToVertex(
+          Common.getValueByPath(fromObject, arrayOf("contextUpdate")) as Map<String, Any?>,
+          toObject,
+        ),
       )
     }
 
