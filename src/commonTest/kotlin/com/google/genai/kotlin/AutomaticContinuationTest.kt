@@ -34,9 +34,11 @@ import com.google.genai.kotlin.types.SafetyRating
 import kotlin.test.Test
 import kotlin.test.assertContentEquals
 import kotlin.test.assertEquals
+import kotlin.test.assertFailsWith
 import kotlin.test.assertNull
 import kotlin.test.assertSame
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.toList
 import kotlinx.coroutines.test.runTest
@@ -198,6 +200,45 @@ class AutomaticContinuationTest {
     assertEquals(listOf<String?>("a", "b", "c"), chunks.map { it.text })
     assertEquals(2, model.configs.size)
     assertContentEquals(TOKEN_1, model.configs[1]?.continuationToken)
+  }
+
+  @Test
+  fun testStreamResumesFromCheckpointTokenOnMidStreamCutoffOrError() = runTest {
+    val model =
+      FakeStreamingModel(
+        // Hop 1: intermediate checkpoint chunk (finishReason == null), then stream cuts off early
+        flowOf(response("a", token = TOKEN_1)),
+        // Hop 2: intermediate checkpoint chunk, then mid-stream exception
+        flow {
+          emit(response("b", token = TOKEN_2))
+          throw IllegalStateException("stream dropped")
+        },
+        // Hop 3: completes with STOP
+        flowOf(response("c", FinishReason.STOP)),
+      )
+
+    val chunks = streamWithAutomaticContinuation(CONFIG) { model.send(it) }.toList()
+
+    assertEquals(listOf<String?>("a", "b", "c"), chunks.map { it.text })
+    assertEquals(3, model.configs.size)
+    assertContentEquals(TOKEN_1, model.configs[1]?.continuationToken)
+    assertContentEquals(TOKEN_2, model.configs[2]?.continuationToken)
+  }
+
+  @Test
+  fun testStreamRethrowsMidStreamErrorWhenNoCheckpointTokenWasReceived() = runTest {
+    val model =
+      FakeStreamingModel(
+        flow {
+          emit(response("a"))
+          throw IllegalStateException("unrecoverable error")
+        }
+      )
+
+    assertFailsWith<IllegalStateException> {
+      streamWithAutomaticContinuation(CONFIG) { model.send(it) }.toList()
+    }
+    assertEquals(1, model.configs.size)
   }
 
   @Test
