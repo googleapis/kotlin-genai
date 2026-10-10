@@ -19,6 +19,7 @@ package com.google.genai.kotlin
 import com.google.genai.kotlin.types.FinishReason
 import com.google.genai.kotlin.types.GenerateContentConfig
 import com.google.genai.kotlin.types.GenerateContentResponse
+import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.serialization.json.JsonArray
@@ -49,7 +50,7 @@ internal suspend fun generateWithAutomaticContinuation(
     val response = send(requestConfig)
     responses += response
     val candidate = response.candidates?.firstOrNull()
-    val token = candidate?.continuationToken
+    val token = candidate?.continuationToken?.takeIf { it.isNotEmpty() }
     if (token == null || !isContinuable(candidate.finishReason)) {
       break
     }
@@ -71,13 +72,26 @@ internal fun streamWithAutomaticContinuation(
     while (true) {
       var finishReason: FinishReason? = null
       var token: ByteArray? = null
-      send(requestConfig).collect { chunk ->
-        val candidate = chunk.candidates?.firstOrNull()
-        candidate?.finishReason?.let { finishReason = it }
-        // A long stream also puts checkpoint tokens on chunks before the last one, so the token to
-        // resume from is the last one seen.
-        candidate?.continuationToken?.let { token = it }
-        emit(chunk)
+      try {
+        send(requestConfig).collect { chunk ->
+          val candidate = chunk.candidates?.firstOrNull()
+          candidate?.finishReason?.let { finishReason = it }
+          // A long stream also puts checkpoint tokens on chunks before the last one, so the token
+          // to resume from is the last one seen unless the hop ends with a non-resumable reason.
+          val chunkToken = candidate?.continuationToken?.takeIf { it.isNotEmpty() }
+          if (chunkToken != null) {
+            token = chunkToken
+          } else if (candidate?.finishReason != null && !isContinuable(candidate.finishReason)) {
+            token = null
+          }
+          emit(chunk)
+        }
+      } catch (e: Throwable) {
+        // If a mid-stream error occurs after an intermediate checkpoint continuationToken was
+        // received, resume from that checkpoint.
+        if (e is CancellationException || token == null || !isContinuable(finishReason)) {
+          throw e
+        }
       }
       val next = token
       if (next == null || !isContinuable(finishReason)) {
@@ -115,10 +129,11 @@ internal fun mergeContinuationResponses(
     .copy(sdkHttpResponse = responses.lastOrNull { it.sdkHttpResponse != null }?.sdkHttpResponse)
 }
 
-// The server ends a response it can continue with CONTINUATION. MAX_TOKENS means the caller's
-// maxOutputTokens, which the server counts across all the requests, is spent.
+// Per the continuation protocol, when a continuationToken is present the backend only sets
+// finishReason to null (intermediate checkpoint chunk) or CONTINUATION (stream end). MAX_TOKENS
+// means the caller's maxOutputTokens, which the server counts across all the requests, is spent.
 private fun isContinuable(finishReason: FinishReason?): Boolean =
-  finishReason == FinishReason.CONTINUATION
+  finishReason == null || finishReason == FinishReason.CONTINUATION
 
 private fun withContinuationToken(config: GenerateContentConfig?, token: ByteArray) =
   (config ?: GenerateContentConfig()).copy(continuationToken = token)
