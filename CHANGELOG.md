@@ -1,5 +1,22 @@
 # Changelog
 
+## [1.6.0](https://github.com/googleapis/kotlin-genai/compare/v1.5.0...v1.6.0) (2026-10-11)
+
+
+### Features
+
+* accumulate streaming continuation usage metadata and expose initialPromptTokenCount ([3dd8774](https://github.com/googleapis/kotlin-genai/commit/3dd877450a8acde2fed043f694cbd1020e4f0649))
+* add automatic continuation to chat sessions ([1fcb193](https://github.com/googleapis/kotlin-genai/commit/1fcb193418ecd1164161803415e3d54b07ed28e9))
+* add automatic continuation to generateContent ([002b843](https://github.com/googleapis/kotlin-genai/commit/002b843f1eba8baf20ccc32b59fe6df7eb711866))
+* Add startOffset/endOffset to Transcription and interimTranscriptTimestampEnabled to RealtimeInputConfig ([2ef1ae1](https://github.com/googleapis/kotlin-genai/commit/2ef1ae106ef6b2896a4802a10554fcb4a4d59869))
+* upgrade Ktor to 3.0.3 and kotlinx-coroutines to 1.9.0 ([8da25c1](https://github.com/googleapis/kotlin-genai/commit/8da25c12a0850e6b1905f86d397d94f74425ed34))
+
+
+### Bug Fixes
+
+* clear intermediate CONTINUATION finishReason in streaming continuation ([d3f4ba7](https://github.com/googleapis/kotlin-genai/commit/d3f4ba721a1a415c67f38f842d3f15a3621810f6))
+* resume streaming generation from the latest checkpoint continuation token on mid-stream errors or cutoffs ([9d23d4d](https://github.com/googleapis/kotlin-genai/commit/9d23d4d81af9a08994715c3b8fd6b5cd8222324c))
+
 ## [1.5.0](https://github.com/googleapis/kotlin-genai/compare/v1.4.0...v1.5.0) (2026-10-07)
 
 
