@@ -137,4 +137,8 @@ data class GenerateContentResponse(
    */
   val codeExecutionResult: String?
     get() = parts?.firstNotNullOfOrNull { it.codeExecutionResult }?.output
+
+  /** Returns the prompt token count from the initial request prior to any continuation hops. */
+  val initialPromptTokenCount: Int?
+    get() = usageMetadata?.initialPromptTokenCount
 }

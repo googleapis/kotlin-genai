@@ -34,9 +34,11 @@ import com.google.genai.kotlin.types.SafetyRating
 import kotlin.test.Test
 import kotlin.test.assertContentEquals
 import kotlin.test.assertEquals
+import kotlin.test.assertFailsWith
 import kotlin.test.assertNull
 import kotlin.test.assertSame
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.toList
 import kotlinx.coroutines.test.runTest
@@ -201,6 +203,45 @@ class AutomaticContinuationTest {
   }
 
   @Test
+  fun testStreamResumesFromCheckpointTokenOnMidStreamCutoffOrError() = runTest {
+    val model =
+      FakeStreamingModel(
+        // Hop 1: intermediate checkpoint chunk (finishReason == null), then stream cuts off early
+        flowOf(response("a", token = TOKEN_1)),
+        // Hop 2: intermediate checkpoint chunk, then mid-stream exception
+        flow {
+          emit(response("b", token = TOKEN_2))
+          throw IllegalStateException("stream dropped")
+        },
+        // Hop 3: completes with STOP
+        flowOf(response("c", FinishReason.STOP)),
+      )
+
+    val chunks = streamWithAutomaticContinuation(CONFIG) { model.send(it) }.toList()
+
+    assertEquals(listOf<String?>("a", "b", "c"), chunks.map { it.text })
+    assertEquals(3, model.configs.size)
+    assertContentEquals(TOKEN_1, model.configs[1]?.continuationToken)
+    assertContentEquals(TOKEN_2, model.configs[2]?.continuationToken)
+  }
+
+  @Test
+  fun testStreamRethrowsMidStreamErrorWhenNoCheckpointTokenWasReceived() = runTest {
+    val model =
+      FakeStreamingModel(
+        flow {
+          emit(response("a"))
+          throw IllegalStateException("unrecoverable error")
+        }
+      )
+
+    assertFailsWith<IllegalStateException> {
+      streamWithAutomaticContinuation(CONFIG) { model.send(it) }.toList()
+    }
+    assertEquals(1, model.configs.size)
+  }
+
+  @Test
   fun testStreamStopsAtACheckpointWhenTheModelFinishes() = runTest {
     val model =
       FakeStreamingModel(flowOf(response("a", token = TOKEN_1), response("b", FinishReason.STOP)))
@@ -233,6 +274,105 @@ class AutomaticContinuationTest {
     streamWithAutomaticContinuation(CONFIG) { model.send(it) }.toList()
 
     assertEquals(1, model.configs.size)
+  }
+
+  @Test
+  fun testStreamAccumulatesUsageMetadataAcrossHops() = runTest {
+    val model =
+      FakeStreamingModel(
+        // Hop 1: checkpoint chunk with usage, then stream drops mid-hop
+        flow {
+          emit(
+            response("a", token = TOKEN_1)
+              .copy(
+                usageMetadata =
+                  GenerateContentResponseUsageMetadata(
+                    promptTokenCount = 10,
+                    cachedContentTokenCount = 4,
+                    candidatesTokenCount = 40,
+                    thoughtsTokenCount = 5,
+                    totalTokenCount = 55,
+                    promptTokensDetails = listOf(ModalityTokenCount(MediaModality.TEXT, 10)),
+                    candidatesTokensDetails = listOf(ModalityTokenCount(MediaModality.TEXT, 40)),
+                  )
+              )
+          )
+          throw IllegalStateException("stream dropped")
+        },
+        // Hop 2: finishes with CONTINUATION and TOKEN_2
+        flowOf(
+          response("b"),
+          response("c", FinishReason.CONTINUATION, TOKEN_2)
+            .copy(
+              usageMetadata =
+                GenerateContentResponseUsageMetadata(
+                  promptTokenCount = 55,
+                  cachedContentTokenCount = 50,
+                  candidatesTokenCount = 60,
+                  thoughtsTokenCount = 3,
+                  totalTokenCount = 118,
+                  promptTokensDetails = listOf(ModalityTokenCount(MediaModality.TEXT, 55)),
+                  candidatesTokensDetails = listOf(ModalityTokenCount(MediaModality.TEXT, 60)),
+                )
+            ),
+        ),
+        // Hop 3: finishes with STOP
+        flowOf(
+          response("d", FinishReason.STOP)
+            .copy(
+              usageMetadata =
+                GenerateContentResponseUsageMetadata(
+                  promptTokenCount = 118,
+                  cachedContentTokenCount = 110,
+                  candidatesTokenCount = 25,
+                  thoughtsTokenCount = 2,
+                  totalTokenCount = 145,
+                  promptTokensDetails = listOf(ModalityTokenCount(MediaModality.TEXT, 118)),
+                  candidatesTokensDetails = listOf(ModalityTokenCount(MediaModality.TEXT, 25)),
+                )
+            )
+        ),
+      )
+
+    val chunks = streamWithAutomaticContinuation(CONFIG) { model.send(it) }.toList()
+
+    assertEquals(listOf<String?>("a", "b", "c", "d"), chunks.map { it.text })
+    // Chunk 0 (Hop 1): unchanged initial hop usage
+    assertEquals(10, chunks[0].usageMetadata?.promptTokenCount)
+    assertEquals(10, chunks[0].usageMetadata?.initialPromptTokenCount)
+    assertEquals(10, chunks[0].initialPromptTokenCount)
+    assertEquals(4, chunks[0].usageMetadata?.cachedContentTokenCount)
+    assertEquals(40, chunks[0].usageMetadata?.candidatesTokenCount)
+    assertEquals(5, chunks[0].usageMetadata?.thoughtsTokenCount)
+    assertEquals(55, chunks[0].usageMetadata?.totalTokenCount)
+    // Chunk 1 (Hop 2 first chunk): no usageMetadata
+    assertNull(chunks[1].usageMetadata)
+    assertNull(chunks[1].initialPromptTokenCount)
+    // Chunk 2 (Hop 2 final chunk): accumulated across Hop 1 + Hop 2
+    assertEquals(65, chunks[2].usageMetadata?.promptTokenCount)
+    assertEquals(10, chunks[2].usageMetadata?.initialPromptTokenCount)
+    assertEquals(10, chunks[2].initialPromptTokenCount)
+    assertEquals(54, chunks[2].usageMetadata?.cachedContentTokenCount)
+    assertEquals(100, chunks[2].usageMetadata?.candidatesTokenCount)
+    assertEquals(8, chunks[2].usageMetadata?.thoughtsTokenCount)
+    assertEquals(173, chunks[2].usageMetadata?.totalTokenCount)
+    // Chunk 3 (Hop 3 final chunk): accumulated across Hop 1 + Hop 2 + Hop 3
+    val finalUsage = chunks[3].usageMetadata
+    assertEquals(183, finalUsage?.promptTokenCount)
+    assertEquals(10, finalUsage?.initialPromptTokenCount)
+    assertEquals(10, chunks[3].initialPromptTokenCount)
+    assertEquals(164, finalUsage?.cachedContentTokenCount)
+    assertEquals(125, finalUsage?.candidatesTokenCount)
+    assertEquals(10, finalUsage?.thoughtsTokenCount)
+    assertEquals(318, finalUsage?.totalTokenCount)
+    assertEquals(
+      listOf(ModalityTokenCount(MediaModality.TEXT, 183)),
+      finalUsage?.promptTokensDetails,
+    )
+    assertEquals(
+      listOf(ModalityTokenCount(MediaModality.TEXT, 125)),
+      finalUsage?.candidatesTokensDetails,
+    )
   }
 
   @Test
@@ -300,10 +440,12 @@ class AutomaticContinuationTest {
           usageMetadata =
             GenerateContentResponseUsageMetadata(
               promptTokenCount = 10,
+              cachedContentTokenCount = 4,
               candidatesTokenCount = 100,
               thoughtsTokenCount = 5,
               totalTokenCount = 115,
               promptTokensDetails = listOf(ModalityTokenCount(MediaModality.TEXT, 10)),
+              cacheTokensDetails = listOf(ModalityTokenCount(MediaModality.TEXT, 4)),
               candidatesTokensDetails = listOf(ModalityTokenCount(MediaModality.TEXT, 100)),
             )
         )
@@ -312,9 +454,12 @@ class AutomaticContinuationTest {
         .copy(
           usageMetadata =
             GenerateContentResponseUsageMetadata(
-              promptTokenCount = 115,
+              promptTokenCount = 110,
+              cachedContentTokenCount = 100,
               candidatesTokenCount = 50,
-              totalTokenCount = 165,
+              totalTokenCount = 160,
+              promptTokensDetails = listOf(ModalityTokenCount(MediaModality.TEXT, 110)),
+              cacheTokensDetails = listOf(ModalityTokenCount(MediaModality.TEXT, 100)),
               candidatesTokensDetails =
                 listOf(
                   ModalityTokenCount(MediaModality.TEXT, 50),
@@ -323,13 +468,18 @@ class AutomaticContinuationTest {
             )
         )
 
-    val usage = mergeContinuationResponses(listOf(first, second)).usageMetadata
+    val merged = mergeContinuationResponses(listOf(first, second))
+    val usage = merged.usageMetadata
 
-    assertEquals(125, usage?.promptTokenCount)
+    assertEquals(120, usage?.promptTokenCount)
+    assertEquals(10, merged.initialPromptTokenCount)
+    assertEquals(10, usage?.initialPromptTokenCount)
+    assertEquals(104, usage?.cachedContentTokenCount)
     assertEquals(150, usage?.candidatesTokenCount)
     assertEquals(5, usage?.thoughtsTokenCount)
-    assertEquals(280, usage?.totalTokenCount)
-    assertEquals(listOf(ModalityTokenCount(MediaModality.TEXT, 10)), usage?.promptTokensDetails)
+    assertEquals(275, usage?.totalTokenCount)
+    assertEquals(listOf(ModalityTokenCount(MediaModality.TEXT, 120)), usage?.promptTokensDetails)
+    assertEquals(listOf(ModalityTokenCount(MediaModality.TEXT, 104)), usage?.cacheTokensDetails)
     assertEquals(
       listOf(
         ModalityTokenCount(MediaModality.TEXT, 150),

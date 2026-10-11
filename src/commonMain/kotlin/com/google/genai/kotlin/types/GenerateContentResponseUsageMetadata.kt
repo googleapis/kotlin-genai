@@ -81,4 +81,11 @@ data class GenerateContentResponseUsageMetadata(
 
   /** Output only. The traffic type for this request. */
   val trafficType: TrafficType? = null,
-)
+) {
+
+  @kotlinx.serialization.Transient internal var firstHopPromptTokenCount: Int? = null
+
+  /** Returns the prompt token count from the initial request prior to any continuation hops. */
+  val initialPromptTokenCount: Int?
+    get() = firstHopPromptTokenCount ?: promptTokenCount
+}
