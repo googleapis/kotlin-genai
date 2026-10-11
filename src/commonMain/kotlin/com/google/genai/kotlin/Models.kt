@@ -4503,7 +4503,7 @@ class Models internal constructor(internal val apiClient: ApiClient) {
    * Unless [GenerateContentConfig.automaticContinuation] is false, a response that ends with finish
    * reason `CONTINUATION` is continued: the same request is sent again with the response's
    * continuation token until the model finishes, and the chunks of every request are emitted in
-   * order. The usage metadata in a chunk covers only the request it came from.
+   * order, with usage metadata accumulated across requests.
    *
    * @param model the name of the GenAI model to use for generation
    * @param contents a list of [Content] to send to the generative model
