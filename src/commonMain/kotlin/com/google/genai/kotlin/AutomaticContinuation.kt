@@ -16,6 +16,7 @@
 
 package com.google.genai.kotlin
 
+import com.google.genai.kotlin.types.BillableUsage
 import com.google.genai.kotlin.types.FinishReason
 import com.google.genai.kotlin.types.GenerateContentConfig
 import com.google.genai.kotlin.types.GenerateContentResponse
@@ -159,13 +160,13 @@ internal fun mergeContinuationResponses(
           .jsonObject
       }
       .reduce { prev, curr -> mergeObjects(prev, curr) }
+  val mergedUsage =
+    responses.mapNotNull { it.usageMetadata }.reduceOrNull(::mergeUsageMetadata)
   return Common.JSON.decodeFromJsonElement(GenerateContentResponse.serializer(), merged)
-    .copy(sdkHttpResponse = responses.lastOrNull { it.sdkHttpResponse != null }?.sdkHttpResponse)
-    .also {
-      it.usageMetadata?.firstHopPromptTokenCount = responses.firstNotNullOfOrNull { response ->
-        response.usageMetadata?.initialPromptTokenCount
-      }
-    }
+    .copy(
+      sdkHttpResponse = responses.lastOrNull { it.sdkHttpResponse != null }?.sdkHttpResponse,
+      usageMetadata = mergedUsage,
+    )
 }
 
 internal fun mergeUsageMetadata(
@@ -178,14 +179,81 @@ internal fun mergeUsageMetadata(
   val currJson =
     Common.JSON.encodeToJsonElement(GenerateContentResponseUsageMetadata.serializer(), curr)
       .jsonObject
-  return Common.JSON.decodeFromJsonElement(
+  val summed =
+    Common.JSON.decodeFromJsonElement(
       GenerateContentResponseUsageMetadata.serializer(),
       mergeObjects(prevJson, currJson, sumAllNumbers = true),
     )
+  val promptTokenCount = prev.promptTokenCount ?: curr.promptTokenCount
+  val cachedContentTokenCount = prev.cachedContentTokenCount ?: curr.cachedContentTokenCount
+  val candidatesTokenCount = summed.candidatesTokenCount
+  val thoughtsTokenCount = summed.thoughtsTokenCount
+  val toolUsePromptTokenCount = summed.toolUsePromptTokenCount
+  val hasAnyTotalComponent =
+    promptTokenCount != null ||
+      candidatesTokenCount != null ||
+      thoughtsTokenCount != null ||
+      toolUsePromptTokenCount != null ||
+      summed.totalTokenCount != null
+  val totalTokenCount =
+    if (hasAnyTotalComponent) {
+      (promptTokenCount ?: 0) +
+        (candidatesTokenCount ?: 0) +
+        (thoughtsTokenCount ?: 0) +
+        (toolUsePromptTokenCount ?: 0)
+    } else {
+      null
+    }
+  val prevBillable = prev.billableUsage
+  val currBillable = curr.billableUsage
+  return summed
+    .copy(
+      promptTokenCount = promptTokenCount,
+      promptTokensDetails = prev.promptTokensDetails ?: curr.promptTokensDetails,
+      cachedContentTokenCount = cachedContentTokenCount,
+      cacheTokensDetails = prev.cacheTokensDetails ?: curr.cacheTokensDetails,
+      totalTokenCount = totalTokenCount,
+    )
     .also {
       it.firstHopPromptTokenCount = prev.initialPromptTokenCount ?: curr.initialPromptTokenCount
+      it.billableUsage =
+        BillableUsage(
+          promptTokenCount =
+            sumNullableInts(
+              prevBillable?.promptTokenCount ?: prev.promptTokenCount,
+              currBillable?.promptTokenCount ?: curr.promptTokenCount,
+            ),
+          cachedContentTokenCount =
+            sumNullableInts(
+              prevBillable?.cachedContentTokenCount ?: prev.cachedContentTokenCount,
+              currBillable?.cachedContentTokenCount ?: curr.cachedContentTokenCount,
+            ),
+          candidatesTokenCount =
+            sumNullableInts(
+              prevBillable?.candidatesTokenCount ?: prev.candidatesTokenCount,
+              currBillable?.candidatesTokenCount ?: curr.candidatesTokenCount,
+            ),
+          thoughtsTokenCount =
+            sumNullableInts(
+              prevBillable?.thoughtsTokenCount ?: prev.thoughtsTokenCount,
+              currBillable?.thoughtsTokenCount ?: curr.thoughtsTokenCount,
+            ),
+          toolUsePromptTokenCount =
+            sumNullableInts(
+              prevBillable?.toolUsePromptTokenCount ?: prev.toolUsePromptTokenCount,
+              currBillable?.toolUsePromptTokenCount ?: curr.toolUsePromptTokenCount,
+            ),
+          totalTokenCount =
+            sumNullableInts(
+              prevBillable?.totalTokenCount ?: prev.totalTokenCount,
+              currBillable?.totalTokenCount ?: curr.totalTokenCount,
+            ),
+        )
     }
 }
+
+private fun sumNullableInts(a: Int?, b: Int?): Int? =
+  if (a != null || b != null) (a ?: 0) + (b ?: 0) else null
 
 // Per the continuation protocol, when a continuationToken is present the backend only sets
 // finishReason to null (intermediate checkpoint chunk) or CONTINUATION (stream end). MAX_TOKENS

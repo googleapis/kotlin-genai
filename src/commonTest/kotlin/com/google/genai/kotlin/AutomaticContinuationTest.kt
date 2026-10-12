@@ -355,28 +355,39 @@ class AutomaticContinuationTest {
     assertEquals(40, chunks[0].usageMetadata?.candidatesTokenCount)
     assertEquals(5, chunks[0].usageMetadata?.thoughtsTokenCount)
     assertEquals(55, chunks[0].usageMetadata?.totalTokenCount)
+    assertNull(chunks[0].usageMetadata?.billableUsage)
     // Chunk 1 (Hop 2 first chunk): no usageMetadata
     assertNull(chunks[1].usageMetadata)
     assertNull(chunks[1].initialPromptTokenCount)
     // Chunk 2 (Hop 2 final chunk): accumulated across Hop 1 + Hop 2
-    assertEquals(65, chunks[2].usageMetadata?.promptTokenCount)
+    assertEquals(10, chunks[2].usageMetadata?.promptTokenCount)
     assertEquals(10, chunks[2].usageMetadata?.initialPromptTokenCount)
     assertEquals(10, chunks[2].initialPromptTokenCount)
-    assertEquals(54, chunks[2].usageMetadata?.cachedContentTokenCount)
+    assertEquals(4, chunks[2].usageMetadata?.cachedContentTokenCount)
     assertEquals(100, chunks[2].usageMetadata?.candidatesTokenCount)
     assertEquals(8, chunks[2].usageMetadata?.thoughtsTokenCount)
-    assertEquals(173, chunks[2].usageMetadata?.totalTokenCount)
+    assertEquals(118, chunks[2].usageMetadata?.totalTokenCount)
+    assertEquals(65, chunks[2].usageMetadata?.billableUsage?.promptTokenCount)
+    assertEquals(54, chunks[2].usageMetadata?.billableUsage?.cachedContentTokenCount)
+    assertEquals(100, chunks[2].usageMetadata?.billableUsage?.candidatesTokenCount)
+    assertEquals(8, chunks[2].usageMetadata?.billableUsage?.thoughtsTokenCount)
+    assertEquals(173, chunks[2].usageMetadata?.billableUsage?.totalTokenCount)
     // Chunk 3 (Hop 3 final chunk): accumulated across Hop 1 + Hop 2 + Hop 3
     val finalUsage = chunks[3].usageMetadata
-    assertEquals(183, finalUsage?.promptTokenCount)
+    assertEquals(10, finalUsage?.promptTokenCount)
     assertEquals(10, finalUsage?.initialPromptTokenCount)
     assertEquals(10, chunks[3].initialPromptTokenCount)
-    assertEquals(164, finalUsage?.cachedContentTokenCount)
+    assertEquals(4, finalUsage?.cachedContentTokenCount)
     assertEquals(125, finalUsage?.candidatesTokenCount)
     assertEquals(10, finalUsage?.thoughtsTokenCount)
-    assertEquals(318, finalUsage?.totalTokenCount)
+    assertEquals(145, finalUsage?.totalTokenCount)
+    assertEquals(183, finalUsage?.billableUsage?.promptTokenCount)
+    assertEquals(164, finalUsage?.billableUsage?.cachedContentTokenCount)
+    assertEquals(125, finalUsage?.billableUsage?.candidatesTokenCount)
+    assertEquals(10, finalUsage?.billableUsage?.thoughtsTokenCount)
+    assertEquals(318, finalUsage?.billableUsage?.totalTokenCount)
     assertEquals(
-      listOf(ModalityTokenCount(MediaModality.TEXT, 183)),
+      listOf(ModalityTokenCount(MediaModality.TEXT, 10)),
       finalUsage?.promptTokensDetails,
     )
     assertEquals(
@@ -481,15 +492,20 @@ class AutomaticContinuationTest {
     val merged = mergeContinuationResponses(listOf(first, second))
     val usage = merged.usageMetadata
 
-    assertEquals(120, usage?.promptTokenCount)
+    assertEquals(10, usage?.promptTokenCount)
     assertEquals(10, merged.initialPromptTokenCount)
     assertEquals(10, usage?.initialPromptTokenCount)
-    assertEquals(104, usage?.cachedContentTokenCount)
+    assertEquals(4, usage?.cachedContentTokenCount)
     assertEquals(150, usage?.candidatesTokenCount)
     assertEquals(5, usage?.thoughtsTokenCount)
-    assertEquals(275, usage?.totalTokenCount)
-    assertEquals(listOf(ModalityTokenCount(MediaModality.TEXT, 120)), usage?.promptTokensDetails)
-    assertEquals(listOf(ModalityTokenCount(MediaModality.TEXT, 104)), usage?.cacheTokensDetails)
+    assertEquals(165, usage?.totalTokenCount)
+    assertEquals(120, usage?.billableUsage?.promptTokenCount)
+    assertEquals(104, usage?.billableUsage?.cachedContentTokenCount)
+    assertEquals(150, usage?.billableUsage?.candidatesTokenCount)
+    assertEquals(5, usage?.billableUsage?.thoughtsTokenCount)
+    assertEquals(275, usage?.billableUsage?.totalTokenCount)
+    assertEquals(listOf(ModalityTokenCount(MediaModality.TEXT, 10)), usage?.promptTokensDetails)
+    assertEquals(listOf(ModalityTokenCount(MediaModality.TEXT, 4)), usage?.cacheTokensDetails)
     assertEquals(
       listOf(
         ModalityTokenCount(MediaModality.TEXT, 150),

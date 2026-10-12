@@ -20,6 +20,23 @@ package com.google.genai.kotlin.types
 
 import kotlinx.serialization.Serializable
 
+/** Cumulative billable token usage summed across all continuation hops. */
+@Serializable
+data class BillableUsage(
+  /** Cumulative billed prompt token count summed across all continuation hops. */
+  val promptTokenCount: Int? = null,
+  /** Cumulative billed cached content token count summed across all continuation hops. */
+  val cachedContentTokenCount: Int? = null,
+  /** Cumulative billed output token count summed across all continuation hops. */
+  val candidatesTokenCount: Int? = null,
+  /** Cumulative billed thoughts token count summed across all continuation hops. */
+  val thoughtsTokenCount: Int? = null,
+  /** Cumulative billed tool-use prompt token count summed across all continuation hops. */
+  val toolUsePromptTokenCount: Int? = null,
+  /** Cumulative billed total token count summed across all continuation hops. */
+  val totalTokenCount: Int? = null,
+)
+
 /**
  * Usage metadata about the content generation request and response. This message provides a
  * detailed breakdown of token usage and other relevant metrics. This data type is not supported in
@@ -88,4 +105,7 @@ data class GenerateContentResponseUsageMetadata(
   /** Returns the prompt token count from the initial request prior to any continuation hops. */
   val initialPromptTokenCount: Int?
     get() = firstHopPromptTokenCount ?: promptTokenCount
+
+  /** Output only. Cumulative billable token usage summed across all continuation hops. */
+  var billableUsage: BillableUsage? = null
 }
