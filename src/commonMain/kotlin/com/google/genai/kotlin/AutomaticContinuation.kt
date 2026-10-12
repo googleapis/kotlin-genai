@@ -28,6 +28,7 @@ import kotlinx.serialization.json.JsonElement
 import kotlinx.serialization.json.JsonNull
 import kotlinx.serialization.json.JsonObject
 import kotlinx.serialization.json.JsonPrimitive
+import kotlinx.serialization.json.contentOrNull
 import kotlinx.serialization.json.doubleOrNull
 import kotlinx.serialization.json.intOrNull
 import kotlinx.serialization.json.jsonObject
@@ -61,6 +62,12 @@ internal suspend fun generateWithAutomaticContinuation(
 }
 
 /**
+ * Maximum number of consecutive streaming reconnects that do not receive a new checkpoint
+ * continuationToken before the error is surfaced to the caller.
+ */
+internal const val MAX_STREAM_RECONNECTS_WITHOUT_PROGRESS = 3
+
+/**
  * The streaming counterpart of [generateWithAutomaticContinuation]. The chunks of every request are
  * emitted in the order they arrive, with usage metadata accumulated across requests.
  */
@@ -71,20 +78,35 @@ internal fun streamWithAutomaticContinuation(
   return flow {
     var requestConfig = config
     var accumulatedUsage: GenerateContentResponseUsageMetadata? = null
+    var token: ByteArray? = null
+    var reconnectsWithoutProgress = 0
     while (true) {
+      val hopStartToken = token
       var finishReason: FinishReason? = null
-      var token: ByteArray? = null
+      var hopHasPromptFeedback = false
+      var hopHasYieldedContent = false
+      token = null
+      var hopError: Throwable? = null
       var hopUsage: GenerateContentResponseUsageMetadata? = null
       try {
         send(requestConfig).collect { chunk ->
+          if (chunk.promptFeedback != null) {
+            hopHasPromptFeedback = true
+          }
           val candidate = chunk.candidates?.firstOrNull()
+          if (!candidate?.content?.parts.isNullOrEmpty()) {
+            hopHasYieldedContent = true
+          }
           candidate?.finishReason?.let { finishReason = it }
           // A long stream also puts checkpoint tokens on chunks before the last one, so the token
           // to resume from is the last one seen unless the hop ends with a non-resumable reason.
           val chunkToken = candidate?.continuationToken?.takeIf { it.isNotEmpty() }
-          if (chunkToken != null) {
+          if (chunkToken != null && chunk.promptFeedback == null) {
             token = chunkToken
-          } else if (candidate?.finishReason != null && !isContinuable(candidate.finishReason)) {
+          } else if (
+            chunk.promptFeedback != null ||
+              (candidate?.finishReason != null && !isContinuable(candidate.finishReason))
+          ) {
             token = null
           }
           var outChunk = clearIntermediateFinishReason(chunk, token)
@@ -104,21 +126,76 @@ internal fun streamWithAutomaticContinuation(
           emit(outChunk)
         }
       } catch (e: Throwable) {
-        // If a mid-stream error occurs after an intermediate checkpoint continuationToken was
-        // received, resume from that checkpoint.
-        if (e is CancellationException || !canResumeStream(token, finishReason)) {
+        if (e is CancellationException) {
           throw e
         }
+        hopError = e
       }
       if (hopUsage != null) {
         accumulatedUsage = hopUsage
       }
-      if (!canResumeStream(token, finishReason)) {
+      // If the stream fails or ends without a terminal finishReason, resume from the latest
+      // checkpoint token. If the hop failed before emitting any content or a checkpoint of its own,
+      // retry from the token the hop started with.
+      val (nextToken, nextReconnects) =
+        nextStreamContinuationToken(
+          hopStartToken = hopStartToken,
+          hopToken = token,
+          finishReason = finishReason,
+          reconnectsWithoutProgress = reconnectsWithoutProgress,
+          hasPromptFeedback = hopHasPromptFeedback,
+          hopHasYieldedContent = hopHasYieldedContent,
+        )
+      reconnectsWithoutProgress = nextReconnects
+      if (nextToken == null) {
+        if (hopError != null) {
+          throw hopError
+        }
+        if (hopStartToken != null && finishReason == null && !hopHasPromptFeedback) {
+          throw GenAiApiException(
+            0,
+            "UNKNOWN",
+            "Automatic continuation stream ended prematurely without a finishReason.",
+          )
+        }
         break
       }
-      requestConfig = withContinuationToken(config, token!!)
+      token = nextToken
+      requestConfig = withContinuationToken(config, nextToken)
     }
   }
+}
+
+internal fun nextStreamContinuationToken(
+  hopStartToken: ByteArray?,
+  hopToken: ByteArray?,
+  finishReason: FinishReason?,
+  reconnectsWithoutProgress: Int,
+  hasPromptFeedback: Boolean = false,
+  hopHasYieldedContent: Boolean = false,
+): Pair<ByteArray?, Int> {
+  if (finishReason != null || hasPromptFeedback) {
+    // When the server explicitly ends the hop with a finishReason or promptFeedback, only continue
+    // if it is CONTINUATION without promptFeedback and produced a new token.
+    return if (
+      finishReason == FinishReason.CONTINUATION &&
+        !hasPromptFeedback &&
+        hopToken != null &&
+        hopToken.isNotEmpty() &&
+        !hopToken.contentEquals(hopStartToken)
+    ) {
+      hopToken to 0
+    } else {
+      null to 0
+    }
+  }
+  if (hopToken != null && hopToken.isNotEmpty() && !hopToken.contentEquals(hopStartToken)) {
+    return hopToken to 0
+  }
+  if (hopHasYieldedContent || reconnectsWithoutProgress >= MAX_STREAM_RECONNECTS_WITHOUT_PROGRESS) {
+    return null to reconnectsWithoutProgress
+  }
+  return hopStartToken to (reconnectsWithoutProgress + 1)
 }
 
 internal fun canResumeStream(token: ByteArray?, finishReason: FinishReason?): Boolean =
@@ -200,6 +277,16 @@ private val END_OF_GENERATION_FIELDS = setOf("continuationToken", "finishReason"
 
 private val MODALITY_TOKEN_COUNT_FIELDS = setOf("modality", "tokenCount")
 
+private fun clearStaleContinuationOnCandidate(cand: JsonObject): JsonObject {
+  val isContinuation = (cand["finishReason"] as? JsonPrimitive)?.contentOrNull == "CONTINUATION"
+  return JsonObject(
+    cand.filterKeys { key ->
+      key != "continuationToken" &&
+        (!isContinuation || (key != "finishReason" && key != "finishMessage"))
+    }
+  )
+}
+
 private fun mergeObjects(
   prev: JsonObject,
   curr: JsonObject,
@@ -208,8 +295,18 @@ private fun mergeObjects(
 ): JsonObject {
   val merged = LinkedHashMap<String, JsonElement>()
   for (key in prev.keys + curr.keys) {
+    val prevVal = prev[key]
+    val currVal = curr[key]
     val value =
-      if (key in latestOnly) curr[key] else mergeValues(key, prev[key], curr[key], sumAllNumbers)
+      if (key in latestOnly) {
+        currVal
+      } else if (
+        key == "candidates" && (currVal == null || currVal is JsonNull) && prevVal is JsonArray
+      ) {
+        mergeCandidates(prevVal, JsonArray(emptyList()))
+      } else {
+        mergeValues(key, prevVal, currVal, sumAllNumbers)
+      }
     if (value != null && value !is JsonNull) {
       merged[key] = value
     }
@@ -252,9 +349,19 @@ private fun mergeArrays(key: String, prev: JsonArray, curr: JsonArray): JsonArra
 // Each candidate is merged with the one that has the same index in the next response. A candidate
 // that only one response has is kept.
 private fun mergeCandidates(prev: JsonArray, curr: JsonArray): JsonArray {
+  val currIndices =
+    curr
+      .mapIndexed { position, candidate -> candidateIndex(candidate.jsonObject, position) }
+      .toSet()
   val merged = LinkedHashMap<Int, JsonObject>()
   prev.forEachIndexed { position, candidate ->
-    merged[candidateIndex(candidate.jsonObject, position)] = candidate.jsonObject
+    val index = candidateIndex(candidate.jsonObject, position)
+    merged[index] =
+      if (index in currIndices) {
+        candidate.jsonObject
+      } else {
+        clearStaleContinuationOnCandidate(candidate.jsonObject)
+      }
   }
   curr.forEachIndexed { position, candidate ->
     val index = candidateIndex(candidate.jsonObject, position)
