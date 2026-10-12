@@ -32,6 +32,50 @@ import kotlinx.serialization.json.longOrNull
 /** Common utility methods for the GenAI SDK. */
 internal object Common {
 
+  private val GEMINI_VERSION_REGEX = Regex("^gemini-(\\d+)(?:\\.(\\d+))?(?:-|$)")
+
+  @kotlin.concurrent.Volatile internal var loggedTemperatureWarning = false
+  @kotlin.concurrent.Volatile internal var loggedTopPWarning = false
+  @kotlin.concurrent.Volatile internal var loggedTopKWarning = false
+  @kotlin.concurrent.Volatile internal var loggedThinkingBudgetWarning = false
+
+  internal fun isGemini36OrNewer(model: String): Boolean {
+    if (model.isEmpty()) return false
+    val modelId = model.substringAfterLast('/').lowercase()
+    val match = GEMINI_VERSION_REGEX.find(modelId) ?: return false
+    val major = match.groupValues[1].toIntOrNull() ?: return false
+    val minorStr = match.groupValues[2]
+    val minor = if (minorStr.isEmpty()) 0 else (minorStr.toIntOrNull() ?: return false)
+    return major > 3 || (major == 3 && minor >= 6)
+  }
+
+  internal fun warnUnsupportedParameters(
+    model: String,
+    config: com.google.genai.kotlin.types.GenerateContentConfig?,
+  ) {
+    if (config == null || !isGemini36OrNewer(model)) return
+    if (config.temperature != null && !loggedTemperatureWarning) {
+      loggedTemperatureWarning = true
+      println(
+        "Warning: temperature is not supported on Gemini 3.6 and newer models and is ignored."
+      )
+    }
+    if (config.topP != null && !loggedTopPWarning) {
+      loggedTopPWarning = true
+      println("Warning: top_p is not supported on Gemini 3.6 and newer models and is ignored.")
+    }
+    if (config.topK != null && !loggedTopKWarning) {
+      loggedTopKWarning = true
+      println("Warning: top_k is not supported on Gemini 3.6 and newer models and is ignored.")
+    }
+    if (config.thinkingConfig?.thinkingBudget != null && !loggedThinkingBudgetWarning) {
+      loggedThinkingBudgetWarning = true
+      println(
+        "Warning: thinking_budget is not supported on Gemini 3.6 and newer models and is ignored. Please use thinking_level instead."
+      )
+    }
+  }
+
   @Suppress("OPT_IN_USAGE")
   val JSON = Json {
     ignoreUnknownKeys = true
