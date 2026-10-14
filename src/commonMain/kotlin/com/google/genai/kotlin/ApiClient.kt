@@ -239,7 +239,7 @@ internal class ApiClient(
             }
             val channel = httpResponse.bodyAsChannel()
             val buffer = StringBuilder()
-            while (!channel.isClosedForRead) {
+            while (true) {
               val line = channel.readUTF8Line() ?: break
               when {
                 line.isEmpty() && buffer.isNotEmpty() -> {
