@@ -1529,6 +1529,12 @@ class Models internal constructor(internal val apiClient: ApiClient) {
       )
     }
 
+    if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("generationOutputConfig")))) {
+      throw IllegalArgumentException(
+        "generationOutputConfig parameter is not supported in Gemini API."
+      )
+    }
+
     return toObject
   }
 
@@ -1827,6 +1833,14 @@ class Models internal constructor(internal val apiClient: ApiClient) {
         parentObject,
         arrayOf("continuationToken"),
         Common.getValueByPath(fromObject, arrayOf("continuationToken")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("generationOutputConfig"))?.let { node ->
+      Common.setValueByPath(
+        parentObject,
+        arrayOf("generationOutputConfig"),
+        Common.getValueByPath(fromObject, arrayOf("generationOutputConfig")),
       )
     }
 

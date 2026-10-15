@@ -214,4 +214,7 @@ data class GenerateContentConfig(
    * retries and billing apply to each request. Set to false to turn this off.
    */
   val automaticContinuation: Boolean? = null,
+
+  /** Optional. Configuration for persisting output assets to external storage. */
+  val generationOutputConfig: GenerationOutputConfig? = null,
 )
