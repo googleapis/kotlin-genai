@@ -1548,6 +1548,12 @@ class Batches internal constructor(internal val apiClient: ApiClient) {
       )
     }
 
+    if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("generationOutputConfig")))) {
+      throw IllegalArgumentException(
+        "generationOutputConfig parameter is not supported in Gemini API."
+      )
+    }
+
     return toObject
   }
 
