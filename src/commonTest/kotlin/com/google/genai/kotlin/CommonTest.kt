@@ -19,6 +19,7 @@ package com.google.genai.kotlin
 import com.google.genai.kotlin.types.Content
 import com.google.genai.kotlin.types.GenerateContentConfig
 import com.google.genai.kotlin.types.Part
+import com.google.genai.kotlin.types.ThinkingConfig
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFailsWith
@@ -442,5 +443,62 @@ class CommonTest {
     assertEquals("v2", request["model"])
     assertFalse(data.containsKey("content"))
     assertFalse(data.containsKey("model"))
+  }
+
+  private fun resetUnsupportedParameterWarnings() {
+    Common.loggedTemperatureWarning = false
+    Common.loggedTopPWarning = false
+    Common.loggedTopKWarning = false
+    Common.loggedThinkingBudgetWarning = false
+  }
+
+  @Test
+  fun testIsGemini36OrNewer() {
+    assertTrue(Common.isGemini36OrNewer("gemini-3.6-flash"))
+    assertTrue(Common.isGemini36OrNewer("publishers/google/models/gemini-3.6-pro"))
+    assertTrue(Common.isGemini36OrNewer("gemini-3.8-flash"))
+
+    assertFalse(Common.isGemini36OrNewer("gemini-3.1-pro"))
+    assertFalse(Common.isGemini36OrNewer("gemini-3-flash"))
+    assertFalse(Common.isGemini36OrNewer("gemini-2.5-flash"))
+    assertFalse(Common.isGemini36OrNewer("gemini-flash-latest"))
+    assertFalse(Common.isGemini36OrNewer(""))
+  }
+
+  @Test
+  fun testWarnUnsupportedParameters_setsFlagsOnceOnGemini36AndNewer() {
+    resetUnsupportedParameterWarnings()
+    try {
+      val config =
+        GenerateContentConfig(
+          temperature = 0.5,
+          topP = 0.9,
+          topK = 40.0,
+          thinkingConfig = ThinkingConfig(thinkingBudget = 1024),
+        )
+
+      // Older model does not warn or consume the one-time flags.
+      Common.warnUnsupportedParameters("gemini-3.1-pro", config)
+      assertFalse(Common.loggedTemperatureWarning)
+      assertFalse(Common.loggedTopPWarning)
+      assertFalse(Common.loggedTopKWarning)
+      assertFalse(Common.loggedThinkingBudgetWarning)
+
+      // First call on Gemini 3.6+ sets all 4 warning flags.
+      Common.warnUnsupportedParameters("gemini-3.6-flash", config)
+      assertTrue(Common.loggedTemperatureWarning)
+      assertTrue(Common.loggedTopPWarning)
+      assertTrue(Common.loggedTopKWarning)
+      assertTrue(Common.loggedThinkingBudgetWarning)
+
+      // Calling again keeps flags true without error.
+      Common.warnUnsupportedParameters("gemini-3.6-flash", config)
+      assertTrue(Common.loggedTemperatureWarning)
+      assertTrue(Common.loggedTopPWarning)
+      assertTrue(Common.loggedTopKWarning)
+      assertTrue(Common.loggedThinkingBudgetWarning)
+    } finally {
+      resetUnsupportedParameterWarnings()
+    }
   }
 }
