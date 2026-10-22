@@ -4,8 +4,8 @@
     {
       "request": {
         "method": "GET",
-        "url": "/v1beta/cachedContents?pageSize=1",
-        "request": "GET /v1beta/cachedContents?pageSize=1 HTTP/1.1",
+        "url": "/v1/cachedContents?pageSize=1",
+        "request": "GET /v1/cachedContents?pageSize=1 HTTP/1.1",
         "headers": {
           "Accept": "*/*",
           "Accept-Charset": "UTF-8",
@@ -22,7 +22,7 @@
         "port": 443,
         "protocol": "https"
       },
-      "shaSum": "3aca8800b6c57a08524556d9c6a1491a3ca3c031380eed99cc81eaccd001af29",
+      "shaSum": "a1b530d4cea040fd333c28ae2b3d47da36a9e80091f368f7a0fb6e8673be9eb7",
       "response": {
         "statusCode": 200,
         "headers": {
@@ -60,8 +60,8 @@
     {
       "request": {
         "method": "GET",
-        "url": "/v1beta/cachedContents?pageSize=1\u0026pageToken=cj0KD4IBDAi_nt_SBhCIx4-pAgoqQihvdm5tcngyd3dva2ZkZ3dhaXJ1dHMyMWR3YmtwZXBuNTc1ZmpldGhk",
-        "request": "GET /v1beta/cachedContents?pageSize=1\u0026pageToken=cj0KD4IBDAi_nt_SBhCIx4-pAgoqQihvdm5tcngyd3dva2ZkZ3dhaXJ1dHMyMWR3YmtwZXBuNTc1ZmpldGhk HTTP/1.1",
+        "url": "/v1/cachedContents?pageSize=1\u0026pageToken=cj0KD4IBDAi_nt_SBhCIx4-pAgoqQihvdm5tcngyd3dva2ZkZ3dhaXJ1dHMyMWR3YmtwZXBuNTc1ZmpldGhk",
+        "request": "GET /v1/cachedContents?pageSize=1\u0026pageToken=cj0KD4IBDAi_nt_SBhCIx4-pAgoqQihvdm5tcngyd3dva2ZkZ3dhaXJ1dHMyMWR3YmtwZXBuNTc1ZmpldGhk HTTP/1.1",
         "headers": {
           "Accept": "*/*",
           "Accept-Charset": "UTF-8",
@@ -73,12 +73,12 @@
         "bodySegments": [
           null
         ],
-        "previousRequest": "3aca8800b6c57a08524556d9c6a1491a3ca3c031380eed99cc81eaccd001af29",
+        "previousRequest": "a1b530d4cea040fd333c28ae2b3d47da36a9e80091f368f7a0fb6e8673be9eb7",
         "serverAddress": "generativelanguage.googleapis.com",
         "port": 443,
         "protocol": "https"
       },
-      "shaSum": "70df990b6b651116391b715e913e4329c293e4a2517b1a3166e50cd0a7ce3787",
+      "shaSum": "262a4c1b993ec9dcf5f8b4b85236f38a896dba9441c26b777553fdc94e1465c9",
       "response": {
         "statusCode": 200,
         "headers": {
@@ -115,8 +115,8 @@
     {
       "request": {
         "method": "GET",
-        "url": "/v1beta/cachedContents?pageSize=1",
-        "request": "GET /v1beta/cachedContents?pageSize=1 HTTP/1.1",
+        "url": "/v1/cachedContents?pageSize=1",
+        "request": "GET /v1/cachedContents?pageSize=1 HTTP/1.1",
         "headers": {
           "Accept": "*/*",
           "Accept-Charset": "UTF-8",
@@ -128,12 +128,12 @@
         "bodySegments": [
           null
         ],
-        "previousRequest": "70df990b6b651116391b715e913e4329c293e4a2517b1a3166e50cd0a7ce3787",
+        "previousRequest": "262a4c1b993ec9dcf5f8b4b85236f38a896dba9441c26b777553fdc94e1465c9",
         "serverAddress": "generativelanguage.googleapis.com",
         "port": 443,
         "protocol": "https"
       },
-      "shaSum": "8a93561a102d7bebf7ee0dd4756a8b4a6a48abcb6631ce3d2e28492d5ef3d018",
+      "shaSum": "0e4b59fc201b8e361d28097c9d8207ea595f2aed5241c9306043b77e36118ca0",
       "response": {
         "statusCode": 200,
         "headers": {
@@ -171,8 +171,8 @@
     {
       "request": {
         "method": "GET",
-        "url": "/v1beta/cachedContents?pageSize=1\u0026pageToken=cj0KD4IBDAi_nt_SBhCIx4-pAgoqQihvdm5tcngyd3dva2ZkZ3dhaXJ1dHMyMWR3YmtwZXBuNTc1ZmpldGhk",
-        "request": "GET /v1beta/cachedContents?pageSize=1\u0026pageToken=cj0KD4IBDAi_nt_SBhCIx4-pAgoqQihvdm5tcngyd3dva2ZkZ3dhaXJ1dHMyMWR3YmtwZXBuNTc1ZmpldGhk HTTP/1.1",
+        "url": "/v1/cachedContents?pageSize=1\u0026pageToken=cj0KD4IBDAi_nt_SBhCIx4-pAgoqQihvdm5tcngyd3dva2ZkZ3dhaXJ1dHMyMWR3YmtwZXBuNTc1ZmpldGhk",
+        "request": "GET /v1/cachedContents?pageSize=1\u0026pageToken=cj0KD4IBDAi_nt_SBhCIx4-pAgoqQihvdm5tcngyd3dva2ZkZ3dhaXJ1dHMyMWR3YmtwZXBuNTc1ZmpldGhk HTTP/1.1",
         "headers": {
           "Accept": "*/*",
           "Accept-Charset": "UTF-8",
@@ -184,12 +184,12 @@
         "bodySegments": [
           null
         ],
-        "previousRequest": "8a93561a102d7bebf7ee0dd4756a8b4a6a48abcb6631ce3d2e28492d5ef3d018",
+        "previousRequest": "0e4b59fc201b8e361d28097c9d8207ea595f2aed5241c9306043b77e36118ca0",
         "serverAddress": "generativelanguage.googleapis.com",
         "port": 443,
         "protocol": "https"
       },
-      "shaSum": "9361b667ebf3aeab2c17a65cef9d374c5417b5f64f447bf022f403692f1cc0f8",
+      "shaSum": "50d7e7711fbd4b6a1b0b4fd169c26e560d20d047c3f40281f3acda2f5f858113",
       "response": {
         "statusCode": 200,
         "headers": {

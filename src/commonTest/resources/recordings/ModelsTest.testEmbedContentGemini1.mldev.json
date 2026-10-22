@@ -4,8 +4,8 @@
     {
       "request": {
         "method": "POST",
-        "url": "/v1beta/models/gemini-embedding-001:batchEmbedContents",
-        "request": "POST /v1beta/models/gemini-embedding-001:batchEmbedContents HTTP/1.1",
+        "url": "/v1/models/gemini-embedding-001:batchEmbedContents",
+        "request": "POST /v1/models/gemini-embedding-001:batchEmbedContents HTTP/1.1",
         "headers": {
           "Accept": "*/*",
           "Accept-Charset": "UTF-8",
@@ -38,7 +38,7 @@
         "port": 443,
         "protocol": "https"
       },
-      "shaSum": "19d4aa8c1f025df385cef7c03888bf6982669fc81a16686b7227a3c9a12362be",
+      "shaSum": "f5da7d373e715548ae2be95f960e65ef091a6039546b26b40f8adec562b6ea08",
       "response": {
         "statusCode": 200,
         "headers": {
@@ -79,8 +79,8 @@
     {
       "request": {
         "method": "POST",
-        "url": "/v1beta/models/gemini-embedding-001:batchEmbedContents",
-        "request": "POST /v1beta/models/gemini-embedding-001:batchEmbedContents HTTP/1.1",
+        "url": "/v1/models/gemini-embedding-001:batchEmbedContents",
+        "request": "POST /v1/models/gemini-embedding-001:batchEmbedContents HTTP/1.1",
         "headers": {
           "Accept": "*/*",
           "Accept-Charset": "UTF-8",
@@ -118,12 +118,12 @@
             ]
           }
         ],
-        "previousRequest": "19d4aa8c1f025df385cef7c03888bf6982669fc81a16686b7227a3c9a12362be",
+        "previousRequest": "f5da7d373e715548ae2be95f960e65ef091a6039546b26b40f8adec562b6ea08",
         "serverAddress": "generativelanguage.googleapis.com",
         "port": 443,
         "protocol": "https"
       },
-      "shaSum": "ab99517efa2faa98873829cf1bbe3977b24e6df236982d2559d89e3ca5e44982",
+      "shaSum": "5e91a57d98efca1448909aee7631fea972adc4a56c83898e3698cb8357b763be",
       "response": {
         "statusCode": 200,
         "headers": {

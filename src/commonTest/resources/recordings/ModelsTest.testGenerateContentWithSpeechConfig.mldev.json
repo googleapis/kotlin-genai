@@ -4,8 +4,8 @@
     {
       "request": {
         "method": "POST",
-        "url": "/v1beta/models/gemini-3.1-flash-tts-preview:generateContent",
-        "request": "POST /v1beta/models/gemini-3.1-flash-tts-preview:generateContent HTTP/1.1",
+        "url": "/v1/models/gemini-3.1-flash-tts-preview:generateContent",
+        "request": "POST /v1/models/gemini-3.1-flash-tts-preview:generateContent HTTP/1.1",
         "headers": {
           "Accept": "*/*",
           "Accept-Charset": "UTF-8",
@@ -46,7 +46,7 @@
         "port": 443,
         "protocol": "https"
       },
-      "shaSum": "efa20c88932fc9a4fa8c2684b83553465aaa5b76861e4a0c0aec3975ff283df0",
+      "shaSum": "e18d56a05affd8ba5f39afd69328679ee41afc6b2c296c85157014ce04cf87e7",
       "response": {
         "statusCode": 200,
         "headers": {

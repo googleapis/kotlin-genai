@@ -116,8 +116,8 @@
     {
       "request": {
         "method": "GET",
-        "url": "/v1beta/files/yrascs74nppy",
-        "request": "GET /v1beta/files/yrascs74nppy HTTP/1.1",
+        "url": "/v1/files/yrascs74nppy",
+        "request": "GET /v1/files/yrascs74nppy HTTP/1.1",
         "headers": {
           "Accept": "*/*",
           "Accept-Charset": "UTF-8",
@@ -134,7 +134,7 @@
         "port": 443,
         "protocol": "https"
       },
-      "shaSum": "b8df9134d6df88e08a9a7bb0605521a2d775d8380e53dc9b62a45a4d1519c315",
+      "shaSum": "0e1f2ba2ea17b7e0a485fe22809d2616ca4b9ee39f2aeee74020d4b7113aaee0",
       "response": {
         "statusCode": 200,
         "headers": {
@@ -169,8 +169,8 @@
     {
       "request": {
         "method": "DELETE",
-        "url": "/v1beta/files/yrascs74nppy",
-        "request": "DELETE /v1beta/files/yrascs74nppy HTTP/1.1",
+        "url": "/v1/files/yrascs74nppy",
+        "request": "DELETE /v1/files/yrascs74nppy HTTP/1.1",
         "headers": {
           "Accept": "*/*",
           "Accept-Charset": "UTF-8",
@@ -183,12 +183,12 @@
         "bodySegments": [
           null
         ],
-        "previousRequest": "b8df9134d6df88e08a9a7bb0605521a2d775d8380e53dc9b62a45a4d1519c315",
+        "previousRequest": "0e1f2ba2ea17b7e0a485fe22809d2616ca4b9ee39f2aeee74020d4b7113aaee0",
         "serverAddress": "generativelanguage.googleapis.com",
         "port": 443,
         "protocol": "https"
       },
-      "shaSum": "1b4ea3204d30ed71c1bafef453180ee6dbfc9b53a3c99b017e946259c579d3bf",
+      "shaSum": "2fe665e5d264576cb752ac60eba56be346e7a1d232a82da2b8ac8b0c8511c7cd",
       "response": {
         "statusCode": 200,
         "headers": {

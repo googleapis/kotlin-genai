@@ -4,8 +4,8 @@
     {
       "request": {
         "method": "POST",
-        "url": "/v1beta/models/publishers/intfloat/models/multilingual-e5-large-instruct-maas:batchEmbedContents",
-        "request": "POST /v1beta/models/publishers/intfloat/models/multilingual-e5-large-instruct-maas:batchEmbedContents HTTP/1.1",
+        "url": "/v1/models/publishers/intfloat/models/multilingual-e5-large-instruct-maas:batchEmbedContents",
+        "request": "POST /v1/models/publishers/intfloat/models/multilingual-e5-large-instruct-maas:batchEmbedContents HTTP/1.1",
         "headers": {
           "Accept": "*/*",
           "Accept-Charset": "UTF-8",
@@ -38,7 +38,7 @@
         "port": 443,
         "protocol": "https"
       },
-      "shaSum": "35fc36c555522ea503338c00cff2612c590b65c07c53242e22a5e6bebd915cb9",
+      "shaSum": "8edf6978bae2d20a5965422b882042cc8d4604542e5d77ba037ae8692e72cb76",
       "response": {
         "statusCode": 404,
         "headers": {

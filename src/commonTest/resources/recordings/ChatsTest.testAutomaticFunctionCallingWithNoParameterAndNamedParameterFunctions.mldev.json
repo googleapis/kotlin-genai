@@ -4,8 +4,8 @@
     {
       "request": {
         "method": "POST",
-        "url": "/v1beta/models/gemini-3.6-flash:generateContent",
-        "request": "POST /v1beta/models/gemini-3.6-flash:generateContent HTTP/1.1",
+        "url": "/v1/models/gemini-3.6-flash:generateContent",
+        "request": "POST /v1/models/gemini-3.6-flash:generateContent HTTP/1.1",
         "headers": {
           "Accept": "*/*",
           "Accept-Charset": "UTF-8",
@@ -70,7 +70,7 @@
         "port": 443,
         "protocol": "https"
       },
-      "shaSum": "c9cb20c182bd83f7498a0ce8b5089484f8c2a24b7d964d6c3acf043bd618efac",
+      "shaSum": "8e72e67d159992db1cec0fc889c1eb43ccfc221584874aab598591cb34f4154d",
       "response": {
         "statusCode": 200,
         "headers": {
@@ -141,8 +141,8 @@
     {
       "request": {
         "method": "POST",
-        "url": "/v1beta/models/gemini-3.6-flash:generateContent",
-        "request": "POST /v1beta/models/gemini-3.6-flash:generateContent HTTP/1.1",
+        "url": "/v1/models/gemini-3.6-flash:generateContent",
+        "request": "POST /v1/models/gemini-3.6-flash:generateContent HTTP/1.1",
         "headers": {
           "Accept": "*/*",
           "Accept-Charset": "UTF-8",
@@ -247,12 +247,12 @@
             ]
           }
         ],
-        "previousRequest": "c9cb20c182bd83f7498a0ce8b5089484f8c2a24b7d964d6c3acf043bd618efac",
+        "previousRequest": "8e72e67d159992db1cec0fc889c1eb43ccfc221584874aab598591cb34f4154d",
         "serverAddress": "generativelanguage.googleapis.com",
         "port": 443,
         "protocol": "https"
       },
-      "shaSum": "fd3ff347517fff3eec0a35b157f1b9e18d55316f73b1f9f748625461dd3a4e00",
+      "shaSum": "0af5cdecd68869ce37478c6f21349e3fd635ca4ef6bdfa20d8ab5999c956c62e",
       "response": {
         "statusCode": 200,
         "headers": {

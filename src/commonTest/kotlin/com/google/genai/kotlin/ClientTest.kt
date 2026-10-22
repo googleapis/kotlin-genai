@@ -19,6 +19,7 @@ package com.google.genai.kotlin
 import com.google.auth.oauth2.AccessToken
 import com.google.auth.oauth2.GoogleCredentials
 import com.google.genai.kotlin.types.ClientOptions
+import com.google.genai.kotlin.types.HttpOptions
 import com.google.genai.kotlin.types.ProxyOptions
 import com.google.genai.kotlin.types.ProxyType
 import io.ktor.client.engine.mock.MockEngine
@@ -404,5 +405,32 @@ class ClientTest {
     assertNull(client.project)
     assertNull(client.location)
     assertFalse(client.enterprise)
+  }
+
+  @Test
+  fun testClientInitialization_withApiVersion() {
+    clearEnv()
+    val client = Client(apiKey = API_KEY, apiVersion = "v1beta", environment = mockEnvironment)
+    assertNotNull(client)
+    assertEquals(API_KEY, client.apiKey)
+    assertEquals("v1beta", client.httpClient.httpOptions?.apiVersion)
+  }
+
+  @Test
+  fun testClientInitialization_withApiVersionConflict_throws() {
+    clearEnv()
+    val exception =
+      assertFailsWith<IllegalArgumentException> {
+        Client(
+          apiKey = API_KEY,
+          apiVersion = "v1beta",
+          httpOptions = HttpOptions(apiVersion = "v1"),
+          environment = mockEnvironment,
+        )
+      }
+    assertEquals(
+      "apiVersion is set in both client options and httpOptions. Please specify apiVersion in only one place.",
+      exception.message,
+    )
   }
 }
