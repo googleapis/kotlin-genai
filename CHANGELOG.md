@@ -1,5 +1,23 @@
 # Changelog
 
+## [1.7.0](https://github.com/googleapis/kotlin-genai/compare/v1.6.0...v1.7.0) (2026-10-22)
+
+
+### Features
+
+* Add `store` to `GenerateContentConfig` (Gemini Developer API only) and `labels` to `LiveConnectConfig`. ([e347d28](https://github.com/googleapis/kotlin-genai/commit/e347d2873d46e2024da0cbbf5e1015bae9526745))
+* Add generation_output_config to GenerateContentConfig ([39eb8ca](https://github.com/googleapis/kotlin-genai/commit/39eb8ca53c5846852a9d19752f66cbd7255ed201))
+* Add Live API in-session context updates (`send_context_update`) and types across GenAI SDKs. ([5cd0f26](https://github.com/googleapis/kotlin-genai/commit/5cd0f2648702e8b9a3799b18764541467df162e3))
+* update discovery doc ([a05404a](https://github.com/googleapis/kotlin-genai/commit/a05404ad741dbc1d35b2079517ba89facd9a9626))
+
+
+### Bug Fixes
+
+* clear continuation state and preserve prompt feedback when continuation hop returns no candidates ([5df07f9](https://github.com/googleapis/kotlin-genai/commit/5df07f9460b59cf1f33d9e24e501f1107a91a52f))
+* fix the grounding metadata merging for automatic continuation in generate content and generate content stream ([ce48483](https://github.com/googleapis/kotlin-genai/commit/ce48483c6c81957f0d745ce74fd6aa026f71d6fb))
+* **genai:** raise mid-stream SSE errors and dropped connections consistently across SDKs; add continuation conformance tests ([6b028d7](https://github.com/googleapis/kotlin-genai/commit/6b028d73cd514afe95c7214c6a7d06e737f253ca))
+* make continuation streams retry dropped hops, stop on prompt_feedback, and keep real errors in generate_content ([82553e1](https://github.com/googleapis/kotlin-genai/commit/82553e1b2f130bb62509fc2bc12276dfe80e6596))
+
 ## [1.6.0](https://github.com/googleapis/kotlin-genai/compare/v1.5.0...v1.6.0) (2026-10-11)
 
 
