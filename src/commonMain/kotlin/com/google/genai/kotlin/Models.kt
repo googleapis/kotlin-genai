@@ -4473,6 +4473,7 @@ class Models internal constructor(internal val apiClient: ApiClient) {
     contents: List<Content>,
     config: GenerateContentConfig? = null,
   ): GenerateContentResponse {
+    Common.warnUnsupportedParameters(model, config)
     if (config?.automaticContinuation == false) {
       return privateGenerateContent(model = model, contents = contents, config = config)
     }
@@ -4543,6 +4544,7 @@ class Models internal constructor(internal val apiClient: ApiClient) {
     contents: List<Content>,
     config: GenerateContentConfig? = null,
   ): Flow<GenerateContentResponse> {
+    Common.warnUnsupportedParameters(model, config)
     if (config?.automaticContinuation == false) {
       return privateGenerateContentStream(model = model, contents = contents, config = config)
     }
