@@ -1244,6 +1244,98 @@ class Models internal constructor(internal val apiClient: ApiClient) {
     return toObject
   }
 
+  internal fun functionResponsePartToVertex(
+    fromObject: Map<String, Any?>?,
+    parentObject: MutableMap<String, Any?>?,
+    rootObject: Map<String, Any?>?,
+  ): MutableMap<String, Any?> {
+
+    val toObject = mutableMapOf<String, Any?>()
+    Common.getValueByPath(fromObject, arrayOf("inlineData"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("inlineData"),
+        Common.getValueByPath(fromObject, arrayOf("inlineData")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("fileData"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("fileData"),
+        Common.getValueByPath(fromObject, arrayOf("fileData")),
+      )
+    }
+
+    if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("mediaProcessing")))) {
+      throw IllegalArgumentException(
+        "mediaProcessing parameter is not supported in Gemini Enterprise Agent Platform."
+      )
+    }
+
+    return toObject
+  }
+
+  internal fun functionResponseToVertex(
+    fromObject: Map<String, Any?>?,
+    parentObject: MutableMap<String, Any?>?,
+    rootObject: Map<String, Any?>?,
+  ): MutableMap<String, Any?> {
+
+    val toObject = mutableMapOf<String, Any?>()
+    if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("willContinue")))) {
+      throw IllegalArgumentException(
+        "willContinue parameter is not supported in Gemini Enterprise Agent Platform."
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("scheduling"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("scheduling"),
+        Common.getValueByPath(fromObject, arrayOf("scheduling")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("parts"))?.let { node ->
+      val keyArray = node as? List<*> ?: emptyList<Any?>()
+      val result = mutableListOf<Any?>()
+
+      for (item in keyArray) {
+        if (item is Map<*, *>) {
+          result.add(functionResponsePartToVertex(item as Map<String, Any?>, toObject, rootObject))
+        }
+      }
+      Common.setValueByPath(toObject, arrayOf("parts"), result)
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("id"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("id"),
+        Common.getValueByPath(fromObject, arrayOf("id")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("name"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("name"),
+        Common.getValueByPath(fromObject, arrayOf("name")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("response"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("response"),
+        Common.getValueByPath(fromObject, arrayOf("response")),
+      )
+    }
+
+    return toObject
+  }
+
   internal fun generateContentConfigToMldev(
     apiClient: ApiClient,
     fromObject: Map<String, Any?>?,
@@ -3180,7 +3272,11 @@ class Models internal constructor(internal val apiClient: ApiClient) {
       Common.setValueByPath(
         toObject,
         arrayOf("functionResponse"),
-        Common.getValueByPath(fromObject, arrayOf("functionResponse")),
+        functionResponseToVertex(
+          Common.getValueByPath(fromObject, arrayOf("functionResponse")) as Map<String, Any?>,
+          toObject,
+          rootObject,
+        ),
       )
     }
 

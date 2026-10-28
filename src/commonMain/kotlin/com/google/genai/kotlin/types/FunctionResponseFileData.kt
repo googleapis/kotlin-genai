@@ -20,7 +20,7 @@ package com.google.genai.kotlin.types
 
 import kotlinx.serialization.Serializable
 
-/** URI based data for function response. This data type is not supported in Gemini API. */
+/** URI based data for function response. */
 @Serializable
 data class FunctionResponseFileData(
 

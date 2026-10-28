@@ -37,7 +37,7 @@ data class FunctionResponseBlob(
    * Optional. Display name of the blob. Used to provide a label or filename to distinguish blobs.
    * This field is only returned in PromptMessage for prompt management. It is currently used in the
    * Gemini GenerateContent calls only when server side tools (code_execution, google_search, and
-   * url_context) are enabled. This field is not supported in Gemini API.
+   * url_context) are enabled.
    */
   val displayName: String? = null,
 )
