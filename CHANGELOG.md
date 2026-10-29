@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.8.0](https://github.com/googleapis/kotlin-genai/compare/v1.7.0...v1.8.0) (2026-10-28)
+
+
+### Features
+
+* support video understanding in Gemini Developer API ([b6b7868](https://github.com/googleapis/kotlin-genai/commit/b6b7868a0858bc6c769e33bb2216edc41b25fa18))
+
 ## [1.7.0](https://github.com/googleapis/kotlin-genai/compare/v1.6.0...v1.7.0) (2026-10-22)
 
 
