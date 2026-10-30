@@ -68,4 +68,11 @@ data class AudioTranscriptionConfig(
    * self-corrections). Timestamps and diarization are incompatible with mode `SMART`.
    */
   val mode: AudioTranscriptionConfigMode? = null,
+
+  /**
+   * Optional. The source text to be edited or rewritten via voice instructions. When provided in
+   * `SMART` mode, the model evaluates the audio input against this text and emits the complete
+   * replacement text in the candidate response rather than appending to it.
+   */
+  val sourceText: String? = null,
 )
