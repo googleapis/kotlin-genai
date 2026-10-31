@@ -4,8 +4,8 @@
     {
       "request": {
         "method": "POST",
-        "url": "/v1beta/models/gemini-flash-latest:countTokens",
-        "request": "POST /v1beta/models/gemini-flash-latest:countTokens HTTP/1.1",
+        "url": "/v1/models/gemini-flash-latest:countTokens",
+        "request": "POST /v1/models/gemini-flash-latest:countTokens HTTP/1.1",
         "headers": {
           "Accept": "*/*",
           "Accept-Charset": "UTF-8",
@@ -34,7 +34,7 @@
         "port": 443,
         "protocol": "https"
       },
-      "shaSum": "cedd457095eb07dba5d104bf33b8fd25eee273fb5710929c3f102fa7eb5fae29",
+      "shaSum": "642259a6c675276288ea15ca6a56bbbb19a51e7d39f63f1e76a145ed4b38a8f8",
       "response": {
         "statusCode": 200,
         "headers": {

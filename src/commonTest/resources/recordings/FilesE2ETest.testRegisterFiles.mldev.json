@@ -4,8 +4,8 @@
     {
       "request": {
         "method": "POST",
-        "url": "/v1beta/files:register",
-        "request": "POST /v1beta/files:register HTTP/1.1",
+        "url": "/v1/files:register",
+        "request": "POST /v1/files:register HTTP/1.1",
         "headers": {
           "Accept": "*/*",
           "Accept-Charset": "UTF-8",
@@ -27,7 +27,7 @@
         "port": 443,
         "protocol": "https"
       },
-      "shaSum": "70486540a3e8b9e67161a2dcf479fd4e4bb34a3d3ea79caf12002152b331cd9f",
+      "shaSum": "3ace42c818c7534d2e0ad2e7e35e0942633f4347a15b5de8fdb85ac2f01780d9",
       "response": {
         "statusCode": 200,
         "headers": {
@@ -61,8 +61,8 @@
     {
       "request": {
         "method": "GET",
-        "url": "/v1beta/files/85y28ywww05x",
-        "request": "GET /v1beta/files/85y28ywww05x HTTP/1.1",
+        "url": "/v1/files/85y28ywww05x",
+        "request": "GET /v1/files/85y28ywww05x HTTP/1.1",
         "headers": {
           "Accept": "*/*",
           "Accept-Charset": "UTF-8",
@@ -74,12 +74,12 @@
         "bodySegments": [
           null
         ],
-        "previousRequest": "70486540a3e8b9e67161a2dcf479fd4e4bb34a3d3ea79caf12002152b331cd9f",
+        "previousRequest": "3ace42c818c7534d2e0ad2e7e35e0942633f4347a15b5de8fdb85ac2f01780d9",
         "serverAddress": "generativelanguage.googleapis.com",
         "port": 443,
         "protocol": "https"
       },
-      "shaSum": "f004c4046a0752967a41b03981c8002b71eb97a2205aad8190b63fd17f77f4b5",
+      "shaSum": "36edac8ca94f0e91c36901f022f43174e7bfee65fd3b3ff7d372eebc71a2516c",
       "response": {
         "statusCode": 200,
         "headers": {
@@ -112,8 +112,8 @@
     {
       "request": {
         "method": "DELETE",
-        "url": "/v1beta/files/85y28ywww05x",
-        "request": "DELETE /v1beta/files/85y28ywww05x HTTP/1.1",
+        "url": "/v1/files/85y28ywww05x",
+        "request": "DELETE /v1/files/85y28ywww05x HTTP/1.1",
         "headers": {
           "Accept": "*/*",
           "Accept-Charset": "UTF-8",
@@ -126,12 +126,12 @@
         "bodySegments": [
           null
         ],
-        "previousRequest": "f004c4046a0752967a41b03981c8002b71eb97a2205aad8190b63fd17f77f4b5",
+        "previousRequest": "36edac8ca94f0e91c36901f022f43174e7bfee65fd3b3ff7d372eebc71a2516c",
         "serverAddress": "generativelanguage.googleapis.com",
         "port": 443,
         "protocol": "https"
       },
-      "shaSum": "1e17def08f35c74d3ed705109eea20ad53f82cb2aef5f1320b5e509e1496af19",
+      "shaSum": "61a2379e1339131c9467f8ab8c6b5ca3cf2ae53ebe5f7e220b74ad58162136a5",
       "response": {
         "statusCode": 200,
         "headers": {

@@ -4,8 +4,8 @@
     {
       "request": {
         "method": "GET",
-        "url": "/v1beta/models?pageSize=2",
-        "request": "GET /v1beta/models?pageSize=2 HTTP/1.1",
+        "url": "/v1/models?pageSize=2",
+        "request": "GET /v1/models?pageSize=2 HTTP/1.1",
         "headers": {
           "Accept": "*/*",
           "Accept-Charset": "UTF-8",
@@ -22,7 +22,7 @@
         "port": 443,
         "protocol": "https"
       },
-      "shaSum": "330dea379eac28a15a6be49470c8c153a684f62babe30b158b22c2b980905295",
+      "shaSum": "1fcaeafabf40d1af8b30b950e3781551b745785db81cf4975c9353a7a8b76cc5",
       "response": {
         "statusCode": 200,
         "headers": {
@@ -82,8 +82,8 @@
     {
       "request": {
         "method": "GET",
-        "url": "/v1beta/models?pageSize=2\u0026pageToken=CiFtb2RlbHMvZ2VtaW5pLTIuNS1wcm8tcHJldmlldy10dHM=",
-        "request": "GET /v1beta/models?pageSize=2\u0026pageToken=CiFtb2RlbHMvZ2VtaW5pLTIuNS1wcm8tcHJldmlldy10dHM= HTTP/1.1",
+        "url": "/v1/models?pageSize=2\u0026pageToken=CiFtb2RlbHMvZ2VtaW5pLTIuNS1wcm8tcHJldmlldy10dHM=",
+        "request": "GET /v1/models?pageSize=2\u0026pageToken=CiFtb2RlbHMvZ2VtaW5pLTIuNS1wcm8tcHJldmlldy10dHM= HTTP/1.1",
         "headers": {
           "Accept": "*/*",
           "Accept-Charset": "UTF-8",
@@ -95,12 +95,12 @@
         "bodySegments": [
           null
         ],
-        "previousRequest": "330dea379eac28a15a6be49470c8c153a684f62babe30b158b22c2b980905295",
+        "previousRequest": "1fcaeafabf40d1af8b30b950e3781551b745785db81cf4975c9353a7a8b76cc5",
         "serverAddress": "generativelanguage.googleapis.com",
         "port": 443,
         "protocol": "https"
       },
-      "shaSum": "8beeb460b8de8093a7bb0956857e59c563e6689ce2ecebae983b67a3ab6fcf04",
+      "shaSum": "8f057e809bc29887132c993a346ce040fe7cfe89c105d825cba4a756c57c3a45",
       "response": {
         "statusCode": 200,
         "headers": {
@@ -163,8 +163,8 @@
     {
       "request": {
         "method": "GET",
-        "url": "/v1beta/models?pageSize=2\u0026pageToken=ChVtb2RlbHMvZ2VtbWEtNC0zMWItaXQ=",
-        "request": "GET /v1beta/models?pageSize=2\u0026pageToken=ChVtb2RlbHMvZ2VtbWEtNC0zMWItaXQ= HTTP/1.1",
+        "url": "/v1/models?pageSize=2\u0026pageToken=ChVtb2RlbHMvZ2VtbWEtNC0zMWItaXQ=",
+        "request": "GET /v1/models?pageSize=2\u0026pageToken=ChVtb2RlbHMvZ2VtbWEtNC0zMWItaXQ= HTTP/1.1",
         "headers": {
           "Accept": "*/*",
           "Accept-Charset": "UTF-8",
@@ -176,12 +176,12 @@
         "bodySegments": [
           null
         ],
-        "previousRequest": "8beeb460b8de8093a7bb0956857e59c563e6689ce2ecebae983b67a3ab6fcf04",
+        "previousRequest": "8f057e809bc29887132c993a346ce040fe7cfe89c105d825cba4a756c57c3a45",
         "serverAddress": "generativelanguage.googleapis.com",
         "port": 443,
         "protocol": "https"
       },
-      "shaSum": "256a5922f66ff3522be8ac78c6f2761b889384cbc8a74291afb79c90970fd999",
+      "shaSum": "dcecd9b6619e1ffede26014a4e41e6e274ddfde9341db71d56cbb6b17356ce07",
       "response": {
         "statusCode": 200,
         "headers": {
@@ -246,8 +246,8 @@
     {
       "request": {
         "method": "GET",
-        "url": "/v1beta/models?pageSize=2",
-        "request": "GET /v1beta/models?pageSize=2 HTTP/1.1",
+        "url": "/v1/models?pageSize=2",
+        "request": "GET /v1/models?pageSize=2 HTTP/1.1",
         "headers": {
           "Accept": "*/*",
           "Accept-Charset": "UTF-8",
@@ -259,12 +259,12 @@
         "bodySegments": [
           null
         ],
-        "previousRequest": "256a5922f66ff3522be8ac78c6f2761b889384cbc8a74291afb79c90970fd999",
+        "previousRequest": "dcecd9b6619e1ffede26014a4e41e6e274ddfde9341db71d56cbb6b17356ce07",
         "serverAddress": "generativelanguage.googleapis.com",
         "port": 443,
         "protocol": "https"
       },
-      "shaSum": "1b857801790e718772f7efb8aa86f6c5e6c154491222bf8ba3fffad4c3c5c55f",
+      "shaSum": "2869922f6b25f9861d709262fe415535e26e4d7ed053f2de6a3b93fc2c903aba",
       "response": {
         "statusCode": 200,
         "headers": {
@@ -324,8 +324,8 @@
     {
       "request": {
         "method": "GET",
-        "url": "/v1beta/models?pageSize=2\u0026pageToken=CiFtb2RlbHMvZ2VtaW5pLTIuNS1wcm8tcHJldmlldy10dHM=",
-        "request": "GET /v1beta/models?pageSize=2\u0026pageToken=CiFtb2RlbHMvZ2VtaW5pLTIuNS1wcm8tcHJldmlldy10dHM= HTTP/1.1",
+        "url": "/v1/models?pageSize=2\u0026pageToken=CiFtb2RlbHMvZ2VtaW5pLTIuNS1wcm8tcHJldmlldy10dHM=",
+        "request": "GET /v1/models?pageSize=2\u0026pageToken=CiFtb2RlbHMvZ2VtaW5pLTIuNS1wcm8tcHJldmlldy10dHM= HTTP/1.1",
         "headers": {
           "Accept": "*/*",
           "Accept-Charset": "UTF-8",
@@ -337,12 +337,12 @@
         "bodySegments": [
           null
         ],
-        "previousRequest": "1b857801790e718772f7efb8aa86f6c5e6c154491222bf8ba3fffad4c3c5c55f",
+        "previousRequest": "2869922f6b25f9861d709262fe415535e26e4d7ed053f2de6a3b93fc2c903aba",
         "serverAddress": "generativelanguage.googleapis.com",
         "port": 443,
         "protocol": "https"
       },
-      "shaSum": "31515c7fc5e78768470f657eccc502f6491e7de34ab1b49b7609554c6f8da84e",
+      "shaSum": "595b59e776a0992c2d54abdd4110dca2275ee36ae6ad0907f4530c4276fd96de",
       "response": {
         "statusCode": 200,
         "headers": {

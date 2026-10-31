@@ -4,8 +4,8 @@
     {
       "request": {
         "method": "POST",
-        "url": "/v1beta/models/gemini-embedding-001:asyncBatchEmbedContent",
-        "request": "POST /v1beta/models/gemini-embedding-001:asyncBatchEmbedContent HTTP/1.1",
+        "url": "/v1/models/gemini-embedding-001:asyncBatchEmbedContent",
+        "request": "POST /v1/models/gemini-embedding-001:asyncBatchEmbedContent HTTP/1.1",
         "headers": {
           "Accept": "*/*",
           "Accept-Charset": "UTF-8",
@@ -71,7 +71,7 @@
         "port": 443,
         "protocol": "https"
       },
-      "shaSum": "d36bf883bd7f99c78a8b6277c9abaedac7d5261aa81b08adca407e3fe95b437c",
+      "shaSum": "91ee42855673cb9f1062dc9ceba89f8f210e4ad4757ee01e9ccd06e2b81f4008",
       "response": {
         "statusCode": 200,
         "headers": {
@@ -108,8 +108,8 @@
     {
       "request": {
         "method": "GET",
-        "url": "/v1beta/batches/afiywiavcl4cqbockzh0jle4nrdxorvduhv9",
-        "request": "GET /v1beta/batches/afiywiavcl4cqbockzh0jle4nrdxorvduhv9 HTTP/1.1",
+        "url": "/v1/batches/afiywiavcl4cqbockzh0jle4nrdxorvduhv9",
+        "request": "GET /v1/batches/afiywiavcl4cqbockzh0jle4nrdxorvduhv9 HTTP/1.1",
         "headers": {
           "Accept": "*/*",
           "Accept-Charset": "UTF-8",
@@ -121,12 +121,12 @@
         "bodySegments": [
           null
         ],
-        "previousRequest": "d36bf883bd7f99c78a8b6277c9abaedac7d5261aa81b08adca407e3fe95b437c",
+        "previousRequest": "91ee42855673cb9f1062dc9ceba89f8f210e4ad4757ee01e9ccd06e2b81f4008",
         "serverAddress": "generativelanguage.googleapis.com",
         "port": 443,
         "protocol": "https"
       },
-      "shaSum": "5feaffdcae8a1ca059094f3489715a0c46a0a16558c297c040bfdf62b771b5bf",
+      "shaSum": "cf2796afb7007abb69fbfe8bc60ae2425b94fb3edb226b22c809fbf34bf1a788",
       "response": {
         "statusCode": 200,
         "headers": {
