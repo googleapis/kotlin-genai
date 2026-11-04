@@ -16,6 +16,7 @@
 
 package com.google.genai.kotlin
 
+import com.google.genai.kotlin.types.HttpOptions
 import com.google.genai.kotlin.types.UploadFileConfig
 import io.ktor.client.engine.mock.MockEngine
 import io.ktor.client.engine.mock.respond
@@ -45,7 +46,7 @@ class FilesTest {
       requests.add(request)
       when {
         // Step 1: Create File API call (Resumable upload initiation)
-        request.url.encodedPath.endsWith("/upload/v1beta/files") -> {
+        request.url.encodedPath.endsWith("/upload/${GOOGLE_AI_API_DEFAULT_VERSION}/files") -> {
           assertEquals("POST", request.method.value)
           assertEquals("resumable", request.headers["X-Goog-Upload-Protocol"])
           assertEquals("start", request.headers["X-Goog-Upload-Command"])
@@ -210,7 +211,7 @@ class FilesTest {
       requests.add(request)
       when {
         // Step 1: Initiation
-        request.url.encodedPath.endsWith("/upload/v1beta/files") -> {
+        request.url.encodedPath.endsWith("/upload/${GOOGLE_AI_API_DEFAULT_VERSION}/files") -> {
           assertEquals("POST", request.method.value)
           assertEquals("resumable", request.headers["X-Goog-Upload-Protocol"])
           assertEquals("start", request.headers["X-Goog-Upload-Command"])
@@ -321,7 +322,7 @@ class FilesTest {
       requests.add(request)
       when {
         // Step 1: Initiation
-        request.url.encodedPath.endsWith("/upload/v1beta/files") -> {
+        request.url.encodedPath.endsWith("/upload/${GOOGLE_AI_API_DEFAULT_VERSION}/files") -> {
           assertEquals("POST", request.method.value)
           assertEquals("resumable", request.headers["X-Goog-Upload-Protocol"])
           assertEquals("start", request.headers["X-Goog-Upload-Command"])
@@ -422,5 +423,66 @@ class FilesTest {
         channel.cancel(null)
       }
     }
+  }
+
+  /** Captures the path of the resumable-upload start request for an inline-bytes upload. */
+  private suspend fun uploadStartPath(
+    clientHttpOptions: HttpOptions? = null,
+    uploadConfig: UploadFileConfig = UploadFileConfig(mimeType = "text/plain"),
+  ): String {
+    var startPath: String? = null
+    val engine = MockEngine { request ->
+      if (request.url.host == "mock-upload.googleapis.com") {
+        respond(
+          content = """{"file": {"name": "files/file-123"}}""",
+          status = HttpStatusCode.OK,
+          headers =
+            headersOf(
+              "X-Goog-Upload-Status" to listOf("final"),
+              HttpHeaders.ContentType to listOf("application/json"),
+            ),
+        )
+      } else {
+        startPath = request.url.encodedPath
+        respond(
+          content = "{}",
+          status = HttpStatusCode.OK,
+          headers =
+            headersOf(
+              "X-Goog-Upload-URL" to listOf("https://mock-upload.googleapis.com/upload/session"),
+              HttpHeaders.ContentType to listOf("application/json"),
+            ),
+        )
+      }
+    }
+    ApiClient(apiKey = "test-key", httpOptions = clientHttpOptions, engine = engine).use {
+      Files(it).upload("hello world".encodeToByteArray(), uploadConfig)
+    }
+    return assertNotNull(startPath)
+  }
+
+  @Test
+  fun testUpload_defaultApiVersion_usesDefaultVersionInUploadPath() = runTest {
+    assertEquals("/upload/${GOOGLE_AI_API_DEFAULT_VERSION}/files", uploadStartPath())
+  }
+
+  @Test
+  fun testUpload_clientApiVersion_usesClientVersionInUploadPath() = runTest {
+    assertEquals(
+      "/upload/v1alpha/files",
+      uploadStartPath(clientHttpOptions = HttpOptions(apiVersion = "v1alpha")),
+    )
+  }
+
+  @Test
+  fun testUpload_requestApiVersion_overridesClientVersionInUploadPath() = runTest {
+    assertEquals(
+      "/upload/v1alpha/files",
+      uploadStartPath(
+        clientHttpOptions = HttpOptions(apiVersion = "v1"),
+        uploadConfig =
+          UploadFileConfig(mimeType = "text/plain", httpOptions = HttpOptions(apiVersion = "v1alpha")),
+      ),
+    )
   }
 }

@@ -41,7 +41,7 @@ class FilesExtensionsTest {
     val engine = MockEngine { request ->
       requests.add(request)
       when {
-        request.url.encodedPath.endsWith("/upload/v1beta/files") -> {
+        request.url.encodedPath.endsWith("/upload/${GOOGLE_AI_API_DEFAULT_VERSION}/files") -> {
           respond(
             content = "{}",
             status = HttpStatusCode.OK,

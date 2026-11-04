@@ -72,6 +72,22 @@ internal fun apiClientHeader(): String =
 
 internal const val GOOGLE_AI_API_DEFAULT_VERSION = "v1"
 
+private const val API_VERSION_PLACEHOLDER = "{api_version}"
+
+/**
+ * Substitutes `{api_version}` in a path template such as `upload/{api_version}/files`. When
+ * [apiVersion] is empty, omits the placeholder segment without leaving a double slash.
+ */
+internal fun resolveApiVersionInPath(path: String, apiVersion: String): String {
+  if (apiVersion.isNotEmpty()) {
+    return path.replace(API_VERSION_PLACEHOLDER, apiVersion)
+  }
+  return path
+    .replace("$API_VERSION_PLACEHOLDER/", "")
+    .replace("/$API_VERSION_PLACEHOLDER", "")
+    .replace(API_VERSION_PLACEHOLDER, "")
+}
+
 /** Internal HTTP client wrapper for the Gen AI APIs. */
 internal class ApiClient(
   internal val apiKey: String? = null,
@@ -452,7 +468,9 @@ internal class ApiClient(
       mergedOptions.apiVersion ?: throw IllegalStateException("apiVersion is required")
 
     val requestUrl =
-      if (apiVersion.isEmpty()) {
+      if (API_VERSION_PLACEHOLDER in resolvedPath) {
+        "$cleanBaseUrl/${resolveApiVersionInPath(resolvedPath, apiVersion)}"
+      } else if (apiVersion.isEmpty()) {
         "$cleanBaseUrl/$resolvedPath"
       } else {
         "$cleanBaseUrl/$apiVersion/$resolvedPath"

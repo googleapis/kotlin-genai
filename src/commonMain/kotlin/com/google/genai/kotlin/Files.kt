@@ -343,7 +343,7 @@ class Files internal constructor(internal val apiClient: ApiClient) {
 
       body = createFileParametersToMldev(parameterMap, null)
 
-      path = Common.formatMap("upload/v1beta/files", body["_url"] as? Map<String, Any?>)
+      path = Common.formatMap("upload/{api_version}/files", body["_url"] as? Map<String, Any?>)
     }
 
     val queryParams = body["_query"] as? Map<String, Any?>
@@ -678,7 +678,7 @@ class Files internal constructor(internal val apiClient: ApiClient) {
     }
 
     val createFileHttpOptions =
-      (config?.httpOptions ?: HttpOptions()).copy(apiVersion = "", headers = headers)
+      (config?.httpOptions ?: HttpOptions()).copy(headers = headers)
 
     val response =
       privateCreate(

@@ -303,6 +303,77 @@ class ApiClientTest {
   }
 
   @Test
+  fun testRequest_geminiUploadPath_putsDefaultVersionInTemplate() = runTest {
+    var capturedRequest: HttpRequestData? = null
+    val engine = createMockEngine { capturedRequest = it }
+
+    ApiClient(apiKey = "test-api-key", engine = engine).use { client ->
+      client.request("POST", "upload/{api_version}/files")
+    }
+
+    assertNotNull(capturedRequest)
+    assertEquals(
+      "/upload/${GOOGLE_AI_API_DEFAULT_VERSION}/files",
+      capturedRequest!!.url.encodedPath,
+    )
+  }
+
+  @Test
+  fun testRequest_geminiUploadPath_usesClientApiVersion() = runTest {
+    var capturedRequest: HttpRequestData? = null
+    val engine = createMockEngine { capturedRequest = it }
+
+    ApiClient(
+        apiKey = "test-api-key",
+        httpOptions = HttpOptions(apiVersion = "v1alpha"),
+        engine = engine,
+      )
+      .use { client ->
+        client.request(
+          "POST",
+          "upload/{api_version}/fileSearchStores/my-store:uploadToFileSearchStore",
+        )
+      }
+
+    assertNotNull(capturedRequest)
+    assertEquals(
+      "/upload/v1alpha/fileSearchStores/my-store:uploadToFileSearchStore",
+      capturedRequest!!.url.encodedPath,
+    )
+  }
+
+  @Test
+  fun testRequest_geminiUploadPath_usesRequestApiVersion() = runTest {
+    var capturedRequest: HttpRequestData? = null
+    val engine = createMockEngine { capturedRequest = it }
+
+    ApiClient(apiKey = "test-api-key", httpOptions = HttpOptions(apiVersion = "v1"), engine = engine)
+      .use { client ->
+        client.request(
+          "POST",
+          "upload/{api_version}/files",
+          httpOptions = HttpOptions(apiVersion = "v1alpha"),
+        )
+      }
+
+    assertNotNull(capturedRequest)
+    assertEquals("/upload/v1alpha/files", capturedRequest!!.url.encodedPath)
+  }
+
+  @Test
+  fun testRequest_emptyApiVersion_omitsVersionFromUploadPath() = runTest {
+    var capturedRequest: HttpRequestData? = null
+    val engine = createMockEngine { capturedRequest = it }
+
+    ApiClient(apiKey = "test-api-key", engine = engine).use { client ->
+      client.request("POST", "upload/{api_version}/files", httpOptions = HttpOptions(apiVersion = ""))
+    }
+
+    assertNotNull(capturedRequest)
+    assertEquals("/upload/files", capturedRequest!!.url.encodedPath)
+  }
+
+  @Test
   fun testRequest_withTimeout_sendsServerTimeoutRoundedUpToSeconds() = runTest {
     var capturedRequest: HttpRequestData? = null
     val engine = createMockEngine { capturedRequest = it }
