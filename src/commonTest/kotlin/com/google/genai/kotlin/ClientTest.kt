@@ -19,10 +19,13 @@ package com.google.genai.kotlin
 import com.google.auth.oauth2.AccessToken
 import com.google.auth.oauth2.GoogleCredentials
 import com.google.genai.kotlin.types.ClientOptions
+import com.google.genai.kotlin.types.HttpOptions
 import com.google.genai.kotlin.types.ProxyOptions
 import com.google.genai.kotlin.types.ProxyType
 import io.ktor.client.engine.mock.MockEngine
 import io.ktor.client.engine.mock.respond
+import io.ktor.http.HttpHeaders
+import io.ktor.http.headersOf
 import io.mockk.every
 import io.mockk.mockk
 import kotlin.test.Test
@@ -31,6 +34,8 @@ import kotlin.test.assertFailsWith
 import kotlin.test.assertFalse
 import kotlin.test.assertNotNull
 import kotlin.test.assertNull
+import kotlin.test.assertTrue
+import kotlinx.coroutines.test.runTest
 
 class ClientTest {
 
@@ -398,11 +403,168 @@ class ClientTest {
     setEnv("GOOGLE_CLOUD_PROJECT", "")
     setEnv("GOOGLE_CLOUD_LOCATION", "")
     setEnv("GOOGLE_GENAI_USE_ENTERPRISE", "")
+    setEnv("GOOGLE_GENAI_API_VERSION", "")
 
     val client = Client(environment = mockEnvironment)
 
     assertNull(client.project)
     assertNull(client.location)
     assertFalse(client.enterprise)
+    assertNull(client.httpClient.httpOptions?.apiVersion)
+  }
+
+  private var lastRequestPath: String? = null
+
+  private val recordingEngine = MockEngine { request ->
+    lastRequestPath = request.url.encodedPath
+    respond("{}", headers = headersOf(HttpHeaders.ContentType, "application/json"))
+  }
+
+  /** Sends one request through [client], closes it, and returns the request's path. */
+  private fun requestPath(client: Client): String {
+    lastRequestPath = null
+    client.use { runTest { it.httpClient.request("GET", "models/test-model") } }
+    return assertNotNull(lastRequestPath)
+  }
+
+  @Test
+  fun testApiVersion_resolvesIntoRequestUrl() {
+    clearEnv()
+    assertEquals(
+      "/$GOOGLE_AI_API_DEFAULT_VERSION/models/test-model",
+      requestPath(Client(apiKey = API_KEY, environment = mockEnvironment, engine = recordingEngine)),
+    )
+    assertEquals(
+      "/v1alpha/models/test-model",
+      requestPath(
+        Client(
+          apiKey = API_KEY,
+          environment = mockEnvironment,
+          engine = recordingEngine,
+          httpOptions = HttpOptions(apiVersion = "v1alpha"),
+        )
+      ),
+    )
+    val enterpriseClient = {
+      Client(
+        project = PROJECT,
+        location = LOCATION,
+        credentials = MOCK_CREDENTIALS,
+        enterprise = true,
+        environment = mockEnvironment,
+        engine = recordingEngine,
+      )
+    }
+    // The Gemini API default change does not affect Gemini Enterprise.
+    assertTrue(requestPath(enterpriseClient()).startsWith("/v1beta1/"))
+
+    setEnv("GOOGLE_GENAI_API_VERSION", "v1")
+    assertEquals(
+      "/v1/models/test-model",
+      requestPath(Client(apiKey = API_KEY, environment = mockEnvironment, engine = recordingEngine)),
+    )
+    assertTrue(requestPath(enterpriseClient()).startsWith("/v1/"))
+  }
+
+  @Test
+  fun testGeminiClientInitialization_withApiVersionEnvVar() {
+    clearEnv()
+    setEnv("GOOGLE_GENAI_API_VERSION", "v1alpha")
+    val client = Client(apiKey = API_KEY, environment = mockEnvironment)
+    assertNotNull(client)
+    assertEquals(false, client.enterprise)
+    assertEquals("v1alpha", client.httpClient.httpOptions?.apiVersion)
+  }
+
+  @Test
+  fun testVertexClientInitialization_withApiVersionEnvVar() {
+    clearEnv()
+    setEnv("GOOGLE_GENAI_API_VERSION", "v1")
+    val client =
+      Client(
+        project = PROJECT,
+        location = LOCATION,
+        credentials = MOCK_CREDENTIALS,
+        enterprise = true,
+        environment = mockEnvironment,
+      )
+    assertNotNull(client)
+    assertEquals(true, client.enterprise)
+    assertEquals("v1", client.httpClient.httpOptions?.apiVersion)
+  }
+
+  @Test
+  fun testApiVersionEnvVar_appliesToBothBackends() {
+    clearEnv()
+    setEnv("GOOGLE_GENAI_API_VERSION", "v1alpha")
+    assertEquals(
+      "/v1alpha/models/test-model",
+      requestPath(Client(apiKey = API_KEY, environment = mockEnvironment, engine = recordingEngine)),
+    )
+    assertTrue(
+      requestPath(
+          Client(
+            project = PROJECT,
+            location = LOCATION,
+            credentials = MOCK_CREDENTIALS,
+            enterprise = true,
+            environment = mockEnvironment,
+            engine = recordingEngine,
+          )
+        )
+        .startsWith("/v1alpha/")
+    )
+  }
+
+  @Test
+  fun testBetaApiVersionEnvVar_selectsBackendBetaVersion() {
+    clearEnv()
+    setEnv("GOOGLE_GENAI_API_VERSION", "beta")
+    val geminiClient =
+      Client(apiKey = API_KEY, environment = mockEnvironment, engine = recordingEngine)
+    assertEquals("v1beta", geminiClient.httpClient.httpOptions?.apiVersion)
+    assertEquals("/v1beta/models/test-model", requestPath(geminiClient))
+
+    val enterpriseClient =
+      Client(
+        project = PROJECT,
+        location = LOCATION,
+        credentials = MOCK_CREDENTIALS,
+        enterprise = true,
+        environment = mockEnvironment,
+        engine = recordingEngine,
+      )
+    assertEquals("v1beta1", enterpriseClient.httpClient.httpOptions?.apiVersion)
+    assertTrue(requestPath(enterpriseClient).startsWith("/v1beta1/"))
+  }
+
+  @Test
+  fun testVertexClientInitialization_explicitApiVersionOverridesDefault() {
+    clearEnv()
+    setEnv("GOOGLE_GENAI_API_VERSION", "v1alpha")
+    val client =
+      Client(
+        project = PROJECT,
+        location = LOCATION,
+        credentials = MOCK_CREDENTIALS,
+        enterprise = true,
+        environment = mockEnvironment,
+        httpOptions = HttpOptions(apiVersion = "v1"),
+      )
+    assertEquals("v1", client.httpClient.httpOptions?.apiVersion)
+  }
+
+  @Test
+  fun testClientInitialization_httpOptionsApiVersionOverridesEnvVar() {
+    clearEnv()
+    setEnv("GOOGLE_GENAI_API_VERSION", "v1alpha")
+    val client =
+      Client(
+        apiKey = API_KEY,
+        httpOptions = HttpOptions(apiVersion = "v1"),
+        environment = mockEnvironment,
+      )
+    assertNotNull(client)
+    assertEquals("v1", client.httpClient.httpOptions?.apiVersion)
   }
 }

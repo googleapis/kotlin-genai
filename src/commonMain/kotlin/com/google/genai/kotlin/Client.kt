@@ -60,6 +60,7 @@ internal constructor(
    * @param enterprise Explicitly set whether to use Gemini Enterprise Agent Platform API. Default
    *   to false or from environment variable GOOGLE_GENAI_USE_ENTERPRISE.
    * @param httpOptions Custom HTTP options for the client.
+   * @param clientOptions Options for configuring the client.
    */
   constructor(
     apiKey: String? = null,
@@ -99,6 +100,18 @@ internal constructor(
   init {
     val envEnterprise = env("GOOGLE_GENAI_USE_ENTERPRISE")
     val useEnterprise = enterprise ?: envEnterprise?.equals("true", ignoreCase = true) ?: false
+
+    val envApiVersion =
+      when (val raw = env("GOOGLE_GENAI_API_VERSION")) {
+        "beta" -> if (useEnterprise) "v1beta1" else "v1beta"
+        else -> raw
+      }
+    val resolvedHttpOptions =
+      if (httpOptions?.apiVersion == null && envApiVersion != null) {
+        (httpOptions ?: HttpOptions()).copy(apiVersion = envApiVersion)
+      } else {
+        httpOptions
+      }
 
     val envApiKey = env("GOOGLE_API_KEY") ?: env("GEMINI_API_KEY")
     val envProject = env("GOOGLE_CLOUD_PROJECT")
@@ -181,7 +194,7 @@ internal constructor(
         location = resolvedLocation,
         credentials = resolvedCredentials,
         enterprise = useEnterprise,
-        httpOptions = httpOptions,
+        httpOptions = resolvedHttpOptions,
         engine = suppliedEngine,
         proxyOptions = clientOptions?.proxyOptions,
       )

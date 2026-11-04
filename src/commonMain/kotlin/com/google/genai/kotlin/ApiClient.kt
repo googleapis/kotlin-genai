@@ -70,6 +70,8 @@ internal const val SDK_VERSION = "1.8.0" // {x-version-update:google-genai-kotli
 internal fun apiClientHeader(): String =
   "google-genai-sdk/$SDK_VERSION gl-kotlin/${KotlinVersion.CURRENT} ${platformLabel()}"
 
+internal const val GOOGLE_AI_API_DEFAULT_VERSION = "v1"
+
 /** Internal HTTP client wrapper for the Gen AI APIs. */
 internal class ApiClient(
   internal val apiKey: String? = null,
@@ -106,7 +108,7 @@ internal class ApiClient(
       } else {
         "https://generativelanguage.googleapis.com"
       }
-    val defaultApiVersion = if (enterprise) "v1beta1" else "v1beta"
+    val defaultApiVersion = if (enterprise) "v1beta1" else GOOGLE_AI_API_DEFAULT_VERSION
     val trackingLabels = apiClientHeader()
     val defaultHeaders =
       mapOf("x-goog-api-client" to trackingLabels, "user-agent" to trackingLabels)
@@ -374,7 +376,7 @@ internal class ApiClient(
         val version = mergedOptions.apiVersion ?: "v1beta1"
         "${cleanBaseUrl.replaceFirst("http://", "ws://").replaceFirst("https://", "wss://")}/ws/google.cloud.aiplatform.$version.LlmBidiService/BidiGenerateContent"
       } else {
-        val version = mergedOptions.apiVersion ?: "v1beta"
+        val version = mergedOptions.apiVersion ?: GOOGLE_AI_API_DEFAULT_VERSION
         if (isEphemeralToken && version != "v1alpha") {
           println("Warning: The SDK's ephemeral token support is in v1alpha only.")
         }
