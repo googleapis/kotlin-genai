@@ -768,6 +768,7 @@ class ModelsTest : BaseTestServer() {
         assertTrue(statistics.tokenCount!! > 0)
         assertNotNull(statistics.tokensDetails)
         assertTrue(statistics.tokensDetails!!.isNotEmpty())
+        assertNotNull(response1.usageMetadata?.trafficType)
 
         val exception =
           assertFailsWith<IllegalArgumentException> {

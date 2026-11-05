@@ -32,4 +32,13 @@ data class EmbedContentResponse(
 
   /** Gemini Enterprise Agent Platform only. Metadata about the request. */
   val metadata: EmbedContentMetadata? = null,
+
+  /**
+   * Whether the input content was truncated before generating the embedding. This field is not
+   * supported in Gemini API.
+   */
+  val truncated: Boolean? = null,
+
+  /** Usage metadata about the response(s). */
+  val usageMetadata: UsageMetadata? = null,
 )
