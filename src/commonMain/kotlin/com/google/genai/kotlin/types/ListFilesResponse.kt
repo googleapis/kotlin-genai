@@ -27,9 +27,21 @@ data class ListFilesResponse(
   /** Used to retain the full HTTP response. */
   val sdkHttpResponse: HttpResponse? = null,
 
-  /** A token that can be sent as a `page_token` into a subsequent `ListFiles` call. */
+  /**
+   * A token that can be sent as a `page_token` into a subsequent `ListFiles` call. This field is
+   * not supported in Vertex AI.
+   */
   val nextPageToken: String? = null,
 
-  /** The list of `File`s. */
+  /** The list of `File`s. This field is not supported in Vertex AI. */
   val files: List<File>? = null,
+
+  /** The files. This field is not supported in Gemini API. */
+  val data: List<ClaudeFile>? = null,
+
+  /**
+   * Opaque cursor for the next page. Unset on the last page, and always unset when `ids` was
+   * supplied, since batch fetch is single-page. This field is not supported in Gemini API.
+   */
+  val nextPage: String? = null,
 )

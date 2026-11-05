@@ -25,5 +25,11 @@ import kotlinx.serialization.Serializable
 data class DeleteFileResponse(
 
   /** Used to retain the full HTTP response. */
-  val sdkHttpResponse: HttpResponse? = null
+  val sdkHttpResponse: HttpResponse? = null,
+
+  /** The ID of the deleted file. */
+  val id: String? = null,
+
+  /** The object type. Always `file_deleted`. */
+  val type: String? = null,
 )
