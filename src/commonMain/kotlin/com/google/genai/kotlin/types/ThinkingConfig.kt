@@ -38,4 +38,9 @@ data class ThinkingConfig(
 
   /** Optional. The number of thoughts tokens that the model should generate. */
   val thinkingLevel: ThinkingLevel? = null,
+
+  /**
+   * Controls validation behavior when input `thought_signature`s fail same-model prefix binding.
+   */
+  val prefixMismatchBehavior: PrefixMismatchBehavior? = null,
 )
