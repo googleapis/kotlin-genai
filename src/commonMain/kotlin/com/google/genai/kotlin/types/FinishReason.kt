@@ -99,5 +99,8 @@ value class FinishReason(val value: String) {
      * `continuation_token` in a subsequent request.
      */
     val CONTINUATION = FinishReason("CONTINUATION")
+
+    /** Token generation stopped because the response was malformed. */
+    val MALFORMED_RESPONSE = FinishReason("MALFORMED_RESPONSE")
   }
 }
