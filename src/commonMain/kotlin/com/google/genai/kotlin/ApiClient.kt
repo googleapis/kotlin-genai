@@ -118,9 +118,12 @@ internal class ApiClient(
   private val clientHttpOptions: HttpOptions = run {
     val defaultBaseUrl =
       if (enterprise) {
-        if (location == "global" || location == null) "https://aiplatform.googleapis.com"
-        else if (location == "us") "https://aiplatform.us.rep.googleapis.com"
-        else "https://$location-aiplatform.googleapis.com"
+        when (location) {
+          null,
+          "global" -> "https://aiplatform.googleapis.com"
+          in MULTI_REGIONAL_LOCATIONS -> "https://aiplatform.$location.rep.googleapis.com"
+          else -> "https://$location-aiplatform.googleapis.com"
+        }
       } else {
         "https://generativelanguage.googleapis.com"
       }
@@ -487,6 +490,8 @@ internal class ApiClient(
     }
   }
 }
+
+private val MULTI_REGIONAL_LOCATIONS = setOf("us", "eu")
 
 // Default HTTP retry configuration. Keep aligned with _api_client.py in the Python SDK.
 private const val DEFAULT_RETRY_ATTEMPTS = 5 // Including the initial call.

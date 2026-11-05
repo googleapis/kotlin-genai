@@ -470,18 +470,21 @@ class ApiClientTest {
   }
 
   @Test
-  fun testRequest_withEnterpriseUsLocation_usesSpecialBaseUrl() = runTest {
-    var capturedRequest: HttpRequestData? = null
-    val engine = createMockEngine { capturedRequest = it }
+  fun testRequest_withEnterpriseMultiRegionalLocation_usesRepBaseUrl() = runTest {
+    for (location in listOf("us", "eu")) {
+      var capturedRequest: HttpRequestData? = null
+      val engine = createMockEngine { capturedRequest = it }
 
-    ApiClient(project = "test-project", location = "us", enterprise = true, engine = engine).use {
-      client ->
-      client.request("GET", "publishers/google/models/test-model:predict")
+      ApiClient(project = "test-project", location = location, enterprise = true, engine = engine)
+        .use { client -> client.request("GET", "publishers/google/models/test-model:predict") }
+
+      assertNotNull(capturedRequest)
+      assertEquals("aiplatform.$location.rep.googleapis.com", capturedRequest!!.url.host)
+      assertEquals(
+        "/v1beta1/projects/test-project/locations/$location/publishers/google/models/test-model:predict",
+        capturedRequest!!.url.encodedPath,
+      )
     }
-
-    assertNotNull(capturedRequest)
-    // Host should be "aiplatform.us.rep.googleapis.com"
-    assertEquals("aiplatform.us.rep.googleapis.com", capturedRequest!!.url.host)
   }
 
   @Test
