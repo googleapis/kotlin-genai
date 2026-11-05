@@ -741,6 +741,7 @@ $dokka.location:com.google.genai.kotlin.types/FinishReason.Companion/IMAGE_RECIT
 $dokka.location:com.google.genai.kotlin.types/FinishReason.Companion/IMAGE_SAFETY/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-finish-reason/-companion/-i-m-a-g-e_-s-a-f-e-t-y.html
 $dokka.location:com.google.genai.kotlin.types/FinishReason.Companion/LANGUAGE/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-finish-reason/-companion/-l-a-n-g-u-a-g-e.html
 $dokka.location:com.google.genai.kotlin.types/FinishReason.Companion/MALFORMED_FUNCTION_CALL/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-finish-reason/-companion/-m-a-l-f-o-r-m-e-d_-f-u-n-c-t-i-o-n_-c-a-l-l.html
+$dokka.location:com.google.genai.kotlin.types/FinishReason.Companion/MALFORMED_RESPONSE/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-finish-reason/-companion/-m-a-l-f-o-r-m-e-d_-r-e-s-p-o-n-s-e.html
 $dokka.location:com.google.genai.kotlin.types/FinishReason.Companion/MAX_TOKENS/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-finish-reason/-companion/-m-a-x_-t-o-k-e-n-s.html
 $dokka.location:com.google.genai.kotlin.types/FinishReason.Companion/NO_IMAGE/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-finish-reason/-companion/-n-o_-i-m-a-g-e.html
 $dokka.location:com.google.genai.kotlin.types/FinishReason.Companion/OTHER/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-finish-reason/-companion/-o-t-h-e-r.html
