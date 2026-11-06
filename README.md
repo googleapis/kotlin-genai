@@ -35,7 +35,7 @@ and the
 
 The SDK requires the following minimum platform versions:
 
-* **Kotlin**: 1.9
+* **Kotlin**: 2.0
 * **Java**: JDK 17
 * **Android**: API level 21 (Android 5.0)
 
@@ -75,7 +75,7 @@ For multiplatform projects, add the dependency to your `commonMain` source set:
 kotlin {
     sourceSets {
         commonMain.dependencies {
-            implementation("com.google.genai:google-genai-kotlin:1.9.0")
+            implementation("com.google.genai:google-genai-kotlin:2.0.0")
         }
     }
 }
@@ -87,7 +87,7 @@ Add the dependency to your `build.gradle.kts` file:
 
 ```kotlin
 dependencies {
-    implementation("com.google.genai:google-genai-kotlin:1.9.0")
+    implementation("com.google.genai:google-genai-kotlin:2.0.0")
 }
 ```
 
@@ -99,7 +99,7 @@ For Maven projects (JVM only), use the `-jvm` suffixed artifact:
 <dependency>
     <groupId>com.google.genai</groupId>
     <artifactId>google-genai-kotlin-jvm</artifactId>
-    <version>1.9.0</version>
+    <version>2.0.0</version>
 </dependency>
 ```
 [//]: # ({x-version-update-end})
