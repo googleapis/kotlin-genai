@@ -5,7 +5,26 @@
 
 ### ⚠ BREAKING CHANGES
 
-* default Gemini API version to v1 instead of v1beta across SDKs
+* **Default Gemini Developer API version is now `v1` (was `v1beta`)** ([50d3969](https://github.com/googleapis/kotlin-genai/commit/50d3969c74781334e78418697879c6bc3e7065b4))
+  * Clients targeting the **Gemini Developer API** now default to API version `v1` instead of `v1beta`.
+  * **No effect on Gemini Enterprise (Vertex AI) defaults:** Clients with `enterprise = true` are **unaffected** by this default change and continue to default to `v1beta1`.
+  * **How to configure or restore the previous default via environment variable:** Set `GOOGLE_GENAI_API_VERSION` (works for both Gemini Developer API and Enterprise / Vertex AI clients when no version is set in code):
+    ```bash
+    # Restores the beta default ('v1beta' on Gemini Developer API, 'v1beta1' on Enterprise / Vertex AI)
+    export GOOGLE_GENAI_API_VERSION=beta
+
+    # Or set an explicit API version string on either platform (e.g. 'v1', 'v1beta', 'v1beta1')
+    export GOOGLE_GENAI_API_VERSION=v1beta
+    ```
+  * **How to set the API version in code:** Pass `HttpOptions` when constructing `Client` (takes precedence over `GOOGLE_GENAI_API_VERSION`):
+    ```kotlin
+    import com.google.genai.kotlin.Client
+    import com.google.genai.kotlin.types.HttpOptions
+
+    val client = Client(
+        httpOptions = HttpOptions(apiVersion = "v1beta")
+    )
+    ```
 
 ### Features
 
