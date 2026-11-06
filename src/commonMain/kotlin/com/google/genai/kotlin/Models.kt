@@ -4202,7 +4202,7 @@ class Models internal constructor(internal val apiClient: ApiClient) {
    * @example
    *
    * ```kotlin
-   * val modelInfo = client.models.get("gemini-flash-latest")
+   * val modelInfo = client.models.get("gemini-3.8-flash")
    * ```
    */
   suspend fun get(model: String, config: GetModelConfig? = null): Model {

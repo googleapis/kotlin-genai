@@ -677,8 +677,7 @@ class Files internal constructor(internal val apiClient: ApiClient) {
       headers["X-Goog-Upload-File-Name"] = fileName
     }
 
-    val createFileHttpOptions =
-      (config?.httpOptions ?: HttpOptions()).copy(headers = headers)
+    val createFileHttpOptions = (config?.httpOptions ?: HttpOptions()).copy(headers = headers)
 
     val response =
       privateCreate(

@@ -24,7 +24,7 @@ import kotlinx.serialization.Serializable
 @Serializable
 internal data class CreateTuningJobParametersPrivate(
 
-  /** The base model that is being tuned, e.g., "gemini-flash-latest". */
+  /** The base model that is being tuned, e.g., "gemini-3.8-flash". */
   val baseModel: String? = null,
 
   /** The PreTunedModel that is being tuned. */

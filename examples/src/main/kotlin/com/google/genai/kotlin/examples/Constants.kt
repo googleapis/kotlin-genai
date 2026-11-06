@@ -19,7 +19,7 @@ package com.google.genai.kotlin.examples
 import com.google.genai.kotlin.Client
 
 /** The latest Gemini flash model, used by most examples. */
-const val GEMINI_MODEL_NAME = "gemini-flash-latest"
+const val GEMINI_MODEL_NAME = "gemini-3.8-flash"
 
 /** The Live API model used by the Live examples on the Gemini Developer API. */
 const val LIVE_MODEL_NAME = "gemini-3.1-flash-live-preview"

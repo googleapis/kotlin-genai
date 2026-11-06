@@ -172,7 +172,7 @@ fun main() = runBlocking {
     // Use .use to automatically close the client and release resources
     Client().use { client ->
         val response = client.models.generateContent(
-            model = "gemini-flash-latest",
+            model = "gemini-3.8-flash",
             text = "Why is the sky blue?"
         )
 
@@ -210,7 +210,7 @@ fun main() = runBlocking {
         println("Streaming response: ")
 
         val responseFlow = client.models.generateContentStream(
-            model = "gemini-flash-latest",
+            model = "gemini-3.8-flash",
             text = "Write a short story about a robot."
         )
 
@@ -237,7 +237,7 @@ import kotlinx.coroutines.runBlocking
 
 fun main() = runBlocking {
     Client().use { client ->
-        val chat = client.chats.create(model = "gemini-flash-latest")
+        val chat = client.chats.create(model = "gemini-3.8-flash")
 
         val first = chat.sendMessage("My favourite colour is blue.")
         println(first.text)
@@ -269,7 +269,7 @@ import kotlinx.coroutines.runBlocking
 
 fun main() = runBlocking {
     Client().use { client ->
-        val chat = client.chats.create(model = "gemini-flash-latest")
+        val chat = client.chats.create(model = "gemini-3.8-flash")
 
         chat.sendMessageStream("Tell me a two sentence story about a robot.")
             .collect { chunk -> chunk.text?.let { print(it) } }
@@ -316,7 +316,7 @@ fun main() = runBlocking {
 
     Client().use { client ->
         val chat = client.chats.create(
-            model = "gemini-flash-latest",
+            model = "gemini-3.8-flash",
             automaticFunctionCalling = AutomaticFunctionCalling(getWeather),
         )
 
@@ -419,7 +419,7 @@ val config = GenerateContentConfig(
 )
 
 val response = client.models.generateContent(
-    model = "gemini-flash-latest",
+    model = "gemini-3.8-flash",
     text = "What is your name?",
     config = config
 )
@@ -457,7 +457,7 @@ The same options can be set per request, which overrides the client-level value:
 
 ```kotlin
 val response = client.models.generateContent(
-    model = "gemini-flash-latest",
+    model = "gemini-3.8-flash",
     text = "What is your name?",
     config = GenerateContentConfig(
         httpOptions = HttpOptions(retryOptions = HttpRetryOptions(attempts = 3))
@@ -902,7 +902,7 @@ fun main() = runBlocking {
         )
 
         // Create cached content
-        val cachedContent = client.caches.create(model = "gemini-flash-latest", config = config)
+        val cachedContent = client.caches.create(model = "gemini-3.8-flash", config = config)
         println("Created cached content: ${cachedContent.name}")
 
         // Get cached content
@@ -919,7 +919,7 @@ fun main() = runBlocking {
         // Use the cached content to generate content
         val response =
           client.models.generateContent(
-            model = "gemini-flash-latest",
+            model = "gemini-3.8-flash",
             text = "Summarize the cached data.",
             config = GenerateContentConfig(cachedContent = updatedCache.name!!),
           )
@@ -993,7 +993,7 @@ fun main() = runBlocking {
         )
 
         val batchJob = client.batches.create(
-            model = "gemini-flash-latest",
+            model = "gemini-3.8-flash",
             src = src
         )
         println("Created batch job: ${batchJob.name}")
@@ -1064,7 +1064,7 @@ import kotlinx.coroutines.runBlocking
 fun main() = runBlocking {
     Client().use { client ->
         val response = client.models.countTokens(
-            model = "gemini-flash-latest",
+            model = "gemini-3.8-flash",
             text = "Why is the sky blue?"
         )
 
@@ -1088,7 +1088,7 @@ fun main() = runBlocking {
         enterprise = true
     ).use { client ->
         val response = client.models.computeTokens(
-            model = "gemini-flash-latest",
+            model = "gemini-3.8-flash",
             text = "Why is the sky blue?"
         )
 
@@ -1115,7 +1115,7 @@ fun main() = runBlocking {
         // tuned model. To do this, instantiate a Client with your project and
         // location and pass the tuned model ID to get, i.e.
         // "projects/your-project-id/locations/us-central1/models/your-model-id"
-        val modelInfo = client.models.get(model = "gemini-flash-latest")
+        val modelInfo = client.models.get(model = "gemini-3.8-flash")
 
         println("Model Name: ${modelInfo.name}")
         println("Display Name: ${modelInfo.displayName}")
