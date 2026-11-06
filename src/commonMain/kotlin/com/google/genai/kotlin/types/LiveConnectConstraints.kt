@@ -26,7 +26,7 @@ data class LiveConnectConstraints(
 
   /**
    * ID of the model to configure in the ephemeral token for Live API. For a list of models, see
-   * `Gemini models <https://ai.google.dev/gemini-api/docs/models>`.
+   * `Gemini models <https://aistudio.google.com/docs/models>`.
    */
   val model: String? = null,
 
