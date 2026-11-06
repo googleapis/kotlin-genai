@@ -4,6 +4,7 @@
 **Documentation:** https://googleapis.github.io/kotlin-genai/
 --------
 
+
 The Google Gen AI Kotlin SDK provides an idiomatic Kotlin interface for
 developers to integrate Google's generative models into their applications. It
 supports both the [Gemini Developer API](https://ai.google.dev/gemini-api/docs)
