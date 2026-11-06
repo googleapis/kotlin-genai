@@ -1,5 +1,31 @@
 # Changelog
 
+## [2.0.0](https://github.com/googleapis/kotlin-genai/compare/v1.8.0...v2.0.0) (2026-11-06)
+
+
+### ⚠ BREAKING CHANGES
+
+* default Gemini API version to v1 instead of v1beta across SDKs
+
+### Features
+
+* Add `source_text` to `AudioTranscriptionConfig` and `SmartTranscriptionMode`. ([79ab317](https://github.com/googleapis/kotlin-genai/commit/79ab31759d31f9bd6899eefe6bfff1bda1d73f5c))
+* Add MALFORMED_RESPONSE to FinishReason ([e7e35bd](https://github.com/googleapis/kotlin-genai/commit/e7e35bd4b18b00a196d388009bd4089174747ef3)), refs [#2937](https://github.com/googleapis/kotlin-genai/issues/2937)
+* default Gemini API version to v1 instead of v1beta across SDKs ([50d3969](https://github.com/googleapis/kotlin-genai/commit/50d3969c74781334e78418697879c6bc3e7065b4))
+* support GOOGLE_GENAI_API_VERSION environment variable across SDKs ([50d3969](https://github.com/googleapis/kotlin-genai/commit/50d3969c74781334e78418697879c6bc3e7065b4))
+* update discovery doc ([94b93c5](https://github.com/googleapis/kotlin-genai/commit/94b93c54b9644575c57cbf3f922f39b6a1928b54))
+
+
+### Bug Fixes
+
+* respect configured and default API version for Gemini API file uploads across SDKs ([914c382](https://github.com/googleapis/kotlin-genai/commit/914c382bf6b457f180c96dd895cbe018809aca76))
+* route the eu location to the multi-regional endpoint of Gemini Enterprise API ([88010ea](https://github.com/googleapis/kotlin-genai/commit/88010ea906177070d5be2f9bfe3e9d5bf883d26b)), refs [#213](https://github.com/googleapis/kotlin-genai/issues/213)
+
+
+### Miscellaneous Chores
+
+* set version to 2.0.0 ([bd83d2e](https://github.com/googleapis/kotlin-genai/commit/bd83d2e53dcca5b76cbe34a3c2bdd64e41c782a9))
+
 ## [1.8.0](https://github.com/googleapis/kotlin-genai/compare/v1.7.0...v1.8.0) (2026-10-28)
 
 

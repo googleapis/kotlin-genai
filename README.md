@@ -75,7 +75,7 @@ For multiplatform projects, add the dependency to your `commonMain` source set:
 kotlin {
     sourceSets {
         commonMain.dependencies {
-            implementation("com.google.genai:google-genai-kotlin:1.8.0")
+            implementation("com.google.genai:google-genai-kotlin:1.9.0")
         }
     }
 }
@@ -87,7 +87,7 @@ Add the dependency to your `build.gradle.kts` file:
 
 ```kotlin
 dependencies {
-    implementation("com.google.genai:google-genai-kotlin:1.8.0")
+    implementation("com.google.genai:google-genai-kotlin:1.9.0")
 }
 ```
 
@@ -99,7 +99,7 @@ For Maven projects (JVM only), use the `-jvm` suffixed artifact:
 <dependency>
     <groupId>com.google.genai</groupId>
     <artifactId>google-genai-kotlin-jvm</artifactId>
-    <version>1.8.0</version>
+    <version>1.9.0</version>
 </dependency>
 ```
 [//]: # ({x-version-update-end})
