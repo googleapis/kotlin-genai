@@ -40,9 +40,9 @@
         "statusCode": 200,
         "headers": {
           "Content-Encoding": "gzip",
-          "Content-Length": "231",
+          "Content-Length": "253",
           "Content-Type": "application/json; charset=UTF-8",
-          "Date": "Wed, 02 Sep 2026 07:06:05 GMT",
+          "Date": "Thu, 05 Nov 2026 22:51:43 GMT",
           "Server": "scaffolding on HTTPServer2",
           "Vary": "Origin, X-Origin, Referer",
           "X-Content-Type-Options": "nosniff",
@@ -73,7 +73,8 @@
                   "tokenCount": 7
                 }
               ],
-              "totalTokenCount": 7
+              "totalTokenCount": 7,
+              "trafficType": "ON_DEMAND"
             }
           }
         ]

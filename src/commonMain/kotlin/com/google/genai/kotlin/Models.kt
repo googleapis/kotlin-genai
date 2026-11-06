@@ -1079,6 +1079,14 @@ class Models internal constructor(internal val apiClient: ApiClient) {
       )
     }
 
+    Common.getValueByPath(fromObject, arrayOf("usageMetadata"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("usageMetadata"),
+        Common.getValueByPath(fromObject, arrayOf("usageMetadata")),
+      )
+    }
+
     return toObject
   }
 
@@ -1114,6 +1122,26 @@ class Models internal constructor(internal val apiClient: ApiClient) {
         toObject,
         arrayOf("metadata"),
         Common.getValueByPath(fromObject, arrayOf("metadata")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("truncated"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("truncated"),
+        Common.getValueByPath(fromObject, arrayOf("truncated")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("usageMetadata"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("usageMetadata"),
+        usageMetadataFromVertex(
+          Common.getValueByPath(fromObject, arrayOf("usageMetadata")) as Map<String, Any?>,
+          toObject,
+          rootObject,
+        ),
       )
     }
 
@@ -3973,6 +4001,104 @@ class Models internal constructor(internal val apiClient: ApiClient) {
           toObject,
           rootObject,
         )
+    }
+
+    return toObject
+  }
+
+  internal fun usageMetadataFromVertex(
+    fromObject: Map<String, Any?>?,
+    parentObject: MutableMap<String, Any?>?,
+    rootObject: Map<String, Any?>?,
+  ): MutableMap<String, Any?> {
+
+    val toObject = mutableMapOf<String, Any?>()
+    Common.getValueByPath(fromObject, arrayOf("promptTokenCount"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("promptTokenCount"),
+        Common.getValueByPath(fromObject, arrayOf("promptTokenCount")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("cachedContentTokenCount"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("cachedContentTokenCount"),
+        Common.getValueByPath(fromObject, arrayOf("cachedContentTokenCount")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("candidatesTokenCount"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("responseTokenCount"),
+        Common.getValueByPath(fromObject, arrayOf("candidatesTokenCount")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("toolUsePromptTokenCount"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("toolUsePromptTokenCount"),
+        Common.getValueByPath(fromObject, arrayOf("toolUsePromptTokenCount")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("thoughtsTokenCount"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("thoughtsTokenCount"),
+        Common.getValueByPath(fromObject, arrayOf("thoughtsTokenCount")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("totalTokenCount"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("totalTokenCount"),
+        Common.getValueByPath(fromObject, arrayOf("totalTokenCount")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("promptTokensDetails"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("promptTokensDetails"),
+        Common.getValueByPath(fromObject, arrayOf("promptTokensDetails")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("cacheTokensDetails"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("cacheTokensDetails"),
+        Common.getValueByPath(fromObject, arrayOf("cacheTokensDetails")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("candidatesTokensDetails"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("responseTokensDetails"),
+        Common.getValueByPath(fromObject, arrayOf("candidatesTokensDetails")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("toolUsePromptTokensDetails"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("toolUsePromptTokensDetails"),
+        Common.getValueByPath(fromObject, arrayOf("toolUsePromptTokensDetails")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("trafficType"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("trafficType"),
+        Common.getValueByPath(fromObject, arrayOf("trafficType")),
+      )
     }
 
     return toObject
