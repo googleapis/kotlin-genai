@@ -43,21 +43,21 @@ data class AudioTranscriptionConfig(
   val languageHints: LanguageHints? = null,
 
   /**
-   * A list of custom vocabulary phrases, which biases the ASR model to improve recognition of these
-   * specific terms.
+   * Optional. A list of custom vocabulary phrases to bias the speech recognition model toward
+   * recognizing specific terms.
    */
   val customVocabulary: List<String>? = null,
 
   /**
-   * Deprecated. A list of phrases used for speech adaptation, which biases the ASR model to improve
-   * recognition of these specific terms.
+   * Optional. Deprecated: Use `custom_vocabulary` instead. A list of phrases to bias the speech
+   * recognition model towards.
    */
   val adaptationPhrases: List<String>? = null,
 
-  /** Configures speaker diarization. */
+  /** Optional. Configures speaker diarization. */
   val diarization: Boolean? = null,
 
-  /** Configures word-level timestamp generation. */
+  /** Optional. Configures word-level timestamp generation. */
   val wordTimestamp: Boolean? = null,
 
   /**

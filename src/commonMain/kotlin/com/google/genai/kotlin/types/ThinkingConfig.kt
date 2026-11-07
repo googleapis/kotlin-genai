@@ -25,8 +25,10 @@ import kotlinx.serialization.Serializable
 data class ThinkingConfig(
 
   /**
-   * Indicates whether to include thoughts in the response. If true, thoughts are returned only if
-   * the model supports thought and thoughts are available.
+   * Optional. If true, the model will include its thoughts in the response. "Thoughts" are the
+   * intermediate steps the model takes to arrive at the final response. They can provide insights
+   * into the model's reasoning process and help with debugging. If this is true, thoughts are
+   * returned only when available.
    */
   val includeThoughts: Boolean? = null,
 

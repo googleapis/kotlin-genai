@@ -31,6 +31,6 @@ data class VertexMultimodalDatasetDestination(
   /** The BigQuery destination for the multimodal dataset. */
   val bigqueryDestination: String? = null,
 
-  /** The display name of the multimodal dataset. */
+  /** Optional. Display name of the output dataset. */
   val displayName: String? = null,
 )

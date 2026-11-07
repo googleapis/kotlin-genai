@@ -40,13 +40,19 @@ data class GroundingMetadata(
   /** List of grounding support. */
   val groundingSupports: List<GroundingSupport>? = null,
 
-  /** Metadata related to retrieval in the grounding flow. */
+  /** Optional. Output only. Metadata related to the retrieval grounding source. */
   val retrievalMetadata: RetrievalMetadata? = null,
 
-  /** Optional. Google search entry for the following-up web searches. */
+  /**
+   * Optional. A web search entry point that can be used to display search results. This field is
+   * populated only when the grounding source is Google Search.
+   */
   val searchEntryPoint: SearchEntryPoint? = null,
 
-  /** Web search queries for the following-up web search. */
+  /**
+   * Optional. The web search queries that were used to generate the content. This field is
+   * populated only when the grounding source is Google Search.
+   */
   val webSearchQueries: List<String>? = null,
 
   /**

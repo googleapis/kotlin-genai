@@ -30,6 +30,6 @@ data class SpeechMetadata(
    */
   val speaker: String? = null,
 
-  /** The style instruction for how the voice should be synthesized (e.g. "excited, fast-paced"). */
+  /** Optional. Natural language description of the vocal style (e.g., "cheerful"). */
   val style: String? = null,
 )
