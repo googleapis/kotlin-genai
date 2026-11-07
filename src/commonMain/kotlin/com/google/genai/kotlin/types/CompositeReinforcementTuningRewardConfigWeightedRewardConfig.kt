@@ -20,7 +20,10 @@ package com.google.genai.kotlin.types
 
 import kotlinx.serialization.Serializable
 
-/** Composite reinforcement tuning reward config weighted reward config. */
+/**
+ * Reward function configuration with a weight. The weight is used to combine the reward with other
+ * rewards. This data type is not supported in Gemini API.
+ */
 @Serializable
 data class CompositeReinforcementTuningRewardConfigWeightedRewardConfig(
 

@@ -30,7 +30,10 @@ data class GenerateContentResponse(
   /** Response variations returned by the model. */
   val candidates: List<Candidate>? = null,
 
-  /** Timestamp when the request is made to the server. */
+  /**
+   * Output only. Timestamp when the request is made to the server. This field is not supported in
+   * Gemini API.
+   */
   @Serializable(with = InstantSerializer::class) val createTime: Instant? = null,
 
   /** Output only. The model version used to generate the response. */

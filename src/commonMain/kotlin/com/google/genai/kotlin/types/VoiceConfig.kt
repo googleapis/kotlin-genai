@@ -33,6 +33,10 @@ data class VoiceConfig(
   /** The configuration for a prebuilt voice. */
   val prebuiltVoiceConfig: PrebuiltVoiceConfig? = null,
 
-  /** The speaker identifier for synthesis. */
+  /**
+   * Optional. The speaker identifier for synthesis. Supported formats: * Speaker name for prebuilt
+   * voices (for example, `Orus` or `Kore`). * Voice ID for stored voices (for example,
+   * `voice_xxx`). * Voice replication key (for example, `voicekey_xxx`).
+   */
   val voice: String? = null,
 )

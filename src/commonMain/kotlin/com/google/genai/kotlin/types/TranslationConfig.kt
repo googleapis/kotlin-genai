@@ -25,8 +25,9 @@ import kotlinx.serialization.Serializable
 data class TranslationConfig(
 
   /**
-   * If true, the model will generate audio when the target language is spoken, essentially it will
-   * parrot the input. If false, we will not produce audio for the target language.
+   * Optional. If `true`, the model will generate audio when the target language is spoken,
+   * essentially it will parrot the input. If `false`, we will not produce audio for the target
+   * language.
    */
   val echoTargetLanguage: Boolean? = null,
 
