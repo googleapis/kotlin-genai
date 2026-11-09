@@ -29,5 +29,12 @@ data class ProactivityConfig(
    * model to ignore out of context speech or to stay silent if the user did not make a request,
    * yet.
    */
-  val proactiveAudio: Boolean? = null
+  val proactiveAudio: Boolean? = null,
+
+  /**
+   * If enabled, the system might trigger a generation on each received image. This requires that
+   * `proactive_audio` is enabled. The rate of generation depends on the rate of incoming images and
+   * can cause a significant increase in cost.
+   */
+  val proactiveVideo: Boolean? = null,
 )
