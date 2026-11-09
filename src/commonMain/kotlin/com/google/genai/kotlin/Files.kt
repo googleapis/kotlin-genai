@@ -620,7 +620,7 @@ class Files internal constructor(internal val apiClient: ApiClient) {
    *
    * The bucket must also grant the Gemini API service agent the Storage Object Viewer role, and the
    * API key must belong to the same project as these credentials. See
-   * https://ai.google.dev/gemini-api/docs/file-input-methods#registration for the full setup.
+   * https://aistudio.google.com/docs/file-input-methods#registration for the full setup.
    *
    * @param credentials The Google credentials authorizing access to the GCS objects.
    * @param uris The list of URIs to register.
