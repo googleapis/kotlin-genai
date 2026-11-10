@@ -1,5 +1,18 @@
 # Changelog
 
+## [2.1.0](https://github.com/googleapis/kotlin-genai/compare/v2.0.0...v2.1.0) (2026-11-09)
+
+
+### Features
+
+* Add `proactive_video` to `ProactivityConfig` for the Live API. ([078f1f6](https://github.com/googleapis/kotlin-genai/commit/078f1f6a3599a91551479a060e1310d9095e4ead))
+* add usage_metadata (including traffic_type) and truncated to EmbedContentResponse for Gemini Enterprise API ([e172e25](https://github.com/googleapis/kotlin-genai/commit/e172e2546a4d4cfe7d83e71044498040e77695cf))
+
+
+### Documentation
+
+* update documentation links from ai.google.dev to aistudio.google.com. ([c1d2493](https://github.com/googleapis/kotlin-genai/commit/c1d2493c403c5403365ea9ccaad715a4388d8e14))
+
 ## [2.0.0](https://github.com/googleapis/kotlin-genai/compare/v1.8.0...v2.0.0) (2026-11-06)
 
 
