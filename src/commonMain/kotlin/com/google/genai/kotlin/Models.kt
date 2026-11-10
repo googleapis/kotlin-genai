@@ -777,6 +777,15 @@ class Models internal constructor(internal val apiClient: ApiClient) {
             )
           }
         }
+        "BATCH_EMBED_CONTENTS" -> {
+          Common.getValueByPath(fromObject, arrayOf("taskType"))?.let { node ->
+            Common.setValueByPath(
+              parentObject,
+              arrayOf("requests[]", "embedContentConfig", "taskType"),
+              Common.getValueByPath(fromObject, arrayOf("taskType")),
+            )
+          }
+        }
         else -> {}
       }
     }
@@ -800,6 +809,15 @@ class Models internal constructor(internal val apiClient: ApiClient) {
             Common.setValueByPath(
               parentObject,
               arrayOf("embedContentConfig", "title"),
+              Common.getValueByPath(fromObject, arrayOf("title")),
+            )
+          }
+        }
+        "BATCH_EMBED_CONTENTS" -> {
+          Common.getValueByPath(fromObject, arrayOf("title"))?.let { node ->
+            Common.setValueByPath(
+              parentObject,
+              arrayOf("requests[]", "embedContentConfig", "title"),
               Common.getValueByPath(fromObject, arrayOf("title")),
             )
           }
@@ -828,6 +846,15 @@ class Models internal constructor(internal val apiClient: ApiClient) {
             Common.setValueByPath(
               parentObject,
               arrayOf("embedContentConfig", "outputDimensionality"),
+              Common.getValueByPath(fromObject, arrayOf("outputDimensionality")),
+            )
+          }
+        }
+        "BATCH_EMBED_CONTENTS" -> {
+          Common.getValueByPath(fromObject, arrayOf("outputDimensionality"))?.let { node ->
+            Common.setValueByPath(
+              parentObject,
+              arrayOf("requests[]", "embedContentConfig", "outputDimensionality"),
               Common.getValueByPath(fromObject, arrayOf("outputDimensionality")),
             )
           }
@@ -877,6 +904,15 @@ class Models internal constructor(internal val apiClient: ApiClient) {
             )
           }
         }
+        "BATCH_EMBED_CONTENTS" -> {
+          Common.getValueByPath(fromObject, arrayOf("autoTruncate"))?.let { node ->
+            Common.setValueByPath(
+              parentObject,
+              arrayOf("requests[]", "embedContentConfig", "autoTruncate"),
+              Common.getValueByPath(fromObject, arrayOf("autoTruncate")),
+            )
+          }
+        }
         else -> {}
       }
     }
@@ -891,6 +927,15 @@ class Models internal constructor(internal val apiClient: ApiClient) {
             Common.setValueByPath(
               parentObject,
               arrayOf("embedContentConfig", "documentOcr"),
+              Common.getValueByPath(fromObject, arrayOf("documentOcr")),
+            )
+          }
+        }
+        "BATCH_EMBED_CONTENTS" -> {
+          Common.getValueByPath(fromObject, arrayOf("documentOcr"))?.let { node ->
+            Common.setValueByPath(
+              parentObject,
+              arrayOf("requests[]", "embedContentConfig", "documentOcr"),
               Common.getValueByPath(fromObject, arrayOf("documentOcr")),
             )
           }
@@ -910,6 +955,15 @@ class Models internal constructor(internal val apiClient: ApiClient) {
             Common.setValueByPath(
               parentObject,
               arrayOf("embedContentConfig", "audioTrackExtraction"),
+              Common.getValueByPath(fromObject, arrayOf("audioTrackExtraction")),
+            )
+          }
+        }
+        "BATCH_EMBED_CONTENTS" -> {
+          Common.getValueByPath(fromObject, arrayOf("audioTrackExtraction"))?.let { node ->
+            Common.setValueByPath(
+              parentObject,
+              arrayOf("requests[]", "embedContentConfig", "audioTrackExtraction"),
               Common.getValueByPath(fromObject, arrayOf("audioTrackExtraction")),
             )
           }
@@ -956,6 +1010,10 @@ class Models internal constructor(internal val apiClient: ApiClient) {
           toObject,
           rootObject,
         )
+    }
+
+    if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("batchContents")))) {
+      throw IllegalArgumentException("batchContents parameter is not supported in Gemini API.")
     }
 
     Common.getValueByPath(fromObject, arrayOf("config"))?.let { node ->
@@ -1030,6 +1088,28 @@ class Models internal constructor(internal val apiClient: ApiClient) {
                 rootObject,
               ),
             )
+          }
+        }
+        else -> {}
+      }
+    }
+
+    val discriminatorValueBatchContents =
+      Common.getValueByPath(rootObject, arrayOf("embeddingApiType"))?.toString() ?: "PREDICT"
+
+    Common.getValueByPath(fromObject, arrayOf("batchContents"))?.let { batchContents ->
+      when (discriminatorValueBatchContents) {
+        "BATCH_EMBED_CONTENTS" -> {
+          Common.getValueByPath(fromObject, arrayOf("batchContents"))?.let { node ->
+            val keyArray = Transformers.tContents(node) as? List<*> ?: emptyList<Any?>()
+            val result = mutableListOf<Any?>()
+
+            for (item in keyArray) {
+              if (item is Map<*, *>) {
+                result.add(contentToVertex(item as Map<String, Any?>, toObject, rootObject))
+              }
+            }
+            Common.setValueByPath(toObject, arrayOf("requests[]", "content"), result)
           }
         }
         else -> {}
@@ -1165,6 +1245,20 @@ class Models internal constructor(internal val apiClient: ApiClient) {
           }
           embedding["statistics"] = stats
           Common.setValueByPath(toObject, arrayOf("embeddings"), listOf(embedding))
+        }
+      } else if (apiType.toString() == "BATCH_EMBED_CONTENTS") {
+        val embeddings = Common.getValueByPath(fromObject, arrayOf("embeddings")) as? List<*>
+        if (embeddings != null) {
+          val result = mutableListOf<Any?>()
+          for (item in embeddings) {
+            if (item is Map<*, *>) {
+              @Suppress("UNCHECKED_CAST")
+              result.add(
+                contentEmbeddingFromVertex(item as Map<String, Any?>, toObject, rootObject)
+              )
+            }
+          }
+          Common.setValueByPath(toObject, arrayOf("embeddings"), result)
         }
       }
     }
@@ -4263,10 +4357,18 @@ class Models internal constructor(internal val apiClient: ApiClient) {
     contents: List<Content>? = null,
     content: Content? = null,
     embeddingApiType: EmbeddingApiType? = null,
+    batchContents: List<Content>? = null,
     config: EmbedContentConfig? = null,
   ): EmbedContentResponse {
     val parameters =
-      EmbedContentParametersPrivate(model, contents, content, embeddingApiType, config)
+      EmbedContentParametersPrivate(
+        model,
+        contents,
+        content,
+        embeddingApiType,
+        batchContents,
+        config,
+      )
     val parameterMap = Common.dataClassToMap(parameters)
 
     var body: MutableMap<String, Any?>
@@ -4276,10 +4378,12 @@ class Models internal constructor(internal val apiClient: ApiClient) {
 
       body = embedContentParametersPrivateToVertex(this.apiClient, parameterMap, null, parameterMap)
 
-      val modelName = parameterMap["model"] as? String ?: ""
       val endpointUrl =
-        if (Transformers.tIsVertexEmbedContentModel(modelName)) "{model}:embedContent"
-        else "{model}:predict"
+        when (parameterMap["embeddingApiType"]?.toString()) {
+          "BATCH_EMBED_CONTENTS" -> "{model}:batchEmbedContents"
+          "EMBED_CONTENT" -> "{model}:embedContent"
+          else -> "{model}:predict"
+        }
       path = Common.formatMap(endpointUrl, body["_url"] as? Map<String, Any?>)
     } else {
 

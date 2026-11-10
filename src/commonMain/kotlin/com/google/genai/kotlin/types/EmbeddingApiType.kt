@@ -34,5 +34,8 @@ value class EmbeddingApiType(val value: String) {
 
     /** embedContent API Endpoint */
     val EMBED_CONTENT = EmbeddingApiType("EMBED_CONTENT")
+
+    /** batchEmbedContents API Endpoint */
+    val BATCH_EMBED_CONTENTS = EmbeddingApiType("BATCH_EMBED_CONTENTS")
   }
 }
