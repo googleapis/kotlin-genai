@@ -43,5 +43,8 @@ value class ThinkingLevel(val value: String) {
 
     /** High thinking level. */
     val HIGH = ThinkingLevel("HIGH")
+
+    /** XHIGH thinking level. */
+    val XHIGH = ThinkingLevel("XHIGH")
   }
 }
