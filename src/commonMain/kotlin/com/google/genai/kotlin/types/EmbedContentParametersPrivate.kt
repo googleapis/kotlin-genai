@@ -39,6 +39,9 @@ internal data class EmbedContentParametersPrivate(
   /** The Gemini Enterprise Agent Platform embedding API to use. */
   val embeddingApiType: EmbeddingApiType? = null,
 
+  /** The multiple contents to embed. */
+  val batchContents: List<Content>? = null,
+
   /** Configuration that contains optional parameters. */
   val config: EmbedContentConfig? = null,
 )
