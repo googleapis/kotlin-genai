@@ -2090,6 +2090,7 @@ $dokka.location:com.google.genai.kotlin.types/ThinkingLevel.Companion/LOW/#/Poin
 $dokka.location:com.google.genai.kotlin.types/ThinkingLevel.Companion/MEDIUM/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-thinking-level/-companion/-m-e-d-i-u-m.html
 $dokka.location:com.google.genai.kotlin.types/ThinkingLevel.Companion/MINIMAL/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-thinking-level/-companion/-m-i-n-i-m-a-l.html
 $dokka.location:com.google.genai.kotlin.types/ThinkingLevel.Companion/THINKING_LEVEL_UNSPECIFIED/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-thinking-level/-companion/-t-h-i-n-k-i-n-g_-l-e-v-e-l_-u-n-s-p-e-c-i-f-i-e-d.html
+$dokka.location:com.google.genai.kotlin.types/ThinkingLevel.Companion/XHIGH/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-thinking-level/-companion/-x-h-i-g-h.html
 $dokka.location:com.google.genai.kotlin.types/ThinkingLevel///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-thinking-level/index.html
 $dokka.location:com.google.genai.kotlin.types/ThinkingLevel/ThinkingLevel/#kotlin.String/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-thinking-level/-thinking-level.html
 $dokka.location:com.google.genai.kotlin.types/ThinkingLevel/toString/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-thinking-level/to-string.html
