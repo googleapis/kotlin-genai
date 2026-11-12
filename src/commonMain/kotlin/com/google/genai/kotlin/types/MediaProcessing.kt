@@ -21,7 +21,10 @@ package com.google.genai.kotlin.types
 import kotlin.jvm.JvmInline
 import kotlinx.serialization.Serializable
 
-/** How the model processes input media for understanding. */
+/**
+ * How the model processes this part's media for understanding. Only meaningful for video parts
+ * (`inline_data` or `file_data` with video mime). Non-video parts ignore this field.
+ */
 @Serializable
 @JvmInline
 value class MediaProcessing(val value: String) {
@@ -29,7 +32,7 @@ value class MediaProcessing(val value: String) {
 
   companion object {
 
-    /** Default. Uses model-specific processing */
+    /** Defaults to model-specific processing. */
     val MEDIA_PROCESSING_UNSPECIFIED = MediaProcessing("MEDIA_PROCESSING_UNSPECIFIED")
 
     /** Fixed-rate frame extraction. All frames placed in context. */

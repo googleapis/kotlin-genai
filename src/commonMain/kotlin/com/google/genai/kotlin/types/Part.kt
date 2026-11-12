@@ -105,7 +105,10 @@ data class Part(
   /** Output only. The transcription of the audio part. */
   val audioTranscription: Transcription? = null,
 
-  /** How the model processes this part's media for understanding. */
+  /**
+   * Optional. How the model processes this part's media for understanding. Only meaningful for
+   * video parts (`inline_data` or `file_data` with video mime). Non-video parts ignore this field.
+   */
   val mediaProcessing: MediaProcessing? = null,
 
   /**
