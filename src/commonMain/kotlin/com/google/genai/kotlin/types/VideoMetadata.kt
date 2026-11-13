@@ -39,4 +39,7 @@ data class VideoMetadata(
 
   /** Optional. The start offset of the video. */
   @Serializable(with = DurationStringSerializer::class) val startOffset: Duration? = null,
+
+  /** Content layers to return. If empty, defaults to [FRAMES, AUDIO]. */
+  val contentLayers: List<VideoMetadataContentLayer>? = null,
 )
