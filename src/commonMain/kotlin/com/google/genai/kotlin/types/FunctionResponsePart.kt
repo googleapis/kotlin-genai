@@ -21,8 +21,9 @@ package com.google.genai.kotlin.types
 import kotlinx.serialization.Serializable
 
 /**
- * A datatype containing media that is part of a `FunctionResponse` message. A
- * `FunctionResponsePart` consists of data which has an associated datatype. A
+ * A datatype containing media that is part of a `FunctionResponse` message.
+ *
+ * A `FunctionResponsePart` consists of data which has an associated datatype. A
  * `FunctionResponsePart` can only contain one of the accepted types in `FunctionResponsePart.data`.
  * A `FunctionResponsePart` must have a fixed IANA MIME type identifying the type and subtype of the
  * media if the `inline_data` field is filled with raw bytes.
@@ -42,4 +43,31 @@ data class FunctionResponsePart(
    * This field is not supported in Vertex AI.
    */
   val mediaProcessing: MediaProcessing? = null,
+
+  /** Media resolution for the input media. */
+  val mediaResolution: PartMediaResolution? = null,
+
+  /**
+   * Video metadata. The metadata should only be specified while the video data is presented in
+   * inline_data or file_data.
+   */
+  val videoMetadata: VideoMetadata? = null,
+
+  /**
+   * Document metadata. The metadata should only be specified while the document data is presented
+   * in inline_data or file_data.
+   */
+  val documentMetadata: DocumentMetadata? = null,
+
+  /**
+   * Spreadsheet metadata. The metadata should only be specified while the spreadsheet data is
+   * presented in inline_data or file_data.
+   */
+  val spreadsheetMetadata: SpreadsheetMetadata? = null,
+
+  /**
+   * Audio metadata. The metadata should only be specified while the audio data is presented in
+   * inline_data or file_data.
+   */
+  val audioMetadata: AudioMetadata? = null,
 )
