@@ -20,15 +20,19 @@ package com.google.genai.kotlin.types
 
 import kotlinx.serialization.Serializable
 
-/** Metadata returned to client when grounding is enabled. */
+/**
+ * Metadata related to the retrieval grounding source. This is part of the `GroundingMetadata`
+ * returned when grounding is enabled.
+ */
 @Serializable
 data class RetrievalMetadata(
 
   /**
-   * Optional. Score indicating how likely information from google search could help answer the
-   * prompt. The score is in the range [0, 1], where 0 is the least likely and 1 is the most likely.
-   * This score is only populated when google search grounding and dynamic retrieval is enabled. It
-   * will be compared to the threshold to determine whether to trigger Google search.
+   * Optional. A score indicating how likely it is that a Google Search query could help answer the
+   * prompt. The score is in the range of `[0, 1]`. A score of 1 means the model is confident that a
+   * search will be helpful, and 0 means it is not. This score is populated only when Google Search
+   * grounding and dynamic retrieval are enabled. The score is used to determine whether to trigger
+   * a search.
    */
   val googleSearchDynamicRetrievalScore: Double? = null
 )

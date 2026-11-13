@@ -20,7 +20,10 @@ package com.google.genai.kotlin.types
 
 import kotlinx.serialization.Serializable
 
-/** Composite reinforcement tuning reward config. */
+/**
+ * Composite reward function configuration for reinforcement tuning. This data type is not supported
+ * in Gemini API.
+ */
 @Serializable
 data class CompositeReinforcementTuningRewardConfig(
 
