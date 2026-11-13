@@ -599,6 +599,7 @@ $dokka.location:com.google.genai.kotlin.types/EmbedContentResponse/sdkHttpRespon
 $dokka.location:com.google.genai.kotlin.types/EmbedContentResponse/truncated/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-embed-content-response/truncated.html
 $dokka.location:com.google.genai.kotlin.types/EmbedContentResponse/usageMetadata/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-embed-content-response/usage-metadata.html
 $dokka.location:com.google.genai.kotlin.types/EmbeddingApiType.Companion///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-embedding-api-type/-companion/index.html
+$dokka.location:com.google.genai.kotlin.types/EmbeddingApiType.Companion/BATCH_EMBED_CONTENTS/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-embedding-api-type/-companion/-b-a-t-c-h_-e-m-b-e-d_-c-o-n-t-e-n-t-s.html
 $dokka.location:com.google.genai.kotlin.types/EmbeddingApiType.Companion/EMBED_CONTENT/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-embedding-api-type/-companion/-e-m-b-e-d_-c-o-n-t-e-n-t.html
 $dokka.location:com.google.genai.kotlin.types/EmbeddingApiType.Companion/PREDICT/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-embedding-api-type/-companion/-p-r-e-d-i-c-t.html
 $dokka.location:com.google.genai.kotlin.types/EmbeddingApiType///PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin.types/-embedding-api-type/index.html
