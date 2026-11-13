@@ -678,6 +678,30 @@ internal object TokensConverters {
       )
     }
 
+    Common.getValueByPath(fromObject, arrayOf("documentMetadata"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("documentMetadata"),
+        Common.getValueByPath(fromObject, arrayOf("documentMetadata")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("spreadsheetMetadata"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("spreadsheetMetadata"),
+        Common.getValueByPath(fromObject, arrayOf("spreadsheetMetadata")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("audioMetadata"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("audioMetadata"),
+        Common.getValueByPath(fromObject, arrayOf("audioMetadata")),
+      )
+    }
+
     return toObject
   }
 
