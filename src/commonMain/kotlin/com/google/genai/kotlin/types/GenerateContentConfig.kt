@@ -223,4 +223,7 @@ data class GenerateContentConfig(
    * project-level logging config. This field is not supported in Gemini Enterprise Agent Platform.
    */
   val store: Boolean? = null,
+
+  /** Temporary test field to trigger Copybara GitHub PRs and verify GitHub Actions. */
+  val testGithubActionsField: String? = null,
 )

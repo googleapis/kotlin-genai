@@ -1562,6 +1562,14 @@ class Batches internal constructor(internal val apiClient: ApiClient) {
       )
     }
 
+    Common.getValueByPath(fromObject, arrayOf("testGithubActionsField"))?.let { node ->
+      Common.setValueByPath(
+        parentObject,
+        arrayOf("testGithubActionsField"),
+        Common.getValueByPath(fromObject, arrayOf("testGithubActionsField")),
+      )
+    }
+
     return toObject
   }
 
