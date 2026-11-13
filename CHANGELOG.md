@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.2.0](https://github.com/googleapis/kotlin-genai/compare/v2.1.0...v2.2.0) (2026-11-13)
+
+
+### Features
+
+* Add `XHIGH` and `xhigh` to `ThinkingLevel` across GenAI SDKs and CLI. ([5255c33](https://github.com/googleapis/kotlin-genai/commit/5255c33e014c335a0555b38c0435a6d490e33152))
+* Add missing enum values to FinishReason and ReinforcementTuningThinkingLevel ([f7a1118](https://github.com/googleapis/kotlin-genai/commit/f7a11181277ae353dfee7a550cfb515e942c31b3))
+
 ## [2.1.0](https://github.com/googleapis/kotlin-genai/compare/v2.0.0...v2.1.0) (2026-11-09)
 
 
