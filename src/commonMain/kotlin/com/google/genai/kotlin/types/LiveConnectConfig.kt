@@ -144,4 +144,7 @@ data class LiveConnectConfig(
    * are used for billing and reporting.
    */
   val labels: Map<String, String>? = null,
+
+  /** Configures the exchange of history between the client and the server. */
+  val historyConfig: HistoryConfig? = null,
 )
