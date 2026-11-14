@@ -1386,6 +1386,14 @@ internal object LiveConverters {
       )
     }
 
+    Common.getValueByPath(fromObject, arrayOf("historyConfig"))?.let { node ->
+      Common.setValueByPath(
+        parentObject,
+        arrayOf("setup", "historyConfig"),
+        Common.getValueByPath(fromObject, arrayOf("historyConfig")),
+      )
+    }
+
     return toObject
   }
 
@@ -1589,6 +1597,14 @@ internal object LiveConverters {
         parentObject,
         arrayOf("setup", "labels"),
         Common.getValueByPath(fromObject, arrayOf("labels")),
+      )
+    }
+
+    Common.getValueByPath(fromObject, arrayOf("historyConfig"))?.let { node ->
+      Common.setValueByPath(
+        parentObject,
+        arrayOf("setup", "historyConfig"),
+        Common.getValueByPath(fromObject, arrayOf("historyConfig")),
       )
     }
 
