@@ -170,4 +170,7 @@ data class TuningJob(
 
   /** Output only. The Cloud Storage metrics URI associated with this TuningJob. */
   val gcsMetricsUri: String? = null,
+
+  /** Optional. Tuning Spec for Omni LoRA Tuning. */
+  val omniLoraTuningSpec: OmniLoraTuningSpec? = null,
 )

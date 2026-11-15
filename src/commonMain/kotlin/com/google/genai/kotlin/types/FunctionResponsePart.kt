@@ -38,9 +38,8 @@ data class FunctionResponsePart(
   val fileData: FunctionResponseFileData? = null,
 
   /**
-   * Optional. How the model processes this part's media for understanding. Only meaningful for
-   * video parts (`inline_data` or `file_data` with video mime). Non-video parts ignore this field.
-   * This field is not supported in Vertex AI.
+   * Optional. Processes this part's media for understanding. Only meaningful for video parts
+   * (`inline_data` or `file_data` with video mime). Non-video parts ignore this field.
    */
   val mediaProcessing: MediaProcessing? = null,
 

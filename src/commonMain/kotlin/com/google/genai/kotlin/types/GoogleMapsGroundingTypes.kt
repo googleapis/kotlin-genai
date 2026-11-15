@@ -35,6 +35,7 @@ data class GoogleMapsGroundingTypes(
 
   /**
    * Optional. Enables grounding with Google Maps Routing APIs (ComputeRoutes and SearchAlongRoute).
+   * Also enabled by default for Gemini 4 and later models when no `GroundingTypes` are specified.
    */
   val routing: GoogleMapsRouting? = null,
 )

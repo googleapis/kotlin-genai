@@ -39,7 +39,9 @@ data class GoogleMaps(
 
   /**
    * Optional. Specifies the types of Google Maps grounding to enable. Defaults to `places` when
-   * unset. This field is not supported in Gemini API.
+   * unset, and to `places` and `routing` for Gemini 4 and later models. When set, only the listed
+   * types are enabled; for example, setting only `places` disables routing. This field is not
+   * supported in Gemini API.
    */
   val groundingTypes: GoogleMapsGroundingTypes? = null,
 )
