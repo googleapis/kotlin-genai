@@ -116,4 +116,22 @@ data class Part(
    * valid when `Part.data` is set to `text`.
    */
   val speechMetadata: SpeechMetadata? = null,
+
+  /**
+   * Document metadata. The metadata should only be specified while the document data is presented
+   * in inline_data or file_data.
+   */
+  val documentMetadata: DocumentMetadata? = null,
+
+  /**
+   * Spreadsheet metadata. The metadata should only be specified while the spreadsheet data is
+   * presented in inline_data or file_data.
+   */
+  val spreadsheetMetadata: SpreadsheetMetadata? = null,
+
+  /**
+   * Audio metadata. The metadata should only be specified while the audio data is presented in
+   * inline_data or file_data.
+   */
+  val audioMetadata: AudioMetadata? = null,
 )
