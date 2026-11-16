@@ -37,7 +37,10 @@ class EmbedTest : SharedTestBase() {
       if (skipBackend(enterprise)) return@forEach
       val suffix = if (enterprise) "vertex" else "mldev"
       val testName = "shared.models.EmbedTest.testEmbed.$suffix"
-      val client = createClient(enterprise, testName)
+      // gemini-embedding-001 is not served on the Vertex global endpoint, so its Vertex case runs
+      // in us-central1.
+      val locationOverride = if (enterprise && location == "global") "us-central1" else null
+      val client = createClient(enterprise, testName, locationOverride)
 
       runLive {
         val response =
