@@ -33,6 +33,7 @@ import kotlin.test.assertEquals
 import kotlin.test.assertFailsWith
 import kotlin.test.assertFalse
 import kotlin.test.assertNull
+import kotlin.test.assertTrue
 import kotlinx.coroutines.flow.toList
 import kotlinx.coroutines.test.runTest
 import kotlinx.serialization.json.Json
@@ -282,5 +283,125 @@ class ModelsUnitTest {
     val (first, second) = sentBodies
     assertEquals(TOKEN, second["continuationToken"]?.jsonPrimitive?.content)
     assertEquals(first, JsonObject(second - "continuationToken"))
+  }
+
+  @Test
+  fun testEmbedContent_enterpriseRoutingAndPayloads() = runTest {
+    val sentPaths = mutableListOf<String>()
+    val pending =
+      ArrayDeque(
+        listOf(
+          """{"embedding":{"values":[0.1,0.2]},"usageMetadata":{"promptTokenCount":4,"trafficType":"PROVISIONED_THROUGHPUT"}}""",
+          """{"embeddings":[{"values":[0.1,0.2]},{"values":[0.3,0.4]}],"usageMetadata":{"promptTokenCount":8,"trafficType":"ON_DEMAND"}}""",
+          """{"predictions":[{"embeddings":{"values":[0.5,0.6],"statistics":{"token_count":3,"truncated":false}}}]}""",
+          """{"predictions":[{"embeddings":{"values":[0.7,0.8]}}]}""",
+          """{"embedding":{"values":[0.9,1.0]}}""",
+        )
+      )
+    val engine = MockEngine { request ->
+      sentPaths += request.url.encodedPath
+      sentBodies += Json.parseToJsonElement((request.body as TextContent).text).jsonObject
+      respond(
+        pending.removeFirst(),
+        headers = headersOf(HttpHeaders.ContentType, "application/json"),
+      )
+    }
+    Client(
+        apiKey = "test-vertex-api-key",
+        enterprise = true,
+        clientOptions = ClientOptions(customHttpClient = engine),
+        environment = mockk<Environment>().also { every { it.get(any()) } returns null },
+      )
+      .use { client ->
+        val config =
+          com.google.genai.kotlin.types.EmbedContentConfig(
+            outputDimensionality = 2,
+            taskType = "RETRIEVAL_DOCUMENT",
+            title = "doc",
+            autoTruncate = true,
+          )
+        val singleResp = client.models.embedContent("gemini-embedding-001", "hello", config)
+        val batchResp =
+          client.models.embedContent(
+            "gemini-embedding-001",
+            listOf(
+              Content(parts = listOf(Part(text = "one"))),
+              Content(parts = listOf(Part(text = "two"))),
+            ),
+            config,
+          )
+        val predictResp = client.models.embedContent("text-embedding-005", "legacy", config)
+        val projectPathPredictResp =
+          client.models.embedContent(
+            "projects/my-gemini-app/locations/us-central1/publishers/google/models/text-embedding-005",
+            "legacy",
+          )
+
+        assertTrue(
+          sentPaths[0].endsWith("/publishers/google/models/gemini-embedding-001:embedContent")
+        )
+        assertTrue("content" in sentBodies[0])
+        assertFalse("instances" in sentBodies[0])
+        assertFalse("requests" in sentBodies[0])
+        assertEquals(1, singleResp.embeddings?.size)
+        assertEquals("PROVISIONED_THROUGHPUT", singleResp.usageMetadata?.trafficType?.value)
+
+        assertTrue(
+          sentPaths[1].endsWith("/publishers/google/models/gemini-embedding-001:batchEmbedContents")
+        )
+        assertFalse("content" in sentBodies[1])
+        assertFalse("instances" in sentBodies[1])
+        val batchRequests = sentBodies[1]["requests"]!!.jsonArray
+        assertEquals(2, batchRequests.size)
+        assertEquals(
+          "RETRIEVAL_DOCUMENT",
+          batchRequests[1]
+            .jsonObject["embedContentConfig"]!!
+            .jsonObject["taskType"]!!
+            .jsonPrimitive
+            .content,
+        )
+        assertEquals(2, batchResp.embeddings?.size)
+        assertEquals("ON_DEMAND", batchResp.usageMetadata?.trafficType?.value)
+
+        assertTrue(sentPaths[2].endsWith("/publishers/google/models/text-embedding-005:predict"))
+        assertTrue("instances" in sentBodies[2])
+        assertEquals(1, predictResp.embeddings?.size)
+
+        assertTrue(
+          sentPaths[3].endsWith(
+            "/projects/my-gemini-app/locations/us-central1/publishers/google/models/text-embedding-005:predict"
+          )
+        )
+        assertEquals(1, projectPathPredictResp.embeddings?.size)
+
+        val maasSingleResp =
+          client.models.embedContent(
+            "publishers/intfloat/models/multilingual-e5-large-instruct-maas",
+            "hello",
+          )
+        assertTrue(
+          sentPaths[4].endsWith(
+            "/publishers/intfloat/models/multilingual-e5-large-instruct-maas:embedContent"
+          )
+        )
+        assertEquals(1, maasSingleResp.embeddings?.size)
+
+        val maasError =
+          assertFailsWith<IllegalArgumentException> {
+            client.models.embedContent(
+              "publishers/intfloat/models/multilingual-e5-large-instruct-maas",
+              listOf(
+                Content(parts = listOf(Part(text = "one"))),
+                Content(parts = listOf(Part(text = "two"))),
+              ),
+            )
+          }
+        assertEquals(
+          "The embedContent API for this model only supports one content at a time.",
+          maasError.message,
+        )
+        assertEquals(5, sentPaths.size)
+      }
   }
 }

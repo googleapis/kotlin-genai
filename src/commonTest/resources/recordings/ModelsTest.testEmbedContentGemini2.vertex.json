@@ -42,7 +42,7 @@
           "Content-Encoding": "gzip",
           "Content-Length": "253",
           "Content-Type": "application/json; charset=UTF-8",
-          "Date": "Thu, 05 Nov 2026 22:51:43 GMT",
+          "Date": "Mon, 09 Nov 2026 22:50:20 GMT",
           "Server": "scaffolding on HTTPServer2",
           "Vary": "Origin, X-Origin, Referer",
           "X-Content-Type-Options": "nosniff",
@@ -74,6 +74,116 @@
                 }
               ],
               "totalTokenCount": 7,
+              "trafficType": "ON_DEMAND"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "url": "/v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-embedding-2:batchEmbedContents",
+        "request": "POST /v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-embedding-2:batchEmbedContents HTTP/1.1",
+        "headers": {
+          "Accept": "*/*",
+          "Accept-Charset": "UTF-8",
+          "Accept-Encoding": "gzip",
+          "Connection": "Keep-Alive",
+          "Content-Length": "194",
+          "Content-Type": "application/json",
+          "Test-Name": "ModelsTest.testEmbedContentGemini2.vertex"
+        },
+        "bodySegments": [
+          {
+            "requests": [
+              {
+                "content": {
+                  "parts": [
+                    {
+                      "text": "Hello"
+                    }
+                  ]
+                },
+                "embedContentConfig": {
+                  "outputDimensionality": 10
+                }
+              },
+              {
+                "content": {
+                  "parts": [
+                    {
+                      "text": "World"
+                    }
+                  ]
+                },
+                "embedContentConfig": {
+                  "outputDimensionality": 10
+                }
+              }
+            ]
+          }
+        ],
+        "previousRequest": "3e7d4ff39363a36f3aeaaff07e8e9c24141d2532ea1500f296758095b7786060",
+        "serverAddress": "aiplatform.googleapis.com",
+        "port": 443,
+        "protocol": "https"
+      },
+      "shaSum": "17fe78d150708900c042870f1aede61afeb2820b23a20a076e31fd8ad0648f5a",
+      "response": {
+        "statusCode": 200,
+        "headers": {
+          "Content-Encoding": "gzip",
+          "Content-Length": "331",
+          "Content-Type": "application/json; charset=UTF-8",
+          "Date": "Mon, 09 Nov 2026 22:50:20 GMT",
+          "Server": "scaffolding on HTTPServer2",
+          "Vary": "Origin, X-Origin, Referer",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "SAMEORIGIN",
+          "X-Xss-Protection": "0"
+        },
+        "bodySegments": [
+          {
+            "embeddings": [
+              {
+                "values": [
+                  -0.21422769,
+                  0.1714024,
+                  0.2270388,
+                  -0.039057672,
+                  -0.10275094,
+                  0.044576347,
+                  0.0014032746,
+                  0.5292789,
+                  -0.13036042,
+                  -0.74965256
+                ]
+              },
+              {
+                "values": [
+                  0.0021464385,
+                  0.22094636,
+                  0.16158475,
+                  -0.3260874,
+                  0.073898345,
+                  -0.080116816,
+                  -0.2303728,
+                  -0.03199362,
+                  -0.10714939,
+                  -0.8609759
+                ]
+              }
+            ],
+            "usageMetadata": {
+              "promptTokenCount": 2,
+              "promptTokensDetails": [
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 2
+                }
+              ],
+              "totalTokenCount": 2,
               "trafficType": "ON_DEMAND"
             }
           }
