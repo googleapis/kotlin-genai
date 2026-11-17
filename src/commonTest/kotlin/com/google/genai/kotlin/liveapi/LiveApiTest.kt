@@ -50,6 +50,10 @@ private data class LiveBackend(
    * selects the test-server proxy port, so it has to match the model's actual host.
    */
   val locationOverride: String? = null,
+  /**
+   * API version override for backends whose Live WebSocket is not served on the default version.
+   */
+  val apiVersionOverride: String? = null,
 )
 
 /**
@@ -64,7 +68,13 @@ private data class LiveBackend(
  */
 private val LIVE_BACKENDS =
   listOf(
-    LiveBackend("mldev", "gemini-3.1-flash-live-preview", enterprise = false),
+    // The Gemini API only serves the Live WebSocket on v1beta.
+    LiveBackend(
+      "mldev",
+      "gemini-3.1-flash-live-preview",
+      enterprise = false,
+      apiVersionOverride = "v1beta",
+    ),
     LiveBackend(
       "vertex",
       "gemini-live-2.5-flash-native-audio",
@@ -124,6 +134,7 @@ class LiveApiTest : BaseTestServer() {
           enterprise = backend.enterprise,
           testName = "LiveApiTest.testTextInput.${backend.suffix}",
           locationOverride = backend.locationOverride,
+          apiVersionOverride = backend.apiVersionOverride,
         )
       val session = client.live.connect(backend.model, liveConfig())
 
@@ -158,6 +169,7 @@ class LiveApiTest : BaseTestServer() {
           enterprise = backend.enterprise,
           testName = "LiveApiTest.testMultiTurn.${backend.suffix}",
           locationOverride = backend.locationOverride,
+          apiVersionOverride = backend.apiVersionOverride,
         )
       val session = client.live.connect(backend.model, liveConfig())
 
@@ -223,6 +235,7 @@ class LiveApiTest : BaseTestServer() {
           enterprise = backend.enterprise,
           testName = "LiveApiTest.testFunctionCalling.${backend.suffix}",
           locationOverride = backend.locationOverride,
+          apiVersionOverride = backend.apiVersionOverride,
         )
       val session = client.live.connect(backend.model, liveConfig(tools = listOf(tool)))
 

@@ -23,11 +23,10 @@ import com.google.genai.kotlin.types.Content
 import com.google.genai.kotlin.types.CreateCachedContentConfig
 import com.google.genai.kotlin.types.FileData
 import com.google.genai.kotlin.types.Part
+import com.google.genai.kotlin.types.UpdateCachedContentConfig
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertNotNull
-import kotlin.test.assertTrue
-import com.google.genai.kotlin.types.UpdateCachedContentConfig
 import kotlin.time.Duration.Companion.seconds
 import kotlinx.coroutines.test.TestScope
 import kotlinx.coroutines.test.runTest
@@ -62,7 +61,10 @@ class CreateUpdateGetTest : SharedTestBase() {
           listOf(
             Part(
               inlineData =
-                Blob(mimeType = "text/plain", data = "Hello Gemini ".repeat(100_000).encodeToByteArray())
+                Blob(
+                  mimeType = "text/plain",
+                  data = "Hello Gemini ".repeat(100_000).encodeToByteArray(),
+                )
             )
           ),
       )
@@ -81,7 +83,9 @@ class CreateUpdateGetTest : SharedTestBase() {
       if (skipBackend(enterprise)) return@forEach
       val suffix = if (enterprise) "vertex" else "mldev"
       val testName = "shared.caches.CreateUpdateGetTest.testCreateUpdateGet.$suffix"
-      val client = createClient(enterprise, testName)
+      // The Gemini API only serves cachedContents on v1beta.
+      val client =
+        createClient(enterprise, testName, apiVersionOverride = if (!enterprise) "v1beta" else null)
 
       runLive {
         val cache = client.caches.create(model = SHARED_MODEL, config = cacheConfig(enterprise))

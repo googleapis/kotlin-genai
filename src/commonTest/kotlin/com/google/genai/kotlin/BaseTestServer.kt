@@ -93,6 +93,7 @@ open class BaseTestServer {
     enterprise: Boolean,
     testName: String,
     locationOverride: String? = null,
+    apiVersionOverride: String? = null,
   ): Client {
     val effectiveLocation = locationOverride ?: location
     val port =
@@ -111,7 +112,8 @@ open class BaseTestServer {
       HttpOptions(
         baseUrl = "http://127.0.0.1:$port",
         // Checked-in Gemini API recordings were recorded against v1beta.
-        apiVersion = if (!enterprise && testMode == "replay") "v1beta" else null,
+        apiVersion =
+          apiVersionOverride ?: if (!enterprise && testMode == "replay") "v1beta" else null,
         headers = mapOf("Test-Name" to testName),
         // Replay never returns a retryable status, so only pay for this on live runs.
         retryOptions = if (testMode == "replay") null else testRetryOptions,

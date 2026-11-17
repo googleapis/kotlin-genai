@@ -16,15 +16,14 @@
 
 package com.google.genai.kotlin.shared.caches
 
-import com.google.genai.kotlin.shared.SHARED_MODEL
 import com.google.genai.kotlin.shared.SharedTestBase
 import com.google.genai.kotlin.types.ListCachedContentsConfig
 import kotlin.test.Test
 import kotlin.test.assertNotNull
 import kotlin.test.assertTrue
+import kotlin.time.Duration.Companion.seconds
 import kotlinx.coroutines.flow.take
 import kotlinx.coroutines.flow.toList
-import kotlin.time.Duration.Companion.seconds
 import kotlinx.coroutines.test.TestScope
 import kotlinx.coroutines.test.runTest
 
@@ -39,7 +38,9 @@ class ListTest : SharedTestBase() {
       if (skipBackend(enterprise)) return@forEach
       val suffix = if (enterprise) "vertex" else "mldev"
       val testName = "shared.caches.ListTest.testListCachedContents.$suffix"
-      val client = createClient(enterprise, testName)
+      // The Gemini API only serves cachedContents on v1beta.
+      val client =
+        createClient(enterprise, testName, apiVersionOverride = if (!enterprise) "v1beta" else null)
 
       runLive {
         val pager = client.caches.list(ListCachedContentsConfig(pageSize = 2))

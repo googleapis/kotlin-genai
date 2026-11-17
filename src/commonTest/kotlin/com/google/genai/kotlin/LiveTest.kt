@@ -76,6 +76,7 @@ class LiveTest : BaseTestServer() {
           enterprise = enterprise,
           testName = testName,
           locationOverride = locationOverride,
+          apiVersionOverride = if (!enterprise) "v1beta" else null,
         )
       val session = client.live.connect(modelName)
 
@@ -117,6 +118,7 @@ class LiveTest : BaseTestServer() {
           enterprise = enterprise,
           testName = testName,
           locationOverride = locationOverride,
+          apiVersionOverride = if (!enterprise) "v1beta" else null,
         )
       val session = client.live.connect(modelName)
 
@@ -168,6 +170,7 @@ class LiveTest : BaseTestServer() {
           enterprise = enterprise,
           testName = testName,
           locationOverride = locationOverride,
+          apiVersionOverride = if (!enterprise) "v1beta" else null,
         )
       val session = client.live.connect(modelName)
 
@@ -208,6 +211,7 @@ class LiveTest : BaseTestServer() {
           enterprise = enterprise,
           testName = testName,
           locationOverride = locationOverride,
+          apiVersionOverride = if (!enterprise) "v1beta" else null,
         )
       val session = client.live.connect(modelName)
 
@@ -257,7 +261,12 @@ class LiveTest : BaseTestServer() {
   // server sends.
   @Test
   fun testReceiveFirstDoesNotHang() = runTest {
-    val client = createClient(enterprise = false, testName = "LiveTest.testTextInputSimple.mldev")
+    val client =
+      createClient(
+        enterprise = false,
+        testName = "LiveTest.testTextInputSimple.mldev",
+        apiVersionOverride = "v1beta",
+      )
     val session = client.live.connect(GEMINI_MODEL_NAME)
     session.sendRealtimeInput(text = "Hello what should we talk about?")
 
@@ -268,7 +277,12 @@ class LiveTest : BaseTestServer() {
 
   @Test
   fun testReceivePropagatesCollectorException() = runTest {
-    val client = createClient(enterprise = false, testName = "LiveTest.testTextInputSimple.mldev")
+    val client =
+      createClient(
+        enterprise = false,
+        testName = "LiveTest.testTextInputSimple.mldev",
+        apiVersionOverride = "v1beta",
+      )
     val session = client.live.connect(GEMINI_MODEL_NAME)
     session.sendRealtimeInput(text = "Hello what should we talk about?")
 
@@ -294,6 +308,7 @@ class LiveTest : BaseTestServer() {
           enterprise = enterprise,
           testName = testName,
           locationOverride = locationOverride,
+          apiVersionOverride = if (!enterprise) "v1beta" else null,
         )
 
       val getWeatherDeclaration =
@@ -371,6 +386,7 @@ class LiveTest : BaseTestServer() {
           enterprise = enterprise,
           testName = testName,
           locationOverride = locationOverride,
+          apiVersionOverride = if (!enterprise) "v1beta" else null,
         )
 
       val session = client.live.connect(modelName)
@@ -402,6 +418,7 @@ class LiveTest : BaseTestServer() {
           enterprise = enterprise,
           testName = testName,
           locationOverride = locationOverride,
+          apiVersionOverride = if (!enterprise) "v1beta" else null,
         )
 
       val config =
@@ -458,6 +475,7 @@ class LiveTest : BaseTestServer() {
           enterprise = enterprise,
           testName = testName,
           locationOverride = locationOverride,
+          apiVersionOverride = if (!enterprise) "v1beta" else null,
         )
 
       val config =
@@ -514,6 +532,7 @@ class LiveTest : BaseTestServer() {
           enterprise = enterprise,
           testName = testName,
           locationOverride = locationOverride,
+          apiVersionOverride = if (!enterprise) "v1beta" else null,
         )
 
       val session = client.live.connect(modelName)

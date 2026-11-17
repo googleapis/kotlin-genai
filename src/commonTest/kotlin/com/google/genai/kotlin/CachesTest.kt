@@ -49,7 +49,8 @@ class CachesTest : BaseTestServer() {
       val suffix = if (enterprise) "vertex" else "mldev"
       val testName = "CachesTest.testCreateCachedContentWithInlineBytes.$suffix"
 
-      val client = createClient(enterprise, testName)
+      val client =
+        createClient(enterprise, testName, apiVersionOverride = if (!enterprise) "v1beta" else null)
 
       val bytesData =
         Part(
@@ -88,7 +89,8 @@ class CachesTest : BaseTestServer() {
       val suffix = if (enterprise) "vertex" else "mldev"
       val testName = "CachesTest.testCreateCachedContentWithGcsFile.$suffix"
 
-      val client = createClient(enterprise, testName)
+      val client =
+        createClient(enterprise, testName, apiVersionOverride = if (!enterprise) "v1beta" else null)
 
       val gcsFileData =
         Part(
@@ -135,7 +137,8 @@ class CachesTest : BaseTestServer() {
       val suffix = if (enterprise) "vertex" else "mldev"
       val testName = "CachesTest.testCreateCachedContentWithFileAPI.$suffix"
 
-      val client = createClient(enterprise, testName)
+      val client =
+        createClient(enterprise, testName, apiVersionOverride = if (!enterprise) "v1beta" else null)
 
       val fileData =
         Part(
@@ -182,7 +185,8 @@ class CachesTest : BaseTestServer() {
       val suffix = if (enterprise) "vertex" else "mldev"
       val testName = "CachesTest.testGetCachedContent.$suffix"
 
-      val client = createClient(enterprise, testName)
+      val client =
+        createClient(enterprise, testName, apiVersionOverride = if (!enterprise) "v1beta" else null)
 
       val name = if (enterprise) VERTEX_CACHED_CONTENT_NAME else MLDEV_CACHED_CONTENT_NAME
 
@@ -199,7 +203,8 @@ class CachesTest : BaseTestServer() {
       val suffix = if (enterprise) "vertex" else "mldev"
       val testName = "CachesTest.testUpdateCachedContent.$suffix"
 
-      val client = createClient(enterprise, testName)
+      val client =
+        createClient(enterprise, testName, apiVersionOverride = if (!enterprise) "v1beta" else null)
 
       val name = if (enterprise) VERTEX_CACHED_CONTENT_NAME else MLDEV_CACHED_CONTENT_NAME
 
@@ -217,7 +222,8 @@ class CachesTest : BaseTestServer() {
       val suffix = if (enterprise) "vertex" else "mldev"
       val testName = "CachesTest.testDeleteCachedContent.$suffix"
 
-      val client = createClient(enterprise, testName)
+      val client =
+        createClient(enterprise, testName, apiVersionOverride = if (!enterprise) "v1beta" else null)
 
       val name = if (enterprise) VERTEX_CACHED_CONTENT_NAME else MLDEV_CACHED_CONTENT_NAME
 
@@ -231,7 +237,8 @@ class CachesTest : BaseTestServer() {
       val suffix = if (enterprise) "vertex" else "mldev"
       val testName = "CachesTest.testListCachedContents.$suffix"
 
-      val client = createClient(enterprise, testName)
+      val client =
+        createClient(enterprise, testName, apiVersionOverride = if (!enterprise) "v1beta" else null)
 
       val allCaches = mutableListOf<CachedContent>()
       client.caches.list(ListCachedContentsConfig(pageSize = 1)).collect { allCaches.add(it) }

@@ -61,7 +61,10 @@ class CreateGetDeleteTest : SharedTestBase() {
           listOf(
             Part(
               inlineData =
-                Blob(mimeType = "text/plain", data = "Hello Gemini ".repeat(100_000).encodeToByteArray())
+                Blob(
+                  mimeType = "text/plain",
+                  data = "Hello Gemini ".repeat(100_000).encodeToByteArray(),
+                )
             )
           ),
       )
@@ -80,7 +83,9 @@ class CreateGetDeleteTest : SharedTestBase() {
       if (skipBackend(enterprise)) return@forEach
       val suffix = if (enterprise) "vertex" else "mldev"
       val testName = "shared.caches.CreateGetDeleteTest.testCreateGetDelete.$suffix"
-      val client = createClient(enterprise, testName)
+      // The Gemini API only serves cachedContents on v1beta.
+      val client =
+        createClient(enterprise, testName, apiVersionOverride = if (!enterprise) "v1beta" else null)
 
       runLive {
         val cache = client.caches.create(model = SHARED_MODEL, config = cacheConfig(enterprise))
