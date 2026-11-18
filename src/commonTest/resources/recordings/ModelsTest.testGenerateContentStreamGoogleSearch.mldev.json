@@ -4,8 +4,8 @@
     {
       "request": {
         "method": "POST",
-        "url": "/v1beta/models/gemini-flash-latest:streamGenerateContent?alt=sse",
-        "request": "POST /v1beta/models/gemini-flash-latest:streamGenerateContent?alt=sse HTTP/1.1",
+        "url": "/v1beta/models/gemini-4-hydrogen:streamGenerateContent?alt=sse",
+        "request": "POST /v1beta/models/gemini-4-hydrogen:streamGenerateContent?alt=sse HTTP/1.1",
         "headers": {
           "Accept": "*/*",
           "Accept-Charset": "UTF-8",
@@ -40,15 +40,15 @@
         "port": 443,
         "protocol": "https"
       },
-      "shaSum": "c51251c8d716daaff559a0bb27c487eaf54d5dfe0aeb4fadd5048e5b50f686c1",
+      "shaSum": "0a216591d6039eef40027f9f0758eb4c8c8f3424ec640890982161190af65da1",
       "response": {
         "statusCode": 200,
         "headers": {
           "Content-Disposition": "attachment",
           "Content-Type": "text/event-stream",
-          "Date": "Thu, 30 Apr 2026 19:17:49 GMT",
+          "Date": "Tue, 17 Nov 2026 18:21:58 GMT",
           "Server": "scaffolding on HTTPServer2",
-          "Server-Timing": "gfet4t7; dur=1166",
+          "Server-Timing": "gfet4t7; dur=13120",
           "Vary": "Origin, X-Origin, Referer",
           "X-Content-Type-Options": "nosniff",
           "X-Frame-Options": "SAMEORIGIN",
@@ -61,7 +61,7 @@
                 "content": {
                   "parts": [
                     {
-                      "text": ""
+                      "text": "In **Melbourne, Australia**, it is currently early Wednesday morning (November 18, 202"
                     }
                   ],
                   "role": "model"
@@ -69,20 +69,29 @@
                 "index": 0
               }
             ],
-            "modelVersion": "gemini-3-flash-preview",
-            "responseId": "3arzaaeEK8ed-8YP3rXQgA0",
-            "turnToken": "v1_ChczYXJ6YWFlRUs4ZWQtOFlQM3JYUWdBMBIXM2FyemFhZUVLOGVkLThZUDNyWFFnQTA",
+            "modelVersion": "gemini-4-hydrogen",
+            "responseId": "OZv8ao2EJ--m9MoP1KzQiAc",
+            "turnToken": "v1_ChdPWnY4YW8yRUotLW05TW9QMUt6UWlBYxIXT1p2OGFvMkVKLS1tOU1vUDFLelFpQWM",
             "usageMetadata": {
-              "candidatesTokenCount": 16,
-              "promptTokenCount": 10,
+              "cachedContentTokenCount": 8297,
+              "candidatesTokenCount": 22,
+              "candidatesTokensDetails": [
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 22
+                }
+              ],
+              "promptTokenCount": 17425,
               "promptTokensDetails": [
                 {
                   "modality": "TEXT",
-                  "tokenCount": 10
+                  "tokenCount": 17425
                 }
               ],
-              "thoughtsTokenCount": 34,
-              "totalTokenCount": 60
+              "rawPromptTokenCount": 17659,
+              "serviceTier": "standard",
+              "thoughtsTokenCount": 724,
+              "totalTokenCount": 18171
             }
           },
           {
@@ -91,7 +100,7 @@
                 "content": {
                   "parts": [
                     {
-                      "text": "As of 5:30 AM on Thursday, April 30"
+                      "text": "6) and looking like a mild, pleasant spring day ahead"
                     }
                   ],
                   "role": "model"
@@ -99,27 +108,29 @@
                 "index": 0
               }
             ],
-            "modelVersion": "gemini-3-flash-preview",
-            "responseId": "3arzaaeEK8ed-8YP3rXQgA0",
-            "turnToken": "v1_ChczYXJ6YWFlRUs4ZWQtOFlQM3JYUWdBMBIXM2FyemFhZUVLOGVkLThZUDNyWFFnQTA",
+            "modelVersion": "gemini-4-hydrogen",
+            "responseId": "OZv8ao2EJ--m9MoP1KzQiAc",
+            "turnToken": "v1_ChdPWnY4YW8yRUotLW05TW9QMUt6UWlBYxIXT1p2OGFvMkVKLS1tOU1vUDFLelFpQWM",
             "usageMetadata": {
-              "billedToolCalls": [
+              "cachedContentTokenCount": 8297,
+              "candidatesTokenCount": 47,
+              "candidatesTokensDetails": [
                 {
-                  "searchQueryCount": 1,
-                  "successfulToolCallCount": 1,
-                  "tool": "GOOGLE_SEARCH_RETRIEVAL"
+                  "modality": "TEXT",
+                  "tokenCount": 47
                 }
               ],
-              "candidatesTokenCount": 15,
-              "promptTokenCount": 10,
+              "promptTokenCount": 17425,
               "promptTokensDetails": [
                 {
                   "modality": "TEXT",
-                  "tokenCount": 10
+                  "tokenCount": 17425
                 }
               ],
-              "thoughtsTokenCount": 231,
-              "totalTokenCount": 256
+              "rawPromptTokenCount": 17659,
+              "serviceTier": "standard",
+              "thoughtsTokenCount": 724,
+              "totalTokenCount": 18196
             }
           },
           {
@@ -128,7 +139,7 @@
                 "content": {
                   "parts": [
                     {
-                      "text": ", it is early morning in Melbourne, and the weather is currently mild and clear.\n\n### Current Conditions\n*   **Temperature:** "
+                      "text": ":\n\n* **Early Morning Conditions:** Partly cloudy and cool, with temperatures sitting around **12°C (5"
                     }
                   ],
                   "role": "model"
@@ -136,27 +147,29 @@
                 "index": 0
               }
             ],
-            "modelVersion": "gemini-3-flash-preview",
-            "responseId": "3arzaaeEK8ed-8YP3rXQgA0",
-            "turnToken": "v1_ChczYXJ6YWFlRUs4ZWQtOFlQM3JYUWdBMBIXM2FyemFhZUVLOGVkLThZUDNyWFFnQTA",
+            "modelVersion": "gemini-4-hydrogen",
+            "responseId": "OZv8ao2EJ--m9MoP1KzQiAc",
+            "turnToken": "v1_ChdPWnY4YW8yRUotLW05TW9QMUt6UWlBYxIXT1p2OGFvMkVKLS1tOU1vUDFLelFpQWM",
             "usageMetadata": {
-              "billedToolCalls": [
+              "cachedContentTokenCount": 8297,
+              "candidatesTokenCount": 47,
+              "candidatesTokensDetails": [
                 {
-                  "searchQueryCount": 1,
-                  "successfulToolCallCount": 1,
-                  "tool": "GOOGLE_SEARCH_RETRIEVAL"
+                  "modality": "TEXT",
+                  "tokenCount": 47
                 }
               ],
-              "candidatesTokenCount": 43,
-              "promptTokenCount": 10,
+              "promptTokenCount": 17425,
               "promptTokensDetails": [
                 {
                   "modality": "TEXT",
-                  "tokenCount": 10
+                  "tokenCount": 17425
                 }
               ],
-              "thoughtsTokenCount": 231,
-              "totalTokenCount": 284
+              "rawPromptTokenCount": 17659,
+              "serviceTier": "standard",
+              "thoughtsTokenCount": 724,
+              "totalTokenCount": 18196
             }
           },
           {
@@ -165,7 +178,7 @@
                 "content": {
                   "parts": [
                     {
-                      "text": "14°C to 17°C (approx. 57°F to 63°F)"
+                      "text": "4°F)** under light southeasterly winds and high morning humidity (around 77–84%)"
                     }
                   ],
                   "role": "model"
@@ -173,27 +186,29 @@
                 "index": 0
               }
             ],
-            "modelVersion": "gemini-3-flash-preview",
-            "responseId": "3arzaaeEK8ed-8YP3rXQgA0",
-            "turnToken": "v1_ChczYXJ6YWFlRUs4ZWQtOFlQM3JYUWdBMBIXM2FyemFhZUVLOGVkLThZUDNyWFFnQTA",
+            "modelVersion": "gemini-4-hydrogen",
+            "responseId": "OZv8ao2EJ--m9MoP1KzQiAc",
+            "turnToken": "v1_ChdPWnY4YW8yRUotLW05TW9QMUt6UWlBYxIXT1p2OGFvMkVKLS1tOU1vUDFLelFpQWM",
             "usageMetadata": {
-              "billedToolCalls": [
+              "cachedContentTokenCount": 8297,
+              "candidatesTokenCount": 78,
+              "candidatesTokensDetails": [
                 {
-                  "searchQueryCount": 1,
-                  "successfulToolCallCount": 1,
-                  "tool": "GOOGLE_SEARCH_RETRIEVAL"
+                  "modality": "TEXT",
+                  "tokenCount": 78
                 }
               ],
-              "candidatesTokenCount": 68,
-              "promptTokenCount": 10,
+              "promptTokenCount": 17425,
               "promptTokensDetails": [
                 {
                   "modality": "TEXT",
-                  "tokenCount": 10
+                  "tokenCount": 17425
                 }
               ],
-              "thoughtsTokenCount": 231,
-              "totalTokenCount": 309
+              "rawPromptTokenCount": 17659,
+              "serviceTier": "standard",
+              "thoughtsTokenCount": 724,
+              "totalTokenCount": 18227
             }
           },
           {
@@ -202,7 +217,7 @@
                 "content": {
                   "parts": [
                     {
-                      "text": "\n*   **Conditions:** Clear to partly cloudy\n*   **Humidity:** 70–73%\n*"
+                      "text": ". There is a chance of early morning fog in the northeast suburbs"
                     }
                   ],
                   "role": "model"
@@ -210,27 +225,29 @@
                 "index": 0
               }
             ],
-            "modelVersion": "gemini-3-flash-preview",
-            "responseId": "3arzaaeEK8ed-8YP3rXQgA0",
-            "turnToken": "v1_ChczYXJ6YWFlRUs4ZWQtOFlQM3JYUWdBMBIXM2FyemFhZUVLOGVkLThZUDNyWFFnQTA",
+            "modelVersion": "gemini-4-hydrogen",
+            "responseId": "OZv8ao2EJ--m9MoP1KzQiAc",
+            "turnToken": "v1_ChdPWnY4YW8yRUotLW05TW9QMUt6UWlBYxIXT1p2OGFvMkVKLS1tOU1vUDFLelFpQWM",
             "usageMetadata": {
-              "billedToolCalls": [
+              "cachedContentTokenCount": 8297,
+              "candidatesTokenCount": 78,
+              "candidatesTokensDetails": [
                 {
-                  "searchQueryCount": 1,
-                  "successfulToolCallCount": 1,
-                  "tool": "GOOGLE_SEARCH_RETRIEVAL"
+                  "modality": "TEXT",
+                  "tokenCount": 78
                 }
               ],
-              "candidatesTokenCount": 93,
-              "promptTokenCount": 10,
+              "promptTokenCount": 17425,
               "promptTokensDetails": [
                 {
                   "modality": "TEXT",
-                  "tokenCount": 10
+                  "tokenCount": 17425
                 }
               ],
-              "thoughtsTokenCount": 231,
-              "totalTokenCount": 334
+              "rawPromptTokenCount": 17659,
+              "serviceTier": "standard",
+              "thoughtsTokenCount": 724,
+              "totalTokenCount": 18227
             }
           },
           {
@@ -239,7 +256,7 @@
                 "content": {
                   "parts": [
                     {
-                      "text": "   **Wind:** Light northerly winds at around 14 km/h\n\n### Forecast for Today (Thursday, April 30"
+                      "text": ".\n* **Today's Forecast (Wednesday, Nov 18):**"
                     }
                   ],
                   "role": "model"
@@ -247,27 +264,29 @@
                 "index": 0
               }
             ],
-            "modelVersion": "gemini-3-flash-preview",
-            "responseId": "3arzaaeEK8ed-8YP3rXQgA0",
-            "turnToken": "v1_ChczYXJ6YWFlRUs4ZWQtOFlQM3JYUWdBMBIXM2FyemFhZUVLOGVkLThZUDNyWFFnQTA",
+            "modelVersion": "gemini-4-hydrogen",
+            "responseId": "OZv8ao2EJ--m9MoP1KzQiAc",
+            "turnToken": "v1_ChdPWnY4YW8yRUotLW05TW9QMUt6UWlBYxIXT1p2OGFvMkVKLS1tOU1vUDFLelFpQWM",
             "usageMetadata": {
-              "billedToolCalls": [
+              "cachedContentTokenCount": 8297,
+              "candidatesTokenCount": 78,
+              "candidatesTokensDetails": [
                 {
-                  "searchQueryCount": 1,
-                  "successfulToolCallCount": 1,
-                  "tool": "GOOGLE_SEARCH_RETRIEVAL"
+                  "modality": "TEXT",
+                  "tokenCount": 78
                 }
               ],
-              "candidatesTokenCount": 121,
-              "promptTokenCount": 10,
+              "promptTokenCount": 17425,
               "promptTokensDetails": [
                 {
                   "modality": "TEXT",
-                  "tokenCount": 10
+                  "tokenCount": 17425
                 }
               ],
-              "thoughtsTokenCount": 231,
-              "totalTokenCount": 362
+              "rawPromptTokenCount": 17659,
+              "serviceTier": "standard",
+              "thoughtsTokenCount": 724,
+              "totalTokenCount": 18227
             }
           },
           {
@@ -276,7 +295,7 @@
                 "content": {
                   "parts": [
                     {
-                      "text": ")\nIt is expected to be a warm and mostly cloudy day.\n*   **High:** 25°C ("
+                      "text": "\n  * **Sky:** Partly cloudy.\n  *"
                     }
                   ],
                   "role": "model"
@@ -284,27 +303,29 @@
                 "index": 0
               }
             ],
-            "modelVersion": "gemini-3-flash-preview",
-            "responseId": "3arzaaeEK8ed-8YP3rXQgA0",
-            "turnToken": "v1_ChczYXJ6YWFlRUs4ZWQtOFlQM3JYUWdBMBIXM2FyemFhZUVLOGVkLThZUDNyWFFnQTA",
+            "modelVersion": "gemini-4-hydrogen",
+            "responseId": "OZv8ao2EJ--m9MoP1KzQiAc",
+            "turnToken": "v1_ChdPWnY4YW8yRUotLW05TW9QMUt6UWlBYxIXT1p2OGFvMkVKLS1tOU1vUDFLelFpQWM",
             "usageMetadata": {
-              "billedToolCalls": [
+              "cachedContentTokenCount": 8297,
+              "candidatesTokenCount": 78,
+              "candidatesTokensDetails": [
                 {
-                  "searchQueryCount": 1,
-                  "successfulToolCallCount": 1,
-                  "tool": "GOOGLE_SEARCH_RETRIEVAL"
+                  "modality": "TEXT",
+                  "tokenCount": 78
                 }
               ],
-              "candidatesTokenCount": 147,
-              "promptTokenCount": 10,
+              "promptTokenCount": 17425,
               "promptTokensDetails": [
                 {
                   "modality": "TEXT",
-                  "tokenCount": 10
+                  "tokenCount": 17425
                 }
               ],
-              "thoughtsTokenCount": 231,
-              "totalTokenCount": 388
+              "rawPromptTokenCount": 17659,
+              "serviceTier": "standard",
+              "thoughtsTokenCount": 724,
+              "totalTokenCount": 18227
             }
           },
           {
@@ -313,7 +334,7 @@
                 "content": {
                   "parts": [
                     {
-                      "text": "77°F)\n*   **Low:** 13°C (55°F)\n*"
+                      "text": " **High / Low:** **21°C (70°F)** / **11°C (52"
                     }
                   ],
                   "role": "model"
@@ -321,27 +342,29 @@
                 "index": 0
               }
             ],
-            "modelVersion": "gemini-3-flash-preview",
-            "responseId": "3arzaaeEK8ed-8YP3rXQgA0",
-            "turnToken": "v1_ChczYXJ6YWFlRUs4ZWQtOFlQM3JYUWdBMBIXM2FyemFhZUVLOGVkLThZUDNyWFFnQTA",
+            "modelVersion": "gemini-4-hydrogen",
+            "responseId": "OZv8ao2EJ--m9MoP1KzQiAc",
+            "turnToken": "v1_ChdPWnY4YW8yRUotLW05TW9QMUt6UWlBYxIXT1p2OGFvMkVKLS1tOU1vUDFLelFpQWM",
             "usageMetadata": {
-              "billedToolCalls": [
+              "cachedContentTokenCount": 8297,
+              "candidatesTokenCount": 103,
+              "candidatesTokensDetails": [
                 {
-                  "searchQueryCount": 1,
-                  "successfulToolCallCount": 1,
-                  "tool": "GOOGLE_SEARCH_RETRIEVAL"
+                  "modality": "TEXT",
+                  "tokenCount": 103
                 }
               ],
-              "candidatesTokenCount": 171,
-              "promptTokenCount": 10,
+              "promptTokenCount": 17425,
               "promptTokensDetails": [
                 {
                   "modality": "TEXT",
-                  "tokenCount": 10
+                  "tokenCount": 17425
                 }
               ],
-              "thoughtsTokenCount": 231,
-              "totalTokenCount": 412
+              "rawPromptTokenCount": 17659,
+              "serviceTier": "standard",
+              "thoughtsTokenCount": 724,
+              "totalTokenCount": 18252
             }
           },
           {
@@ -350,7 +373,7 @@
                 "content": {
                   "parts": [
                     {
-                      "text": "   **Rain:** Very low chance of rain (< 1mm).\n\n### Looking Ahead\n*   **Friday, May 1:** Mostly"
+                      "text": "°F)**.\n  * **Rain:** Dry"
                     }
                   ],
                   "role": "model"
@@ -358,27 +381,29 @@
                 "index": 0
               }
             ],
-            "modelVersion": "gemini-3-flash-preview",
-            "responseId": "3arzaaeEK8ed-8YP3rXQgA0",
-            "turnToken": "v1_ChczYXJ6YWFlRUs4ZWQtOFlQM3JYUWdBMBIXM2FyemFhZUVLOGVkLThZUDNyWFFnQTA",
+            "modelVersion": "gemini-4-hydrogen",
+            "responseId": "OZv8ao2EJ--m9MoP1KzQiAc",
+            "turnToken": "v1_ChdPWnY4YW8yRUotLW05TW9QMUt6UWlBYxIXT1p2OGFvMkVKLS1tOU1vUDFLelFpQWM",
             "usageMetadata": {
-              "billedToolCalls": [
+              "cachedContentTokenCount": 8297,
+              "candidatesTokenCount": 103,
+              "candidatesTokensDetails": [
                 {
-                  "searchQueryCount": 1,
-                  "successfulToolCallCount": 1,
-                  "tool": "GOOGLE_SEARCH_RETRIEVAL"
+                  "modality": "TEXT",
+                  "tokenCount": 103
                 }
               ],
-              "candidatesTokenCount": 200,
-              "promptTokenCount": 10,
+              "promptTokenCount": 17425,
               "promptTokensDetails": [
                 {
                   "modality": "TEXT",
-                  "tokenCount": 10
+                  "tokenCount": 17425
                 }
               ],
-              "thoughtsTokenCount": 231,
-              "totalTokenCount": 441
+              "rawPromptTokenCount": 17659,
+              "serviceTier": "standard",
+              "thoughtsTokenCount": 724,
+              "totalTokenCount": 18252
             }
           },
           {
@@ -387,7 +412,7 @@
                 "content": {
                   "parts": [
                     {
-                      "text": " sunny and slightly warmer with a high of **26°C** and a low of 15°C.\n"
+                      "text": ", with only a 5% chance of rain (0 mm expected)"
                     }
                   ],
                   "role": "model"
@@ -395,27 +420,29 @@
                 "index": 0
               }
             ],
-            "modelVersion": "gemini-3-flash-preview",
-            "responseId": "3arzaaeEK8ed-8YP3rXQgA0",
-            "turnToken": "v1_ChczYXJ6YWFlRUs4ZWQtOFlQM3JYUWdBMBIXM2FyemFhZUVLOGVkLThZUDNyWFFnQTA",
+            "modelVersion": "gemini-4-hydrogen",
+            "responseId": "OZv8ao2EJ--m9MoP1KzQiAc",
+            "turnToken": "v1_ChdPWnY4YW8yRUotLW05TW9QMUt6UWlBYxIXT1p2OGFvMkVKLS1tOU1vUDFLelFpQWM",
             "usageMetadata": {
-              "billedToolCalls": [
+              "cachedContentTokenCount": 8297,
+              "candidatesTokenCount": 128,
+              "candidatesTokensDetails": [
                 {
-                  "searchQueryCount": 1,
-                  "successfulToolCallCount": 1,
-                  "tool": "GOOGLE_SEARCH_RETRIEVAL"
+                  "modality": "TEXT",
+                  "tokenCount": 128
                 }
               ],
-              "candidatesTokenCount": 225,
-              "promptTokenCount": 10,
+              "promptTokenCount": 17425,
               "promptTokensDetails": [
                 {
                   "modality": "TEXT",
-                  "tokenCount": 10
+                  "tokenCount": 17425
                 }
               ],
-              "thoughtsTokenCount": 231,
-              "totalTokenCount": 466
+              "rawPromptTokenCount": 17659,
+              "serviceTier": "standard",
+              "thoughtsTokenCount": 724,
+              "totalTokenCount": 18277
             }
           },
           {
@@ -424,7 +451,7 @@
                 "content": {
                   "parts": [
                     {
-                      "text": "*   **Saturday, May 2:** Mostly cloudy with a high of **25°C**. Late showers are possible ("
+                      "text": ".\n  * **Wind:** Light morning winds turning southerly at **15–20 km/"
                     }
                   ],
                   "role": "model"
@@ -432,27 +459,29 @@
                 "index": 0
               }
             ],
-            "modelVersion": "gemini-3-flash-preview",
-            "responseId": "3arzaaeEK8ed-8YP3rXQgA0",
-            "turnToken": "v1_ChczYXJ6YWFlRUs4ZWQtOFlQM3JYUWdBMBIXM2FyemFhZUVLOGVkLThZUDNyWFFnQTA",
+            "modelVersion": "gemini-4-hydrogen",
+            "responseId": "OZv8ao2EJ--m9MoP1KzQiAc",
+            "turnToken": "v1_ChdPWnY4YW8yRUotLW05TW9QMUt6UWlBYxIXT1p2OGFvMkVKLS1tOU1vUDFLelFpQWM",
             "usageMetadata": {
-              "billedToolCalls": [
+              "cachedContentTokenCount": 8297,
+              "candidatesTokenCount": 128,
+              "candidatesTokensDetails": [
                 {
-                  "searchQueryCount": 1,
-                  "successfulToolCallCount": 1,
-                  "tool": "GOOGLE_SEARCH_RETRIEVAL"
+                  "modality": "TEXT",
+                  "tokenCount": 128
                 }
               ],
-              "candidatesTokenCount": 251,
-              "promptTokenCount": 10,
+              "promptTokenCount": 17425,
               "promptTokensDetails": [
                 {
                   "modality": "TEXT",
-                  "tokenCount": 10
+                  "tokenCount": 17425
                 }
               ],
-              "thoughtsTokenCount": 231,
-              "totalTokenCount": 492
+              "rawPromptTokenCount": 17659,
+              "serviceTier": "standard",
+              "thoughtsTokenCount": 724,
+              "totalTokenCount": 18277
             }
           },
           {
@@ -461,7 +490,7 @@
                 "content": {
                   "parts": [
                     {
-                      "text": "5–10mm).\n*   **Sunday, May 3:** Turning cooler with possible showers and a high of **"
+                      "text": "h** during the afternoon, before easing again in the late evening."
                     }
                   ],
                   "role": "model"
@@ -469,27 +498,29 @@
                 "index": 0
               }
             ],
-            "modelVersion": "gemini-3-flash-preview",
-            "responseId": "3arzaaeEK8ed-8YP3rXQgA0",
-            "turnToken": "v1_ChczYXJ6YWFlRUs4ZWQtOFlQM3JYUWdBMBIXM2FyemFhZUVLOGVkLThZUDNyWFFnQTA",
+            "modelVersion": "gemini-4-hydrogen",
+            "responseId": "OZv8ao2EJ--m9MoP1KzQiAc",
+            "turnToken": "v1_ChdPWnY4YW8yRUotLW05TW9QMUt6UWlBYxIXT1p2OGFvMkVKLS1tOU1vUDFLelFpQWM",
             "usageMetadata": {
-              "billedToolCalls": [
+              "cachedContentTokenCount": 8297,
+              "candidatesTokenCount": 128,
+              "candidatesTokensDetails": [
                 {
-                  "searchQueryCount": 1,
-                  "successfulToolCallCount": 1,
-                  "tool": "GOOGLE_SEARCH_RETRIEVAL"
+                  "modality": "TEXT",
+                  "tokenCount": 128
                 }
               ],
-              "candidatesTokenCount": 277,
-              "promptTokenCount": 10,
+              "promptTokenCount": 17425,
               "promptTokensDetails": [
                 {
                   "modality": "TEXT",
-                  "tokenCount": 10
+                  "tokenCount": 17425
                 }
               ],
-              "thoughtsTokenCount": 231,
-              "totalTokenCount": 518
+              "rawPromptTokenCount": 17659,
+              "serviceTier": "standard",
+              "thoughtsTokenCount": 724,
+              "totalTokenCount": 18277
             }
           },
           {
@@ -498,7 +529,7 @@
                 "content": {
                   "parts": [
                     {
-                      "text": "21°C**."
+                      "text": "\n  * **UV \u0026 Sun:** High UV index; sunrise is at 6:00 AM and"
                     }
                   ],
                   "role": "model"
@@ -506,27 +537,107 @@
                 "index": 0
               }
             ],
-            "modelVersion": "gemini-3-flash-preview",
-            "responseId": "3arzaaeEK8ed-8YP3rXQgA0",
-            "turnToken": "v1_ChczYXJ6YWFlRUs4ZWQtOFlQM3JYUWdBMBIXM2FyemFhZUVLOGVkLThZUDNyWFFnQTA",
+            "modelVersion": "gemini-4-hydrogen",
+            "responseId": "OZv8ao2EJ--m9MoP1KzQiAc",
+            "turnToken": "v1_ChdPWnY4YW8yRUotLW05TW9QMUt6UWlBYxIXT1p2OGFvMkVKLS1tOU1vUDFLelFpQWM",
             "usageMetadata": {
-              "billedToolCalls": [
+              "cachedContentTokenCount": 8297,
+              "candidatesTokenCount": 128,
+              "candidatesTokensDetails": [
                 {
-                  "searchQueryCount": 1,
-                  "successfulToolCallCount": 1,
-                  "tool": "GOOGLE_SEARCH_RETRIEVAL"
+                  "modality": "TEXT",
+                  "tokenCount": 128
                 }
               ],
-              "candidatesTokenCount": 282,
-              "promptTokenCount": 10,
+              "promptTokenCount": 17425,
               "promptTokensDetails": [
                 {
                   "modality": "TEXT",
-                  "tokenCount": 10
+                  "tokenCount": 17425
                 }
               ],
-              "thoughtsTokenCount": 231,
-              "totalTokenCount": 523
+              "rawPromptTokenCount": 17659,
+              "serviceTier": "standard",
+              "thoughtsTokenCount": 724,
+              "totalTokenCount": 18277
+            }
+          },
+          {
+            "candidates": [
+              {
+                "content": {
+                  "parts": [
+                    {
+                      "text": " sunset is at 8:08 PM AEDT.\n\n*(If you meant Melbourne, Florida instead"
+                    }
+                  ],
+                  "role": "model"
+                },
+                "index": 0
+              }
+            ],
+            "modelVersion": "gemini-4-hydrogen",
+            "responseId": "OZv8ao2EJ--m9MoP1KzQiAc",
+            "turnToken": "v1_ChdPWnY4YW8yRUotLW05TW9QMUt6UWlBYxIXT1p2OGFvMkVKLS1tOU1vUDFLelFpQWM",
+            "usageMetadata": {
+              "cachedContentTokenCount": 8297,
+              "candidatesTokenCount": 128,
+              "candidatesTokensDetails": [
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 128
+                }
+              ],
+              "promptTokenCount": 17425,
+              "promptTokensDetails": [
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 17425
+                }
+              ],
+              "rawPromptTokenCount": 17659,
+              "serviceTier": "standard",
+              "thoughtsTokenCount": 724,
+              "totalTokenCount": 18277
+            }
+          },
+          {
+            "candidates": [
+              {
+                "content": {
+                  "parts": [
+                    {
+                      "text": ", let me know and I can check that forecast for you!)*"
+                    }
+                  ],
+                  "role": "model"
+                },
+                "index": 0
+              }
+            ],
+            "modelVersion": "gemini-4-hydrogen",
+            "responseId": "OZv8ao2EJ--m9MoP1KzQiAc",
+            "turnToken": "v1_ChdPWnY4YW8yRUotLW05TW9QMUt6UWlBYxIXT1p2OGFvMkVKLS1tOU1vUDFLelFpQWM",
+            "usageMetadata": {
+              "cachedContentTokenCount": 8297,
+              "candidatesTokenCount": 142,
+              "candidatesTokensDetails": [
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 142
+                }
+              ],
+              "promptTokenCount": 17425,
+              "promptTokensDetails": [
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 17425
+                }
+              ],
+              "rawPromptTokenCount": 17659,
+              "serviceTier": "standard",
+              "thoughtsTokenCount": 724,
+              "totalTokenCount": 18291
             }
           },
           {
@@ -536,7 +647,7 @@
                   "parts": [
                     {
                       "text": "",
-                      "thoughtSignature": "EvQHCvEHAQw51sfruoPxo2eSSz/yFd1siIS0R7i8ASlF0+0hB20iamRnJ9QgUNXTkvesxEH670Oeyq5VyHfCz/5xTRg6QwS1FnfOH1Zt1BsJf8BluhXVawow+qQylr2acWRclQJ1At/2JVHwdJvp5KhjfJ3EOYpwXs0GoNn5pohbRjgQpopWfBbJZXwJKqP3Rk7Bc4EWEVhRuOjwqFopIBYR4IxifPGRVs9DKAUq8eaYfxA2ChDS3bfJXTxrswGlI7CYXaCxUoEfs+WnhTDVBLlO5bYLh7ayF2OeotF4bkJqSadLDiCQOHU2kfQRHux7non7p7ZpzA8GS8HB+0up8rzBoyMjlVpDq9PdMgm4wCDGiHxOt1/a12iounyTZpVIIg62NM1nKK1aD8SBCOJR01mmKkRXyRJFpLy7KyxHwlVKJlBMgKtVzO3mV2yD5RFkmH0YOvv4/qjVuJRtD4uD7orncwzIWdEDAHGovZbNEAtrc+Hh85+zxk//11o7iErBAdOPDZ2QlvSNTAQC+/HnYNkVwaff5wstsRy7X5rFVGDHczAamNTT0KuzxAVTPuqkevOiU1V1OWp8XarWwvKeaVmtQjgpJC9McVTXBampqwnMdQbbQlNoZ6rLoT1Dd+KWUfkC2yOUa7tT6kqp2vYVMGKfDToPNrB7h4YFWnQ1Dac+eI81rUL61dPcWRb4Pf9ZYw0950Cx0mTPEWqGGInw8eoihsiLoF0twzG4ThKFXpJ+tiyDW/y5o9ooGFL1ar1bSUizwoUs2DanhzajiUEQe+fmyzvYPa/QbzzVn588XjCrlJe5bTNT5lA1GekkgZs1SGslwqW3lOSxICwGgJ7HdKxXrFlplCB0TN16hfGEJGks+Je/02IgSXNHJoatqZdYk1xbV26AqfZfdmzNh7818QqYTNhTME3WVCsEs576sXS1pzv1t5JRQFKsocCTWhZT1gU4JeK3yW86uTsMngUMxax5QTnTl65hugOBtLIvYl4D6/zl/Ai0vCddc6DM7G0jxIjUyFcyUa9atqiRNWYYjuz1+CHixvNcQgeQNIkOxFj4Nv5nM2XqUa1y49gXmihlCPxIaxkw3jWkUZj3ABU3052m1SmuEwquMIxyYAU46gqkev9vFyZaqpEZtT4GmU4U75ML4eLV8DaTGc7IcI6TrHD5pLR5LLbnb+orzrYSMYakkpMSxZ4iyjFUbC/W/TFENTMhUrxCFnubwoVOECQVUVOL16mxXVZRxweERzrUYJKSV04oL9c382ojYkH7mtxHt74+mgEzrb1OnIuaxjnQCLp6GLzlP8r5RRXo8TnJOoRo8gnLJznUWCmc9ckBubhb6FoIfj8Z4A=="
+                      "thoughtSignature": "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"
                     }
                   ],
                   "role": "model"
@@ -545,107 +656,222 @@
                 "groundingMetadata": {
                   "groundingChunks": [
                     {
+                      "referenceId": "1.1.2",
                       "web": {
-                        "snippet": " Melbourne Weather \n \n  * Humidity.   73%  \n  * Dew Point.   9.6°C.  \n  * Wind.   N.  \n  * Wind Gust.   14km/h.  \n  * Rain since 9AM.   0.0mm.  \n  * Rain in last hour.   -  \n  * Pressure.   1027.2hPa.  \n...\n Melbourne Daily Forecast \n \n  * Thursday.   13°C.   25°C.   5% / < 1mm.  \n  * Friday.   15°C.   26°C.   5% / < 1mm.  \n  * Saturday.   17°C.   25°C.   50% / < 1mm.  \n  * Sunday.   17°C.   21°C.   70% / 5-10mm.  \n  * Monday.   12°C.   19°C.   50% / 1-5mm.  \n  * Tuesday.   12°C.   18°C.   80% / 1-5mm.  \n  * Wednesday.   10°C.   19°C.   90% / 5-10mm.  \n  * Thursday.   8°C.   15°C.   90% / 5-10mm.  \n  * Friday.   9°C.   16°C.   90% / 10-20mm.  \n  * Saturday.   10°C.   18°C.   90% / 5-10mm.  \n...\n Melbourne Daily Forecast \n \n  * 29 Apr.   Wednesday.   Mostly sunny.   23°C.   13°C.   < 1mm.  \n  * 30 Apr.   Thursday.   Mostly cloudy.   25°C.   13°C.   < 1mm.  \n  * 1 May.   Friday.   Mostly sunny.   26°C.   15°C.   < 1mm.  \n  * 2 May.   Saturday.   Mostly cloudy.   25°C.   17°C.   5-10mm.  \n  * 3 May.   Sunday.   Possible shower.   21°C.   14°C.   5-10mm.  \n  * 4 May.   Monday.   Possible shower.   19°C.   10°C.   1-5mm.  \n  * 5 May.   Tuesday.   Showers.   18°C.   11°C.   1-5mm.  \n...\nFind out the Melbourne Weather Forecast here on Weatherzone. Discover today's weather & the forecast for the week ahead in Melbourne.\n...\n Last 5 Days - Temperature \n \n  * Sun.   26.6 °C 15.3 °C.  \n  * Mon.   19.4 °C 13.3 °C.  \n  * Tue.   25.7 °C 9.8 °C.   Wed.  ",
-                        "title": "weatherzone.com.au",
-                        "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGERCEAmUodpMD1tXlp2zlXLu5BmpQQHxfgtJMsLZ--0T5PRg4-p4n9dqPqgS0pPvQBEhNoL2nBSLMz-Bop-u4G3BSjW9LbAxEeBcgYs4JZIFx1WvFBXZWbGRVuuL7CjdsklyLiCsZY84umXWKRxoWE"
+                        "domain": "bom.gov.au",
+                        "searchResultMapping": {
+                          "resultIndex": 1
+                        },
+                        "siteName": "The Bureau of Meteorology",
+                        "title": "bom.gov.au",
+                        "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFK2hPzCgKXYVd4mFLU7T-qU8K1vlxQRV-T2SJCT64gRTYAmMr4XlQ5ajZGfOR_8c9WVzsO4b1_4Ha7j4tBQqzxUsa7Bfhv5otIybnZpFE2Kr-PgFInplFrs5ozZ0HApCeeKYx3_V27TTuOxqrCQnSAmCv2kA-nApHPEeAKqK7-Juq0gcI8"
+                      }
+                    },
+                    {
+                      "referenceId": "1.1.7",
+                      "web": {
+                        "domain": "theweathernetwork.com",
+                        "searchResultMapping": {
+                          "resultIndex": 6
+                        },
+                        "siteName": "The Weather Network",
+                        "title": "theweathernetwork.com",
+                        "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEUOs-mXOpaRdY4pYWaUU24_1JWgshaSJKDf7RTu6gBccW8a8-DAkaRYislpGr8tdJpfUifoi9fNbY2-RrH1LbYGOfcZN2pyeUieRVtGL4w72Vb-iZcSYPB8Qv8uKiw0iAQN3MuNP_Ok3cI2D9jZ3fy80aCMJI9oEfvYYeJ-Q=="
+                      }
+                    },
+                    {
+                      "referenceId": "1.2.1",
+                      "web": {
+                        "domain": "accuweather.com",
+                        "searchResultMapping": {
+                          "queryIndex": 1
+                        },
+                        "siteName": "AccuWeather",
+                        "title": "accuweather.com",
+                        "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGWpnNqwzrfCAuc38tgCR4RoVH9oeU2kSsdFMixm4hWJugwdl-1tStVyHLWQYjdre5WAa7e30A5scuonn96KBEMCTmKnui7QejAzwc0M3SKdFuCCyVzqw662clp40e77DAvM7wCr8kQl1sl23hz9R-fFPx1ZqLkTSjgqbuOsWU="
+                      }
+                    },
+                    {
+                      "referenceId": "1.1.3",
+                      "web": {
+                        "domain": "weatherzone.com",
+                        "searchResultMapping": {
+                          "resultIndex": 2
+                        },
+                        "siteName": "Weatherzone",
+                        "title": "weatherzone.com",
+                        "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFKQX2m8m77rjzrmMkHZIh32rmGcA-RvtPe9T6Ln08l6apKX2e1RLd9Fk8_Aw4ms2AvHV8ihgRE142vZZYiavKkXQsoLlh8-4WPBqmUSE24jqHwUN64OY4iFe_sWUvACZARqrhuHThZVz5tXc8="
+                      }
+                    },
+                    {
+                      "referenceId": "1.1.9",
+                      "web": {
+                        "domain": "eldersweather.com.au",
+                        "searchResultMapping": {
+                          "resultIndex": 8
+                        },
+                        "siteName": "Elders Weather",
+                        "title": "eldersweather.com.au",
+                        "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFE79lJRN4oaYZez-iCdSJumwLt1gCCfaK8EZOK-1espzfqOqj4tr7rynDCmREWWXvwPcVxLI62R9Xh3s5829_y1CWUhuz0x8moEBeGEKvBkiMPY_9m07SkYAqcX1p0quI17HnJR1dHQcY="
+                      }
+                    },
+                    {
+                      "referenceId": "2.1.5",
+                      "web": {
+                        "domain": "bom.gov.au",
+                        "searchResultMapping": {
+                          "functionResponseIndex": 1,
+                          "resultIndex": 4
+                        },
+                        "siteName": "The Bureau of Meteorology",
+                        "title": "bom.gov.au",
+                        "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQF8yXhmNR3cfgFk1Z0pbJ3ddFJSpbxLzfwz1AoN87AwPt9e39tG-iVK9PrVXMXDs4xsRqcH6Opst5Zre9m-XBuPVG_NRUnszQ7NcTuGhzzrCzryf1eZXOG6OB2MfhBHXPeiY9eAELJQhWj6TyJ5KEcQ"
                       }
                     }
                   ],
                   "groundingSupports": [
                     {
                       "groundingChunkIndices": [
-                        0
+                        0,
+                        1,
+                        2
                       ],
+                      "origin": "MODEL_ANNOTATED",
                       "segment": {
-                        "endIndex": 243,
-                        "startIndex": 201,
-                        "text": "*   **Conditions:** Clear to partly cloudy"
+                        "endIndex": 139,
+                        "text": "In **Melbourne, Australia**, it is currently early Wednesday morning (November 18, 2026) and looking like a mild, pleasant spring day ahead"
                       }
                     },
                     {
                       "groundingChunkIndices": [
-                        0
+                        3,
+                        1,
+                        4
                       ],
-                      "segment": {
-                        "endIndex": 270,
-                        "startIndex": 244,
-                        "text": "*   **Humidity:** 70–73%"
-                      }
-                    },
-                    {
-                      "groundingChunkIndices": [
-                        0
-                      ],
+                      "origin": "MODEL_ANNOTATED",
                       "segment": {
                         "endIndex": 324,
-                        "startIndex": 271,
-                        "text": "*   **Wind:** Light northerly winds at around 14 km/h"
+                        "startIndex": 144,
+                        "text": "**Early Morning Conditions:** Partly cloudy and cool, with temperatures sitting around **12°C (54°F)** under light southeasterly winds and high morning humidity (around 77–84%)"
                       }
                     },
                     {
                       "groundingChunkIndices": [
-                        0
+                        3,
+                        5
                       ],
+                      "origin": "MODEL_ANNOTATED",
                       "segment": {
-                        "endIndex": 642,
-                        "startIndex": 542,
-                        "text": "*   **Friday, May 1:** Mostly sunny and slightly warmer with a high of **26°C** and a low of 15°C."
+                        "endIndex": 389,
+                        "startIndex": 326,
+                        "text": "There is a chance of early morning fog in the northeast suburbs"
                       }
                     },
                     {
                       "groundingChunkIndices": [
-                        0
+                        0,
+                        5
                       ],
+                      "origin": "MODEL_ANNOTATED",
                       "segment": {
-                        "endIndex": 707,
-                        "startIndex": 643,
-                        "text": "*   **Saturday, May 2:** Mostly cloudy with a high of **25°C**."
+                        "endIndex": 461,
+                        "startIndex": 439,
+                        "text": "**Sky:** Partly cloudy"
                       }
                     },
                     {
                       "groundingChunkIndices": [
-                        0
+                        0,
+                        5
                       ],
+                      "origin": "MODEL_ANNOTATED",
                       "segment": {
-                        "endIndex": 830,
-                        "startIndex": 746,
-                        "text": "*   **Sunday, May 3:** Turning cooler with possible showers and a high of **21°C**."
+                        "endIndex": 520,
+                        "startIndex": 467,
+                        "text": "**High / Low:** **21°C (70°F)** / **11°C (52°F)**"
+                      }
+                    },
+                    {
+                      "groundingChunkIndices": [
+                        0,
+                        5
+                      ],
+                      "origin": "MODEL_ANNOTATED",
+                      "segment": {
+                        "endIndex": 586,
+                        "startIndex": 526,
+                        "text": "**Rain:** Dry, with only a 5% chance of rain (0 mm expected)"
+                      }
+                    },
+                    {
+                      "groundingChunkIndices": [
+                        3,
+                        5
+                      ],
+                      "origin": "MODEL_ANNOTATED",
+                      "segment": {
+                        "endIndex": 721,
+                        "startIndex": 592,
+                        "text": "**Wind:** Light morning winds turning southerly at **15–20 km/h** during the afternoon, before easing again in the late evening"
+                      }
+                    },
+                    {
+                      "groundingChunkIndices": [
+                        3
+                      ],
+                      "origin": "MODEL_ANNOTATED",
+                      "segment": {
+                        "endIndex": 754,
+                        "startIndex": 727,
+                        "text": "**UV \u0026 Sun:** High UV index"
+                      }
+                    },
+                    {
+                      "groundingChunkIndices": [
+                        1
+                      ],
+                      "origin": "MODEL_ANNOTATED",
+                      "segment": {
+                        "endIndex": 807,
+                        "startIndex": 727,
+                        "text": "**UV \u0026 Sun:** High UV index; sunrise is at 6:00 AM and sunset is at 8:08 PM AEDT"
                       }
                     }
                   ],
                   "searchEntryPoint": {
-                    "renderedContent": "<style>\n.container {\n  align-items: center;\n  border-radius: 8px;\n  display: flex;\n  font-family: Google Sans, Roboto, sans-serif;\n  font-size: 14px;\n  line-height: 20px;\n  padding: 8px 12px;\n}\n.chip {\n  display: inline-block;\n  border: solid 1px;\n  border-radius: 16px;\n  min-width: 14px;\n  padding: 5px 16px;\n  text-align: center;\n  user-select: none;\n  margin: 0 8px;\n  -webkit-tap-highlight-color: transparent;\n}\n.carousel {\n  overflow: auto;\n  scrollbar-width: none;\n  white-space: nowrap;\n  margin-right: -12px;\n}\n.headline {\n  display: flex;\n  margin-right: 4px;\n}\n.gradient-container {\n  position: relative;\n}\n.gradient {\n  position: absolute;\n  transform: translate(3px, -9px);\n  height: 36px;\n  width: 9px;\n}\n@media (prefers-color-scheme: light) {\n  .container {\n    background-color: #fafafa;\n    box-shadow: 0 0 0 1px #0000000f;\n  }\n  .headline-label {\n    color: #1f1f1f;\n  }\n  .chip {\n    background-color: #ffffff;\n    border-color: #d2d2d2;\n    color: #5e5e5e;\n    text-decoration: none;\n  }\n  .chip:hover {\n    background-color: #f2f2f2;\n  }\n  .chip:focus {\n    background-color: #f2f2f2;\n  }\n  .chip:active {\n    background-color: #d8d8d8;\n    border-color: #b6b6b6;\n  }\n  .logo-dark {\n    display: none;\n  }\n  .gradient {\n    background: linear-gradient(90deg, #fafafa 15%, #fafafa00 100%);\n  }\n}\n@media (prefers-color-scheme: dark) {\n  .container {\n    background-color: #1f1f1f;\n    box-shadow: 0 0 0 1px #ffffff26;\n  }\n  .headline-label {\n    color: #fff;\n  }\n  .chip {\n    background-color: #2c2c2c;\n    border-color: #3c4043;\n    color: #fff;\n    text-decoration: none;\n  }\n  .chip:hover {\n    background-color: #353536;\n  }\n  .chip:focus {\n    background-color: #353536;\n  }\n  .chip:active {\n    background-color: #464849;\n    border-color: #53575b;\n  }\n  .logo-light {\n    display: none;\n  }\n  .gradient {\n    background: linear-gradient(90deg, #1f1f1f 15%, #1f1f1f00 100%);\n  }\n}\n</style>\n<div class=\"container\">\n  <div class=\"headline\">\n    <svg class=\"logo-light\" width=\"18\" height=\"18\" viewBox=\"9 9 35 35\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n      <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M42.8622 27.0064C42.8622 25.7839 42.7525 24.6084 42.5487 23.4799H26.3109V30.1568H35.5897C35.1821 32.3041 33.9596 34.1222 32.1258 35.3448V39.6864H37.7213C40.9814 36.677 42.8622 32.2571 42.8622 27.0064V27.0064Z\" fill=\"#4285F4\"/>\n      <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M26.3109 43.8555C30.9659 43.8555 34.8687 42.3195 37.7213 39.6863L32.1258 35.3447C30.5898 36.3792 28.6306 37.0061 26.3109 37.0061C21.8282 37.0061 18.0195 33.9811 16.6559 29.906H10.9194V34.3573C13.7563 39.9841 19.5712 43.8555 26.3109 43.8555V43.8555Z\" fill=\"#34A853\"/>\n      <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M16.6559 29.8904C16.3111 28.8559 16.1074 27.7588 16.1074 26.6146C16.1074 25.4704 16.3111 24.3733 16.6559 23.3388V18.8875H10.9194C9.74388 21.2072 9.06992 23.8247 9.06992 26.6146C9.06992 29.4045 9.74388 32.022 10.9194 34.3417L15.3864 30.8621L16.6559 29.8904V29.8904Z\" fill=\"#FBBC05\"/>\n      <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M26.3109 16.2386C28.85 16.2386 31.107 17.1164 32.9095 18.8091L37.8466 13.8719C34.853 11.082 30.9659 9.3736 26.3109 9.3736C19.5712 9.3736 13.7563 13.245 10.9194 18.8875L16.6559 23.3388C18.0195 19.2636 21.8282 16.2386 26.3109 16.2386V16.2386Z\" fill=\"#EA4335\"/>\n    </svg>\n    <svg class=\"logo-dark\" width=\"18\" height=\"18\" viewBox=\"0 0 48 48\" xmlns=\"http://www.w3.org/2000/svg\">\n      <circle cx=\"24\" cy=\"23\" fill=\"#FFF\" r=\"22\"/>\n      <path d=\"M33.76 34.26c2.75-2.56 4.49-6.37 4.49-11.26 0-.89-.08-1.84-.29-3H24.01v5.99h8.03c-.4 2.02-1.5 3.56-3.07 4.56v.75l3.91 2.97h.88z\" fill=\"#4285F4\"/>\n      <path d=\"M15.58 25.77A8.845 8.845 0 0 0 24 31.86c1.92 0 3.62-.46 4.97-1.31l4.79 3.71C31.14 36.7 27.65 38 24 38c-5.93 0-11.01-3.4-13.45-8.36l.17-1.01 4.06-2.85h.8z\" fill=\"#34A853\"/>\n      <path d=\"M15.59 20.21a8.864 8.864 0 0 0 0 5.58l-5.03 3.86c-.98-2-1.53-4.25-1.53-6.64 0-2.39.55-4.64 1.53-6.64l1-.22 3.81 2.98.22 1.08z\" fill=\"#FBBC05\"/>\n      <path d=\"M24 14.14c2.11 0 4.02.75 5.52 1.98l4.36-4.36C31.22 9.43 27.81 8 24 8c-5.93 0-11.01 3.4-13.45 8.36l5.03 3.85A8.86 8.86 0 0 1 24 14.14z\" fill=\"#EA4335\"/>\n    </svg>\n    <div class=\"gradient-container\"><div class=\"gradient\"></div></div>\n  </div>\n  <div class=\"carousel\">\n    <a class=\"chip\" href=\"https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE6691Ktv_G7XX2SjsJm39p6NXr_B2rWrxvXmcIck39jvl6GKy8LM6GOT6If4FMX0SCoxbHIjegkKjsn13HteDcdKcjCjevmsWJzTp_pJpziQAfm99Scmiase94e63fufZgu8Eyl6_JdPEveZrPJx7lAYk_yT3S5bvF1tQHPZrWpG084hgM0y1zNWSXcDRyurXhUhGtmlX0RkehFLfw4lOU2O52HCV2Yg0=\">current weather in Melbourne Australia</a>\n  </div>\n</div>\n"
+                    "renderedContent": "\u003cstyle\u003e\n.container {\n  align-items: center;\n  border-radius: 8px;\n  display: flex;\n  font-family: Google Sans, Roboto, sans-serif;\n  font-size: 14px;\n  line-height: 20px;\n  padding: 8px 12px;\n}\n.chip {\n  display: inline-block;\n  border: solid 1px;\n  border-radius: 16px;\n  min-width: 14px;\n  padding: 5px 16px;\n  text-align: center;\n  user-select: none;\n  margin: 0 8px;\n  -webkit-tap-highlight-color: transparent;\n}\n.carousel {\n  overflow: auto;\n  scrollbar-width: none;\n  white-space: nowrap;\n  margin-right: -12px;\n}\n.headline {\n  display: flex;\n  margin-right: 4px;\n}\n.gradient-container {\n  position: relative;\n}\n.gradient {\n  position: absolute;\n  transform: translate(3px, -9px);\n  height: 36px;\n  width: 9px;\n}\n@media (prefers-color-scheme: light) {\n  .container {\n    background-color: #fafafa;\n    box-shadow: 0 0 0 1px #0000000f;\n  }\n  .headline-label {\n    color: #1f1f1f;\n  }\n  .chip {\n    background-color: #ffffff;\n    border-color: #d2d2d2;\n    color: #5e5e5e;\n    text-decoration: none;\n  }\n  .chip:hover {\n    background-color: #f2f2f2;\n  }\n  .chip:focus {\n    background-color: #f2f2f2;\n  }\n  .chip:active {\n    background-color: #d8d8d8;\n    border-color: #b6b6b6;\n  }\n  .logo-dark {\n    display: none;\n  }\n  .gradient {\n    background: linear-gradient(90deg, #fafafa 15%, #fafafa00 100%);\n  }\n}\n@media (prefers-color-scheme: dark) {\n  .container {\n    background-color: #1f1f1f;\n    box-shadow: 0 0 0 1px #ffffff26;\n  }\n  .headline-label {\n    color: #fff;\n  }\n  .chip {\n    background-color: #2c2c2c;\n    border-color: #3c4043;\n    color: #fff;\n    text-decoration: none;\n  }\n  .chip:hover {\n    background-color: #353536;\n  }\n  .chip:focus {\n    background-color: #353536;\n  }\n  .chip:active {\n    background-color: #464849;\n    border-color: #53575b;\n  }\n  .logo-light {\n    display: none;\n  }\n  .gradient {\n    background: linear-gradient(90deg, #1f1f1f 15%, #1f1f1f00 100%);\n  }\n}\n\u003c/style\u003e\n\u003cdiv class=\"container\"\u003e\n  \u003cdiv class=\"headline\"\u003e\n    \u003csvg class=\"logo-light\" width=\"18\" height=\"18\" viewBox=\"9 9 35 35\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"\u003e\n      \u003cpath fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M42.8622 27.0064C42.8622 25.7839 42.7525 24.6084 42.5487 23.4799H26.3109V30.1568H35.5897C35.1821 32.3041 33.9596 34.1222 32.1258 35.3448V39.6864H37.7213C40.9814 36.677 42.8622 32.2571 42.8622 27.0064V27.0064Z\" fill=\"#4285F4\"/\u003e\n      \u003cpath fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M26.3109 43.8555C30.9659 43.8555 34.8687 42.3195 37.7213 39.6863L32.1258 35.3447C30.5898 36.3792 28.6306 37.0061 26.3109 37.0061C21.8282 37.0061 18.0195 33.9811 16.6559 29.906H10.9194V34.3573C13.7563 39.9841 19.5712 43.8555 26.3109 43.8555V43.8555Z\" fill=\"#34A853\"/\u003e\n      \u003cpath fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M16.6559 29.8904C16.3111 28.8559 16.1074 27.7588 16.1074 26.6146C16.1074 25.4704 16.3111 24.3733 16.6559 23.3388V18.8875H10.9194C9.74388 21.2072 9.06992 23.8247 9.06992 26.6146C9.06992 29.4045 9.74388 32.022 10.9194 34.3417L15.3864 30.8621L16.6559 29.8904V29.8904Z\" fill=\"#FBBC05\"/\u003e\n      \u003cpath fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M26.3109 16.2386C28.85 16.2386 31.107 17.1164 32.9095 18.8091L37.8466 13.8719C34.853 11.082 30.9659 9.3736 26.3109 9.3736C19.5712 9.3736 13.7563 13.245 10.9194 18.8875L16.6559 23.3388C18.0195 19.2636 21.8282 16.2386 26.3109 16.2386V16.2386Z\" fill=\"#EA4335\"/\u003e\n    \u003c/svg\u003e\n    \u003csvg class=\"logo-dark\" width=\"18\" height=\"18\" viewBox=\"0 0 48 48\" xmlns=\"http://www.w3.org/2000/svg\"\u003e\n      \u003ccircle cx=\"24\" cy=\"23\" fill=\"#FFF\" r=\"22\"/\u003e\n      \u003cpath d=\"M33.76 34.26c2.75-2.56 4.49-6.37 4.49-11.26 0-.89-.08-1.84-.29-3H24.01v5.99h8.03c-.4 2.02-1.5 3.56-3.07 4.56v.75l3.91 2.97h.88z\" fill=\"#4285F4\"/\u003e\n      \u003cpath d=\"M15.58 25.77A8.845 8.845 0 0 0 24 31.86c1.92 0 3.62-.46 4.97-1.31l4.79 3.71C31.14 36.7 27.65 38 24 38c-5.93 0-11.01-3.4-13.45-8.36l.17-1.01 4.06-2.85h.8z\" fill=\"#34A853\"/\u003e\n      \u003cpath d=\"M15.59 20.21a8.864 8.864 0 0 0 0 5.58l-5.03 3.86c-.98-2-1.53-4.25-1.53-6.64 0-2.39.55-4.64 1.53-6.64l1-.22 3.81 2.98.22 1.08z\" fill=\"#FBBC05\"/\u003e\n      \u003cpath d=\"M24 14.14c2.11 0 4.02.75 5.52 1.98l4.36-4.36C31.22 9.43 27.81 8 24 8c-5.93 0-11.01 3.4-13.45 8.36l5.03 3.85A8.86 8.86 0 0 1 24 14.14z\" fill=\"#EA4335\"/\u003e\n    \u003c/svg\u003e\n    \u003cdiv class=\"gradient-container\"\u003e\u003cdiv class=\"gradient\"\u003e\u003c/div\u003e\u003c/div\u003e\n  \u003c/div\u003e\n  \u003cdiv class=\"carousel\"\u003e\n\u003ca class=\"chip\" href=\"https://www.google.com/search?q=%22Melbourne%22+%2218+November%22+2026+weather+forecast+bom\u0026client=app-vertex-grounding\u0026safesearch=active\"\u003e\u0026quot;Melbourne\u0026quot; \u0026quot;18 November\u0026quot; 2026 weather forecast bom\u003c/a\u003e\n\u003ca class=\"chip\" href=\"https://www.google.com/search?q=current+weather+Melbourne+Australia\u0026client=app-vertex-grounding\u0026safesearch=active\"\u003ecurrent weather Melbourne Australia\u003c/a\u003e\n\u003ca class=\"chip\" href=\"https://www.google.com/search?q=Melbourne+weather+forecast+today+November+18+2026\u0026client=app-vertex-grounding\u0026safesearch=active\"\u003eMelbourne weather forecast today November 18 2026\u003c/a\u003e\n  \u003c/div\u003e\n\u003c/div\u003e"
                   },
                   "webSearchQueries": [
-                    "",
-                    "current weather in Melbourne Australia"
+                    "\"Melbourne\" \"18 November\" 2026 weather forecast bom",
+                    "current weather Melbourne Australia",
+                    "Melbourne weather forecast today November 18 2026"
                   ]
                 },
                 "index": 0
               }
             ],
-            "modelVersion": "gemini-3-flash-preview",
-            "responseId": "3arzaaeEK8ed-8YP3rXQgA0",
-            "turnToken": "v1_ChczYXJ6YWFlRUs4ZWQtOFlQM3JYUWdBMBIXM2FyemFhZUVLOGVkLThZUDNyWFFnQTA",
+            "modelVersion": "gemini-4-hydrogen",
+            "responseId": "OZv8ao2EJ--m9MoP1KzQiAc",
+            "turnToken": "v1_ChdPWnY4YW8yRUotLW05TW9QMUt6UWlBYxIXT1p2OGFvMkVKLS1tOU1vUDFLelFpQWM",
             "usageMetadata": {
-              "billedToolCalls": [
+              "candidatesTokenCount": 466,
+              "candidatesTokensDetails": [
                 {
-                  "searchQueryCount": 1,
-                  "successfulToolCallCount": 1,
-                  "tool": "GOOGLE_SEARCH_RETRIEVAL"
+                  "modality": "TEXT",
+                  "tokenCount": 466
                 }
               ],
-              "candidatesTokenCount": 282,
-              "promptTokenCount": 44,
+              "promptTokenCount": 217,
               "promptTokensDetails": [
                 {
                   "modality": "TEXT",
-                  "tokenCount": 44
+                  "tokenCount": 217
                 }
               ],
-              "thoughtsTokenCount": 231,
-              "totalTokenCount": 557
+              "rawPromptTokenCount": 17659,
+              "serviceTier": "standard",
+              "thoughtsTokenCount": 1412,
+              "totalTokenCount": 2095
             }
           }
         ]

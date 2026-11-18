@@ -4,8 +4,8 @@
     {
       "request": {
         "method": "POST",
-        "url": "/v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-flash-latest:generateContent",
-        "request": "POST /v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-flash-latest:generateContent HTTP/1.1",
+        "url": "/v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-4-hydrogen:generateContent",
+        "request": "POST /v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-4-hydrogen:generateContent HTTP/1.1",
         "headers": {
           "Accept": "*/*",
           "Accept-Charset": "UTF-8",
@@ -53,57 +53,57 @@
         "port": 443,
         "protocol": "https"
       },
-      "shaSum": "c47a0959ab24855a3ae28009cf47286e3a36a4d1a2e9dc8ea31c0c95c2a79c77",
+      "shaSum": "db820c09d41dd6d5b8c54ea46d0e4c8b5c239f3bd8f53ee13d47aa56bc917131",
       "response": {
         "statusCode": 200,
         "headers": {
           "Content-Encoding": "gzip",
-          "Content-Length": "437",
+          "Content-Length": "1508",
           "Content-Type": "application/json; charset=UTF-8",
-          "Date": "Wed, 02 Sep 2026 00:49:58 GMT",
+          "Date": "Tue, 17 Nov 2026 18:22:31 GMT",
           "Server": "scaffolding on HTTPServer2",
           "Vary": "Origin, X-Origin, Referer",
           "X-Content-Type-Options": "nosniff",
           "X-Frame-Options": "SAMEORIGIN",
+          "X-Goog-Request-Id": "ZJv8asOhNd2nq8YP9MLfiAk",
           "X-Xss-Protection": "0"
         },
         "bodySegments": [
           {
             "candidates": [
               {
-                "avgLogprobs": -0.7240784054710752,
                 "content": {
                   "parts": [
                     {
-                      "text": "{\n\"name\": \"Gramercy Tavern\",\n\"city\": \"New York\"\n}"
+                      "text": "{\"name\": \"Le Bernardin\", \"city\": \"New York\"}",
+                      "thoughtSignature": "AY89a1+yrWu9BJ5JgUOG6WFiE1PzUQ6AYJJpm6zDxN/YzvG3//dgxUOO3aNj4fa94OdE4ta7o5ywWx/TNZ4AM5ttp88RI/URES8dVMWOkPaB2Yd9xmaWVORjVhnrEfOYHfDy59h0xd8C2BeFrUaT37DammOqW2i9AwTEBCkBpx8bJaE1l2lz0pX3cR/P9ZU1/RxoShUQ5iPLsrPZYEu8zHpbYQZvqpFnOl/FvxytcC1XdNoOXDeu1PWh1VJz2aIwHF7TS6GjR6+CjcaHXf0NMARLhGBU7VPBo4v9QGKNhTZCSwYEBJzkz0W2/EI7hZ/BBKZ6MmT4/vdhubrHUoH0B7clGZQbM+PphAgTMxsNHlOQD6K+GK6YNBATXwFGw4Ei8bxBMv3gEODzWpEPIL7cIpf9j6ZW76lpkaXeTxiFr9D+U0QlJQg/6YMoe3IrtlL1VS2Lloe6jVTso1rBbfW87bOjeAmPaB5VwCFIr0YBwmDcjVjnuh66G8gUUly3DwzUE16r+hTn/PXaZjXrL+dUBVSBuZklaKl9QmU/rdAEQW9gI1MQm6L5nRmN6oD8jr4vH39Rzp7w6jM43SG+NrwbCJLhz+JzVx8Tju04QhoswvuB84VMzL8YXPHpAY3DXo7ydnUJVyta86F/lQiY6IUOotb/845ZZnvYOElMebFLfIwGszfMInx8H8GKpKUUYMpcZsaHvf1iscIen1y0EkXRcNij5cfiN060WqgtBQkgUiFVv4dU3mAC+ZIBR8vOxDqsilYozPrx08cQwNJ6ABryk7tTtCq+uk2g1SaOZGvUTe6uf7nl43ovr1OCs63vCBCpbI0rhKc4ML0aJxET3mtjZJgqkv/KLuSeaE5odCXYHYA8KlxLz5c4mg+aeqRj7ZQSsFWLG/CcU8h1ug2vlyIbM8sZ0d5OuX3tEtb4Qsq5qDSfHsYu56lnhtpVi2unZaZibP3VA7pclr9aI+IYfeH6wvj9bVrVFH9UdnsphLeWxwYRDi9L9qSv99zZabpIx1rj3Ju2PTJgYJv/t0Sg5nGpqQ36UisFCHHbXDdKOgt7dvGuX8MggvNSIJM7vyTBXh3ZCzborp3lpYpnDw/ih5yAyeM8eEQCRMx6t6ChVW1AcD6FmHTRKaPjDrmXbFi+bQxRx+0tZ1UIIgWA7Uxc5nckwFajbWwhrvZcJAiIXpRoMumSuxUDZMkmlMHV72hAaFW7OZ1tJOSHmcxTcoqV/5sI2pePg7WUo0Svsp87bQ4CtSNsyoRg0DBTve2u558sndnCs4wEWjJJz/bgwM+/846XtYVanQhrloDeyzkYe8++w4ZEujRmvScEXPvo7dfG4jF+3tAz/KQuL74b/NmVflFX9bsW1rBw+a2qpGeFNY8ArV0="
                     }
                   ],
                   "role": "model"
                 },
-                "finishReason": "STOP",
-                "score": -15.205646514892578
+                "finishReason": "STOP"
               }
             ],
-            "createTime": "2026-09-02T00:49:57.793302Z",
-            "modelVersion": "gemini-flash-latest",
-            "responseId": "tXKXata1MPGfpucPv8Xn8QY",
+            "createTime": "2026-11-17T18:22:28.872643Z",
+            "modelVersion": "gemini-4-hydrogen",
+            "responseId": "ZJv8asOhNd2nq8YP9MLfiAk",
             "usageMetadata": {
-              "candidatesTokenCount": 21,
+              "candidatesTokenCount": 31,
               "candidatesTokensDetails": [
                 {
                   "modality": "TEXT",
-                  "tokenCount": 21
+                  "tokenCount": 31
                 }
               ],
-              "promptTokenCount": 20,
+              "promptTokenCount": 212,
               "promptTokensDetails": [
                 {
                   "modality": "TEXT",
-                  "tokenCount": 20
+                  "tokenCount": 212
                 }
               ],
-              "thoughtsTokenCount": 37,
-              "totalTokenCount": 78,
+              "thoughtsTokenCount": 273,
+              "totalTokenCount": 516,
               "trafficType": "ON_DEMAND"
             }
           }

@@ -4,8 +4,8 @@
     {
       "request": {
         "method": "POST",
-        "url": "/v1beta/models/gemini-flash-latest:generateContent",
-        "request": "POST /v1beta/models/gemini-flash-latest:generateContent HTTP/1.1",
+        "url": "/v1beta/models/gemini-4-hydrogen:generateContent",
+        "request": "POST /v1beta/models/gemini-4-hydrogen:generateContent HTTP/1.1",
         "headers": {
           "Accept": "*/*",
           "Accept-Charset": "UTF-8",
@@ -40,16 +40,16 @@
         "port": 443,
         "protocol": "https"
       },
-      "shaSum": "4bfd880fbb07cc795c6c3ca32254564207b6ca75ad7c7656ce0abbb8f0296c99",
+      "shaSum": "986f7142f1f56f6e0aa473f1653dcfec6aef73f7777eded45ed917a8eefd2632",
       "response": {
         "statusCode": 200,
         "headers": {
           "Content-Encoding": "gzip",
-          "Content-Length": "1460",
+          "Content-Length": "2626",
           "Content-Type": "application/json; charset=UTF-8",
-          "Date": "Wed, 02 Sep 2026 00:54:38 GMT",
+          "Date": "Tue, 17 Nov 2026 18:27:52 GMT",
           "Server": "scaffolding on HTTPServer2",
-          "Server-Timing": "gfet4t7; dur=8245",
+          "Server-Timing": "gfet4t7; dur=8809",
           "Vary": "Origin, X-Origin, Referer",
           "X-Content-Type-Options": "nosniff",
           "X-Frame-Options": "SAMEORIGIN",
@@ -63,8 +63,8 @@
                 "content": {
                   "parts": [
                     {
-                      "text": "Here is a three-sentence summary of the video:  This video demonstrates the capabilities of Gemini 2.0's Multimodal Live API using real-time screen sharing and live audio conversation in Google AI Studio. The user interacts with the AI as it reads highlighted text on the screen, defines terms, seamlessly handles spoken interruptions, and summarizes past conversation context. The demonstration concludes with the AI reading the closing slide, directing viewers to start building with Gemini 2.0 on Google AI Studio.",
-                      "thoughtSignature": "EqoFCqcFARFNMg/Povc3zfvJwhz13+V4uHRDeBAuNbcyWLt3W4BBqqnuzfKY7Kk0TPhowl+mGgwfxSsq9giHBiSFOnL7YMAxbCZ2bA/2wfItT5KvwdVATV3qD8iC1hyMiNLj5cNPEczFD+K2++41SMUXFQC7qiDKA0DbSx8Sxs1QAjgUdFoGWVVJuZMzUYZnyJICMxRT74Tq2cX0c6uhXxzY78FAquMg3DW2Pxlr9ZfR+GYf9nYiHMMl0aTbLh8oSO5qC91AGW6OAjGyyOD1mXT52hpsK1eD0s4I2gmzRxr6ZFa472tKGbWSjheQOSyf/rqQWMVy7ht++rzyUZQm0HwQ+LGHtQ1E2ehbGP3MhOGnibF6sprvJcO5HY5En0/U/Fo5WL5NTolpE7nQytJCtua7KzaE2iNoyztnq66VJV/kYs0q+IpRppdZ213XEAOHz3YHHUWWwsIw0xCz87qoocrnMwuciBn5pXr1u4fM2enoMQuBv1v7YqMuG4TD0xr77ba2uNExRNWSLLkQTYc7ZKdfkx3kdVG/9L8dNhOz6j430FmxnVISH/Fn8Vfjw6wqX66IESVvhid/WnCtlSp5S1vcYFVNpb4pEXZuTmKs0MI5b/xwnMrJ4yYr/Wx/KjXMTTDFHdKKPzE//XUZGrzq3l8FAdX1a2aHDnXTI6oq9Q8s1rQ7b4cdW2S/fdPAikh5MAPLgnqSvAj4WKLbzkY9iMT0mM+1odVRnAFfVRS0WlgENOwdoNIS6hzO7squBk/uv45UdMMFfqIGjMOy0giSS5e58oPVzSfe7VY+FelFyC7VNOfgfUTEFNCDyUJo115/79toFbym01vfHzvA8AhVmQVBml1GZmmlLss6xXaGoL/+TrAH6AQQeZs7i3cfAxhaNwGSHJ9sH9sp4O7oLQ=="
+                      "text": "A presenter demonstrates the multimodal live streaming capabilities of Gemini 2.0 in Google AI Studio by sharing a browser tab and asking the AI to read highlighted text from a document and define the word \"multimodal.\" To showcase additional features, the presenter tests interruption handling by cutting the AI off mid-story and then evaluates its memory by having it summarize everything seen and heard so far. The demo concludes with Gemini reading the closing card, which invites viewers to start building with Gemini 2.0 at aistudio.google.com.",
+                      "thoughtSignature": "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"
                     }
                   ],
                   "role": "model"
@@ -73,26 +73,31 @@
                 "index": 0
               }
             ],
-            "modelVersion": "gemini-3.7-flash",
-            "responseId": "xnOXaoz8JoWhqtsP4uDbuQE",
-            "turnToken": "v1_Chd4bk9YYW96OEpvV2hxdHNQNHVEYnVRRRIXeG5PWGFvejhKb1docXRzUDR1RGJ1UUU",
+            "modelVersion": "gemini-4-hydrogen",
+            "responseId": "n5z8aqL9Msaa9MoPpYCH8AE",
+            "turnToken": "v1_ChduNXo4YXFMOU1zYWE5TW9QcFlDSDhBRRIXbjV6OGFxTDlNc2FhOU1vUHBZQ0g4QUU",
             "usageMetadata": {
-              "candidatesTokenCount": 100,
-              "promptTokenCount": 13577,
+              "candidatesTokenCount": 111,
+              "candidatesTokensDetails": [
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 111
+                }
+              ],
+              "promptTokenCount": 15701,
               "promptTokensDetails": [
                 {
                   "modality": "TEXT",
-                  "tokenCount": 10
+                  "tokenCount": 638
                 },
                 {
                   "modality": "VIDEO",
-                  "tokenCount": 13567
+                  "tokenCount": 15063
                 }
               ],
-              "rawPromptTokenCount": 15701,
               "serviceTier": "standard",
-              "thoughtsTokenCount": 126,
-              "totalTokenCount": 13803
+              "thoughtsTokenCount": 391,
+              "totalTokenCount": 16203
             }
           }
         ]

@@ -4,8 +4,8 @@
     {
       "request": {
         "method": "POST",
-        "url": "/v1beta/models/gemini-flash-latest:streamGenerateContent?alt=sse",
-        "request": "POST /v1beta/models/gemini-flash-latest:streamGenerateContent?alt=sse HTTP/1.1",
+        "url": "/v1beta/models/gemini-4-hydrogen:streamGenerateContent?alt=sse",
+        "request": "POST /v1beta/models/gemini-4-hydrogen:streamGenerateContent?alt=sse HTTP/1.1",
         "headers": {
           "Accept": "*/*",
           "Accept-Charset": "UTF-8",
@@ -56,15 +56,15 @@
         "port": 443,
         "protocol": "https"
       },
-      "shaSum": "4421fc64c5be46a6a6c19b2191f51b0378949d58d5434661aba9082e059a0b64",
+      "shaSum": "259fd8b72a754643f066046e6b2fb8d58bd3d867dcabb46fa87c203914f68343",
       "response": {
         "statusCode": 200,
         "headers": {
           "Content-Disposition": "attachment",
           "Content-Type": "text/event-stream",
-          "Date": "Wed, 02 Sep 2026 00:54:10 GMT",
+          "Date": "Tue, 17 Nov 2026 18:21:19 GMT",
           "Server": "scaffolding on HTTPServer2",
-          "Server-Timing": "gfet4t7; dur=1056",
+          "Server-Timing": "gfet4t7; dur=10350",
           "Vary": "Origin, X-Origin, Referer",
           "X-Content-Type-Options": "nosniff",
           "X-Frame-Options": "SAMEORIGIN",
@@ -81,10 +81,10 @@
                         "args": {
                           "location": "Melbourne"
                         },
-                        "id": "call_1378440",
+                        "id": "call_2398923327044091386",
                         "name": "GetWeather"
                       },
-                      "thoughtSignature": "EsQCCsECARFNMg+btbJ+iuujNsapKnXPlPzfy64Ta2jlIwysFdTzRsR6TRRbrwVcVTML5Uypod/JxPQaIzlEHsbXw0CV+ijLHBbznjFS9rJp3BLULJ+d5X4VilyuHfGTTSZXo/UBatcMv3qiF1HLWLYFlurtSEUGv39DtYgRDoKXLhd/C5pjHdOx1Ex5g0FAHfKGABZz9IvDJzg/a0RssToCTZrVdotimI1N02ffmfgp2CX2P2PDRzi02GFIDgwXqxI+W9kK79vA4J1L2E3CZxVyD72aacKQGdRJTze1NpNvtIkr0GBMzaLcEWNwMLWb5lQzzZs9UwEtah0Hi2zNLy2018VsVRuurd2MZuNvoYCW0uT/2FQ+6fPeb/SAZwFkVM4lMmYutxO5FEQwxyBxpHt3CBaaZVsBAD933zCBvL4F47szr5r8"
+                      "thoughtSignature": "EqgGCqUGAWkUfRPXYeLfSeFhdc5SOBrdzyb59D2Z0vMHz1j2FPD7tMEDxEToo1SSXeDvkXVTNrawJ7AWEvLrSFsHFxjwhwBedmJoW7LpCCbF2r+jp442wBvjqW4RbPO+BG6YREkAWlXWB7miyLq2e2sehWBCtlvldegRH3Bb+dz6wA9BPtADOvFsibwfTLtpvxbx/7W/5lVdvY6a9HJ5UUmpuP3KK2GHJ7ZDdiady1sx3JuSRtlDUP/KShHCUJSPKalKboLb7lIcrk0vlC/LRC33ZzQnDncqfLDM4QEWwV75EO60kBygVldlzSP7C+o2rr5xkDAOaJXAl1TQKSLTEDnG+P0kce0qUcR4IynlFwBQpBCQ5KVblaVabXDzrFwFDC0BJKvB6UWsedXW7Rz+8EKXb4cE6iqKMIsFPlEAAf702elI3oyhvwh2Eb/t+xDUtNI54i6k1eU89/jeVGlNrFMuzONkHHUHlvEO1nJ2blfsP0l8HkPgTtWk9GG7Ox9sv5NUAC7j05md8rRhlA5ltAztZE1ObtzhQXTrzovL+Jxvmx1CeeNBrs1JJ2By1o+aqtSXMdJi7WQXKUESX1VYlsXfGBSpeiOrGYz2iubtmqY8tkkJLrgi5EoomLuv9DrZ+8HVd8hLNJfG5k2vDX7vtpVqX8M/TKNhYTKvL3RaEQPoXgtTh0Kbv/YG9A/+w/4h5I6IHy8B0MVjcj8Vo/YSt8tUL0KWBQAkEP8feqwg9j/CSc+50oWL9d9bLUpRce3X/9ZW+HF8fIrfa9T6W9zdrnII1WSEBBNYJjJ4cfqFkIcxNHmKxN1W3C48BLJ8wfnihZle97gpm9Qg2SrIMgV6vXAojL8cLMaJeiAuUwCa4GzccYazL4uzrhNA0jFVQzJ+ulyCTZH/zCrv5HVIPJL1lv2Ha5vmbAGPeFG8sJfSNWaWS3PkBW94mZAf9OM6Ua6BGlI5D8De+MUVLX7VGUcwMM56Awc5zzK+Sps8Npo52EtYWPalz94GSMMUAHGu+9j5wGjj3ZJOGafEM8foypwsrbsDWoBEQbJWDwS6b//Ikqcw6UbeoGiNyIXdow=="
                     }
                   ],
                   "role": "model"
@@ -92,21 +92,28 @@
                 "index": 0
               }
             ],
-            "modelVersion": "gemini-3.7-flash",
-            "responseId": "snOXaoHxCJ_nqtsPzcTduQE",
-            "turnToken": "v1_Chdzbk9YYW9IeENKX25xdHNQemNUZHVRRRIXc25PWGFvSHhDSl9ucXRzUHpjVGR1UUU",
+            "modelVersion": "gemini-4-hydrogen",
+            "responseId": "FZv8asHHEv6YjrEPl5aJ2Q0",
+            "turnToken": "v1_ChdGWnY4YXNISEV2NllqckVQbDVhSjJRMBIXRlp2OGFzSEhFdjZZanJFUGw1YUoyUTA",
             "usageMetadata": {
               "candidatesTokenCount": 15,
-              "promptTokenCount": 54,
+              "candidatesTokensDetails": [
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 15
+                }
+              ],
+              "promptTokenCount": 33,
               "promptTokensDetails": [
                 {
                   "modality": "TEXT",
-                  "tokenCount": 54
+                  "tokenCount": 33
                 }
               ],
+              "rawPromptTokenCount": 93,
               "serviceTier": "standard",
-              "thoughtsTokenCount": 48,
-              "totalTokenCount": 117
+              "thoughtsTokenCount": 135,
+              "totalTokenCount": 183
             }
           },
           {
@@ -124,22 +131,28 @@
                 "index": 0
               }
             ],
-            "modelVersion": "gemini-3.7-flash",
-            "responseId": "snOXaoHxCJ_nqtsPzcTduQE",
-            "turnToken": "v1_Chdzbk9YYW9IeENKX25xdHNQemNUZHVRRRIXc25PWGFvSHhDSl9ucXRzUHpjVGR1UUU",
+            "modelVersion": "gemini-4-hydrogen",
+            "responseId": "FZv8asHHEv6YjrEPl5aJ2Q0",
+            "turnToken": "v1_ChdGWnY4YXNISEV2NllqckVQbDVhSjJRMBIXRlp2OGFzSEhFdjZZanJFUGw1YUoyUTA",
             "usageMetadata": {
-              "candidatesTokenCount": 15,
-              "promptTokenCount": 54,
+              "candidatesTokenCount": 21,
+              "candidatesTokensDetails": [
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 21
+                }
+              ],
+              "promptTokenCount": 93,
               "promptTokensDetails": [
                 {
                   "modality": "TEXT",
-                  "tokenCount": 54
+                  "tokenCount": 93
                 }
               ],
-              "rawPromptTokenCount": 94,
+              "rawPromptTokenCount": 93,
               "serviceTier": "standard",
-              "thoughtsTokenCount": 48,
-              "totalTokenCount": 117
+              "thoughtsTokenCount": 135,
+              "totalTokenCount": 249
             }
           }
         ]

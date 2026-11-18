@@ -24,8 +24,8 @@ package com.google.genai.kotlin
  * module still holding its own private constant has not been refreshed yet.
  */
 
-/** The latest Gemini flash model, used by most tests. */
-const val FLASH_MODEL_NAME = "gemini-flash-latest"
+/** The default Gemini model, used by most tests. */
+const val FLASH_MODEL_NAME = "gemini-4-hydrogen"
 
 /** The text-to-speech model. No generally available version exists yet. */
 const val TTS_MODEL_NAME = "gemini-3.1-flash-tts-preview"

@@ -82,7 +82,7 @@ class ModelsTest : BaseTestServer() {
   }
 
   @Test
-  fun testGenerateContentStreamSimple() = runTest {
+  fun testGenerateContentStreamSimple() = runLongTest {
     listOf(false, true).forEach { enterprise ->
       val suffix = if (enterprise) "vertex" else "mldev"
       val testName = "ModelsTest.testGenerateContentStreamSimple.$suffix"
@@ -475,7 +475,7 @@ class ModelsTest : BaseTestServer() {
             GenerateContentConfig(
               temperature = 0.1,
               topK = 1.0,
-              maxOutputTokens = 100,
+              maxOutputTokens = 1024,
               stopSequences = listOf("3"),
             ),
         )

@@ -4,8 +4,8 @@
     {
       "request": {
         "method": "GET",
-        "url": "/v1beta1/publishers/google/models/gemini-flash-latest",
-        "request": "GET /v1beta1/publishers/google/models/gemini-flash-latest HTTP/1.1",
+        "url": "/v1beta1/publishers/google/models/gemini-4-hydrogen",
+        "request": "GET /v1beta1/publishers/google/models/gemini-4-hydrogen HTTP/1.1",
         "headers": {
           "Accept": "*/*",
           "Accept-Charset": "UTF-8",
@@ -22,14 +22,14 @@
         "port": 443,
         "protocol": "https"
       },
-      "shaSum": "255346f6d5df9ab0495d8a8e41471b0e3d5d1d3ff3fc14970234dfce5d58dc9e",
+      "shaSum": "afe61ef76156d04c216815c01cf6e8718234c9f21c647d41c2fa2c5ffeb8c627",
       "response": {
         "statusCode": 200,
         "headers": {
           "Content-Encoding": "gzip",
-          "Content-Length": "168",
+          "Content-Length": "157",
           "Content-Type": "application/json; charset=UTF-8",
-          "Date": "Wed, 02 Sep 2026 00:46:56 GMT",
+          "Date": "Tue, 17 Nov 2026 18:13:30 GMT",
           "Server": "ESF",
           "Vary": "Origin, X-Origin, Referer",
           "X-Content-Type-Options": "nosniff",
@@ -38,9 +38,9 @@
         },
         "bodySegments": [
           {
-            "launchStage": "PUBLIC_PREVIEW",
-            "name": "publishers/google/models/gemini-flash-latest",
-            "publisherModelTemplate": "projects/{project}/locations/{location}/publishers/google/models/gemini-flash-latest@default",
+            "launchStage": "GA",
+            "name": "publishers/google/models/gemini-4-hydrogen",
+            "publisherModelTemplate": "projects/{project}/locations/{location}/publishers/google/models/gemini-4-hydrogen@default",
             "versionId": "default"
           }
         ]

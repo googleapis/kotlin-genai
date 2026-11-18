@@ -4,8 +4,8 @@
     {
       "request": {
         "method": "POST",
-        "url": "/v1beta/models/gemini-flash-latest:generateContent",
-        "request": "POST /v1beta/models/gemini-flash-latest:generateContent HTTP/1.1",
+        "url": "/v1beta/models/gemini-4-hydrogen:generateContent",
+        "request": "POST /v1beta/models/gemini-4-hydrogen:generateContent HTTP/1.1",
         "headers": {
           "Accept": "*/*",
           "Accept-Charset": "UTF-8",
@@ -40,16 +40,16 @@
         "port": 443,
         "protocol": "https"
       },
-      "shaSum": "1d461294aa1b464dc4b782d655a63f3d0bfcaf2c0788b4c94ec30ca27bef3342",
+      "shaSum": "6ad7974b97910ac961cbbb68b5e686c08066a091ad0deff119906f54a5193f42",
       "response": {
         "statusCode": 400,
         "headers": {
           "Content-Encoding": "gzip",
           "Content-Length": "394",
           "Content-Type": "application/json; charset=UTF-8",
-          "Date": "Wed, 02 Sep 2026 00:49:18 GMT",
+          "Date": "Tue, 17 Nov 2026 18:28:00 GMT",
           "Server": "scaffolding on HTTPServer2",
-          "Server-Timing": "gfet4t7; dur=408",
+          "Server-Timing": "gfet4t7; dur=329",
           "Vary": "Origin, X-Origin, Referer",
           "X-Content-Type-Options": "nosniff",
           "X-Frame-Options": "SAMEORIGIN",

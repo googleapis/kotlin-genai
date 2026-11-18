@@ -4,8 +4,8 @@
     {
       "request": {
         "method": "GET",
-        "url": "/v1beta/models/gemini-flash-latest",
-        "request": "GET /v1beta/models/gemini-flash-latest HTTP/1.1",
+        "url": "/v1beta/models/gemini-4-hydrogen",
+        "request": "GET /v1beta/models/gemini-4-hydrogen HTTP/1.1",
         "headers": {
           "Accept": "*/*",
           "Accept-Charset": "UTF-8",
@@ -22,16 +22,16 @@
         "port": 443,
         "protocol": "https"
       },
-      "shaSum": "a72ae00609d946ef4c087a2c2ac4cd4dd7458b68ded54b604b7821d47d581a83",
+      "shaSum": "9fa386ae38a3e3e66262d8abfb6ddf654131893a6910901a8b5443a80e7b093c",
       "response": {
         "statusCode": 200,
         "headers": {
           "Content-Encoding": "gzip",
-          "Content-Length": "262",
+          "Content-Length": "243",
           "Content-Type": "application/json; charset=UTF-8",
-          "Date": "Wed, 02 Sep 2026 00:46:56 GMT",
+          "Date": "Tue, 17 Nov 2026 18:13:28 GMT",
           "Server": "scaffolding on HTTPServer2",
-          "Server-Timing": "gfet4t7; dur=303",
+          "Server-Timing": "gfet4t7; dur=254",
           "Vary": "Origin, X-Origin, Referer",
           "X-Content-Type-Options": "nosniff",
           "X-Frame-Options": "SAMEORIGIN",
@@ -39,23 +39,22 @@
         },
         "bodySegments": [
           {
-            "description": "Latest release of Gemini Flash",
-            "displayName": "Gemini Flash Latest",
+            "description": "Gemini 4 Hydrogen",
+            "displayName": "Gemini 4 Hydrogen",
             "inputTokenLimit": 1048576,
             "maxTemperature": 2,
-            "name": "models/gemini-flash-latest",
+            "name": "models/gemini-4-hydrogen",
             "outputTokenLimit": 65536,
             "supportedGenerationMethods": [
               "generateContent",
               "countTokens",
-              "createCachedContent",
               "batchGenerateContent"
             ],
             "temperature": 1,
             "thinking": true,
             "topK": 64,
             "topP": 0.95,
-            "version": "Gemini Flash Latest"
+            "version": "3.0"
           }
         ]
       }

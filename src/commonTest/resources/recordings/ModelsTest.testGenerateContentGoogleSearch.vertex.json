@@ -4,8 +4,8 @@
     {
       "request": {
         "method": "POST",
-        "url": "/v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-flash-latest:generateContent",
-        "request": "POST /v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-flash-latest:generateContent HTTP/1.1",
+        "url": "/v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-4-hydrogen:generateContent",
+        "request": "POST /v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-4-hydrogen:generateContent HTTP/1.1",
         "headers": {
           "Accept": "*/*",
           "Accept-Charset": "UTF-8",
@@ -40,18 +40,20 @@
         "port": 443,
         "protocol": "https"
       },
-      "shaSum": "9d5ce1691b41026123fcf2f1e2bf9a1567d144f03b458e522a1558c4e50cf073",
+      "shaSum": "19bf4bc3c22b1d64151ec69fc0ace99e6e745ef98948f7bfc70a6da479fb4f94",
       "response": {
         "statusCode": 200,
         "headers": {
           "Content-Encoding": "gzip",
-          "Content-Length": "3261",
+          "Content-Length": "5907",
           "Content-Type": "application/json; charset=UTF-8",
-          "Date": "Wed, 02 Sep 2026 00:59:30 GMT",
+          "Date": "Tue, 17 Nov 2026 18:23:10 GMT",
           "Server": "scaffolding on HTTPServer2",
           "Vary": "Origin, X-Origin, Referer",
           "X-Content-Type-Options": "nosniff",
           "X-Frame-Options": "SAMEORIGIN",
+          "X-Goog-Request-Id": "epv8atzbCd2nq8YP9MLfiAk",
+          "X-Vertex-Ai-Llm-Request-Type": "dedicated",
           "X-Xss-Protection": "0"
         },
         "bodySegments": [
@@ -61,7 +63,8 @@
                 "content": {
                   "parts": [
                     {
-                      "text": "The weather in Melbourne, Australia, for today, Wednesday, September 2, 2026, is generally **cloudy with a chance of showers**.\n\nHere are the details:\n\n*   **Temperature:** The temperature is expected to reach a high of around **15°C (59°F)** and a low of approximately **9°C (48°F)** overnight.\n*   **Conditions:** The forecast is **cloudy** with a medium chance of **showers**, particularly in the northeast suburbs, and a slight chance elsewhere. There is about a 40% chance of light rain (around 1mm).\n*   **Wind:** Winds are predicted to be from the West (W) at 15 to 20 km/h, shifting to the Northwest (NW) later in the afternoon."
+                      "text": "In **Melbourne, Australia**, it is early Wednesday morning (November 18, 2026) and the weather is cool and calm.\n\n### **Current Conditions**\n* **Temperature:** Around 13°C (55°F)\n* **Sky:** Clear with periodic clouds (with a slight chance of early morning fog in the northeastern suburbs)\n* **Humidity:** ~82%\n* **Wind:** Light winds\n* **Rain:** 0% chance right now\n\n### **Today's Forecast (Wednesday, Nov 18)**\n* **Conditions:** Partly cloudy / partly sunny during the day, becoming cloudy tonight.\n* **High / Low:** 20–21°C (68–70°F) / 11–13°C (52–55°F)\n* **Rain:** Low chance (around 5–10%)\n* **Wind:** Light winds turning southerly at 15–20 km/h in the late afternoon before easing again in the late evening.\n\n### **Looking Ahead**\n* **Thursday \u0026 Friday:** Warming up into the low-to-mid 20s°C (mid-70s°F), with rain and potential showers/storms moving in by Thursday night and continuing through Friday.\n* **Weekend:** Drier and pleasant on Saturday (around 23–24°C / 74°F), before warming up to ~29–30°C (mid-80s°F) on Sunday with a chance of showers.",
+                      "thoughtSignature": "AY89a19Q5tJhHyJW0YZ+CxbE1Nk79An4tqBDi9GfjCnC2qh2AX3UlS6537vZzsYYLMrqi4BfqKS3/zdzPNhI4UQkkv1NMo3/Vc39031EibC3lzclw9qZD+XXsw0gjSxUqLNkZLFAbI7dl9lA5ROCVjTINBgaeFM1XGlJKmoY1AKGSfCvvPiEhwtyGsoGFbEgSRrXn/jzxZCsHkmE4CedsPLB836pjEAJd2tUrOUjW6jymCHuMa/BybIKnsZesORoCaLZp9Jl9LhzUYTsZmhWbq4xweFP8++lyB/eGiuHjqQwziGW78WddaMVwHh51Dq91rP1M+nBboxWAwLOr/kiZMAl4cNEMDl1ufITzoG3vsOPZ3JXAI6W533BBAQ4Cx8AdtOutfepL5d/EhoIuhVKFrIFb0FCo2vmeZJqWflOxiCxXXmaTuM94Vq/H5wnaABRmHAkSRGddXoKoUEuxQPT8Ge5IrJZ0iJbDermMl8a51w1gnaWGc8pcyYTlYC5iuJSX6Mih0ZHZDn+lwsSF0tmuTEii46D0siXwHkxuzmEAy3CXgJDTU2k7H0FcxpGddfQ5CPSmIihmQ16Rr/5IQdAIwLsljtJyvFQCeYvad+tKh3X3dYaFjvI9Ue55+Zphef/ZXJozawOIvEA57XMN0kpBBJa+k4NWoJtv3ZRwNjhKDlsPCM2YUVyCrdUYROxUZh182dQwuZ7Zk7FOGFzLBlmKdTYi8GFVXf6c5Kish+F+uZrIm4ozbBzAqvNPUdf06rRKCYJAlfbaTthrzu6bNjnKsj7X8Cr0F1wzQpzeS3v2I4Z4JyQ2nUH17+WZD3b4CgefNbvYyN51Eo6jDe5btoccdTyiot9qX0tXRybPHmbYznwslKdMfU6BsDrHuCz8qXYGQjsvwbf3sVNj++CJWxsdiO5W88oPXtXrEf+D0FdmA6ZwvVq1KnU68U7ArStY0BWlEB7Wxx9LGOrKzFbzjFTdQbggsspHMivQW61SnZyh8np1HVOyJdUZ74Ja9C1VHHVd7Bj+JfpKPtV8Q4cpeGPVgtmdBFUC0YRqKK8J8DzTaX0oaD+FIiBJe21X8cwBPtUC6pm6oHknbt7Eb0qnoJJxsbeNTleYQW60BFZubigXxg7Spg1rTylGByZzB+OoU2gMhhRMcizJpWsOrbU2oGTxnaxpT+c66amaOP4OX7APhaQK5s5H1sIa+WGSlc7NhPH3syiAxS31Gx1z8uq6AeRIiQ/8U3x9Gx/66/bxg9XgDp8EzBvS9SJ8b7LJC4WDwaJhuLg8EJvldKI5bWtNqFnYU48t4yvt+qk09b3ynSGola6gTbh9/TklE5wN0qSJRKiFyfeAB67eqXvOtP14BGXQSITkGruawY7PodX1PrCeqhoY26iyYBr0BzzFoGZaXWTqpv/pJSFp48nD+3lzQAR33/cERt3vR/ltt/LaQjDdop0U/QkwaM7t8z8vBWf8grkDvFSOv2gsPInk4yLHoZQl/lLlwET2UVeophEZj7XSYiMqN01FIQECwTQoB+PCKAWcloXnmb5L62TNER0zPHqm0uzA9Tdq28RhT/SRtH6PpUYOovWs/5CVDOxe7P26tSEM1exFvTEcPSxnZ3W85aocLjVgYV5bij9r9anRl5/8pl7IRtJSfHShznr47cbEKoa6wuD7WZvnAvhm+WEWvnyEuga8twzYJ0QBQ9oD7YWWGMKKKxBvH7PkUrEI6T4Jz5XiGVLi/X6Amy20YMK2XGhE/tcQiteRP61aabrVI6K+I9O9PKufJRmtQRzbpKv82aoAE2Eky/JeD4vcQ7sEGK6a5N+n7E="
                     }
                   ],
                   "role": "model"
@@ -71,28 +74,94 @@
                   "groundingChunks": [
                     {
                       "web": {
-                        "domain": "theweathernetwork.com",
-                        "title": "theweathernetwork.com",
-                        "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE9OILs-EjW8qD-5-bR83ALLJTG10V9KF-qiyC0kP_Qf-1hreEDyRQOPis60hj_HGImrDvtxk4LxTX1nto-Ny9N8PklQDPv8d9HE7kg9Qk9j3eQQqqVL7COJ1gQMWBu_4M-6RnqeR-UqiVDk4ADZfWR2CGr4pglEpH7519MKy0NVZHC"
+                        "title": "Current time information in Melbourne, AU.",
+                        "uri": "https://www.google.com/search?q=time+in+Melbourne,+AU"
                       }
                     },
                     {
                       "web": {
-                        "domain": "weatherzone.com.au",
-                        "title": "weatherzone.com.au",
-                        "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGLhKSGzhLVIh3Fje6cvdi64GC2vF2ut3E5naLK-tSqcZ_enquL0gjaFZ6TauYDdj7IcbhzS5W2MaDP7NqfVJEPQiaWPFfFb20xs3dV_YG_YeHFaNwMScIjWvEmrhMK1qn9vRdHegW3Ycy2DVJDaJ7bfg=="
+                        "domain": "eldersweather.com.au",
+                        "title": "eldersweather.com.au",
+                        "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHXkT-c2pxMo40mIuXfGY4b-r5wVoAL_lgCNIkKsgFseCqWX0am56H3eJCXML-ZHOEr9B1cjx7VWOebzUig5G3mqwMTKuhFFDdQci4F9f9wt2f6p_rtoV_Lm9WH7oUndE8DLDPnnxXdzoaZxk4MZw=="
+                      }
+                    },
+                    {
+                      "web": {
+                        "domain": "google.com",
+                        "title": "Weather information for Melbourne, AU",
+                        "uri": "https://www.google.com/search?q=weather+in+Melbourne,+AU"
+                      }
+                    },
+                    {
+                      "web": {
+                        "domain": "bom.gov.au",
+                        "title": "bom.gov.au",
+                        "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEkwkx4mcmWe3syzR03N0umorGLmEF0P8VoBYK-bGTFgdgSmSrCIt81eCvdO8npQVvrfhB-pT_W6sv0UfLLWl1U8rIcbnIxXYn69KnoaCltg2skj4boud4bj6B29Cw="
+                      }
+                    },
+                    {
+                      "web": {
+                        "domain": "weatherzone.com",
+                        "title": "weatherzone.com",
+                        "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFpFLsRbA2gXvUpru6ngjzytZk-bG0dtPFqJ0RTy4QaWza1z206tGNyXdV3wQc2ZFbICttg5JKj3b7bx03GhnW-s7jtIYVgaPR_Eirgoft4QrqHleSj-pRbmFoDKlAaGS0l5H92AxiOHMVhd8gkX1OGKw=="
+                      }
+                    },
+                    {
+                      "web": {
+                        "domain": "willyweather.com.au",
+                        "title": "willyweather.com.au",
+                        "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHW0_y61eze5xjdC_BWGrAQMitTt9mAGqi65M7qrwJfpG6okISSXp6KS9-KO4N24KBvcHeLn84WgALXrbi0omM5zcx5I8En2itTBnLhAthXNL2XriTqjTPDKeN3m4oU3Aacezqis7ZYxqR1J7Q_e5WOeqMPFoO50g=="
+                      }
+                    },
+                    {
+                      "web": {
+                        "domain": "metoffice.gov.uk",
+                        "title": "metoffice.gov.uk",
+                        "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGibEC0dlk6s8rkkWr5FUcA-JHXSFRCgcIvoOa0eFw3rn5A5cEwsAPgAVvPeNXjd2WK-qn5o8mWMn7oNUdWcytStpSdFsm9PRxwKa1yk1AQKBWK5Oe9AfqxJQ5qHkb5rKthAl54AFSzjKdTFjq1SQ=="
                       }
                     }
                   ],
                   "groundingSupports": [
                     {
                       "groundingChunkIndices": [
-                        0
+                        0,
+                        1,
+                        2
                       ],
                       "segment": {
-                        "endIndex": 299,
-                        "startIndex": 152,
-                        "text": "*   **Temperature:** The temperature is expected to reach a high of around **15°C (59°F)** and a low of approximately **9°C (48°F)** overnight."
+                        "endIndex": 111,
+                        "text": "In **Melbourne, Australia**, it is early Wednesday morning (November 18, 2026) and the weather is cool and calm"
+                      }
+                    },
+                    {
+                      "groundingChunkIndices": [
+                        2
+                      ],
+                      "segment": {
+                        "endIndex": 180,
+                        "startIndex": 143,
+                        "text": "**Temperature:** Around 13°C (55°F)"
+                      }
+                    },
+                    {
+                      "groundingChunkIndices": [
+                        1,
+                        2
+                      ],
+                      "segment": {
+                        "endIndex": 290,
+                        "startIndex": 183,
+                        "text": "**Sky:** Clear with periodic clouds (with a slight chance of early morning fog in the northeastern suburbs)"
+                      }
+                    },
+                    {
+                      "groundingChunkIndices": [
+                        2
+                      ],
+                      "segment": {
+                        "endIndex": 311,
+                        "startIndex": 293,
+                        "text": "**Humidity:** ~82%"
                       }
                     },
                     {
@@ -100,19 +169,53 @@
                         1
                       ],
                       "segment": {
-                        "endIndex": 453,
-                        "startIndex": 300,
-                        "text": "*   **Conditions:** The forecast is **cloudy** with a medium chance of **showers**, particularly in the northeast suburbs, and a slight chance elsewhere."
+                        "endIndex": 335,
+                        "startIndex": 314,
+                        "text": "**Wind:** Light winds"
                       }
                     },
                     {
                       "groundingChunkIndices": [
-                        0
+                        2
                       ],
                       "segment": {
-                        "endIndex": 509,
-                        "startIndex": 454,
-                        "text": "There is about a 40% chance of light rain (around 1mm)."
+                        "endIndex": 367,
+                        "startIndex": 338,
+                        "text": "**Rain:** 0% chance right now"
+                      }
+                    },
+                    {
+                      "groundingChunkIndices": [
+                        1,
+                        2
+                      ],
+                      "segment": {
+                        "endIndex": 500,
+                        "startIndex": 416,
+                        "text": "**Conditions:** Partly cloudy / partly sunny during the day, becoming cloudy tonight"
+                      }
+                    },
+                    {
+                      "groundingChunkIndices": [
+                        1,
+                        2,
+                        3
+                      ],
+                      "segment": {
+                        "endIndex": 569,
+                        "startIndex": 504,
+                        "text": "**High / Low:** 20–21°C (68–70°F) / 11–13°C (52–55°F)"
+                      }
+                    },
+                    {
+                      "groundingChunkIndices": [
+                        4,
+                        2
+                      ],
+                      "segment": {
+                        "endIndex": 609,
+                        "startIndex": 572,
+                        "text": "**Rain:** Low chance (around 5–10%)"
                       }
                     },
                     {
@@ -120,50 +223,68 @@
                         1
                       ],
                       "segment": {
-                        "endIndex": 640,
-                        "startIndex": 510,
-                        "text": "*   **Wind:** Winds are predicted to be from the West (W) at 15 to 20 km/h, shifting to the Northwest (NW) later in the afternoon."
+                        "endIndex": 729,
+                        "startIndex": 612,
+                        "text": "**Wind:** Light winds turning southerly at 15–20 km/h in the late afternoon before easing again in the late evening"
+                      }
+                    },
+                    {
+                      "groundingChunkIndices": [
+                        5,
+                        2
+                      ],
+                      "segment": {
+                        "endIndex": 927,
+                        "startIndex": 756,
+                        "text": "**Thursday \u0026 Friday:** Warming up into the low-to-mid 20s°C (mid-70s°F), with rain and potential showers/storms moving in by Thursday night and continuing through Friday"
+                      }
+                    },
+                    {
+                      "groundingChunkIndices": [
+                        5,
+                        2,
+                        6
+                      ],
+                      "segment": {
+                        "endIndex": 1084,
+                        "startIndex": 931,
+                        "text": "**Weekend:** Drier and pleasant on Saturday (around 23–24°C / 74°F), before warming up to ~29–30°C (mid-80s°F) on Sunday with a chance of showers"
                       }
                     }
                   ],
-                  "retrievalMetadata": {},
                   "searchEntryPoint": {
-                    "renderedContent": "\u003cstyle\u003e\n.container {\n  align-items: center;\n  border-radius: 8px;\n  display: flex;\n  font-family: Google Sans, Roboto, sans-serif;\n  font-size: 14px;\n  line-height: 20px;\n  padding: 8px 12px;\n}\n.chip {\n  display: inline-block;\n  border: solid 1px;\n  border-radius: 16px;\n  min-width: 14px;\n  padding: 5px 16px;\n  text-align: center;\n  user-select: none;\n  margin: 0 8px;\n  -webkit-tap-highlight-color: transparent;\n}\n.carousel {\n  overflow: auto;\n  scrollbar-width: none;\n  white-space: nowrap;\n  margin-right: -12px;\n}\n.headline {\n  display: flex;\n  margin-right: 4px;\n}\n.gradient-container {\n  position: relative;\n}\n.gradient {\n  position: absolute;\n  transform: translate(3px, -9px);\n  height: 36px;\n  width: 9px;\n}\n@media (prefers-color-scheme: light) {\n  .container {\n    background-color: #fafafa;\n    box-shadow: 0 0 0 1px #0000000f;\n  }\n  .headline-label {\n    color: #1f1f1f;\n  }\n  .chip {\n    background-color: #ffffff;\n    border-color: #d2d2d2;\n    color: #5e5e5e;\n    text-decoration: none;\n  }\n  .chip:hover {\n    background-color: #f2f2f2;\n  }\n  .chip:focus {\n    background-color: #f2f2f2;\n  }\n  .chip:active {\n    background-color: #d8d8d8;\n    border-color: #b6b6b6;\n  }\n  .logo-dark {\n    display: none;\n  }\n  .gradient {\n    background: linear-gradient(90deg, #fafafa 15%, #fafafa00 100%);\n  }\n}\n@media (prefers-color-scheme: dark) {\n  .container {\n    background-color: #1f1f1f;\n    box-shadow: 0 0 0 1px #ffffff26;\n  }\n  .headline-label {\n    color: #fff;\n  }\n  .chip {\n    background-color: #2c2c2c;\n    border-color: #3c4043;\n    color: #fff;\n    text-decoration: none;\n  }\n  .chip:hover {\n    background-color: #353536;\n  }\n  .chip:focus {\n    background-color: #353536;\n  }\n  .chip:active {\n    background-color: #464849;\n    border-color: #53575b;\n  }\n  .logo-light {\n    display: none;\n  }\n  .gradient {\n    background: linear-gradient(90deg, #1f1f1f 15%, #1f1f1f00 100%);\n  }\n}\n\u003c/style\u003e\n\u003cdiv class=\"container\"\u003e\n  \u003cdiv class=\"headline\"\u003e\n    \u003csvg class=\"logo-light\" width=\"18\" height=\"18\" viewBox=\"9 9 35 35\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"\u003e\n      \u003cpath fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M42.8622 27.0064C42.8622 25.7839 42.7525 24.6084 42.5487 23.4799H26.3109V30.1568H35.5897C35.1821 32.3041 33.9596 34.1222 32.1258 35.3448V39.6864H37.7213C40.9814 36.677 42.8622 32.2571 42.8622 27.0064V27.0064Z\" fill=\"#4285F4\"/\u003e\n      \u003cpath fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M26.3109 43.8555C30.9659 43.8555 34.8687 42.3195 37.7213 39.6863L32.1258 35.3447C30.5898 36.3792 28.6306 37.0061 26.3109 37.0061C21.8282 37.0061 18.0195 33.9811 16.6559 29.906H10.9194V34.3573C13.7563 39.9841 19.5712 43.8555 26.3109 43.8555V43.8555Z\" fill=\"#34A853\"/\u003e\n      \u003cpath fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M16.6559 29.8904C16.3111 28.8559 16.1074 27.7588 16.1074 26.6146C16.1074 25.4704 16.3111 24.3733 16.6559 23.3388V18.8875H10.9194C9.74388 21.2072 9.06992 23.8247 9.06992 26.6146C9.06992 29.4045 9.74388 32.022 10.9194 34.3417L15.3864 30.8621L16.6559 29.8904V29.8904Z\" fill=\"#FBBC05\"/\u003e\n      \u003cpath fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M26.3109 16.2386C28.85 16.2386 31.107 17.1164 32.9095 18.8091L37.8466 13.8719C34.853 11.082 30.9659 9.3736 26.3109 9.3736C19.5712 9.3736 13.7563 13.245 10.9194 18.8875L16.6559 23.3388C18.0195 19.2636 21.8282 16.2386 26.3109 16.2386V16.2386Z\" fill=\"#EA4335\"/\u003e\n    \u003c/svg\u003e\n    \u003csvg class=\"logo-dark\" width=\"18\" height=\"18\" viewBox=\"0 0 48 48\" xmlns=\"http://www.w3.org/2000/svg\"\u003e\n      \u003ccircle cx=\"24\" cy=\"23\" fill=\"#FFF\" r=\"22\"/\u003e\n      \u003cpath d=\"M33.76 34.26c2.75-2.56 4.49-6.37 4.49-11.26 0-.89-.08-1.84-.29-3H24.01v5.99h8.03c-.4 2.02-1.5 3.56-3.07 4.56v.75l3.91 2.97h.88z\" fill=\"#4285F4\"/\u003e\n      \u003cpath d=\"M15.58 25.77A8.845 8.845 0 0 0 24 31.86c1.92 0 3.62-.46 4.97-1.31l4.79 3.71C31.14 36.7 27.65 38 24 38c-5.93 0-11.01-3.4-13.45-8.36l.17-1.01 4.06-2.85h.8z\" fill=\"#34A853\"/\u003e\n      \u003cpath d=\"M15.59 20.21a8.864 8.864 0 0 0 0 5.58l-5.03 3.86c-.98-2-1.53-4.25-1.53-6.64 0-2.39.55-4.64 1.53-6.64l1-.22 3.81 2.98.22 1.08z\" fill=\"#FBBC05\"/\u003e\n      \u003cpath d=\"M24 14.14c2.11 0 4.02.75 5.52 1.98l4.36-4.36C31.22 9.43 27.81 8 24 8c-5.93 0-11.01 3.4-13.45 8.36l5.03 3.85A8.86 8.86 0 0 1 24 14.14z\" fill=\"#EA4335\"/\u003e\n    \u003c/svg\u003e\n    \u003cdiv class=\"gradient-container\"\u003e\u003cdiv class=\"gradient\"\u003e\u003c/div\u003e\u003c/div\u003e\n  \u003c/div\u003e\n  \u003cdiv class=\"carousel\"\u003e\n    \u003ca class=\"chip\" href=\"https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFyFoZx2kpxk9pVl3GJleNaBZ25Oqv13reSLq5xkpPpZvgTUnmBX135BY_hbbfd2hGlLqxWo-V6lOT0qp9Z_sPGrMvoni6qnHWLAuVRfTj5ulEuz-h-O2y7NVrmk5DZ5plYNgLihFNsLJYLx7S_Xdb-p1y_hdhMkR-s9YWnr3QkGbs5iN4sbNFj18c-OQ3JpIuB3bXO2Ba1v38eRHF8bjJBXny6N8CBfl5D\"\u003ecurrent weather in Melbourne Australia\u003c/a\u003e\n  \u003c/div\u003e\n\u003c/div\u003e\n"
+                    "renderedContent": "\u003cstyle\u003e\n.container {\n  align-items: center;\n  border-radius: 8px;\n  display: flex;\n  font-family: Google Sans, Roboto, sans-serif;\n  font-size: 14px;\n  line-height: 20px;\n  padding: 8px 12px;\n}\n.chip {\n  display: inline-block;\n  border: solid 1px;\n  border-radius: 16px;\n  min-width: 14px;\n  padding: 5px 16px;\n  text-align: center;\n  user-select: none;\n  margin: 0 8px;\n  -webkit-tap-highlight-color: transparent;\n}\n.carousel {\n  overflow: auto;\n  scrollbar-width: none;\n  white-space: nowrap;\n  margin-right: -12px;\n}\n.headline {\n  display: flex;\n  margin-right: 4px;\n}\n.gradient-container {\n  position: relative;\n}\n.gradient {\n  position: absolute;\n  transform: translate(3px, -9px);\n  height: 36px;\n  width: 9px;\n}\n@media (prefers-color-scheme: light) {\n  .container {\n    background-color: #fafafa;\n    box-shadow: 0 0 0 1px #0000000f;\n  }\n  .headline-label {\n    color: #1f1f1f;\n  }\n  .chip {\n    background-color: #ffffff;\n    border-color: #d2d2d2;\n    color: #5e5e5e;\n    text-decoration: none;\n  }\n  .chip:hover {\n    background-color: #f2f2f2;\n  }\n  .chip:focus {\n    background-color: #f2f2f2;\n  }\n  .chip:active {\n    background-color: #d8d8d8;\n    border-color: #b6b6b6;\n  }\n  .logo-dark {\n    display: none;\n  }\n  .gradient {\n    background: linear-gradient(90deg, #fafafa 15%, #fafafa00 100%);\n  }\n}\n@media (prefers-color-scheme: dark) {\n  .container {\n    background-color: #1f1f1f;\n    box-shadow: 0 0 0 1px #ffffff26;\n  }\n  .headline-label {\n    color: #fff;\n  }\n  .chip {\n    background-color: #2c2c2c;\n    border-color: #3c4043;\n    color: #fff;\n    text-decoration: none;\n  }\n  .chip:hover {\n    background-color: #353536;\n  }\n  .chip:focus {\n    background-color: #353536;\n  }\n  .chip:active {\n    background-color: #464849;\n    border-color: #53575b;\n  }\n  .logo-light {\n    display: none;\n  }\n  .gradient {\n    background: linear-gradient(90deg, #1f1f1f 15%, #1f1f1f00 100%);\n  }\n}\n\u003c/style\u003e\n\u003cdiv class=\"container\"\u003e\n  \u003cdiv class=\"headline\"\u003e\n    \u003csvg class=\"logo-light\" width=\"18\" height=\"18\" viewBox=\"9 9 35 35\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"\u003e\n      \u003cpath fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M42.8622 27.0064C42.8622 25.7839 42.7525 24.6084 42.5487 23.4799H26.3109V30.1568H35.5897C35.1821 32.3041 33.9596 34.1222 32.1258 35.3448V39.6864H37.7213C40.9814 36.677 42.8622 32.2571 42.8622 27.0064V27.0064Z\" fill=\"#4285F4\"/\u003e\n      \u003cpath fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M26.3109 43.8555C30.9659 43.8555 34.8687 42.3195 37.7213 39.6863L32.1258 35.3447C30.5898 36.3792 28.6306 37.0061 26.3109 37.0061C21.8282 37.0061 18.0195 33.9811 16.6559 29.906H10.9194V34.3573C13.7563 39.9841 19.5712 43.8555 26.3109 43.8555V43.8555Z\" fill=\"#34A853\"/\u003e\n      \u003cpath fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M16.6559 29.8904C16.3111 28.8559 16.1074 27.7588 16.1074 26.6146C16.1074 25.4704 16.3111 24.3733 16.6559 23.3388V18.8875H10.9194C9.74388 21.2072 9.06992 23.8247 9.06992 26.6146C9.06992 29.4045 9.74388 32.022 10.9194 34.3417L15.3864 30.8621L16.6559 29.8904V29.8904Z\" fill=\"#FBBC05\"/\u003e\n      \u003cpath fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M26.3109 16.2386C28.85 16.2386 31.107 17.1164 32.9095 18.8091L37.8466 13.8719C34.853 11.082 30.9659 9.3736 26.3109 9.3736C19.5712 9.3736 13.7563 13.245 10.9194 18.8875L16.6559 23.3388C18.0195 19.2636 21.8282 16.2386 26.3109 16.2386V16.2386Z\" fill=\"#EA4335\"/\u003e\n    \u003c/svg\u003e\n    \u003csvg class=\"logo-dark\" width=\"18\" height=\"18\" viewBox=\"0 0 48 48\" xmlns=\"http://www.w3.org/2000/svg\"\u003e\n      \u003ccircle cx=\"24\" cy=\"23\" fill=\"#FFF\" r=\"22\"/\u003e\n      \u003cpath d=\"M33.76 34.26c2.75-2.56 4.49-6.37 4.49-11.26 0-.89-.08-1.84-.29-3H24.01v5.99h8.03c-.4 2.02-1.5 3.56-3.07 4.56v.75l3.91 2.97h.88z\" fill=\"#4285F4\"/\u003e\n      \u003cpath d=\"M15.58 25.77A8.845 8.845 0 0 0 24 31.86c1.92 0 3.62-.46 4.97-1.31l4.79 3.71C31.14 36.7 27.65 38 24 38c-5.93 0-11.01-3.4-13.45-8.36l.17-1.01 4.06-2.85h.8z\" fill=\"#34A853\"/\u003e\n      \u003cpath d=\"M15.59 20.21a8.864 8.864 0 0 0 0 5.58l-5.03 3.86c-.98-2-1.53-4.25-1.53-6.64 0-2.39.55-4.64 1.53-6.64l1-.22 3.81 2.98.22 1.08z\" fill=\"#FBBC05\"/\u003e\n      \u003cpath d=\"M24 14.14c2.11 0 4.02.75 5.52 1.98l4.36-4.36C31.22 9.43 27.81 8 24 8c-5.93 0-11.01 3.4-13.45 8.36l5.03 3.85A8.86 8.86 0 0 1 24 14.14z\" fill=\"#EA4335\"/\u003e\n    \u003c/svg\u003e\n    \u003cdiv class=\"gradient-container\"\u003e\u003cdiv class=\"gradient\"\u003e\u003c/div\u003e\u003c/div\u003e\n  \u003c/div\u003e\n  \u003cdiv class=\"carousel\"\u003e\n    \u003ca class=\"chip\" href=\"https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGtXvhhMONi9pKZ_SoI1BL-G4qDHI37bUNbuhLRrb1GbHcAdRRrRgtkthnHtSRhQ2o-ggqVYSAoN5WQWG4r5-FW_t59OPFlaqjXnzSXQhfv_SKcCnzCXuDMGEZFGAwY2Jhx311xun2YgtX4vIH7DzNZ5VVG6cdcoPTLh3OQV2F91DGFfxUviCnJq-ldWrBImyxTh0lk_HajmD3R-munwaTI7Oe2GbUzdVouGCNwYaMTA1RQGvp4xqWMZsHfAjSAYqKUtA==\"\u003e\u0026quot;Melbourne\u0026quot; weather \u0026quot;Wednesday\u0026quot; \u0026quot;18\u0026quot; November 2026\u003c/a\u003e\n    \u003ca class=\"chip\" href=\"https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHV-U2_qbuDaCiscs2KG_0QjrS-IHhah65-69i_8N1fQcY1gZO65_U1_0epPxWx8C8jNTUKMS-OYIY8vyz-mFU8ILdLxrPy-TdEjp6I0YgIcS1APApcpSCeCuM8BqFy5zxRckLRFyrpBkjNHfz5tQqgJyCjRlbu0n6mEWEP2PoAljynuBjKtmie5u13FQEH29nv0DQWW7miEj4=\"\u003eMelbourne observations\u003c/a\u003e\n  \u003c/div\u003e\n\u003c/div\u003e\n"
                   },
                   "webSearchQueries": [
-                    "current weather in Melbourne Australia"
+                    "Melbourne Australia weather now",
+                    "Melbourne weather forecast today",
+                    "\"Melbourne\" weather \"Wednesday\" \"18\" November 2026",
+                    "Melbourne observations"
                   ]
                 }
               }
             ],
-            "createTime": "2026-09-02T00:59:22.231976Z",
-            "modelVersion": "gemini-flash-latest",
-            "responseId": "6nSXaqiUDqqapucP5PKIUQ",
+            "createTime": "2026-11-17T18:22:50.159196Z",
+            "modelVersion": "gemini-4-hydrogen",
+            "responseId": "epv8atzbCd2nq8YP9MLfiAk",
             "usageMetadata": {
-              "candidatesTokenCount": 176,
+              "candidatesTokenCount": 563,
               "candidatesTokensDetails": [
                 {
                   "modality": "TEXT",
-                  "tokenCount": 176
+                  "tokenCount": 563
                 }
               ],
-              "promptTokenCount": 9,
+              "promptTokenCount": 217,
               "promptTokensDetails": [
                 {
                   "modality": "TEXT",
-                  "tokenCount": 9
+                  "tokenCount": 217
                 }
               ],
-              "thoughtsTokenCount": 938,
-              "toolUsePromptTokenCount": 59,
-              "toolUsePromptTokensDetails": [
-                {
-                  "modality": "TEXT",
-                  "tokenCount": 59
-                }
-              ],
-              "totalTokenCount": 1182,
-              "trafficType": "ON_DEMAND"
+              "thoughtsTokenCount": 557,
+              "totalTokenCount": 1337,
+              "trafficType": "PROVISIONED_THROUGHPUT"
             }
           }
         ]

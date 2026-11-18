@@ -4,8 +4,8 @@
     {
       "request": {
         "method": "POST",
-        "url": "/v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-flash-latest:generateContent",
-        "request": "POST /v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-flash-latest:generateContent HTTP/1.1",
+        "url": "/v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-4-hydrogen:generateContent",
+        "request": "POST /v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-4-hydrogen:generateContent HTTP/1.1",
         "headers": {
           "Accept": "*/*",
           "Accept-Charset": "UTF-8",
@@ -40,65 +40,61 @@
         "port": 443,
         "protocol": "https"
       },
-      "shaSum": "98297a02647075e752c8e214e399fc07bf88e52c22f6d9c99af8ce23d6436557",
+      "shaSum": "4e1979054e37a5735d63af5109169a30a489b3cc6f12bf599f7f85be459cf0f5",
       "response": {
         "statusCode": 200,
         "headers": {
           "Content-Encoding": "gzip",
-          "Content-Length": "769",
+          "Content-Length": "2660",
           "Content-Type": "application/json; charset=UTF-8",
-          "Date": "Wed, 02 Sep 2026 00:54:53 GMT",
+          "Date": "Tue, 17 Nov 2026 18:27:59 GMT",
           "Server": "scaffolding on HTTPServer2",
           "Vary": "Origin, X-Origin, Referer",
           "X-Content-Type-Options": "nosniff",
           "X-Frame-Options": "SAMEORIGIN",
+          "X-Goog-Request-Id": "qJz8aqmOJNuVq8YPgJKnoA4",
           "X-Xss-Protection": "0"
         },
         "bodySegments": [
           {
             "candidates": [
               {
-                "avgLogprobs": -3.172714373387328,
                 "content": {
                   "parts": [
                     {
-                      "text": "This video demonstrates the Multimodal Live API of Gemini 2.0 Flash by having the AI process a real-time screen recording of a Google Doc, successfully responding to commands related to the visible content. Key features were tested, including the ability to read highlighted text and define terms like \"multimodal,\" showing the AI's real-time understanding of both visual and verbal context. The demonstration concluded by showcasing the model's strong memory and handling of interruptions when the user paused an initial task to request a complete summary of all preceding interactions."
+                      "text": "A presenter demonstrates Gemini 2.0's Multimodal Live API in Google AI Studio by sharing a screen displaying a document and a Google Meet window. During the interactive session, the AI reads highlighted text, defines the word \"multimodal,\" responds naturally to being interrupted mid-story, and summarizes their prior conversation to showcase its memory. The demo concludes with the AI reading the ending card, inviting viewers to start building with Gemini 2.0 at aistudio.google.com.",
+                      "thoughtSignature": "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"
                     }
                   ],
                   "role": "model"
                 },
-                "finishReason": "STOP",
-                "score": -345.82586669921875
+                "finishReason": "STOP"
               }
             ],
-            "createTime": "2026-09-02T00:54:39.022618Z",
-            "modelVersion": "gemini-flash-latest",
-            "responseId": "z3OXatqwAf-apucP-qjVkQU",
+            "createTime": "2026-11-17T18:27:52.591657Z",
+            "modelVersion": "gemini-4-hydrogen",
+            "responseId": "qJz8aqmOJNuVq8YPgJKnoA4",
             "usageMetadata": {
-              "candidatesTokenCount": 109,
+              "candidatesTokenCount": 102,
               "candidatesTokensDetails": [
                 {
                   "modality": "TEXT",
-                  "tokenCount": 109
+                  "tokenCount": 102
                 }
               ],
-              "promptTokenCount": 42201,
+              "promptTokenCount": 15701,
               "promptTokensDetails": [
                 {
                   "modality": "VIDEO",
-                  "tokenCount": 38442
+                  "tokenCount": 15063
                 },
                 {
                   "modality": "TEXT",
-                  "tokenCount": 9
-                },
-                {
-                  "modality": "AUDIO",
-                  "tokenCount": 3750
+                  "tokenCount": 638
                 }
               ],
-              "thoughtsTokenCount": 760,
-              "totalTokenCount": 43070,
+              "thoughtsTokenCount": 390,
+              "totalTokenCount": 16193,
               "trafficType": "ON_DEMAND"
             }
           }

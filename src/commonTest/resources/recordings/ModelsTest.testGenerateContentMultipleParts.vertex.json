@@ -4,8 +4,8 @@
     {
       "request": {
         "method": "POST",
-        "url": "/v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-flash-latest:generateContent",
-        "request": "POST /v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-flash-latest:generateContent HTTP/1.1",
+        "url": "/v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-4-hydrogen:generateContent",
+        "request": "POST /v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-4-hydrogen:generateContent HTTP/1.1",
         "headers": {
           "Accept": "*/*",
           "Accept-Charset": "UTF-8",
@@ -37,57 +37,59 @@
         "port": 443,
         "protocol": "https"
       },
-      "shaSum": "669a7570822c502617fd153cdfffdb5ae2b31654d5add4b301cb0d05077fe28e",
+      "shaSum": "fb7a014f549b9fde8eba845da06aabfa90685c15748ae874634accefc779713a",
       "response": {
         "statusCode": 200,
         "headers": {
           "Content-Encoding": "gzip",
-          "Content-Length": "411",
+          "Content-Length": "974",
           "Content-Type": "application/json; charset=UTF-8",
-          "Date": "Wed, 02 Sep 2026 00:59:14 GMT",
+          "Date": "Tue, 17 Nov 2026 18:22:26 GMT",
           "Server": "scaffolding on HTTPServer2",
           "Vary": "Origin, X-Origin, Referer",
           "X-Content-Type-Options": "nosniff",
           "X-Frame-Options": "SAMEORIGIN",
+          "X-Goog-Request-Id": "YJv8apy8NOOPq8YPk_fB4Ao",
+          "X-Vertex-Ai-Llm-Request-Type": "dedicated",
           "X-Xss-Protection": "0"
         },
         "bodySegments": [
           {
             "candidates": [
               {
-                "avgLogprobs": -0.021237537264823914,
                 "content": {
                   "parts": [
                     {
-                      "text": "The capital of France is **Paris**."
+                      "text": "The capital of France is Paris.",
+                      "thoughtSignature": "AY89a19uUhsb2xd7D73fFHfbQGVyL+g4JGi+18NhAdtq5bmwaJ7yFtrlIr0tzJhiOkvMNYnDCnGglSW/YTW30BsNca25dfDE0+Nk4SR0qYAy3r42cdqwkKXZ5bosN2Pu2T5QkaQwUEgE35LbS8rdCAsrfRcEvn0tSPMtmTMSSHDkGj9XcO+E1bYZWATb8fVBtv1jPljphmYr/gK6jwXlYljrl4XQbwGng3xBZdaIICV4mpWbk3X8a5n9vMAXzAyEommBmRsVKdF3ivvKjj3m8s+rKwcUGDZU5iL3IpVjQHWCuzX/4MdOqEEPZkYI68o/985bnHTARINWpqFXqepXIS1memHdShpsd7rnLXgEXgt3PrHsA/GvFzcUAkhmGSCmVaxtGGpvJ2n7uFLXf9/Vy6vvfV3ZxzDTvuu5GZ/bZkyiAWENQB5zlBd6VIUbG3tHq/iBtFuuVxjGAwvnWQqV4GUOzLPoDn6TCHM8r5rzDGi7OEs9oJpPww4HXpt5wMBTeNoztUzfYcIqgZsQ9pwHSxSxb1Be6qfsNvDFJHspnE7N/Lxfu0xhUB7cbOrILREvm0USoeGFK41RGBB+dYOFzYGlMkR6hzOHW7/BZVpxtu2bHsB6hXLPT0kTtiCdHtfmPQFkG1ooHzA7mhH6qQrL/gx2bYiEd8w8TQHJkB0i4+oGvCh4wEY+UmS1lo/hv7Ap+Wc="
                     }
                   ],
                   "role": "model"
                 },
-                "finishReason": "STOP",
-                "score": -0.1699002981185913
+                "finishReason": "STOP"
               }
             ],
-            "createTime": "2026-09-02T00:59:14.036485Z",
-            "modelVersion": "gemini-flash-latest",
-            "responseId": "4nSXaoWdApabpucP-_vTCQ",
+            "createTime": "2026-11-17T18:22:24.859676Z",
+            "modelVersion": "gemini-4-hydrogen",
+            "responseId": "YJv8apy8NOOPq8YPk_fB4Ao",
             "usageMetadata": {
-              "candidatesTokenCount": 8,
+              "candidatesTokenCount": 11,
               "candidatesTokensDetails": [
                 {
                   "modality": "TEXT",
-                  "tokenCount": 8
+                  "tokenCount": 11
                 }
               ],
-              "promptTokenCount": 10,
+              "promptTokenCount": 40,
               "promptTokensDetails": [
                 {
                   "modality": "TEXT",
-                  "tokenCount": 10
+                  "tokenCount": 40
                 }
               ],
-              "totalTokenCount": 18,
-              "trafficType": "ON_DEMAND"
+              "thoughtsTokenCount": 89,
+              "totalTokenCount": 140,
+              "trafficType": "PROVISIONED_THROUGHPUT"
             }
           }
         ]

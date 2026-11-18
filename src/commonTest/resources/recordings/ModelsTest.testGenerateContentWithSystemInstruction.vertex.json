@@ -4,8 +4,8 @@
     {
       "request": {
         "method": "POST",
-        "url": "/v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-flash-latest:generateContent",
-        "request": "POST /v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-flash-latest:generateContent HTTP/1.1",
+        "url": "/v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-4-hydrogen:generateContent",
+        "request": "POST /v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-4-hydrogen:generateContent HTTP/1.1",
         "headers": {
           "Accept": "*/*",
           "Accept-Charset": "UTF-8",
@@ -42,57 +42,59 @@
         "port": 443,
         "protocol": "https"
       },
-      "shaSum": "3ca25569db07d7848ae8d69dfdb35dcebcb783bdc2707d622751a71940757b81",
+      "shaSum": "f1155972aa85a5a0a086629c40b55684d44fc784f816dc68df5ee7ab6c151c71",
       "response": {
         "statusCode": 200,
         "headers": {
           "Content-Encoding": "gzip",
-          "Content-Length": "414",
+          "Content-Length": "1084",
           "Content-Type": "application/json; charset=UTF-8",
-          "Date": "Wed, 02 Sep 2026 00:54:25 GMT",
+          "Date": "Tue, 17 Nov 2026 18:21:40 GMT",
           "Server": "scaffolding on HTTPServer2",
           "Vary": "Origin, X-Origin, Referer",
           "X-Content-Type-Options": "nosniff",
           "X-Frame-Options": "SAMEORIGIN",
+          "X-Goog-Request-Id": "M5v8arbdCN-jq8YP4M3J6A4",
+          "X-Vertex-Ai-Llm-Request-Type": "dedicated",
           "X-Xss-Protection": "0"
         },
         "bodySegments": [
           {
             "candidates": [
               {
-                "avgLogprobs": -0.5386838912963867,
                 "content": {
                   "parts": [
                     {
-                      "text": "Ahoy there, matey! Fair winds to ya!"
+                      "text": "Ahoy there, matey!",
+                      "thoughtSignature": "AY89a1/dihDAo8F/X9b/6IfrjWFmxHpGzodQQQtUVGRDEnUoztu4l68YVzXRkDO+uCbOp4KGXQEWsj9a+44vhr2Be8eKiHBhWZtRJO4r/hifbGX+sy5d1oknJk93MihK08AAhfCD3hIqDmmgc7gUYO0pCMh4ocLhlkpjxIx5mzGSoM3adjLhRMU0XFhQzNW/TTQwUnqoa+QsGP8DVx/CIpNR/SlxoxweEy61qsT2iRX9p6Fu+WCA5R3EftUZ4lvNu6ZI5wEr9ockYECelRDYc/Y9EnRJSVUsWgP0JLLRn+d0GqdArtg2+DlWIGXkrftPnNbVi8LaUnzk5FhytQXHlUigKUC2RmoF7/SvurZWiuVjTBp14QGN3jgqQr6SX8+s0rjXkKrKgQfRed8A/mQEFtRS+i7BDr+Dm6EgoQobZMpAIXK8NpRFwHBVGWt7L/bUZb2VhHhfPAEwjWCf6Vruw2KEuqMe21mUa6Aqp3XcIgAcXoUzgtIIg/R13d8YxLtMD2spLIT1zqnOYT8lUNYrYo7twDnzixevabWA9O9LCrfSYtzDTxMgo4NFKHPPAeTP1pdvyQv7LsxLHC8kdar4Kvtu9A5Snb+9sO38Kuu8jZ0zc+6vC1uWU/1aMtM4GXfOhEc1BBFWhH6u4/TjXC8GgTFXLJDK+qhQ+D0C/E9MeVLHdmtlr9ttfV7eGdq5aW15c0mDYdC8SBDK/iS17Y/qQ7MUpuuHAdh6jjCdPv3GHNXaPfsidy02lf71LYqN1evR4P/6Kj6aGuwrTrU6Ry9E7GTmSEadBwuSMfCBrEpDwdlH99UY35PNBgPtxS2WOnPT0wPWCIZ9oKTr7/zX358Ia1M2l64="
                     }
                   ],
                   "role": "model"
                 },
-                "finishReason": "STOP",
-                "score": -6.464206695556641
+                "finishReason": "STOP"
               }
             ],
-            "createTime": "2026-09-02T00:54:25.418383Z",
-            "modelVersion": "gemini-flash-latest",
-            "responseId": "wXOXas_EGf-apucP-qjVkQU",
+            "createTime": "2026-11-17T18:21:39.143030Z",
+            "modelVersion": "gemini-4-hydrogen",
+            "responseId": "M5v8arbdCN-jq8YP4M3J6A4",
             "usageMetadata": {
-              "candidatesTokenCount": 12,
+              "candidatesTokenCount": 11,
               "candidatesTokensDetails": [
                 {
                   "modality": "TEXT",
-                  "tokenCount": 12
+                  "tokenCount": 11
                 }
               ],
-              "promptTokenCount": 13,
+              "promptTokenCount": 49,
               "promptTokensDetails": [
                 {
                   "modality": "TEXT",
-                  "tokenCount": 13
+                  "tokenCount": 49
                 }
               ],
-              "totalTokenCount": 25,
-              "trafficType": "ON_DEMAND"
+              "thoughtsTokenCount": 142,
+              "totalTokenCount": 202,
+              "trafficType": "PROVISIONED_THROUGHPUT"
             }
           }
         ]

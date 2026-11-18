@@ -4,8 +4,8 @@
     {
       "request": {
         "method": "POST",
-        "url": "/v1beta/models/gemini-flash-latest:generateContent",
-        "request": "POST /v1beta/models/gemini-flash-latest:generateContent HTTP/1.1",
+        "url": "/v1beta/models/gemini-4-hydrogen:generateContent",
+        "request": "POST /v1beta/models/gemini-4-hydrogen:generateContent HTTP/1.1",
         "headers": {
           "Accept": "*/*",
           "Accept-Charset": "UTF-8",
@@ -40,16 +40,16 @@
         "port": 443,
         "protocol": "https"
       },
-      "shaSum": "a31023302f8f3b504b3f84e9901f921bff4f7f4543f450657028c30b9754eace",
+      "shaSum": "64aa55807a7fc5e0d4348afe827e066c87638ae7d6bf53260cc67996633b4848",
       "response": {
         "statusCode": 200,
         "headers": {
           "Content-Encoding": "gzip",
-          "Content-Length": "847",
+          "Content-Length": "1007",
           "Content-Type": "application/json; charset=UTF-8",
-          "Date": "Mon, 11 May 2026 20:57:28 GMT",
+          "Date": "Tue, 17 Nov 2026 18:28:15 GMT",
           "Server": "scaffolding on HTTPServer2",
-          "Server-Timing": "gfet4t7; dur=1531",
+          "Server-Timing": "gfet4t7; dur=2661",
           "Vary": "Origin, X-Origin, Referer",
           "X-Content-Type-Options": "nosniff",
           "X-Frame-Options": "SAMEORIGIN",
@@ -63,12 +63,12 @@
                 "content": {
                   "parts": [
                     {
-                      "text": "**The Quick and the Obvious**\n\nAlright, a straightforward one. The user needs the capital of France. Let's see... Country: France. Capital City: Paris. Done. I'll provide the answer directly and without any unnecessary preamble. This is elementary; no need to overcomplicate things. Onto the next query.\n\n\n",
+                      "text": "Okay, here's my response:\n\n**Answering a Straightforward Inquiry**\n\nAlright, a basic question. \"What is the capital of France?\" No need to overthink it, no elaborate processing, no external knowledge required beyond the established facts. It's a fundamental piece of information, readily available. The user is asking for the capital of France, so I will deliver the capital of France.\n\n\n",
                       "thought": true
                     },
                     {
-                      "text": "The capital of France is **Paris**.",
-                      "thoughtSignature": "EscBCsQBAQw51sfdnLgrShYfvG5x0fd5klwm73HZRx7VPIq9Bn0l4xKbpaUluVIF/nwBwyjA08Rd6h/e6E8dOht09SIMAwRuRJQMrdAl2FELvLXvznoEZanT2dXcxI2Q9ayDQHKds57HvQy9j4BjoXgcYzeI86MK9mH5jPL1cm4QUUrKD2kJ/68apelxlLE2uaN7aAw06E8aPsi0p2NAW62QcN1+EOEVUNZKciVpvxNBrhSHd0rxNJLIICYhvIArJleyF7D3WUmdfw=="
+                      "text": "The capital of France is Paris.",
+                      "thoughtSignature": "EqgCCqUCAWkUfRNlSwD+vqYS+T95086KXEfd89WD90gDrRVnaMNGtEiLZJGFN05/mJX/h9xH2eN/504Q2CSLF2Otmn7tvvKpX5YmdLOsPluQY3/qzHJAUHM7aLQVFs9QYiJtffEYeP+taWo/oI2E6MNGYjRi9jG1nP478TwDIPMuXVUPsZhKLzxlkzyf1MOHrhs2jjwxmLIOzd4dP2uVgchQEorPIrcguQXG+iyHAViuQ3d5FJ92Jp39hknA7eTN1u5gaLw60SR3M373erWeCnhwkXE42IgP4uRPqhIL6/YbGWGZbtIMj0qE+oXAFVVzvbGT14361m1waKmxSKbbtOqM2yWJnyn0hmhPpedCbtMtL2Pq+/wzzOwe/3x8GAKF/nVHWLRrMUQwemQ="
                     }
                   ],
                   "role": "model"
@@ -77,21 +77,27 @@
                 "index": 0
               }
             ],
-            "modelVersion": "gemini-3-flash-preview",
-            "responseId": "tkICaujgL7bbjrEP8M3GuQs",
-            "turnToken": "v1_Chd0a0lDYXVqZ0w3YmJqckVQOE0zR3VRcxIXdGtJQ2F1amdMN2JianJFUDhNM0d1UXM",
+            "modelVersion": "gemini-4-hydrogen",
+            "responseId": "vZz8aoSqFq-1_PUPzK-CmQE",
+            "turnToken": "v1_Chd2Wno4YW9TcUZxLTFfUFVQekstQ21RRRIXdlp6OGFvU3FGcS0xX1BVUHpLLUNtUUU",
             "usageMetadata": {
-              "candidatesTokenCount": 8,
-              "promptTokenCount": 8,
+              "candidatesTokenCount": 11,
+              "candidatesTokensDetails": [
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 11
+                }
+              ],
+              "promptTokenCount": 38,
               "promptTokensDetails": [
                 {
                   "modality": "TEXT",
-                  "tokenCount": 8
+                  "tokenCount": 38
                 }
               ],
               "serviceTier": "standard",
-              "thoughtsTokenCount": 35,
-              "totalTokenCount": 51
+              "thoughtsTokenCount": 32,
+              "totalTokenCount": 81
             }
           }
         ]

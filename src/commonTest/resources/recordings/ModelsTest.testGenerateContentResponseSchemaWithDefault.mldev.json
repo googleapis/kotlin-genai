@@ -4,8 +4,8 @@
     {
       "request": {
         "method": "POST",
-        "url": "/v1beta/models/gemini-flash-latest:generateContent",
-        "request": "POST /v1beta/models/gemini-flash-latest:generateContent HTTP/1.1",
+        "url": "/v1beta/models/gemini-4-hydrogen:generateContent",
+        "request": "POST /v1beta/models/gemini-4-hydrogen:generateContent HTTP/1.1",
         "headers": {
           "Accept": "*/*",
           "Accept-Charset": "UTF-8",
@@ -53,16 +53,16 @@
         "port": 443,
         "protocol": "https"
       },
-      "shaSum": "a63cc508fa991b3670fcd9d3c325ae6e9049209224748e5df8034eb450f31f7c",
+      "shaSum": "65c1896eed7786d54616dd486c32fb43b1fb33139e0eb98fec01d30e5cb80d31",
       "response": {
         "statusCode": 200,
         "headers": {
           "Content-Encoding": "gzip",
-          "Content-Length": "1487",
+          "Content-Length": "1546",
           "Content-Type": "application/json; charset=UTF-8",
-          "Date": "Wed, 02 Sep 2026 00:49:57 GMT",
+          "Date": "Tue, 17 Nov 2026 18:22:28 GMT",
           "Server": "scaffolding on HTTPServer2",
-          "Server-Timing": "gfet4t7; dur=5859",
+          "Server-Timing": "gfet4t7; dur=2583",
           "Vary": "Origin, X-Origin, Referer",
           "X-Content-Type-Options": "nosniff",
           "X-Frame-Options": "SAMEORIGIN",
@@ -76,8 +76,8 @@
                 "content": {
                   "parts": [
                     {
-                      "text": "{\"name\":\"Le Bernardin\",\"city\":\"New York\"}",
-                      "thoughtSignature": "Et4HCtsHARFNMg/ShBRoN0GU2Cfku8ydgDzi4OboUmdNk9oW8/i8501L7DoTE0IDX52Ue3r5nfsimIKxvBDKlYvRqDIimc7E5OsESNVi+V4AyALFTDiKg+XSFyMHDQtBHMCMI/3yv+49TMdOsuX6MMl40UvoYeLaV/HBHdzAoyGCdzfnaL3Y0wqpHPekkp3VTF3rF2FnwJOniMmKWPgdTc26HYmEnStL2OBOwpjkdUckBDi4U8F14GLKd+jcAn//785Er26r0R2R0Pp0+xylhAkA7RqNoc9HzcRtD1Logd8WLM+vu1xHjCSCzC0lqg83v7J2dRMGNJdzpgM4UoVZp58kLmHDs4LexwUcx3TS120S9K6fon57IM+NL+Qqwh3SLPntrx/7g1QGcwuST+lkOPF7nRDVor0GYnFitXDZlkLx8/YsSHo0I3Ib1TRvxZ4OcpLNHCWp7fu3rYEO9brH5toQu8FvMh4gqviBVVyvCkfOdxpklGA1Dd1nra9ybLcW34NnbJA1BWrUFHUrypp4IhZR3bKmO7W6VUEJPUh29gm+8/CDj1CnTjCy3oVi/Gs6AW7tFyPMhP86O29xUUqF3twCMXP/k38CbbMqTlCUviNGNC+yMbV7y/DdsRbZjypDBFiOHWNdlkqm8FBByk36CA6PvQ9HHpAI7CGq4oGFwBZW5nAc3P60dQI11imfySFsB1WdYbHvLl8o59Wy+3gFVGZGgwAW+RoXM+pgudBtnr0nny/c6jtrEzD16laYDcwQi5a5ac6tOrXbnP3qFoGrPECQ7yyceXa/Ck1dyl3zy3JlBJdrKuroU+VodAqWcRQtINMj0ChBdgwyunfkRLQG3iaMnXypNYOCRC+s+H/DUfEGRdOLGDWdKn0Zjv+UMb2jAaT9AjO/Z4PG/B1/xbzhaH9TxkaIYdHYFt+2zzm0WQbcBP7qxH+0QinLnfKd7mISqzImM0wSYxD1qtDHukWLIvkCrWaCnwTgwaHl53y1O7WPis17oMQL+KX3LVdzA9xfa1hiU74jyJmyC7IBTxNL9w4FX027+JIKarsTzQXDl6WMISljZ1m9TOTO19VJjm32Zs+Vr8PxuZF9wlAcO1t69O0tPUC99Ruk1PRhl/bq7epuUHV4rMg2VU8A4xA1DkK51ZyrTAK/JNmZW4t8O4bTY0xWTt0sdaQDwZuM6fE9bO2CVsN92RlAd3YMlljiP7MY8xWbOvymrPyA8SiUbMJvXIgcG8l/VglcGfUjC8tUxLPgpOyJOMZ4Zrwm5jFaPqcWDX/VKTo4evWaFcU8fxFHkhmVNLxaakMQa+IZjLImxbJs"
+                      "text": "{\"name\": \"Le Bernardin\", \"city\": \"New York\"}",
+                      "thoughtSignature": "EpQICpEIAWkUfROKQyFRMNq+x7RWTd+brqvjWgGXxAPKyiFtUqTwcz9iUkwBZcuqUODmazpH3FmvcPMIJfjYzp+vmEZ9+uMcrQHn0OVcKXmBCucQjapAAoSgw69+uStHnCk4nZThWFYunCai6kbrpArSoE6rKvVre0ZkZSGKBfBw8YwIEpGY4VVouyPrUlGlQjDtqiap9gGqv/PHeo5z3mk4f1b4AdrI+39ATTG//SrPErthBcuwPpp7rlgjK90c279OsIbQmMwZdSq+1Ius/J1XzKl8+bWhtqF1k1DQms1DMKkf+tiCGCyocrpVImv1FfSWjyLgLlaMN1BzGVw3nL663JxJzcbs8QblK3NHyz38br1nR+eSunv5sueMqg/rXU29isYPrv9uqhScyKRpVSOWsYv7iRTN/1ocad19EsTiTiFR6l21yaIr2KqGuNx4YTsPVqJu9O5PZL17LHIlVChNbc/uYqpZEeI2wA8r7m+TNyfvJqlyKolhCpCIxx3/EwbFDpyeGGSJlTeEl8i8uw+pFcZmYNL/6/RcvN0CdisX6dfyjTT8OqxAtvd+CULo9wiKBc+n63BtUJ/x7ZuA2VNsomMafRBSg77LF8FcWhC8gRKrmbhsVrSSEXUFnbr+Smgqa3cxutwPxRpdfkP31Lj1R0vT4CweQItCir/pVT3YKSDd7XScr+vvGRcfuSV7csHnL4y8y3aQZbcD6AKnPyZ4xcP/QqMRD9UGOOWvfchAbt1U0JyX20sEvcrrVm9iTqKuo6PH/jrmH2bZPq7LYGfftaLiRKLVzFLsp6GbO7L8EPho2GsW31Y1JK/PMpgUTds31YWmKninuTGxl7rU4PnKNeJu1fBCQ5SPfoX7YuV1UHGbvFPbMwqrExusRmiUgq8f5M0kpo6vhT99chGQrY2TtAtzHx6DFBBM/9Jo+Sdyy0bVSjX/ZYE5njfLCFo7tnSMjrO631A39028bw0b3bNXj4C6+cE5m8JageFQOrQvdApnZ+FUgY7GYDtB2EIBCbDpNzTG1RXxqqc4dv19vhjUJ8wAiCqHUaJr+NMOhBgRtzTB8/V/tM/dYgaJSsI0QUMlr57V5qOKDc1rC4R3XzyZ0gg7AsaPPPM1s4Ty1RITbTc2sTWL/60XwoTxkJ04uyPLsD4NYw+wpJDeIvkOec+VIBGxQl7kqON5nxWWrWRDrfL69u3lYUy3TK2DMm628OI8cida7K/xZ3ctQorbyDO76za4LeCbbNd9QkMLLq7FOw05lHalTO5qtqTqEt8I7Mx79HWYY7vcwG8CiXsisplZonlhTvx/Npljh+iyQxxNE0hq/TofuiSoV/50KoQrSjZlh0P5ujazfHjqbPiqEL+MrLvj4WtYytt1uqNqEokR9yKUHsRg"
                     }
                   ],
                   "role": "model"
@@ -86,22 +86,27 @@
                 "index": 0
               }
             ],
-            "modelVersion": "gemini-3.7-flash",
-            "responseId": "sHKXarDIA5KkqtsP7LPloQI",
-            "turnToken": "v1_ChdzSEtYYXJESUE1S2txdHNQN0xQbG9RSRIXc0hLWGFyRElBNUtrcXRzUDdMUGxvUUk",
+            "modelVersion": "gemini-4-hydrogen",
+            "responseId": "Ypv8avuMDL_j_uMP_ZKU6Qs",
+            "turnToken": "v1_ChdZcHY4YXZ1TURMX2pfdU1QX1pLVTZRcxIXWXB2OGF2dU1ETF9qX3VNUF9aS1U2UXM",
             "usageMetadata": {
-              "candidatesTokenCount": 12,
-              "promptTokenCount": 12,
+              "candidatesTokenCount": 31,
+              "candidatesTokensDetails": [
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 31
+                }
+              ],
+              "promptTokenCount": 212,
               "promptTokensDetails": [
                 {
                   "modality": "TEXT",
-                  "tokenCount": 12
+                  "tokenCount": 212
                 }
               ],
-              "rawPromptTokenCount": 213,
               "serviceTier": "standard",
-              "thoughtsTokenCount": 252,
-              "totalTokenCount": 276
+              "thoughtsTokenCount": 268,
+              "totalTokenCount": 511
             }
           }
         ]

@@ -4,8 +4,8 @@
     {
       "request": {
         "method": "POST",
-        "url": "/v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-flash-latest:generateContent",
-        "request": "POST /v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-flash-latest:generateContent HTTP/1.1",
+        "url": "/v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-4-hydrogen:generateContent",
+        "request": "POST /v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-4-hydrogen:generateContent HTTP/1.1",
         "headers": {
           "Accept": "*/*",
           "Accept-Charset": "UTF-8",
@@ -40,18 +40,19 @@
         "port": 443,
         "protocol": "https"
       },
-      "shaSum": "1fb4f0896e92134228dea3b989ab462d30d6aa55e711d4fcbc202809d9bf0d88",
+      "shaSum": "dbb34ef95cad5407e3fe9f1d0ceaad7fb7aa89be56faf0041af4074e5e669806",
       "response": {
         "statusCode": 200,
         "headers": {
           "Content-Encoding": "gzip",
-          "Content-Length": "870",
+          "Content-Length": "1038",
           "Content-Type": "application/json; charset=UTF-8",
-          "Date": "Mon, 11 May 2026 20:57:30 GMT",
+          "Date": "Tue, 17 Nov 2026 18:28:17 GMT",
           "Server": "scaffolding on HTTPServer2",
           "Vary": "Origin, X-Origin, Referer",
           "X-Content-Type-Options": "nosniff",
           "X-Frame-Options": "SAMEORIGIN",
+          "X-Goog-Request-Id": "v5z8aoq8O9Goq8YP4I61qAI",
           "X-Vertex-Ai-Llm-Request-Type": "dedicated",
           "X-Xss-Protection": "0"
         },
@@ -62,12 +63,12 @@
                 "content": {
                   "parts": [
                     {
-                      "text": "**My Thought Process on Identifying the Capital of France**\n\nAh, the user's request is quite direct, isn't it? They've posed a straightforward question: \"What is the capital of France?\" My internal knowledge base immediately accesses information pertaining to the nation of \"France.\" Within that data set, the primary geographical and political identifier for its capital city is readily available. And without a moment's hesitation, the answer emerges: Paris. So, the capital of France, in my assessment, is unequivocally Paris.\n\n",
+                      "text": "**My Thought Process**\n\nAh, I see the user has posed a straightforward query: \"What is the capital of France?\" My internal knowledge base immediately accesses this well-established piece of geographical fact. There's no need for any external tools or file access; this is information readily available in my core programming. The answer is unequivocally Paris. My task now is simply to present this fact clearly and concisely to the user, who, I understand, is an expert in their field and appreciates direct, accurate information.\n\n",
                       "thought": true
                     },
                     {
-                      "text": "The capital of France is **Paris**.",
-                      "thoughtSignature": "AY89a1+on3qUtkfs+FFOpRzQy2O/RQsEEllXPnovoG72I0hYmRDTr3/GQYdTyb1DAjh5bsGR0GPTje8TyTNS2pTNd3FSm41YMK7yk0SOqVxmn6VGGudZm2Y+2YWwxAWroSHXY5bodRee38kkxs//UaaSHUXIogUnrZ+oo/fpvZGlxvlxDN7V"
+                      "text": "The capital of France is Paris.",
+                      "thoughtSignature": "AY89a1/6QQl8xeSJKu93tnYHq/INMr0voqEoNvao4nEeQkDFDEYlsFqHcfsyYpNErAsmWB3pP/5skM89tSz9H9pvKRDrIdu6OOPcAIYw8Jtd/A88zP0dVw3fV3ePAtCyyLHqb7c5P7LwDkWb58Uas3ae6oJ+poRL94mmcCzOskXI06mk0nbab6K6kJOmQmTDwtpfyLfCDyjI37PAVwITcdkV/X0u2a64QBFda076eczDbtyhOVO5fpm78f9CEc1Hd/kQDIo+wCQ26ZGRxT1ZuD4GbYiRKNCtGrmiXvhQVrGeHvc7cSPI4OCezk/mhCWiy2kZgcCqA+Jt85khBJzOlBVNy8v36gB14UqtxCR74Q=="
                     }
                   ],
                   "role": "model"
@@ -75,26 +76,26 @@
                 "finishReason": "STOP"
               }
             ],
-            "createTime": "2026-05-11T20:57:29.105542Z",
-            "modelVersion": "gemini-3-flash-preview",
-            "responseId": "uUICasa4Bs2BpucP2JWDuQM",
+            "createTime": "2026-11-17T18:28:15.974346Z",
+            "modelVersion": "gemini-4-hydrogen",
+            "responseId": "v5z8aoq8O9Goq8YP4I61qAI",
             "usageMetadata": {
-              "candidatesTokenCount": 8,
+              "candidatesTokenCount": 11,
               "candidatesTokensDetails": [
                 {
                   "modality": "TEXT",
-                  "tokenCount": 8
+                  "tokenCount": 11
                 }
               ],
-              "promptTokenCount": 7,
+              "promptTokenCount": 38,
               "promptTokensDetails": [
                 {
                   "modality": "TEXT",
-                  "tokenCount": 7
+                  "tokenCount": 38
                 }
               ],
-              "thoughtsTokenCount": 21,
-              "totalTokenCount": 36,
+              "thoughtsTokenCount": 30,
+              "totalTokenCount": 79,
               "trafficType": "PROVISIONED_THROUGHPUT"
             }
           }

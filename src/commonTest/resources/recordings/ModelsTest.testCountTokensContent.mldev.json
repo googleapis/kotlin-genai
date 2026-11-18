@@ -4,8 +4,8 @@
     {
       "request": {
         "method": "POST",
-        "url": "/v1beta/models/gemini-flash-latest:countTokens",
-        "request": "POST /v1beta/models/gemini-flash-latest:countTokens HTTP/1.1",
+        "url": "/v1beta/models/gemini-4-hydrogen:countTokens",
+        "request": "POST /v1beta/models/gemini-4-hydrogen:countTokens HTTP/1.1",
         "headers": {
           "Accept": "*/*",
           "Accept-Charset": "UTF-8",
@@ -34,16 +34,16 @@
         "port": 443,
         "protocol": "https"
       },
-      "shaSum": "cedd457095eb07dba5d104bf33b8fd25eee273fb5710929c3f102fa7eb5fae29",
+      "shaSum": "65aa3768518cf0e28a98a7ec62c4bcceec230882cdaec904e3319f5ee466a1cd",
       "response": {
         "statusCode": 200,
         "headers": {
           "Content-Encoding": "gzip",
-          "Content-Length": "159",
+          "Content-Length": "106",
           "Content-Type": "application/json; charset=UTF-8",
-          "Date": "Wed, 02 Sep 2026 00:47:52 GMT",
+          "Date": "Tue, 17 Nov 2026 18:27:41 GMT",
           "Server": "scaffolding on HTTPServer2",
-          "Server-Timing": "gfet4t7; dur=288",
+          "Server-Timing": "gfet4t7; dur=253",
           "Vary": "Origin, X-Origin, Referer",
           "X-Content-Type-Options": "nosniff",
           "X-Frame-Options": "SAMEORIGIN",
@@ -51,22 +51,13 @@
         },
         "bodySegments": [
           {
-            "contentTokens": [
-              {
-                "partTokens": [
-                  5
-                ],
-                "roleTokens": 1
-              }
-            ],
             "promptTokensDetails": [
               {
                 "modality": "TEXT",
-                "tokenCount": 6
+                "tokenCount": 36
               }
             ],
-            "systemInstructionsTokens": {},
-            "totalTokens": 6
+            "totalTokens": 36
           }
         ]
       }

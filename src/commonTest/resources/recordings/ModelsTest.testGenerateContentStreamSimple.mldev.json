@@ -4,8 +4,8 @@
     {
       "request": {
         "method": "POST",
-        "url": "/v1beta/models/gemini-flash-latest:streamGenerateContent?alt=sse",
-        "request": "POST /v1beta/models/gemini-flash-latest:streamGenerateContent?alt=sse HTTP/1.1",
+        "url": "/v1beta/models/gemini-4-hydrogen:streamGenerateContent?alt=sse",
+        "request": "POST /v1beta/models/gemini-4-hydrogen:streamGenerateContent?alt=sse HTTP/1.1",
         "headers": {
           "Accept": "*/*",
           "Accept-Charset": "UTF-8",
@@ -34,15 +34,15 @@
         "port": 443,
         "protocol": "https"
       },
-      "shaSum": "cf33ef29800a1e39ded2a57a1bb2505192eb3f9e9434ef377709d67cf9584453",
+      "shaSum": "9cf79862a97192c030b1712af6ab99b2deabfd27f9239f2d94c65cff77a5a531",
       "response": {
         "statusCode": 200,
         "headers": {
           "Content-Disposition": "attachment",
           "Content-Type": "text/event-stream",
-          "Date": "Wed, 02 Sep 2026 00:53:57 GMT",
+          "Date": "Tue, 17 Nov 2026 18:27:04 GMT",
           "Server": "scaffolding on HTTPServer2",
-          "Server-Timing": "gfet4t7; dur=7168",
+          "Server-Timing": "gfet4t7; dur=24450",
           "Vary": "Origin, X-Origin, Referer",
           "X-Content-Type-Options": "nosniff",
           "X-Frame-Options": "SAMEORIGIN",
@@ -55,7 +55,7 @@
                 "content": {
                   "parts": [
                     {
-                      "text": "Rain fell over Montmartre in soft, silver ribbons, washing the cobblestones until they mirrored the twilight sky."
+                      "text": "Rain tapped gently against the cobblestones of"
                     }
                   ],
                   "role": "model"
@@ -63,21 +63,28 @@
                 "index": 0
               }
             ],
-            "modelVersion": "gemini-3.7-flash",
-            "responseId": "nnOXaoyvNtStmtkP5aCouQ8",
-            "turnToken": "v1_Chdubk9YYW95dk50U3RtdGtQNWFDb3VROBIXbm5PWGFveXZOdFN0bXRrUDVhQ291UTg",
+            "modelVersion": "gemini-4-hydrogen",
+            "responseId": "X5z8arT8N-iu_PUP3LuBgA8",
+            "turnToken": "v1_ChdYNXo4YXJUOE4taXVfUFVQM0x1QmdBOBIXWDV6OGFyVDhOLWl1X1BVUDNMdUJnQTg",
             "usageMetadata": {
-              "candidatesTokenCount": 23,
-              "promptTokenCount": 14,
+              "candidatesTokenCount": 7,
+              "candidatesTokensDetails": [
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 7
+                }
+              ],
+              "promptTokenCount": 13,
               "promptTokensDetails": [
                 {
                   "modality": "TEXT",
-                  "tokenCount": 14
+                  "tokenCount": 13
                 }
               ],
+              "rawPromptTokenCount": 44,
               "serviceTier": "standard",
-              "thoughtsTokenCount": 1684,
-              "totalTokenCount": 1721
+              "thoughtsTokenCount": 4187,
+              "totalTokenCount": 4207
             }
           },
           {
@@ -86,7 +93,7 @@
                 "content": {
                   "parts": [
                     {
-                      "text": " Julien leaned against the awning of a corner café, watching his watercolor blur. For months, the muse of Paris had eluded him. He"
+                      "text": " Montmartre as Elena hurried beneath her yellow umbrella. She had lost her map three streets ago, yet Paris refused to"
                     }
                   ],
                   "role": "model"
@@ -94,21 +101,28 @@
                 "index": 0
               }
             ],
-            "modelVersion": "gemini-3.7-flash",
-            "responseId": "nnOXaoyvNtStmtkP5aCouQ8",
-            "turnToken": "v1_Chdubk9YYW95dk50U3RtdGtQNWFDb3VROBIXbm5PWGFveXZOdFN0bXRrUDVhQ291UTg",
+            "modelVersion": "gemini-4-hydrogen",
+            "responseId": "X5z8arT8N-iu_PUP3LuBgA8",
+            "turnToken": "v1_ChdYNXo4YXJUOE4taXVfUFVQM0x1QmdBOBIXWDV6OGFyVDhOLWl1X1BVUDNMdUJnQTg",
             "usageMetadata": {
-              "candidatesTokenCount": 51,
-              "promptTokenCount": 14,
+              "candidatesTokenCount": 31,
+              "candidatesTokensDetails": [
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 31
+                }
+              ],
+              "promptTokenCount": 13,
               "promptTokensDetails": [
                 {
                   "modality": "TEXT",
-                  "tokenCount": 14
+                  "tokenCount": 13
                 }
               ],
+              "rawPromptTokenCount": 44,
               "serviceTier": "standard",
-              "thoughtsTokenCount": 1684,
-              "totalTokenCount": 1749
+              "thoughtsTokenCount": 4187,
+              "totalTokenCount": 4231
             }
           },
           {
@@ -117,7 +131,7 @@
                 "content": {
                   "parts": [
                     {
-                      "text": " had painted the iron lace of the Eiffel Tower and the amber glow of the Seine, yet it all felt hollow—post"
+                      "text": " feel intimidating. Every corner smelled of roasted chestnuts, warm butter, and wet stone.\n\nSeeking shelter from a sudden down"
                     }
                   ],
                   "role": "model"
@@ -125,21 +139,28 @@
                 "index": 0
               }
             ],
-            "modelVersion": "gemini-3.7-flash",
-            "responseId": "nnOXaoyvNtStmtkP5aCouQ8",
-            "turnToken": "v1_Chdubk9YYW95dk50U3RtdGtQNWFDb3VROBIXbm5PWGFveXZOdFN0bXRrUDVhQ291UTg",
+            "modelVersion": "gemini-4-hydrogen",
+            "responseId": "X5z8arT8N-iu_PUP3LuBgA8",
+            "turnToken": "v1_ChdYNXo4YXJUOE4taXVfUFVQM0x1QmdBOBIXWDV6OGFyVDhOLWl1X1BVUDNMdUJnQTg",
             "usageMetadata": {
-              "candidatesTokenCount": 75,
-              "promptTokenCount": 14,
+              "candidatesTokenCount": 55,
+              "candidatesTokensDetails": [
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 55
+                }
+              ],
+              "promptTokenCount": 13,
               "promptTokensDetails": [
                 {
                   "modality": "TEXT",
-                  "tokenCount": 14
+                  "tokenCount": 13
                 }
               ],
+              "rawPromptTokenCount": 44,
               "serviceTier": "standard",
-              "thoughtsTokenCount": 1684,
-              "totalTokenCount": 1773
+              "thoughtsTokenCount": 4187,
+              "totalTokenCount": 4255
             }
           },
           {
@@ -148,7 +169,7 @@
                 "content": {
                   "parts": [
                     {
-                      "text": "cards without a soul.\n\nA sudden gust scattered his sketches onto the wet pavement. Cursing softly, he chased them"
+                      "text": "pour, she ducked into a narrow, dimly lit bookshop tucked between a florist and a bakery. A brass bell"
                     }
                   ],
                   "role": "model"
@@ -156,21 +177,28 @@
                 "index": 0
               }
             ],
-            "modelVersion": "gemini-3.7-flash",
-            "responseId": "nnOXaoyvNtStmtkP5aCouQ8",
-            "turnToken": "v1_Chdubk9YYW95dk50U3RtdGtQNWFDb3VROBIXbm5PWGFveXZOdFN0bXRrUDVhQ291UTg",
+            "modelVersion": "gemini-4-hydrogen",
+            "responseId": "X5z8arT8N-iu_PUP3LuBgA8",
+            "turnToken": "v1_ChdYNXo4YXJUOE4taXVfUFVQM0x1QmdBOBIXWDV6OGFyVDhOLWl1X1BVUDNMdUJnQTg",
             "usageMetadata": {
-              "candidatesTokenCount": 99,
-              "promptTokenCount": 14,
+              "candidatesTokenCount": 79,
+              "candidatesTokensDetails": [
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 79
+                }
+              ],
+              "promptTokenCount": 13,
               "promptTokensDetails": [
                 {
                   "modality": "TEXT",
-                  "tokenCount": 14
+                  "tokenCount": 13
                 }
               ],
+              "rawPromptTokenCount": 44,
               "serviceTier": "standard",
-              "thoughtsTokenCount": 1684,
-              "totalTokenCount": 1797
+              "thoughtsTokenCount": 4187,
+              "totalTokenCount": 4279
             }
           },
           {
@@ -179,7 +207,7 @@
                 "content": {
                   "parts": [
                     {
-                      "text": " down the alley. Ahead, a woman in a daffodil-yellow coat knelt to catch the stray sheets. When she"
+                      "text": " chimed above her head. Inside, towering shelves leaned toward one another like old friends sharing secrets. The shopkeeper,"
                     }
                   ],
                   "role": "model"
@@ -187,21 +215,28 @@
                 "index": 0
               }
             ],
-            "modelVersion": "gemini-3.7-flash",
-            "responseId": "nnOXaoyvNtStmtkP5aCouQ8",
-            "turnToken": "v1_Chdubk9YYW95dk50U3RtdGtQNWFDb3VROBIXbm5PWGFveXZOdFN0bXRrUDVhQ291UTg",
+            "modelVersion": "gemini-4-hydrogen",
+            "responseId": "X5z8arT8N-iu_PUP3LuBgA8",
+            "turnToken": "v1_ChdYNXo4YXJUOE4taXVfUFVQM0x1QmdBOBIXWDV6OGFyVDhOLWl1X1BVUDNMdUJnQTg",
             "usageMetadata": {
-              "candidatesTokenCount": 123,
-              "promptTokenCount": 14,
+              "candidatesTokenCount": 103,
+              "candidatesTokensDetails": [
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 103
+                }
+              ],
+              "promptTokenCount": 13,
               "promptTokensDetails": [
                 {
                   "modality": "TEXT",
-                  "tokenCount": 14
+                  "tokenCount": 13
                 }
               ],
+              "rawPromptTokenCount": 44,
               "serviceTier": "standard",
-              "thoughtsTokenCount": 1684,
-              "totalTokenCount": 1821
+              "thoughtsTokenCount": 4187,
+              "totalTokenCount": 4303
             }
           },
           {
@@ -210,7 +245,7 @@
                 "content": {
                   "parts": [
                     {
-                      "text": " rose, she wasn’t looking at him, but at a charcoal study of a stray cat sleeping beneath a bistro chair"
+                      "text": " an elderly man reading behind a cluttered counter, offered her a quiet smile and returned to his pages.\n\nElena wandered the"
                     }
                   ],
                   "role": "model"
@@ -218,21 +253,28 @@
                 "index": 0
               }
             ],
-            "modelVersion": "gemini-3.7-flash",
-            "responseId": "nnOXaoyvNtStmtkP5aCouQ8",
-            "turnToken": "v1_Chdubk9YYW95dk50U3RtdGtQNWFDb3VROBIXbm5PWGFveXZOdFN0bXRrUDVhQ291UTg",
+            "modelVersion": "gemini-4-hydrogen",
+            "responseId": "X5z8arT8N-iu_PUP3LuBgA8",
+            "turnToken": "v1_ChdYNXo4YXJUOE4taXVfUFVQM0x1QmdBOBIXWDV6OGFyVDhOLWl1X1BVUDNMdUJnQTg",
             "usageMetadata": {
-              "candidatesTokenCount": 147,
-              "promptTokenCount": 14,
+              "candidatesTokenCount": 127,
+              "candidatesTokensDetails": [
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 127
+                }
+              ],
+              "promptTokenCount": 13,
               "promptTokensDetails": [
                 {
                   "modality": "TEXT",
-                  "tokenCount": 14
+                  "tokenCount": 13
                 }
               ],
+              "rawPromptTokenCount": 44,
               "serviceTier": "standard",
-              "thoughtsTokenCount": 1684,
-              "totalTokenCount": 1845
+              "thoughtsTokenCount": 4187,
+              "totalTokenCount": 4327
             }
           },
           {
@@ -241,7 +283,7 @@
                 "content": {
                   "parts": [
                     {
-                      "text": ".\n\nShe laughed—a sound so bright it cut through the autumn chill. \n\n“Most people paint the monuments,” she said, handing them back"
+                      "text": " aisles, letting her fingertips brush the worn spines of French poetry. She pulled a faded blue volume of Baudelaire from"
                     }
                   ],
                   "role": "model"
@@ -249,21 +291,28 @@
                 "index": 0
               }
             ],
-            "modelVersion": "gemini-3.7-flash",
-            "responseId": "nnOXaoyvNtStmtkP5aCouQ8",
-            "turnToken": "v1_Chdubk9YYW95dk50U3RtdGtQNWFDb3VROBIXbm5PWGFveXZOdFN0bXRrUDVhQ291UTg",
+            "modelVersion": "gemini-4-hydrogen",
+            "responseId": "X5z8arT8N-iu_PUP3LuBgA8",
+            "turnToken": "v1_ChdYNXo4YXJUOE4taXVfUFVQM0x1QmdBOBIXWDV6OGFyVDhOLWl1X1BVUDNMdUJnQTg",
             "usageMetadata": {
-              "candidatesTokenCount": 178,
-              "promptTokenCount": 14,
+              "candidatesTokenCount": 151,
+              "candidatesTokensDetails": [
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 151
+                }
+              ],
+              "promptTokenCount": 13,
               "promptTokensDetails": [
                 {
                   "modality": "TEXT",
-                  "tokenCount": 14
+                  "tokenCount": 13
                 }
               ],
+              "rawPromptTokenCount": 44,
               "serviceTier": "standard",
-              "thoughtsTokenCount": 1684,
-              "totalTokenCount": 1876
+              "thoughtsTokenCount": 4187,
+              "totalTokenCount": 4351
             }
           },
           {
@@ -272,7 +321,7 @@
                 "content": {
                   "parts": [
                     {
-                      "text": ". “You paint the heartbeat.”\n\nIn the reflection of a puddle, the first evening streetlamps bloomed like golden"
+                      "text": " a dusty shelf. As she opened it, a brittle postcard slipped onto the floor. On the back, written in looping"
                     }
                   ],
                   "role": "model"
@@ -280,21 +329,28 @@
                 "index": 0
               }
             ],
-            "modelVersion": "gemini-3.7-flash",
-            "responseId": "nnOXaoyvNtStmtkP5aCouQ8",
-            "turnToken": "v1_Chdubk9YYW95dk50U3RtdGtQNWFDb3VROBIXbm5PWGFveXZOdFN0bXRrUDVhQ291UTg",
+            "modelVersion": "gemini-4-hydrogen",
+            "responseId": "X5z8arT8N-iu_PUP3LuBgA8",
+            "turnToken": "v1_ChdYNXo4YXJUOE4taXVfUFVQM0x1QmdBOBIXWDV6OGFyVDhOLWl1X1BVUDNMdUJnQTg",
             "usageMetadata": {
-              "candidatesTokenCount": 202,
-              "promptTokenCount": 14,
+              "candidatesTokenCount": 175,
+              "candidatesTokensDetails": [
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 175
+                }
+              ],
+              "promptTokenCount": 13,
               "promptTokensDetails": [
                 {
                   "modality": "TEXT",
-                  "tokenCount": 14
+                  "tokenCount": 13
                 }
               ],
+              "rawPromptTokenCount": 44,
               "serviceTier": "standard",
-              "thoughtsTokenCount": 1684,
-              "totalTokenCount": 1900
+              "thoughtsTokenCount": 4187,
+              "totalTokenCount": 4375
             }
           },
           {
@@ -303,7 +359,7 @@
                 "content": {
                   "parts": [
                     {
-                      "text": " dandelions. Julien breathed in the scent of wet limestone and roasted chestnuts. He hadn't lost Paris; he had simply been"
+                      "text": " ink, were the words: *Look up at nine. Paris always keeps her promises.*\n\nCurious, Elena glanced at"
                     }
                   ],
                   "role": "model"
@@ -311,21 +367,28 @@
                 "index": 0
               }
             ],
-            "modelVersion": "gemini-3.7-flash",
-            "responseId": "nnOXaoyvNtStmtkP5aCouQ8",
-            "turnToken": "v1_Chdubk9YYW95dk50U3RtdGtQNWFDb3VROBIXbm5PWGFveXZOdFN0bXRrUDVhQ291UTg",
+            "modelVersion": "gemini-4-hydrogen",
+            "responseId": "X5z8arT8N-iu_PUP3LuBgA8",
+            "turnToken": "v1_ChdYNXo4YXJUOE4taXVfUFVQM0x1QmdBOBIXWDV6OGFyVDhOLWl1X1BVUDNMdUJnQTg",
             "usageMetadata": {
-              "candidatesTokenCount": 228,
-              "promptTokenCount": 14,
+              "candidatesTokenCount": 199,
+              "candidatesTokensDetails": [
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 199
+                }
+              ],
+              "promptTokenCount": 13,
               "promptTokensDetails": [
                 {
                   "modality": "TEXT",
-                  "tokenCount": 14
+                  "tokenCount": 13
                 }
               ],
+              "rawPromptTokenCount": 44,
               "serviceTier": "standard",
-              "thoughtsTokenCount": 1684,
-              "totalTokenCount": 1926
+              "thoughtsTokenCount": 4187,
+              "totalTokenCount": 4399
             }
           },
           {
@@ -334,7 +397,7 @@
                 "content": {
                   "parts": [
                     {
-                      "text": " looking too high.\n\n“Would you let me sketch you?” he asked.\n\nShe smiled, stepping under his umbrella."
+                      "text": " her watch. It was nearly nine. She stepped outside onto the wet pavement just as the distant Eiffel Tower erupted into glittering"
                     }
                   ],
                   "role": "model"
@@ -342,21 +405,28 @@
                 "index": 0
               }
             ],
-            "modelVersion": "gemini-3.7-flash",
-            "responseId": "nnOXaoyvNtStmtkP5aCouQ8",
-            "turnToken": "v1_Chdubk9YYW95dk50U3RtdGtQNWFDb3VROBIXbm5PWGFveXZOdFN0bXRrUDVhQ291UTg",
+            "modelVersion": "gemini-4-hydrogen",
+            "responseId": "X5z8arT8N-iu_PUP3LuBgA8",
+            "turnToken": "v1_ChdYNXo4YXJUOE4taXVfUFVQM0x1QmdBOBIXWDV6OGFyVDhOLWl1X1BVUDNMdUJnQTg",
             "usageMetadata": {
-              "candidatesTokenCount": 253,
-              "promptTokenCount": 14,
+              "candidatesTokenCount": 223,
+              "candidatesTokensDetails": [
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 223
+                }
+              ],
+              "promptTokenCount": 13,
               "promptTokensDetails": [
                 {
                   "modality": "TEXT",
-                  "tokenCount": 14
+                  "tokenCount": 13
                 }
               ],
+              "rawPromptTokenCount": 44,
               "serviceTier": "standard",
-              "thoughtsTokenCount": 1684,
-              "totalTokenCount": 1951
+              "thoughtsTokenCount": 4187,
+              "totalTokenCount": 4423
             }
           },
           {
@@ -365,7 +435,7 @@
                 "content": {
                   "parts": [
                     {
-                      "text": " And the city began to breathe again."
+                      "text": " lights. Smiling, Elena tucked the postcard into her pocket, realizing she never wanted to find her map again."
                     }
                   ],
                   "role": "model"
@@ -373,21 +443,28 @@
                 "index": 0
               }
             ],
-            "modelVersion": "gemini-3.7-flash",
-            "responseId": "nnOXaoyvNtStmtkP5aCouQ8",
-            "turnToken": "v1_Chdubk9YYW95dk50U3RtdGtQNWFDb3VROBIXbm5PWGFveXZOdFN0bXRrUDVhQ291UTg",
+            "modelVersion": "gemini-4-hydrogen",
+            "responseId": "X5z8arT8N-iu_PUP3LuBgA8",
+            "turnToken": "v1_ChdYNXo4YXJUOE4taXVfUFVQM0x1QmdBOBIXWDV6OGFyVDhOLWl1X1BVUDNMdUJnQTg",
             "usageMetadata": {
-              "candidatesTokenCount": 261,
-              "promptTokenCount": 14,
+              "candidatesTokenCount": 245,
+              "candidatesTokensDetails": [
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 245
+                }
+              ],
+              "promptTokenCount": 13,
               "promptTokensDetails": [
                 {
                   "modality": "TEXT",
-                  "tokenCount": 14
+                  "tokenCount": 13
                 }
               ],
+              "rawPromptTokenCount": 44,
               "serviceTier": "standard",
-              "thoughtsTokenCount": 1684,
-              "totalTokenCount": 1959
+              "thoughtsTokenCount": 4187,
+              "totalTokenCount": 4445
             }
           },
           {
@@ -397,7 +474,7 @@
                   "parts": [
                     {
                       "text": "",
-                      "thoughtSignature": "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"
+                      "thoughtSignature": "ErtqCrhqAWkUfRNGPV/L5r4ehVdrGV6urNumFRL2hZc+vHMI19VftvVe+ONAkf5eijaJtstUqUR7bkUfffFHoFVFZdyQGzDokitbKRarH9mkQ+G6gHSxw6A1NCYKSGV+SZZJIaJ8/JJJgSiL+Z7Op/H3wX9biucpmLOZeNk6iTQm5wxEpKtRz8gcA4CYHBigB2KkzrTyIjx9lWXldkZWaeY1V27968vYDMtqgRRCNfAATVNkqPsyrsUgUFXyIgz5xmK2kRJELYcfY0Ax5jdM0KS0ZKHeWv32v/3/8XHr+hoCGYsSJuYFQGYDM5W+nX0Id+7isQs2EqHLj/2vHTMnOod1Ivk2fUjsxuRMAtRslE96KsNq64fUpzTXQXiQOASpv+HKRao+wFYvDpsisb9EIJY5Jp1A2gVrondrqo2uGz62HUuVMSQgaOO9bXVDv9RnQoa6wkkuCvRrE7i+0LSN9Jsj4G6r2yk9lZnG3P2HlUYF9YpGUz1Yjft3mS3hax0pF8L0MfY52H6EjQHCqRDzgwM9iAV94cf00uWQxGamMUmVy5WZu2ug3EUYqFp352G1Wi5GjtDa8PxjLZi7A/lvOw5QBVMEML/Jw0lTvjHeef1Vhs+9KmajVsvl+PPIX52eobKkLXHltFyXQXMFvONS0eMaC4FqGPCx6G0GPCwrKeLZ+vSdLqbCP6o2v6X6zHd0ZB634FkOGNTX1bp9EUNQr1/78BIG6P2OOJr151CDvU8oWQnWrpgiIFbcwLiRF1UK/MN0x7/qGn8D9o8JhefWBBoSqBy3kxSoGm91xw/ZWadfuMan8o6vF9rX5kdXrHrEZ85g/hqUnVF9eTqikm7z+6j1el4Pf/OdxBYvseZSsy6XuRhbNKE+juNk3mJPHOvrT+39/tQkVYlBvDg+YB3amW3fcGUWzdBh94sgfWONTiduob1645rcY5BbgAymmCgEk2v4gjMIY2bCA22HC4T8R9dVXrmy2Xw0AIgK15CmnfbSCQerP5wMphNXw5UWUwYW+XwQw/Rc6yvIlkGXnouCUnRg971a4cFMHe1b2dpKUlQkKnAmtIf1Vw7rw8GmSKunwPuNv0CFrMKC07jsMQwzLmRN9nl7zRMgjkLol4VUKB3VS2kfDqdAhIaMvmVg04zuajMsX09MYB++OE8BGt+tQ0x/v6iDQhu4GMAsHkWoMohE/ubiCr8f4DXa7oopSKqzqu95TTk8xaf+gHaGurkKOsExdYxHsaEXIDWKHg65Rhlv2nrv8DZiIYPSx7ubeUavNKkpQRdm+zvUQkO6xp4b2HLL2vs3ZoFDkkyyLwqIgOnPXz7PEuiKo9a2SmJ0MB1x5x6s7qSo27GzBLCivHX6l2iL7VLo+aexAXXKD8I4EDGbblZohJOR/iHn93Z7pQzF+av81Xa1ltQAr2i4i9aROvuVYBAzhyPmZlIsuuvpoRqqWc18KVu1NHPz3WDnhmYojVlXq9OHeIszYemTXN3iz8UUEw9ZfFvkB/lXQgzwe/1XNsIpppkZAPmpQ23+yNzK4hOK0c+bjbN47pVMsAB8ZsF0o50r3ZV81c0C6AvRAxuiL+0qj6JyE8LKKnptkQVZwKHyijyemoD7yFIvwqg41rrPkqVRC81UFPplQFpHkkE8Rkyd2wbD0N78lS/wRCBnwdtuistlH7hxRaHoOxDUhzeC/mE1UoCS35dUb1SXOmrd3J9RhEGHDwjr+rbRXV1twgIHyX0e32yS2kIXvivjm5eNAhfNtkRVRnSPiFLBHyGhVJfTS3GOrqhi4mvqPCvIi040rYU5Nx119FNYIuCKMm/+VIfm77d0CLz/eyvNvlK5457qQSYrU/RRgMP56GM4Llw/TW97nTZDgi2u5i7TyZXGFNndngs83zM9On3ap8e0I0AOrM63A3Vjh1I/xV+faRqmk1j6QnVDB0pC8IQPr3yQPqdmzLq297knbg7pUOUE/TAbCXrhnh9hEcxKOHeP6UKEveVdXyvI7j4llRIC/32V/oLliKVsrdd+um3c2Hhnkr44xwthBQUoriXN0HEm4jpGBSxkKTlfEgSWl9hXHWJ/pQmsXOxc5b3Qe++RRPJU/UfE75ybGOQeLI7Ys0vix+tyuiubt/e5pqgJ8Me1iwcKAKtcha7fNmvkSK+bwTT1QQpu/BcWSYK7m89uzDWT6NCr8vpH8yFGfosDXh0QrWr44aQAM21A0L37sFWBy6iQKrupR+aKkyHnith/h0G/Zpsx3m5uce0EFkR8ABMLp8wwVrrnhmAMcKbAZyGrBfIl39QKh9cwRsw3/1Yx09/NGpa0yrU6g92eGMHxebU35eMqvPo8P8DCrysAAGa1p40qYg4nH+4hHLLuJEvIg1TGeVHT0dkU33IVKpufihvL6HO80qP4Om6rRnyJlJFBAdxHPQK0aZG4tl/c1ewNEbUjEGuU9XAW7rDy1Jsj4wHn+cwl83Do37nHAACaIUiHSRVHkzc9tdkDr3kOFzkX16I3MjPuwXDAcbh5G8TqFwLVd09KcgaGvA70x4ffiLd5sIMA0xCNGrdZlk8QPe3oH/h0U1fp+XMWVhGemKRRKO4Irs1/h0up9FYw+BhHg30gTkLM3bVzO7SxSCSU5arASm1E6OIRP/gMiyGyJOjvurbQdlIXqRS7fkBPIxphXA010AO8qRgVcWnIVCcYTcy1TVBS6i+hpxUDgmtMaP++SEoADYR2ZKfQVOjK5m6onNmrNJzjgisauaSUGXsRjhueKQWfpeSeqZQQeQjLp64ZSd5MU6nXi+EvLIxI1gyaYRyv8COa+wCsMKNl7nRLyhYh9MbEXT3xDZwhthTzANZOSAoPVfEGuBciIY6HZVNUc5FX0uwedJYFclY0lu1U5n4vLp6ERf+G7HAmMujAH4fifgQpOQvztnTSbN6ZfhnjjLkTn2zgVMkrERrpmiyuXV4M9qqTmW5XyNSYr5+nYYwzVdhAfn1NWiOC0c3f3K/06MP0As9dw5/Yx5GOVhbP+6RUNTsCykwr+R6ko/UVXOHPtxBs7Ij+2OCQdq/t3cXxta3DCH3mzU4hzBSy04RAouh1FmJXDU/32PGozl24TZq54E+tlQQl7Vai7Qk5TY71KYvPGlQEcbLbmNvYdxBiFfwxSilR5EkO42hcA52o5S31fmtxacgAJCc8iL0W+h0ePl/iQ/s1Sbv9pVDNMDnx6Bgwpok0L/CvXvskF54CGRxI73S4cr94xmmxMh5wbrSKGJ2TT5yWeJO4TLUhiVJ4cMQHJgFlCVXyWg5lfpATbGzDOJaG3SwhvqPrBpuY4Ag5iDQvqB0Xu9EonDaPNzNy6mrfsl9Fn6y26S7VGQ8+tSKkAXJgoCtb3r7xtBBYDzLPsh89R7wF8JNC+LEagz3QQsPPcrMBRvAfGi21UqBpF1l82GfTpsGtcwiZ8U00MzaTsSIzZi+5+IuiC1c8BRJBpy4Uq64Mmfwkw/GywfrvsRJIVc19Kh+kb53rTfKrpzN8mcXiC6kNq6G8NLTVsTsDSXlb2NwAK1+W4Ttx+zDb0rIr5TLCw7H2fYttPkJceclstkIf8oZvZ9QUxVk8AF5trgGjwCyWjO3EXgSNvc2NS4HRWUbgPEAxPnV99yTQV2H0MybJCq70CenK+oncljwjs7+/CmecEnBl6NEWFTU8n/Ys2BDvTI3kI2JzFBU/dThkpNx/OonKLJeWL72wAKR9VSRr4K9srvtGdRXw9wmci9vr0KryiwcX3EEi5MBmicdpwtAn7BZZoaDvX0pCS1zmbCd0YHd41+e+Und+2oLZ+irO/OR1QfihZrUuL2Zu/lr9MiSQ/2j+UWUGARa9h05CBWkclh1S4wKQCa57GDSfRy2ZOjO+EFIFBi+kL9Oh8k1YZQmk2F/daZ5PpI3kJswZ2fkc5E/jFGBQojvp3xYajEdg95UYajAIf4STiMP/apA9Kg7GEg6FgT3maWzu9AMM7Eo6Pz/O20BG9qN6pSxoVs9HZ/P+75vblNVueAIYAk3b5qN6bnHKmKWixpyMfhH6Gnz+eRxMmOo9drLcF6OZuACFHMXAMwzVKG29/xpZPJZiJcHn32mXQReSuWpjAtXYOlOwi8m1F91F5/4N2XzOPhlxtfEyJ1ZtAZXtO46Dt+cheMTwZ3UDoYDuQE+RT464/VKOHoE/NWHJGSzI26zQ/tbKa6vnmvTfIHZBqODzMe8DtPTuK2ctwMxhNuwwuVIr7QVBr0hJd7I4/dcsYjCeFxEVMMDHxkqPeGAOAcdFNaSK40oN14O/FksXarA6RfcbXmuOgtQGOYBDSO4NhReOYtJt2dmSyAU3XIPTaQMM4lYtJMzczpw+2BOVH4CXBdvVAVmm4lHTA04MkHeDUgtdpwyGssaHLWg68G4DXrAPY7zYiqT3kZRZGSnAML9YGitA7I2xcBRO687eAIVTMRYkw4um08Tmeh+HdxeJ8Hhv20k0hYH6qry9i4zQXRy6suIfROCB8Jed4rluN06443XrAgoPmY9kROo7VnwSsvdRFc0ERGE2Nqr1HMzLLfKtGUEbK0pkaO97UAAji4swCjfJ6Mj2EVlWCCbAEXd4ZI8fnSRunPMG28jO2NdaHkSiXbGVVSX0fAJ6z80/C5sVkEEg8NPd28WG5BIJww1g5N6hUMpQXEyNiq8qFPFWsIQ1Xpp73axxDevLeKUe1Bbyx2rxgMm6s8dsKSjM3uzyJXguSwjCFl5WYCdD9s1mzOt3PbrsmXKUW6nWxy1jp7e6bxQH8ByUr3wLQ+YKCGsr+pngWYQwaVqq4+hfXFrfKOF9xL6d6ZR9njfB+0AGfnYb0Rz7kMy47EOZ06c0SxiYNsvqGF4HpSvvUTFk9/hamdz7FiOIoDTlHhwHZ+Bpe0sch8o95a11fOskgpPgE4pI2qZzNcwdZRbuFKLlSKIL3stYDrHCP/VbGVRQA7Ad9mheRWTIbMzyo4JDNPotOToT1Am++dKEKinTaJQUGXyq4+pB6EAcOC0/oSeQhTI1wDrBPx5wVQ+4DA7wxIfArg/r+Rwmqj/n1eQCL0afaOrHqSC4PN/u/ntR//aJeY08ry6iVxSerK00nmEkEmksuCnWSi3aTfeyPas/FiyK8k9g4ojqDSdCfTOMZKOM0TkaPPAfnvBj2UPXSLwj6qjm1NMZalGRkcZvKfc8s2I1A1DHhCEVt+xG0bfODi/ALuqSO5c+EHUsmnLvnFclGCKjlszwnrpW+AgMAmE3a3Evp6Nga47Xn6rOxvCZtpd2hQzXQa38CtYvrrnzvkSAQ8nsq81t0ZBAvk5CwYIAVrJY3EFVoVMtHrue1j0HfPzbfmGSb1V3eXe2md3WVnxWNPQDtQS/pa2LoLT3Dr6uiIrbGMjoytBk4Q0/3GvEK4YgBUnOCquGCSPYIkp/QxEnoLUKUKS/aGx0JjEXHlY5+IgnvaMSG+WgzdnqL7LXkh+QK6eiQ5Fsw/kdCG1XllM9dfmrtWrD27zrNTaPNGxa9R6kZ1dtgG/o8zByPmNjoUQ2aeRBtgYRH6S69ivlgV+xHAqUMZJnAAYC2L+IikYTWkHW06sRMlE9PADUSCGPh04uZD7novHle1p9aAwnaivh4hW0Ia27YCYd3znaCzGkO3qEkcuOCCg2WDmyU8kEHhFpWJtpNzgYUBdQFVnDc3H1AVL3rIQSRxC4cl/jL7OgT/FcOVjNgyqDuhUbFaxoo/EnkYC4TQVWgudrJJov1qTksKurMkiURC+zGqq5wpZ6Mc6TOZ/1Tg5LY+QOgjDniiEY/rZuTNh1HEWFRYfQ4692LDV6FhZQfO0h92LmxRQEN4qHz/TG7TlVX6bG4nhAEXMvvUxNnmgv1e6rib77nQpz+E9QqCyYRcrqXj1kMtqA3VeAXyn9FbbHhbcE25Z/IGPw4omEMRh9k1ZaJ/Nq4+ciPt2nK4LRSybzVyLeqDI90DZJ9oPGzljfrTuQ9MWl37blfdpgpvojLvH514Zw2kCAiqrtRNax8SttBi/jT8ffXs/iEi6YWhOh3QUKcej7R+C751foPNpjWPIIPer3UiZA6eRaayaQSiT1X4MOh4Ueoie4eE6PlTXb62Cn8Yyyds3DEfcD/FfkAcRR7XdXBhgY0ZfioZK4jxXtEHcEEScTdXE/CrN+cbvsp668ms0YVgj3JaLqmgnvJNPTF5rynz7fshf1RrK1pJOMECSdKsPERWJxcrFLkBBbTpuGd0cJ4GfhjIEGquEVpz4nqQVEjzgGjmJMrGWKrsXnXY+wMsaC8EIwBunqGGvCSDE38MKjBanz5WNdNUzCOLRjj+J1au8iBy3OzdqvQoWneaQ/gRH7R8J5YZrf47XO+FdgzsBZ0aD8wDYFY9AVqXSV64q8VYJMVeBUky7DbZNsOTMxDIimbPDIgGboZvhlaAF5qZR8MLMEt028kO1sDyKI0lo90yPJpeMgOK6VObsAgq1u5mqOLURcegC1vHwhDIR/ZDJseVOtKUA2ZJvV53sHl7oe8wMER6rfgrf3acljdYmhz57mwUoef+klaQGVfnsYYXc4Bo+e8GIoJvk9EtrUvPavrTEG8+oFZsMLSR4qianeMzYTYwMQgqqeJ3FxxGBN9MJQS7CL85shGJnz9JUdoSxMjXQfUjujA0M3ptRPmMyUYRpD9VeQzuuNMaU3zTh0CFrgTDOVfmAiCkkHWjNIM+qO4UWtF9ogHN6ym8uF5L4zzh5JGDJgfZydGDzH8PGgbM6zCXoJgvsAgRHX0DUv6V/12yPxBOzypg8gX9i/gbiM61l9SlPoozGZf+bIZRBVmmj0T11Vvz6j8eSfs4qWBsOWGGd2emjI8sLcrjKb2b1LhogYmAXqqAlcvXb030dxZwARRpeVbq2qo09HdLqUWpdX5rOunwJQ/Vj+YQN81bQ2duS3ILpBLPaEHpWB5sFrlSMLWpfLH5D2s1ek7/qhRHjo/4d8WKx0DnTpqqf9G5WhiyeOEim80QpdVdV28YF3ZKEuKd+KPeCqFcr6A2HKAP/cO/784r0APwHtSFehvY7CxB5hfrpw8atMw1jtI6+qbUNBlQ5LN9O23LmsIhyr5p8pg2Pu3ENFucQeqscvptWQqMlKCaxqKJhGi2OWnhqmHBtIWbtPxngBTxzdzkvypnuJLU+qITEVQSCCNusE2SignDZ1dTdSJ6DQVuZY+kwLv6gjwyvSp/BViDTs9brIk/D4TXr4c3o7kSLXXSzw69kXNEHXWU2k/6zrO00BtmJd7N/Ekr9TgrBgQkF2wJjMoBCjCRx4o/7NfYC4/QKKt+IbeRqDbo5zYZdGGoCqk41h3OicS6fqG9EY5c1VK2ve1hkNr16V346Gmn7oSAYNsxbxUDlQKfEBmPoVkhiExvr5Lzugr4e2ahUbTwtmT6caZ+vfJM/VmtDYZgR47yZXRTJRVCSYa3dQeK+ZgfjPAuygdFqB/Bq/qV09MGOqTCVTtf/kFBJQrZ6xQG9FJ3ifAlwWI3xH52/ipuvBXavgCFI2ulCjQNe7Fwq4PNVjDnczhnykCH7fvZ1WSvGl0T4xNiXV/b+CFkCIa6+DtEfBGamZhWSuuybwZDVId3XwE4PrwlnOe6S8zDMcC5RudnsoN1SInTBxQLvNEJM9rDtkj/6cTMFVqthFQekLy92S63bt3O9r5IIHgd7/6A995vr4Zt4OsrqAHGunpXVrWUib7dJViTk/JKAQmhy0Evs4klnh+rCMGmgQR7si7G9g1XSzXZkNhnP2kT3wiShrPHutwjAwvgN76vJdPfJ2vMOEbp6g9x8yLRMftJWy8uN3pqS/IhNE+pLBDunNChfIqWeUGa8aSkmwFNtDcD0NJEbPfYp1TEPxBy+aqnIr6VktLPtqJQE2Cb147XITE3DPQQD1Nf9xj0+NTCMdzNsdxekf/ninGGcriYcTCml3dfwnbNzezpyQJkQY6Fk5m8Ta2+sCbmsF6SNx+anWJUoR15ZvCW+TAyyhsHkUDYDSxeAh34Hh+v4ICSCP9oMdboUZxuGJyXYhJYNDO6UtOq0BXqX6G90QOqi+I5AzLqiyQZurs+JMR2FXIDyV+XlWo6+o3eqCxdZFHR7pjwY2wZtWVcennGm07IMt2rbRSNIFPeWlP2MpVaelJb/rg1xMuQRi5T2x+StzYDZCnzL/ONxK+aeRkkdrlnFxNppdBLqx3yVsLZKDaf9Ql2UWyhjSd+LzYHpsGn0DnBPA78kfe0h8mMI94VaB+Pg6zb4GCO6H/1/dCchBXE7HfoMl/iWp7AkPSenhptXed4icGi2Wu4OS9+uToyVUbxfRJVXKU5sLN7VcrPgX4Syrzg3AwEV6Xtlg5AehmQfMZlLvcNcmRLUSznXIg5WZg5R9yyLvA8wPEYkJA51BaHZt8XxZE7DgM5lR8sUD+mx3XeB3SDJSDN2yAlbLknVz3V1sgKwe7UokwWwMfrHmLms4ZQOb/rvnyPTjMIFDnlTER8KhRvn4+k+BMrJZDZnBfbx9vFUxgyXXZXR8ZoRICTC/cnNzm+RZAWNz7JbjwOkM7VXBsLoWIuMaITtFYOhh5imMGd2eP4dKTvWECD0O5I2p3vpbUGon1pJS7aSCoK8PyUoqOF7hBIVVxX87nHVbRajGhZ/OEUYzslaDKbrh2jwCKGkEc8XQXc4bN5vJv5KY6N7WD0lPTo4uyjyLelWmXXugJbRhOw6Jwocd/E5g3I1m4SJ0JhjvCSVv7alt+nf4kgtDOgxplQLnC85f68GsJ5a3DYe2LecmUNM5y5YyKI+BFV4UGWqthL/yNRpSIKV8SP0PSTZE/XbfDa8la1b5qFaAsYAigaGBF+JYR5siiiIXuSiBO5GGE6g/KBL0TW0hTLG8Q1+5QdrTbACUi3vV/7g7LXaPftMzlPAbzCz0jQPpNnEVpwZu3bPXraUWFsA4/wr7rXKRKazYIvTh6OIXGpIUjYfHE0YvXo5Ovii4/wvMZyqPbjIT8HTd5SMpXbqWhCwEa6bIIaiyLrPD+Qt43E0/dKtafnMR2kBmEYpiRMGxjUpWVdA4qVwgkAg4G0T0nnHUa0yNyip9yTVAylC5SQ7DraqZyHWbIjTm8G4S2xIr3ev8UjY2+b+vfJckHxKtBlQ1mo2BAfoprd4D7gKiGHk3vxnYQuDNmv8dCpI8xNIKD2T2cCE0zXpUikm43IfSnyJRea2WEXoA7b2HHuWULG7gku7z9YpI20wuvgvzfJ7f50GTDxvQOo4YhGBHhSLe11FOXM3LsSe8k2L9sIsXdj0uLQ731c1Zgitio0+qLqWITl8ReqSVgqMRi/7e2Ei0r5HIU6X76lsQuLIY1sMj8009OApiSYXO0/pCNhotrtuyByl8bMY4BPZoTwkA5FV8FhGJssVBplpGr6XRyeQFknfZBV2DlHvcDcQgQYUWnCAdLpea8OjnmmMcU5vjBZYAndnklEX6xciY6kQVhf/uSt0tTC0MIXYHs/N5EdKe4NVz4CC7Y4MZ38BSFIS1gc3wwBYGzGhFw3S+z15iGhK9Qe3zxf2wl3IifO+sj/QEI8PiC9PioxQChIQIHP2L2PfuquurK1Oqf0qbc8mlnojGOJz4Zd141+zNBRi78bE9UiS8IH8nqAAE8EpL0UryxgCsLU8ZXZ5Gx4my1JtniVQCjZknCWSgk1aQhazNOUYgE2cp6u2eO/NHnvyXN4vLU3NicF/92i3+wwFQkRSDdVO/6snSbFKBQNuKq9xX8PY3F/xMCwrv59clNgvkkYdXQFMBp+nJuki/H5Xe1Em5UQSiplxbGC+7FYGBJdTYBBX/o4bV2XtwRL2lCZERFHwwdRczr1sVeSpnTBWwBmfqsOaHjDIt9Y4n1HbvBC+MI4U1FMMsqexbCLeVvq23wBdyatFehbw2VUD3qESB/bW8UcbIhjpGsqWedRb9i9uqzVw0eOGva+V6BlrXLwi9VgOwCOCZ75Vj2IyV/31o1fIH4VNsoPfT7T8yimCEKVmp4eiNvlB7mbRQb3a0T67sO8fcBevcsFG3d6cES8Fd6WBgbiIaou47ggcEI+C6jjI/nwCdUPTrnXS6QruLbpUHxY9ZmH1iX1yrGqmoUtKbVBkbZ4ZuON73Uf0kzYSN5CezHMIfhbFqX+EjLImQlVdlY+MLz4qde6dm4vkLTvtvSL9NDwnYrVNqEpHxinmL2liLzVN1NyvsNbc/xqtGm9RQz+1yS1Ie+L6W1QkCbpLWDojlSfukEui8A9V5VmUJ6PJAqQo2SO87jeYV0trpIvcS8I6QbauHXmwn5x4Kw6YwdCvSJwpyCwJ3J2TU68BaWU3xeLXlkENFfs6VKuKYfXjq+6NJhj8FV1kZNumWEYnyLOJPVe0liqxE7o2f4ZLKNlC+zHOKksktyvO0oORBNJiAWYJrYwyDptcTQD4bwsNc9ow+ROw8tIlw73wtPffw1yEz9arz/uRyO+NKlih35V/Ls64VYaSn+F8y3ssYIC8A4M+k/lWGD4agBm6EEeW7hX3zmND7lpI8uI78awdEOO1q76LiMgYKF2iWBxOhUob+yUEpRAgW2MAuV8R7me3aNDR6W/VTxH0Hj4ztidlsSDzO8lHDi3k0PhJ981N+yBOA4SrPjZpdx8M/Bnr+pD2En98p+qnXk3r17nSNBAwSMFg4PujlkwSjahsZG+00/mRuGVL3CzRDjiBibcOJ/lhfqdmuv9Pi2YdDUQKZM2R6a6Ic3P12ONLclLjOLTpRb4Rs0ZWc5YG0YAFG9+GeSz6lrLYPVfAJzUNIvjc4v4RNNx02rnam3FSXxUm2ia/zOp0/oYqh+sDyGwtmyR1D74KPjXmJJsC7Y6rcZUAVxFboS/mgScVs9/AyubAuUqOM4ioKl53saujyriAfhOFArQ0QobEhLuWlZiJ7cWYjheH9uQtXwM/CSufisOw7LJnJZ+sLGmg7LOd8019dWM586+KUB7iyFSiZoILUvmV2RlmveJF/cxbniwj2jWplzW+RETmPRN2JvrvnTaGPoFPOcAgTPEayuTXYM6sA6VU6RYi5RI0pG626NEuSzH+rpXI6BRVAJzPLo82phxIytPhDJd5ErnG3LkAlMtG1Mkm4fatNjNJnnU2t5cout0JXukrFTmk+hgLVNV36gZeQY9VYYo0pZWknL2Yud02jV64qcnc9LBm9oAjiyTBYByUAg60yVXlVV6+DzonxkSfhQOb7/gVFNdhkUYcQqhCRxI7nnfSXXjcB7uX7oe+kAYHo2SO9sjgNCYSeum/pmGme1oeeKlNDjcfVaTiF+OuJ7FVF5SsKYrptS/YebLxU5PUk2VfU04L7GNGrvbosc1ClgekcpQFP7e3eTgREC1iqJ7HKa5id12K4Kw2br1FllDJ68NiFNQyQnNMCh7F2MZ9izRtKssBBI9oRzDU016cwfui4bWhaJ7i7tDjWhQpAqI87U+ci+NSnT+YGr6XvBvfz2Kx6BLZMrXTkZz3Y0aoOJNg8j7SmfBhlno0SPaYf69nMZJg58TNniT5o1X7QMjnF3npMJhNl8kY6Z/xF1nmPnUm7EvNsnfMRLzHaBg9mcQbFbCNutry89tnYwHkV9s5lcdi96Bk/JpKFF12hKnFWv4/WJ+tu/RsyOuIcDxspzTCm05pC0QDpkPgfKWJuns9Bsw18MKtSFqbjExYpolzvCc918b2ghfSY0Md4yNttvj92zDmJEmcuXokP/zKRS8gYZOwSiQPRN2fDZ4wL9m4aK7dvdj5jPoydsf71WjETlORdUJHWC/s8X5svli8YmFqNXXo30LOdJzJUYnNIb3yAG8xj10NNnSm33foNWPZp3ZzadRFvehTRqIVYDd/csTUWcDhwgXiIopSPdwUxZwlwZnf0ebl5Nd8Q+7F4mJXfamV+NmfvghffZkvS09RYitem05pQ4xJia0I0vdXLkT6DDVF/4llWZccOTxjK6+fHr3ismU3J3zAFZAre1FNYkX5rGewJBCakOLyH4tGFm+Iv1H+XekIWVxS1jM4W9zAwMF5D+4PRoMQXDwe0FS/IJLmnpjcf6QD7KhAX8w0FK5At10otRjT+rPhsS/fdQLS4hsF7TiHFG8/2zlh0imiw5ajUWGNCtoUAx6QjAcvryeetCgQBLi1mq6r4Mx5QcE0bc97BTgsFADtBOAcpv4nby0uUt4u0O71Pq7FhzDGg0l+aV2oFcU5miKcG0e4TW5BMZMEiOYzQWmQE6qdiDk8PRBZ0BpUSkontqpfj41JFalQvYngdaikETuCA0HAmLY1J17Yq0ZP6UsI7DNfuZfClU9lwANZfOgQjg07IIxGnrrzUO3fRup6x713v4OM51EJaOTitUjRZdseBsv70FReKMsR9iEnLHOsyaM3C3dj4xDj/KUGuwDYkAIU4kI8X0OPPdsa46UttX8mhHPLIL63557A6cw/A8MGxwvfMMoPAPGzIFkcbizbc+6J0KkYSjXgUFBZsZhgygLemTccoi/grwyZ/7uJf6aw6CriZG72VYS3LLIafAfWS77IVtqU5TkC+BTa6bTlsG05E66O36wxoxQM6V/ZpWF4aC1UqIe2jZFVZ2k73qI2lifYDOwTPbOPIAbbdcUn/nNgHFQI/Ofzt0eTTtyEdaK3Z315M6FC5eJAI3xgm1Jt7D4/k1ERvESUj5i18lnq033EmObSrFwsFTi8ZyGtSShRfp0QGf2tMrYL6VqMRTbn0WD105tuLWuJjI+6jruhw3x24FhUOp1YkGkAN/wVIxegSkxT4fMep8IwjwAiADW0wdvcWCUAQiXCA0rOLF1kcySbxkJusqmQLLh888XGKNfYsUwG7926hh6QI9AW/9DQOAyqdl+fITWPeXz51vEuih86MAA9S3Lg2jJMaWljJfRKkkhcVUKPHcEQoW0Fepj31LYriI0XeoiMY+km/Zu93cyHiQS9Pa36U5BBwM+u8yug7KfnDK9vZXlTGbFoSCfziiNRqL7XTf3iF1Og3TaJEDAXNOBjCHOQE4VN9+vwyPCXzZ0L6ehK+4lHeScwxcXu2grrqNiGwW2kcTiETU64x1zlVuAlCX2PgGSYdlV/+eebh4N8+Pzr53sUxnqAeMlYPTlJoUel1FSPjjpH2rWJyB5jvr6HIeNd2oDFzQmiCm4/Y/VxxTMaDV4oHO5HGJT6wC6B1e4Tx86t6mPFGXBr3belKk2LGK6wX/Z7xPaic1J16HOsWNLs8/i+s0N7WakGaQRioMeDoKs2DhqFg6EaUzbfuiz4xWnOxtDG3PaNG5rfHTavPnRD9XGIAZUeaoQpNbgQaN9ljMZFjlU2xJdzXce+X6rTK0WGH3le0g/mzMYurHfUcIUGoCHuDLltf5G0JxWWF01MwQaPMCPr8WtEJh90o42iG2BeqVYdLWcAU910n/QjEXZewEBamQhXWgv7s3RvQBTzEhnpGBT8Q9mmeVITTAtMvCHH6bs1H4sOOBeGBAcI2USz6HYof9s3JQc+Flm+H5j8jyfUsAvVS6Oksnih7A+50wSa6SA521N+KotJ36vKLDTuOniEpM/uyibm/15STDpuuezEvma25P9ZNrkwUcdQOAoxM6V4xqM3b3I7WEBW4ew/nS+k6YIw4xDSW0DmydUFspWsK8TW0+LYAsUx+tjcx1COc3wYBKBFoKWos7ehPQVlLXDUfHPyQNiaoLq5Y2VxwttIiDzg4qGxvM+xrMuLR7/rXZGMmlizxI0zwoQkPtxkCRYtJBYsYW+TWqDxfHXkIN+SIzUrGGC+itDSqm8peRxf7YVBTyIJQmLlCYXjH643mrPRBMJi8PBmXPEg52aV03wopdclxqWdLv8zZIEiSB3DrCenb/PbhTelVybc01dISXwsubY+Vofu86dBgI4Dty3ehNCgI2yEBUAxkLhfHYZlBAHQ0F/p2lrHtMJtTvBhwMd7yEj4GzuMQ5BKCQfRFMSZZqTqjPWKLBKJXDAc+skYDudTqKe0a4xg72g+9CUDjJcRuGOTdYoiVaAFUvu1+wsGvsKU2WHjp4A7GsZI6fEcEStk3nZgNQ3uGZiHdHA1VnvU9g71vD9Lm1Auuqi4P1s4xOo6qSQv1zEs8mbal91qeLHiHCUjEwG5yre0u0wrPoHSZos9fCD25mjJYMeMhMIBOiDulvd61sHmquPEkPJZ9PeGsDsmbDGC64OrnS+XY0u3Ywr1s8mwtR5Kw07v2K3+o1q7r7RKkJVD2LJ3Y83WOAHN9E4E4d1ELyn0jtawJJSF0MX46ZdeHwoKi94ibX97145J2KhPsgvG5waPAPBg2XLwc8AwK6EFEOra/Gqft6hpbAfVQuOKWo3F074tqprstfdNMm6L2+haChX060qAOAjzbuxmSTquIOeawmC0lDhej4QifNZC7L0xUoXOYWFPRO4zRTifAV2hgJvB0NM3bvNf9dhkjLESIL1mBfdHIsYNJglPL5hA1j3uS9pAHrlAv/+PtjIdoiCcJL8c7oBWC6T95+WXeThv2Q04G48WfjFjFHdxckIXeGrZ8aWEQz0Jy8p9wnox5L730bogeb2dE+eVnoSOnhU51gdEGfJuVUtt99f3D4C8jgs8FATzzttUMdZp4dKw9Nn37bHH1PXvpgeJT7Gm/xdY28qLIT/VVezhEzptLtUjXmoPPjWShTXL/tgv+u7Qsqor5QYxoEH3wTWbD3fk6iFsLnIcr5jpjz81mBV88htd6QTl0URSAcvY3xllWg/++u5ceDjCQImQnWhD5knZDtTU8P0HuPbltzP5ygV/VfZWiWzLcgbP0wL2HLlBBWCoGQ80htXgF3MOPalznmJIMcBH41Em5CwUSdRS6HsOwBGsnSl+oPZmSFz4FxIyEDwm24kSRVrfitzvsYKxje50/N8xElmN7Q1eHKZpkudvr9GUz9eLQS2EvtBPpP8h8byqR5boKZQZm/ypSnhVV7ikDqDhd1JXJfpm0OBG/bgf9k5d0I5XpLSX1B27vPFLjjHu1XcraXQ6CFr7DZgscng33AXkGxzilFEbGs8DZoplOKEIoPs8iXIT9Ajqpz0JTQIauvL8lF5wNQdwatoyJXZQx7SHwnePwv9q4IXPfl3N+1olpMDdkp+6zb0U8XATiRtRbkvpt0MV9JAOTB7X46bHmTWbI2TX2zX3FZKUtQv8jToyl1rYZLNPgsZdXneHm09NmkURk7IzRmNuSfQRZUv7g2XytlINeE/K6NbDBKQ6SLhhq3tD0lQ8FdscNSJu4saQZw8JHCj9ruiFyR6EssR3ugINoN3w9qhCIWS58382g/x42naXPjqtZ4esrtsChHEL7EDdHEHE1bFF7wVZlUG3LLh0auYKjf3Ov2Oh3tm7ARTXcroH10Jld9yI43ZytIvXttDHsu0rC8woolZZe+gMGF6AyHgXjUvZpvbWFAdW3DLwaX+fMaEloq858hUUfW6yNz0rvwdyfnzwz+dX7yFQinKj33V53cyTZrF29gJ205Z5Vd6RavJgqt/i9SgPjmudrSRJT8f3ClQnRek4gy6mQAF/2f4LYPZ8RiNTKOT//4dpTDhSao0Muh1OIDgKTuxqDGoQTRIbiUNIZZCpcU76Vaq7mQlEJ+q/LoABDpdp+YoSk4UvOplK02hZZKOEtmQXZhLfSOc7RD5no4QbQZgE3T27o+jPTQsdcOiJJTdbYGCZzBAS7kvCFECHAPZ3OMSeXRbj4lDThskgsxX9JoUqQs6ZKgRWPrB+Pk7aR6L2XjTv1ZRtS5Jx0vFEnAml9USTZjIvDTW7rtjjybv/xicLHEsW+NbnIUFR6bZTzDw+IKQ1L8zgkBkVz614SDd+FGaLKNeLmdlJEszoyBZv98qKN5aNd8x+EES4EcmdCPL6mQSZORLQxYFZQHBZ8DfSgwl2e0Zbpb1iJV43H3jdbv8akQ6L0u57mH9J5p16JkG3mz/RGKastHjadLuvaf9KO20rgSjLk0qqzw4cDviYxU9dhpyHfW3aWAi8Yc5A7bSor9EIG0fkS7uba/1i24ji7DsGXeYuIhOL4alEDxw4zJIWPoldzYo8CbW3i8+SxI66a59fpwwMlYCwVvUxSmW38JqLCKD6hiLTzAj8MTaGe/lgF+JI17O3Cpv0m9zgnvIK4a27PRmme4DwmTI0PvlsJb5nsFcsJrYeye3iuyQMGsAt/DaIhGtZY9CdvQArMMt3Inp1Oa9RiJYRFd8h7nUuDhzm0gjdbRQunfT7VpyjM+GLFwTl5fFInjAJDO/4XaMLleqNTfSAp7y5Ht29w3O8IOKattE4ZADk5FcJ0nxZH5fumo+UykFG090l/8k0fjRrav02GuIh0qp3eR8V4mgZRE3v3+BEPIfOw06kgXjo7LgRSav2PnUWIwJerNFq4YP/mfvy3KZJO8ujv/6T9gnRBlopCy8OGbnL7dyLdnzQc0gd4i803YvMms7Jnf0W7qyceFhcUOgdmg5D9WnME6Zi8KvmrT/AK3rs3TfR4lZv1/rvO2lzN4ek5bmD7hS3YzozluloEMZiotCPjzREC00UZohOiKhYbOvUQjj1y1+8/dVyaOGz9S7d0U2Ct/2eDdxWoCZye8kwPk0zv4ZE3a/APHcd7vxBvs5HGcwRam+NmTYGWnHjgtqAnRdElYw53WcRM3h8FUTL4Eh5onBUyc+lRg8lESpvybBcVUePgKR4eWj1vz9l3qD671Stx1yfgX76W4e/ViRXu8vYk/Kk6vw7t5XU1e5ApyWH/lYT95irGUG/TcKsz9MZlEJUZLtmeGIBCZlfa50PY0F0CDKRteeVYJQJTN81xSpBWrmTWfJl63uoOV6VrD73BBjA1f5Mj0Q6Eo7VIt+S+M6DsPP3HKrX9hfdRQa9HF6DC8HasDt6WUGyX6enf4kpghVUjJRTJlF49aHsJc2b4vnSb/k7POmW0Iiz4Hf/GUjQSPpOGJ7F7PUdKAP6mqJcgVRMFWI7+QrBhN2K6nE03/hJJeIeO61OB2jmOJy1zoghvP8GtDGGE2IXlH6LEovNEPDqmXSJ//xIkMY536UonnJCEoEgBpLBnEMg1ieK9uM/8zOgrVEerK9DZjRqS9rnC6FFHKqmSpvEIzAL4oLFfBVjmeX8k0yHFA51Pnni5IEq8sAb3+1Bc2De6hTvjcAOsDYjsZ38yFKb+YmugCOFeMr+GuhcTa+J0wdnMWSTPFD/AsVy6yJVx5qko/XWk5v9DPhJZ6JKs+lftIa0abE7h1YqN6uDQCVDAuH/pFITRT6MohQcBS/w9OvLpMXNDt8C5b80X+Jna0qIgQT3mDarYcmIM934LfuXmu23V2KMgyZJ29nUezgt6DiJXtK3irXFQUp0wMt7hRvlg++I3ibZ3RPWTBZ63KU7DRdQ98WmOXVMscCLiPEXua3mW9lA8KwdHN9Q6jebW4KFv2gMGbQIALQu5SJsp7rR9hQa3R1gwYzqPR2mTwTX1R68NgbLRNMGaiOZShamp1Mm5J1i628Oj8T1lPi43N6w7YirpWDS8EpUlE6DNBtEat4hma1mDTOlwOZIlhkEzjkFb3nVgd/swpxAX1htkGYjT+WylUmVB9FL4xO4Srr1duUm2OGYHv7HctURHIuJyrGhYdmb7FQoapyijM84hsdqVEpDpFIMJrlmVPEZinyzFGKFK2kSKzhYB9cZRRGY3vYOE9qq+aufouOm80hwrigWsKIjf9vvqWB4fvwC9vgYR9Ei1Y2I4nJ5u6KVj+xE/+EMnZZZ9yypKWt2FSh3Ok8y6p0tyH/WJpYydpdAjm9tRwVh1xDTW6gW0NE324h6ROQy5knpN/xsfit/5fvCxIFjHL6Vu7x7io4BCyO+LxKwV2ttoY0YTMMzmE4S87Kp1MV5c8puXo6V1Cu6K8yNjNDEdxYLzaPbh8wynu/StBQd25Ot1tb2XooYtrCnwazd6kndOwWRvxkZVqwI0k5GYnWwcZEtU6ujuwRAnMZu6gpYPDILURivb13gTC9IQFMU8aHqqP7J/7iA+bFR0ns9nbIn3DrH+q0LdKvIndP4rkwWtvo1fxUTTjsiBZhUekP2oQlOY3oSWOe6Jzq/TdX+KhIp3x3SeSNRci8kOlDqKyBd5SFJml1A6IVVqzwJV3jdOtrYsjNQBAcfTJ+8CWle6U8g+SCDfR4TUoM/k+K0vVqH+GenCmAn5axGCgE8qdfXnrEAqRnvr7DAeDGikRtTOWIYphYB5ZBGv6FZ25cHxy098Ib/wM3FjaKLMWvyqP8lOTF1QNepOhQPchIMwSDN+ahH8AA=="
                     }
                   ],
                   "role": "model"
@@ -406,22 +483,28 @@
                 "index": 0
               }
             ],
-            "modelVersion": "gemini-3.7-flash",
-            "responseId": "nnOXaoyvNtStmtkP5aCouQ8",
-            "turnToken": "v1_Chdubk9YYW95dk50U3RtdGtQNWFDb3VROBIXbm5PWGFveXZOdFN0bXRrUDVhQ291UTg",
+            "modelVersion": "gemini-4-hydrogen",
+            "responseId": "X5z8arT8N-iu_PUP3LuBgA8",
+            "turnToken": "v1_ChdYNXo4YXJUOE4taXVfUFVQM0x1QmdBOBIXWDV6OGFyVDhOLWl1X1BVUDNMdUJnQTg",
             "usageMetadata": {
-              "candidatesTokenCount": 261,
-              "promptTokenCount": 14,
+              "candidatesTokenCount": 249,
+              "candidatesTokensDetails": [
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 249
+                }
+              ],
+              "promptTokenCount": 44,
               "promptTokensDetails": [
                 {
                   "modality": "TEXT",
-                  "tokenCount": 14
+                  "tokenCount": 44
                 }
               ],
-              "rawPromptTokenCount": 45,
+              "rawPromptTokenCount": 44,
               "serviceTier": "standard",
-              "thoughtsTokenCount": 1684,
-              "totalTokenCount": 1959
+              "thoughtsTokenCount": 4187,
+              "totalTokenCount": 4480
             }
           }
         ]

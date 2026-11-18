@@ -4,8 +4,8 @@
     {
       "request": {
         "method": "POST",
-        "url": "/v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-flash-latest:streamGenerateContent?alt=sse",
-        "request": "POST /v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-flash-latest:streamGenerateContent?alt=sse HTTP/1.1",
+        "url": "/v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-4-hydrogen:streamGenerateContent?alt=sse",
+        "request": "POST /v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-4-hydrogen:streamGenerateContent?alt=sse HTTP/1.1",
         "headers": {
           "Accept": "*/*",
           "Accept-Charset": "UTF-8",
@@ -56,13 +56,13 @@
         "port": 443,
         "protocol": "https"
       },
-      "shaSum": "97bad272a380a375ac7b16551ccadb1f9d379b1b54ef1a520a88904845987d0c",
+      "shaSum": "59822e3010feaa0ed48f4f4002f95cefc5d86dc54072c91533b20ddf4c20819f",
       "response": {
         "statusCode": 200,
         "headers": {
           "Content-Disposition": "attachment",
           "Content-Type": "text/event-stream",
-          "Date": "Wed, 02 Sep 2026 00:54:11 GMT",
+          "Date": "Tue, 17 Nov 2026 18:21:21 GMT",
           "Server": "scaffolding on HTTPServer2",
           "Vary": "Origin, X-Origin, Referer",
           "X-Content-Type-Options": "nosniff",
@@ -80,8 +80,30 @@
                         "args": {
                           "location": "Melbourne"
                         },
+                        "id": "call_2180707782145917835",
                         "name": "GetWeather"
-                      }
+                      },
+                      "thoughtSignature": "AY89a18v/fwETy9Pf0+xr02FAPcyzV2YJepjdbko/Jgo6i1QnYzM1OOt0K202nkMdamj6RcrffV+j3uuBvpr0qlE2CGWt1FJeh6/r8ltobcLA5XL+r2W3tN6sK+0Adu61Xj5o+3ZhBYGcTTM9h4a7aJsXjnrtoI7tBUthwVd0VUXeq7fRSW9D+cEN6LrKZcxGTzb0IV3Fcup8s34kHC32T3lHLRd8oYpAdfsYWkclLHwwrY3pByUtNXtO76Gb3P6jwo62OOESQjhqhtT8QbsT34XMx+9hm/U+qqWVk+pwlvI9tt+hvXNuVyByHwBetvRNZRIocKvZizkod2MJqkqehTM/QD+2BODagdVgu8vTSKP1vmTN4SiiZXHmld6LP8yyyNCpMNXzakNfw3Ib14ICCL6kV3qsXrs2UFok8qQ8eC0LT/GQbSNjvHUwDKJsbfFbgrqhYtubp0SiU9s1FYXYPcLpe0Is9zPxGiVaJ8uZIjg1ozvDP+GI61LghsPsyUFnz4HzR9pgBjJVRYsrge3B5fqKJwedgYpAxuIsr+jKDZGUnunQj2DNUa2FeRBEjFnyXTD3DPFOwBpcU57nXy9V64tth8alaOZRrfR7SQt6S9cFXUIfZDwdPYwYxVEJzHr+pUzB+fwNUpnng=="
+                    }
+                  ],
+                  "role": "model"
+                }
+              }
+            ],
+            "createTime": "2026-11-17T18:21:20.867827Z",
+            "modelVersion": "gemini-4-hydrogen",
+            "responseId": "IJv8avP7NN-jq8YP4M3J6A4",
+            "usageMetadata": {
+              "trafficType": "PROVISIONED_THROUGHPUT"
+            }
+          },
+          {
+            "candidates": [
+              {
+                "content": {
+                  "parts": [
+                    {
+                      "text": ""
                     }
                   ],
                   "role": "model"
@@ -89,26 +111,27 @@
                 "finishReason": "STOP"
               }
             ],
-            "createTime": "2026-09-02T00:54:11.061570Z",
-            "modelVersion": "gemini-flash-latest",
-            "responseId": "s3OXaoLhA6qapucP5PKIUQ",
+            "createTime": "2026-11-17T18:21:20.867827Z",
+            "modelVersion": "gemini-4-hydrogen",
+            "responseId": "IJv8avP7NN-jq8YP4M3J6A4",
             "usageMetadata": {
-              "candidatesTokenCount": 8,
+              "candidatesTokenCount": 21,
               "candidatesTokensDetails": [
                 {
                   "modality": "TEXT",
-                  "tokenCount": 8
+                  "tokenCount": 21
                 }
               ],
-              "promptTokenCount": 23,
+              "promptTokenCount": 93,
               "promptTokensDetails": [
                 {
                   "modality": "TEXT",
-                  "tokenCount": 23
+                  "tokenCount": 93
                 }
               ],
-              "totalTokenCount": 31,
-              "trafficType": "ON_DEMAND"
+              "thoughtsTokenCount": 79,
+              "totalTokenCount": 193,
+              "trafficType": "PROVISIONED_THROUGHPUT"
             }
           }
         ]

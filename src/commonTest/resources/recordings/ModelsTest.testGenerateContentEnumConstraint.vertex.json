@@ -4,8 +4,8 @@
     {
       "request": {
         "method": "POST",
-        "url": "/v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-flash-latest:generateContent",
-        "request": "POST /v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-flash-latest:generateContent HTTP/1.1",
+        "url": "/v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-4-hydrogen:generateContent",
+        "request": "POST /v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-4-hydrogen:generateContent HTTP/1.1",
         "headers": {
           "Accept": "*/*",
           "Accept-Charset": "UTF-8",
@@ -45,58 +45,59 @@
         "port": 443,
         "protocol": "https"
       },
-      "shaSum": "11483decf4b8a1c909febcfcda86c5f193e2ce68bd21e98ad9128755f2d0cc2c",
+      "shaSum": "fda92818f81b88a4cc597280243a06b0a62fb1c61d16cd78d1fff043904e535a",
       "response": {
         "statusCode": 200,
         "headers": {
           "Content-Encoding": "gzip",
-          "Content-Length": "407",
+          "Content-Length": "1486",
           "Content-Type": "application/json; charset=UTF-8",
-          "Date": "Wed, 02 Sep 2026 00:47:18 GMT",
+          "Date": "Tue, 17 Nov 2026 18:21:26 GMT",
           "Server": "scaffolding on HTTPServer2",
           "Vary": "Origin, X-Origin, Referer",
           "X-Content-Type-Options": "nosniff",
           "X-Frame-Options": "SAMEORIGIN",
+          "X-Goog-Request-Id": "JJv8avCFL-Sbq8YP-6eMiA0",
+          "X-Vertex-Ai-Llm-Request-Type": "dedicated",
           "X-Xss-Protection": "0"
         },
         "bodySegments": [
           {
             "candidates": [
               {
-                "avgLogprobs": -16.16824213663737,
                 "content": {
                   "parts": [
                     {
-                      "text": "\"chocolate\""
+                      "text": "\"chocolate\"",
+                      "thoughtSignature": "AY89a1+kLGnGigDkEfXHfaA3jVk7+aaaWlB0CuG0yk2773L+ow0psWgcBAZU8NgTe8keZFJd5FYEhHpml84moUl9YjazFGDrwS/sNi9l4+/RNrgjtbfyJB0TeI5ykGoyMGQczw8Pp+DRuJTfpnuRwWGVY6JTyZCYCibzoCApGx7HU/6Tx+clENN554GXO5nGCLLkqVUs3+Jgk/dppCRH4vjl+SGwvDKcfSaes8A1ikVp94s+s4T/wjCEllyUd0rpx/7aLT66/70MOjMqVVdrZnhdoDFz6GduU/xUGm2jPWnT4DfVUEUodQFZcAH/YwS3iYuWd8688T1ehzqevivFaKv50AjNGc4HURJE3AINtAdrBM4/nJgQ24+j8snn05jkZRXbIRYXBO/mMYwBGFg5KkrJjr/N5clDU/9lZCQnPykTt7mhcThh35zvUVmZ0jk22NLsjSlIlnK0G3dWb6+7haBYwDbPHyRkKsOjRO+k+TfcNWRvZuT7YG3p4h1bt72fSbYTE6hhJr4dnmgBo7zqD2fyKHKpe0P4p2ppcU9/SYAYMEgYWeIDEsPihYQTIK07WC8Y854O0qbPrJwqZpx6VBGUFs70dJn2FzElOnZaow0GTjgoSEAhthqGErTExvCNvBzSNzgTQqlDtnuSVKGXYth4Z47V3k+4AATuVxdgOL0OYN6zmo4dufhrqSnnT6OFTuKLt+YPcHfjJHBJgc+TXRCGOCuxqN/Hg8+ph3ZiyCPRaserbjyy7tmnMQBrZGpH4dQZtsd6pCm/+B12NaQZfrWBxgxqOZKY4//IeBd6NRF8xXOpDjVhfsLKQkkzsaIfOmKStD30cW8FCOKcTPfHpLyZVKaNY1eaf3pOTeXRcIzh+ft62OL4rt3gLeEstI3eUjaP2QSeTN8sNJ+6smLpwu8n5C/GN3QGLBDzm+BGuftlmxGTzNEWwYPSrC7t7BAQECWuIm0PHqAXJFMOPug3QAVVsEiUau+BgoppHH3ysjG6NuISeBRX5i04gGXYkTN4t/+7p0V3W6BTGC//e+IX2/5rsFSW6IBGFKHvdmtj3Q6NUwDQHwULOvPmBx6ds6bnrHUhrECNhWCLK3rHwr0FU3WLE2hbilWjlCH9RCRNz8tsehDqXk+cPsECwaAsAsM0nn8fOX7AMGnFgdk6S6k5NBJVYV2BC9gaGE8NLrSjRsyobq/6TrP4LbM8UOE/6MB2GUroKMHNFaP9GGOFWFcodMIct7cMI24py0u7kT2tgQmysG1ql9YjseHVLaaU1XcTbnlFGAWNAgC+XXe8c3DW33wgUOVtccbC36/K1GvCWyz0B8vZD4zh9uq6nonKwSuXdC0VELkhb3YLvS/rbFAtneb8ENmRlC4QMJ2e9gHP5Q=="
                     }
                   ],
                   "role": "model"
                 },
-                "finishReason": "STOP",
-                "score": -48.50472640991211
+                "finishReason": "STOP"
               }
             ],
-            "createTime": "2026-09-02T00:47:16.977021Z",
-            "modelVersion": "gemini-flash-latest",
-            "responseId": "FHKXav3QO_agpucP2vmm-Ao",
+            "createTime": "2026-11-17T18:21:24.770800Z",
+            "modelVersion": "gemini-4-hydrogen",
+            "responseId": "JJv8avCFL-Sbq8YP-6eMiA0",
             "usageMetadata": {
-              "candidatesTokenCount": 3,
+              "candidatesTokenCount": 19,
               "candidatesTokensDetails": [
                 {
                   "modality": "TEXT",
-                  "tokenCount": 3
+                  "tokenCount": 19
                 }
               ],
-              "promptTokenCount": 20,
+              "promptTokenCount": 176,
               "promptTokensDetails": [
                 {
                   "modality": "TEXT",
-                  "tokenCount": 20
+                  "tokenCount": 176
                 }
               ],
-              "thoughtsTokenCount": 140,
-              "totalTokenCount": 163,
-              "trafficType": "ON_DEMAND"
+              "thoughtsTokenCount": 244,
+              "totalTokenCount": 439,
+              "trafficType": "PROVISIONED_THROUGHPUT"
             }
           }
         ]

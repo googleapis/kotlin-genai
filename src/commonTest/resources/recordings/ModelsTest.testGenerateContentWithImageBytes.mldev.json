@@ -4,8 +4,8 @@
     {
       "request": {
         "method": "POST",
-        "url": "/v1beta/models/gemini-flash-latest:generateContent",
-        "request": "POST /v1beta/models/gemini-flash-latest:generateContent HTTP/1.1",
+        "url": "/v1beta/models/gemini-4-hydrogen:generateContent",
+        "request": "POST /v1beta/models/gemini-4-hydrogen:generateContent HTTP/1.1",
         "headers": {
           "Accept": "*/*",
           "Accept-Charset": "UTF-8",
@@ -40,16 +40,16 @@
         "port": 443,
         "protocol": "https"
       },
-      "shaSum": "34b22978c4f72907a82f9ca1303495f4c5646cacc6fbd1d0c4e7ab1ae1ec8420",
+      "shaSum": "91ce35063627e846334af8e1f21d026808c0c2b218d0bf31c2087d9418230b10",
       "response": {
         "statusCode": 200,
         "headers": {
           "Content-Encoding": "gzip",
-          "Content-Length": "1879",
+          "Content-Length": "1668",
           "Content-Type": "application/json; charset=UTF-8",
-          "Date": "Wed, 02 Sep 2026 00:54:16 GMT",
+          "Date": "Tue, 17 Nov 2026 18:27:38 GMT",
           "Server": "scaffolding on HTTPServer2",
-          "Server-Timing": "gfet4t7; dur=4281",
+          "Server-Timing": "gfet4t7; dur=4149",
           "Vary": "Origin, X-Origin, Referer",
           "X-Content-Type-Options": "nosniff",
           "X-Frame-Options": "SAMEORIGIN",
@@ -63,8 +63,8 @@
                 "content": {
                   "parts": [
                     {
-                      "text": "This is the official logo of **Google**, introduced in September 2015. \n\n### Key Visual Details:\n* **Text:** Spells out the word **\"Google\"** using a clean, modern geometric sans-serif typeface (*Product Sans*).\n* **Color Sequence:**\n  * **G** – Blue\n  * **o** – Red\n  * **o** – Yellow\n  * **g** – Blue\n  * **l** – Green\n  * **e** – Red (featuring a slightly tilted, playful crossbar)\n* **Background:** Plain white.",
-                      "thoughtSignature": "EtYICtMIARFNMg8GYElmJV/zXPH0G/49VxxTUDIftOpgVg+EdQPbsnQJ11rAhv6Q48Zj85Y0m0h8Hd4bZJdvKYbuxSWMY8Nqvc+wJIK16RrFUp2enfzzsRiKQJ6Wp1HA6mfSCS9lJ1wDKhryElP3MQrVrFRCLpcVE8+MQ9wRzg+340L25ZBXK1CS8CsnWFbAcA0mM+FV2B4n7gClxgm1AkJTEleH9ZH2oW8qz78adsgyqCXfoHqNOaFOqXyGPb9voJYRrWxZ3F8ns3FqgzrIpVvt+IdPSkoG0vOFRjM/QLR78/WkuoUhKs3J0os1DDezmoxi+6YNGViJ0tgXC5NGVlR1oVER9kCjf0rXS6d5fkWzKs8JoSGguxp8aFolYW6xU6HonOVElkZcXcvu7nHP66PJz6uvIKbDQryRcP3r1W098r1FPsn2EJd6Evxq6tKOw5uWxeoMB+AaT5S/dhQ5Nk+MTXRBkfFpanot1gNaHad5u+1DWKyuLR9n5McjqMpUYiyrUouF5FNzoA23M9PO+WuAYld3BvRDXd3ZS07/Huqzng/nxyZgQ8iNE+xPZ8wvnxJND8k1NgEyghmxkuzy2z9n1uakSfeehve5VhhNVxb/f7i4JqbN8em/Grl4eE7+Uc+iQyevbck7VnTFWWBQt6oZ3so5uPl1tECh4MGqFTc8jKzsw+5RGgeUB3jjz2QIUqYSiodOygAG2iGZr6dwD5sW3bK1hcX8eO1JymIHyWTwkr4FKygwVsh2ykzOhcvn6T56vyPlGbVxqykQylT03nRYSXqFFp1cdsaqeac2X+iJbjdofzFrD/odXMuHOSAVYvhvMRU/EvQQWa0eIZu1vuPuUqJKXoxstWgSYnUB3tOO3dl4yFF2ZzbMnhFswjtdb390bVMFTjo1V1PIFY2AWjYC8jQ0wqPTP0cDUGYmeOR1OzVDDQ30k25yR2b/kOKV9micMxh1p77eI9JEr1Wx49AtYGDKFZJKIpQCpiJgxaGarxda+gcLcIUOTkqx+rfeWwSUfsUJRHulu8gHvF++NoUwQhoWdMGyBxCqZnJVe9g8IHoaOOp6APBs3aOZ9kpb/YDe8KEgsWsFsxQfUd7nHMn9VFHIZPMzsXYa5/5/iXKAdno17bQPS4GxP/DCMOWX/aMa3ve5JC6XLi7c43KXBNtu8ADGYvbujpOIh073KQsKzVTfaCVxNw/QVCg9XLSlbe1LXugocKKJ9MDjdRcQuCIEEwq4qkZkj5umH/URXeelQpQEt9LrUsxIRRuHrI8fPaD6JCCvbLKeWvLPa1I/lmonr6Y5xaBvr05S56ShubHod60vdoVOwEXtAAyIAkCvHm6niFsnkDENI4v86QmASr4kO3gA+LsTh/cVeQxXdXk/yjSTQEFXHO0VJiYxewkXeoRCxCpCZaaf8wenGT9VIxea1e1rbAK1CxpwFV8alJj80X6Bj1fX9QRQIuDIumiFiOpiY2ZZMtq7"
+                      "text": "This image displays the official **Google** logo on a plain white (or transparent) background. \n\nThe word \"Google\" is written in a clean, geometric sans-serif typeface (Product Sans), with each letter colored in the company's signature palette:\n* **G** (uppercase) in blue\n* **o** in red\n* **o** in yellow\n* **g** in blue\n* **l** in green\n* **e** in red (featuring a slightly tilted horizontal bar)",
+                      "thoughtSignature": "EpQHCpEHAWkUfRMIdikaKyBj4dBZb2waQN6TB+b2ou4jOUXBnbgMv/papFEucz93QBojZpJfa7ERZhOPuc32oR7kyhAPx2QZGG2ZKX/DjJ6by5HZzo+1aMrZ15B0P+hNwgZ66G+fz30Hy94sdpG2413CShF9zBNxNOlvGPRCX0K6nakwI0Y8AHXuUfR4N5wHrcNRfgp1fW7VJaXsAgDrAbYXpPlgb1BXfM75Q3GuaMlJByT2QwZNCOOg7D02lbUyPo222favBIaOkjEaFJauurmScgJjZSa2QrRAMakgqm1CqupLaZCXtHsPxC7DYXf+mVKIVZNv1EDGsLzmeYgzlhjN14GVR9JmRQxs5zLxflUjcavGfRUFklXtJJK+Wou9sbNRfzKvvfEjgKzYIFL4oG5kjc6W8mj9Um2RShlaRfVq/jUapUskk+OVQ2qpw76URWs/g/E34XIcOkcVABbYtrflmhj6wRGIJsZiQ3YpXNW3fvuMTd4RNMbUc91XDTP7ckc8hE+BLWffWalXLpmGpIZjKGInUbcJySfocQuJHGNMlRJ5/NK4lLM8OFhiIAEcj8dvbrEI6vj3z3fa+2olK0mY2B9nP2OJ48D71VF4+8oF47xUo+kw2YV+ePJBP4I1c65xPXaMcxvMLPK+ZeIT8LgP5zxBzi12wzj2MHo/Y1GmFkvQycn4sPFDX+2zwee5AAVhgbLVS2EKYsU3hgy/Xzho9qioTdMup4UpWKjoLQbYZxeCP+u6jO1VETAIhu09ZUo9EB4ClyroUqwEP8yA397+C5eQ+VWkB1YLTp1htbTgHtrr+CwMHl15Ayq9H9uoIONndjbMHgdjL483mdphNqdkdgJ3WTBaVmSB94w8sddBNds3kyyl7Dx82UX8KLjn2SGxUYfTzXQoPisaiWYmjE8CMUsX/aDkV+EYChKhDadQ6TWIA0tIeov4q43XpN6B7RboPZI5Ovn5zd2U0UwKikYsXnFcgtwyoaD/AzhDabiUyV9DRnmgJQyEY40Dc2JHj2VaIXbrHcttTER4nX9M3ZhKxT/AXeoj7mRaQrFQUqKeyE5k7o/w2A1iUSqIpA4M8gTTRAAOoyh0udgR0lKrAecGrFu/bbZQ/RZhItJXTiYtfgf1fnbLTGIFiHWONU9VU9/Sbq6G8xVyUxWsfKJ92XDPsRndsJvpbcVFViCjwdX0/MNl+gy0XnyW4W1n6K3y2QDETftgJQ=="
                     }
                   ],
                   "role": "model"
@@ -73,26 +73,31 @@
                 "index": 0
               }
             ],
-            "modelVersion": "gemini-3.7-flash",
-            "responseId": "s3OXau65OYm1qtsPhvOriA8",
-            "turnToken": "v1_ChdzM09YYXU2NU9ZbTFxdHNQaHZPcmlBOBIXczNPWGF1NjVPWW0xcXRzUGh2T3JpQTg",
+            "modelVersion": "gemini-4-hydrogen",
+            "responseId": "lpz8avrfHrmN_PUPqNKO-Aw",
+            "turnToken": "v1_ChdscHo4YXZyZkhybU5fUFVQcU5LTy1BdxIXbHB6OGF2cmZIcm1OX1BVUHFOS08tQXc",
             "usageMetadata": {
-              "candidatesTokenCount": 127,
-              "promptTokenCount": 1087,
+              "candidatesTokenCount": 111,
+              "candidatesTokensDetails": [
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 111
+                }
+              ],
+              "promptTokenCount": 1119,
               "promptTokensDetails": [
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 36
+                },
                 {
                   "modality": "IMAGE",
                   "tokenCount": 1083
-                },
-                {
-                  "modality": "TEXT",
-                  "tokenCount": 4
                 }
               ],
-              "rawPromptTokenCount": 1120,
               "serviceTier": "standard",
-              "thoughtsTokenCount": 296,
-              "totalTokenCount": 1510
+              "thoughtsTokenCount": 202,
+              "totalTokenCount": 1432
             }
           }
         ]

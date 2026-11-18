@@ -4,8 +4,8 @@
     {
       "request": {
         "method": "POST",
-        "url": "/v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-flash-latest:generateContent",
-        "request": "POST /v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-flash-latest:generateContent HTTP/1.1",
+        "url": "/v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-4-hydrogen:generateContent",
+        "request": "POST /v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-4-hydrogen:generateContent HTTP/1.1",
         "headers": {
           "Accept": "*/*",
           "Accept-Charset": "UTF-8",
@@ -56,58 +56,59 @@
         "port": 443,
         "protocol": "https"
       },
-      "shaSum": "5524ffd939925faf0e5d4597782eded6a19f4800e5dd7126bf54a532efdc791b",
+      "shaSum": "a106e9f25fdea71371082b24f37aa249964d2dd42778f464df59436c69013ee9",
       "response": {
         "statusCode": 200,
         "headers": {
           "Content-Encoding": "gzip",
-          "Content-Length": "452",
+          "Content-Length": "1724",
           "Content-Type": "application/json; charset=UTF-8",
-          "Date": "Wed, 02 Sep 2026 00:47:50 GMT",
+          "Date": "Tue, 17 Nov 2026 18:21:34 GMT",
           "Server": "scaffolding on HTTPServer2",
           "Vary": "Origin, X-Origin, Referer",
           "X-Content-Type-Options": "nosniff",
           "X-Frame-Options": "SAMEORIGIN",
+          "X-Goog-Request-Id": "K5v8auaqEN2nq8YP9MLfiAk",
+          "X-Vertex-Ai-Llm-Request-Type": "dedicated",
           "X-Xss-Protection": "0"
         },
         "bodySegments": [
           {
             "candidates": [
               {
-                "avgLogprobs": -0.8010780215263367,
                 "content": {
                   "parts": [
                     {
-                      "text": "{\n\"title\": \"Australia\",\n\"population\": 26000000,\n\"capital\": \"Canberra\"\n}"
+                      "text": "{\"title\": \"Australia\", \"population\": 26638544, \"capital\": \"Canberra\"}",
+                      "thoughtSignature": "AY89a1+j6n+GT8RV3wV8Zxir/Mqzvxyj8SQ6E8Xbj9iGt4Tn8MT55JfRwUS1kWmSN5W5gjlYI7VSynozZCaJLHOSoIJQcDE51OttTmRvvo9gMX2Y4XxqAFu307efdUu6WD4DT8bI3HsMzHzJ2iLzrs4ksVjZTmaXYQPnQWW9uii6gJv0YoASNxbGC0GjRl5+q5zdkTzklSt8N6H5/uj8IDzGSvx0z0cfhAQ6dAkPbHPYh1Bfb5CxHHVrJbY+jNrKhNWYDIZ4rsywDNE2AKhJP9mp544u5Lr1hyniTCnT1npCq9CqCZay4vWMDybT3xOq1yubeDik9Pvlq6+a1HeHr9Gy6Vax1xytqkq/Z09tNwDnbuMX/y4bMrK0tGerfiDohJMsqU9lAugLfqPotO3fZZmgumYg8IszyMefxSuIXU63F1mvP25/K3fbCij4kCW8ev38ru7QsVd0cHdQUCihnEpZk+ZllzPzK3ODlJizneJ5F7ApWaJmYxgjRFYucwxRIxKpz2r7w3RQlP6sJH3sOpKMeCGsClsOW7BTk3bYsV5mMm4xPkh/p2A4f8jxRyC1U2tE0K5X/URRfUtricg47rpjEIxw/fbQmJ1VpUuK92hyi7YbxLrrSi+/bmgQpnhjoFVaYkpMvhwxR6Y80dhAbz/fm2LqDiF5b1kZWOZrFyoPYTlTLuWglzgaUaZh2A1fr+bB1jKl1mgsry0IOOwfFx7XdLaHm34uWn0aP81dyPfxbNmYIZ33yryMF72K4v9oNHhrSQiwyT5R7U1T7f2ugMj4EMC9I3ExA9k+PqUYr7czJbyT75aRMolGLRvKD8NxssR1u4SgdFIfN/CVNZViI6O6uNbr5ezxQ00IXczxmIHZfeuMcWpeClVT0R1ZAHGIqxk/kifCUQ4xC66sMCfgnnuu4fUiYvQ5xXa81KHTap6+PZiQbeg/QVMCjuVXEdo5BkU0rTJ+1emZMLo3jZiaXRt3EX0/mNWrD4dpZk5TCAnyRKwcALKsw8bQ5pRErbcS7c63QlLVVqIyC/RDWXluEQeQXeuMFRnpFxSQIaaWuhyDO8DESzNgSqk6KKGjx5HsecXkeBHIYx0hPBsWOvnepGVzzC3zFH/lGTPX93nknNoS8YEdrdNFyv4g3xBDVu+XKxJ1fLimOzOgMf9If9MuUBBcPaMJmzNpz4qRd2DEEldHH6DBbazn7NtZRrqqrkuPt3f/6IXsAuegg5Dppv5YQZnbfwBsIORpTI4vYW2xyEZC920HFRKFLfVEkBfU2SfvaAcmwj8yLr2J6vU7bBsVTiHQTUBiLAUauJTN32kF3y/mjhPe4Tl8qRsO6bezCusXQu8jaYQx/fhsQvkxwWnrh44hADiw2asAS77QBS5DVD+3JZIim3JZQs7ZcNK0NQAO5PgxV8QsxuklWUCcvRiNnfYYMYXkhlEszoumHXxvfcigancihtWPeP3wup+Aw/Zack23oHBQmRnmJmlk4hmtl/8fb/GeT0KoZomcdnl7NiazGZ+hjrrl7uNqBaqzp5OD/3yPzhpzgqv1oSCk+1DPbC81Z/j350tJUzi/L/Pj8/rGKFJg+2WXcisaOr7zxE/HaOHOMYmE0UWNs0zWU82DSISj5++vF4ViNRyRVno="
                     }
                   ],
                   "role": "model"
                 },
-                "finishReason": "STOP",
-                "score": -25.634496688842773
+                "finishReason": "STOP"
               }
             ],
-            "createTime": "2026-09-02T00:47:49.185143Z",
-            "modelVersion": "gemini-flash-latest",
-            "responseId": "NXKXaremC6qapucP5PKIUQ",
+            "createTime": "2026-11-17T18:21:31.267622Z",
+            "modelVersion": "gemini-4-hydrogen",
+            "responseId": "K5v8auaqEN2nq8YP9MLfiAk",
             "usageMetadata": {
-              "candidatesTokenCount": 32,
+              "candidatesTokenCount": 42,
               "candidatesTokensDetails": [
                 {
                   "modality": "TEXT",
-                  "tokenCount": 32
+                  "tokenCount": 42
                 }
               ],
-              "promptTokenCount": 15,
+              "promptTokenCount": 226,
               "promptTokensDetails": [
                 {
                   "modality": "TEXT",
-                  "tokenCount": 15
+                  "tokenCount": 226
                 }
               ],
-              "thoughtsTokenCount": 147,
-              "totalTokenCount": 194,
-              "trafficType": "ON_DEMAND"
+              "thoughtsTokenCount": 356,
+              "totalTokenCount": 624,
+              "trafficType": "PROVISIONED_THROUGHPUT"
             }
           }
         ]

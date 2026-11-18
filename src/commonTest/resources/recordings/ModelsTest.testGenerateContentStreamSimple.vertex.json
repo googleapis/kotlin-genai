@@ -4,8 +4,8 @@
     {
       "request": {
         "method": "POST",
-        "url": "/v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-flash-latest:streamGenerateContent?alt=sse",
-        "request": "POST /v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-flash-latest:streamGenerateContent?alt=sse HTTP/1.1",
+        "url": "/v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-4-hydrogen:streamGenerateContent?alt=sse",
+        "request": "POST /v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-4-hydrogen:streamGenerateContent?alt=sse HTTP/1.1",
         "headers": {
           "Accept": "*/*",
           "Accept-Charset": "UTF-8",
@@ -34,13 +34,13 @@
         "port": 443,
         "protocol": "https"
       },
-      "shaSum": "29b8e60ccced0c01382013224156d82dd5439e76f5360bbea962039c9be9ce26",
+      "shaSum": "932e45a9a8b99363c021698001848f4b90321663b0ad701859f15078ad60046d",
       "response": {
         "statusCode": 200,
         "headers": {
           "Content-Disposition": "attachment",
           "Content-Type": "text/event-stream",
-          "Date": "Wed, 02 Sep 2026 00:54:09 GMT",
+          "Date": "Tue, 17 Nov 2026 18:27:32 GMT",
           "Server": "scaffolding on HTTPServer2",
           "Vary": "Origin, X-Origin, Referer",
           "X-Content-Type-Options": "nosniff",
@@ -54,16 +54,16 @@
                 "content": {
                   "parts": [
                     {
-                      "text": "Amelie pulled her cashmere scarf tighter, watching the rain streak the window of the Saint-Pierre café. Steam coiled from her espresso cup, carrying the"
+                      "text": "Rain tapped softly against the green metal boxes lining the Seine, where Henri tended his modest stall of forgotten books. At"
                     }
                   ],
                   "role": "model"
                 }
               }
             ],
-            "createTime": "2026-09-02T00:54:06.266318Z",
-            "modelVersion": "gemini-flash-latest",
-            "responseId": "rnOXas6gEJabpucP-_vTCQ",
+            "createTime": "2026-11-17T18:27:05.265072Z",
+            "modelVersion": "gemini-4-hydrogen",
+            "responseId": "eZz8avCWEOSbq8YP-6eMiA0",
             "usageMetadata": {
               "trafficType": "ON_DEMAND"
             }
@@ -74,16 +74,16 @@
                 "content": {
                   "parts": [
                     {
-                      "text": " bitter scent of dark roast.\n\nOutside, the grey cobblestones of Montmartre shimmered under the city lights. A solitary figure, an elderly man in a beret, sat stubbornly on a bench, sketching.\n\nCuriosity compelled her. She watched as he held up his small pad. The pencil lines were quick,"
+                      "text": " seventy, he knew Paris better by its ink than its monuments. The Eiffel Tower was merely a tall compass; the real"
                     }
                   ],
                   "role": "model"
                 }
               }
             ],
-            "createTime": "2026-09-02T00:54:06.266318Z",
-            "modelVersion": "gemini-flash-latest",
-            "responseId": "rnOXas6gEJabpucP-_vTCQ",
+            "createTime": "2026-11-17T18:27:05.265072Z",
+            "modelVersion": "gemini-4-hydrogen",
+            "responseId": "eZz8avCWEOSbq8YP-6eMiA0",
             "usageMetadata": {
               "trafficType": "ON_DEMAND"
             }
@@ -94,16 +94,16 @@
                 "content": {
                   "parts": [
                     {
-                      "text": " messy, but captured the distant gleam of the Eiffel Tower perfectly, slicing through the mist.\n\nHe caught her eye and winked, a crinkly, knowing smile spreading across his face. He wasn't drawing the landmark; he was drawing the light.\n\nAmelie raised her cup in a silent salute. It"
+                      "text": " heart of the city beat in paper and damp cobblestones.\n\nJust before dusk, a young woman hurried beneath the canvas awning, shaking droplets from her"
                     }
                   ],
                   "role": "model"
                 }
               }
             ],
-            "createTime": "2026-09-02T00:54:06.266318Z",
-            "modelVersion": "gemini-flash-latest",
-            "responseId": "rnOXas6gEJabpucP-_vTCQ",
+            "createTime": "2026-11-17T18:27:05.265072Z",
+            "modelVersion": "gemini-4-hydrogen",
+            "responseId": "eZz8avCWEOSbq8YP-6eMiA0",
             "usageMetadata": {
               "trafficType": "ON_DEMAND"
             }
@@ -114,7 +114,148 @@
                 "content": {
                   "parts": [
                     {
-                      "text": " was then, in that fleeting shared moment over coffee and rain, that she realized Paris wasn't a place you visited—it was a feeling you carried, messy and brilliant, like a hurried sketch."
+                      "text": " bright red coat. \"Just looking,\" she whispered, running fingers over weathered spines. She paused at a tattered copy of"
+                    }
+                  ],
+                  "role": "model"
+                }
+              }
+            ],
+            "createTime": "2026-11-17T18:27:05.265072Z",
+            "modelVersion": "gemini-4-hydrogen",
+            "responseId": "eZz8avCWEOSbq8YP-6eMiA0",
+            "usageMetadata": {
+              "trafficType": "ON_DEMAND"
+            }
+          },
+          {
+            "candidates": [
+              {
+                "content": {
+                  "parts": [
+                    {
+                      "text": " *Les Fleurs du Mal*. Opening it, a pressed violet fell onto the counter, accompanied by a faded note: *Meet me where the river bends"
+                    }
+                  ],
+                  "role": "model"
+                }
+              }
+            ],
+            "createTime": "2026-11-17T18:27:05.265072Z",
+            "modelVersion": "gemini-4-hydrogen",
+            "responseId": "eZz8avCWEOSbq8YP-6eMiA0",
+            "usageMetadata": {
+              "trafficType": "ON_DEMAND"
+            }
+          },
+          {
+            "candidates": [
+              {
+                "content": {
+                  "parts": [
+                    {
+                      "text": ", 1964.*\n\nHenri smiled warmly. \"That belongs to an old love,\" he said.\n\n"
+                    }
+                  ],
+                  "role": "model"
+                }
+              }
+            ],
+            "createTime": "2026-11-17T18:27:05.265072Z",
+            "modelVersion": "gemini-4-hydrogen",
+            "responseId": "eZz8avCWEOSbq8YP-6eMiA0",
+            "usageMetadata": {
+              "trafficType": "ON_DEMAND"
+            }
+          },
+          {
+            "candidates": [
+              {
+                "content": {
+                  "parts": [
+                    {
+                      "text": "\"Did they meet?\" she asked, eyes wide.\n\n\"They did,\" Henri replied, touching the silver ring on"
+                    }
+                  ],
+                  "role": "model"
+                }
+              }
+            ],
+            "createTime": "2026-11-17T18:27:05.265072Z",
+            "modelVersion": "gemini-4-hydrogen",
+            "responseId": "eZz8avCWEOSbq8YP-6eMiA0",
+            "usageMetadata": {
+              "trafficType": "ON_DEMAND"
+            }
+          },
+          {
+            "candidates": [
+              {
+                "content": {
+                  "parts": [
+                    {
+                      "text": " his thumb. \"Though the rain was heavier then, and she wore yellow.\"\n\nThe woman looked at the note,"
+                    }
+                  ],
+                  "role": "model"
+                }
+              }
+            ],
+            "createTime": "2026-11-17T18:27:05.265072Z",
+            "modelVersion": "gemini-4-hydrogen",
+            "responseId": "eZz8avCWEOSbq8YP-6eMiA0",
+            "usageMetadata": {
+              "trafficType": "ON_DEMAND"
+            }
+          },
+          {
+            "candidates": [
+              {
+                "content": {
+                  "parts": [
+                    {
+                      "text": " then out toward the Pont Neuf, glowing gold against the twilight mist. Carefully, she tucked the delicate violet back inside, bought the book, and stepped"
+                    }
+                  ],
+                  "role": "model"
+                }
+              }
+            ],
+            "createTime": "2026-11-17T18:27:05.265072Z",
+            "modelVersion": "gemini-4-hydrogen",
+            "responseId": "eZz8avCWEOSbq8YP-6eMiA0",
+            "usageMetadata": {
+              "trafficType": "ON_DEMAND"
+            }
+          },
+          {
+            "candidates": [
+              {
+                "content": {
+                  "parts": [
+                    {
+                      "text": " out into the quiet evening. Henri watched her disappear into the amber streetlights, knowing Paris had kept another promise."
+                    }
+                  ],
+                  "role": "model"
+                }
+              }
+            ],
+            "createTime": "2026-11-17T18:27:05.265072Z",
+            "modelVersion": "gemini-4-hydrogen",
+            "responseId": "eZz8avCWEOSbq8YP-6eMiA0",
+            "usageMetadata": {
+              "trafficType": "ON_DEMAND"
+            }
+          },
+          {
+            "candidates": [
+              {
+                "content": {
+                  "parts": [
+                    {
+                      "text": "",
+                      "thoughtSignature": "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"
                     }
                   ],
                   "role": "model"
@@ -122,26 +263,26 @@
                 "finishReason": "STOP"
               }
             ],
-            "createTime": "2026-09-02T00:54:06.266318Z",
-            "modelVersion": "gemini-flash-latest",
-            "responseId": "rnOXas6gEJabpucP-_vTCQ",
+            "createTime": "2026-11-17T18:27:05.265072Z",
+            "modelVersion": "gemini-4-hydrogen",
+            "responseId": "eZz8avCWEOSbq8YP-6eMiA0",
             "usageMetadata": {
-              "candidatesTokenCount": 203,
+              "candidatesTokenCount": 259,
               "candidatesTokensDetails": [
                 {
                   "modality": "TEXT",
-                  "tokenCount": 203
+                  "tokenCount": 259
                 }
               ],
-              "promptTokenCount": 13,
+              "promptTokenCount": 44,
               "promptTokensDetails": [
                 {
                   "modality": "TEXT",
-                  "tokenCount": 13
+                  "tokenCount": 44
                 }
               ],
-              "thoughtsTokenCount": 502,
-              "totalTokenCount": 718,
+              "thoughtsTokenCount": 4370,
+              "totalTokenCount": 4673,
               "trafficType": "ON_DEMAND"
             }
           }

@@ -4,8 +4,8 @@
     {
       "request": {
         "method": "POST",
-        "url": "/v1beta/models/gemini-flash-latest:generateContent",
-        "request": "POST /v1beta/models/gemini-flash-latest:generateContent HTTP/1.1",
+        "url": "/v1beta/models/gemini-4-hydrogen:generateContent",
+        "request": "POST /v1beta/models/gemini-4-hydrogen:generateContent HTTP/1.1",
         "headers": {
           "Accept": "*/*",
           "Accept-Charset": "UTF-8",
@@ -42,16 +42,16 @@
         "port": 443,
         "protocol": "https"
       },
-      "shaSum": "35472a271033dccc79445a013343afe500916621e7e3ebeb08d40a8eb14512b2",
+      "shaSum": "b38946a7677edd8c483e6e3c780a732d84cbad768f893f4b59f1136c9ab51d2e",
       "response": {
         "statusCode": 200,
         "headers": {
           "Content-Encoding": "gzip",
-          "Content-Length": "1231",
+          "Content-Length": "1228",
           "Content-Type": "application/json; charset=UTF-8",
-          "Date": "Wed, 02 Sep 2026 00:54:25 GMT",
+          "Date": "Tue, 17 Nov 2026 18:21:39 GMT",
           "Server": "scaffolding on HTTPServer2",
-          "Server-Timing": "gfet4t7; dur=1762",
+          "Server-Timing": "gfet4t7; dur=4620",
           "Vary": "Origin, X-Origin, Referer",
           "X-Content-Type-Options": "nosniff",
           "X-Frame-Options": "SAMEORIGIN",
@@ -65,8 +65,8 @@
                 "content": {
                   "parts": [
                     {
-                      "text": "Ahoy there, matey! What fair winds blow ye into me waters today? Arrr!",
-                      "thoughtSignature": "EtYFCtMFARFNMg82PE8qUjmyjPn0NPeFNuIgY2EEFGxzv9WZcETTfXHEBdukmbP9Tu10lqTyeyqrxOW/cVTXB+QsA2KAdlo9m0T+k9nFCg/nZifWSD4HkYhqO0MGvvD0szS1oF2PH1lQIQZIic6MqZ7SnbT+OgLhuhcSExdNwHXOj9hIb8TYsUVJ2BW4ylqtgXF5wrN7yyMb0zsFDU7ZE78OU5AgyQHprD3enBaLyTl6KyPS08nsegyT+1WIGuD9Lun7WSMzYNLyP4fBORkzh0tste+7oTnYn7RkXD/cnj8CY4HFhkaDIILidElSuXBWQdpgYyf+ipP4QA0OooQAApn6Dptnm9co9Cp/q6QmqvhlCxOQexHhm/a4WFqXwelIZPbZA5rZIoghuFXhWm9LY1khiWheW5jnpe3sV1oOxaMg9Sd3U8XoII+/McdS8EzQoGwXyh37NsetVV2+KKAM+C5b1DvCaV9zXxtykc/ubpAtboDZZX+bbItbFIVCQWTyGN1Yk6MdznM02Cxs/gYHeGgovCqGNivEA/VWohPVtLiy0Nas55Noo9Bgymc6S82IuXCpVqmcfbZ+6u22iXILUdzqbPa3mVbBlXpl//YeQpmCQljn4M5lLFvtQhFlA40JU7pM765QmlCcDK3z1YsYxS7VEI1fyHI7RhUvhqi82+0qB01ArnLfpArIdiqquhNkprdS6I45y7dKuAfkGzh+i1QC8rCnNByUMyfMFrwHwKmwc3TNtBBJEhpb1bdxO38eos+FqyYbGAiBtlaHz1/KT6gfbw39766hQX3H2NBbm/YU2JJbss9GnrIzLWKD+icIa6ZDn0I7mhzmg02yMPVgC4poKVaU0lkPiqdPI68j96tziJUfGKmjk7yFxOurQAQwpdPMhnPPjlVhHxs/xCYyZ62aQD2HTA+1hHtQKZO//vivppgAwN0Qxx/2rZIGHyvltJDPORULAvQW"
+                      "text": "Ahoy there, matey!",
+                      "thoughtSignature": "EvMFCvAFAWkUfRNELyaSPyv9xRYePFq7YeJlrRKmxbuJ+Rc/xWNjZhupr6eC+DGFIyAfB+dl4ZwhLMztopRa74k6GkA6bVJzQjcXKP+8rpZhOICF3kXuZZp0SgfbRGBkhkC5rZCQduT+oMXyo9wL/nNXKwLWRIiwMRkooutBjB1ehxXflu8zs2JmM0mTG57Y56DhU+JrjBfNMCRi7t6h/rzUiDjna4ALsUEBbLNoPb0kqRvHw0v+yUYQ36uJBuNoEqiIL02k+qt2TOTnIoiPyiR6h1Sw2nDxJcREn8wB+6fBPX3BaEMvfoOZTyYAPbWCroSK5JuML5UAY75jocXnX8yKFLihvtJ2REx6n16VqKijHE5iq7t4EEPend0HfMGWK22qt2zbtXXlqRc/4nB8q+ZBMMaRfrBMZZktzaiTO3nWZgqoyJdQR3DVi1arjOdjAo1dSigts/Q5yG9pqgkzGNDKvpj1YwuuiKWr4mQYIxhZRwND1iCYpgQTZYGpZINXwG3B9wntg93782ThdSInOl1b9h7nNNmliqkupaZ6Il0tZuSapD2JwULtazx1khSd1s4AIu8FcM+pQiZHjL+SlGd/PvhngS9ZUYu2Ubs1SnwyULfCDOlW/LoKyM6eDfQ9YqdUS+rkHHb7HMfqoVpPEpr9CsRXZ36IOrLex/B7zN8P99j/2SHBXHmvrxloXJ7eAyEwAEbJNdKxFrSRpNrr8UvDvstML1jbzgxF0PAH00Vhn+cOjMpAopR/s3p/N2yzUhQ2HFuNzIeb6qjOFHhY6bb8gA7dZRkT98TNjkA0ERCJWs68fiYUPYuS2YtYLwlFU/AZRk2Avqu0h9P7gfXEHVoBzbb8ecgRfi+86PUg2aQQ3KwL+qNQ5PRINAOpcHDVgSrsUL8hAcsAoHcX/nvBh6d9bSarlWS6R9jkQXP6g9RkJoMK1MUtaY65ZVlRhfCV9it85x48oAUYiE5IBPnVAM+zYd01nVwkOCFmbqefi+uVcYdnXvQ="
                     }
                   ],
                   "role": "model"
@@ -75,22 +75,27 @@
                 "index": 0
               }
             ],
-            "modelVersion": "gemini-3.7-flash",
-            "responseId": "v3OXas7QK7uUmtkPzLnp4QE",
-            "turnToken": "v1_Chd2M09YYXM3UUs3dVVtdGtQekxucDRRRRIXdjNPWGFzN1FLN3VVbXRrUHpMbnA0UUU",
+            "modelVersion": "gemini-4-hydrogen",
+            "responseId": "Lpv8asitK-ewjMcP847F8AU",
+            "turnToken": "v1_ChdMcHY4YXNpdEstZXdqTWNQODQ3RjhBVRIXTHB2OGFzaXRLLWV3ak1jUDg0N0Y4QVU",
             "usageMetadata": {
-              "candidatesTokenCount": 20,
-              "promptTokenCount": 14,
+              "candidatesTokenCount": 11,
+              "candidatesTokensDetails": [
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 11
+                }
+              ],
+              "promptTokenCount": 49,
               "promptTokensDetails": [
                 {
                   "modality": "TEXT",
-                  "tokenCount": 14
+                  "tokenCount": 49
                 }
               ],
-              "rawPromptTokenCount": 50,
               "serviceTier": "standard",
-              "thoughtsTokenCount": 189,
-              "totalTokenCount": 223
+              "thoughtsTokenCount": 167,
+              "totalTokenCount": 227
             }
           }
         ]

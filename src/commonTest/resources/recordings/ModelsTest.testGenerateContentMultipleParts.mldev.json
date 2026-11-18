@@ -4,8 +4,8 @@
     {
       "request": {
         "method": "POST",
-        "url": "/v1beta/models/gemini-flash-latest:generateContent",
-        "request": "POST /v1beta/models/gemini-flash-latest:generateContent HTTP/1.1",
+        "url": "/v1beta/models/gemini-4-hydrogen:generateContent",
+        "request": "POST /v1beta/models/gemini-4-hydrogen:generateContent HTTP/1.1",
         "headers": {
           "Accept": "*/*",
           "Accept-Charset": "UTF-8",
@@ -37,16 +37,16 @@
         "port": 443,
         "protocol": "https"
       },
-      "shaSum": "25bbed790f98d043c0199347ca835711f907b1858d7e7907bf174ad81e7d34a2",
+      "shaSum": "f7e674cc1289fffeda95b48d0d110a06f1506f428d9d9930c955411472dcb1a2",
       "response": {
         "statusCode": 200,
         "headers": {
           "Content-Encoding": "gzip",
-          "Content-Length": "837",
+          "Content-Length": "920",
           "Content-Type": "application/json; charset=UTF-8",
-          "Date": "Wed, 02 Sep 2026 00:59:12 GMT",
+          "Date": "Tue, 17 Nov 2026 18:22:24 GMT",
           "Server": "scaffolding on HTTPServer2",
-          "Server-Timing": "gfet4t7; dur=1021",
+          "Server-Timing": "gfet4t7; dur=3184",
           "Vary": "Origin, X-Origin, Referer",
           "X-Content-Type-Options": "nosniff",
           "X-Frame-Options": "SAMEORIGIN",
@@ -60,8 +60,8 @@
                 "content": {
                   "parts": [
                     {
-                      "text": "Hello! The capital of France is **Paris**.",
-                      "thoughtSignature": "Eu4CCusCARFNMg/pv8i0452giMVDVaIRmdOIQTFB6jQ79yR3uJx2XxtKbfQY4bVYHMvvpTRKrG8Szwzr61N+QEA225DZhAtiAQYnNJyXcQQyQgUazL2kWvTkkCwRy+iyhnu0qMFXZDrXL/l6zVhqTQWlfP98Ophw6tD1XSwxQmIrmFW7mAD4oMXVstAr9rYqZlaJu7uRiyWt/xElX6mOCB/AYhiolPwp4QD/ojgB3/Fq17hxymhSp6JMIgMeIzMhWL6xFC63tUTxL+ELy4Mr0DhgzNUe6ih3nXLScEIzPvfdKupiQGsV4zYFV/3mYYOPoaOVPGBp2qQ4KYpzBaRR6dxC68jeriM6o1SigW9qfBXaZAyM9UVDkoz4NyzC30BBh9SczUZOEBymicUGRy+NxWd3rEf7w3KrUXrL+N2De+Oox46u5IBvhxr/mS/hmx8mvIKbMibGjiB1k8PLTKRwnn0fwOSL15KFACsIUOxuROeG"
+                      "text": "Hello! The capital of France is Paris.",
+                      "thoughtSignature": "ErwDCrkDAWkUfRPSLvajDEOYacZx4OPi9xPpEHgoDsU/Ni9YoKJGRSS/GjkmFNf2oH25litEeyDw/TE3s456T9vBj64y0gZJzMLnodt0+BBTqQoS56c+7wBe9TLmN9UN31hfThaXBESJh9/kdQzynr/fP7P5ioL4vPtB1KpGXmRqeWwdRsAWUnbR9xbKDelRhgDpMbhNF9OcgE7Ox/aRVVY1SxeMeHzsk9ZBavpljdqUYFMdt5c/GmJOz2i1fx1QljPGXRbEStsVHKN8BBqBwc/XjN13YlPhWPb3L1yPOs8/cmWhGOWg/zcy5Utg94OXh/JW1fYvx1fwqKsNUFzZ7F06EJxUI4ANdGqiBu4j5t6YmFfXEl2UiZyEz+euEdLR3PXj834kbJm/N/ulZ02lgGeA4A3SuO8UR8NHCtni28oHcOkL0wXtgCI+ylsBd9UOOXkKPttBgP/Z4LWOxQsKsrfQMjsJNNrJc2lMWKlcQ56PbbcMNyaA6RX+DRBit9Y2syF9bd3xqDIsm57sCT+me0HsMuHFqAOPsXPZU5BR55c14CQF3Q03Mfv1mDXEjYx+UMek/mMZAC4jZ6mH6K3e"
                     }
                   ],
                   "role": "model"
@@ -70,22 +70,27 @@
                 "index": 0
               }
             ],
-            "modelVersion": "gemini-3.7-flash",
-            "responseId": "4HSXat7jBoWhqtsP4uDbuQE",
-            "turnToken": "v1_Chc0SFNYYXQ3akJvV2hxdHNQNHVEYnVRRRIXNEhTWGF0N2pCb1docXRzUDR1RGJ1UUU",
+            "modelVersion": "gemini-4-hydrogen",
+            "responseId": "XZv8asWqJ7qe_uMP0uO5qQ0",
+            "turnToken": "v1_ChdYWnY4YXNXcUo3cWVfdU1QMHVPNXFRMBIXWFp2OGFzV3FKN3FlX3VNUDB1TzVxUTA",
             "usageMetadata": {
-              "candidatesTokenCount": 10,
-              "promptTokenCount": 11,
+              "candidatesTokenCount": 13,
+              "candidatesTokensDetails": [
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 13
+                }
+              ],
+              "promptTokenCount": 40,
               "promptTokensDetails": [
                 {
                   "modality": "TEXT",
-                  "tokenCount": 11
+                  "tokenCount": 40
                 }
               ],
-              "rawPromptTokenCount": 41,
               "serviceTier": "standard",
-              "thoughtsTokenCount": 65,
-              "totalTokenCount": 86
+              "thoughtsTokenCount": 74,
+              "totalTokenCount": 127
             }
           }
         ]

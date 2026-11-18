@@ -4,8 +4,8 @@
     {
       "request": {
         "method": "POST",
-        "url": "/v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-flash-latest:generateContent",
-        "request": "POST /v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-flash-latest:generateContent HTTP/1.1",
+        "url": "/v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-4-hydrogen:generateContent",
+        "request": "POST /v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-4-hydrogen:generateContent HTTP/1.1",
         "headers": {
           "Accept": "*/*",
           "Accept-Charset": "UTF-8",
@@ -40,61 +40,61 @@
         "port": 443,
         "protocol": "https"
       },
-      "shaSum": "bc96021ea61d73baed67614684d99f487765bf3e78cd823b51fd522e0a67b414",
+      "shaSum": "c5312b6457c17735cdfcfb2ddcf40bc7cc353feb99ce5061999fb84f87973e5d",
       "response": {
         "statusCode": 200,
         "headers": {
           "Content-Encoding": "gzip",
-          "Content-Length": "835",
+          "Content-Length": "1137",
           "Content-Type": "application/json; charset=UTF-8",
-          "Date": "Wed, 02 Sep 2026 00:54:20 GMT",
+          "Date": "Tue, 17 Nov 2026 18:27:40 GMT",
           "Server": "scaffolding on HTTPServer2",
           "Vary": "Origin, X-Origin, Referer",
           "X-Content-Type-Options": "nosniff",
           "X-Frame-Options": "SAMEORIGIN",
+          "X-Goog-Request-Id": "mpz8aoPtHt2nq8YP9MLfiAk",
           "X-Xss-Protection": "0"
         },
         "bodySegments": [
           {
             "candidates": [
               {
-                "avgLogprobs": -1.5475133779097576,
                 "content": {
                   "parts": [
                     {
-                      "text": "The image is the official, current logotype for the technology company Google.\n\n**Detailed Description:**\n\nThe image displays the word **\"Google\"** spelled out in a clean, modern, geometric sans-serif typeface (known officially as Product Sans or Google Sans). The text is set against a plain white background.\n\nThe most distinctive feature of the logo is its use of four primary and secondary colors applied sequentially across the six letters:\n\n1.  **G** is colored **Blue**.\n2.  The first **o** is colored **Red**.\n3.  The second **o** is colored **Yellow**.\n4.  The second **g** is colored **Blue**.\n5.  The **l** is colored **Green**.\n6.  The final **e** is colored **Red**.\n\nThe overall visual impression is vibrant, clear, and modern, utilizing a repeating pattern of blue, red, yellow, and green."
+                      "text": "This image shows the **Google** logo set against a solid black background. \n\nThe word \"Google\" is written in a clean, modern sans-serif typeface with each letter colored in the company's signature palette:\n* **G**: Blue\n* **o**: Red\n* **o**: Yellow\n* **g**: Blue\n* **l**: Green\n* **e**: Red",
+                      "thoughtSignature": "AY89a18r7SEdLJALrczGBkCFeKkK/ClFwBIXOmLHu2DaxZCHlavbFuivl5eawtVX6A288FrSTQpFbckJNzmzYdtIunE+6/X5eHRYtWJuvCQ2TR12DyYtLk9mp7z4vXRwwEsNd4gnwu5xzFxDLKp0DzMrk1EIVBbQlAK+L0jQw4sXzvS6OCAEEn7FJJ8dmUXSiVjEMi1/1H3m0p2FgKrRGX1EIxQDWDVESMlzicNB8jQrNtB3s7zfET5j8QKf02mWCiPhMP84uj1O0D1Cp1gdjfngGFDhDrixTWUDDKmnlOG4yCL7/L5nUPps8+FC5ldjiLzEevVTSJ9UeEvpW/I08/NVkhbN6fn/HzG+dujfpN7Ux7KrN++50/gK2SaEnPXL89nnzfzDHIU+QxslUlbZQUyeNCoF+gvYXfzLBiWdSCakkDgwwbJ5ywTmq1GVzIk2Gz2JoaMHDFHnADVp/ifs/yxhLFzMeYZBepQsLY8cV9I4pLwSblJK12I1ZRetd2UmFmVZABMQ0weyaCd4mLn7LOsSKKTBYvDUf6FyUHmsLPxw5Gf+dVWzJZfwsSnnWcRX7O5DjieWipFNBJk6iQbPHlw0QS4TLregmUnCWI38nwuYilfrjpJkxcnsmiVami8vq3r5djWd5FCot/bMMOaClslFysUQt+L/cTY8V+PUsi8HgG/edOD2WA=="
                     }
                   ],
                   "role": "model"
                 },
-                "finishReason": "STOP",
-                "score": -303.3126220703125
+                "finishReason": "STOP"
               }
             ],
-            "createTime": "2026-09-02T00:54:16.428776Z",
-            "modelVersion": "gemini-flash-latest",
-            "responseId": "uHOXauiVGviapucPvbyc8Ao",
+            "createTime": "2026-11-17T18:27:38.505475Z",
+            "modelVersion": "gemini-4-hydrogen",
+            "responseId": "mpz8aoPtHt2nq8YP9MLfiAk",
             "usageMetadata": {
-              "candidatesTokenCount": 196,
+              "candidatesTokenCount": 85,
               "candidatesTokensDetails": [
                 {
                   "modality": "TEXT",
-                  "tokenCount": 196
+                  "tokenCount": 85
                 }
               ],
-              "promptTokenCount": 1035,
+              "promptTokenCount": 1119,
               "promptTokensDetails": [
                 {
                   "modality": "TEXT",
-                  "tokenCount": 3
+                  "tokenCount": 36
                 },
                 {
                   "modality": "IMAGE",
-                  "tokenCount": 1032
+                  "tokenCount": 1083
                 }
               ],
-              "thoughtsTokenCount": 656,
-              "totalTokenCount": 1887,
+              "thoughtsTokenCount": 111,
+              "totalTokenCount": 1315,
               "trafficType": "ON_DEMAND"
             }
           }

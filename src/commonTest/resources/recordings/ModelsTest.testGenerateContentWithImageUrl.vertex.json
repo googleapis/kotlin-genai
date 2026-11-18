@@ -4,8 +4,8 @@
     {
       "request": {
         "method": "POST",
-        "url": "/v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-flash-latest:generateContent",
-        "request": "POST /v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-flash-latest:generateContent HTTP/1.1",
+        "url": "/v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-4-hydrogen:generateContent",
+        "request": "POST /v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-4-hydrogen:generateContent HTTP/1.1",
         "headers": {
           "Accept": "*/*",
           "Accept-Charset": "UTF-8",
@@ -40,61 +40,61 @@
         "port": 443,
         "protocol": "https"
       },
-      "shaSum": "f7450d60d071eff35fad273f907ba79d8b0cd0fae26dc43371426360c76596b6",
+      "shaSum": "cbd1d2b4e46b431c1db302da59f959539ff4feead716a73f9caa0dcaed7798e0",
       "response": {
         "statusCode": 200,
         "headers": {
           "Content-Encoding": "gzip",
-          "Content-Length": "1321",
+          "Content-Length": "4030",
           "Content-Type": "application/json; charset=UTF-8",
-          "Date": "Wed, 02 Sep 2026 00:49:26 GMT",
+          "Date": "Tue, 17 Nov 2026 18:28:07 GMT",
           "Server": "scaffolding on HTTPServer2",
           "Vary": "Origin, X-Origin, Referer",
           "X-Content-Type-Options": "nosniff",
           "X-Frame-Options": "SAMEORIGIN",
+          "X-Goog-Request-Id": "sJz8aqWHHtyIq8YPn6iQ8QE",
           "X-Xss-Protection": "0"
         },
         "bodySegments": [
           {
             "candidates": [
               {
-                "avgLogprobs": -1.6428630750549853,
                 "content": {
                   "parts": [
                     {
-                      "text": "This is a beautifully styled, high-angle flat lay photograph capturing a rustic breakfast or afternoon tea setting, rich with moody color and texture.\n\n**Central Elements:**\nThe main subjects are six homemade, rough-edged blueberry scones scattered across the center of the frame. They are light-colored, suggesting a tender, crumbly texture, heavily speckled with dark purple from burst blueberries and dusted with coarse sugar.\n\nThe scones rest on a sheet of white parchment paper, which serves as a vibrant backdrop for the cooking process. The paper is intentionally stained and marked with dark purple juice and berry residue, emphasizing the fresh, messy preparation.\n\n**Composition and Props:**\nTo the left, a small white demitasse cup holds dark, black coffee. Below and slightly right, another identical cup holds coffee with cream, a warm tan color.\n\nNear the bottom center, a small, dark bowl is filled to the brim with fresh, whole blueberries. Resting next to the bowl is a vintage-style silver spoon or small serving spatula, the bowl of which is clearly stamped with the phrase \"LET'S JAM.\" A small sprig of fresh mint adds a touch of green near the center.\n\n**Background and Mood:**\nThe right side of the image is softened by the presence of several lush peonies. These large, pale pink flowers feature vibrant magenta centers and dark green stems and leaves that trail vertically down the frame. The background surface upon which all elements rest is dark and textured, featuring deep tones of teal, slate blue, and bronze, providing a dramatic contrast that elevates the bright colors of the fruit and flowers.\n\nThe overall atmosphere is cozy, evocative of a leisurely, indulgent morning."
+                      "text": "This overhead flat-lay photograph features a rustic breakfast or brunch spread arranged on a dark, weathered slate-colored surface.\n\n**Key elements in the scene include:**\n\n*   **Blueberry Scones:** Five crumbly, golden-baked blueberry scones (or drop biscuits) topped with coarse sugar crystals sit on white parchment paper with zigzag-cut edges. The paper is heavily stained with vibrant purple berry juice.\n*   **Coffee:** Two small white ceramic mugs frame the baked goods—one in the upper left filled with black coffee, and another in the bottom right holding coffee with cream or milk.\n*   **Fresh Blueberries \u0026 Spoon:** Near the bottom center sits a small dark bowl brimming with fresh blueberries. Beside it rests a vintage silver spoon stamped with the words **\"LET'S JAM\"** on its bowl. Additional loose blueberries, scattered sugar crystals, and a couple of small mint leaves are dotted around the paper.\n*   **Flowers:** Along the right side of the frame, several lush pink-and-white peonies with long green stems and leaves add a soft, natural accent to the moody composition.",
+                      "thoughtSignature": "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"
                     }
                   ],
                   "role": "model"
                 },
-                "finishReason": "STOP",
-                "score": -560.21630859375
+                "finishReason": "STOP"
               }
             ],
-            "createTime": "2026-09-02T00:49:18.338243Z",
-            "modelVersion": "gemini-flash-latest",
-            "responseId": "jnKXasPSFP-apucP-qjVkQU",
+            "createTime": "2026-11-17T18:28:00.492453Z",
+            "modelVersion": "gemini-4-hydrogen",
+            "responseId": "sJz8aqWHHtyIq8YPn6iQ8QE",
             "usageMetadata": {
-              "candidatesTokenCount": 341,
+              "candidatesTokenCount": 231,
               "candidatesTokensDetails": [
                 {
                   "modality": "TEXT",
-                  "tokenCount": 341
+                  "tokenCount": 231
                 }
               ],
-              "promptTokenCount": 1809,
+              "promptTokenCount": 1116,
               "promptTokensDetails": [
                 {
                   "modality": "IMAGE",
-                  "tokenCount": 1806
+                  "tokenCount": 1080
                 },
                 {
                   "modality": "TEXT",
-                  "tokenCount": 3
+                  "tokenCount": 36
                 }
               ],
-              "thoughtsTokenCount": 674,
-              "totalTokenCount": 2824,
+              "thoughtsTokenCount": 646,
+              "totalTokenCount": 1993,
               "trafficType": "ON_DEMAND"
             }
           }

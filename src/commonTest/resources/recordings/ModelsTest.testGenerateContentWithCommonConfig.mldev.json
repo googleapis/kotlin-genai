@@ -4,14 +4,14 @@
     {
       "request": {
         "method": "POST",
-        "url": "/v1beta/models/gemini-flash-latest:generateContent",
-        "request": "POST /v1beta/models/gemini-flash-latest:generateContent HTTP/1.1",
+        "url": "/v1beta/models/gemini-4-hydrogen:generateContent",
+        "request": "POST /v1beta/models/gemini-4-hydrogen:generateContent HTTP/1.1",
         "headers": {
           "Accept": "*/*",
           "Accept-Charset": "UTF-8",
           "Accept-Encoding": "gzip",
           "Connection": "Keep-Alive",
-          "Content-Length": "174",
+          "Content-Length": "175",
           "Content-Type": "application/json",
           "Test-Name": "ModelsTest.testGenerateContentWithCommonConfig.mldev"
         },
@@ -28,7 +28,7 @@
               }
             ],
             "generationConfig": {
-              "maxOutputTokens": 100,
+              "maxOutputTokens": 1024,
               "stopSequences": [
                 "3"
               ],
@@ -42,16 +42,16 @@
         "port": 443,
         "protocol": "https"
       },
-      "shaSum": "df4ab9118706e294d69e0868f33ac17d630e98c7ab4e474d3453edba8635bf70",
+      "shaSum": "d679980c7d341a4bd0497cba6fe78b02356ead569d1d6a64448b95b11973702e",
       "response": {
         "statusCode": 200,
         "headers": {
           "Content-Encoding": "gzip",
-          "Content-Length": "819",
+          "Content-Length": "829",
           "Content-Type": "application/json; charset=UTF-8",
-          "Date": "Wed, 02 Sep 2026 00:49:35 GMT",
+          "Date": "Tue, 17 Nov 2026 18:28:10 GMT",
           "Server": "scaffolding on HTTPServer2",
-          "Server-Timing": "gfet4t7; dur=8998",
+          "Server-Timing": "gfet4t7; dur=3432",
           "Vary": "Origin, X-Origin, Referer",
           "X-Content-Type-Options": "nosniff",
           "X-Frame-Options": "SAMEORIGIN",
@@ -65,32 +65,37 @@
                 "content": {
                   "parts": [
                     {
-                      "text": "1. 1\n2. 2\n",
-                      "thoughtSignature": "EvQCCvECARFNMg9WBakXtsYUg/SMwvRYuh02aoCImucgf8FQpVdMZyew4SIwf0OTe/huQialsnKSTYax0mK1TQzal6Ld0EjgHN8ZhC6o+CCbokFnNSvgrCux/B5wsPSbUHduIY8VJxiug4TSfl+8pwb5rR8Mu21VAKRlVSEZOGXpNF98o0EbCA4eJhpgjCNkGUCiu2ohI2JkeVvenD3nJs6qlD76Zok2ECnxQ0RgjVyb/FFbybTDglZgNb6xxUBfkAyuR63v2lOQ2ONmz1VRm1p3/Yj9oBIsICqsOtsBqsnDmzdPLZYdYZ5T/5WTSMupVsZUMtZagEv7OuXnlumw7mcKkRvo0HVDVSiPbXtMc75xIohKiQOYcgmgW5DzTbCwdq8y7q4V7SYqznX4iQSpv/9c45NVHL0XkAHqHFtnytfk+MYcg4c+XDejXI7jBRmZY+DYlsg9nAuL2grmG/q7bJug/duO4tuDJ6BTdBofFPardOBakVNr"
+                      "text": "1, 2, ",
+                      "thoughtSignature": "EoADCv0CAWkUfRN81NyOdwonwFd/jdycewNF/auZ0+h+geLgazJFHWjOvlM7Ps6MlikNpef9+vMw+SB4pQJpU+y/clp3gsSIEWLXMbahtuMA7bEE+4yOpvXLSEVNsZ19RUk17U+5ses6lrDttMvoKYyRkD/Uhje5XQwDoriQQdZRfd4lfr4aO9yRvwPz3HQBmwT1rIsQ1XYO5cZtav1f8UJfwIax94M1GwGRl5luBKdI2m9s1eyw2Z2AUXstJ6cFBLa3vqhP6DhgTY1zmNEpKBSMhOk+chzdpUXPpV30QF4eWyocnHMoj6kr8zBAdZt061e88Zj/Oa9y6leNXNHESxQJIuuO0XvS2tAdvMHyR4mk8P8ynCpxfSR4xXURtbyGFODAe4NkdBWl/hGPP4ki/r+MJmW47a5TZS2uPS1IdVZ8yw2epw1GpGoARHdDeKAn6qznEQMJR05oGpweJWJrcB9uVAyP/GpjS6jg0LSfAuWd1Amd/WYsiTDi022VgH3ka9Rm"
                     }
                   ],
                   "role": "model"
                 },
-                "finishReason": "MAX_TOKENS",
+                "finishReason": "STOP",
                 "index": 0
               }
             ],
-            "modelVersion": "gemini-3.7-flash",
-            "responseId": "l3KXauKXCv-kmtkPqO7foAE",
-            "turnToken": "v1_ChdsM0tYYXVLWEN2LWttdGtQcU83Zm9BRRIXbDNLWGF1S1hDdi1rbXRrUHFPN2ZvQUU",
+            "modelVersion": "gemini-4-hydrogen",
+            "responseId": "t5z8aubWHYCR_PUP_MnO0Q4",
+            "turnToken": "v1_Chd0NXo4YXViV0hZQ1JfUFVQX01uTzBRNBIXdDV6OGF1YldIWUNSX1BVUF9Nbk8wUTQ",
             "usageMetadata": {
-              "candidatesTokenCount": 10,
-              "promptTokenCount": 10,
+              "candidatesTokenCount": 17,
+              "candidatesTokensDetails": [
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 17
+                }
+              ],
+              "promptTokenCount": 40,
               "promptTokensDetails": [
                 {
                   "modality": "TEXT",
-                  "tokenCount": 10
+                  "tokenCount": 40
                 }
               ],
-              "rawPromptTokenCount": 41,
               "serviceTier": "standard",
-              "thoughtsTokenCount": 83,
-              "totalTokenCount": 103
+              "thoughtsTokenCount": 75,
+              "totalTokenCount": 132
             }
           }
         ]

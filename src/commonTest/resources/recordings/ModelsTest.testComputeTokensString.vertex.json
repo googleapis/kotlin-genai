@@ -4,8 +4,8 @@
     {
       "request": {
         "method": "POST",
-        "url": "/v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-flash-latest:computeTokens",
-        "request": "POST /v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-flash-latest:computeTokens HTTP/1.1",
+        "url": "/v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-4-hydrogen:computeTokens",
+        "request": "POST /v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-4-hydrogen:computeTokens HTTP/1.1",
         "headers": {
           "Accept": "*/*",
           "Accept-Charset": "UTF-8",
@@ -34,14 +34,14 @@
         "port": 443,
         "protocol": "https"
       },
-      "shaSum": "02f3fe355f0ac07342c1ff212e768cd6455b787f96d7b829daf228193f957c58",
+      "shaSum": "c02a63fcb38adcccbbc348b783e813358a448008b1445f3f74db0ffbd62aa404",
       "response": {
         "statusCode": 200,
         "headers": {
           "Content-Encoding": "gzip",
           "Content-Length": "145",
           "Content-Type": "application/json; charset=UTF-8",
-          "Date": "Wed, 02 Sep 2026 00:46:28 GMT",
+          "Date": "Tue, 17 Nov 2026 18:26:39 GMT",
           "Server": "scaffolding on HTTPServer2",
           "Vary": "Origin, X-Origin, Referer",
           "X-Content-Type-Options": "nosniff",

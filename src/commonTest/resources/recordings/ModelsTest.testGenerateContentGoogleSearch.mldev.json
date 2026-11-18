@@ -4,8 +4,8 @@
     {
       "request": {
         "method": "POST",
-        "url": "/v1beta/models/gemini-flash-latest:generateContent",
-        "request": "POST /v1beta/models/gemini-flash-latest:generateContent HTTP/1.1",
+        "url": "/v1beta/models/gemini-4-hydrogen:generateContent",
+        "request": "POST /v1beta/models/gemini-4-hydrogen:generateContent HTTP/1.1",
         "headers": {
           "Accept": "*/*",
           "Accept-Charset": "UTF-8",
@@ -40,16 +40,16 @@
         "port": 443,
         "protocol": "https"
       },
-      "shaSum": "f804360726ba04e0e9cb207db332989cdf8d05a2cde77f7bafb46c23d95f0d64",
+      "shaSum": "5b005450f821e071cf7b2bb9270c8eabb167adb6fea26d1e77de991f7f312c55",
       "response": {
         "statusCode": 200,
         "headers": {
           "Content-Encoding": "gzip",
-          "Content-Length": "4189",
+          "Content-Length": "7821",
           "Content-Type": "application/json; charset=UTF-8",
-          "Date": "Wed, 02 Sep 2026 00:59:21 GMT",
+          "Date": "Tue, 17 Nov 2026 18:22:49 GMT",
           "Server": "scaffolding on HTTPServer2",
-          "Server-Timing": "gfet4t7; dur=7140",
+          "Server-Timing": "gfet4t7; dur=18474",
           "Vary": "Origin, X-Origin, Referer",
           "X-Content-Type-Options": "nosniff",
           "X-Frame-Options": "SAMEORIGIN",
@@ -63,8 +63,8 @@
                 "content": {
                   "parts": [
                     {
-                      "text": "### **Melbourne, Victoria, Australia**\n* **Current Conditions:** Mostly cloudy to cool with a passing shower\n* **Temperature:** Around **14°C (57°F)**\n* **Forecast:** High near **17°C (63°F)**, with an overnight low around **11°C (52°F)** and chances of morning/isolated showers.\n\n---\n\n*(If you meant **Melbourne, Florida, USA**:)*\n* **Current Conditions:** Warm and humid, partly cloudy to sunny with scattered thunderstorms\n* **Temperature:** Around **84°F – 87°F (29°C – 31°C)**, with a heat index in the upper 90s\n* **Forecast:** Highs around **89°F (32°C)** with likely afternoon showers and thunderstorms.",
-                      "thoughtSignature": "ErECCq4CARFNMg9eVT9+EdHGHaVZ1Zb+xmHwBL2Ff1+9Y9Z5f3irmvuulHJLpEMjZhL0Ph7G99vjQ5Jxnrznyp5JG0dKgkd13CAXK+T3GJSbQId66ABMwYxQPStb4Oah2Gm2YpYMfSCG3EVrGZYMrt+mUa/bnl5sGEXdwQLE8ZW0uRjUEgzA86awl2NzvsrxqiuzVh5i19op6mUHdybU2o+WOckE3qTLByO00RwPMSiAdQGs/VvPE2wlC3iw8Y79cM1Lhb6bc2UuhCn0m7Ov935tOoaKSNqVKHSoXr4opw92JokqXydxnDjsx2Vs8Ap30Nuj3nKRxvcOi7yOzHRTVXsqxly2iX1TQ3rWR0/doy6Q9QyPH0MlXjr+vRIUR7xGBh2K6TWq529R3tc2tdHp/KpnQRk="
+                      "text": "It is currently early Wednesday morning in **Melbourne, Victoria (Australia)** (November 18), and conditions are cool and cloudy.\n\n### **Early Morning Conditions** *(as of ~3:30–3:45 AM AEDT)*\n* **Temperature:** Around **13–14°C (55–57°F)**, feeling closer to **11–12°C (52°F)**.\n* **Sky \u0026 Humidity:** Cloudy, with humidity between **73% and 81%**.\n* **Wind:** Light southerly to south-southeasterly winds around **7–11 km/h (4–7 mph)**.\n\n### **Wednesday's Forecast**\n* **Temperature:** A low of **11°C (52°F)** warming to a high of **21°C (70°F)**.\n* **Conditions:** Partly cloudy throughout the day, with a chance of early morning fog in the northeastern suburbs. Rain is very unlikely (**5% chance**).\n* **Wind:** Light winds picking up to southerly **15–20 km/h (9–12 mph)** in the late afternoon before easing again late in the evening.",
+                      "thoughtSignature": "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"
                     }
                   ],
                   "role": "model"
@@ -73,66 +73,74 @@
                 "groundingMetadata": {
                   "groundingChunks": [
                     {
-                      "referenceId": "1.1.2",
+                      "referenceId": "2.1.1",
                       "web": {
                         "domain": "bom.gov.au",
                         "searchResultMapping": {
-                          "resultIndex": 1
+                          "functionResponseIndex": 1
                         },
                         "siteName": "The Bureau of Meteorology",
                         "title": "bom.gov.au",
-                        "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHY6EfEX1QtdyIpwbrBbOF7uvN-uV-FhWSB-zQuLhv_5tRw4rop51q7QpEeg1n77N1x4J_eqEnx3BA_XUN0rodxQYdWtTPiXXirAGIHBmpfU0G-CH4fVVrqt1VMgiBEnhrou0huJs7iFqouG4iarrGaCoHZBvEx-YtPe8J_EVr1CoB2kqc2"
+                        "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGiei6GM_fcOL-ve72QbRihmt1MDclrYvX1xHdvjhQTqrkpM7fqm4Rt78I07-a0Z2AQVPnyW1eesHCD0027CsdRlsEc2jvf0030PdCf2IW71JQ_sBZm_u0OPl6jKWwl4l2cqgNdDRegl6uZyaNRC1tkQh98VtE="
                       }
                     },
                     {
-                      "referenceId": "1.1.8",
-                      "web": {
-                        "domain": "eldersweather.com.au",
-                        "searchResultMapping": {
-                          "resultIndex": 7
-                        },
-                        "siteName": "Elders Weather",
-                        "title": "eldersweather.com.au",
-                        "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFJVC9XxmpHRsJ2MNOh6_xgHqJVdggjfX3JvQi1-UyKOiAjI1WyA9uBekh9AgSVzgzlAVbbP7xFevdTVIvP_jpwIp1QqBWEdVRQVI7UkHURpy8dgKhvenfxIvlxLZdk3rkHdT1b6XezecY="
-                      }
-                    },
-                    {
-                      "referenceId": "1.2.6",
-                      "web": {
-                        "domain": "timeanddate.com",
-                        "searchResultMapping": {
-                          "queryIndex": 1,
-                          "resultIndex": 5
-                        },
-                        "siteName": "Time and Date",
-                        "title": "timeanddate.com",
-                        "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQESVB13Jy-DOCh8kQA8QqVV83jBvYtxKrzzEnerLzXyJ7BowNJePgJyIjzlNZL_ukheBri2M4ELKhIRRuz7CYonI1BiYypoBMShItyniCoRLtaLH7ttvQSvamM0YuLI4BhsdxdJy8Zu"
-                      }
-                    },
-                    {
-                      "referenceId": "1.2.7",
-                      "web": {
-                        "domain": "weather.gov",
-                        "searchResultMapping": {
-                          "queryIndex": 1,
-                          "resultIndex": 6
-                        },
-                        "siteName": "National Weather Service (.gov)",
-                        "title": "weather.gov",
-                        "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEDlIIk_AgZuiTTz663VTcQo8P559UcVpWPSv9v5n9I4PiVislqiNo-XojTZLwK7T9yQ5vDGsEX5LgGoNyF8Flc0sOJ95hjZ24S-1-FKi4fAw2eSYQODO9uYJUPh8jFyDUSeObVVlSKHu7uYsb439uoz13odseWjgw="
-                      }
-                    },
-                    {
-                      "referenceId": "1.2.9",
+                      "referenceId": "2.1.2",
                       "web": {
                         "domain": "accuweather.com",
                         "searchResultMapping": {
-                          "queryIndex": 1,
-                          "resultIndex": 8
+                          "functionResponseIndex": 1,
+                          "resultIndex": 1
                         },
                         "siteName": "AccuWeather",
                         "title": "accuweather.com",
-                        "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHkFiO4lFJ9U5drMcvOK3yeNilHTfup947i-X4BAvMPpKVYfrZrWyvOSf8QvjG3Kzbw1bkYQn9onU5HKasdVvb_x67pyUojAzZayF2VsNKn4_FIdgvXsjV69yZuFBpdypKxRyHFGwIJ_j-2Ly_gQv-UWPhgYJ7zAmg0C4pi0cs="
+                        "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEYeRmJ5CidScEYpA563UlMZlX0FzdabV2mGoInSh9YbyB7mB5NosXUJDxb6JKHVUnchBGyDsJp-RaEQrr7LKZyYBDfu8ekDnoetVKulmU89QgrgHT-HgLfqs8necGdp-M0LjvVozgRxR5JI6sn2ZIUBcatF2cNHC9tjYLlUQ=="
+                      }
+                    },
+                    {
+                      "referenceId": "1.1.1",
+                      "web": {
+                        "domain": "bom.gov.au",
+                        "searchResultMapping": {},
+                        "siteName": "The Bureau of Meteorology",
+                        "title": "bom.gov.au",
+                        "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQF4-5rz2tU4H9lHiuO-gtyS0Py286A9P9WqP-f-m-IsXqQwJ4cDgriD5YUXKFiqT4rp1Z2wa-SdYZzR_6YDJ23UzmtWoOTb5WWc_DwJHDPx9rA1LkvEX0mJ0GWll_AMLnfUQLyh2UP1PbHWgx12GfBOn8mevnOLVYVuEy_huNswhXEA1H4C"
+                      }
+                    },
+                    {
+                      "referenceId": "1.2.3",
+                      "web": {
+                        "domain": "weatherzone.com",
+                        "searchResultMapping": {
+                          "queryIndex": 1,
+                          "resultIndex": 2
+                        },
+                        "siteName": "Weatherzone",
+                        "title": "weatherzone.com",
+                        "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQErIVkWkrJeNwIf9-dMjCBMOyGgs_4qYMWaq1MqHUC8LsbVFXCEUBt0-IbutU7WMyUWm0-zkD6ov85RP5mEo1PMvi2pk87c4wiPJY7NTmJp7lAAo1wBLVjhNkow8UCCMZkEXAefxkflO0g_smw="
+                      }
+                    },
+                    {
+                      "referenceId": "1.1.2",
+                      "web": {
+                        "domain": "weatherzone.com",
+                        "searchResultMapping": {
+                          "resultIndex": 1
+                        },
+                        "siteName": "Weatherzone",
+                        "title": "weatherzone.com",
+                        "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQErIVkWkrJeNwIf9-dMjCBMOyGgs_4qYMWaq1MqHUC8LsbVFXCEUBt0-IbutU7WMyUWm0-zkD6ov85RP5mEo1PMvi2pk87c4wiPJY7NTmJp7lAAo1wBLVjhNkow8UCCMZkEXAefxkflO0g_smw="
+                      }
+                    },
+                    {
+                      "referenceId": "1.1.6",
+                      "web": {
+                        "domain": "rjh.org",
+                        "searchResultMapping": {
+                          "resultIndex": 5
+                        },
+                        "title": "rjh.org",
+                        "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHP4yNCo1yGQ0TPsXVr50V7UHMdUWqNYIPlFu26mCbzTtBhFQ-bVAaOG-cywwBq5cWgacY0JwK3UaQrmjTQEYHC6Crdx0S2BfN0eRhhwlXBcFPSXKBo"
                       }
                     }
                   ],
@@ -144,101 +152,134 @@
                       ],
                       "origin": "MODEL_ANNOTATED",
                       "segment": {
-                        "endIndex": 108,
-                        "text": "### **Melbourne, Victoria, Australia**\n* **Current Conditions:** Mostly cloudy to cool with a passing shower"
+                        "endIndex": 128,
+                        "text": "It is currently early Wednesday morning in **Melbourne, Victoria (Australia)** (November 18), and conditions are cool and cloudy"
                       }
                     },
                     {
                       "groundingChunkIndices": [
+                        0,
                         1
                       ],
                       "origin": "MODEL_ANNOTATED",
                       "segment": {
-                        "endIndex": 152,
-                        "text": "### **Melbourne, Victoria, Australia**\n* **Current Conditions:** Mostly cloudy to cool with a passing shower\n* **Temperature:** Around **14°C (57°F)**"
+                        "endIndex": 290,
+                        "startIndex": 197,
+                        "text": "**Temperature:** Around **13–14°C (55–57°F)**, feeling closer to **11–12°C (52°F)**"
                       }
                     },
                     {
                       "groundingChunkIndices": [
-                        0
+                        0,
+                        1
                       ],
                       "origin": "MODEL_ANNOTATED",
                       "segment": {
-                        "endIndex": 284,
-                        "text": "### **Melbourne, Victoria, Australia**\n* **Current Conditions:** Mostly cloudy to cool with a passing shower\n* **Temperature:** Around **14°C (57°F)**\n* **Forecast:** High near **17°C (63°F)**, with an overnight low around **11°C (52°F)** and chances of morning/isolated showers"
+                        "endIndex": 359,
+                        "startIndex": 294,
+                        "text": "**Sky \u0026 Humidity:** Cloudy, with humidity between **73% and 81%**"
+                      }
+                    },
+                    {
+                      "groundingChunkIndices": [
+                        0,
+                        1
+                      ],
+                      "origin": "MODEL_ANNOTATED",
+                      "segment": {
+                        "endIndex": 452,
+                        "startIndex": 363,
+                        "text": "**Wind:** Light southerly to south-southeasterly winds around **7–11 km/h (4–7 mph)**"
                       }
                     },
                     {
                       "groundingChunkIndices": [
                         2,
                         3,
-                        4
+                        1
                       ],
                       "origin": "MODEL_ANNOTATED",
                       "segment": {
-                        "endIndex": 431,
-                        "startIndex": 292,
-                        "text": "*(If you meant **Melbourne, Florida, USA**:)*\n* **Current Conditions:** Warm and humid, partly cloudy to sunny with scattered thunderstorms"
+                        "endIndex": 568,
+                        "startIndex": 486,
+                        "text": "**Temperature:** A low of **11°C (52°F)** warming to a high of **21°C (70°F)**"
                       }
                     },
                     {
                       "groundingChunkIndices": [
-                        3,
                         4
                       ],
                       "origin": "MODEL_ANNOTATED",
                       "segment": {
-                        "endIndex": 531,
-                        "startIndex": 292,
-                        "text": "*(If you meant **Melbourne, Florida, USA**:)*\n* **Current Conditions:** Warm and humid, partly cloudy to sunny with scattered thunderstorms\n* **Temperature:** Around **84°F – 87°F (29°C – 31°C)**, with a heat index in the upper 90s"
+                        "endIndex": 684,
+                        "startIndex": 572,
+                        "text": "**Conditions:** Partly cloudy throughout the day, with a chance of early morning fog in the northeastern suburbs"
                       }
                     },
                     {
                       "groundingChunkIndices": [
-                        3
+                        5
                       ],
                       "origin": "MODEL_ANNOTATED",
                       "segment": {
-                        "endIndex": 626,
-                        "startIndex": 292,
-                        "text": "*(If you meant **Melbourne, Florida, USA**:)*\n* **Current Conditions:** Warm and humid, partly cloudy to sunny with scattered thunderstorms\n* **Temperature:** Around **84°F – 87°F (29°C – 31°C)**, with a heat index in the upper 90s\n* **Forecast:** Highs around **89°F (32°C)** with likely afternoon showers and thunderstorms"
+                        "endIndex": 723,
+                        "startIndex": 686,
+                        "text": "Rain is very unlikely (**5% chance**)"
+                      }
+                    },
+                    {
+                      "groundingChunkIndices": [
+                        4,
+                        5
+                      ],
+                      "origin": "MODEL_ANNOTATED",
+                      "segment": {
+                        "endIndex": 864,
+                        "startIndex": 727,
+                        "text": "**Wind:** Light winds picking up to southerly **15–20 km/h (9–12 mph)** in the late afternoon before easing again late in the evening"
                       }
                     }
                   ],
                   "searchEntryPoint": {
-                    "renderedContent": "\u003cstyle\u003e\n.container {\n  align-items: center;\n  border-radius: 8px;\n  display: flex;\n  font-family: Google Sans, Roboto, sans-serif;\n  font-size: 14px;\n  line-height: 20px;\n  padding: 8px 12px;\n}\n.chip {\n  display: inline-block;\n  border: solid 1px;\n  border-radius: 16px;\n  min-width: 14px;\n  padding: 5px 16px;\n  text-align: center;\n  user-select: none;\n  margin: 0 8px;\n  -webkit-tap-highlight-color: transparent;\n}\n.carousel {\n  overflow: auto;\n  scrollbar-width: none;\n  white-space: nowrap;\n  margin-right: -12px;\n}\n.headline {\n  display: flex;\n  margin-right: 4px;\n}\n.gradient-container {\n  position: relative;\n}\n.gradient {\n  position: absolute;\n  transform: translate(3px, -9px);\n  height: 36px;\n  width: 9px;\n}\n@media (prefers-color-scheme: light) {\n  .container {\n    background-color: #fafafa;\n    box-shadow: 0 0 0 1px #0000000f;\n  }\n  .headline-label {\n    color: #1f1f1f;\n  }\n  .chip {\n    background-color: #ffffff;\n    border-color: #d2d2d2;\n    color: #5e5e5e;\n    text-decoration: none;\n  }\n  .chip:hover {\n    background-color: #f2f2f2;\n  }\n  .chip:focus {\n    background-color: #f2f2f2;\n  }\n  .chip:active {\n    background-color: #d8d8d8;\n    border-color: #b6b6b6;\n  }\n  .logo-dark {\n    display: none;\n  }\n  .gradient {\n    background: linear-gradient(90deg, #fafafa 15%, #fafafa00 100%);\n  }\n}\n@media (prefers-color-scheme: dark) {\n  .container {\n    background-color: #1f1f1f;\n    box-shadow: 0 0 0 1px #ffffff26;\n  }\n  .headline-label {\n    color: #fff;\n  }\n  .chip {\n    background-color: #2c2c2c;\n    border-color: #3c4043;\n    color: #fff;\n    text-decoration: none;\n  }\n  .chip:hover {\n    background-color: #353536;\n  }\n  .chip:focus {\n    background-color: #353536;\n  }\n  .chip:active {\n    background-color: #464849;\n    border-color: #53575b;\n  }\n  .logo-light {\n    display: none;\n  }\n  .gradient {\n    background: linear-gradient(90deg, #1f1f1f 15%, #1f1f1f00 100%);\n  }\n}\n\u003c/style\u003e\n\u003cdiv class=\"container\"\u003e\n  \u003cdiv class=\"headline\"\u003e\n    \u003csvg class=\"logo-light\" width=\"18\" height=\"18\" viewBox=\"9 9 35 35\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"\u003e\n      \u003cpath fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M42.8622 27.0064C42.8622 25.7839 42.7525 24.6084 42.5487 23.4799H26.3109V30.1568H35.5897C35.1821 32.3041 33.9596 34.1222 32.1258 35.3448V39.6864H37.7213C40.9814 36.677 42.8622 32.2571 42.8622 27.0064V27.0064Z\" fill=\"#4285F4\"/\u003e\n      \u003cpath fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M26.3109 43.8555C30.9659 43.8555 34.8687 42.3195 37.7213 39.6863L32.1258 35.3447C30.5898 36.3792 28.6306 37.0061 26.3109 37.0061C21.8282 37.0061 18.0195 33.9811 16.6559 29.906H10.9194V34.3573C13.7563 39.9841 19.5712 43.8555 26.3109 43.8555V43.8555Z\" fill=\"#34A853\"/\u003e\n      \u003cpath fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M16.6559 29.8904C16.3111 28.8559 16.1074 27.7588 16.1074 26.6146C16.1074 25.4704 16.3111 24.3733 16.6559 23.3388V18.8875H10.9194C9.74388 21.2072 9.06992 23.8247 9.06992 26.6146C9.06992 29.4045 9.74388 32.022 10.9194 34.3417L15.3864 30.8621L16.6559 29.8904V29.8904Z\" fill=\"#FBBC05\"/\u003e\n      \u003cpath fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M26.3109 16.2386C28.85 16.2386 31.107 17.1164 32.9095 18.8091L37.8466 13.8719C34.853 11.082 30.9659 9.3736 26.3109 9.3736C19.5712 9.3736 13.7563 13.245 10.9194 18.8875L16.6559 23.3388C18.0195 19.2636 21.8282 16.2386 26.3109 16.2386V16.2386Z\" fill=\"#EA4335\"/\u003e\n    \u003c/svg\u003e\n    \u003csvg class=\"logo-dark\" width=\"18\" height=\"18\" viewBox=\"0 0 48 48\" xmlns=\"http://www.w3.org/2000/svg\"\u003e\n      \u003ccircle cx=\"24\" cy=\"23\" fill=\"#FFF\" r=\"22\"/\u003e\n      \u003cpath d=\"M33.76 34.26c2.75-2.56 4.49-6.37 4.49-11.26 0-.89-.08-1.84-.29-3H24.01v5.99h8.03c-.4 2.02-1.5 3.56-3.07 4.56v.75l3.91 2.97h.88z\" fill=\"#4285F4\"/\u003e\n      \u003cpath d=\"M15.58 25.77A8.845 8.845 0 0 0 24 31.86c1.92 0 3.62-.46 4.97-1.31l4.79 3.71C31.14 36.7 27.65 38 24 38c-5.93 0-11.01-3.4-13.45-8.36l.17-1.01 4.06-2.85h.8z\" fill=\"#34A853\"/\u003e\n      \u003cpath d=\"M15.59 20.21a8.864 8.864 0 0 0 0 5.58l-5.03 3.86c-.98-2-1.53-4.25-1.53-6.64 0-2.39.55-4.64 1.53-6.64l1-.22 3.81 2.98.22 1.08z\" fill=\"#FBBC05\"/\u003e\n      \u003cpath d=\"M24 14.14c2.11 0 4.02.75 5.52 1.98l4.36-4.36C31.22 9.43 27.81 8 24 8c-5.93 0-11.01 3.4-13.45 8.36l5.03 3.85A8.86 8.86 0 0 1 24 14.14z\" fill=\"#EA4335\"/\u003e\n    \u003c/svg\u003e\n    \u003cdiv class=\"gradient-container\"\u003e\u003cdiv class=\"gradient\"\u003e\u003c/div\u003e\u003c/div\u003e\n  \u003c/div\u003e\n  \u003cdiv class=\"carousel\"\u003e\n\u003ca class=\"chip\" href=\"https://www.google.com/search?q=Melbourne+FL+current+weather\u0026client=app-vertex-grounding\u0026safesearch=active\"\u003eMelbourne FL current weather\u003c/a\u003e\n\u003ca class=\"chip\" href=\"https://www.google.com/search?q=Melbourne+Australia+current+weather\u0026client=app-vertex-grounding\u0026safesearch=active\"\u003eMelbourne Australia current weather\u003c/a\u003e\n  \u003c/div\u003e\n\u003c/div\u003e"
+                    "renderedContent": "\u003cstyle\u003e\n.container {\n  align-items: center;\n  border-radius: 8px;\n  display: flex;\n  font-family: Google Sans, Roboto, sans-serif;\n  font-size: 14px;\n  line-height: 20px;\n  padding: 8px 12px;\n}\n.chip {\n  display: inline-block;\n  border: solid 1px;\n  border-radius: 16px;\n  min-width: 14px;\n  padding: 5px 16px;\n  text-align: center;\n  user-select: none;\n  margin: 0 8px;\n  -webkit-tap-highlight-color: transparent;\n}\n.carousel {\n  overflow: auto;\n  scrollbar-width: none;\n  white-space: nowrap;\n  margin-right: -12px;\n}\n.headline {\n  display: flex;\n  margin-right: 4px;\n}\n.gradient-container {\n  position: relative;\n}\n.gradient {\n  position: absolute;\n  transform: translate(3px, -9px);\n  height: 36px;\n  width: 9px;\n}\n@media (prefers-color-scheme: light) {\n  .container {\n    background-color: #fafafa;\n    box-shadow: 0 0 0 1px #0000000f;\n  }\n  .headline-label {\n    color: #1f1f1f;\n  }\n  .chip {\n    background-color: #ffffff;\n    border-color: #d2d2d2;\n    color: #5e5e5e;\n    text-decoration: none;\n  }\n  .chip:hover {\n    background-color: #f2f2f2;\n  }\n  .chip:focus {\n    background-color: #f2f2f2;\n  }\n  .chip:active {\n    background-color: #d8d8d8;\n    border-color: #b6b6b6;\n  }\n  .logo-dark {\n    display: none;\n  }\n  .gradient {\n    background: linear-gradient(90deg, #fafafa 15%, #fafafa00 100%);\n  }\n}\n@media (prefers-color-scheme: dark) {\n  .container {\n    background-color: #1f1f1f;\n    box-shadow: 0 0 0 1px #ffffff26;\n  }\n  .headline-label {\n    color: #fff;\n  }\n  .chip {\n    background-color: #2c2c2c;\n    border-color: #3c4043;\n    color: #fff;\n    text-decoration: none;\n  }\n  .chip:hover {\n    background-color: #353536;\n  }\n  .chip:focus {\n    background-color: #353536;\n  }\n  .chip:active {\n    background-color: #464849;\n    border-color: #53575b;\n  }\n  .logo-light {\n    display: none;\n  }\n  .gradient {\n    background: linear-gradient(90deg, #1f1f1f 15%, #1f1f1f00 100%);\n  }\n}\n\u003c/style\u003e\n\u003cdiv class=\"container\"\u003e\n  \u003cdiv class=\"headline\"\u003e\n    \u003csvg class=\"logo-light\" width=\"18\" height=\"18\" viewBox=\"9 9 35 35\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"\u003e\n      \u003cpath fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M42.8622 27.0064C42.8622 25.7839 42.7525 24.6084 42.5487 23.4799H26.3109V30.1568H35.5897C35.1821 32.3041 33.9596 34.1222 32.1258 35.3448V39.6864H37.7213C40.9814 36.677 42.8622 32.2571 42.8622 27.0064V27.0064Z\" fill=\"#4285F4\"/\u003e\n      \u003cpath fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M26.3109 43.8555C30.9659 43.8555 34.8687 42.3195 37.7213 39.6863L32.1258 35.3447C30.5898 36.3792 28.6306 37.0061 26.3109 37.0061C21.8282 37.0061 18.0195 33.9811 16.6559 29.906H10.9194V34.3573C13.7563 39.9841 19.5712 43.8555 26.3109 43.8555V43.8555Z\" fill=\"#34A853\"/\u003e\n      \u003cpath fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M16.6559 29.8904C16.3111 28.8559 16.1074 27.7588 16.1074 26.6146C16.1074 25.4704 16.3111 24.3733 16.6559 23.3388V18.8875H10.9194C9.74388 21.2072 9.06992 23.8247 9.06992 26.6146C9.06992 29.4045 9.74388 32.022 10.9194 34.3417L15.3864 30.8621L16.6559 29.8904V29.8904Z\" fill=\"#FBBC05\"/\u003e\n      \u003cpath fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M26.3109 16.2386C28.85 16.2386 31.107 17.1164 32.9095 18.8091L37.8466 13.8719C34.853 11.082 30.9659 9.3736 26.3109 9.3736C19.5712 9.3736 13.7563 13.245 10.9194 18.8875L16.6559 23.3388C18.0195 19.2636 21.8282 16.2386 26.3109 16.2386V16.2386Z\" fill=\"#EA4335\"/\u003e\n    \u003c/svg\u003e\n    \u003csvg class=\"logo-dark\" width=\"18\" height=\"18\" viewBox=\"0 0 48 48\" xmlns=\"http://www.w3.org/2000/svg\"\u003e\n      \u003ccircle cx=\"24\" cy=\"23\" fill=\"#FFF\" r=\"22\"/\u003e\n      \u003cpath d=\"M33.76 34.26c2.75-2.56 4.49-6.37 4.49-11.26 0-.89-.08-1.84-.29-3H24.01v5.99h8.03c-.4 2.02-1.5 3.56-3.07 4.56v.75l3.91 2.97h.88z\" fill=\"#4285F4\"/\u003e\n      \u003cpath d=\"M15.58 25.77A8.845 8.845 0 0 0 24 31.86c1.92 0 3.62-.46 4.97-1.31l4.79 3.71C31.14 36.7 27.65 38 24 38c-5.93 0-11.01-3.4-13.45-8.36l.17-1.01 4.06-2.85h.8z\" fill=\"#34A853\"/\u003e\n      \u003cpath d=\"M15.59 20.21a8.864 8.864 0 0 0 0 5.58l-5.03 3.86c-.98-2-1.53-4.25-1.53-6.64 0-2.39.55-4.64 1.53-6.64l1-.22 3.81 2.98.22 1.08z\" fill=\"#FBBC05\"/\u003e\n      \u003cpath d=\"M24 14.14c2.11 0 4.02.75 5.52 1.98l4.36-4.36C31.22 9.43 27.81 8 24 8c-5.93 0-11.01 3.4-13.45 8.36l5.03 3.85A8.86 8.86 0 0 1 24 14.14z\" fill=\"#EA4335\"/\u003e\n    \u003c/svg\u003e\n    \u003cdiv class=\"gradient-container\"\u003e\u003cdiv class=\"gradient\"\u003e\u003c/div\u003e\u003c/div\u003e\n  \u003c/div\u003e\n  \u003cdiv class=\"carousel\"\u003e\n\u003ca class=\"chip\" href=\"https://www.google.com/search?q=Melbourne+weather\u0026client=app-vertex-grounding\u0026safesearch=active\"\u003eMelbourne weather\u003c/a\u003e\n\u003ca class=\"chip\" href=\"https://www.google.com/search?q=%22Melbourne%22+current+weather+temperature+observations+%22November+18%22+OR+%22Wednesday%22\u0026client=app-vertex-grounding\u0026safesearch=active\"\u003e\u0026quot;Melbourne\u0026quot; current weather temperature observations \u0026quot;November 18\u0026quot; OR \u0026quot;Wednesday\u0026quot;\u003c/a\u003e\n\u003ca class=\"chip\" href=\"https://www.google.com/search?q=Melbourne+Australia+weather+forecast+today\u0026client=app-vertex-grounding\u0026safesearch=active\"\u003eMelbourne Australia weather forecast today\u003c/a\u003e\n  \u003c/div\u003e\n\u003c/div\u003e"
                   },
                   "webSearchQueries": [
-                    "Melbourne FL current weather",
-                    "Melbourne Australia current weather"
+                    "Melbourne weather",
+                    "\"Melbourne\" current weather temperature observations \"November 18\" OR \"Wednesday\"",
+                    "Melbourne Australia weather forecast today"
                   ]
                 },
                 "index": 0
               }
             ],
-            "modelVersion": "gemini-3.7-flash",
-            "responseId": "4nSXaqTWNNzAqtsPo-zzkAE",
-            "turnToken": "v1_Chc0blNYYXFUV05OekFxdHNQby16emtBRRIXNG5TWGFxVFdOTnpBcXRzUG8tenprQUU",
+            "modelVersion": "gemini-4-hydrogen",
+            "responseId": "Z5v8apnvLq2N_PUP0YHakQ4",
+            "turnToken": "v1_ChdaNXY4YXBudkxxMk5fUFVQMFlIYWtRNBIXWjV2OGFwbnZMcTJOX1BVUDBZSGFrUTQ",
             "usageMetadata": {
               "billedToolCalls": [
                 {
-                  "searchQueryCount": 2,
-                  "successfulToolCallCount": 1,
+                  "searchQueryCount": 4,
+                  "successfulToolCallCount": 2,
                   "tool": "GOOGLE_SEARCH_RETRIEVAL"
                 }
               ],
-              "candidatesTokenCount": 248,
-              "promptTokenCount": 92,
+              "candidatesTokenCount": 439,
+              "candidatesTokensDetails": [
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 439
+                }
+              ],
+              "promptTokenCount": 217,
               "promptTokensDetails": [
                 {
                   "modality": "TEXT",
-                  "tokenCount": 92
+                  "tokenCount": 217
                 }
               ],
-              "rawPromptTokenCount": 6530,
               "serviceTier": "standard",
-              "thoughtsTokenCount": 124,
-              "totalTokenCount": 464
+              "thoughtsTokenCount": 1868,
+              "totalTokenCount": 2524
             }
           }
         ]

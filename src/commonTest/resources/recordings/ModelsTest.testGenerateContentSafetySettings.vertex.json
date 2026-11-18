@@ -4,8 +4,8 @@
     {
       "request": {
         "method": "POST",
-        "url": "/v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-flash-latest:generateContent",
-        "request": "POST /v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-flash-latest:generateContent HTTP/1.1",
+        "url": "/v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-4-hydrogen:generateContent",
+        "request": "POST /v1beta1/projects/REDACTED/locations/global/publishers/google/models/gemini-4-hydrogen:generateContent HTTP/1.1",
         "headers": {
           "Accept": "*/*",
           "Accept-Charset": "UTF-8",
@@ -41,29 +41,31 @@
         "port": 443,
         "protocol": "https"
       },
-      "shaSum": "1b52c5a1b5406588568477e5d80150ed69056fc609e23ea55bff1bb4db3efa1a",
+      "shaSum": "3fa2d781e04c37933382b33d4d9d640217f70e2e2341bb970a93dbd5e2ee64a0",
       "response": {
         "statusCode": 200,
         "headers": {
           "Content-Encoding": "gzip",
-          "Content-Length": "2898",
+          "Content-Length": "6484",
           "Content-Type": "application/json; charset=UTF-8",
-          "Date": "Wed, 02 Sep 2026 00:51:33 GMT",
+          "Date": "Tue, 17 Nov 2026 18:23:29 GMT",
           "Server": "scaffolding on HTTPServer2",
           "Vary": "Origin, X-Origin, Referer",
           "X-Content-Type-Options": "nosniff",
           "X-Frame-Options": "SAMEORIGIN",
+          "X-Goog-Request-Id": "l5v8avy8N92nq8YP9MLfiAk",
+          "X-Vertex-Ai-Llm-Request-Type": "dedicated",
           "X-Xss-Protection": "0"
         },
         "bodySegments": [
           {
             "candidates": [
               {
-                "avgLogprobs": -0.6437222132491336,
                 "content": {
                   "parts": [
                     {
-                      "text": "Hate speech is a serious concern for AI developers, and reputable AI models are designed to prohibit content that meets specific criteria for hate speech.\n\nWhile the exact definitions and policies can vary slightly across different AI providers (Google, Microsoft, OpenAI, etc.), the core principle is consistent: AI should not generate or facilitate content that promotes violence, harassment, disparagement, or incrimination against individuals or groups based on their identity characteristics.\n\nHere is a breakdown of what constitutes prohibited hate speech for most responsible AI systems:\n\n---\n\n## Core Criteria for Prohibited Hate Speech\n\nMost AI policies define prohibited hate speech as any content that attacks, disparages, harasses, or incites violence against groups or individuals based on **protected characteristics**.\n\n### 1. Protected Characteristics (Identity Attributes)\n\nAI policies prohibit content targeting people based on the following identity attributes:\n\n*   **Race or Ethnicity:** Including national origin or ancestry.\n*   **Religion or Creed:** Including atheism or specific religious beliefs.\n*   **Sexual Orientation:** Including identifying as heterosexual, homosexual, bisexual, or pansexual.\n*   **Gender Identity or Expression:** Including identifying as cisgender, transgender, non-binary, etc.\n*   **Disability:** Physical, mental, or intellectual disabilities.\n*   **Age:** Targeting a specific age group (often older adults or minors).\n*   **Veteran Status:** Targeting individuals based on military service.\n*   **Nationality or Citizenship:** Targeting people based on their country of origin or legal status.\n\n### 2. Prohibited Actions (The Nature of the Content)\n\nThe content is prohibited if it performs one or more of the following actions against the protected group:\n\n#### A. Incitement to Violence or Hatred\nThis is the most strictly prohibited category. It includes content that:\n*   Encourages or glorifies real-world violence against a protected group (e.g., calling for a specific group to be assaulted or killed).\n*   Promotes terrorist or extremist ideologies that target protected groups.\n\n#### B. Harassment and Degradation\nContent that is intended to demean, intimidate, or harass members of a protected group, often involving severe and sustained attacks, such as:\n*   Using slurs or severely offensive language directed at a protected characteristic.\n*   Attributing subhuman qualities or spreading malicious stereotypes intended to dehumanize.\n\n#### C. Promotion of Discrimination or Exclusion\nContent that advocates for systemic discrimination, exclusion, or unfair treatment of a protected group in areas like housing, employment, or public services (e.g., arguing that a specific racial group should be denied voting rights).\n\n#### D. Denial or Glorification of Atrocities\nContent that denies, minimizes, or trivializes verifiable historical atrocities (such as the Holocaust, genocides, or slavery) or glorifies groups/individuals responsible for them.\n\n---\n\n## What Responsible AI **Will Not** Generate\n\nIf a user prompt attempts to elicit the following types of responses, a responsible AI model should refuse to generate the content, often responding with a safety warning:\n\n| Type of Response | Example Prohibited Content |\n| :--- | :--- |\n| **Direct Attack/Slurs** | Generating a derogatory slur against a specific religious group. |\n| **Dehumanization** | Writing a narrative that describes a protected group as vermin or disease. |\n| **Advocating Violence** | Generating instructions or calls for physical harm against transgender individuals. |\n| **Stereotypes (Malicious)** | Generating content that relies on or reinforces malicious stereotypes about a specific ethnic group's intelligence or behavior (e.g., associating a group entirely with crime). |\n| **Denial of History** | Generating text that claims a known genocide never happened or was exaggerated. |\n\n---\n\n## Nuance and Limitations: What Is **Not** Always Prohibited\n\nResponsible AI safety systems aim to prevent harmful output while still allowing for legitimate discourse. Safety filters generally **do not** prohibit content that is:\n\n1.  **General Political Critique:** Criticizing a government, political ideology, or political figure (unless that critique devolves into an attack on a protected characteristic).\n2.  **Sarcasm or Satire (Context-Dependent):** If the satire is clearly critical of prejudice and does not itself promote harm (though this area is often difficult for AI to accurately assess).\n3.  **Self-Reference/Quoting:** The model can generally quote or discuss hate speech **if** the output is generated for educational, documentary, or counter-speech purposes (e.g., analyzing a historical document containing hate speech, or discussing how to combat a specific form of bias).\n4.  **Protected Group Discussion:** Members of a protected group can generally use self-referential language or critique their own group without triggering a violation.\n\n**The primary metric for AI safety is:** Does the content generated by the AI promote, facilitate, or normalize serious harm, harassment, or discrimination toward a protected group? If the answer is yes, it is prohibited."
+                      "text": "While there is no single universal rulebook for \"responsible AI,\" major AI developers, ethics frameworks (such as UNESCO and OECD principles), and regulatory bodies (like the EU AI Act) generally share a core consensus on what constitutes prohibited hate speech. \n\nIn responsible AI development and deployment, hate speech policies are designed to prevent AI systems from generating, amplifying, or facilitating content that attacks, demeans, or incites harm against individuals or groups based on **protected characteristics**.\n\n---\n\n### 1. Protected Characteristics\nMost responsible AI policies prohibit hateful content targeting people based on attributes such as:\n* Race, ethnicity, or national origin\n* Religion or religious beliefs\n* Sex, gender, or gender identity\n* Sexual orientation\n* Disability or serious medical condition\n* Age\n* Caste or socioeconomic status (in certain regional frameworks)\n* Immigration or veteran status\n\n---\n\n### 2. Specific Types of Prohibited Hate Speech\nAcross most AI safety and acceptable use policies, the following categories of speech are strictly prohibited:\n\n* **Incitement to Violence or Harm:** Any content that encourages, glorifies, threatens, or instructs others to commit physical violence, murder, or genocide against a protected group.\n* **Dehumanization:** Speech that compares protected groups to animals, insects, pests, diseases, or inanimate objects, or otherwise denies their humanity.\n* **Claims of Supremacy or Inferiority:** Content arguing that a protected group is inherently biologically, morally, or intellectually inferior or superior to others, or that they are inherently evil or dangerous.\n* **Slurs and Hate Symbols:** The generation or promotion of racial, religious, homophobic, or ableist slurs, as well as symbols associated with hate groups (e.g., Nazi imagery or extremist emblems) when used to intimidate or endorse hate.\n* **Calls for Exclusion or Discrimination:** Promoting the denial of basic human rights, segregation, disenfranchisement, or systemic discrimination against a group based on their identity.\n* **Denial or Glorification of Atrocities:** Content that denies, minimizes, or mocks well-documented mass atrocities or genocides (such as the Holocaust or the Rwandan genocide), as well as spreading harmful hate-based conspiracy theories.\n* **Targeted Harassment:** Using AI to generate personalized abuse, doxxing threats, or coordinated harassment campaigns aimed at individuals because of their identity.\n\n---\n\n### 3. The Role of Context and Nuance\nA key challenge—and focus—of responsible AI is distinguishing between **generating hate speech** and **discussing hate speech**. Most responsible AI frameworks include exceptions or nuanced handling for benign contexts, including:\n\n* **Educational and Historical Analysis:** Explaining the history of a hate group, analyzing historical propaganda, or teaching about civil rights movements.\n* **Counterspeech and Advocacy:** Condemning hate speech, raising awareness about discrimination, or debunking hateful myths.\n* **Content Moderation and Research:** Helping researchers, journalists, or moderators classify, detect, or study hate speech patterns without endorsing them.\n* **Literary or Artistic Contexts:** Analyzing classic literature or film that contains period-accurate bigotry (though AI models still typically avoid generating explicit slurs verbatim).\n\n### Summary\nIn practice, responsible AI prohibits hate speech that **incites violence, dehumanizes, promotes supremacy, or harasses** people based on who they are, while striving to remain helpful for objective education, historical analysis, and safety research. Because definitions of hate speech can vary across cultures and legal jurisdictions, specific thresholds differ slightly from one AI provider or country to another.",
+                      "thoughtSignature": "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"
                     }
                   ],
                   "role": "model"
@@ -73,55 +75,54 @@
                   {
                     "category": "HARM_CATEGORY_HATE_SPEECH",
                     "probability": "NEGLIGIBLE",
-                    "probabilityScore": 0.47573242,
-                    "severity": "HARM_SEVERITY_HIGH",
-                    "severityScore": 0.684375
+                    "probabilityScore": 0.0003982845,
+                    "severity": "HARM_SEVERITY_NEGLIGIBLE",
+                    "severityScore": 0.043510616
                   },
                   {
                     "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
                     "probability": "NEGLIGIBLE",
-                    "probabilityScore": 0.0937561,
-                    "severity": "HARM_SEVERITY_MEDIUM",
-                    "severityScore": 0.409375
+                    "probabilityScore": 0.005860908,
+                    "severity": "HARM_SEVERITY_NEGLIGIBLE",
+                    "severityScore": 0.05358359
                   },
                   {
                     "category": "HARM_CATEGORY_HARASSMENT",
                     "probability": "NEGLIGIBLE",
-                    "probabilityScore": 0.16207275,
-                    "severity": "HARM_SEVERITY_MEDIUM",
-                    "severityScore": 0.42768556
+                    "probabilityScore": 0.001669212,
+                    "severity": "HARM_SEVERITY_NEGLIGIBLE",
+                    "severityScore": 0.046354435
                   },
                   {
                     "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
                     "probability": "NEGLIGIBLE",
-                    "probabilityScore": 0.07087402,
-                    "severity": "HARM_SEVERITY_NEGLIGIBLE",
-                    "severityScore": 0.18520507
+                    "probabilityScore": 0.00003144704,
+                    "severity": "HARM_SEVERITY_NEGLIGIBLE"
                   }
-                ],
-                "score": -673.3334350585938
+                ]
               }
             ],
-            "createTime": "2026-09-02T00:51:26.999986Z",
-            "modelVersion": "gemini-flash-latest",
-            "responseId": "DnOXarKEPf-apucP-qjVkQU",
+            "createTime": "2026-11-17T18:23:19.908924Z",
+            "modelVersion": "gemini-4-hydrogen",
+            "responseId": "l5v8avy8N92nq8YP9MLfiAk",
             "usageMetadata": {
-              "candidatesTokenCount": 1046,
+              "candidatesTokenCount": 737,
               "candidatesTokensDetails": [
                 {
                   "modality": "TEXT",
-                  "tokenCount": 1046
+                  "tokenCount": 737
                 }
               ],
-              "promptTokenCount": 9,
+              "promptTokenCount": 40,
               "promptTokensDetails": [
                 {
                   "modality": "TEXT",
-                  "tokenCount": 9
+                  "tokenCount": 40
                 }
               ],
-              "totalTokenCount": 1055,
-              "trafficType": "ON_DEMAND"
+              "thoughtsTokenCount": 735,
+              "totalTokenCount": 1512,
+              "trafficType": "PROVISIONED_THROUGHPUT"
             }
           }
         ]
