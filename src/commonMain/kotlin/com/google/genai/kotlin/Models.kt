@@ -5028,41 +5028,27 @@ class Models internal constructor(internal val apiClient: ApiClient) {
           model = model,
           contents = contents,
           content = null,
-          batchContents = null,
           embeddingApiType = null,
           config = config,
         )
       } else if (Transformers.tIsVertexEmbedContentModel(model)) {
         if (contents.size > 1) {
-          if (Transformers.tIsVertexMaasModel(model)) {
-            throw IllegalArgumentException(
-              "The embedContent API for this model only supports one content at a time."
-            )
-          }
-          privateEmbedContent(
-            model = model,
-            contents = null,
-            content = null,
-            batchContents = contents,
-            embeddingApiType = EmbeddingApiType.BATCH_EMBED_CONTENTS,
-            config = config,
-          )
-        } else {
-          privateEmbedContent(
-            model = model,
-            contents = null,
-            content = contents.firstOrNull(),
-            batchContents = null,
-            embeddingApiType = EmbeddingApiType.EMBED_CONTENT,
-            config = config,
+          throw IllegalArgumentException(
+            "The embedContent API for this model only supports one content at a time."
           )
         }
+        privateEmbedContent(
+          model = model,
+          contents = null,
+          content = contents.firstOrNull(),
+          embeddingApiType = EmbeddingApiType.EMBED_CONTENT,
+          config = config,
+        )
       } else {
         privateEmbedContent(
           model = model,
           contents = contents,
           content = null,
-          batchContents = null,
           embeddingApiType = EmbeddingApiType.PREDICT,
           config = config,
         )

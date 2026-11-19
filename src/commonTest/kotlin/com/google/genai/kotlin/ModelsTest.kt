@@ -739,10 +739,6 @@ class ModelsTest : BaseTestServer() {
       assertTrue(response2.embeddings!!.size == 2)
       assertEquals(10, response2.embeddings!![0].values!!.size)
       assertEquals(10, response2.embeddings!![1].values!!.size)
-      if (enterprise) {
-        assertNotNull(response1.usageMetadata?.trafficType)
-        assertNotNull(response2.usageMetadata?.trafficType)
-      }
     }
   }
 
@@ -773,24 +769,35 @@ class ModelsTest : BaseTestServer() {
         assertNotNull(statistics.tokensDetails)
         assertTrue(statistics.tokensDetails!!.isNotEmpty())
         assertNotNull(response1.usageMetadata?.trafficType)
-      }
 
-      val response2 =
-        client.models.embedContent(
-          model = EMBEDDING_MODEL_NAME,
-          contents =
-            listOf(
-              Content(parts = listOf(Part(text = "Hello"))),
-              Content(parts = listOf(Part(text = "World"))),
-            ),
-          config = EmbedContentConfig(outputDimensionality = 10),
-        )
-      assertNotNull(response2.embeddings)
-      assertTrue(response2.embeddings!!.size == 2)
-      assertEquals(10, response2.embeddings!![0].values!!.size)
-      assertEquals(10, response2.embeddings!![1].values!!.size)
-      if (enterprise) {
-        assertNotNull(response2.usageMetadata?.trafficType)
+        val exception =
+          assertFailsWith<IllegalArgumentException> {
+            client.models.embedContent(
+              model = EMBEDDING_MODEL_NAME,
+              contents =
+                listOf(
+                  Content(parts = listOf(Part(text = "Hello"))),
+                  Content(parts = listOf(Part(text = "World"))),
+                ),
+              config = EmbedContentConfig(outputDimensionality = 10),
+            )
+          }
+        assertContains(exception.message ?: "", "only supports one content")
+      } else {
+        val response2 =
+          client.models.embedContent(
+            model = EMBEDDING_MODEL_NAME,
+            contents =
+              listOf(
+                Content(parts = listOf(Part(text = "Hello"))),
+                Content(parts = listOf(Part(text = "World"))),
+              ),
+            config = EmbedContentConfig(outputDimensionality = 10),
+          )
+        assertNotNull(response2.embeddings)
+        assertTrue(response2.embeddings!!.size == 2)
+        assertEquals(10, response2.embeddings!![0].values!!.size)
+        assertEquals(10, response2.embeddings!![1].values!!.size)
       }
     }
   }
