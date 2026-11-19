@@ -2586,6 +2586,12 @@ internal object LiveConverters {
       )
     }
 
+    if (!Common.isZero(Common.getValueByPath(fromObject, arrayOf("textNormalization")))) {
+      throw IllegalArgumentException(
+        "textNormalization parameter is not supported in Gemini Enterprise Agent Platform."
+      )
+    }
+
     return toObject
   }
 

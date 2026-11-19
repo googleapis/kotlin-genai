@@ -35,4 +35,10 @@ data class SpeechConfig(
    * with `voice_config`.
    */
   val multiSpeakerVoiceConfig: MultiSpeakerVoiceConfig? = null,
+
+  /**
+   * Optional. Controls text normalization before speech synthesis. This field is not supported in
+   * Vertex AI.
+   */
+  val textNormalization: TextNormalization? = null,
 )
