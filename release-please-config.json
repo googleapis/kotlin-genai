@@ -1,6 +1,6 @@
 {
   "$schema": "https://raw.githubusercontent.com/googleapis/release-please/main/schemas/config.json",
-  "versioning": "always-bump-minor",
+  "versioning": "default",
   "separate-pull-requests": true,
   "include-component-in-tag": false,
   "bump-minor-pre-major": false,
