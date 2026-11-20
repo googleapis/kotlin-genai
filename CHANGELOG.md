@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.4.0](https://github.com/googleapis/kotlin-genai/compare/v2.3.0...v2.4.0) (2026-11-20)
+
+
+### Features
+
+* support batch inputs and usage metadata for Gemini embedding models on Gemini Enterprise API ([a544aa4](https://github.com/googleapis/kotlin-genai/commit/a544aa4568b109901f75a7da196c76987ecd710c))
+
 ## [2.3.0](https://github.com/googleapis/kotlin-genai/compare/v2.2.0...v2.3.0) (2026-11-20)
 
 
