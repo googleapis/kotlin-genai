@@ -50,15 +50,14 @@ internal constructor(
 ) : AutoCloseable {
 
   /**
-   * Constructs a Client instance for either Gemini API or Gemini Enterprise Agent Platform API.
+   * Constructs a Client instance for either the Gemini Developer API or the Gemini Enterprise API.
    *
-   * @param apiKey The API key to use. For Gemini API or Gemini Enterprise Agent Platform API.
-   * @param project The Google Cloud project ID. For Gemini Enterprise Agent Platform API only.
-   * @param location The Google Cloud location. For Gemini Enterprise Agent Platform API only.
-   * @param credentials The Google credentials to use. For Gemini Enterprise Agent Platform API
-   *   only.
-   * @param enterprise Explicitly set whether to use Gemini Enterprise Agent Platform API. Default
-   *   to false or from environment variable GOOGLE_GENAI_USE_ENTERPRISE.
+   * @param apiKey The API key to use. For the Gemini Developer API or the Gemini Enterprise API.
+   * @param project The Google Cloud project ID. For the Gemini Enterprise API only.
+   * @param location The Google Cloud location. For the Gemini Enterprise API only.
+   * @param credentials The Google credentials to use. For the Gemini Enterprise API only.
+   * @param enterprise Explicitly set whether to use the Gemini Enterprise API. Defaults to false or
+   *   from environment variable GOOGLE_GENAI_USE_ENTERPRISE.
    * @param httpOptions Custom HTTP options for the client.
    * @param clientOptions Options for configuring the client.
    */
@@ -82,18 +81,25 @@ internal constructor(
   )
 
   /**
-   * The API key used for authentication with Gemini API or Gemini Enterprise Agent Platform API.
+   * The API key used for authentication with the Gemini Developer API or the Gemini Enterprise API.
    */
   val apiKey: String?
 
-  /** The Google Cloud project ID used for Gemini Enterprise Agent Platform API. */
+  /** The Google Cloud project ID used for the Gemini Enterprise API. */
   val project: String?
 
-  /** The Google Cloud location used for Gemini Enterprise Agent Platform API. */
+  /** The Google Cloud location used for the Gemini Enterprise API. */
   val location: String?
 
-  /** Whether the client is configured to use Gemini Enterprise Agent Platform API. */
+  /** Whether the client is configured to use the Gemini Enterprise API. */
   val enterprise: Boolean
+
+  /**
+   * Whether no API version was configured via [HttpOptions.apiVersion] or the
+   * `GOOGLE_GENAI_API_VERSION` environment variable, so the client is using the SDK's default API
+   * version for its backend.
+   */
+  val isDefaultApiVersion: Boolean
 
   internal val httpClient: ApiClient
 
@@ -203,6 +209,7 @@ internal constructor(
     this.project = resolvedProject
     this.location = resolvedLocation
     this.enterprise = useEnterprise
+    this.isDefaultApiVersion = httpOptions?.apiVersion == null && envApiVersion == null
 
     validateSecurityContext(resolvedApiKey != null, resolvedCredentials != null)
   }

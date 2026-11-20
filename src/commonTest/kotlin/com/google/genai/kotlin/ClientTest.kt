@@ -567,4 +567,101 @@ class ClientTest {
     assertNotNull(client)
     assertEquals("v1", client.httpClient.httpOptions?.apiVersion)
   }
+
+  @Test
+  fun testIsDefaultApiVersion_trueWhenUnconfigured() {
+    clearEnv()
+    val geminiClient = Client(apiKey = API_KEY, environment = mockEnvironment)
+    assertTrue(geminiClient.isDefaultApiVersion)
+
+    val enterpriseClient =
+      Client(
+        project = PROJECT,
+        location = LOCATION,
+        credentials = MOCK_CREDENTIALS,
+        enterprise = true,
+        environment = mockEnvironment,
+      )
+    assertTrue(enterpriseClient.isDefaultApiVersion)
+
+    val nonVersionOptions =
+      HttpOptions(baseUrl = "https://custom.example.com", headers = mapOf("X-Test" to "1"))
+    val geminiWithNonVersionOptions =
+      Client(apiKey = API_KEY, httpOptions = nonVersionOptions, environment = mockEnvironment)
+    assertTrue(geminiWithNonVersionOptions.isDefaultApiVersion)
+
+    val enterpriseWithNonVersionOptions =
+      Client(
+        project = PROJECT,
+        location = LOCATION,
+        credentials = MOCK_CREDENTIALS,
+        enterprise = true,
+        httpOptions = nonVersionOptions,
+        environment = mockEnvironment,
+      )
+    assertTrue(enterpriseWithNonVersionOptions.isDefaultApiVersion)
+  }
+
+  @Test
+  fun testIsDefaultApiVersion_falseWhenHttpOptionsApiVersionSet() {
+    clearEnv()
+    for (version in listOf(GOOGLE_AI_API_DEFAULT_VERSION, "v1", "v1beta", "v1alpha", "")) {
+      val client =
+        Client(
+          apiKey = API_KEY,
+          httpOptions = HttpOptions(apiVersion = version),
+          environment = mockEnvironment,
+        )
+      assertFalse(client.isDefaultApiVersion, "version=$version")
+    }
+
+    for (version in listOf("v1beta1", "v1", "")) {
+      val enterpriseClient =
+        Client(
+          project = PROJECT,
+          location = LOCATION,
+          credentials = MOCK_CREDENTIALS,
+          enterprise = true,
+          httpOptions = HttpOptions(apiVersion = version),
+          environment = mockEnvironment,
+        )
+      assertFalse(enterpriseClient.isDefaultApiVersion, "version=$version")
+    }
+  }
+
+  @Test
+  fun testIsDefaultApiVersion_envVarHandling() {
+    for (envVersion in listOf("v1", "v1alpha", "beta")) {
+      clearEnv()
+      setEnv("GOOGLE_GENAI_API_VERSION", envVersion)
+
+      val geminiClient = Client(apiKey = API_KEY, environment = mockEnvironment)
+      assertFalse(geminiClient.isDefaultApiVersion, "envVersion=$envVersion")
+
+      val enterpriseClient =
+        Client(
+          project = PROJECT,
+          location = LOCATION,
+          credentials = MOCK_CREDENTIALS,
+          enterprise = true,
+          environment = mockEnvironment,
+        )
+      assertFalse(enterpriseClient.isDefaultApiVersion, "envVersion=$envVersion")
+    }
+
+    clearEnv()
+    setEnv("GOOGLE_GENAI_API_VERSION", "")
+    val emptyEnvGeminiClient = Client(apiKey = API_KEY, environment = mockEnvironment)
+    assertTrue(emptyEnvGeminiClient.isDefaultApiVersion)
+
+    val emptyEnvEnterpriseClient =
+      Client(
+        project = PROJECT,
+        location = LOCATION,
+        credentials = MOCK_CREDENTIALS,
+        enterprise = true,
+        environment = mockEnvironment,
+      )
+    assertTrue(emptyEnvEnterpriseClient.isDefaultApiVersion)
+  }
 }
