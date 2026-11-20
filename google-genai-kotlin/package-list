@@ -2645,6 +2645,7 @@ $dokka.location:com.google.genai.kotlin/Client/chats/#/PointingToDeclaration/go
 $dokka.location:com.google.genai.kotlin/Client/close/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin/-client/close.html
 $dokka.location:com.google.genai.kotlin/Client/enterprise/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin/-client/enterprise.html
 $dokka.location:com.google.genai.kotlin/Client/files/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin/-client/files.html
+$dokka.location:com.google.genai.kotlin/Client/isDefaultApiVersion/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin/-client/is-default-api-version.html
 $dokka.location:com.google.genai.kotlin/Client/live/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin/-client/live.html
 $dokka.location:com.google.genai.kotlin/Client/location/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin/-client/location.html
 $dokka.location:com.google.genai.kotlin/Client/models/#/PointingToDeclaration/google-genai-kotlin/com.google.genai.kotlin/-client/models.html
