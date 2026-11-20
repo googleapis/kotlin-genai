@@ -1,5 +1,23 @@
 # Changelog
 
+## [2.2.1](https://github.com/googleapis/kotlin-genai/compare/v2.2.0...v2.2.1) (2026-11-20)
+
+
+### Features
+
+* Add `text_normalization` to `SpeechConfig` (Gemini API). ([bd7d7ac](https://github.com/googleapis/kotlin-genai/commit/bd7d7ac9d579ce07250ce28e83298ac96e4925ad))
+* support batch inputs and usage metadata for Gemini embedding models on Gemini Enterprise API ([ede8567](https://github.com/googleapis/kotlin-genai/commit/ede8567cbdaddccd3ec1f3e770066ce7d24115a2))
+
+
+### Bug Fixes
+
+* Expose Client.isDefaultApiVersion to detect unconfigured API version ([62a1402](https://github.com/googleapis/kotlin-genai/commit/62a1402432478f83d0e0d56656eb21f9d6c37ec0))
+
+
+### Documentation
+
+* note that the Live API and caches are not available on v1 ([c84e343](https://github.com/googleapis/kotlin-genai/commit/c84e343f4267da9a0fedc9ee7b027d952decd7ff))
+
 ## [2.2.0](https://github.com/googleapis/kotlin-genai/compare/v2.1.0...v2.2.0) (2026-11-16)
 
 
