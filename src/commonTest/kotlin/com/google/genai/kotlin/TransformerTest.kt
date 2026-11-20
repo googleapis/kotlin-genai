@@ -268,9 +268,41 @@ class TransformerTest {
   @Test
   fun testTIsVertexEmbedContentModel() {
     assertEquals(true, Transformers.tIsVertexEmbedContentModel("gemini-embedding-2-preview"))
-    assertEquals(false, Transformers.tIsVertexEmbedContentModel("gemini-embedding-001"))
+    assertEquals(true, Transformers.tIsVertexEmbedContentModel("gemini-embedding-001"))
     assertEquals(true, Transformers.tIsVertexEmbedContentModel("gemini-3.5-flash"))
+    assertEquals(
+      true,
+      Transformers.tIsVertexEmbedContentModel(
+        "publishers/intfloat/models/multilingual-e5-large-instruct-maas"
+      ),
+    )
     assertEquals(false, Transformers.tIsVertexEmbedContentModel("textembedding-gecko@001"))
+    assertEquals(false, Transformers.tIsVertexEmbedContentModel("text-embedding-005"))
+    assertEquals(
+      false,
+      Transformers.tIsVertexEmbedContentModel(
+        "projects/my-gemini-app/locations/us-central1/publishers/google/models/text-embedding-005"
+      ),
+    )
+    assertEquals(
+      false,
+      Transformers.tIsVertexEmbedContentModel(
+        "projects/my-gemini-app/locations/us-central1/endpoints/12345"
+      ),
+    )
+    assertEquals(
+      true,
+      Transformers.tIsVertexMaasModel(
+        "publishers/intfloat/models/multilingual-e5-large-instruct-maas"
+      ),
+    )
+    assertEquals(false, Transformers.tIsVertexMaasModel("gemini-embedding-001"))
+    assertEquals(
+      false,
+      Transformers.tIsVertexMaasModel(
+        "projects/my-maas-app/locations/us-central1/publishers/google/models/gemini-embedding-001"
+      ),
+    )
   }
 
   @Test

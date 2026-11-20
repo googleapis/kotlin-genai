@@ -286,8 +286,12 @@ internal object Transformers {
 
   /** Checks if the model uses the vertex embedContent endpoint. */
   fun tIsVertexEmbedContentModel(model: String): Boolean {
-    return (model.contains("gemini") && model != "gemini-embedding-001") || model.contains("maas")
+    val modelId = model.substringAfterLast('/')
+    return modelId.contains("gemini") || modelId.contains("maas")
   }
+
+  /** Checks if the model is a third-party MaaS model on Gemini Enterprise API. */
+  fun tIsVertexMaasModel(model: String): Boolean = model.substringAfterLast('/').contains("maas")
 
   /** Transforms contents for embedding requests. */
   fun tContentsForEmbed(apiClient: ApiClient, origin: Any?): Any? {
