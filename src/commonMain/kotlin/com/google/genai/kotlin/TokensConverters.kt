@@ -501,6 +501,14 @@ internal object TokensConverters {
       )
     }
 
+    Common.getValueByPath(fromObject, arrayOf("historyConfig"))?.let { node ->
+      Common.setValueByPath(
+        parentObject,
+        arrayOf("setup", "historyConfig"),
+        Common.getValueByPath(fromObject, arrayOf("historyConfig")),
+      )
+    }
+
     return toObject
   }
 
