@@ -56,7 +56,10 @@ data class BatchJob(
   /** The name of the model that produces the predictions via the BatchJob. */
   val model: String? = null,
 
-  /** Configuration for the input data. This field is for Gemini Enterprise Agent Platform only. */
+  /**
+   * Configuration for the input data. In Gemini Developer API responses, only `file_name` is
+   * populated.
+   */
   val src: BatchJobSource? = null,
 
   /** Configuration for the output data. */
