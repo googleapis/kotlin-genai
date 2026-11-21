@@ -645,6 +645,14 @@ class Batches internal constructor(internal val apiClient: ApiClient) {
       )
     }
 
+    Common.getValueByPath(fromObject, arrayOf("finishMessage"))?.let { node ->
+      Common.setValueByPath(
+        toObject,
+        arrayOf("finishMessage"),
+        Common.getValueByPath(fromObject, arrayOf("finishMessage")),
+      )
+    }
+
     Common.getValueByPath(fromObject, arrayOf("tokenCount"))?.let { node ->
       Common.setValueByPath(
         toObject,
